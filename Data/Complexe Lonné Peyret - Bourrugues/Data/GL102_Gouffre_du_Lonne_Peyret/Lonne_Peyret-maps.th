@@ -1,0 +1,78 @@
+encoding  utf-8
+
+# Copyright (C) 2024 Alexandre Pont <alexandre.pont***@***yahoo.fr>
+# This work is under the Creative Commons Attribution-ShareAlike-NonCommecial License:
+#	<http://creativecommons.org/licenses/by-nc-sa/4.0/>
+
+map MP-GL102_Gouffre_du_Lonne_Peyret -title "GL102 - Gouffre du Lonné Peyret"
+	SP-GL102_Entree_01A
+	break
+	SP-GL102_Entree_01B
+	break
+	SP-GL102_Entree_02B
+	break
+	SP-GL102_Entree_02C
+	break
+	SP-GL102_Entree_02D
+	break
+	SP-GL102_Aval_01A
+	break
+	SP-GL102_Aval_01B
+	break
+	SP-GL102_Aval_01C
+	break
+	SP-GL102_Aval_01D
+	break
+	SP-GL102_Entree_02A
+	break
+	SP-GL102_Aval_01E
+	break
+	SP-GL102_Riviere_01A
+	break
+	SP-GL102_Riviere_01B
+	break
+	SP-GL102_Amont_01A
+	break
+	SP-GL102_Amont_01B
+	break
+	SP-GL102_Amont_01C
+endmap
+
+map MC-GL102_Gouffre_du_Lonne_Peyret_tot -title "GL102 - Gouffre du Lonné Peyret"
+	MC-GL102_Gouffre_du_Lonne_Peyret
+	break
+	MC-GL4_meandre  [0 -50 m] above
+endmap
+
+map MC-GL4_meandre -title "GL4 - Méandre"
+	SC-GL4_01A
+	break
+	SC-GL4_01B
+endmap
+
+map MC-GL102_Gouffre_du_Lonne_Peyret -title "GL102 - Rivière"
+	SC-GL102_Entree_01A
+	break
+	SC-GL102_Entree_01B
+	break
+	SC-GL102_Entree_02A
+	break
+	SC-GL102_Entree_02B
+	break
+	SC-GL102_Entree_02C
+	break
+	SC-GL102_Aval_01A
+	break
+	SC-GL102_Aval_01B
+	break
+	SC-GL102_Aval_01C
+	break
+	SC-GL102_Aval_01D
+	break
+	SC-GL102_Riviere_01A
+	break
+	SC-GL102_Riviere_01B
+	break
+	SC-GL102_Amont_01A
+endmap
+

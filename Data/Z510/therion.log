@@ -1,0 +1,209 @@
+therion 6.1.8 (2023-06-14)
+  - using Proj 9.2.1, compiled against 9.2.1
+initialization file: C:\Program Files (x86)\Therion/therion.ini
+reading ... done
+configuration file: Z510.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+output coordinate system: UTM30
+meridian convergence (deg): -1.4982
+geomag declinations (deg):
+  2020.1.1  0.3960
+  2021.1.1  0.5620
+  2022.1.1  0.7277
+  2023.1.1  0.8932
+  2024.1.1  1.0584
+  2025.1.1  1.2233
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+processing survey data ... 
+####################### cavern log file ########################
+ 1> Survex 1.4.3
+ 2> Copyright ¸ 1990-2021 Olly Betts
+ 3> 
+ 4> La topographie contient 574 stations, connect‚es par 573 vis‚es.
+ 5> Il y a 0 bouclages.
+ 6> Longueur totale de la topographie =  742.22m ( 742.22m ajust‚)
+ 7> Longueur totale en projection horizontale =  375.84m
+ 8> Longueur totale verticale =  554.69m
+ 9> Intervalle vertical = 238.38m (de 34 … 1644.00m jusqu'… 223 … 1405.62m)
+10> Intervalle Nord-Sud = 70.44m (de 34 … 4758093.00m jusqu'… 293 … 4758022.56m)
+11> Intervalle Est-Ouest = 60.90m (de 40 … 679299.28m jusqu'… 293 … 679238.38m)
+12>  425 1-noeuds.
+13>   79 2-noeuds.
+14>    9 3-noeuds.
+15>    1 4-noeud.
+16>    5 5-noeuds.
+17>   29 6-noeuds.
+18>    1 7-noeud.
+19>    1 9-noeud.
+20>    3 10-noeuds.
+21>    4 11-noeuds.
+22>    3 12-noeuds.
+23>    5 13-noeuds.
+24>    3 14-noeuds.
+25>    2 15-noeuds.
+26>    1 16-noeud.
+27>    1 17-noeud.
+28>    1 18-noeud.
+29>    1 19-noeud.
+30> 
+######################### transcription ########################
+ 4> 574 : .@Z510.Z510 -- 573 : 2024.23@Z510.Z510
+ 9> 34 : Z_510@Z510.Z510 -- 223 : .@Z510.Z510
+10> 34 : Z_510@Z510.Z510 -- 293 : .@Z510.Z510
+11> 40 : 8.2@Z510.Z510 -- 293 : .@Z510.Z510
+12> 425 : .@Z510.Z510
+13> 79 : 10.3@Z510.Z510
+14> 9 : 4.2@Z510.Z510
+15> 1 : 0@Z510.Z510
+16> 5 : 3.0@Z510.Z510
+17> 29 : 1.9@Z510.Z510
+18> 1 : 0@Z510.Z510
+19> 1 : 0@Z510.Z510
+20> 3 : 2.0@Z510.Z510
+21> 4 : 2.1@Z510.Z510
+22> 3 : 2.0@Z510.Z510
+23> 5 : 3.0@Z510.Z510
+24> 3 : 2.0@Z510.Z510
+25> 2 : 0d@Z510.Z510
+26> 1 : 0@Z510.Z510
+27> 1 : 0@Z510.Z510
+28> 1 : 0@Z510.Z510
+29> 1 : 0@Z510.Z510
+#################### end of cavern log file ####################
+done
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+processing projection extended ... done
+average distortion: 0.02%
+
+
+############### export maps & scraps selection #################
+M     0.00 MC-Z510-coupe-tot@Z510 (Z510)
+S     0.00 SC-Z510_01@Z510 ()
+S     0.00 SC-Z510_02@Z510 ()
+S     0.00 SC-Z510_03@Z510 ()
+S     0.00 SC-Z510_04@Z510 ()
+S     0.00 SC-Z510_05@Z510 ()
+S     0.00 SC-Z510_06@Z510 ()
+########## end of export maps & scraps selection ###############
+writing Outputs/Z510-Coupe.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  20 SEP 2024 18:20
+**data.mp
+(c:/Program Files (x86)/Therion/texmf/mpost/mpost.mp
+(c:/Program Files (x86)/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] [2] [3] [4] [5]
+[Warning: scrap outline intersects itself in scrap SC-Z510_05@Z510] [6] [7]
+[8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+[Warning: scrap outline intersects itself in scrap SC-Z510_02@Z510] [18] [19]
+[20] [21] [22] [23] [24] (./mptextmp.mp) [25] (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [26] [27] [28]
+[29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43]
+[44] [45] )
+ 
+Here is how much of MetaPost's memory you used:
+ 19122 strings using 499842 characters
+ 2917024 bytes of node memory
+ 1755 symbolic tokens
+ 9i,82n,16p,419b,5f stack positions out of 16i,98n,20p,487b,6f
+60 output files written: data-patt.1 .. data.45
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdftex 2021.6.19)  20 SEP 2024 18:20
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files (x86)/Therion/texmf/tex/glyphtounicode.tex))
+(./th_fontdef.tex{c:/Program Files (x86)/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex
+Overfull \hbox (14.12398pt too wide) in paragraph at lines 12--12
+[]\thfb Gouffre Z510 coupe d\thfc é\thfb velopp\thfc é\thfb e - 1:250 |
+
+\hbox(18.05556+5.05556)x398.33818, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\thfb G
+.\thfb o
+.\thfb u
+.\thfb  (ligature ff)
+.etc.
+
+
+Overfull \hbox (5.96262pt too wide) in paragraph at lines 12--12
+[]\thfb (c) li-cence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/
+4.0/ 2024 |
+
+\hbox(9.0+3.0)x398.33818, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\thfb (
+.\thfb c
+.\thfb )
+.\glue 4.0 plus 2.0 minus 1.33333
+.etc.
+
+(./th_legend.tex)) (./th_pages.tex)
+ 104 numeric registers used out of 32768
+ [1] ) 
+Here is how much of TeX's memory you used:
+ 357 strings out of 94604
+ 4656 string characters out of 1142524
+ 64144 words of memory out of 5046872
+ 2009 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 1416 hyphenation exceptions out of 5000
+ 12i,5n,8p,712b,73s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files (x86)/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program 
+Files (x86)/Therion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files (x86)/Theri
+on/texmf/fonts/type1/csss10.pfb><c:/Program Files (x86)/Therion/texmf/fonts/typ
+e1/csssi10.pfb>
+Output written on data.pdf (1 page, 169543 bytes).
+PDF statistics:
+ 164 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 415 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+writing Outputs/Z510.lox ...
+processing projection plan ... done
+ done
+writing Outputs/Z510.kml ... done
+writing Outputs/Z510-Cave-list.html ... done
+writing Outputs/Z510-Surveys.html ... done
+compilation time: 2 sec
+
+
+###################### scrap distortions #######################
+ PROJECTION: extended
+ AVERAGE  MAXIMAL  SCRAP
+   0.04%    4.15%  SC-Z510_02@Z510
+   0.03%    2.49%  SC-Z510_01@Z510
+   0.00%    0.02%  SC-Z510_04@Z510
+   0.00%    0.02%  SC-Z510_06@Z510
+   0.00%    0.01%  SC-Z510_05@Z510
+   0.00%    0.01%  SC-Z510_03@Z510
+################### end of scrap distortions ###################
+
+############# CRS transformations chosen by PROJ ###############
+  Area of Use (AoU): (-0.802, 42.954) (-0.802, 42.954)
+  [UTM30 â†’ LONG-LAT] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 â†’ LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 â†’ UTM30] AoU: [yes] transformation: [Inverse of UTM zone 30N + UTM zone 30N] definition: [proj=noop ellps=GRS80] accuracy: [0.000 m]
+  [UTM30 â†’ EPSG:4326] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [EPSG:4326 â†’ UTM30] AoU: [yes] transformation: [axis order change (2D) + UTM zone 30N] definition: [proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=30 ellps=WGS84] accuracy: [0.000 m]
+########## end of CRS transformations chosen by PROJ ###########

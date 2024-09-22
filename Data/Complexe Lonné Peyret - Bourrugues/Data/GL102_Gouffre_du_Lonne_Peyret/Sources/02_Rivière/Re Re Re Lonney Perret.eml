@@ -1,0 +1,738 @@
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+Received: from any-jpop.mail.gm0.yahoodns.net [87.248.97.21]
+	by DiskStation with POP3 (fetchmail-6.4.13)
+	for <Alex38Lyon@localhost> (single-drop); Mon, 12 Aug 2024 11:03:50 +0200 (CEST)
+Received: from 127.0.0.1
+ by atlas-production.v2-mail-prod1-ir2.omega.yahoo.com pod-id atlas--production-ir2-78bd7d878c-z8cc2.ir2.yahoo.com with HTTP; Mon, 12 Aug 2024 09:02:32 +0000
+Return-Path: <marinakafka@gmail.com>
+X-Originating-Ip: [209.85.167.51]
+Received-SPF: pass (domain of gmail.com designates 209.85.167.51 as permitted sender)
+Authentication-Results: atlas-production.v2-mail-prod1-ir2.omega.yahoo.com;
+ dkim=pass header.i=@gmail.com header.s=20230601;
+ spf=pass smtp.mailfrom=gmail.com;
+ dmarc=pass(p=NONE,sp=QUARANTINE) header.from=gmail.com;
+X-Apparently-To: alexandre.pont@yahoo.fr; Mon, 12 Aug 2024 09:02:32 +0000
+X-YMailISG: 8P2ukF0WLDsDBr0DFf5EOYT3csJmWDhmqdb92Irzgn89w1n5
+ Mlh2Otkw3nWgCHnYgaQ40Cd4mvdP47M.QfuCvtcXNr303li53xpqgSYwLaXK
+ QGCiokTv4Sj17XvYLk3BOKTGI2Okizk2eM35SZETKnBvHZaiZwKAErkNz1rJ
+ TeJ.C3odq.l.I2zUP2nlAipB9YJVb8.LjQcJJi_gOJD7us.Y5mOkmLvayFLa
+ _ic2J3D5GppH9H4K2a7nbGEBzUXxRyx38rRfbraAuhgQNTWKugheX8wdCoLA
+ _C4Ft7MSrnT8U2uWmxomqHWCSQIPJ7zAZ2jatBSKHFMdPnnJ4vGXtksjPtJN
+ 1PMubs1OsCEjMJocKiuj5MUEjIJv8gQ4MNzsv.RG0DtsifBXhXVpAEm9YFzq
+ 4vZjpiLalUHHKngnCumGJMZ7J234oqgwz7mbLBGzBlVbdl.s6PbXfxbhBkeA
+ 4xeDUBRHHaEWjTWrdB_hvk4qKBa7sXz9o1drwSEkNmvh6FGyRmDCTQjfVqzF
+ 2Hk.jLHUpJzbPAzQacXfxDdm1l94Ppb1oLygriNsyah8EWSv2Rxm7vYxSpDr
+ 4gcsmWgd93lXLsWgZpsxLCXObttjwAdu6r6tsW3IlRIadS4HjVdexvGgQ55Y
+ HjH7vRERje293xQp57BVryv3YalDdE8rHO9_MhgGC3V54iqVEtkJIPNWnYqz
+ G1o7d4gULPcnpQdYkFPV5wMeKMwrtB.DF_THfuFdpGkVlGu5EhCscT46Fazg
+ HYebWlIsHQFdv5k83zUj7tcPGNQ30U.1CULcQ9HcoyQJTZFsrXDRIa0BJ2wZ
+ m9AbqPA4YRmyFrUsCol6iFgOddxWvTncSj8WOb.LtPkI4hLXO9hlhY_KoEsG
+ MqdLb.xBwd_Wv2nx.e6TBEZjZAoUOudlNGz1h2xNypFEaJDRpJOb9Gx0n30M
+ ND02kDXfX7MztGJdjWK3IUg3j2dlKTvUE3kKNG7jm3RmzBovHXppCEPd4ieV
+ cfqhCwngfLckLz5KGnyT8u77bsp9A6BDFV_NelizN2KC3avOCQE13h4g6.w4
+ AThSYX_0qNT._y6AeNwDVDl.0zvCGidEQc67b0ZU7orcLai93BZsbYjeI5gF
+ 4_ZcfteE9JRktANi2VYeWYw_kUr9Il21yoJlSnEG13Z1VlWb5lKeMXXNlLQb
+ 78F2azNoBXCPKM9n8XHUWIVkFS_HomjR7VFnF4.kZ58uN3kJUc45jqF2IB0a
+ NLZS.braOFcu58WCljmQlFxfQOtfnw--
+Received: from 209.85.167.51 (EHLO mail-lf1-f51.google.com)
+ by 10.200.78.49 with SMTPs
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256);
+ Mon, 12 Aug 2024 09:02:32 +0000
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-530d0882370so3962750e87.3;
+        Mon, 12 Aug 2024 02:02:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1723453351; x=1724058151; darn=yahoo.fr;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=+U2gTmwQrfTgXznzSlYntyB34HApklXsXlUkQYgSA/Q=;
+        b=BzKqDwU4kBVVGLKID5T5ZvhG/5yAVr6eTjjbgTJz/CYckBJixVW89mgnv4CGSRpyD5
+         CIJp6CWli+UjmkuRVOaluYXncqv/yoKq2HxsQXFO9mKsn9JeVL8udUrjDeJ66tsr5B4Q
+         tFVAG6JaXQiRU7SL78nLNikjq0FYI2HM9kJOrB61K3wb2dMRr35si5X4pxr+NA3NSnlG
+         QJfbv15UFCxUiN8f4RFwUlLd/Qu0a4Vh4kEuMBy4Y01IHz4RrarmrYX9tYUJG4KRcFeq
+         rr4rnPCafIeexz4GE5sg9lJ0E/CLCZjq+ItgACmgLRtMk4hWG/OeeDbl2+v26We/1qqK
+         CGqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1723453351; x=1724058151;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+U2gTmwQrfTgXznzSlYntyB34HApklXsXlUkQYgSA/Q=;
+        b=eclWJVJqhi+D3Owoq7OVisV8JXy0AJoszc72UfUMSRjYrVfCcASNfTV26SL1SQ+Zvd
+         N90JK0WpWM9YzYVRDk4x776JNv41dfvZ73bVyTOXwfkJ5ACsJy24QPminjxOF2ErdeLn
+         xSb3pJ+lIo3OH2lLFDPZKcElRoizO9RPIFYK77pBZ1otyXRd1J+gpPEMEUAtTAsl1Q3N
+         ofKefF+8lO7XioAx7vidrUVlU36OBrxBWpLrjXrawChwIp635uGjldSJGzbURoBE8HIC
+         izwKE44RrkBzUqmKPSuWSJcr9dP6BE6WThcOdUWa/YRksll95Id6J5CZ6HCH4cvBpVX6
+         qZgA==
+X-Gm-Message-State: AOJu0YwmsLQnvC2pUqbDUqagQwxuDnsVOjzGFhzDKx6PPw2UmC0tRvAJ
+	NDwU7rRyOYDurELjCCPAE26ET361ul0vYn5UlkYgScShTodo7e3arZ89eDq3VbrUd2tO0jZ+bCk
+	r7jWw8RSB6fc97DtJeqGP2pMe1/v4UQ==
+X-Google-Smtp-Source: AGHT+IF/fy5rzS2HKohH6HdbhOzGaJiIjbz7FfL9MvNSUKshZEYF6saJULWgxUEs46f9UGdmSVFZrCj5gzCAzB6WjdI=
+X-Received: by 2002:a05:6512:1150:b0:52c:d76f:7f61 with SMTP id
+ 2adb3069b0e04-530eea13dd3mr5705624e87.56.1723453350200; Mon, 12 Aug 2024
+ 02:02:30 -0700 (PDT)
+MIME-Version: 1.0
+References: <784739094.4004643.1691835080310.ref@mail.yahoo.com>
+ <784739094.4004643.1691835080310@mail.yahoo.com> <CAB1pisPBOtOcWwvO5ZyRwzj0W0kyAh1QtKwoxHCaeUvnpc63fw@mail.gmail.com>
+ <1387536327.2875910.1715668772769@mail.yahoo.com> <b7b5db97-578e-4a0f-bb0f-792fefc29535@yahoo.fr>
+ <CAB1pisOFc7_ZFDvxoRtcGu6EZS0yb0hm7qedwxgtkck4ySRevA@mail.gmail.com>
+In-Reply-To: <CAB1pisOFc7_ZFDvxoRtcGu6EZS0yb0hm7qedwxgtkck4ySRevA@mail.gmail.com>
+From: Marina Kafka <marinakafka@gmail.com>
+Date: Mon, 12 Aug 2024 11:00:45 +0200
+Message-ID: <CAB1pisP10uZS+pi3BNKi45uONYibOcNDUVrHVPSGEN-UJFbd-g@mail.gmail.com>
+Subject: Re: Re :Re: Lonney Perret
+To: alexandre.pont@yahoo.fr
+Cc: olivier et odile venaut <oliodi2@yahoo.fr>
+Content-Type: multipart/mixed; boundary="000000000000b9f6b3061f78c060"
+Content-Length: 37421
+X-Antivirus: Avast (VPS 240801-6, 1/8/2024), Inbound message
+X-Antivirus-Status: Clean
+
+--000000000000b9f6b3061f78c060
+Content-Type: multipart/alternative; boundary="000000000000b9f6b2061f78c05e"
+
+--000000000000b9f6b2061f78c05e
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Bon du coup rivi=C3=A8re c est rat=C3=A9 pour le nom du fichier..
+
+Le mer. 15 mai 2024, 14:47, Marina Kafka <marinakafka@gmail.com> a =C3=A9cr=
+it :
+
+> Hello,
+> merci pour vos r=C3=A9ponses,
+> je suis en cong=C3=A9s du 5 au 25 aout, et mes amis sp=C3=A9l=C3=A9os seu=
+lement du 12 au
+> 25.
+> On pensait se faire au moins une semaine =C3=A0 Isaba. Du coup peut-=C3=
+=AAtre qu'on
+> pourrait se coordonner encore d=C3=A9s=C3=A9quipement la semaine du 12-18=
+ ?
+> dommage pour la topo. Peut =C3=AAtre que si jamais je vous retrouvais la
+> semaine =C3=A0 partir du 5 je pourrais =C3=A9quiper et topographier au mo=
+ins les
+> puits d'entr=C3=A9e ? et continuer une prochaine fois.?
+> j ai un distoX et tel avec topodroid... apr=C3=A8s je note tout sur carne=
+t , et
+> en g=C3=A9n=C3=A9ral de ma ptite exp=C3=A9rience j'utilise caverender pro=
+ pour le rendu,
+> mais ca peut etre autre chose n'importe.
+> je nous ai pas encore inscrit sur le planning de l'arsip parce que ce
+> n'est pas clair encore ce qu'on voulait faire quand et combien on =C3=A9t=
+ait.
+> maintenant je sais qu'on est 6 sur les dates que j'ai dit. J vais m'en
+> occuper.
+>
+> A bientot
+> bise
+> Marina
+>
+> Le mar. 14 mai 2024 =C3=A0 18:40, Alex [Diskstation] <alexandre.pont@yaho=
+o.fr>
+> a =C3=A9crit :
+>
+>> Salut =C3=A0 toi Marina...
+>>
+>> Et oui, c'=C3=A9tait bien sympa le Lonn=C3=A9 en 2023... Je nous ai de n=
+ouveau
+>> inscrit au planning 2024 car j'ai bon espoir de voir la salle Styx !
+>>
+>> Notre camp c'est du 3/8 au 17/8 et si vous =C3=AAtes  dans le coin vous =
+serez
+>> les  bienvenus avec vous au Lonn=C3=A9 ou ailleurs...
+>>
+>> Concernant la reprise de la topo, c'est toujours une id=C3=A9e que j'ai =
+en
+>> t=C3=AAte, mais elle n'a pas encore pris le chemin vers la r=C3=A9alit=
+=C3=A9...
+>>
+>> Bises
+>> Alex
+>>
+>> Le 14/05/2024 =C3=A0 08:39, olivier et odile venaut a =C3=A9crit :
+>>
+>> Bonjour Marina,
+>>
+>>
+>> Effectivement, je me souviens bien de cette belle vir=C3=A9e.
+>> Cet =C3=A9t=C3=A9, nous serons bien =C3=A0 la PSM en d=C3=A9but de mois:=
+ nos dates de camp
+>> sont pr=C3=A9vues du 5 au 18 ao=C3=BBt (Tritons et Cesame au camping d'I=
+saba).
+>> Personnellement avec Odile, nous y serons du 5 au 13 ( avec possibilit=
+=C3=A9
+>> de prolonger selon projets).
+>> Concernant le projet topo, je n'ai pas d'informations pour l'instant,
+>> mais je vais faire passer ta question =C3=A0 Alex Pont (en copie, nouvea=
+u
+>> Pr=C3=A9sident des Tritons) et sp=C3=A9cialiste topo, avec prochaine r=
+=C3=A9union =C3=A0 venir.
+>> A bient=C3=B4t.
+>>
+>> Olivier
+>>
+>> Ps:  Alex en copie
+>> Yahoo Mail : Recherchez, organisez, ma=C3=AEtrisez
+>> <https://mail.onelinkme/107872968?pid=3DNativePlacement&c=3DGlobal_Acqui=
+sition_YMktg_315_EmailSignatureGrowth_YahooMail:Search,Organize,Conquer&af_=
+sub1=3DAcquisition&af_sub2=3DGlobal_YMktg&af_sub3=3D&af_sub4=3D100000945&af=
+_sub5=3DOrganizeConquer__Static_>
+>>
+>> Le lun., mai 13, 2024 =C3=A0 11:05, Marina Kafka
+>> <marinakafka@gmail.com> <marinakafka@gmail.com> a =C3=A9crit:
+>> Hello,
+>> c'est Marina de l'eegc, on avait =C3=A9t=C3=A9 un bout dans le Lonn=C3=
+=A9 Peyret l'an
+>> dernier,
+>> c'=C3=A9tait pour savoir si vous allez =C3=AAtre l=C3=A0 en ao=C3=BBt ? =
+et si vous avez
+>> toujours envie de faire de la topo dans ce trou ?
+>> bise
+>> bonne journ=C3=A9e
+>> Marina
+>>
+>>
+>> Le sam. 12 ao=C3=BBt 2023 =C3=A0 12:13, olivier et odile venaut <oliodi2=
+@yahoo.fr>
+>> a =C3=A9crit :
+>>
+>> Bonjour
+>> Des Tritons/ Cezam,  du gouffre des Partages
+>>
+>> Olivier
+>>
+>>
+>> Envoy=C3=A9 depuis Yahoo Mail pour Android
+>> <https://mail.onelink.me/107872968?pid=3Dnativeplacement&c=3DGlobal_Acqu=
+isition_YMktg_315_Internal_EmailSignature&af_sub1=3DAcquisition&af_sub2=3DG=
+lobal_YMktg&af_sub3=3D&af_sub4=3D100000604&af_sub5=3DEmailSignature__Static=
+_>
+>>
+>>
+>>
+
+--000000000000b9f6b2061f78c05e
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Bon du coup rivi=C3=A8re c est rat=C3=A9 pour le nom du f=
+ichier..=C2=A0</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">Le mer. 15 mai 2024, 14:47, Marina Kafka &lt;<a href=3D"mai=
+lto:marinakafka@gmail.com">marinakafka@gmail.com</a>&gt; a =C3=A9crit=C2=A0=
+:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;bor=
+der-left:1px #ccc solid;padding-left:1ex"><div dir=3D"ltr">
+<div>Hello,</div><div>merci pour vos r=C3=A9ponses, <br></div><div>je suis =
+en cong=C3=A9s du 5 au 25 aout, et mes amis sp=C3=A9l=C3=A9os seulement du =
+12 au 25. <br></div><div>On pensait se faire au moins une semaine =C3=A0 Is=
+aba. Du coup peut-=C3=AAtre qu&#39;on pourrait se coordonner encore d=C3=A9=
+s=C3=A9quipement la semaine du 12-18 ?</div><div>dommage pour la topo. Peut=
+ =C3=AAtre que si jamais je vous retrouvais la semaine =C3=A0 partir du 5 j=
+e pourrais =C3=A9quiper et topographier au moins les puits d&#39;entr=C3=A9=
+e ? et continuer une prochaine fois.?<br></div><div>j ai un distoX et tel a=
+vec topodroid... apr=C3=A8s je note tout sur carnet , et en g=C3=A9n=C3=A9r=
+al de ma ptite exp=C3=A9rience j&#39;utilise caverender pro pour le rendu, =
+mais ca peut etre autre chose n&#39;importe.</div><div>je nous ai pas encor=
+e inscrit sur le planning de l&#39;arsip parce que ce n&#39;est pas clair e=
+ncore ce qu&#39;on voulait faire quand et combien on =C3=A9tait. <br></div>=
+<div>maintenant je sais qu&#39;on est 6 sur les dates que j&#39;ai dit. J v=
+ais m&#39;en occuper.</div><div><br></div><div>A bientot</div><div>bise<br>=
+</div><div>Marina<br></div>
+
+</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">=
+Le=C2=A0mar. 14 mai 2024 =C3=A0=C2=A018:40, Alex [Diskstation] &lt;<a href=
+=3D"mailto:alexandre.pont@yahoo.fr" target=3D"_blank" rel=3D"noreferrer">al=
+exandre.pont@yahoo.fr</a>&gt; a =C3=A9crit=C2=A0:<br></div><blockquote clas=
+s=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid r=
+gb(204,204,204);padding-left:1ex"><u></u>
+
+ =20
+   =20
+ =20
+  <div>
+    Salut =C3=A0 toi Marina...<br>
+    <br>
+    Et oui, c&#39;=C3=A9tait bien sympa le Lonn=C3=A9 en 2023... Je nous ai=
+ de nouveau
+    inscrit au planning 2024 car j&#39;ai bon espoir de voir la salle Styx =
+!<br>
+    <br>
+    Notre camp c&#39;est du 3/8 au 17/8 et si vous =C3=AAtes=C2=A0 dans le =
+coin vous
+    serez les=C2=A0 bienvenus avec vous au Lonn=C3=A9 ou ailleurs...<br>
+    <br>
+    Concernant la reprise de la topo, c&#39;est toujours une id=C3=A9e que =
+j&#39;ai
+    en t=C3=AAte, mais elle n&#39;a pas encore pris le chemin vers la r=C3=
+=A9alit=C3=A9...
+    <br>
+    <br>
+    Bises<br>
+    Alex<br>
+    <br>
+    <div>Le 14/05/2024 =C3=A0 08:39, olivier et odile
+      venaut a =C3=A9crit=C2=A0:<br>
+    </div>
+    <blockquote type=3D"cite">
+     =20
+      <div id=3D"m_3959778381574253707m_-1681482979097128723yiv2981408534">
+        <div>Bonjour Marina,
+          <div><br clear=3D"none">
+          </div>
+          <div><br clear=3D"none">
+          </div>
+          <div>Effectivement, je me souviens bien de cette belle vir=C3=A9e=
+=C2=A0<br clear=3D"none">
+            <div>Cet =C3=A9t=C3=A9, nous serons bien =C3=A0 la PSM en d=C3=
+=A9but de mois:
+              nos dates de camp sont pr=C3=A9vues du 5 au 18 ao=C3=BBt (Tri=
+tons et
+              Cesame au camping d&#39;Isaba).<br clear=3D"none">
+            </div>
+            <div>Personnellement avec Odile, nous y serons du 5 au 13 (
+              avec possibilit=C3=A9 de prolonger selon projets).</div>
+            <div>Concernant le projet topo, je n&#39;ai pas d&#39;informati=
+ons
+              pour l&#39;instant, mais je vais faire passer ta question =C3=
+=A0
+              Alex Pont (en copie, nouveau Pr=C3=A9sident des Tritons) et
+              sp=C3=A9cialiste topo, avec prochaine r=C3=A9union =C3=A0 ven=
+ir.=C2=A0</div>
+            <div>A bient=C3=B4t.=C2=A0</div>
+            <div><br clear=3D"none">
+            </div>
+            <div>Olivier=C2=A0</div>
+            <div><br clear=3D"none">
+              Ps:=C2=A0 Alex en copie=C2=A0<br clear=3D"none">
+              <div id=3D"m_3959778381574253707m_-1681482979097128723yiv2981=
+408534ymail_android_signature"><a rel=3D"nofollow noopener noreferrer noref=
+errer" shape=3D"rect" id=3D"m_3959778381574253707m_-1681482979097128723yiv2=
+981408534ymail_android_signature_link" href=3D"https://mail.onelinkme/10787=
+2968?pid=3DNativePlacement&amp;c=3DGlobal_Acquisition_YMktg_315_EmailSignat=
+ureGrowth_YahooMail:Search,Organize,Conquer&amp;af_sub1=3DAcquisition&amp;a=
+f_sub2=3DGlobal_YMktg&amp;af_sub3=3D&amp;af_sub4=3D100000945&amp;af_sub5=3D=
+OrganizeConquer__Static_" target=3D"_blank">Yahoo=C2=A0Mail=C2=A0: Recherch=
+ez,
+                  organisez, ma=C3=AEtrisez</a></div>
+              <br clear=3D"none">
+              <blockquote style=3D"margin:0px 0px 20px">
+                <div style=3D"font-family:Roboto,sans-serif;color:rgb(109,0=
+,246)">
+                  <div>Le lun., mai 13, 2024 =C3=A0 11:05, Marina Kafka</di=
+v>
+                  <div><a href=3D"mailto:marinakafka@gmail.com" target=3D"_=
+blank" rel=3D"noreferrer">&lt;marinakafka@gmail.com&gt;</a> a =C3=A9crit:</=
+div>
+                </div>
+                <div id=3D"m_3959778381574253707m_-1681482979097128723yiv29=
+81408534yqt81570">
+                  <div style=3D"padding:10px 0px 0px 20px;margin:10px 0px 0=
+px;border-left:1px solid rgb(109,0,246)">
+                    <div id=3D"m_3959778381574253707m_-1681482979097128723y=
+iv2981408534">
+                      <div>
+                        <div dir=3D"ltr">
+                          <div>Hello,</div>
+                          <div>c&#39;est Marina de l&#39;eegc, on avait =C3=
+=A9t=C3=A9 un
+                            bout dans le Lonn=C3=A9 Peyret l&#39;an dernier=
+, <br clear=3D"none">
+                          </div>
+                          <div>c&#39;=C3=A9tait pour savoir si vous allez =
+=C3=AAtre l=C3=A0
+                            en ao=C3=BBt ? et si vous avez toujours envie d=
+e
+                            faire de la topo dans ce trou ?</div>
+                          <div>bise</div>
+                          <div>bonne journ=C3=A9e</div>
+                          <div>Marina<br clear=3D"none">
+                          </div>
+                          <div><br clear=3D"none">
+                          </div>
+                        </div>
+                        <br clear=3D"none">
+                        <div id=3D"m_3959778381574253707m_-1681482979097128=
+723yiv2981408534yqt25670">
+                          <div>
+                            <div dir=3D"ltr">Le=C2=A0sam. 12
+                              ao=C3=BBt 2023 =C3=A0=C2=A012:13, olivier et =
+odile venaut
+                              &lt;<a rel=3D"nofollow noopener noreferrer no=
+referrer" shape=3D"rect" href=3D"mailto:oliodi2@yahoo.fr" target=3D"_blank"=
+>oliodi2@yahoo.fr</a>&gt;
+                              a =C3=A9crit=C2=A0:<br clear=3D"none">
+                            </div>
+                            <blockquote style=3D"margin:0px 0px 0px 0.8ex;b=
+order-left:1px solid rgb(204,204,204);padding-left:1ex">Bonjour=C2=A0
+                              <div>Des Tritons/ Cezam,=C2=A0 du gouffre des
+                                Partages</div>
+                              <div><br clear=3D"none">
+                              </div>
+                              <div>Olivier<br clear=3D"none">
+                                <div><br clear=3D"none">
+                                  <br clear=3D"none">
+                                  <div id=3D"m_3959778381574253707m_-168148=
+2979097128723yiv2981408534m_841852739966835894ymail_android_signature"><a r=
+el=3D"nofollow noopener noreferrer noreferrer" shape=3D"rect" id=3D"m_39597=
+78381574253707m_-1681482979097128723yiv2981408534m_841852739966835894ymail_=
+android_signature_link" href=3D"https://mail.onelink.me/107872968?pid=3Dnat=
+iveplacement&amp;c=3DGlobal_Acquisition_YMktg_315_Internal_EmailSignature&a=
+mp;af_sub1=3DAcquisition&amp;af_sub2=3DGlobal_YMktg&amp;af_sub3=3D&amp;af_s=
+ub4=3D100000604&amp;af_sub5=3DEmailSignature__Static_" target=3D"_blank">En=
+voy=C3=A9
+                                      depuis Yahoo=C2=A0Mail pour Android</=
+a></div>
+                                </div>
+                              </div>
+                            </blockquote>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </blockquote>
+    <br>
+    <div id=3D"m_3959778381574253707m_-1681482979097128723grammalecte_menu_=
+main_button_shadow_host" style=3D"width:0px;height:0px"></div>
+  </div>
+
+</blockquote></div>
+</blockquote></div>
+
+--000000000000b9f6b2061f78c05e--
+--000000000000b9f6b3061f78c060
+Content-Type: application/octet-stream; name="=?UTF-8?B?bHBfcml2acOocmUudGg=?="
+Content-Disposition: attachment; filename="=?UTF-8?B?bHBfcml2acOocmUudGg=?="
+Content-Transfer-Encoding: base64
+Content-ID: <19145cfbf2cfd35bd6c1>
+X-Attachment-Id: 19145cfbf2cfd35bd6c1
+
+IyAyMDI0LjA4LjEyIGNyZWF0ZWQgYnkgVG9wb0Ryb2lkIHYgNS4xLjQwCgpzdXJ2ZXkgbHBfcml2
+acOocmUgLXRpdGxlICJscCByaXZpw6hyZSIKCgoKICBjZW50ZXJsaW5lCiAgICBkYXRlIDIwMjQu
+MDguMTEgCiAgICB1bml0cyBsZW5ndGggbWV0ZXJzCiAgICB1bml0cyBjb21wYXNzIGNsaW5vIGRl
+Z3JlZXMKICAgIGRhdGEgbm9ybWFsIGZyb20gdG8gbGVuZ3RoIGNvbXBhc3MgY2xpbm8KICAjIGIz
+MwogICAgIyBleHRlbmQgYXV0bwogICAgMCAuIDYuNTAgMjMwLjQgNC44CiAgICAwIC4gOC41MCAy
+NDYuOCA4Ny44CiAgICAwIC4gNC44OSAzOC42IDcuOQogICAgMCAuIDIuNDQgMjg1LjQgLTY2LjIK
+ICAgIDAgLiAxMy4zNSAyNTkuNSAtNS43CiAgICAwIC4gMjUuMjcgMjgzLjQgMi4yCiAgICAwIC4g
+MTEuMjYgMzQxLjYgMS42CiAgICBleHRlbmQgcmlnaHQKICAgIDAgMSAyNi4xNCAyOTcuMyAtMjAu
+NQogICAgIyBleHRlbmQgYXV0bwogICAgMSAuIDE4LjAwIDE4MS40IDQzLjAKICAgIDEgLiAyMy43
+MyAxNzcuNiA2Mi40CiAgICAxIC4gOS41NCA5OS4xIDc4LjkKICAgIDEgLiAwLjk1IDE4LjMgMjAu
+OQogICAgMSAuIDEuNTIgMTg3LjIgLTc5LjQKICAgIDEgLiA4LjQyIDI5Mi44IDg1LjIKICAgIDEg
+LiA2MS4wMCAxMTMuMyA0NC45CiAgICAxIC4gMTEuODUgOTAuNiAyMi45CiAgICAxIC4gMTEuOTMg
+OTIuMyAzLjUKICAgIGV4dGVuZCBsZWZ0CiAgICAxIDIgMTkuODIgMjI4LjggLTQuMQogICAgIyBl
+eHRlbmQgYXV0bwogICAgMiAuIDEuODMgMTk2LjUgLTguNgogICAgMiAuIDUuMjAgMi45IDguMQog
+ICAgMiAuIDcuMDIgMTkuNSA4NS40CiAgICAyIC4gMy4zOSAzMTYuMiAtNzMuNQogICAgZXh0ZW5k
+IGxlZnQKICAgIDIgMyAxNC4wNiAyMzUuNyAtMTguMQogICAgIyBleHRlbmQgYXV0bwogICAgMyAu
+IDEuOTYgMTY4LjYgLTAuNwogICAgMyAuIDEuNzQgMzQ1LjcgMi44CiAgICAzIC4gMi44NSAyMjEu
+MSA4Ny40CiAgICAzIC4gMS42MSAxMzcuOCAtODUuNAogICAgMyAuIDEwLjUxIDI0My40IDYuNgog
+ICAgMyAuIDMuMzEgMjYzLjAgNi4xCiAgICAzIC4gMTAuOTUgMjA3LjcgNy43CiAgICAzIC4gMi41
+OCAxODguMyAxMS41CiAgICBleHRlbmQgaWdub3JlCiAgICAzIDQgMTguMDcgMjI4LjMgLTEuOQog
+ICAgIyBleHRlbmQgYXV0bwogICAgNCAuIDcuMzAgMTIzLjIgOC45CiAgICA0IC4gMS40MiA5Ny42
+IDcyLjIKICAgIDQgLiAxLjQzIDEwMC42IC02My42CiAgICBleHRlbmQgcmlnaHQKICAgIDQgNSAy
+NS41MiA2My4xIDYuMAogICAgIyBleHRlbmQgYXV0bwogICAgNSAuIDYuMDAgNjAuNiAyNS42CiAg
+ICA1IC4gMjMuNzYgOTIuNiA1Ny4wCiAgICA1IC4gMy4zNiAxOTAuNiAxMy4xCiAgICA1IC4gMy43
+MyA0LjQgLTYuNgogICAgZXh0ZW5kIGxlZnQKICAjIGI2NiBzdXIgNgogICAgNSA2IDYuNzEgMTE2
+LjQgMzcuOQogICAgIyBleHRlbmQgYXV0bwogICAgNiAuIDEzLjkyIDMzOS4wIC0wLjUKICAgIDYg
+LiA0LjA5IDI2OS4zIDgwLjYKICAgIDYgLiAxNi41MCAxMzAuOCA3NC4zCiAgICA2IC4gOC44MyAx
+MzkuNCAyNC4yCiAgICBleHRlbmQgbGVmdAogICAgNiA3IDE3LjY3IDIyNS44IC0wLjkKICAgICMg
+ZXh0ZW5kIGF1dG8KICAgIDcgLiAyLjQ3IDM0Mi41IDQuMgogICAgNyAuIDQuNzcgNTcuMSA3Ny4y
+CiAgICA3IC4gMC4xNCAxNzIuNCAtMS4wCiAgICA3IC4gMS40OSAyOTkuNiAtNjYuNAogICAgNyAu
+IDE2LjQ0IDUwLjcgNDUuNQogICAgNyAuIDE2LjU2IDQ4LjMgNDQuNQogICAgNyAuIDIwLjU1IDMw
+LjEgMTIuOAogICAgNyAuIDM2Ljk2IDEwLjEgNi43CiAgICBleHRlbmQgbGVmdAogICAgNyA4IDUu
+MzEgMjI0LjQgLTI4LjgKICAgICMgZXh0ZW5kIGF1dG8KICAgIDggLiAxLjg0IDE0NC45IDE4LjMK
+ICAgIDggLiAwLjg5IDI0Ni43IDgxLjEKICAgIDggLiAwLjE2IDI5OC40IC0xNC44CiAgICA4IC4g
+MC4yOCAyMTUuMyAtNzUuNgogICAgZXh0ZW5kIGxlZnQKICAgIDggOSA2Ljk2IDIwOC45IDEwLjgK
+ICAgICMgZXh0ZW5kIGF1dG8KICAgIDkgLiA0LjQzIDEyOC41IC0zLjYKICAgIDkgLiAxLjA0IDMy
+NS4yIDcuNgogICAgOSAuIDMuMzggMjAzLjEgLTU5LjYKICAgIDkgLiAzLjMyIDEwMS4zIC0yNS44
+CiAgICA5IC4gMy40MCAyMDcuNCAtNTkuNwogICAgZXh0ZW5kIGxlZnQKICAgIDkgMTAgNC41NyAy
+MzUuMiAtMjQuNwogICAgIyBleHRlbmQgYXV0bwogICAgMTAgLiAzLjgwIDEyMC43IDcuNgogICAg
+MTAgLiAxLjg1IDMyOS41IDIzLjkKICAgIDEwIC4gMC42MiA4MS44IDg3LjAKICAgIDEwIC4gMS41
+NyAxMjAuMSAtNjguNgogICAgZXh0ZW5kIGxlZnQKICAgIDEwIDExIDQuNzYgMTg2LjggMjAuNgog
+ICAgIyBleHRlbmQgYXV0bwogICAgMTEgLiA1LjM0IDMzNC42IC0xNS43CiAgICAxMSAuIDIuNzAg
+MTU2LjUgNDAuNwogICAgMTEgLiAyLjMzIDMzMC4yIC01NC40CiAgICBleHRlbmQgdmVydGljYWwK
+ICAgIDExIDEyIDQuNjAgOTcuMyAxOC4zCiAgICAjIGV4dGVuZCBhdXRvCiAgICAxMiAuIDEuNDQg
+MzQzLjEgNS45CiAgICAxMiAuIDE2LjE4IDMxMy4yIDgwLjAKICAgIDEyIC4gMC4yMyAxNDMuNCA0
+NS4xCiAgICAxMiAuIDEuMzUgNC44IC03Ny44CiAgICBleHRlbmQgcmlnaHQKICAgIDEyIDEzIDQu
+MzkgNDEuMSA0My42CiAgICAjIGV4dGVuZCBhdXRvCiAgICAxMyAuIDEuNDggMjc3LjggMTQuNwog
+ICAgMTMgLiAyLjE2IDIyOC42IDcxLjIKICAgIDEzIC4gMC43MyAxMjAuMSAxMS45CiAgICAxMyAu
+IDAuODMgMzQ4LjcgLTYxLjAKICAgIGV4dGVuZCByaWdodAogICAgMTMgMTQgNC4xNSAzNDMuOSA1
+MC4xCiAgICAjIGV4dGVuZCBhdXRvCiAgICAxNCAuIDExLjUxIDM3LjQgMTcuMgogICAgMTQgLiA1
+Ljc0IDIyMS4yIDAuNwogICAgMTQgLiA4LjQ4IDQ3LjYgODIuMQogICAgMTQgLiAzLjYxIDEyNy4w
+IC01OC43CiAgICBleHRlbmQgaWdub3JlCiAgICAxNCAxNSAzLjc4IDExNy42IDMuNgogICAgIyBl
+eHRlbmQgYXV0bwogICAgMTUgLiAyLjM2IDExOS42IDIuNAogICAgMTUgLiAzLjgxIDExOS4xIDMu
+NgogICAgMTUgLiAwLjg3IDE0NS42IDMuMAogICAgMTUgLiA0LjYwIDMyMS4wIDguMgogICAgMTUg
+LiA0LjcxIDMwNi42IDc0LjIKICAgIDE1IC4gMjAuMjggMzM5LjkgNTUuNAogICAgMTUgLiAwLjUy
+IDIzMC42IC02Ni40CiAgICBleHRlbmQgbGVmdAogICAgMTUgMTYgMTYuMDQgMjQ2LjkgMTQuOAog
+ICAgIyBleHRlbmQgYXV0bwogICAgMTYgLiAxLjg3IDIwMy40IC0xMC4yCiAgICAxNiAuIDEuNzMg
+MzQ3LjMgLTEuOQogICAgMTYgLiA4Ljk3IDMyNS40IDcxLjAKICAgIDE2IC4gMi40MiAyNzUuOSAt
+NTguOAogICAgZXh0ZW5kIGxlZnQKICAgIDE2IDE3IDEwLjU0IDI0Ny4xIC02LjIKICAgICMgZXh0
+ZW5kIGF1dG8KICAgIDE3IC4gMS42MCAxNjUuNSAtMi41CiAgICAxNyAuIDguNjQgMTUuOSAxNy4x
+CiAgICAxNyAuIDcuOTIgMjYuNiA4Mi4wCiAgICAxNyAuIDEuMTEgMjM0LjAgLTgxLjUKICAgIGV4
+dGVuZCBsZWZ0CiAgICAxNyAxOCAxLjUzIDE3Mi43IDIuOQogICAgIyBleHRlbmQgYXV0bwogICAg
+MTggLiA5LjA0IDcuMSAxMC40CiAgICAxOCAuIDMuNjYgNDYuMSA4MS4yCiAgICAxOCAuIDEuNzgg
+MzEyLjAgLTU0LjMKICAgIDE4IC4gMTMuMTEgMzE4LjEgNTQuMgogICAgMTggLiAyMi45NSAyNjEu
+NyAtOS41CiAgICBleHRlbmQgdmVydGljYWwKICAgIDE4IDE5IDMwLjc5IDI3MC43IC0xMS4xCiAg
+ICAjIGV4dGVuZCBhdXRvCiAgICAxOSAuIDEuNTggMjExLjMgMS4zCiAgICAxOSAuIDEuNDMgMTUu
+MSAyMS43CiAgICAxOSAuIDIuNDYgOC40IDgzLjQKICAgIGV4dGVuZCBpZ25vcmUKICAgIDE5IDIw
+IDExLjUwIDI3Ni45IC0xLjAKICAgICMgZXh0ZW5kIGF1dG8KICAgIDIwIC4gMS43OCAyMjYuNSAz
+LjUKICAgIDIwIC4gMi41OCA0My4zIDkuMQogICAgMjAgLiA3Ljg3IDc2LjcgODcuMwogICAgMjAg
+LiAxLjIzIDY0LjAgLTcxLjQKICAgIGV4dGVuZCByaWdodAogICAgMjAgMjEgNC4zNiAzMzQuOCAt
+Ny45CiAgICAjIGV4dGVuZCBhdXRvCiAgICAyMSAuIDMuMzIgMjMyLjMgMS4wCiAgICAyMSAuIDIu
+MTUgMTQwLjggNTUuOQogICAgMjEgLiAzLjI5IDM0Mi4wIC03MS4yCiAgICAyMSAuIDAuMTYgMzgu
+MyA0Ny4xCiAgICAyMSAuIDAuMzkgMzAyLjMgMTQuOQogICAgZXh0ZW5kIHJpZ2h0CiAgICAyMSAy
+MiAyLjY1IDMwMC4zIC00Ni44CiAgICAjIGV4dGVuZCBhdXRvCiAgICAyMiAuIDAuODAgMjM1LjQg
+Ni44CiAgICAyMiAuIDAuNDkgMjYuMSA5LjAKICAgIGV4dGVuZCBsZWZ0CiAgICAyMiAyMyAxLjk1
+IDI1Ny43IC02Mi4zCiAgICAjIGV4dGVuZCBhdXRvCiAgICAyMyAuIDIuMDUgMTI0LjAgMi4yCiAg
+ICAyMyAuIDEuNTggMTkwLjYgODMuNAogICAgMjMgLiAwLjY2IDE5NS4zIC03OS4yCiAgICBleHRl
+bmQgbGVmdAogICAgMjMgMjQgMi43OSAyMDYuMyAtMzguMgogICAgIyBleHRlbmQgYXV0bwogICAg
+MjQgLiAxLjk1IDM5LjQgLTQuNwogICAgMjQgLiAxLjM2IDM1Ny41IDg2LjAKICAgIDI0IC4gMS4x
+NSAzMzQuOCAtNzAuNwogICAgZXh0ZW5kIHJpZ2h0CiAgICAyNCAyNSA2LjgwIDIzLjYgLTQyLjEK
+ICAgICMgZXh0ZW5kIGF1dG8KICAgIDI1IC4gMi44NyAyMzEuMCA0LjAKICAgIDI1IC4gMS4wOCAy
+MDUuNyA2MS44CiAgICAyNSAuIDEuMjcgMjgwLjggLTg0LjEKICAgIGV4dGVuZCBsZWZ0CiAgICAy
+NSAyNiA3LjA2IDI0OC4yIDE5LjIKICAgICMgZXh0ZW5kIGF1dG8KICAgIDI2IC4gNS45NyAzNi45
+IDYuNAogICAgMjYgLiAxOC45MSAzMzIuMCA4NC4wCiAgICAyNiAuIDEuNTMgMzUyLjYgLTQ4LjEK
+ICAgIGV4dGVuZCByaWdodAogICAgMjYgMjcgNy4wMSAzMTUuOCAzNi44CiAgICAjIGV4dGVuZCBh
+dXRvCiAgICAyNyAuIDIuMTkgMjI4LjQgNi40CiAgICAyNyAuIDYuMTkgNTUuOCAxLjcKICAgIDI3
+IC4gMTYuMDggNjEuNiA4Ni41CiAgICAyNyAuIDguNzUgODguMyAzNS4xCiAgICAyNyAuIDUuMTgg
+MTM3LjAgMjIuNAogICAgMjcgLiAyMi42OSAxMDIuMiA0OS4xCiAgICAyNyAuIDE4Ljg5IDI5Ny44
+IDUzLjEKICAgIGV4dGVuZCByaWdodAogICAgMjcgMjggNi43OSAzMDguOSAtMy4yCiAgICAjIGV4
+dGVuZCBhdXRvCiAgICAyOCAuIDcuNDggMjI1LjkgMS45CiAgICAyOCAuIDUuOTEgMjU0LjIgODIu
+MwogICAgMjggLiA2LjE2IDI4Ni41IC0xMS4zCiAgICAyOCAuIDEuNjMgMjc2LjggLTcyLjkKICAg
+IDI4IC4gMTMuNjkgMjkwLjIgMTQuMAogICAgMjggLiAxLjEyIDMwMS4zIC02LjIKICAgIDI4IC4g
+Ny43OSAyOTcuOSAxLjcKICAgIDI4IC4gMTIuODggMTI2LjcgNy43CiAgICAyOCAuIDUuMDQgMjU4
+LjIgODMuNgogICAgMjggLiAxLjU1IDI3Mi45IC02My4zCiAgICAyOCAuIDExLjEzIDE5Ni45IDU0
+LjUKICAgIDI4IC4gMTEuMTEgMTU2LjcgMzUuNgogICAgZXh0ZW5kIGxlZnQKICAjIGI2MiAyOQog
+ICAgMjggMjkgMy44MiAyMDUuNiAzLjMKICAgICMgZXh0ZW5kIGF1dG8KICAgIDI5IC4gNS4wNCAx
+MS45IDEuNQogICAgMjkgLiAxNi41MSA2Mi42IDgyLjAKICAgIDI5IC4gMS40OSAzMDMuMyAtNzMu
+NwogICAgMjkgLiA1LjM5IDIyMi4zIC0zMC41CiAgICAyOSAuIDAuNTMgMjIyLjQgLTI5LjgKICAg
+IGV4dGVuZCBsZWZ0CiAgICAyOSAzMCA1LjgwIDIyNi44IC0yOS44CiAgICB1bml0cyBsZWZ0IHJp
+Z2h0IHVwIGRvd24gbWV0ZXJzCiAgICBkYXRhIGRpbWVuc2lvbnMgc3RhdGlvbiBsZWZ0IHJpZ2h0
+IHVwIGRvd24KICAgIDIyIDAuMzAgMC4zOCAwLjM4IDAuMDAKICAgIDIzIDIuMDMgMC4wMCAwLjAw
+IDAuNjQKICAgIDI0IDAuMjkgMC41MiAwLjUyIDEuMDkKICAgIDI1IDAuODUgMC4wNyAwLjA3IDEu
+MjcKICAgIDI2IDAuMDAgNS44NiA1Ljg2IDEuMTQKICAgIDI3IDIuMTkgNi42OCA2LjY4IDAuMDAK
+ICAgIDI4IDEyLjUwIDEzLjIzIDEzLjIzIDEuNTYKICAgIDEwIDMuNDQgMS4wMiAxLjAyIDEuNDcK
+ICAgIDExIDQuMzIgMS43NiAxLjc2IDEuODkKICAgIDEyIDIuODAgMC4xNiAwLjE2IDEuMzIKICAg
+IDEzIDEuMzEgMC41MCAwLjUwIDAuNzIKICAgIDE0IDEwLjgxIDUuNTYgNS41NiAzLjA4CiAgICAx
+NSAyLjk5IDExLjUwIDExLjUwIDAuNDgKICAgIDE2IDEuMjcgMi44NSAyLjg1IDIuMDcKICAgIDE3
+IDMuMzIgMC4xNSAwLjE1IDEuMDkKICAgIDE4IDMuNTMgOC44NCA4Ljg0IDMuNzgKICAgIDE5IDEu
+NDQgMS4zMiAxLjMyIDAuMDAKICAgIDAgOC4xNCA3Ljg3IDcuODcgMi4yMwogICAgMSAzOC45NSAw
+LjYzIDAuNjMgMS40OQogICAgMiAxLjE1IDQuMTAgNC4xMCAzLjI1CiAgICAzIDMuNzkgMi43NSAy
+Ljc1IDEuNjEKICAgIDQgMC4wMCA2LjQyIDYuNDIgMS4yOAogICAgNSA1LjE5IDMuMTUgMy4xNSAw
+LjQzCiAgICA2IDguMDMgMTIuNzkgMTIuNzkgMC4xMgogICAgNyAxLjIyIDIwLjc4IDIwLjc4IDEu
+MzYKICAgIDggMS41NyAwLjE1IDAuMTUgMC4yNwogICAgOSA0LjIzIDEuMDMgMS4wMyAyLjkzCiAg
+ICAyMCAxLjY4IDIuMzYgMi4zNiAxLjE2CiAgICAyMSAzLjA3IDAuNzEgMC43MSAzLjExCiAgZW5k
+Y2VudGVybGluZQoKZW5kc3VydmV5Cg==
+--000000000000b9f6b3061f78c060
+Content-Type: application/octet-stream; name="=?UTF-8?B?bHBfcml2acOocmUudGhjb25maQ==?=
+	=?UTF-8?B?Zw==?="
+Content-Disposition: attachment; filename="=?UTF-8?B?bHBfcml2acOocmUudGhjb25maWc=?="
+Content-Transfer-Encoding: base64
+Content-ID: <19145d061a07b947fae2>
+X-Attachment-Id: 19145d061a07b947fae2
+
+IyAyMDI0LjA4LjEyIGNyZWF0ZWQgYnkgVG9wb0Ryb2lkIHYgNS4xLjQwCgpzb3VyY2UgIi4uL3Ro
+L2xwX3JpdmnDqHJlLnRoIgoKbGF5b3V0IHRvcG9kcm9pZAogIGxlZ2VuZCBvbgogIHN5bWJvbC1o
+aWRlIGdyb3VwIGNlbnRlcmxpbmUKICBzeW1ib2wtc2hvdyBwb2ludCBzdGF0aW9uCiAgZGVidWcg
+c3RhdGlvbi1uYW1lcwplbmRsYXlvdXQKCmV4cG9ydCBtYXAgLWxheW91dCB0b3BvZHJvaWQgLW8g
+bHBfcml2acOocmUtcC5wZGYgLXByb2ogcGxhbiAKCmV4cG9ydCBtYXAgLWxheW91dCB0b3BvZHJv
+aWQgLW8gbHBfcml2acOocmUtcy5wZGYgLXByb2ogZXh0ZW5kZWQgCgo=
+--000000000000b9f6b3061f78c060
+Content-Type: application/zip; name="=?UTF-8?B?bHBfcml2acOocmUuemlw?="
+Content-Disposition: attachment; filename="=?UTF-8?B?bHBfcml2acOocmUuemlw?="
+Content-Transfer-Encoding: base64
+Content-ID: <19145d107f0a98207293>
+X-Attachment-Id: 19145d107f0a98207293
+
+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
+AAAAAA==
+--000000000000b9f6b3061f78c060--
+
