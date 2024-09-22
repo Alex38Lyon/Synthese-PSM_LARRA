@@ -50,9 +50,9 @@ L'ensemble de ces données est publié sous la licence libre Creative Commons CC
 http://creativecommons.org/licenses/by-nc-sa/4.0/
 
 .. image:: https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png
-  :target: http://creativecommons.org/licenses/by-nc-sa/4.0/
   :align: center
   :width: 100px
+  :target: http://creativecommons.org/licenses/by-nc-sa/4.0/
 
 Auteur de la base de données
 ----------------------------
