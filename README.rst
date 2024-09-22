@@ -69,5 +69,5 @@ Pour plus d'informations, vous pouvez contacter L'ARSIP : https://www.arsip.fr/c
 Remerciements
 -------------
 
-Cette base de données est construite sur le modèle de celle des massifs du Folly et de Criou, développée par Xavier Robert (https://github.com/robertxa/Topographies-Samoens_Folly2021)
+Cette base de données est construite sur le modèle de celle des `massifs du Folly et de Criou <https://github.com/robertxa/Topographies-Samoens_Folly>`_. , développée par Xavier Robert (https://github.com/robertxa/Topographies-Samoens_Folly)
 ), un grand merci pour le soutien actif
