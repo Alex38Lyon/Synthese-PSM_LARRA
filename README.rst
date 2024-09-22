@@ -50,7 +50,7 @@ http://creativecommons.org/licenses/by-nc-sa/4.0/
 
 .. image:: https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png
   :target: http://creativecommons.org/licenses/by-nc-sa/4.0/
-  :width: 10px
+  :width: 100px
 
 Auteur de la base de données
 ----------------------------
