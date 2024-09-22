@@ -63,7 +63,7 @@ Comment citer
 Contact
 --------
 
-Pour plus d'informations, vous pouvez aussi contacter : L'ARSIP : http://asip.fr/ 
+Pour plus d'informations, vous pouvez contacter L'ARSIP : http://arsip.fr/ 
 
 
 Remerciements
