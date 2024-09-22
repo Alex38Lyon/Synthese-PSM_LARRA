@@ -16,7 +16,8 @@ Ce travail est réalisé par les menbres de l'ARSIP, collectif d'exploration du 
 
 .. image:: /Logos/Logo-ARSIP-Synthese-Topo.jpg
   :target: http://arsip.fr/
-  :width: 100px
+  :width: 200px
+  :align: center
 
 
 Une convention a aussi été mise en place pour la gestion des points d'interrogation, avec la définition de différents champs :
