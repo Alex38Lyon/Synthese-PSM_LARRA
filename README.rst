@@ -17,6 +17,8 @@ Description
 Ce dépôt est en cours de développement et a pour objectif de sauvegarder et partager les données topographiques chiffrées et dessinées au format THERION.
 Ce travail est réalisé par les menbres de l'ARSIP, collectif d'exploration du massif de la pierre Saint Martin 
 
+.. image:: Logo/Logo-ARSIP-Syntese-Topo.xcf
+
 
 Une convention a aussi été mise en place pour la gestion des points d'interrogation, avec la définition de différents champs :
 
