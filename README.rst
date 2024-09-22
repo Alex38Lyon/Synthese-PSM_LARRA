@@ -47,10 +47,15 @@ Licence
 L'ensemble de ces données est publié sous la licence libre Creative Commons Attribution-ShareAlike-NonCommercial (Attribution, partage à l'identique et non commerciale) :
 http://creativecommons.org/licenses/by-nc-sa/4.0/
 
+ This work is licensed under CC BY-NC-SA 4.0 
+
+.. image:: https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png
+  :target: https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1
+
 Auteur de la base de données
 ----------------------------
 
-Alexandre PONT (alexandre . pont at yahoo . fr )
+Alexandre PONT (alexandre . pont at yahoo . fr ) pour le compte de l'ARSIP 
 
 Contact
 --------
