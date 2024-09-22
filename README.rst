@@ -14,7 +14,8 @@ Si besoin, des templates pour Therion sont disponibles sur https://github.com/ro
 Description
 -----------
 
-Ce dépôt est en cours de développement et a pour objectif de sauvegarder les données topographiques chiffrée et dessinées au format THERION. 
+Ce dépôt est en cours de développement et a pour objectif de sauvegarder et partager les données topographiques chiffrées et dessinées au format THERION.
+Ce travail est réalisé par les menbres de l'ARSIP, collectif d'exploration du massif de la pierre Saint Martin 
 
 
 Une convention a aussi été mise en place pour la gestion des points d'interrogation, avec la définition de différents champs :
@@ -44,18 +45,17 @@ Une convention a aussi été mise en place pour la gestion des points d'interrog
 Licence
 -------
 
-L'ensemble de ces données est publié sous la licence libre Creative Commons Attribution-ShareAlike-NonCommercial (Attribution, partage à l'identique et non commerciale) :
+L'ensemble de ces données est publié sous la licence libre Creative Commons CC BY-NC-SA 4.0 (Attribution, partage à l'identique et pas d'utilisation commerciale) :
 http://creativecommons.org/licenses/by-nc-sa/4.0/
 
- This work is licensed under CC BY-NC-SA 4.0 
-
 .. image:: https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png
-  :target: https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1
+  :target: http://creativecommons.org/licenses/by-nc-sa/4.0/
+  :width: 10px
 
 Auteur de la base de données
 ----------------------------
 
-Alexandre PONT (alexandre . pont at yahoo . fr ) pour le compte de l'ARSIP 
+Alexandre PONT (alexandre dot pont at yahoo dot fr ) pour le compte de l'ARSIP 
 
 Contact
 --------
