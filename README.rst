@@ -20,6 +20,7 @@ Ce travail est réalisé par les menbres de l'ARSIP, collectif d'exploration du 
   :width: 200px
 
 
+
 Une convention a aussi été mise en place pour la gestion des points d'interrogation, avec la définition de différents champs :
 
 	* le champ "Code" qui décrit le type de terminus. Il peut prendre les valeurs : 
@@ -47,13 +48,13 @@ Une convention a aussi été mise en place pour la gestion des points d'interrog
 Licence
 -------
 
-L'ensemble de ces données est publié sous la licence libre Creative Commons CC BY-NC-SA 4.0 (Attribution, partage à l'identique et pas d'utilisation commerciale) :
-http://creativecommons.org/licenses/by-nc-sa/4.0/
+L'ensemble de ces données est publié sous la licence libre Creative Commons CC BY-NC-ND 4.0 (Attribution, partage à l'identique et pas d'utilisation commerciale) :
+https://creativecommons.org/licenses/by-nc-nd/4.0/
 
-.. image:: https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png
+.. image:: https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nd.png
   :align: center
   :width: 100px
-  :target: http://creativecommons.org/licenses/by-nc-sa/4.0/
+  :target: https://creativecommons.org/licenses/by-nc-nd/4.0/
 
 Auteur de la base de données
 ----------------------------
