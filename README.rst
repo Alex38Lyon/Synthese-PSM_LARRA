@@ -1,9 +1,6 @@
 Base de données Topographiques des systèmes karstiques du massif de la Pierre Saint Martin - Larra 
 ==========================================================================================================
 
-Overview
---------
-
 Ce dépôt contient les données topographiques et les dessins associés des cavités du massif de la Pierre Saint Martin - Larra .
 
 Ce dépôt est mis à jour à chaque fois qu'une nouvelle topographie est rajoutée à l'un des systèmes décrit dans cette base de données.
@@ -17,7 +14,7 @@ Description
 Ce dépôt est en cours de développement et a pour objectif de sauvegarder et partager les données topographiques chiffrées et dessinées au format THERION.
 Ce travail est réalisé par les menbres de l'ARSIP, collectif d'exploration du massif de la pierre Saint Martin 
 
-.. image:: Logos/Logo-ARSIP-Synthese-Topo.JPG
+.. image:: /Logos/Logo-ARSIP-Synthese-Topo.jpg
   :target: http://arsip.fr/
   :width: 100px
 
