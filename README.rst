@@ -52,14 +52,6 @@ Auteur de la base de données
 
 Alexandre PONT (alexandre . pont at yahoo . fr )
 
-Comment citer
--------------
-
-``PONT, X., Base de données Topographiques des systèmes karstiques du massif de Flaine-Platé (74, France), DOI:10.5281/Zenodo.4745567, 2024.``
-
-.. image:: https://zenodo.org/badge/185859787.svg
-  :target: https://zenodo.org/doi/10.5281/zenodo.4745567
-
 Contact
 --------
 
