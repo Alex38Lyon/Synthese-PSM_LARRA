@@ -16,9 +16,8 @@ Ce travail est réalisé par les menbres de l'ARSIP, collectif d'exploration du 
 
 .. image:: /Logos/Logo-ARSIP-Synthese-Topo.jpg
   :target: http://arsip.fr/
-  :width: 200px
   :align: center
-
+  :width: 200px
 
 Une convention a aussi été mise en place pour la gestion des points d'interrogation, avec la définition de différents champs :
 
@@ -52,6 +51,7 @@ http://creativecommons.org/licenses/by-nc-sa/4.0/
 
 .. image:: https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png
   :target: http://creativecommons.org/licenses/by-nc-sa/4.0/
+  :align: center
   :width: 100px
 
 Auteur de la base de données
