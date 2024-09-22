@@ -19,11 +19,12 @@ Ce travail est réalisé par les menbres de l'ARSIP, collectif d'exploration du 
   :align: center
   :width: 200px
 
+.. raw:: html
 <p align="center">
   <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" alt="Description de l'image" width="200px">
 </p>
   
-  
+.. raw:: html  
 <p align="center">
   <img src="/Logos/Logo-ARSIP-Synthese-Topo.jpg" alt="Logo ARSIP Synthèse" width="200px">
 </p>
