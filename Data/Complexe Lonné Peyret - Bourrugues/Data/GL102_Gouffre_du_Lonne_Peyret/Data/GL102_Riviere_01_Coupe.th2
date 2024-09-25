@@ -5,7 +5,7 @@ encoding  utf-8
 
 
 
-scrap SC-GL102_Riviere_01A -projection extended -station-names "" "@GL102_Riviere" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SC-GL102_Riviere_01A -projection extended -station-names "" "@GL102_Riviere" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	point 998.2099999999996 855.11 station -name 9
 	
@@ -209,7 +209,7 @@ endscrap
 
 
 
-scrap SC-GL102_Riviere_01B -projection extended -station-names "" "@GL102_Riviere" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SC-GL102_Riviere_01B -projection extended -station-names "" "@GL102_Riviere" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	point -2633.1900000000005 870.47 station -name PTR_B62_29
 	

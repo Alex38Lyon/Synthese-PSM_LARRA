@@ -1,16 +1,16 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -128.0 -128.0 8395.721 11781.5496
-##XTHERION## xth_me_area_zoom_to 50
+##XTHERION## xth_me_area_zoom_to 200
 ##XTHERION## xth_me_image_insert {1456.04 1 1.0} {7448.42 0} Z510-coupe.xvi 0 {}
 
 # Copyright (C) 2024 Alexandre Pont <alexandre.pont***@***yahoo.fr>
-# This work is under the Creative Commons Attribution-ShareAlike-NonCommecial License:
-#	<http://creativecommons.org/licenses/by-nc-sa/4.0/>
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 
 
 
-scrap SC-Z510_01 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
+scrap SC-Z510_01 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
 
 point 1553.5700000000002 7277.16 station -name 2.1
 
@@ -33,8 +33,6 @@ point 2190.31 7396.46 station -name 5.2
 point 2258.8 7371.65 station -name 5.3
 
 point 2298.61 7313.78 station -name 5.4
-
-point 2401.4 7267.719999999999 station -name 5.5
 
 point 2174.96 7638.19 station -name 6.1
 
@@ -108,7 +106,7 @@ line wall -subtype debris
   2249.0 7302.0
   2276.0 7285.0 2271.0 7290.0 2296.0 7283.0
   2321.0 7276.0 2330.0 7267.0 2345.0 7252.0
-  2357.59 7239.41 2376.0 7233.0 2384.0 7225.0
+  2357.59 7239.41 2377.0 7233.0 2385.0 7225.0
   smooth off
 endline
 
@@ -430,7 +428,7 @@ line wall -reverse on
   2201.0 7550.0 2189.0 7533.0 2203.0 7508.0
   2217.0 7483.0 2237.0 7483.0 2253.0 7446.0
   2269.0 7409.0 2292.0 7361.0 2307.0 7349.0
-  2322.0 7337.0 2352.0 7305.0 2399.0 7323.0
+  2322.0 7337.0 2362.0 7321.0 2387.0 7322.0
   smooth off
 endline
 
@@ -549,7 +547,7 @@ line rope
   2186.0 7411.0
   2244.0 7372.0
   2307.0 7312.0
-  2383.0 7271.0
+  2373.0 7279.0
 endline
 
 line rope
@@ -689,7 +687,12 @@ endscrap
 
 
 
-scrap SC-Z510_02 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
+scrap SC-Z510_02 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
+
+line wall -reverse on -subtype invisible
+  4442.0 3572.0
+  4436.0 3516.0
+endline
 
 point 4430.0 3552.0 station -name 5.32
 
@@ -804,8 +807,8 @@ point 2960.0 5416.0 label -text [R3]
 line wall
   2854.0 5512.0
   2924.0 5514.0 2898.5 5714.0 2935.0 5714.0
-  2977.0 5714.0 2896.49 5517.41 2988.0 5486.0
-  3055.0 5463.0 3086.0 5456.0 3096.0 5410.0
+  2977.0 5714.0 2923.49 5506.41 3015.0 5475.0
+  3082.0 5452.0 3086.0 5456.0 3096.0 5410.0
   3102.13 5381.81 3117.0 5350.0 3154.0 5347.0
   3191.1 5343.99 3170.0 5296.0 3190.0 5278.0
   3210.0 5260.0 3230.0 5304.0 3234.0 5170.0
@@ -818,10 +821,10 @@ line wall
   smooth off
 endline
 
-line wall
+line wall -subtype presumed
   3564.0 4609.0
-  3564.0 4609.0 3543.0 4584.0 3506.0 4576.0
-  3469.0 4568.0 3465.0 4563.0 3436.0 4563.0
+  3564.0 4609.0 3541.0 4599.0 3506.0 4576.0
+  3474.37 4555.21 3465.0 4563.0 3436.0 4563.0
   3407.0 4563.0 3378.0 4571.0 3356.0 4583.0
   3334.0 4595.0 3314.99 4608.66 3302.0 4600.0
   3260.0 4572.0 3269.0 4494.0 3267.0 4475.0
@@ -854,13 +857,13 @@ endline
 line wall -subtype presumed
   3248.0 4280.0
   3244.0 4257.0 3246.0 4198.0 3246.0 4178.0
-  3246.0 4158.0 3242.99 4097.98 3251.0 4097.0
-  3300.0 4091.0 3351.95 4074.91 3369.0 4122.0
-  3390.0 4180.0 3394.0 4190.0 3395.0 4243.0
+  3246.0 4158.0 3244.0 4135.0 3251.0 4097.0
+  3259.95 4048.42 3381.57 4065.22 3387.0 4115.0
+  3393.0 4170.0 3394.0 4190.0 3395.0 4243.0
   smooth off
 endline
 
-line wall
+line wall -subtype presumed
   3395.0 4243.0
   3396.0 4296.0 3412.0 4309.0 3428.0 4309.0
   3444.0 4309.0 3461.0 4311.0 3462.0 4286.0
@@ -871,45 +874,44 @@ line wall
 endline
 
 line wall -reverse on -outline in -subtype presumed
-  3566.0 4346.0
-  3578.0 4344.0 3593.0 4340.0 3612.0 4340.0
+  3629.5 4305.0
+  3629.5 4305.0 3617.5 4301.5 3603.5 4300.0
+  3589.5 4298.5 3593.5 4283.5 3591.5 4269.5
+  3589.5 4255.5 3587.0 4236.5 3588.0 4212.0
+  3589.0 4187.5 3588.5 4163.0 3593.0 4145.5
+  3597.5 4128.0 3595.5 4109.5 3614.0 4108.5
+  3632.5 4107.5 3667.5 4102.0 3667.5 4102.0
   smooth off
 endline
 
 line wall -reverse on -outline in
-  3588.0 4563.0
-  3588.0 4563.0 3589.0 4546.0 3562.0 4539.0
-  3535.0 4532.0 3508.0 4542.0 3504.0 4526.0
-  3500.0 4510.0 3521.0 4434.0 3527.0 4417.0
-  3533.0 4400.0 3549.0 4352.0 3566.0 4346.0
-  smooth off
-endline
-
-line wall -outline in
-  3588.0 4563.0
-  3639.0 4662.0 3626.34 4501.23 3629.0 4464.0
-  3632.0 4422.0 3639.0 4345.0 3612.0 4340.0
-  smooth off
-endline
-
-line wall -reverse on -outline in
-  3589.0 4288.0
-  3589.0 4288.0 3579.0 4290.0 3582.0 4270.0
-  3585.0 4250.0 3596.0 4195.0 3601.0 4182.0
-  3606.0 4169.0 3644.0 4123.0 3644.0 4123.0
+  3667.5 4102.0
+  3667.5 4102.0 3672.5 4101.5 3675.5 4110.0
+  3678.5 4118.5 3677.0 4148.0 3677.0 4164.5
+  3677.0 4181.0 3670.5 4227.5 3670.5 4241.5
+  3670.5 4255.5 3664.46 4275.66 3662.5 4283.5
+  3655.0 4313.5 3650.5 4307.0 3644.5 4307.0
+  3638.5 4307.0 3629.5 4305.0 3629.5 4305.0
   smooth off
 endline
 
 line wall -reverse on -outline in -subtype presumed
-  3637.0 4286.0
-  3637.0 4286.0 3602.0 4296.0 3589.0 4288.0
-  smooth off
+  3611.0 4579.0
+  3611.0 4579.0 3597.0 4571.0 3595.0 4560.0
+  3593.0 4549.0 3582.0 4549.5 3574.5 4549.5
+  3544.45 4549.5 3541.0 4553.0 3529.0 4539.0
+  3517.0 4525.0 3514.0 4476.0 3515.0 4467.0
+  3516.0 4458.0 3514.0 4426.0 3516.0 4408.0
+  3518.0 4390.0 3531.5 4353.0 3538.5 4344.0
+  3545.5 4335.0 3593.0 4334.0 3604.0 4338.0
 endline
 
-line wall -outline in
-  3637.0 4286.0
-  3668.0 4287.0 3678.27 4217.86 3680.0 4204.0
-  3683.0 4180.0 3738.0 4080.0 3644.0 4123.0
+line wall -reverse on -outline in
+  3604.0 4338.0
+  3615.0 4342.0 3613.0 4359.0 3614.0 4395.0
+  3615.0 4431.0 3627.0 4496.0 3627.0 4515.0
+  3627.0 4534.0 3629.21 4559.47 3629.0 4568.0
+  3628.5 4588.5 3611.0 4579.0 3611.0 4579.0
   smooth off
 endline
 
@@ -991,9 +993,9 @@ line wall -reverse on
 endline
 
 line wall
-  2384.0 7225.0
-  2384.0 7225.0 2418.0 7224.0 2444.0 7140.0
-  2455.0 7104.45 2496.0 7112.0 2504.0 7018.0
+  2385.0 7225.0
+  2385.0 7225.0 2440.0 7222.0 2444.0 7140.0
+  2445.81 7102.83 2496.0 7112.0 2504.0 7018.0
   smooth off
 endline
 
@@ -1005,13 +1007,13 @@ line wall -subtype presumed
 endline
 
 line wall -subtype invisible
-  2663.0 5882.0
-  2599.0 5883.0
+  2653.0 5917.0
+  2596.0 5916.0
 endline
 
 line wall
-  2599.0 5883.0
-  2599.0 5883.0 2609.0 5646.0 2672.0 5628.0
+  2596.0 5916.0
+  2596.0 5916.0 2609.0 5646.0 2672.0 5628.0
   2700.42 5619.88 2720.0 5618.0 2720.0 5618.0
   smooth off
 endline
@@ -1023,13 +1025,13 @@ line wall
   2610.0 6308.0 2654.0 6374.0 2664.0 6320.0
   2674.0 6266.0 2674.0 6133.0 2674.0 6053.0
   2674.0 5973.0 2699.97 5908.04 2722.0 5875.0
-  2746.0 5839.0 2710.0 5813.0 2663.0 5882.0
+  2746.0 5839.0 2685.0 5783.0 2653.0 5917.0
   smooth off
 endline
 
 line wall -reverse on -subtype invisible
   3193.0 6727.0
-  3325.0 6658.0
+  3324.0 6700.0
 endline
 
 line wall -reverse on -subtype invisible
@@ -1038,8 +1040,8 @@ line wall -reverse on -subtype invisible
 endline
 
 line wall -reverse on
-  3325.0 6658.0
-  3325.0 6658.0 3250.0 6544.0 3222.0 6488.0
+  3324.0 6700.0
+  3324.0 6700.0 3250.0 6544.0 3222.0 6488.0
   3194.0 6432.0 3132.0 6366.0 3118.0 6218.0
   3109.21 6125.07 3092.0 6090.0 3086.0 5982.0
   3082.02 5910.33 3078.0 5838.0 3076.0 5800.0
@@ -1053,7 +1055,7 @@ line wall -reverse on
   2940.0 6594.0 2910.0 6526.0 2918.0 6498.0
   2926.0 6470.0 2924.0 6419.0 3006.0 6445.0
   3088.0 6471.0 3123.0 6543.0 3141.0 6597.0
-  3159.0 6651.0 3189.0 6715.0 3193.0 6727.0
+  3159.0 6651.0 3170.0 6677.0 3193.0 6727.0
   smooth off
 endline
 
@@ -1061,7 +1063,7 @@ line wall -reverse on
   2738.0 6980.0
   2750.0 6868.0 2747.0 6813.0 2758.0 6780.0
   2769.0 6747.0 2837.0 6710.0 2868.0 6748.0
-  2899.0 6786.0 2923.0 6856.58 2923.0 6886.0
+  2899.0 6786.0 2912.0 6855.0 2923.0 6886.0
   smooth off
 endline
 
@@ -1097,7 +1099,7 @@ line wall -reverse on -subtype presumed
   smooth off
 endline
 
-line wall -reverse on -subtype unsurveyed
+line wall -reverse on -subtype presumed
   3694.0 8052.0
   3680.13 8041.83 3674.0 8030.0 3666.0 8000.0
   3658.0 7970.0 3617.24 7957.68 3592.0 7956.0
@@ -1129,7 +1131,7 @@ line rope
 endline
 
 line rope
-  2426.0 7280.0
+  2401.0 7278.0
   2479.0 7235.0
   2540.0 7168.0
   2564.0 7169.0
@@ -1194,11 +1196,16 @@ line wall -reverse on
   smooth off
 endline
 
-line wall -reverse on -subtype unsurveyed
+line wall -reverse on -subtype presumed
   3210.0 8074.0
   3236.0 8088.0 3282.0 8092.0 3342.0 8094.0
   3402.0 8096.0 3590.0 8111.0 3640.0 8117.0
   smooth off
+endline
+
+line wall -reverse on -subtype invisible
+  3846.0 8136.0
+  3848.0 8068.0
 endline
 
 line wall -reverse on -subtype presumed
@@ -1208,19 +1215,14 @@ line wall -reverse on -subtype presumed
   smooth off
 endline
 
-line wall -reverse on -subtype invisible
-  3846.0 8136.0
-  3848.0 8068.0
-endline
-
 line wall -subtype invisible
   2827.0 7817.0
   2826.0 7753.0
 endline
 
 line wall -reverse on
-  2399.0 7323.0
-  2399.0 7323.0 2450.0 7314.0 2460.0 7312.0
+  2387.0 7322.0
+  2387.0 7322.0 2450.0 7314.0 2460.0 7312.0
   2470.0 7310.0 2510.0 7283.0 2525.0 7262.0
   2540.0 7241.0 2565.0 7212.0 2586.0 7211.0
   2644.15 7208.23 2676.36 7251.83 2682.0 7265.0
@@ -1272,11 +1274,43 @@ line border
   smooth off
 endline
 
+point 3186.52 5607.48 station -name 10.2
+
+point 3126.75 5654.72 station -name 10.1
+
+line wall
+  3135.0 5571.0
+  3159.0 5555.0 3175.0 5522.0 3193.0 5516.0
+  smooth off
+endline
+
+line wall -reverse on
+  3139.0 5698.0
+  3139.0 5698.0 3157.0 5671.0 3217.0 5643.0
+  smooth off
+endline
+
+point 2785.8199999999997 5537.4 station -name 2024.2
+
+line wall
+  2720.0 5618.0
+  2720.0 5618.0 2777.0 5607.0 2774.0 5579.0
+  2771.33 5554.12 2682.0 5563.0 2646.0 5559.0
+  smooth off
+endline
+
+line wall -reverse on
+  2854.0 5512.0
+  2854.0 5512.0 2864.0 5516.0 2768.0 5504.0
+  2684.26 5493.53 2714.0 5494.0 2660.0 5490.0
+  smooth off
+endline
+
 endscrap
 
 
 
-scrap SC-Z510_03 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
+scrap SC-Z510_03 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
 
 point 4224.44 4383.46 station -name 10.10
 
@@ -1325,18 +1359,13 @@ point 3324.74 5460.63 station -name 10.4
 
 point 3252.55 5561.42 station -name 10.3
 
-point 3186.52 5607.48 station -name 10.2
-
-point 3126.75 5654.72 station -name 10.1
-
 point 4500.0 3938.0 dig
 
 point 4743.0 4002.0 air-draught -orientation 302.7 -subtype summer
 
 line wall
-  3135.0 5571.0
-  3159.0 5555.0 3160.0 5528.0 3178.0 5522.0
-  3196.0 5516.0 3212.0 5505.0 3238.0 5506.0
+  3193.0 5516.0
+  3210.46 5508.52 3212.0 5505.0 3238.0 5506.0
   3265.18 5507.05 3290.87 5479.13 3292.0 5469.0
   3293.0 5460.0 3296.66 5414.13 3325.0 5401.0
   3366.0 5382.0 3416.0 5347.0 3432.0 5281.0
@@ -1374,9 +1403,8 @@ point 3500.0 5654.0 label -text [Chantier n°1]
 point 3686.0 5266.0 height -value [-17 m]
 
 line wall -reverse on
-  3139.0 5698.0
-  3139.0 5698.0 3197.0 5667.0 3257.0 5639.0
-  3317.0 5611.0 3316.0 5609.0 3368.0 5573.0
+  3217.0 5643.0
+  3277.0 5615.0 3316.0 5609.0 3368.0 5573.0
   3420.0 5537.0 3459.94 5413.79 3470.0 5392.0
   3482.0 5366.0 3550.0 5264.0 3576.0 5222.0
   3602.0 5180.0 3607.0 5099.0 3635.0 5067.0
@@ -1399,7 +1427,7 @@ endscrap
 
 
 
-scrap SC-Z510_04 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
+scrap SC-Z510_04 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
 
 point 6885.780000000001 2578.35 station -name 2023.7
 
@@ -1663,6 +1691,12 @@ line wall
   smooth off
 endline
 
+line label -text [Méandre du petit Colorado]
+  5494.0 3840.0
+  5494.0 3840.0 6388.0 3254.0 6450.0 3206.0
+  smooth off
+endline
+
 point 5714.0 2900.0 narrow-end
 
 point 5720.0 2764.0 narrow-end
@@ -1678,7 +1712,7 @@ endscrap
 
 
 
-scrap SC-Z510_05 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
+scrap SC-Z510_05 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
 
 point 7778.55 3256.69 station -name 2023.E
 
@@ -1730,7 +1764,7 @@ point 7850.0 3376.0 narrow-end
 
 point 7742.0 1464.0 height -value [-6 m]
 
-point 7582.0 1716.0 height -value [-5 m]
+point 7601.0 1674.0 height -value [-5 m]
 
 point 7172.0 2272.0 height -value [-20 m]
 
@@ -1841,6 +1875,8 @@ area water
   l334-7640-1116
 endarea
 
+point 7892.0 1204.0 label
+
 line contour -id l334-7640-1116 -close on -visibility off
   7515.0 1214.5
   7654.0 1210.5
@@ -1896,9 +1932,21 @@ line wall
   7635.0 1435.0 7607.0 1429.0 7590.0 1461.0
   7573.0 1493.0 7568.0 1531.0 7552.0 1565.0
   7536.0 1599.0 7506.0 1571.0 7501.0 1623.0
-  7496.0 1675.0 7475.0 1739.0 7476.0 1791.0
-  7477.0 1843.0 7487.0 1859.0 7475.0 1932.0
-  7463.0 2005.0 7432.0 2060.0 7428.0 2102.0
+  7496.0 1675.0 7484.0 1762.0 7603.0 1864.0
+  smooth off
+endline
+
+line wall -reverse on -subtype invisible
+  7555.0 1913.0
+  7603.0 1864.0
+endline
+
+point 7692.0 1903.0 height -value [+? m]
+
+line wall
+  7555.0 1913.0
+  7513.0 1858.0 7461.0 1829.0 7460.0 1955.0
+  7459.41 2028.97 7432.0 2060.0 7428.0 2102.0
   7424.0 2144.0 7423.63 2143.67 7441.0 2190.0
   7462.0 2246.0 7521.1 2257.13 7556.0 2256.0
   7587.0 2255.0 7670.0 2261.0 7679.0 2326.0
@@ -1919,7 +1967,7 @@ endscrap
 
 
 
-scrap SC-Z510_06 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
+scrap SC-Z510_06 -projection extended -station-names "" "@Z510" -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-128.0 -128.0 8395.721 -128.0 0.0 0.0 216.50251339999997 0.0 m]
 
 point 2444.69 5520.86 station -name 2024.4
 
@@ -1972,8 +2020,6 @@ point 2357.46 5621.65 station -name 2024.a
 point 2419.29 5509.05 station -name 2024.5
 
 point 2603.99 5507.87 station -name 2024.3
-
-point 2785.8199999999997 5537.4 station -name 2024.2
 
 point 2316.0 5194.0 label -text [Chantier n°4]
 
@@ -2119,9 +2165,7 @@ line wall -reverse on
 endline
 
 line wall -reverse on
-  2854.0 5512.0
-  2854.0 5512.0 2864.0 5516.0 2768.0 5504.0
-  2684.26 5493.53 2714.0 5494.0 2660.0 5490.0
+  2660.0 5490.0
   2606.0 5486.0 2538.0 5496.0 2494.0 5482.0
   2450.0 5468.0 2416.0 5464.0 2354.0 5442.0
   2292.0 5420.0 2242.0 5398.0 2222.0 5374.0
@@ -2146,9 +2190,7 @@ line wall -reverse on
 endline
 
 line wall
-  2720.0 5618.0
-  2720.0 5618.0 2761.0 5609.0 2761.0 5581.0
-  2761.0 5555.97 2682.0 5563.0 2646.0 5559.0
+  2646.0 5559.0
   2628.11 5557.01 2644.0 5558.0 2598.0 5552.0
   2552.0 5546.0 2470.0 5566.0 2442.0 5568.0
   2414.0 5570.0 2404.0 5586.0 2378.0 5624.0

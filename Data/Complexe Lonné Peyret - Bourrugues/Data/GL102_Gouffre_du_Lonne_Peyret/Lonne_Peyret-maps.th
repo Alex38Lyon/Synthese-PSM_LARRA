@@ -1,8 +1,8 @@
 encoding  utf-8
 
-# Copyright (C) 2024 Alexandre Pont <alexandre.pont***@***yahoo.fr>
-# This work is under the Creative Commons Attribution-ShareAlike-NonCommecial License:
-#	<http://creativecommons.org/licenses/by-nc-sa/4.0/>
+# Copyright (C) 2024 Alexandre Pont <alexandre.pont***@***yahoo.fr> pour l'ARSIP
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 map MP-GL102_Gouffre_du_Lonne_Peyret -title "GL102 - Gouffre du Lonné Peyret"
 	SP-GL102_Entree_01A

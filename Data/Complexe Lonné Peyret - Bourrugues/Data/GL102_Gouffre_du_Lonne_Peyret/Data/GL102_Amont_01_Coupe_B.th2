@@ -5,7 +5,7 @@ encoding  utf-8
 
 
 
-scrap SC-GL4_01A -projection extended -station-names "" "@GL102_Amont_01" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SC-GL4_01A -projection extended -station-names "" "@GL102_Amont_01" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	point 8567.619999999999 1550.07 station -name 103
 	
@@ -88,7 +88,7 @@ endscrap
 
 
 
-scrap SC-GL4_01B -projection extended -station-names "" "@GL102_Amont_01" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SC-GL4_01B -projection extended -station-names "" "@GL102_Amont_01" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	point 9024.93 1559.52 station -name 106
 	

@@ -1,9 +1,10 @@
 encoding  utf-8
 
-# Copyright (C) 2024 Alexandre Pont <alexandre.pont***@***yahoo.fr>
+# Copyright (C) 2024 Alexandre Pont <alexandre.pont***@***yahoo.fr> pour l'ARSIP
 # Fichiers / Organisation dossiers, d'après Xavier Robert
-# This work is under the Creative Commons Attribution-ShareAlike-NonCommecial License:
-#	<http://creativecommons.org/licenses/by-nc-sa/4.0/>
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
 
 # INTRO
 
@@ -34,7 +35,7 @@ source Lonne_Peyret-tot.th
 input legendes/entrances_coordinates.th
 
 # Add config file
-input config.thc
+input ../../../../config.thc
 
 # 2-LAYOUT
 # Ici, on peut specifier des choses comme les symboles à utiliser (UIS, etc)
@@ -664,6 +665,7 @@ export map -projection plan -fmt pdf -layout my_layout -o Outputs/Lonne_Peyret-P
 
 # Export du fichier 3d pour Loch
 export model -enable all -o Outputs/Lonne_Peyret.lox
+export model -enable all -o Outputs/Lonne_Peyret.plt
 export model -enable all -o Outputs/Lonne_Peyret.kml
 
 # Export des fichiers ESRI

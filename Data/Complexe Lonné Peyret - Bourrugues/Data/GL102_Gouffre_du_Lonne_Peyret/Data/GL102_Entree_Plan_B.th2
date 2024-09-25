@@ -5,7 +5,7 @@ encoding  utf-8
 
 
 
-scrap SP-GL102_Entree_02A -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SP-GL102_Entree_02A -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	point 38782.26 6316.93 station -name 51@GL102_Entree_02
 	
@@ -202,7 +202,7 @@ endscrap
 
 
 
-scrap SP-GL102_Entree_02D -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SP-GL102_Entree_02D -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	area water
 	l49-36751-5652
@@ -249,7 +249,7 @@ endscrap
 
 
 
-scrap SP-GL102_Aval_01E -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SP-GL102_Aval_01E -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	point 28893.280000000002 6439.370000000001 station -name 88@GL102_Aval_01
 	

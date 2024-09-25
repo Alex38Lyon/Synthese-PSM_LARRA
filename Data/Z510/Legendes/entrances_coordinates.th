@@ -2,7 +2,7 @@ encoding utf-8
 
 # Copyright (C) 2024 Xavier Robert <xavier.robert***@***ird.fr>
 # Ce travail est sous la licence Creative Commons Attribution-ShareAlike-NonCommecial :
-#	<http://creativecommons.org/licenses/by-nc-sa/4.0/>
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 layout Entrances_coords_CDa
 	# Layout where we define the different variables that contain the text with
@@ -13,7 +13,7 @@ layout Entrances_coords_CDa
 	
 	code tex-map
 		\def\thjunk{ }
-		\def\thlocationCDa{UTM30 Nord / WGS84 X : 679.298 Y : 4758.093 Alt. : 1 644 m}
+		\def\thlocationCDa{UTM30 WGS84 X : 679.298 Y : 4758.093 Alt. : 1 644 m}
 	endcode
 	
 endlayout

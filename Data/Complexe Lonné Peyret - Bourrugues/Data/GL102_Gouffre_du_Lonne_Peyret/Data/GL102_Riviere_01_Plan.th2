@@ -5,7 +5,7 @@ encoding  utf-8
 
 
 
-scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	point 5014.570000000001 2764.1699999999996 station -name 2
 	
@@ -218,7 +218,7 @@ endscrap
 
 
 
-scrap SP-GL102_Riviere_01B -station-names "" "@GL102_Riviere" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SP-GL102_Riviere_01B -station-names "" "@GL102_Riviere" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	point 1055.1200000000003 1192.9099999999999 station -name 30
 	

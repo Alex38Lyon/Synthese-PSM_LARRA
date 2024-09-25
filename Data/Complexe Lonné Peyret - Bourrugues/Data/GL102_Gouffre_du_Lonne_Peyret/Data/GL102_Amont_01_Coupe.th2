@@ -5,7 +5,7 @@ encoding  utf-8
 
 
 
-scrap SC-GL102_Amont_01A -projection extended -station-names "" "@GL102_Amont_01" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-sa/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SC-GL102_Amont_01A -projection extended -station-names "" "@GL102_Amont_01" -author 2024 "Alexandre Pont" -copyright 2024 "licence CCby-nc-sa : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 	
 	line wall -reverse on -subtype invisible
 		5880.0 1100.0
