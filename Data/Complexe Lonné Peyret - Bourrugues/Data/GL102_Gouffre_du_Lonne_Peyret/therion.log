@@ -103,7 +103,7 @@ S     0.00 SC-GL4_01B@Gouffre_du_Lonne_Peyret ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/Lonne_Peyret-Coupe.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  24 SEP 2024 09:10
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  30 SEP 2024 08:51
 **data.mp
 (c:/Program Files (x86)/Therion/texmf/mpost/mpost.mp
 (c:/Program Files (x86)/Therion/texmf/mpost/plain.mp
@@ -136,7 +136,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdftex 2021.6.19)  24 SEP 2024 09:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdftex 2021.6.19)  30 SEP 2024 08:51
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -169,7 +169,7 @@ Here is how much of TeX's memory you used:
 Files (x86)/Therion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files (x86)/Theri
 on/texmf/fonts/type1/csss10.pfb><c:/Program Files (x86)/Therion/texmf/fonts/typ
 e1/csssi10.pfb>
-Output written on data.pdf (1 page, 492588 bytes).
+Output written on data.pdf (1 page, 492591 bytes).
 PDF statistics:
  387 PDF objects out of 1000 (max. 8388607)
  198 compressed objects within 2 object streams
@@ -204,7 +204,7 @@ S  1299.88 SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/Lonne_Peyret-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  24 SEP 2024 09:11
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  30 SEP 2024 08:51
 **data.mp
 (c:/Program Files (x86)/Therion/texmf/mpost/mpost.mp
 (c:/Program Files (x86)/Therion/texmf/mpost/plain.mp
@@ -239,7 +239,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdftex 2021.6.19)  24 SEP 2024 09:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdftex 2021.6.19)  30 SEP 2024 08:51
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -262,7 +262,7 @@ Here is how much of TeX's memory you used:
 ion/texmf/fonts/type1/cmss10.pfb><c:/Program Files (x86)/Therion/texmf/fonts/ty
 pe1/cmssi10.pfb><c:/Program Files (x86)/Therion/texmf/fonts/type1/csss10.pfb><c
 :/Program Files (x86)/Therion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 543253 bytes).
+Output written on data.pdf (1 page, 543256 bytes).
 PDF statistics:
  345 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams
@@ -275,9 +275,10 @@ done
 writing Outputs/Lonne_Peyret.lox ..................... done
 writing Outputs/Lonne_Peyret.plt ... done
 writing Outputs/Lonne_Peyret.kml ... done
+writing Outputs/Lonne_Peyret.sql ... done
 writing Outputs/Lonne_Peyret.html ... done
 writing Outputs/Surveys.html ... done
-compilation time: 9 sec
+compilation time: 10 sec
 
 
 ###################### scrap distortions #######################

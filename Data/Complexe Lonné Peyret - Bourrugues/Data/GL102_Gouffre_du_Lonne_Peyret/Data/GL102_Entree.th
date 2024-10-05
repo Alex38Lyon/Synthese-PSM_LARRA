@@ -1,7 +1,7 @@
 # 2024.08.14 created by TopoDroid v 5.1.40
 
-equate PTR_02_41@GL102_Entree_01 PTR_02_41@GL102_Entree_02
-equate PTR_A86_82@GL102_Entree_02 PTR_A86_82@GL102_Aval_01
+# equate PTR_02_41@GL102_Entree_01 PTR_02_41@GL102_Entree_02
+# equate PTR_A86_82@GL102_Entree_02 PTR_A86_82@GL102_Aval_01
 
 survey GL102_Entree_01 -title "GL102 - Gouffre du Lonné Peyret - Entrée"
 	

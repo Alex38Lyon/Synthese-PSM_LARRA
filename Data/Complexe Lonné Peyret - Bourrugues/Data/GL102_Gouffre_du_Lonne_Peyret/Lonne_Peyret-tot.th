@@ -8,8 +8,8 @@ encoding  utf-8
 survey Gouffre_du_Lonne_Peyret -title "Gouffre du Lonné Peyret"
 	# Pour importer les différentes données de différents fichiers topos :
 	input Data/GL102_Entree.th
-	#equate PTR_02_41@GL102_Entree_01 PTR_02_41@GL102_Entree_02
-	#equate PTR_A86_82@GL102_Entree_02 PTR_A86_82@GL102_Aval_01
+	equate PTR_02_41@GL102_Entree_01 PTR_02_41@GL102_Entree_02
+	equate PTR_A86_82@GL102_Entree_02 PTR_A86_82@GL102_Aval_01
 	
 	
 	input Data/GL102_Riviere_01.th

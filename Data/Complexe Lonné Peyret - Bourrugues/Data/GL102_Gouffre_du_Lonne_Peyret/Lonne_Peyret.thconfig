@@ -668,6 +668,9 @@ export model -enable all -o Outputs/Lonne_Peyret.lox
 export model -enable all -o Outputs/Lonne_Peyret.plt
 export model -enable all -o Outputs/Lonne_Peyret.kml
 
+# Export de la database sql
+export database -fmt sql -o Outputs/Lonne_Peyret.sql
+
 # Export des fichiers ESRI
 #export map -proj plan -fmt esri -o Outputs/Lonne_Peyret
 
