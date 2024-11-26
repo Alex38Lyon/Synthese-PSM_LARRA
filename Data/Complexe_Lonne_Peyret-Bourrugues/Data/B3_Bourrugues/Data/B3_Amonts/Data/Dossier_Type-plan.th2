@@ -1,0 +1,20 @@
+encoding  utf-8
+# Copyright (C) ARSIP 2024 https://www.arsip.fr/
+# Auteur : Alexandre Pont <alexandre.pont***@***yahoo.fr>
+# Fichiers / Organisation dossiers, d'après Xavier Robert
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+
+
+
+scrap SP-Dossier_Type_01 -station-names "" "@Dossier_Type" -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+	
+endscrap
+
+
+scrap SP-Dossier_Type_02 -station-names "" "@Dossier_Type" -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+	
+endscrap
+
+

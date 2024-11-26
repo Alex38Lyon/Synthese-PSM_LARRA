@@ -1,0 +1,19 @@
+encoding utf-8
+
+# Copyright (C) ARSIP 2024 https://www.arsip.fr/
+# Auteur : Alexandre Pont <alexandre.pont***@***yahoo.fr>
+# Fichiers / Organisation dossiers, d'après Xavier Robert
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+map MP-Dossier_Type-plan-tot -title "Dossier_Type"
+	SP-Dossier_Type_01
+	break
+	SP-Dossier_Type_02
+endmap
+
+map MC-Dossier_Type-coupe-tot -title "Dossier_Type"
+	SC-Dossier_Type_01
+	break
+	SC-Dossier_Type_02
+endmap

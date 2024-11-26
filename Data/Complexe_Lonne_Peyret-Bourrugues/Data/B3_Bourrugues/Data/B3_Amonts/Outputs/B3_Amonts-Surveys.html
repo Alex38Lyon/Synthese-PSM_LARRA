@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>B3_Amonts-Surveys.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="javascript">
+function xTree(node)
+{
+  var fsub = true;
+  var show = false;
+  var last = node.length;
+  var all = document.getElementsByTagName("tr");
+  for(i = 1; i < all.length; i++) {
+    if ((all[i].id.length > node.length) && (all[i].id.substr(0, node.length) == node)) {
+      if (fsub) {
+        fsub = false;
+        show = (all[i].style.display == "none");
+        last = all[i].id.lastIndexOf(".");
+      }
+      if (show) {
+        if (all[i].id.lastIndexOf(".") == last)
+        all[i].style.display = "";
+      } else {
+        all[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+<style type="text/css">
+body {font-family: Verdana, Helvetica, Arial, sans-serif; line-height: 1.5;}
+table {font-size:80%; border-spacing: 0px;}
+th {border-bottom:2px solid #a7a9aa; padding-left:8px; padding-right:8px; padding-top:0px; padding-bottom:1px;}
+td {border-bottom:1px solid #a7a9aa; padding-left:8px; padding-right:8px; padding-top:0px; padding-bottom:0px;}
+</style>
+</head>
+<body>
+<table>
+<tr><th align="left">Title</th><th align="right">Length</th><th align="right">Depth</th><th align="right">Explored</th><th align="right">Approx.</th><th align="right">Duplicate</th><th align="right">Surface</th><th align="right">Shots</th><th align="right">Stations</th></tr>
+<tr id="B3_Amonts"><td align="left" style="padding-left: 0px"><a href="javascript:xTree('B3_Amonts')">B3_Amonts</a></td><td align="right">1202</td><td align="right">42</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">223</td><td align="right">226</td></tr>
+<tr id="B3_Amonts.B3_Amonts_01"><td align="left" style="padding-left: 12px">Gouffre des Bourrugues B3, amonts 01 : amont vers jonction AP7 suite</td><td align="right">152</td><td align="right">13</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">33</td><td align="right">34</td></tr>
+<tr id="B3_Amonts.B3_Amonts_02"><td align="left" style="padding-left: 12px">Gouffre des Bourrugues B3, amonts 02 : amont vers jonction AP7 suite</td><td align="right">377</td><td align="right">28</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">86</td><td align="right">87</td></tr>
+<tr id="B3_Amonts.B3_Amonts_03"><td align="left" style="padding-left: 12px">Gouffre des Bourrugues B3, amonts 03 : Galerie des cheminées</td><td align="right">673</td><td align="right">28</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">104</td><td align="right">105</td></tr>
+</table>
+</body>
+</html>

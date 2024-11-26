@@ -1,0 +1,25 @@
+encoding utf-8
+
+# Copyright (C) ARSIP 2024 https://www.arsip.fr/
+# Auteur : Alexandre Pont <alexandre.pont***@***yahoo.fr>
+# Fichiers / Organisation dossiers, d'après Xavier Robert
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+survey B3_Entree -title "B3 Entree"
+	input Data/B3_Entree.th
+	equate A-43@B3_Entree_01 A-43@B3_Entree_02
+	equate B-00@B3_Entree_02 B-00@B3_Entree_03
+	equate B-00@B3_Entree_02 B-00@B3_Entree_04
+	equate C-09@B3_Entree_04 C-09@B3_Entree_05
+	equate C-00@B3_Entree_04 C-00@B3_Entree_06
+	## Pour le plan
+	# input Data/B3_Entree-plan.th2
+	
+	## Pour la coupe développée
+	# input Data/B3_Entree-coupe.th2
+	
+	## Appel des maps
+	# input B3_Entree-maps.th
+	
+endsurvey

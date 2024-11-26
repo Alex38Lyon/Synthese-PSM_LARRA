@@ -1,0 +1,23 @@
+encoding utf-8
+
+# Copyright (C) ARSIP 2024 https://www.arsip.fr/
+# Auteur : Alexandre Pont <alexandre.pont***@***yahoo.fr>
+# Fichiers / Organisation dossiers, d'après Xavier Robert
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+survey B3_Amonts -title "B3 Amonts"
+	input Data/B3_Amonts.th
+	equate J34@B3_Amonts_01 J34@B3_Amonts_02
+	equate J09@B3_Amonts_01 J09@B3_Amonts_03
+	
+	## Pour le plan
+	# input Data/B3_Amonts-plan.th2
+	
+	## Pour la coupe développée
+	# input Data/B3_Amonts-coupe.th2
+	
+	## Appel des maps
+	# input B3_Amonts-maps.th
+	
+endsurvey

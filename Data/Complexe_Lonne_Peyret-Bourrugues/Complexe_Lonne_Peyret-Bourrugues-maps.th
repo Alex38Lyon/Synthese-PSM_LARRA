@@ -1,0 +1,19 @@
+encoding utf-8
+
+# Copyright (C) ARSIP 2024 https://www.arsip.fr/
+# Auteur : Alexandre Pont <alexandre.pont***@***yahoo.fr>
+# Fichiers / Organisation dossiers, d'après Xavier Robert
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+map MP-Complexe_Lonne_Peyret-Bourrugues-plan-tot -title "Complexe_Lonne_Peyret-Bourrugues"
+	SP-Complexe_Lonne_Peyret-Bourrugues_01
+	break
+	SP-Complexe_Lonne_Peyret-Bourrugues_02
+endmap
+
+map MC-Complexe_Lonne_Peyret-Bourrugues-coupe-tot -title "Complexe_Lonne_Peyret-Bourrugues"
+	SC-Complexe_Lonne_Peyret-Bourrugues_01
+	break
+	SC-Complexe_Lonne_Peyret-Bourrugues_02
+endmap

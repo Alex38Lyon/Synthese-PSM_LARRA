@@ -1,0 +1,22 @@
+therion 6.3.1 (2024-11-22)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: B3_Aval.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+processing projection plan ... done
+writing Data/B3_Aval-map.xvi ... done
+writing Outputs/B3_Aval.lox ... done
+C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+writing Outputs/B3_Aval-Cave-list.html ... done
+writing Outputs/B3_Aval-Surveys.html ... done
+compilation time: 0 sec

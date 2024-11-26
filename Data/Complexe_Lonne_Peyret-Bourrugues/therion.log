@@ -1,0 +1,95 @@
+therion 6.3.1 (2024-11-22)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: Complexe_Lonne_Peyret-Bourrugues.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+output coordinate system: UTM30
+meridian convergence (deg): -1.5328
+geomag declinations (deg):
+  1990.1.1  -3.5730
+  1991.1.1  -3.4562
+  1992.1.1  -3.3394
+  1993.1.1  -3.2228
+  1994.1.1  -3.1063
+  1995.1.1  -2.9900
+  1996.1.1  -2.8500
+  1997.1.1  -2.7102
+  1998.1.1  -2.5706
+  1999.1.1  -2.4312
+  2000.1.1  -2.2919
+  2001.1.1  -2.1670
+  2002.1.1  -2.0421
+  2003.1.1  -1.9175
+  2004.1.1  -1.7930
+  2005.1.1  -1.6687
+  2006.1.1  -1.5449
+  2007.1.1  -1.4214
+  2008.1.1  -1.2981
+  2009.1.1  -1.1750
+  2010.1.1  -1.0522
+  2011.1.1  -0.9145
+  2012.1.1  -0.7770
+  2013.1.1  -0.6398
+  2014.1.1  -0.5028
+  2015.1.1  -0.3660
+  2016.1.1  -0.2105
+  2017.1.1  -0.0552
+  2018.1.1  0.0998
+  2019.1.1  0.2545
+  2020.1.1  0.4090
+  2021.1.1  0.5750
+  2022.1.1  0.7407
+  2023.1.1  0.9061
+  2024.1.1  1.0713
+  2025.1.1  1.2362
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+writing Outputs/Complexe_Lonne_Peyret-Bourrugues.lox ...
+processing projection plan ... done
+average distortion: 0.40%
+.................. done
+writing Outputs/Complexe_Lonne_Peyret-Bourrugues.kml ... done
+writing Outputs/Complexe_Lonne_Peyret-Bourrugues-Cave-list.html ... done
+writing Outputs/Complexe_Lonne_Peyret-Bourrugues-Surveys.html ... done
+compilation time: 1 sec
+
+
+###################### scrap distortions #######################
+ PROJECTION: plan
+ AVERAGE  MAXIMAL  SCRAP
+   0.99%   48.06%  SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   1.61%   43.83%  SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   1.31%   33.28%  SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.24%   33.23%  SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.86%   32.13%  SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   5.40%   29.50%  SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.11%   25.56%  SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.06%    9.50%  SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.24%    6.63%  SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.09%    3.68%  SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.03%    0.63%  SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.01%    0.36%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.04%    0.21%  SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.01%    0.17%  SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.01%    0.16%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.01%    0.09%  SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.00%  scrap339@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.00%  scrap51@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+################### end of scrap distortions ###################
+
+############# CRS transformations chosen by PROJ ###############
+  Area of Use (AoU): (-0.764, 42.976) (-0.741, 42.978)
+  [UTM30 → LONG-LAT] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 → LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 → UTM30] AoU: [yes] transformation: [Inverse of UTM zone 30N + UTM zone 30N] definition: [proj=noop ellps=GRS80] accuracy: [0.000 m]
+  [UTM30 → EPSG:4326] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [EPSG:4326 → UTM30] AoU: [yes] transformation: [axis order change (2D) + UTM zone 30N] definition: [proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=30 ellps=WGS84] accuracy: [0.000 m]
+########## end of CRS transformations chosen by PROJ ###########

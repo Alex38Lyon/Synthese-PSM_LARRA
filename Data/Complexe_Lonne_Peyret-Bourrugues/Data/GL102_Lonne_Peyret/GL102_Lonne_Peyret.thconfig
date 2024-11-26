@@ -29,7 +29,7 @@ encoding  utf-8
 # les donnees du dessin, comme ça, ce fichier thconfig appellera
 # "jb.th" et a leur tour, "jb.th" appellera
 # "jb-dessin.th2")
-source Lonne_Peyret-tot.th
+source GL102_Lonne_Peyret-tot.th
 
 # Add Coordinates
 input legendes/entrances_coordinates.th
@@ -427,7 +427,7 @@ layout layout-coupe-plan
 	endcode
 	
 	## add extended-elev on the same pdf
-	map-image 0 0 nw Outputs/Lonne_Peyret-Plan-LT.pdf
+	map-image 0 0 nw Outputs/GL102_Lonne_Peyret-Plan-LT.pdf
 	
 endlayout
 
@@ -646,37 +646,37 @@ endlayout
 # 3-EXPORT
 
 # Export des xvi pour le dessin si besoin
-#export map -fmt xvi -layout xviexport -o Data/Lonne_Peyret-map.xvi
-#export map -proj extended -layout xviexport -fmt xvi -o Data/Lonne_Peyret-coupe.xvi
+#export map -fmt xvi -layout xviexport -o Data/GL102_Lonne_Peyret-map.xvi
+#export map -proj extended -layout xviexport -fmt xvi -o Data/GL102_Lonne_Peyret-coupe.xvi
 
 # Selection des Maps à exporter
-select MC-GL102_Gouffre_du_Lonne_Peyret_tot@Gouffre_du_Lonne_Peyret
-select MP-GL102_Gouffre_du_Lonne_Peyret@Gouffre_du_Lonne_Peyret
+select MC-GL102_Gouffre_du_GL102_Lonne_Peyret_tot@Gouffre_du_GL102_Lonne_Peyret
+select MP-GL102_Gouffre_du_GL102_Lonne_Peyret@Gouffre_du_GL102_Lonne_Peyret
 
 
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
-export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/Lonne_Peyret-Coupe.pdf
-#export map -projection extended -fmt pdf -layout layout-coupe-LT -o Outputs/Lonne_Peyret-Coupe-LT.pdf
-#export map -projection plan -fmt pdf -layout layout-plan-LT -o Outputs/Lonne_Peyret-Plan-LT.pdf
-export map -projection plan -fmt pdf -layout my_layout -o Outputs/Lonne_Peyret-Plan.pdf
-#export map -projection extended -fmt pdf -layout layout-coupe-plan -o Outputs/Lonne_Peyret-Coupe-Plan.pdf
+export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Lonne_Peyret-Coupe.pdf
+#export map -projection extended -fmt pdf -layout layout-coupe-LT -o Outputs/GL102_Lonne_Peyret-Coupe-LT.pdf
+#export map -projection plan -fmt pdf -layout layout-plan-LT -o Outputs/GL102_Lonne_Peyret-Plan-LT.pdf
+export map -projection plan -fmt pdf -layout my_layout -o Outputs/GL102_Lonne_Peyret-Plan.pdf
+#export map -projection extended -fmt pdf -layout layout-coupe-plan -o Outputs/GL102_Lonne_Peyret-Coupe-Plan.pdf
 
 
 # Export du fichier 3d pour Loch
-export model -enable all -o Outputs/Lonne_Peyret.lox
-export model -enable all -o Outputs/Lonne_Peyret.plt
-export model -enable all -o Outputs/Lonne_Peyret.kml
+export model -enable all -o Outputs/GL102_Lonne_Peyret.lox
+export model -enable all -o Outputs/GL102_Lonne_Peyret.plt
+export model -enable all -o Outputs/GL102_Lonne_Peyret.kml
 
 # Export de la database sql
-export database -fmt sql -o Outputs/Lonne_Peyret.sql
+export database -fmt sql -o Outputs/GL102_Lonne_Peyret.sql
 
 # Export des fichiers ESRI
-#export map -proj plan -fmt esri -o Outputs/Lonne_Peyret
+#export map -proj plan -fmt esri -o Outputs/GL102_Lonne_Peyret
 
 # Export des fichiers kml
-#export map -proj plan -fmt kml -o Outputs/Lonne_Peyret.kml -layout layout-kml
-#export model -fmt kml -o Outputs/Lonne_Peyret-model.kml -enable all
-#export model -enable all -o Outputs/Lonne_Peyret-3D.kml
-export cave-list -location on -o Outputs/Lonne_Peyret.html
+#export map -proj plan -fmt kml -o Outputs/GL102_Lonne_Peyret.kml -layout layout-kml
+#export model -fmt kml -o Outputs/GL102_Lonne_Peyret-model.kml -enable all
+#export model -enable all -o Outputs/GL102_Lonne_Peyret-3D.kml
+export cave-list -location on -o Outputs/GL102_Lonne_Peyret.html
 export survey-list -location on -o Outputs/Surveys.html

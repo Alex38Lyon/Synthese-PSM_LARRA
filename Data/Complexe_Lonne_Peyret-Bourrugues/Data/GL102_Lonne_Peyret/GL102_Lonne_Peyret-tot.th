@@ -41,6 +41,6 @@ survey Gouffre_du_Lonne_Peyret -title "Gouffre du Lonné Peyret"
 	join	SC-GL102_Amont_01A SC-GL4_01A
 	
 	# Import des maps
-	input Lonne_Peyret-maps.th
+	input GL102_Lonne_Peyret-maps.th
 	
 endsurvey

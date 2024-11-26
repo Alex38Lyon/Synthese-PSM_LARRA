@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>B3_Entree-Surveys.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="javascript">
+function xTree(node)
+{
+  var fsub = true;
+  var show = false;
+  var last = node.length;
+  var all = document.getElementsByTagName("tr");
+  for(i = 1; i < all.length; i++) {
+    if ((all[i].id.length > node.length) && (all[i].id.substr(0, node.length) == node)) {
+      if (fsub) {
+        fsub = false;
+        show = (all[i].style.display == "none");
+        last = all[i].id.lastIndexOf(".");
+      }
+      if (show) {
+        if (all[i].id.lastIndexOf(".") == last)
+        all[i].style.display = "";
+      } else {
+        all[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+<style type="text/css">
+body {font-family: Verdana, Helvetica, Arial, sans-serif; line-height: 1.5;}
+table {font-size:80%; border-spacing: 0px;}
+th {border-bottom:2px solid #a7a9aa; padding-left:8px; padding-right:8px; padding-top:0px; padding-bottom:1px;}
+td {border-bottom:1px solid #a7a9aa; padding-left:8px; padding-right:8px; padding-top:0px; padding-bottom:0px;}
+</style>
+</head>
+<body>
+<table>
+<tr><th align="left">Title</th><th align="right">Length</th><th align="right">Depth</th><th align="right">Explored</th><th align="right">Approx.</th><th align="right">Duplicate</th><th align="right">Surface</th><th align="right">Shots</th><th align="right">Stations</th></tr>
+<tr id="B3_Entree"><td align="left" style="padding-left: 0px"><a href="javascript:xTree('B3_Entree')">B3_Entree</a></td><td align="right">1636</td><td align="right">357</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">187</td><td align="right">193</td></tr>
+<tr id="B3_Entree.B3_Entree"><td align="left" style="padding-left: 12px">Gouffre des Bourrugues B3 : Puits d'entrée</td><td align="right">341</td><td align="right">263</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">44</td><td align="right">45</td></tr>
+<tr id="B3_Entree.B3_Aval_02"><td align="left" style="padding-left: 12px">Gouffre des Bourrugues B3 Aval Séance 2 : Base des puits… à la jonction du shunt-actif</td><td align="right">351</td><td align="right">32</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">41</td><td align="right">42</td></tr>
+<tr id="B3_Entree.B3_Aval_03"><td align="left" style="padding-left: 12px">Gouffre des Bourrugues B3 Aval Séance 3 : de la sortie du shunt vers l'amont</td><td align="right">119</td><td align="right">1</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">20</td><td align="right">21</td></tr>
+<tr id="B3_Entree.B3_Aval_04"><td align="left" style="padding-left: 12px">Gouffre des Bourrugues B3 Aval Séance 4 : de la sortie du shunt au siphon terminal</td><td align="right">291</td><td align="right">47</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">26</td><td align="right">27</td></tr>
+<tr id="B3_Entree.B3_Aval_05"><td align="left" style="padding-left: 12px">Gouffre des Bourrugues B3 Aval Séance 5</td><td align="right">232</td><td align="right">14</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">28</td><td align="right">29</td></tr>
+<tr id="B3_Entree.B3_Aval_06"><td align="left" style="padding-left: 12px">Gouffre des Bourrugues B3 Aval Séance 6</td><td align="right">302</td><td align="right">17</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">0</td><td align="right">28</td><td align="right">29</td></tr>
+</table>
+</body>
+</html>
