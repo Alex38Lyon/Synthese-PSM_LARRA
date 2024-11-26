@@ -1,0 +1,58 @@
+therion 6.3.1 (2024-11-22)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: AP7_Arres_Planeres.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+output coordinate system: UTM30
+meridian convergence (deg): -1.5403
+geomag declinations (deg):
+  2006.1.1  -1.5412
+  2007.1.1  -1.4178
+  2008.1.1  -1.2945
+  2009.1.1  -1.1714
+  2010.1.1  -1.0486
+  2011.1.1  -0.9110
+  2012.1.1  -0.7735
+  2013.1.1  -0.6363
+  2014.1.1  -0.4994
+  2015.1.1  -0.3626
+  2016.1.1  -0.2071
+  2017.1.1  -0.0519
+  2018.1.1  0.1031
+  2019.1.1  0.2578
+  2020.1.1  0.4122
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+average loop error: 1.46%
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+writing Outputs/AP7_Arres_Planeres.lox ...
+processing projection plan ... done
+ done
+writing Outputs/AP7_Arres_Planeres.kml ... done
+writing Outputs/AP7_Arres_Planeres-Cave-list.html ... done
+writing Outputs/AP7_Arres_Planeres-Surveys.html ... done
+compilation time: 0 sec
+
+
+######################### loop errors ##########################
+REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
+  4.61%    1.0m   20.7m   7   -0.8m   -0.4m    0.3m [SF48@AP7_Entree.AP7_Arres_Planeres - SF54 - SF53 - SF52 - SF51 - SF50 - SF49 - SF48]
+  2.46%    2.7m  108.0m  27   -0.0m   -0.0m   -2.7m [GN05@AP7_Entree.AP7_Arres_Planeres - Y01 - Y02 - Y03 - Y04 - Y05 - Y06 - Y07 - Z19 - Z18 - Z17 - Z16 - Z15 - Z14 - Z13 - Z12 - Z11 - Z10 - Z03 - Z02 - Z01 - Z00 - RN01 - GN01 - GN02 - GN03 - GN04 - GN05]
+  0.18%    0.3m  167.2m  38   -0.0m   -0.0m   -0.3m [Z03@AP7_Entree.AP7_Arres_Planeres - Z04 - Z05 - Z06 - Z07 - Z08 - C17 - C16 - C15 - C14 - C13 - C12 - C11 - C10 - C09 - C08 - C07 - C06 - C05 - C04 - C03 - C02 - C01 - RN20 - RN11 - RN10 - RN09 - RN08 - RN07 - RN06 - RN05 - RN04 - RN03 - RN02 - RN01 - Z00 - Z01 - Z02 - Z03]
+##################### end of loop errors #######################
+
+############# CRS transformations chosen by PROJ ###############
+  Area of Use (AoU): (-0.741, 42.974) (-0.741, 42.974)
+  [UTM30 → LONG-LAT] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 → LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 → UTM30] AoU: [yes] transformation: [Inverse of UTM zone 30N + UTM zone 30N] definition: [proj=noop ellps=GRS80] accuracy: [0.000 m]
+  [UTM30 → EPSG:4326] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [EPSG:4326 → UTM30] AoU: [yes] transformation: [axis order change (2D) + UTM zone 30N] definition: [proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=30 ellps=WGS84] accuracy: [0.000 m]
+########## end of CRS transformations chosen by PROJ ###########

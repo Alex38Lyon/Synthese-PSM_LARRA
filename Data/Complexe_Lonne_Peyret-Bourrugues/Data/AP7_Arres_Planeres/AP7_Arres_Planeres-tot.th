@@ -6,17 +6,16 @@ encoding utf-8
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
-survey Complexe_Lonne_Peyret-Bourrugues -title "Complexe Lonné Peyret-Bourrugues"
-	input Data/B3_Bourrugues/B3_Bourrugues-tot.th
-	input Data/GL102_Lonne_Peyret/GL102_Lonne_Peyret-tot.th
-	input Data/AP7_Arres_Planeres/AP7_Arres_Planeres-tot.th
+survey AP7_Arres_Planeres -title "AP7 Arres Planères"
+	input Data/AP7_Entree.th
+	
 	## Pour le plan
-	# input Data/Complexe_Lonne_Peyret-Bourrugues-plan.th2
+	# input Data/AP7_Arres_Planeres-plan.th2
 	
 	## Pour la coupe développée
-	# input Data/Complexe_Lonne_Peyret-Bourrugues-coupe.th2
+	# input Data/AP7_Arres_Planeres-coupe.th2
 	
 	## Appel des maps
-	# input Complexe_Lonne_Peyret-Bourrugues-maps.th
+	# input AP7_Arres_Planeres-maps.th
 	
 endsurvey
