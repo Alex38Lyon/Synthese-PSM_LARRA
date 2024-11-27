@@ -13,13 +13,14 @@ survey B3_Entree -title "B3 Entree"
 	equate B-00@B3_Entree_02 B-00@B3_Entree_04
 	equate C-09@B3_Entree_04 C-09@B3_Entree_05
 	equate C-00@B3_Entree_04 C-00@B3_Entree_06
+	
 	## Pour le plan
-	# input Data/B3_Entree-plan.th2
+	input Data/B3_Entree-plan.th2
 	
 	## Pour la coupe développée
-	# input Data/B3_Entree-coupe.th2
+	input Data/B3_Entree-coupe.th2
 	
 	## Appel des maps
-	# input B3_Entree-maps.th
+	input B3_Entree-maps.th
 	
 endsurvey

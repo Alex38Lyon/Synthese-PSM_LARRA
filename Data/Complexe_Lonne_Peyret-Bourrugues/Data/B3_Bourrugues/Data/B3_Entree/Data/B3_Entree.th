@@ -31,7 +31,7 @@ survey B3_Entree_01 -title "Gouffre des Bourrugues B3, entrée 01 : puits d'entr
 		units clino degrees
 		
 		data topofil from to fromcount tocount compass clino left right up down
-		
+		extend right
 		B_3        A-00             0.0       0.0    0.00    0.00   0.00   0.00   0.00   0.00
 		A-00       A-01             0.0     500.0   69.00   -6.00   0.00   1.20   0.00   5.50 # N I
 		A-01       A-02             0.0     550.0    0.00  -90.00   0.50   0.50   5.50   2.00 # N I
@@ -74,6 +74,7 @@ survey B3_Entree_01 -title "Gouffre des Bourrugues B3, entrée 01 : puits d'entr
 		A-38       A-39             0.0    1310.0  189.00  -72.00   1.00   1.00   1.00   1.00 # N I
 		A-39       A-40             0.0     980.0  321.00  -86.00   0.20   0.30   1.00   1.00 # N I
 		A-40       A-41             0.0    2515.0  316.00  -78.00   0.00   1.00  22.00   1.75 # N I
+		extend left
 		A-41       A-42             0.0      80.0  343.00    4.00   0.30   0.20   1.00   1.75 # N I
 		A-42       A-43             0.0     150.0  317.00    5.00   1.00   0.00   3.00   1.75 # N I
 	endcenterline
@@ -106,7 +107,7 @@ survey B3_Entree_02 -title "Gouffre des Bourrugues B3, entrée 02 : base des pui
 		units clino degrees
 		
 		data topofil from to fromcount tocount backcompass backclino left right up down
-		
+		extend left
 		A-43       B-40             0.0     360.0   83.00    8.00   0.00   1.10   3.00   1.75 # # N I * N
 		B-40       B-39             0.0     980.0  133.00    5.00   0.00   1.00   3.00   1.75 # # N I * N
 		B-39       B-38             0.0     660.0  138.00    6.00   0.00   0.00   0.00   0.00 # # N I * N
@@ -181,7 +182,7 @@ survey B3_Entree_03 -title "Gouffre des Bourrugues B3, entrée 03 : de la sortie
 		units clino degrees
 		
 		data topofil from to fromcount tocount compass clino # left right up down
-		
+		extend right
 		B-00       F-01             0.0    1105.0  168.00    2.00   #    *      *      *      * I I * N
 		F-01       F-02             0.0     455.0   80.00    1.00   #    *      *      *      * # N I * N
 		F-02       F-03             0.0     715.0  158.00    3.00   #    *      *      *      * # N I * N
@@ -234,7 +235,7 @@ survey B3_Entree_04 -title "Gouffre des Bourrugues B3, entrée 04 : de la sortie
 		units clino degrees
 		
 		data topofil from to fromcount tocount backcompass backclino left right up down
-		
+		extend left
 		B-00       C-25             0.0    2200.0  170.00    9.00   0.60   0.60   6.00   1.70 # N I * N
 		C-25       C-24             0.0    2000.0  162.00    8.00   1.50   0.00   6.00   1.70 # N I * N
 		C-24       C-23             0.0     440.0  119.00   10.00   1.10   0.00   5.00   1.70 # N I * N
@@ -293,7 +294,7 @@ survey B3_Entree_05 -title "Gouffre des Bourrugues B3, entrée 05 : à partir du
 		units clino degrees
 		
 		data topofil from to fromcount tocount compass clino # left right up down
-		
+		extend left
 		C-09       D-01             0.0     280.0   70.00    8.00   #    *      *      *      * N I * N
 		D-01       D-02             0.0     780.0  352.00   54.00   #    *      *      *      * N I * N
 		D-02       D-03             0.0     540.0   66.00   59.00   #    *      *      *      * N I * N
@@ -307,6 +308,7 @@ survey B3_Entree_05 -title "Gouffre des Bourrugues B3, entrée 05 : à partir du
 		D-10       D-11             0.0     350.0    0.00   90.00   #    *      *      *      * N I * N
 		D-11       D-12             0.0    1430.0  256.00   -2.00   #    *      *      *      * N I * N
 		D-12       D-13             0.0     450.0  272.00   -8.00   #    *      *      *      * N I * N ;A partir de C-09 Shunt de la main courante. E-00 = C-09 ;
+		extend right
 		C-09       E-01             0.0    1210.0  166.00    8.00   #    *      *      *      * I I * N
 		E-01       E-02             0.0     240.0  116.00   31.00   #    *      *      *      * N I * N
 		E-02       E-03             0.0     880.0  174.00   13.00   #    *      *      *      * N I * N
@@ -352,7 +354,7 @@ survey B3_Entree_06 -title "Gouffre des Bourrugues B3, entrée 06 : à partir du
 		units clino degrees
 		
 		data topofil from to fromcount tocount compass clino # left right up down
-		
+		extend left
 		C-00       SIPH-01          0.0    1170.0  285.00  -23.70   #    *      *      *      * N I * N
 		SIPH-01    SIPH-02          0.0    1270.0  280.00   21.70   #    *      *      *      * N I * N
 		SIPH-02    SIPH-03          0.0     750.0   20.00    0.00   #    *      *      *      * N I * N

@@ -20,12 +20,182 @@ processing extended elevation ... done
 processing references ... done
 selecting export objects ... done
 processing projection plan ... done
+average distortion: 0.21%
 writing Data/B3_Entree-map.xvi ... done
-writing Outputs/B3_Entree.lox ... done
+processing projection extended ... done
+average distortion: 0.25%
+writing Data/B3_Entree-coupe.xvi ... done
+
+
+############### export maps & scraps selection #################
+M     0.00 MC-B3_Entree-coupe-tot@B3_Entree (B3_Entree)
+S     0.00 SC-B3_Entree_01@B3_Entree ()
+S     0.00 SC-B3_Entree_02@B3_Entree ()
+S     -.-- SC-B3_Entree_03@B3_Entree ()
+S     0.00 SC-B3_Entree_04@B3_Entree ()
+S     -.-- SC-B3_Entree_05@B3_Entree ()
+S     0.00 SC-B3_Entree_06@B3_Entree ()
+########## end of export maps & scraps selection ###############
+writing Outputs/B3_Entree-Coupe.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  27 NOV 2024 19:09
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] (./mptextmp.mp) [11]
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] )
+ 
+Here is how much of MetaPost's memory you used:
+ 20316 strings using 585445 characters
+ 4004144 bytes of node memory
+ 1746 symbolic tokens
+ 9i,82n,16p,312b,5f stack positions out of 16i,98n,20p,312b,6f
+36 output files written: data-patt.1 .. data.21
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  27 NOV 2024 19:09
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 70 numeric registers used out of 32768
+
+[1] ) 
+Here is how much of TeX's memory you used:
+ 334 strings out of 95671
+ 4399 string characters out of 1192323
+ 82993 words of memory out of 1568036
+ 1727 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/T
+herion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/type
+1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 124278 bytes).
+PDF statistics:
+ 92 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 199 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+
+
+############### export maps & scraps selection #################
+M  1352.94 MP-B3_Entree-plan-tot@B3_Entree (B3 Entrée (plan))
+S  1517.51 SP-B3_Entree_01@B3_Entree ()
+S  1397.27 SP-B3_Entree_01B@B3_Entree ()
+S  1342.30 SP-B3_Entree_02@B3_Entree ()
+S  1326.22 SP-B3_Entree_03@B3_Entree ()
+S  1302.89 SP-B3_Entree_04@B3_Entree ()
+S  1310.27 SP-B3_Entree_05@B3_Entree ()
+S  1274.10 SP-B3_Entree_06@B3_Entree ()
+########## end of export maps & scraps selection ###############
+writing Outputs/B3_Entree-Plan.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  27 NOV 2024 19:09
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+[17] [18] [19] (./mptextmp.mp) [20] (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [21] [22] [23]
+[24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
+[39] [40] [41] [42] )
+ 
+Here is how much of MetaPost's memory you used:
+ 11745 strings using 266789 characters
+ 4039392 bytes of node memory
+ 1747 symbolic tokens
+ 9i,82n,16p,312b,5f stack positions out of 16i,98n,20p,312b,6f
+57 output files written: data-patt.1 .. data.42
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  27 NOV 2024 19:09
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 97 numeric registers used out of 32768
+
+[1] )
+(\end occurred when \ifx on line 12 was incomplete) 
+Here is how much of TeX's memory you used:
+ 361 strings out of 95671
+ 4675 string characters out of 1192323
+ 65934 words of memory out of 1548977
+ 1754 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/te
+xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
+pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
+erion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 126548 bytes).
+PDF statistics:
+ 152 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 379 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+writing Outputs/B3_Entree.lox .......... done
 writing Outputs/B3_Entree.kml ... done
 writing Outputs/B3_Entree-Cave-list.html ... done
 writing Outputs/B3_Entree-Surveys.html ... done
-compilation time: 0 sec
+compilation time: 3 sec
+
+
+###################### scrap distortions #######################
+ PROJECTION: plan
+ AVERAGE  MAXIMAL  SCRAP
+   7.18%  100.00%  SP-B3_Entree_04@B3_Entree
+   0.15%   47.47%  SP-B3_Entree_01@B3_Entree
+   1.08%    9.24%  SP-B3_Entree_01B@B3_Entree
+   0.01%    1.81%  SP-B3_Entree_02@B3_Entree
+   0.03%    0.93%  SP-B3_Entree_05@B3_Entree
+   0.03%    0.73%  SP-B3_Entree_06@B3_Entree
+   0.00%    0.02%  SP-B3_Entree_03@B3_Entree
+################### end of scrap distortions ###################
+
+
+###################### scrap distortions #######################
+ PROJECTION: extended
+ AVERAGE  MAXIMAL  SCRAP
+   2.75%  100.00%  SC-B3_Entree_02@B3_Entree
+   0.06%    7.30%  SC-B3_Entree_06@B3_Entree
+   0.09%    4.75%  SC-B3_Entree_01@B3_Entree
+   0.00%    0.01%  SC-B3_Entree_04@B3_Entree
+   0.00%    0.00%  SC-B3_Entree_03@B3_Entree
+   0.00%    0.00%  SC-B3_Entree_05@B3_Entree
+################### end of scrap distortions ###################
 
 ############# CRS transformations chosen by PROJ ###############
   Area of Use (AoU): (-0.741, 42.978) (-0.741, 42.978)

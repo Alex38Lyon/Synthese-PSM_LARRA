@@ -5,14 +5,14 @@
 <Style id="ThSurveyLineSurf"> <LineStyle> <color>ffcccccc</color> <width>1</width> </LineStyle> </Style>
 <Style id="ThEntranceIcon"> <IconStyle> <Icon> <href>https://therion.speleo.sk/downloads/KmlIconEntrance.png</href> </Icon> <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction" /> </IconStyle> </Style>
 <Icon> <href>https://therion.speleo.sk/downloads/KmlIconModel.png</href> </Icon>
-<name><![CDATA[B3_Entree]]></name>
+<name><![CDATA[B3 Entree]]></name>
 <description><![CDATA[Length 1636 m<br>Depth 357 m]]></description>
 <Placemark>
 <styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[B3-Bourrugues]]></name>
 <Point> <coordinates>-0.74063139465021,42.97818335316136,1620.00000000000000</coordinates> </Point>
 </Placemark>
 <Folder>
-<name><![CDATA[Gouffre des Bourrugues B3 : Puits d'entrée]]></name>
+<name><![CDATA[Gouffre des Bourrugues B3, entrée 01 : puits d'entrée]]></name>
 <Placemark>
 <name>B_3</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -24,7 +24,7 @@
 </Placemark>
 </Folder>
 <Folder>
-<name><![CDATA[Gouffre des Bourrugues B3 Aval Séance 2 : Base des puits… à la jonction du shunt-actif]]></name>
+<name><![CDATA[Gouffre des Bourrugues B3, entrée 02 : base des puits… à la jonction du shunt-actif]]></name>
 <Placemark>
 <name>A-43</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -36,7 +36,7 @@
 </Placemark>
 </Folder>
 <Folder>
-<name><![CDATA[Gouffre des Bourrugues B3 Aval Séance 3 : de la sortie du shunt vers l'amont]]></name>
+<name><![CDATA[Gouffre des Bourrugues B3, entrée 03 : de la sortie du shunt vers l'amont]]></name>
 <Placemark>
 <name>B-00</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -54,7 +54,7 @@
 </Placemark>
 </Folder>
 <Folder>
-<name><![CDATA[Gouffre des Bourrugues B3 Aval Séance 4 : de la sortie du shunt au siphon terminal]]></name>
+<name><![CDATA[Gouffre des Bourrugues B3, entrée 04 : de la sortie du shunt au siphon terminal]]></name>
 <Placemark>
 <name>B-00</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -66,7 +66,7 @@
 </Placemark>
 </Folder>
 <Folder>
-<name><![CDATA[Gouffre des Bourrugues B3 Aval Séance 5]]></name>
+<name><![CDATA[Gouffre des Bourrugues B3, entrée 05 : à partir du point C-09]]></name>
 <Placemark>
 <name>C-09</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -81,7 +81,7 @@
 </Placemark>
 </Folder>
 <Folder>
-<name><![CDATA[Gouffre des Bourrugues B3 Aval Séance 6]]></name>
+<name><![CDATA[Gouffre des Bourrugues B3, entrée 06 : à partir du point C-00, siphon 1 et siphon 2]]></name>
 <Placemark>
 <name>C-00</name>
 <styleUrl>#ThSurveyLine</styleUrl>
