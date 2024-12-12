@@ -214,15 +214,15 @@ survey B3_Amonts_03 -title "Gouffre des Bourrugues B3, amonts 03 : galerie des c
 		
 		data topofil from to length compass clino left right up down
 		
-		J09        0                         0.00    0.00    0.00   0.80   1.30   2.90   1.90 # N I * N ;point J5 réseau amont Est - perte descente de 5m - à3m en hauteur arrivée affluent 1 gauche;
+		J09        0                         0.00    0.00    0.00   0.80   1.30   2.90   1.90 # N I * N ;point J5 réseau amont Est - perte descente de 5m - à 3m en hauteur arrivée affluent 1 gauche;
 		0          1                         5.60   15.00    5.00   0.90   0.70   8.70   1.00 # N I * N ;affluent gauche : cheminée E3m carrefour Gauche retour au-dessus entre point 1 & 2 - Droite retour sortie salle du Bivouac;
 		1          2                         5.60   80.00   15.00   1.40   1.30  12.60   1.00 # N I * N ;cheminée - arrivée en hauteur affluent D point 7;
 		2          3                         7.40   67.00  -10.00   0.90   0.40   1.40   1.00 # N I * N
-		3          4                         5.40   90.00    0.00   0.50   0.50   1.30   1.00 # N I * N ;à2m avant point 5 : affluent Droite 5m nt sans continuation;
+		3          4                         5.40   90.00    0.00   0.50   0.50   1.30   1.00 # N I * N ;à 2m avant point 5 : affluent Droite 5m nt sans continuation;
 		4          5                         8.80   97.00   16.00   0.90   0.50   1.10   1.00 # N I * N ;affluent en face carrefour Gauche fossile Droite vers affluent point 7;
 		5          6                         5.70   84.00  -17.00   0.50   0.40   1.70   1.00 # N I * N
 		6          7                        11.00   91.00  -11.00   1.40   1.90   1.30   1.00 # N I * N ;affluent Droite actif salle carrefour G arrêt sur P D carrefour D vers point 5 Gauche E carrefour D vers point 2 G vaste salle base E40 continue vers P nt;
-		7          8                        13.50   75.00    2.00   0.40   0.50   1.90   1.00 # N I * N ;affluent Droite (en face) fossile 35m laminroir 0.6x2 étroiture boueuse rejoint point 17;
+		7          8                        13.50   75.00    2.00   0.40   0.50   1.90   1.00 # N I * N ;affluent Droite (en face) fossile 35m laminoir 0.6x2 étroiture boueuse rejoint point 17;
 		8          9                        10.70  325.00    1.00   0.20   1.20   1.30   1.00 # N I * N
 		9          10                       16.60   85.00   -1.00   0.40   0.50   1.60   1.00 # N I * N
 		10         11                        5.60  110.00    1.00   0.00   0.70   1.10   1.00 # N I * N
@@ -268,7 +268,7 @@ survey B3_Amonts_03 -title "Gouffre des Bourrugues B3, amonts 03 : galerie des c
 		39K        39L                       5.70  304.00   -8.00   0.40   0.00   4.20   1.30 # N I * N
 		39L        39M                       1.80  250.00    6.00   0.00   0.70   4.00   1.30 # N I * N
 		39M        39N                       7.70  305.00   -2.00   0.70   0.00   3.50   1.50 # N I * N
-		39N        39O                       3.60  276.00  -10.00   0.05   0.70   4.60   0.90 # N I * N ;affluent actif Gauche 5 à 10 l/mn remonté sur qqs m (probablement celui pasant sous la galerie principale point 34-35);
+		39N        39O                       3.60  276.00  -10.00   0.05   0.70   4.60   0.90 # N I * N ;affluent actif Gauche 5 à 10 l/mn remonté sur qqs m (probablement celui passant sous la galerie principale point 34-35);
 		39O        39P                       8.50  307.00    0.00   0.50   0.00   3.80   0.85 # N I * N
 		39P        39Q                      12.80  305.00    2.00   0.60   0.00   3.00   1.60 # N I * N
 		39Q        39R                       9.80  298.00   -6.00   0.80   1.00   2.50   0.90 # N I * N ;double diffluence à gauche boucle avec point 39V : 1er boyau à+1 colmaté à mi-hauteur par conglomérats / 2ème boyau à+1 en conduite forcée;

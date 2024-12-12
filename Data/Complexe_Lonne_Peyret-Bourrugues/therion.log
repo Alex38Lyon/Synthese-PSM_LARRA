@@ -55,12 +55,15 @@ processing references ... done
 selecting export objects ... done
 writing Outputs/Complexe_Lonne_Peyret-Bourrugues.lox ...
 processing projection plan ... done
-average distortion: 0.40%
-.................. done
+average distortion: 0.22%
+......
+C:\Program Files\Therion\therion.exe: warning -- SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues -- multiple scrap outer outlines not supported yet
+............................. done
 writing Outputs/Complexe_Lonne_Peyret-Bourrugues.kml ... done
+writing Outputs/SHP/therion ... done
 writing Outputs/Complexe_Lonne_Peyret-Bourrugues-Cave-list.html ... done
 writing Outputs/Complexe_Lonne_Peyret-Bourrugues-Surveys.html ... done
-compilation time: 1 sec
+compilation time: 28 sec
 
 
 ######################### loop errors ##########################
@@ -74,22 +77,39 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ###################### scrap distortions #######################
  PROJECTION: plan
  AVERAGE  MAXIMAL  SCRAP
+   0.57%  100.00%  SP-B3_Aval_01B@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   0.20%   90.95%  SP-B3_Aval_01@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   0.13%   72.45%  SP-B3_Entree_06@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   4.10%   62.44%  SP-B3_Entree_01B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.99%   48.06%  SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.15%   47.47%  SP-B3_Entree_01@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    1.61%   43.83%  SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    1.31%   33.28%  SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.24%   33.23%  SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.86%   32.13%  SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    5.40%   29.50%  SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.11%   25.56%  SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.10%   25.28%  SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.06%    9.50%  SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.02%    7.83%  SP-B3_Aval_01D@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.24%    6.63%  SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.02%    4.14%  SP-B3_Aval_01A@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   0.01%    3.83%  SP-B3_Aval_02E@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.09%    3.68%  SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.05%    2.56%  SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   0.01%    1.81%  SP-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.03%    0.63%  SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.36%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.27%  SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.04%    0.21%  SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.17%  SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.16%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.09%  SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.04%  SP-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.03%  SP-B3_Amonts_02@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.03%  SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.02%  SP-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.01%  SP-B3_Aval_01C@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  scrap339@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  scrap51@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
 ################### end of scrap distortions ###################

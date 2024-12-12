@@ -73,7 +73,7 @@ layout my_layout
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 500
+	base-scale 1 1000
 	
 	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
@@ -110,7 +110,7 @@ layout my_layout
 	# Auteur
 	doc-author "Alexandre Pont"
 	# Titre
-	doc-title "B3 Entrée (plan) - 1:100"
+	doc-title "B3 Entrée (plan) - 1:500"
 	
 	# Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -145,7 +145,7 @@ layout my_layout
 	# symbol-hide line survey
 	# symbol-hide point u:symbol_plan
 	# symbol-hide point u:symbol_extend
-	#debug scrap-names
+	# debug scrap-names
 	# debug station-names
 	
 	
@@ -170,7 +170,7 @@ layout my_layout
 		reassign cavename to describe selected maps as a group
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\cavename={B3 Entrée, plan 1:100}
+		\cavename={B3 Entrée, plan 1:500}
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		\newtoks\wpage \wpage={https://www.arsip.fr/}
@@ -203,7 +203,7 @@ layout layout-coupe
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 500
+	base-scale 1 1000
 	
 	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
@@ -237,7 +237,7 @@ layout layout-coupe
 	# Auteur
 	doc-author "Alexandre Pont"
 	²# Titre
-	doc-title "B3 Entrée coupe développée - 1:250"
+	doc-title "B3 Entrée, coupe développée - 1:500"
 	
 	# Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -267,12 +267,12 @@ layout layout-coupe
 	statistics copyright 2
 	
 	# Dessin ou pas du cheminement topo
-	#symbol-hide point station
-	#symbol-hide line survey
-	#symbol-hide point u:symbol_plan
-	#symbol-hide point u:symbol_extend
+	# symbol-hide point station
+	# symbol-hide line survey
+	# symbol-hide point u:symbol_plan
+	# symbol-hide point u:symbol_extend
 	# debug scrap-names
-	debug station-names
+	# debug station-names
 	
 	
 	# color map-fg [100 100 80]
@@ -297,7 +297,7 @@ layout layout-coupe
 		reassign cavename to describe selected maps as a group
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\cavename={B3 Entrée, coupe développée}
+		\cavename={B3 Entrée, coupe développée 1:500}
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		\newtoks\wpage \wpage={https://www.arsip.fr/}

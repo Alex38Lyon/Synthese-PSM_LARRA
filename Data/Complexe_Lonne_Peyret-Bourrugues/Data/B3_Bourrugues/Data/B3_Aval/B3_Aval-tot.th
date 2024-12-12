@@ -11,12 +11,12 @@ survey B3_Aval -title "B3 Aval"
 	equate M-105@B3_Aval_01 M-105@B3_Aval_02
 	
 	## Pour le plan
-	# input Data/B3_Aval-plan.th2
+	input Data/B3_Aval-plan.th2
 	
 	## Pour la coupe développée
 	# input Data/B3_Aval-coupe.th2
 	
 	## Appel des maps
-	# input B3_Aval-maps.th
+	input B3_Aval-maps.th
 	
 endsurvey

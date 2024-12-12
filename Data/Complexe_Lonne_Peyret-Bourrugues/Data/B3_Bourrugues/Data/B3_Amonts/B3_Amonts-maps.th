@@ -6,14 +6,22 @@ encoding utf-8
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
-map MP-B3_Amonts-plan-tot -title "B3_Amonts"
+map MP-B3_Amonts-plan-tot -title "B3 Amonts"
 	SP-B3_Amonts_01
 	break
 	SP-B3_Amonts_02
+	break
+	SP-B3_Amonts_03
+	break
+	SP-B3_Amonts_04
 endmap
 
-map MC-B3_Amonts-coupe-tot -title "B3_Amonts"
-	SC-B3_Amonts_01
-	break
-	SC-B3_Amonts_02
-endmap
+# map MC-B3_Amonts-coupe-tot -title "B3 Amonts"
+# 	SC-B3_Amonts_01
+# 	break
+# 	SC-B3_Amonts_02
+# 	break
+# 	SC-B3_Amonts_03
+# 	# break
+# 	# SC-B3_Amonts_04
+# endmap

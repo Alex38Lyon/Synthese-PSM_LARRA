@@ -17,8 +17,8 @@ survey B3_Entree_01 -title "Gouffre des Bourrugues B3, entrée 01 : puits d'entr
 		explo-team "CDS 79"
 		explo-date 1990
 		explo-team "G.S. Gaves"
-		explo-team "SCMNF"
-		explo-team "ExploTerre"
+		# explo-team "SCMNF"
+		# explo-team "ExploTerre"
 		explo-team "G.S. Haut-Pyrénéen"
 		
 		
@@ -97,8 +97,8 @@ survey B3_Entree_02 -title "Gouffre des Bourrugues B3, entrée 02 : base des pui
 		explo-team "CDS 79"
 		explo-date 1990
 		explo-team "G.S. Gaves"
-		explo-team "SCMNF"
-		explo-team "ExploTerre"
+		# explo-team "SCMNF"
+		# explo-team "ExploTerre"
 		explo-team "G.S. Haut-Pyrénéen"
 		
 		
@@ -172,8 +172,8 @@ survey B3_Entree_03 -title "Gouffre des Bourrugues B3, entrée 03 : de la sortie
 		explo-team "CDS 79"
 		explo-date 1991
 		explo-team "G.S. Gaves"
-		explo-team "SCMNF"
-		explo-team "ExploTerre"
+		# explo-team "SCMNF"
+		# explo-team "ExploTerre"
 		explo-team "G.S. Haut-Pyrénéen"
 		
 		
@@ -225,8 +225,8 @@ survey B3_Entree_04 -title "Gouffre des Bourrugues B3, entrée 04 : de la sortie
 		explo-team "CDS 79"
 		explo-date 1990
 		explo-team "G.S. Gaves"
-		explo-team "SCMNF"
-		explo-team "ExploTerre"
+		# explo-team "SCMNF"
+		# explo-team "ExploTerre"
 		explo-team "G.S. Haut-Pyrénéen"
 		
 		
@@ -284,10 +284,9 @@ survey B3_Entree_05 -title "Gouffre des Bourrugues B3, entrée 05 : à partir du
 		explo-team "CDS 79"
 		explo-date 1990
 		explo-team "G.S. Gaves"
-		explo-team "SCMNF"
-		explo-team "ExploTerre"
+		# explo-team "SCMNF"
+		# explo-team "ExploTerre"
 		explo-team "G.S. Haut-Pyrénéen"
-		
 		
 		units counter centimeters
 		units compass degrees
@@ -344,8 +343,8 @@ survey B3_Entree_06 -title "Gouffre des Bourrugues B3, entrée 06 : à partir du
 		explo-team "CDS 79"
 		explo-date 1990
 		explo-team "G.S. Gaves"
-		explo-team "SCMNF"
-		explo-team "ExploTerre"
+		# explo-team "SCMNF"
+		# explo-team "ExploTerre"
 		explo-team "G.S. Haut-Pyrénéen"
 		
 		

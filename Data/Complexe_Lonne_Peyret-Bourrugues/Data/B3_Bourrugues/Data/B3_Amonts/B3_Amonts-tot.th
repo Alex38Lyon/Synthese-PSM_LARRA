@@ -12,12 +12,12 @@ survey B3_Amonts -title "B3 Amonts"
 	equate J09@B3_Amonts_01 J09@B3_Amonts_03
 	
 	## Pour le plan
-	# input Data/B3_Amonts-plan.th2
+	input Data/B3_Amonts-plan.th2
 	
 	## Pour la coupe développée
 	# input Data/B3_Amonts-coupe.th2
 	
 	## Appel des maps
-	# input B3_Amonts-maps.th
+	input B3_Amonts-maps.th
 	
 endsurvey

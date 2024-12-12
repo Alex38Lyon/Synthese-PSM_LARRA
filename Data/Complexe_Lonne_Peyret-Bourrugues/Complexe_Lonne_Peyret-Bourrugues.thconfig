@@ -347,7 +347,9 @@ export model -enable all -o Outputs/Complexe_Lonne_Peyret-Bourrugues.lox
 export model -enable all -o Outputs/Complexe_Lonne_Peyret-Bourrugues.kml
 
 # Export des fichiers ESRI
-#export map -proj plan -fmt esri -o Outputs/Complexe_Lonne_Peyret-Bourrugues
+export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
+export model -fmt esri -o Outputs/SHP/ -enc UTF-8
+#export map -proj plan -fmt esri -o Outputs/SHP/therion -layout my_layout -enc ASCII
 
 # Export des fichiers kml
 #export map -proj plan -fmt kml -o Outputs/Complexe_Lonne_Peyret-Bourrugues.kml -layout layout-kml

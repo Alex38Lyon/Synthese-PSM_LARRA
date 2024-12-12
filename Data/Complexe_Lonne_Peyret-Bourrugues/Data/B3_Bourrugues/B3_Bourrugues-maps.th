@@ -6,14 +6,16 @@ encoding utf-8
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
-map MP-B3-Bourrugues-plan-tot -title "B3-Bourrugues"
-	SP-B3-Bourrugues_01
+map MP-B3-Bourrugues-plan-tot -title "Gouffre B3 - Bourrugues"
+	MP-B3_Entree-plan-tot@B3_Entree
 	break
-	SP-B3-Bourrugues_02
+	MP-B3_Aval-plan-tot@B3_Aval
+	break
+	MP-B3_Amonts-plan-tot@B3_Amonts
 endmap
 
-map MC-B3-Bourrugues-coupe-tot -title "B3-Bourrugues"
-	SC-B3-Bourrugues_01
-	break
-	SC-B3-Bourrugues_02
+map MC-B3-Bourrugues-coupe-tot -title "Gouffre B3-Bourrugues"
+	MC-B3_Entree-coupe-tot@B3_Entree
+	# 	break
+	# 	SC-B3-Bourrugues_02
 endmap
