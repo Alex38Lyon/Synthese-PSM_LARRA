@@ -1,0 +1,15 @@
+set xth(ctrl,cp,datlist) {}
+xth_cp_data_tree_insert 1 {} 0   "" "" "length: 1874.00m (surface 0.00m, duplicated 0.00m)\nvertical range: 105.89m (from 8_131@AP7_Amonts.AP7_Amonts at 95.86m to GN30@AP7_Amonts.AP7_Amonts at -10.04m)\nnorth-south range: 206.90m (from 1_9@AP7_Amonts.AP7_Amonts at 78.93m to 8_21@AP7_Amonts.AP7_Amonts at -127.97m)\neast-west range: 797.68m (from 8_131@AP7_Amonts.AP7_Amonts at 749.44m to 6_1@AP7_Amonts.AP7_Amonts at -48.25m)\nnumber of shots: 376\nnumber of stations: 377"
+xth_cp_data_tree_insert 49 1 1 AP7_Amonts AP7_Amonts "AP7\_Amonts" "AP7\_Amonts" "length: 1874.00m (surface 0.00m, duplicated 0.00m)\nvertical range: 105.89m (from 8_131@AP7_Amonts.AP7_Amonts at 95.86m to GN30@AP7_Amonts.AP7_Amonts at -10.04m)\nnorth-south range: 206.90m (from 1_9@AP7_Amonts.AP7_Amonts at 78.93m to 8_21@AP7_Amonts.AP7_Amonts at -127.97m)\neast-west range: 797.68m (from 8_131@AP7_Amonts.AP7_Amonts at 749.44m to 6_1@AP7_Amonts.AP7_Amonts at -48.25m)\nnumber of shots: 376\nnumber of stations: 377"
+xth_cp_data_tree_insert 51 49 2 AP7_Amonts AP7_Amonts.AP7_Amonts "Gouffre des arres planères AP7 Amonts" "Gouffre des arres planeres AP7 Amonts" "length: 1874.00m (surface 0.00m, duplicated 0.00m)\nvertical range: 105.89m (from 8_131@AP7_Amonts.AP7_Amonts at 95.86m to GN30@AP7_Amonts.AP7_Amonts at -10.04m)\nnorth-south range: 206.90m (from 1_9@AP7_Amonts.AP7_Amonts at 78.93m to 8_21@AP7_Amonts.AP7_Amonts at -127.97m)\neast-west range: 797.68m (from 8_131@AP7_Amonts.AP7_Amonts at 749.44m to 6_1@AP7_Amonts.AP7_Amonts at -48.25m)\nnumber of shots: 376\nnumber of stations: 377"
+xth_cp_data_tree_create
+set xth(ctrl,cp,maplist) {}
+xth_cp_map_tree_insert projection 0 p1 {} 0 plan {} {} {}
+xth_cp_map_tree_insert projection 0 p2 {} 0 extended {} {} {}
+xth_cp_map_tree_insert map 1 2368X1 p1 1 MP-AP7_Amonts-Plan-tot MP-AP7_Amonts-Plan-tot@AP7_Amonts "AP7\_Amonts" "AP7\_Amonts"
+xth_cp_map_tree_insert map 1 2369X1 p2 1 MC-AP7_Amonts-Extended-tot MC-AP7_Amonts-Extended-tot@AP7_Amonts "AP7\_Amonts" "AP7\_Amonts"
+xth_cp_map_tree_create
+xth_cp_comp_stat 1874 36
+set xth(th_exit_state) 1
+set xth(th_exit_number) 1734881701
+

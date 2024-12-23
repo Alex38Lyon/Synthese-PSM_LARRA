@@ -1,0 +1,1074 @@
+# Copyright (C) ARSIP 2024
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+# <http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+encoding utf-8
+
+#equate GN34@AP7_Entree GN34@AP7_Aval
+#equate GN30@AP7_Aval GN30@AP7_Amonts
+	
+survey AP7_Aval -title "Gouffre des arres planères AP7 - Réseau Nord"
+
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2006 A ;juillet 2006 : Topographe Philippe Guillemin, Franck Soulage;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		RN01	RN01d	0.00	0.00	0.00	3.87	0.10	0.00	1.00	#
+		extend reverse
+		RN01	RN02	8.72	320.00	-9.00	2.00	1.50	8.00	0.60	#
+		RN02	RN03	7.58	311.00	-7.00	0.90	1.22	11.00	0.30	#
+		RN03	RN04	13.90	333.00	-4.00	1.19	0.05	4.00	0.30	#
+		RN04	RN05	3.73	301.00	-3.00	0.28	1.00	4.20	0.15	#
+		RN05	RN06	8.78	288.00	2.00	0.50	0.60	3.50	0.67	#
+		RN06	RN07	7.66	271.00	-9.00	0.20	0.75	4.50	0.38	#
+		RN07	RN08	7.00	287.00	3.00	1.00	0.30	10.50	0.68	#
+		RN08	RN09	7.60	275.00	3.00	0.30	2.00	7.05	0.40	#
+		RN09	RN10	2.75	317.00	4.00	2.00	1.50	3.50	0.30	#
+		RN10	RN11	7.22	290.00	-22.00	0.15	1.50	2.50	2.15	#
+		RN11	RN12	2.02	15.00	-2.50	0	0	0	0	#
+		RN12	RN13	3.30	274.00	8.00	0.60	1.35	1.20	0.00	#
+		RN13	RN17	2.20	63.00	-10.00	0.15	0.15	0.10	0.30	#
+		RN17	RN18	0.80	0.00	-90.00	0.15	0.15	0.10	0.30	#
+		RN11	RN20	2.20	0.00	-90.00	0.10	0.20	0	0.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		
+		#15/07/2006 A ;juillet 2006 : Topographe Philippe Guillemin, Franck Soulage;
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		RN20	C01	3.10	143.00	9.00	0.00	0.40	2.50	0.50	#
+		C01	C02	2.22	178.00	7.50	0.52	0.00	4.00	0.40	#
+		C02	C03	5.50	126.00	13.00	0.50	0.00	4.00	0.40	#
+		C03	C04	3.61	78.00	5.00	0.45	0	3.90	0.45	#
+		C04	C05	2.93	206.00	10.00	0.10	0.40	2.50	0	#
+		C05	C06	1.98	0.00	-90.00	1.10	0.10	0	0.00	#
+		C06	C07	3.83	63.00	-26.00	0.00	1.15	0.44	0.34	#
+		RN20	RN21	5.30	332.00	10.00	0.50	0.00	0.30	0.60	#
+		RN21	RN21d	0.00	0.00	0.00	0.80	0.00	0.25	1.60	#
+		RN21	RN22	2.10	310.00	-14.00	1.20	0.72	2.00	0.22	#
+		RN22	RN23	2.92	254.00	14.00	0.40	0.30	2.20	0.70	#
+		RN23	RN24	3.50	287.00	5.00	0.10	0.40	1.80	1.15	#
+		RN24	RN25	13.74	274.00	-3.00	0.60	1.20	0.25	0.40	#
+		RN25	D00	0.00	0.00	0.00	0.60	0.00	0.25	0.50	#
+		D00	VD01	4.10	272.00	0.00	0.15	0.15	0.45	0.00	#
+		VD01	VD02	1.80	280.00	0.50	0.15	0.15	0.50	0.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2006 A ;juillet 2006 : Topographe Philippe Guillemin, Franck Soulage;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		VD02	VD03	2.00	265.00	1.00	0.00	0.25	0.60	0.00	#
+		VD03	VD04	1.60	255.00	0.50	0.15	0.10	0.45	0.05	#
+		
+	endcenterline
+	
+	centerline
+		date 2007.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2007 A ;juillet 2007 : Topographe Philippe Guillemin, Franck Soulage;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		RN25	PS01	8.18	328.00	-8.00	1.28	0.00	1.05	0.45	#
+		PS01	PS02	1.82	335.00	12.00	0.05	0	0.95	0.85	#
+		PS02	PS03	0.35	56.00	0.00	0.00	0.90	0.95	0.80	#
+		PS03	PS04	5.64	51.00	15.00	0.46	0.00	1.53	0.90	#
+		PS04	PS05	7.27	35.00	4.00	0.38	0.00	2.25	0.91	#
+		PS05	PS06	4.99	40.00	0.00	0.00	0.65	1.17	0.88	#
+		PS06	PS07	2.30	95.00	-6.00	0.55	0.00	1.50	0.89	#
+		PS07	PS08	3.52	15.00	-3.00	0.48	0.00	1.45	0.89	#
+		PS08	PS09	4.40	333.00	-7.00	0.00	0.41	1.45	0.86	#
+		PS09	PS10	4.02	344.00	-5.00	0.00	0.40	1.57	0.95	#
+		PS10	PS11	2.43	2.00	-1.00	0.50	0.00	1.30	0.78	#
+		PS11	PS12	0.30	0.00	90.00	0	0	0	0	#
+		PS12	PS13	2.45	344.00	-8.00	0.00	0.45	2.73	1.00	#
+		PS13	PS14	5.50	18.00	-3.00	0.55	0.00	2.86	0.76	#
+		PS14	PS15	4.60	28.00	-1.00	0.95	0	1.62	0.15	#
+		PS15	PS16	4.75	110.00	35.00	0.69	0.00	0.92	0.71	#
+		PS16	PS17	0.40	0.00	90.00	0	0	0	0	#
+		PS17	PS18	3.92	88.00	0.00	0.00	0.40	1.30	0.98	#
+		PS18	PS19	4.33	94.00	11.00	0.99	0.00	0.56	0.82	#
+		PS19	PS20	0.57	0.00	-90.00	0	0	0	0	#
+		PS20	PS21	4.96	88.00	-6.00	0.00	0.53	0.84	0.42	#
+		PS21	PS22	5.95	92.00	12.00	0.20	0.59	0.40	0.83	#
+		PS22	PS23	5.84	102.00	10.00	0.40	0.00	1.14	1.21	#
+		PS23	PS24	4.94	84.00	4.00	0.00	0.68	1.15	1.10	#
+		PS24	PS25	2.09	113.00	22.00	0.50	0.15	1.74	1.50	#
+		PS25	PS26	6.47	88.00	2.00	0.00	0.74	0.75	1.00	#
+		PS26	PS27	6.78	98.00	8.00	0.68	0.00	2.43	1.15	#
+		
+	endcenterline
+	
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Aude Priem"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2006 A ;juillet 2006 : Topographe Philippe Guillemin, Aude Priem;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		C07	C08	4.33	119.00	-26.00	0.35	0.70	0.30	0.55	#
+		C08	C09	5.84	122.00	-15.00	0.35	0.48	0.00	1.80	#
+		C09	C10	3.21	148.00	-47.00	0.75	0.00	0.35	0.55	#
+		C10	C11	3.95	122.00	16.00	0.00	0.70	0.50	0.85	#
+		C11	C12	4.67	146.00	28.00	0.85	0.00	1.05	0.80	#
+		C12	C13	3.36	103.00	18.00	0.00	0.75	0.80	1.05	#
+		C13	C14	3.86	134.00	33.00	0.70	0.00	0.35	1.05	#
+		C14	C15	6.00	97.00	-3.00	0.00	0.80	0.55	1.00	#
+		C15	C16	3.18	134.00	9.00	0.54	0.00	2.00	1.05	#
+		C16	C17	2.68	108.00	22.00	0.15	0.30	1.30	2.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Aude Priem"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2006 A ;juillet 2006 : Topographe Philippe Guillemin, Aude Priem;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		C01	P1	1.50	0.00	-90.00	0.25	0.25	0.48	0.00	#
+		P1	P2	0.80	16.00	0.00	0.25	0.25	0.45	0.00	#
+		P2	P3	3.10	16.00	-38.00	0.25	0.25	0	0.00	#
+		P3	P4	0.60	0.00	-90.00	0	0	0	0	#
+		
+	endcenterline
+	
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Aude Priem"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2006 A ;juillet 2006 : Topographe Philippe Guillemin, Franck Soulage, Aude Priem;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		RN01	GN01	9.91	129.00	7.00	0.15	7.30	4.97	0.88	#
+		GN01	GN02	10.41	147.00	1.00	0.67	0.73	6.28	1.10	#
+		GN02	GN03	6.10	171.00	-10.00	1.16	0.95	1.89	1.57	#
+		GN03	GN04	0.94	236.00	-15.00	2.29	0	2.04	1.22	#
+		GN04	GN05	6.47	146.00	-12.00	0.36	0.42	7.13	3.76	#
+		GN05	GN06	2.85	151.00	-4.00	0.00	1.30	7.63	4.37	#
+		GN06	GN07	3.46	194.00	-2.00	0.85	0.00	9.82	3.52	#
+		GN07	GN08	3.52	121.00	-8.00	0.30	0.66	5.71	2.50	#
+		GN08	GN09	6.50	160.00	0.00	0.51	0.00	8.92	1.37	#
+		GN09	GN10	4.50	132.00	-2.00	0.30	0.00	5.83	1.22	#
+		GN10	GN11	6.40	141.00	-1.00	0.00	2.41	4.82	1.10	#
+		GN11	GN12	2.61	189.00	21.00	0.45	0.62	6.70	1.89	#
+		GN12	GN13	3.14	125.00	45.00	0.00	0.61	5.90	3.76	#
+		GN13	GN14	7.70	160.00	6.00	0.65	0.91	7.50	3.50	#
+		GN14	GN15	2.98	123.00	-3.00	1.08	0.10	7.50	3.88	#
+		GN15	GN16	5.70	133.00	4.00	0.55	0.20	1.60	3.60	#
+		GN16	GN17	4.28	147.00	24.00	0.76	0.80	7.50	1.60	#
+		GN17	GN18	6.10	193.00	21.00	0.12	1.10	6.60	3.60	#
+		GN18	GN18A	2.03	54.00	35.00	0.92	0.15	3.42	0	#
+		GN18A	GN18B	5.92	0.00	-90.00	1.10	1.60	10.86	0.00	#
+		GN18B	GN18C	3.90	34.00	-8.00	0.40	1.00	0.00	1.28	#
+		GN18	GN19	8.60	224.00	-4.00	0.00	0.42	5.45	4.20	#
+		GN19	GN20	10.00	235.00	2.00	0.43	0.43	1.25	1.46	#
+		GN20	GN21	9.20	235.00	2.00	0.35	1.22	6.80	1.43	#
+		GN21	GN22	3.00	68.00	-12.00	2.73	0.51	4.45	1.80	#
+		GN22	GN22A	5.80	226.00	1.00	0.00	1.10	1.54	0.65	#
+		GN22A	GN23	5.70	254.00	-18.00	1.47	0.99	2.15	0.00	#
+		GN23	GN24	2.15	236.00	-24.00	0	1.50	2.70	1.41	#
+		GN24	GN25	7.42	147.00	-16.00	0.00	1.15	1.58	0.90	#
+		GN25	GN26	6.34	161.00	-31.00	1.49	0.26	1.42	0.00	#
+		GN26	GN27	7.11	157.00	-18.00	1.40	0.90	2.70	0.60	#
+		GN27	GN28	5.27	209.00	-52.00	1.00	0.20	0	1.00	#
+		GN28	GN29	3.94	166.00	-3.00	0.00	0.80	6.72	0.52	#
+		GN29	GN30	1.70	226.00	-26.00	2.60	0.50	7.40	0.32	#
+		
+	endcenterline
+	
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Aude Priem"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2006 A ;juillet 2006 : Topographe Philippe Guillemin, Aude Priem;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		GN31	GN31A	5.26	249.00	6.00	0.23	0.25	1.10	0.00	#
+		GN31A	VGN31B	1.36	249.00	6.00	0.10	0.15	0	0	#
+		GN24	GN31	6.33	246.00	54.00	1.24	2.76	1.46	0.84	#
+		GN31	GN32	5.09	153.00	10.00	1.47	0.71	6.30	0.90	#
+		GN32	GN33	7.93	145.00	9.00	0.00	1.75	5.47	1.10	#
+		GN33	GN34	2.31	181.00	10.00	1.18	0.84	7.45	0.38	#
+		GN01	GN01A	14.82	139.00	27.00	3.95	0	1.70	0.58	#
+		GN01A	GN01B	6.49	216.00	29.00	0	0.51	0.35	0.52	#
+		GN01B	GN01C	4.50	135.00	11.00	0.50	0.10	0.00	0.80	#
+		GN01C	GN01D	3.42	149.00	16.00	0.65	0.15	1.37	0.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2007 A ;juillet 2007: Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		PS03	PS03d	0.00	0.00	0.00	0.00	0.40	0.95	0.80	#
+		PS03	VS2a	4.40	321.00	-25.00	0.10	0.25	0.50	0.00	#
+		VS2a	VS2b	1.30	75.00	-20.00	0.15	0.15	0.40	0.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Pascal Reig"
+		team "Aude Priem"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2006 A ;juillet 2006: Topographe Philippe Guillemin, Pascal Reig, Aude Priem;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		RN01	Z00	1.57	183.00	-33.00	0.00	0.43	0	0	#
+		Z00	Z01	1.05	0.00	-90.00	0.20	0.22	0	0.25	#
+		Z01	Z02	0.60	346.00	-15.00	0.40	1.30	0.70	3.89	#
+		Z02	Z03	4.17	255.00	-28.00	0.55	0.10	1.60	2.20	#
+		Z03	Z04	2.00	355.00	-38.00	0.00	0.60	1.60	2.00	#
+		Z04	Z05	4.30	304.00	-14.00	0.60	0.00	2.95	1.30	#
+		Z05	Z06	2.25	340.00	-21.00	0.37	0.00	1.78	0.50	#
+		Z06	Z07	2.02	308.00	0.00	0.85	0.45	1.60	0.70	#
+		Z07	Z08	3.80	308.00	-10.00	0.40	0.20	0.90	2.00	#
+		Z08	C17	4.10	285.00	11.00	0.30	0.15	1.30	2.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2008.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2008 A ;juillet 2008 : Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		Z03	Z10	3.80	176.00	0.00	0	0	0.90	3.80	#
+		Z10	Z10A	5.30	270.00	4.00	0.20	0.20	0.10	0.10	#
+		Z10	Z10B	4.50	90.00	20.00	0.50	0.50	0.10	0.10	#
+		Z10	Z11	4.97	118.00	-25.00	0.79	1.00	2.50	2.18	#
+		Z11	Z12	6.30	155.00	8.00	1.11	0	2.11	3.00	#
+		Z12	Z12A	4.75	120.00	20.00	0.50	0.50	0.28	0.00	#
+		Z12	Z13	0.90	228.00	31.00	0.30	1.00	0.90	3.50	#
+		Z13	Z14	3.80	247.00	0.00	0.20	0.60	1.00	3.45	#
+		Z14	Z15	2.60	273.00	-22.00	0.60	0.66	1.90	2.60	#
+		Z15	Z16	4.92	244.00	-21.00	0.00	0.70	2.61	1.20	#
+		Z16	Z17	1.45	276.00	-28.00	0	0.10	3.90	0.20	#
+		Z17	Z18	3.48	141.00	10.00	0.40	0.00	4.00	0.95	#
+		Z18	Z19	6.25	101.00	11.00	0.25	0.25	0.40	1.40	#
+		
+	endcenterline
+	
+	centerline
+		date 2007.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		#15/07/2007 A ;juillet 2007: Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		GN15	GN15A	2.80	92.00	10.00	0.30	0.00	1.60	0.35	#
+		GN15A	GN15B	0.84	33.00	-25.00	0.52	0.54	7.85	3.60	#
+		GN15B	GN15C	4.62	88.00	15.00	0.72	0.56	7.08	2.65	#
+		GN15C	GN15D	3.38	129.00	-2.00	0.52	0.53	7.81	2.60	#
+		GN15D	GN15E	2.67	111.00	65.00	0.47	0.20	5.18	4.44	#
+		GN15E	GN15F	2.08	96.00	32.50	0.50	0.60	4.97	4.25	#
+		GN15F	GN15G	4.88	120.00	10.00	0.75	1.00	4.52	3.54	#
+		GN15G	GN15H	1.87	168.00	-2.00	0.53	0	4.80	1.90	#
+		GN15H	GN15I	4.63	267.00	0.00	1.04	0.20	5.57	1.28	#
+		GN15I	GN15J	2.00	221.00	-23.00	0.64	0.95	4.97	0.85	#
+		GN15J	GN15K	3.12	259.00	-16.00	0.00	0.50	6.70	2.88	#
+		GN15K	GN15L	2.40	299.00	-25.00	0.76	0.80	7.50	1.60	#
+		
+	endcenterline
+	
+	centerline
+		date 2007.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2007 A ;juillet 2007 : Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		GN05	Y01	2.75	125.00	-40.00	0	0	0	0	#
+		Y01	Y02	2.64	0.00	-90.00	0.85	0.67	0	0.71	#
+		Y02	Y03	1.44	28.00	55.00	0.00	0.00	0	2.91	#
+		Y03	Y04	2.37	287.00	-24.00	0.15	0.35	3.19	0.52	#
+		Y04	Y05	1.93	269.00	35.00	0.15	0.27	1.20	2.10	#
+		Y05	Y06	9.39	291.00	3.00	0.38	0.32	0.90	0.00	#
+		Y06	Y07	5.02	289.00	4.00	0.30	0.20	0.70	0.00	#
+		Y07	Z19	2.73	283.00	-5.00	0.20	0.20	0.60	1.50	#
+		
+	endcenterline
+	
+	centerline
+		date 2007.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2007 A ;juillet 2007: Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		GN05	A01	2.53	85.00	52.00	0.20	0.50	1.50	0.50	#
+		A01	A02	2.39	94.00	-7.00	0.00	0.60	0.80	0.40	#
+		
+	endcenterline
+	
+	centerline
+		date 2008.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2008 A ;juillet 2008 : Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		A02	A03	6.13	104.00	-6.50	0.40	0.20	1.40	0.10	#
+		A03	A04	2.18	125.00	2.50	0.40	0.20	1.50	0.40	#
+		A04	A05	2.48	91.00	-23.00	0.05	0.45	1.30	0.60	#
+		A05	A06	0.70	0.00	-90.00	0	0	0	0	#
+		A06	A07	2.92	111.00	-5.00	0.20	0.20	2.50	0.00	#
+		A07	A08	2.22	82.00	47.00	0.05	0.40	1.40	1.40	#
+		A08	A09	7.13	105.00	-8.50	1.20	0.20	1.50	0.10	#
+		A09	A10	1.15	3.00	39.00	0.40	0.80	0.15	1.40	#
+		A10	A11	2.00	105.00	-26.00	0.10	0.35	0.90	0.40	#
+		A11	A12	3.85	110.00	-9.00	0.40	0.40	1.50	0.40	#
+		A12	A13	1.76	99.50	2.00	0.00	0.60	0.80	0.30	#
+		A13	A14	2.46	123.00	35.50	0.35	0.05	1.20	0.50	#
+		A14	A15	1.65	120.00	14.00	0.40	0.00	0.50	0.50	#
+		A15	A16	5.00	92.00	0.00	0.15	0.15	2.00	0.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2007.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2007 A ;juillet 2007 : Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		PS01	CC01	0.80	215.00	56.00	0.40	0.40	1.00	0.20	#
+		CC01	CC02	5.28	258.00	7.00	0.35	0.20	1.00	0.00	#
+		CC02	CC03	2.80	234.00	44.00	0.35	0.00	0.50	0.10	#
+		CC03	CC04	1.30	270.00	4.00	0.35	0.00	0.50	0.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2006.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2006 A ;juillet 2006 : Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		RN13	SF01	4.16	250.00	10.00	1.29	0.45	1.38	0.40	#
+		SF01	SF02	2.00	212.00	12.00	0.00	1.37	1.41	0.46	#
+		SF02	SF03	6.80	274.00	-3.00	0.87	0.30	1.40	0.30	#
+		SF03	SF04	6.44	259.00	-5.00	0.53	0.80	0.44	0.00	#
+		SF04	SF05	3.48	276.00	-7.00	0.80	0.20	0.40	0.30	#
+		
+	endcenterline
+	
+	centerline
+		date 2010.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2010 A ;juillet 2010 : Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		SF05	SF06	2.14	218.00	27.00	1.00	0.48	0.65	0.00	#
+		SF06	SF07	3.36	249.00	21.00	0.47	1.18	0.60	0.35	#
+		SF07	SF08	8.37	254.00	11.00	1.49	0.25	1.42	1.04	#
+		SF08	SF09	6.30	270.00	-14.00	2.22	2.50	3.05	0.00	#
+		SF09	SF09A	4.46	228.00	20.00	0.10	0.10	0.30	0.30	#
+		SF09	SF10	2.80	344.00	-5.00	2.00	1.00	1.05	1.18	#
+		SF10	SF10A	8.85	240.00	1.00	0.69	0.72	3.39	3.21	#
+		SF10A	SF10B	1.76	313.00	0.00	0.40	0.00	1.20	3.00	#
+		SF10	SF10C	2.45	300.00	-22.00	0.30	0.30	3.40	0.55	#
+		SF10C	SF10D	5.89	243.00	63.00	0.30	0.50	2.00	0.00	#
+		SF10	SF11	6.23	14.00	4.00	1.66	0.49	1.01	0.92	#
+		SF11	SF12	5.49	340.00	-12.00	0.68	1.66	1.90	0.93	#
+		SF12	SF12A	7.80	65.00	0.00	0.15	0.15	0.40	0.50	#
+		SF12	SF13	5.74	342.00	-4.00	1.78	1.00	2.87	0.52	#
+		SF13	SF14	4.28	318.00	24.00	1.88	0.35	2.18	1.21	#
+		SF14	SF15	8.95	289.00	3.00	1.35	0.40	1.30	0.20	#
+		SF15	SF16	8.95	287.00	3.00	1.04	0.49	2.34	0.10	#
+		SF16	SF17	3.79	270.00	0.00	0.30	1.03	1.48	0.10	#
+		SF17	SF18	5.29	292.00	-4.00	0.78	0.00	0.40	0.40	#
+		
+	endcenterline
+	
+	centerline
+		date 2010.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2010 A ;juillet 2010 : Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		SF18	SF19	1.58	234.00	2.00	0.40	0.60	0.00	0.00	#
+		SF19	SF20	0.67	0.00	90.00	0	0	0	0	#
+		SF20	SF21	4.05	300.00	5.00	1.42	0.76	0.80	0.35	#
+		SF21	SF22	3.83	251.00	6.00	0.40	1.71	4.75	0.73	#
+		SF22	SF23	4.83	302.00	5.00	0.58	1.45	4.65	0.96	#
+		SF23	SF24	4.76	350.00	3.00	1.41	0.95	5.05	0.97	#
+		SF24	SF25	8.47	274.00	-4.00	1.37	0.35	6.50	0.20	#
+		SF25	SF26	7.77	250.00	2.00	0.45	1.01	5.18	0.20	#
+		SF26	SF27	4.06	312.00	19.00	0.30	1.28	2.92	1.00	#
+		SF27	SF28	4.30	319.00	0.00	0.30	0.70	3.19	0.85	#
+		SF28	SF29	9.04	316.00	3.00	0.00	0.82	1.84	0.78	#
+		SF29	SF30	4.56	317.00	-7.00	0.50	1.13	1.18	0.00	#
+		SF30	SF31	2.25	222.00	12.00	1.40	2.76	1.30	0.57	#
+		SF31	SF32	3.44	293.00	7.00	0.82	0.69	0.79	2.12	#
+		SF32	SF33	2.10	249.00	-4.00	1.27	0.66	5.72	0.40	#
+		SF33	SF34	1.23	32.00	-10.00	0	0.20	0.20	2.58	#
+		SF34	SF35	4.98	300.00	15.00	0.30	1.05	3.53	0.00	#
+		SF35	SF36	5.30	332.00	7.00	0.84	0.40	1.75	0.30	#
+		SF36	SF37	6.76	326.00	0.00	1.15	0.40	1.10	0.15	#
+		SF37	SF38	8.37	328.00	1.00	1.04	0.20	0.88	0.10	#
+		SF38	SF39	6.77	323.00	3.00	0.60	0.57	0.69	0.05	#
+		SF39	SF40	5.27	335.00	5.00	0.80	0.55	0.00	0.84	#
+		SF40	SF41	2.33	2.00	-23.00	0.70	0.55	0.65	3.38	#
+		SF41	SF41A	5.57	239.00	50.00	0.40	0.40	0.00	0.60	#
+		SF41	SF42	4.14	53.00	-1.00	1.50	0.90	3.00	0.40	#
+		SF42	SF43	2.85	307.00	14.00	2.25	0.00	1.05	5.98	#
+		SF43	SF44	2.02	33.00	-18.00	0.45	0.68	2.44	2.59	#
+		SF44	SF44A	4.15	214.00	0.00	0.30	0.35	0	0	#
+		SF44	SF45	2.02	0.00	-90.00	0	0	0	0	#
+		SF45	SF46	3.36	72.00	1.00	0.39	0.47	4.00	0.79	#
+		SF46	SF47	3.10	41.00	4.00	0.48	0.46	3.99	1.16	#
+		SF47	SF48	0.67	343.00	12.00	0.59	1.06	4.35	1.24	#
+		SF48	SF49	2.03	26.00	-14.00	0	1.43	1.28	0.81	#
+		SF49	SF50	2.90	37.00	-1.00	0.45	1.01	1.42	0.20	#
+		SF50	SF51	1.85	112.00	10.00	0.93	0.58	1.08	0.40	#
+		SF51	SF52	3.06	95.00	4.00	1.35	2.29	2.79	0.30	#
+		SF43	SF43A	4.63	0.00	-90.00	0.65	1.50	0	0.00	#
+		SF43A	SF43B	1.97	248.00	-20.00	1.78	0.15	0.15	0	#
+		SF43B	SF43C	1.20	0.00	-90.00	1.00	0.50	0.70	0.50	#
+		SF43C	SF43D	2.81	222.00	2.00	0.60	0.40	0.50	0.50	#
+		SF43D	SF43E	2.28	236.00	-18.00	1.00	0.60	1.00	4.00	#
+		SF43E	SF43F	3.60	0.00	-90.00	1.00	0.50	5.00	1.00	#
+		SF43F	SF43G	3.31	275.00	-16.00	0.10	0.10	0.50	0.30	#
+		SF52	SF52A	4.08	96.00	9.00	0.30	0.30	0.50	0.30	#
+		SF52	SF53	4.45	226.00	29.00	0.00	0.30	4.00	0.50	#
+		SF53	SF54	3.19	254.00	8.00	0.30	0.63	2.45	0.65	#
+		SF54	SF48	3.26	273.00	-44.00	0	0	0	0	#
+		SF49	SF55	1.49	295.00	-1.00	0.20	1.41	0.71	0.90	#
+		
+	endcenterline
+	
+	centerline
+		date 2010.07.15
+		
+		team "Philippe Guillemin"
+		team "Franck Soulage"
+		team "Françoise Lidonne"
+		team "Pascal Reig"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2010 A ;juillet 2010 : Topographe Philippe Guillemin, Franck Soulage, Françoise Lidonne, Pascal Reig;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		SF55	GB01	2.99	281.00	-26.00	0.00	0.72	0.19	0.34	#
+		GB01	GB02	3.05	16.00	-14.00	0.60	0.20	0.30	0.00	#
+		GB02	GB03	4.43	325.00	5.00	0.00	0.60	0.10	0.30	#
+		GB03	GB04	1.75	326.00	21.00	0.50	1.60	0.40	0.30	#
+		GB04	GB05	6.72	65.00	3.00	0.00	1.58	0.78	0.34	#
+		GB05	GB06	4.50	94.00	1.00	1.06	0.00	0.50	0.30	#
+		GB06	GB07	5.59	65.00	7.00	1.30	0.30	1.84	0.40	#
+		GB07	GB08	6.39	78.00	5.00	0.79	0.92	0.80	0.99	#
+		GB08	GB09	4.90	77.00	2.00	0.83	0.90	1.52	1.24	#
+		GB09	GB10	6.46	82.00	25.00	0.42	1.45	1.81	1.12	#
+		GB10	GB11	5.00	68.00	-10.00	0.58	0.51	0.37	0.39	#
+		GB11	GB12	2.52	10.00	2.00	1.00	0	1.46	0.00	#
+		GB12	GB13	4.45	76.00	6.00	0.48	0.25	1.15	1.61	#
+		GB13	GB14	4.40	82.00	4.00	0.30	0.00	1.34	1.46	#
+		GB14	GB15	5.74	76.00	-6.00	0.00	1.33	2.30	0.76	#
+		GB15	GB16VISEE	5.90	98.00	45.00	0.15	0.15	0.15	0.15	#
+		GB09	GB17	3.94	112.00	-30.00	1.26	0.30	0.92	0.00	#
+		GB17	GB18	3.76	105.00	6.00	0.91	0.86	1.19	0.50	#
+		GB18	GB19	5.65	109.00	-8.00	0.91	0.00	0.82	1.24	#
+		GB19	GB20	9.26	95.00	-4.00	0.46	0.53	1.32	0.30	#
+		GB20	GB21	7.04	94.00	-5.00	0.00	1.45	1.22	0.70	#
+		GB21	GB22	4.24	122.00	-8.00	0.88	0.00	0.57	0.35	#
+		GB10	GB10A	5.07	115.00	9.00	0.65	0.00	0.50	0.20	#
+		GB10A	GB10B	4.30	80.00	10.00	0.00	0.93	0.54	0.20	#
+		
+	endcenterline
+
+	centerline
+		date 2011.07.15
+		
+		team "Philippe Guillemin"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		#15/07/2011 A ;Extremité Réseau Nord Topographie SCMNF 07/2011 Philippe Guillemin;
+		GB22	GB23	6.87	67.00	0.80	0.53	0.25	2.54	0.66	#
+		GB23	GB24	1.25	344.00	1.30	0.00	0.40	2.85	0.56	#
+		GB24	GB25	4.95	357.00	4.00	0.00	0.80	3.40	0.85	#
+		GB25	GB26	5.95	17.00	10.70	0.00	0.60	0.64	4.51	#
+		GB26	GB27	4.45	0.00	-90.00	0.90	0.10	0	0.00	#
+		GB27	GB28	1.61	2.00	4.20	3.30	0.87	1.83	0.30	#
+		GB28	GB29	9.51	280.00	-3.50	1.68	0.05	2.24	0.08	#
+		GB29	GB30	2.21	182.00	44.70	0.00	0.50	2.00	1.60	#
+		GB30	GB31	4.31	277.00	5.00	0.45	0.45	0.00	0.40	#
+		GB31	GB32	1.60	274.00	-5.00	0.20	0.50	0.10	0	#
+		GB32	GB33	1.06	0.00	-90.00	0.35	1.26	0	0.00	#
+		GB33	GB34	2.04	108.00	-26.30	0	0	0	0	#
+		GB34	GB35	1.00	88.00	-15.00	0	0	0	0	#
+		
+	endcenterline
+
+	centerline
+		date 2011.07.15
+		
+		team "Philippe Guillemin"
+		team "Phillipe Germain"
+		team "Eric Fèvre"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2011 A ;Réseau Nord Eloise superieur Topographie SCMNF 07/2011 Philippe Guillemin, Phillipe Germain, Eric Fèvre;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		SF26	E01	4.22	90.00	0.00	0	0	0	0	#
+		E01	E02	2.54	240.00	4.50	0.72	0.00	2.00	0	#
+		E02	E03	2.58	269.00	3.20	0.00	0.49	1.11	1.41	#
+		E03	E04	3.43	254.00	5.00	0.45	0.00	0.88	1.96	#
+		E04	E05	3.99	268.00	-1.70	0.00	0.62	0.52	0.62	#
+		E05	E06	5.78	259.00	-0.20	0.67	0.00	0.84	0.41	#
+		E06	E07	4.66	270.00	-3.80	0.00	0.66	0.39	0.20	#
+		E07	E08	2.40	285.00	14.00	0.30	0.20	0.46	0.07	#
+		E08	E09	6.45	333.00	-4.20	0.39	0.43	1.57	0.62	#
+		E09	E10	6.32	295.00	0.40	0.78	0.14	0.86	0.00	#
+		E10	E11	5.71	269.00	3.70	0.00	0.54	0.37	0.13	#
+		E11	E12	1.50	10.00	3.10	0.00	0.45	0.55	0.62	#
+		E01	E01A	4.65	80.00	-4.60	1.65	1.65	2.36	0	#
+		E01A	E01B	1.06	19.00	23.30	0.80	0.80	1.80	1.20	#
+		E01B	E01C	8.86	306.00	2.30	0.20	0.20	1.00	0.00	#
+		E01C	E01D	5.21	297.00	-4.00	0.00	0.00	1.20	0.00	#
+		
+	endcenterline
+
+	centerline
+		date 2011.07.15
+		
+		team "Philippe Guillemin"
+		
+		#explo-date YYYY.MM.DD
+		
+		explo-team "Spéléo/Club de Franconville"
+		#15/07/2011 A ;Puits Topographie SCMNF 07/2011 Philippe Guillemin;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		GN31	GN310	0.84	0.00	-90.00	0	0	0	0	#
+		GN310	GN311	2.00	125.00	-40.90	0	0.49	0.30	0.74	#
+		GN311	GN312	1.44	176.00	-48.40	0.56	0.48	1.38	0	#
+		GN312	GN313	10.58	0.00	-90.00	0.00	1.80	0	0.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2011.07.15
+		
+		team "Philippe Guillemin"
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2011 A ;Puits Topographie SCMNF 07/2011 Philippe Guillemin;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		SF32	SF32A	1.51	82.00	-11.50	0.81	0.00	2.38	0.84	#
+		SF32A	SF32B	2.82	36.00	5.90	0.00	0.54	3.18	0.55	#
+		SF32B	SF32C	3.18	0.00	90.00	1.00	1.00	0.00	0	#
+		SF33	SF33A	1.04	218.00	26.00	0.00	0.95	1.54	0.90	#
+		SF33A	SF33AA	6.53	93.00	-4.00	0	0.90	1.10	0.00	#
+		SF33A	SF33B	6.21	291.00	39.00	0.77	0.20	0.55	0.80	#
+		SF31	SF31A	0.97	0.00	90.00	0	0	0	0	#
+		SF31A	SF31B	0.54	234.00	6.00	0.37	1.37	0.86	0.00	#
+		SF31B	SF31C	4.77	292.00	3.40	0.50	2.45	0.43	0.00	#
+		SF33B	SF33C	2.04	236.00	-8.70	0.00	2.67	0.85	8.17	#
+		SF33C	SF33D	2.16	316.00	9.20	0.20	0.35	2.96	0	#
+		SF33D	SF33E	9.70	0.00	-90.00	1.50	1.50	0	0.00	#
+		SF33C	SF33C1	3.63	240.00	-61.00	0.64	0.41	1.43	0.00	#
+		SF33C1	SF33C2	1.55	223.00	-28.00	0.00	2.27	0.90	3.62	#
+		SF33C2	SF33C3	3.58	0.00	-90.00	0.39	1.35	0.00	0.00	#
+		SF33C3	SF33C4	3.60	132.00	-38.10	1.65	0.00	0.20	0.00	#
+		SF33D	SF33Z	0.50	0.00	90.00	0.00	0.63	2.50	0.46	#
+		SF33Z	SF33Y	3.26	292.00	62.50	0.00	1.00	0.55	0.90	#
+		SF33Y	SF33X	5.00	30.00	62.50	0.60	0.60	0.20	0.00	#
+		
+	endcenterline
+	
+	centerline
+		date 2016.07.15
+		
+		team "Flavie Vampouille"
+		team "Eric Fèvre"
+		team "Franck Soulage"
+		
+		
+		explo-date 2016.07.15
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2016 A ;07:2016 : Topographes:en premiere: Flavie Vampouille, Eric Fèvre, Franck Soulage;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		PS15	S3_0	0.00	0.00	0.00	0	0	0	0	#
+		S3_0	S3_1	3.79	75.10	-13.45	2.35	0.54	0.65	0.16	#
+		S3_1	S3_2	6.12	301.60	11.69	0.72	0.85	1.47	0.58	#
+		S3_2	S3_3	4.51	274.78	-2.49	0.00	0.00	0.00	0.53	#
+		S3_3	S3_4	5.04	263.70	-2.28	0.00	0.66	1.12	0.53	#
+		S3_4	S3_5	3.44	300.49	10.68	0.00	0.49	2.95	1.15	#
+		S3_5	S3_6	2.30	25.47	-20.02	0.00	0.66	2.29	0.43	#
+		S3_6	S3_7	4.49	91.79	0.89	0.00	0.53	2.78	0.47	#
+		S3_7	S3_8	2.96	94.71	18.70	0.51	0.00	1.97	1.35	#
+		S3_8	S3_9	4.93	75.22	-9.81	0.74	0.00	2.12	0.81	#
+		S3_9	S3_10	2.06	48.74	-1.28	0.00	0.50	2.29	0.75	#
+		S3_10	S3_11	8.57	89.10	-1.43	0.00	0.55	3.06	0.75	#
+		S3_11	S3_12	3.39	77.43	2.03	0.00	0.40	3.25	0.75	#
+		S3_12	S3_13	7.19	86.17	5.56	0.00	0.83	2.68	6.04	#
+		S3_13	S3_14	4.18	94.90	9.66	0.00	0.00	2.01	3.63	#
+		S3_14	S3_15	3.73	278.22	-87.10	1.10	1.89	5.63	0.00	#
+		S3_15	S3_16	14.05	273.10	-6.77	0.38	0.62	0.62	1.29	#
+		S3_16	S3_17	0.94	26.46	41.84	0.32	0.17	0.74	1.70	#
+		S3_17	S3_18	15.01	268.27	0.76	0.00	0.93	5.20	3.02	#
+		S3_18	S3_19	5.09	282.54	-30.57	0.22	0.72	3.45	0.48	#
+		S3_19	S3_20	3.82	292.75	5.26	0.70	0.00	2.06	1.17	#
+		S3_20	S3_21	6.62	291.39	-0.83	0.00	0.77	3.54	1.09	#
+		S3_21	S3_22	10.96	290.34	-1.55	0.00	0.69	3.44	1.10	#
+		S3_22	S3_23	5.50	294.84	-5.11	0.56	0.00	3.08	1.11	#
+		S3_23	S3_24	6.59	279.47	0.48	0.00	0.61	2.32	1.29	#
+		S3_24	S3_25	3.20	286.88	-3.13	0.80	0.00	0.49	1.26	#
+		S3_25	S3_26	3.69	238.61	1.40	0.00	1.22	1.10	1.40	#
+		S3_26	S3_27	4.57	291.14	-1.44	0.00	1.46	2.12	1.37	#
+		S3_27	S3_28	4.97	77.63	1.29	0.79	0.00	2.46	1.43	#
+		S3_28	S3_29	14.56	322.26	-4.67	1.17	0.00	1.62	0.63	#
+		S3_29	S3_30	3.14	271.27	28.60	0.00	0.00	0.00	0.00	#
+		S3_30	S3_31	5.50	284.04	-7.55	0.40	0.00	2.57	2.03	#
+		S3_31	S3_32	3.10	225.38	3.44	0.00	0.45	2.97	1.51	#
+		S3_32	S3_33	5.90	249.96	-4.42	0.00	0.84	1.67	1.44	#
+		S3_33	S3_34	11.25	282.81	-2.89	0.00	0.71	1.96	1.29	#
+		S3_34	S3_35	3.84	306.28	-0.57	0.00	0.64	5.13	1.80	#
+		S3_35	S3_36	2.52	258.68	-0.66	0.48	0.00	2.78	2.32	#
+		S3_36	S3_37	2.16	243.92	0.53	0.00	0.46	2.82	1.90	#
+		S3_37	S3_38	3.19	323.93	10.07	1.02	0.00	3.19	1.31	#
+		S3_38	S3_39	2.12	262.58	11.27	0.33	0.51	3.20	1.65	#
+		S3_39	S3_40	2.12	320.48	-5.04	0.45	0.00	3.96	1.67	#
+		S3_40	S3_41	3.00	269.86	-16.42	0.62	0.00	3.06	1.30	#
+		S3_41	S3_42	1.81	256.40	-22.32	0.00	0.50	2.77	0.34	#
+		S3_42	S3_43	9.12	278.44	-1.63	0.00	0.55	0.30	0.56	#
+		S3_43	S3_44	5.91	285.00	-0.75	0.83	0.00	0.30	0.44	#
+		S3_44	S3_45	9.72	272.01	0.05	0.00	0.63	7.70	0.64	#
+		S3_45	S3_46	4.77	287.19	4.40	0.50	0.00	8.06	1.07	#
+		S3_46	S3_47	15.15	270.43	0.43	0.00	0.96	6.29	1.26	#
+		S3_47	S3_48	3.22	305.84	6.20	0.59	0.00	0.90	1.64	#
+		S3_48	S3_49	21.32	262.29	-0.49	0.00	0.70	2.12	1.74	#
+		S3_49	S3_50	8.96	271.52	7.35	1.06	0.00	5.22	0.59	#
+		S3_50	S3_51	4.76	267.88	-24.78	0.33	0.60	0.84	1.15	#
+		S3_51	S3_52	4.62	260.84	14.61	0.00	1.26	1.73	1.74	#
+		S3_52	S3_53	20.95	278.62	-3.09	0.67	0.00	6.76	1.38	#
+		S3_53	S3_54	5.62	260.43	-2.79	0.00	0.98	2.98	1.43	#
+		S3_54	S3_55	3.95	280.83	-2.55	0.86	0.00	6.96	1.17	#
+		S3_55	S3_56	5.72	258.75	-0.01	0.00	0.70	7.56	1.11	#
+		S3_56	S3_57	19.66	282.03	2.21	0.00	0.89	3.48	2.08	#
+		S3_57	S3_58	4.74	337.95	-6.99	1.07	0.00	5.93	1.60	#
+		S3_58	S3_59	11.99	276.28	-1.19	0.00	0.70	4.67	1.40	#
+		S3_59	S3_60	5.73	305.77	-2.13	1.02	2.05	3.54	1.23	#
+		S3_60	S3_61	5.72	0.64	0.52	0.00	2.21	2.22	1.43	#
+		S3_61	S3_62	9.49	81.18	-6.00	0.00	1.32	2.58	0.65	#
+		S3_62	S3_63	4.10	103.07	11.90	0.83	0.00	2.54	1.23	#
+		S3_63	S3_64	6.87	74.00	-3.51	0.00	0.70	1.03	1.06	#
+		S3_64	S3_65	7.85	104.50	-1.21	0.73	0.00	2.33	1.08	#
+		S3_65	S3_66	5.70	73.21	-1.67	0.59	0.00	0.98	0.92	#
+		S3_66	S3_67	5.22	86.93	6.69	0.00	0.66	4.71	1.62	#
+		S3_67	S3_68	5.29	99.11	-2.46	1.83	1.75	1.71	1.33	#
+		S3_68	S3_69	5.69	27.02	1.98	0.00	1.07	6.63	1.36	#
+		S3_69	S3_70	6.94	29.27	-4.02	0.32	0.77	5.32	1.15	#
+		S3_70	S3_71	6.98	57.46	3.79	0.00	1.09	4.08	1.83	#
+		S3_71	S3_72	10.18	96.02	-4.01	0.76	0.42	5.47	1.39	#
+		S3_72	S3_73	7.94	80.62	-4.80	0.76	0.00	4.85	0.98	#
+		S3_73	S3_74	6.17	69.35	3.01	1.35	0.86	5.51	1.29	#
+		
+	endcenterline
+
+	centerline
+		date 2016.07.15
+		
+		team "Pascale Porte"
+		team "Françoise Lidonne"
+		team "Franck Soulage"
+		
+		
+		explo-date 2016.07.15
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2016 A ;07/2016 : Topographes en premiere : Pascale Porte, Françoise Lidonne, Franck Soulage;
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		S3_15	S3_75	4.20	115.61	15.86	1.51	0.31	0.71	0.89	#
+		S3_75	S3_76	5.86	106.40	9.05	0.00	1.64	0.30	1.85	#
+		S3_76	S3_77	4.12	128.56	1.60	1.50	0.81	3.84	1.69	#
+		S3_77	S3_78	2.15	79.03	-13.75	0.00	0.71	0.48	1.49	#
+		S3_78	S3_79	1.24	152.73	2.60	0.75	0.00	0.39	1.60	#
+		S3_79	S3_80	4.81	119.12	3.56	0.00	0.35	0.75	0.51	#
+		S3_74	S3_81	4.34	117.62	1.64	0.87	0.30	5.19	1.69	#
+		S3_81	S3_82	4.53	95.55	-1.28	2.27	0.76	3.38	3.73	#
+		S3_82	S3_83	4.50	80.00	8.27	0.00	0.82	0.33	1.05	#  N ;MOD
+		S3_83	S3_84	4.76	110.00	21.07	1.86	0.00	2.76	1.82	#
+		S3_84	S3_85	9.35	89.00	-10.99	0.00	1.38	0.78	0.83	#
+		S3_85	S3_86	5.97	80.00	-1.07	0.91	0.21	1.85	0.89	#
+		S3_86	S3_87	4.69	89.00	-1.72	0.19	0.92	0.36	0.74	#
+		S3_87	S3_88	4.08	92.00	11.52	1.34	0.00	2.42	1.69	#
+		S3_88	S3_89	3.50	60.00	2.32	0.00	0.92	3.36	0.89	#
+		S3_89	S3_90	6.42	92.00	-7.41	2.41	0.00	2.25	1.28	#
+		S3_90	S3_91	4.88	84.00	9.00	0.97	0.43	1.79	1.85	#
+		S3_91	S3_92	6.41	80.00	-7.16	0.34	0.68	1.59	1.55	#
+		S3_92	S3_93	2.38	120.44	5.14	0.83	0.00	3.25	2.14	#
+		S3_93	S3_94	7.35	68.00	-4.43	0.00	2.52	0.54	1.62	#
+		S3_82	S3_97	4.92	353.63	-61.21	9.31	2.70	2.77	0.86	#
+		S3_77	S3_98	2.90	40.49	56.88	0.00	1.04	1.37	0.98	#
+		S3_98	S3_99	3.65	128.73	3.85	0.66	0.15	3.12	0.63	#
+		S3_99	S3_100	4.39	123.63	-2.76	0.36	0.13	1.35	0.74	#
+		S3_100	S3_101	2.29	115.35	-1.86	0.00	0.34	0.89	0.92	#
+		S3_101	S3_102	2.89	118.51	10.50	0.40	0.16	1.32	2.12	#
+		S3_102	S3_103	2.47	87.89	2.27	0.14	0.55	1.19	1.79	#
+		S3_103	S3_104	2.57	136.67	-7.01	0.34	0.00	0.55	1.25	#
+		S3_104	S3_105	3.93	117.51	-15.98	0.28	0.58	2.26	0.00	#
+		S3_105	S3_106	3.92	128.53	15.33	0.59	0.00	1.06	0.68	#
+		S3_106	S3_107	3.42	112.00	19.80	0.00	0.48	0.42	0.99	#
+		S3_107	S3_108	2.66	120.65	2.42	0.49	0.00	1.00	1.68	#
+		S3_108	S3_109	1.79	86.21	35.56	0.69	0.98	1.41	2.46	#
+		S3_109	S3_110	5.06	104.46	37.18	0.38	0.00	0.90	0.59	#
+		S3_110	S3_111	2.37	111.48	1.55	0.00	0.35	1.11	0.66	#
+		S3_111	S3_112	3.43	127.09	-16.39	0.44	0.13	0.89	1.22	#
+		S3_112	S3_113	4.86	118.94	4.63	0.33	0.17	0.51	0.30	#
+		S3_113	S3_114	3.26	93.34	10.11	0.25	0.99	2.63	1.03	#
+		S3_114	S3_115	2.23	83.46	31.06	0.00	0.00	2.47	1.00	#
+		S3_115	S3_116	4.73	118.21	14.78	0.00	0.33	0.65	1.17	#
+		S3_116	S3_117	2.09	161.48	4.23	0.78	0.00	1.75	1.04	#
+		S3_117	S3_118	4.05	126.73	10.89	0.62	0.20	1.92	1.57	#
+		S3_118	S3_119	2.00	104.16	9.84	0.48	0.32	4.73	1.69	#
+		S3_119	S3_120	6.93	137.53	3.09	0.66	0.00	0.64	1.10	#
+		S3_120	S3_121	1.31	67.43	-5.11	0.00	0.67	0.83	1.32	#
+		S3_121	S3_122	4.30	123.25	1.92	0.24	0.32	2.64	0.97	#
+		S3_122	S3_123	2.36	120.05	14.08	0.33	0.00	1.92	1.35	#
+		S3_123	S3_124	1.27	135.90	-4.94	0.20	0.28	1.85	1.26	#
+		S3_124	S3_125	2.20	121.79	6.85	0.34	0.00	1.59	2.19	#
+		S3_125	S3_126	2.99	111.93	-15.87	0.51	0.37	0.34	0.87	#
+		S3_126	S3_127	2.38	108.67	-6.68	0.00	0.61	2.02	0.73	#
+		S3_127	S3_128	2.95	125.89	2.14	0.58	0.00	1.51	0.78	#
+		S3_128	S3_129	2.66	105.06	7.01	0.00	0.65	0.27	0.69	#
+		S3_129	S3_130	3.07	126.29	0.15	1.40	0.20	2.19	0.30	#
+		S3_130	S3_131	3.67	106.75	4.69	0.00	0.86	2.98	0.72	#
+		S3_131	S3_132	4.00	127.37	17.61	0.00	0.36	2.12	1.20	#
+		S3_132	S3_133	3.64	131.65	11.70	0.23	0.00	3.48	1.28	#
+		S3_133	S3_134	2.65	126.55	-4.47	0.00	0.34	3.69	1.72	#
+		S3_134	S3_135	1.69	137.07	-3.67	0.27	0.00	2.42	1.37	#
+		S3_135	S3_136	3.87	113.94	1.20	0.22	0.00	2.39	1.21	#
+		S3_136	S3_137	2.66	111.73	-3.32	0.00	0.42	1.45	0.43	#
+		S3_137	S3_138	2.71	126.13	1.59	0.53	0.34	0.00	0.00	#
+		S3_138	S3_139	3.08	127.48	15.38	0.29	0.19	1.63	1.61	#
+		S3_139	S3_140	2.64	138.64	-29.36	0.76	0.18	1.03	0.46	#
+		S3_140	S3_141	2.33	122.59	14.05	0.45	0.17	1.03	0.79	#
+		S3_141	S3_142	3.51	140.21	-7.89	0.00	0.00	0.00	0.00	#
+		
+	endcenterline
+
+	centerline
+		date 2017.07.15
+		
+		#explo-date YYYY.MM.DD
+		explo-team "Spéléo/Club de Franconville"
+		
+		#15/07/2017 A
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		10_2	10_3	3.93	234.18	-4.27	0.00	0.93	2.24	1.01	#
+		10_3	10_4	2.46	264.81	-1.24	1.12	0.94	4.54	1.00	#
+		10_4	10_5	3.73	193.58	3.26	0.46	0.86	4.19	1.03	#
+		10_5	10_6	7.64	240.30	2.69	0.47	0.96	1.71	1.07	#
+		10_6	10_7	6.67	257.28	-3.38	0.00	0.00	0.00	0.00	#
+		10_7	10_8	7.91	251.63	2.32	0.31	0.66	1.65	0.74	#
+		10_8	10_9	9.80	251.65	-0.81	0.30	0.67	2.27	0.51	#
+		10_9	10_10	4.68	242.02	-5.95	0.37	0.16	7.09	0.56	#
+		10_10	10_11	2.69	245.62	11.88	0.00	0.49	2.40	0.54	#
+		10_11	10_12	2.84	271.34	6.35	0.45	0.00	2.37	0.85	#
+		10_12	10_13	4.53	246.70	-3.35	0.00	0.75	0.00	0.00	#
+		10_13	10_14	2.94	250.13	81.09	0.73	0.00	0.00	1.29	#
+		10_14	10_15	5.87	265.00	3.19	0.24	1.12	1.75	0.53	#
+		10_15	10_16	6.93	270.56	0.28	1.26	0.00	3.28	0.77	#
+		10_16	10_17	3.68	239.16	-10.84	1.22	0.16	0.00	1.07	#
+		10_17	10_18	1.95	144.78	-3.41	0.36	0.88	1.55	1.92	#
+		10_18	10_19	3.44	115.52	16.07	0.15	0.19	1.87	3.75	#
+		10_19	10_20	9.94	70.24	0.50	0.30	1.09	3.21	1.39	#
+		10_20	10_21	3.43	104.70	-1.10	1.00	0.00	3.77	1.65	#
+		10_21	10_22	3.00	73.87	3.14	0.00	1.18	4.05	1.00	#
+		10_22	10_23	5.22	110.44	-0.69	1.02	0.16	3.04	0.86	#
+		10_23	10_24	4.27	94.65	7.40	3.33	1.41	0.00	1.08	#
+		10_24	10_25	2.28	228.32	7.75	1.23	0.39	6.44	3.05	#
+		10_25	10_26	2.49	251.65	-12.22	1.10	0.85	4.39	1.13	#
+		10_26	10_27	4.78	271.88	-0.55	0.89	0.17	5.92	0.37	#
+		10_27	10_28	9.52	250.70	-6.53	0.00	0.88	1.53	0.73	#
+		10_28	10_29	6.09	268.05	7.47	0.88	0.00	3.78	1.47	#
+		10_29	10_30	2.64	217.89	32.94	0.00	0.77	3.11	0.56	#
+		10_30	10_31	4.75	276.10	1.58	0.32	0.18	1.56	2.84	#
+		10_31	10_32	3.59	258.40	11.65	0.00	0.72	0.95	8.03	#
+		10_32	10_33	1.25	282.35	15.62	0.25	0.00	0.00	1.10	#
+		10_33	10_34	1.51	216.32	53.79	0.00	0.66	0.84	0.00	#
+		10_34	10_35	3.59	285.73	-4.11	0.45	0.00	0.95	0.39	#
+		10_35	10_36	3.05	264.53	-24.77	0.00	0.63	1.43	4.10	#
+		10_36	10_37	8.39	291.87	-25.28	2.57	0.00	1.28	1.30	#
+		10_37	S3_94	0.00	0.00	0.00	0	0	0	0	#
+		
+	endcenterline
+	
+endsurvey

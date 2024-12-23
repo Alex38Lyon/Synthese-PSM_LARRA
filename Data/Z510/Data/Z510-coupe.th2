@@ -1,6 +1,6 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -128.0 -128.0 8395.721 11781.5496
-##XTHERION## xth_me_area_zoom_to 200
+##XTHERION## xth_me_area_zoom_to 50
 ##XTHERION## xth_me_image_insert {1456.04 1 1.0} {7448.42 0} Z510-coupe.xvi 0 {}
 
 # Copyright (C) 2024 Alexandre Pont <alexandre.pont***@***yahoo.fr>
@@ -74,11 +74,11 @@ point 2202.0 7444.0 stalactites
 
 point 2306.0 8706.0 dig
 
-point 2524.0 8598.0 air-draught -orientation 30.4 -subtype summer
+point 2500.0 8526.0 air-draught -orientation 30.4 -subtype summer
 
-point 2525.0 8506.0 height -value [-5 m]
+point 2545.0 8454.0 height -value [-5 m]
 
-point 2105.0 9330.0 height -value [-20 m]
+point 1961.0 9338.0 height -value [-20 m] -align center
 
 point 1687.0 8062.0 height -value [-28 m]
 
@@ -90,7 +90,7 @@ point 2010.0 8712.0 height -value [+?]
 
 point 2297.0 8288.0 height -value [-5 m]
 
-point 2969.0 9843.0 height -value [-20 m]
+point 2969.0 9843.0 height -value [-20 m] -align right
 
 line wall
   2104.0 7334.0
@@ -106,6 +106,7 @@ line wall -subtype debris
   2249.0 7302.0
   2276.0 7285.0 2271.0 7290.0 2296.0 7283.0
   2321.0 7276.0 2330.0 7267.0 2345.0 7252.0
+  altitude .
   2357.59 7239.41 2377.0 7233.0 2385.0 7225.0
   smooth off
 endline
@@ -199,11 +200,12 @@ point 2116.0 7266.0 narrow-end
 
 point 1568.0 7126.0 narrow-end
 
-point 2006.0 6934.0 narrow-end
+point 2044.0 7050.0 narrow-end
 
 line wall -reverse on -subtype invisible
   1928.0 7030.0
   1888.0 6976.0
+  altitude .
 endline
 
 line wall -reverse on -subtype invisible
@@ -324,6 +326,7 @@ endline
 line wall -reverse on
   3827.0 10555.0
   3827.0 10555.0 3801.0 10505.0 3756.0 10493.0
+  altitude .
   3697.63 10477.44 3656.0 10475.0 3586.0 10471.0
   3516.0 10467.0 3515.0 10463.0 3455.0 10467.0
   3395.0 10471.0 3389.0 10465.0 3383.0 10450.0
@@ -335,13 +338,13 @@ point 3130.0 10048.0 label -text P_Teux
 
 point 2682.0 8570.0 label -text [ex. etr. de la limace] -align right
 
-point 2104.0 9232.0 label -text [Puits de l'espoir]
+point 1960.0 9242.0 label -text [Puits de l'espoir] -align center
 
-point 2970.0 9768.0 label -text [Puits des Rasoirs]
+point 2970.0 9768.0 label -text [Puits des Rasoirs] -align right
 
 point 2872.0 10570.0 label -text [M. C. Wilkinson]
 
-point 3550.0 10296.0 label -text [Puits Historique]
+point 3500.0 10314.0 label -text [Puits Historique] -align right
 
 point 3652.0 10814.0 entrance -orientation 211.4
 
@@ -414,6 +417,7 @@ line wall -reverse on
   2776.0 9046.0 2766.0 8963.0 2760.0 8919.0
   2753.84 8873.79 2758.0 8860.0 2625.0 8843.0
   2558.32 8834.48 2581.0 8761.0 2517.0 8748.0
+  altitude .
   2483.61 8741.22 2464.0 8682.0 2448.0 8646.0
   2432.0 8610.0 2425.0 8609.0 2418.0 8594.0
   2411.0 8579.0 2408.0 8556.0 2407.0 8526.0
@@ -790,11 +794,11 @@ line rope
   3284.0 4851.0
 endline
 
-point 4010.0 3518.0 label -text [Chantier n°2]
+point 3838.0 3490.0 label -text [Chantier n°2]
 
 point 3288.0 4666.0 air-draught -orientation 85.1 -subtype summer
 
-point 2978.0 4412.0 label -text [Chantier n°3]
+point 3146.0 4414.0 label -text [Chantier n°3] -align left
 
 point 3456.0 4696.0 label -text [R5]
 
@@ -904,6 +908,7 @@ line wall -reverse on -outline in -subtype presumed
   3516.0 4458.0 3514.0 4426.0 3516.0 4408.0
   3518.0 4390.0 3531.5 4353.0 3538.5 4344.0
   3545.5 4335.0 3593.0 4334.0 3604.0 4338.0
+  smooth off
 endline
 
 line wall -reverse on -outline in
@@ -942,6 +947,7 @@ line wall
   4356.0 3597.0 4332.0 3572.0 4372.0 3552.0
   4412.0 3532.0 4428.0 3524.0 4436.0 3516.0
   smooth off
+  altitude .
 endline
 
 line border
@@ -1301,6 +1307,7 @@ endline
 
 line wall -reverse on
   2854.0 5512.0
+  altitude .
   2854.0 5512.0 2864.0 5516.0 2768.0 5504.0
   2684.26 5493.53 2714.0 5494.0 2660.0 5490.0
   smooth off
@@ -1396,11 +1403,11 @@ point 4484.0 4288.0 height -value [-8 m]
 
 point 4008.0 4838.0 height -value [-12 m]
 
-point 3992.0 5128.0 label -text [<center>Puits du lancer<br>de marteau]
+point 4016.0 5168.0 label -text [<center>Puits du lancer<br>de marteau]
 
-point 3500.0 5654.0 label -text [Chantier n°1]
+point 3500.0 5654.0 label -text [Chantier n°1] -align right
 
-point 3686.0 5266.0 height -value [-17 m]
+point 3788.0 5354.0 height -value [-17 m]
 
 line wall -reverse on
   3217.0 5643.0
@@ -1692,8 +1699,8 @@ line wall
 endline
 
 line label -text [Méandre du petit Colorado]
-  5494.0 3840.0
-  5494.0 3840.0 6388.0 3254.0 6450.0 3206.0
+  5258.0 4086.0
+  5258.0 4086.0 6412.0 3272.0 6474.0 3224.0
   smooth off
 endline
 
@@ -1750,7 +1757,9 @@ point 7533.0 2153.0 dig
 
 point 6674.0 2394.0 dig
 
-point 6384.0 2362.0 height -value [+? m]
+point 7608.0 1026.0 label -text [Siphon de C.]
+
+point 6378.0 2324.0 height -value [+? m]
 
 point 7954.0 3018.0 height -value [+? m]
 
@@ -1927,6 +1936,7 @@ line wall
   7629.0 1205.0 7622.0 1203.0 7623.5 1216.5
   7624.55 1225.94 7662.85 1221.36 7671.0 1220.0
   7683.0 1218.0 7685.0 1219.0 7710.5 1219.5
+  altitude .
   7745.01 1220.18 7736.5 1321.0 7736.5 1344.0
   7736.5 1367.0 7651.0 1381.0 7643.0 1408.0
   7635.0 1435.0 7607.0 1429.0 7590.0 1461.0
@@ -2162,6 +2172,7 @@ line wall -reverse on
   963.91 3188.45 948.0 2886.0 946.0 2858.0
   944.0 2830.0 928.0 2708.0 928.0 2686.0
   smooth off
+  altitude .
 endline
 
 line wall -reverse on
@@ -2197,6 +2208,8 @@ line wall
   2352.0 5662.0 2336.0 5686.0 2336.0 5686.0
   smooth off
 endline
+
+point 834.0 2486.0 continuation
 
 line rope
   1200.0 3466.0

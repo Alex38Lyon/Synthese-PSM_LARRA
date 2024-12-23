@@ -1,0 +1,192 @@
+therion 6.3.1 (2024-11-22)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: AP7_Entree.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+output coordinate system: UTM30
+meridian convergence (deg): -1.5403
+geomag declinations (deg):
+  2007.1.1  -1.4178
+  2008.1.1  -1.2945
+  2009.1.1  -1.1714
+  2010.1.1  -1.0486
+  2011.1.1  -0.9110
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+processing projection plan ... done
+average distortion: 0.00%
+writing Data/AP7_Entree-Plan.xvi ... done
+processing projection extended ... done
+average distortion: 0.00%
+writing Data/AP7_Entree-Extended.xvi ... done
+
+
+############### export maps & scraps selection #################
+M  1474.91 MP-AP7_Entree-Plan-tot@AP7_Entree (AP7_Entree)
+S  1474.91 SP-AP7_Entree_01@AP7_Entree ()
+S     -.-- SP-AP7_Entree_02@AP7_Entree ()
+S     -.-- SP-AP7_Entree_03@AP7_Entree ()
+########## end of export maps & scraps selection ###############
+writing Outputs/AP7_Entree-Plan.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  22 DEC 2024 19:16
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] [2] [3] [4] (./mptextmp.mp) [5] (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [6] [7] [8]
+[9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24]
+[25] [26] )
+ 
+Here is how much of MetaPost's memory you used:
+ 12567 strings using 351353 characters
+ 3840032 bytes of node memory
+ 1751 symbolic tokens
+ 9i,82n,16p,315b,5f stack positions out of 16i,98n,20p,390b,6f
+41 output files written: data-patt.1 .. data.26
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  22 DEC 2024 19:16
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 75 numeric registers used out of 32768
+
+[1] ) 
+Here is how much of TeX's memory you used:
+ 340 strings out of 95671
+ 4423 string characters out of 1192323
+ 82771 words of memory out of 1566814
+ 1733 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/T
+herion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/type
+1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 79781 bytes).
+PDF statistics:
+ 96 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+
+
+############### export maps & scraps selection #################
+M     0.00 MC-AP7_Entree-Extended-tot@AP7_Entree (AP7_Entree)
+S     0.00 SC-AP7_Entree_01@AP7_Entree ()
+S     -.-- SC-AP7_Entree_02@AP7_Entree ()
+S     -.-- SC-AP7_Entree_03@AP7_Entree ()
+########## end of export maps & scraps selection ###############
+writing Outputs/AP7_Entree-Extended.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  22 DEC 2024 19:16
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] [2] [3] (./mptextmp.mp) [4] (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [5] [6] [7]
+[8] )
+ 
+Here is how much of MetaPost's memory you used:
+ 10963 strings using 347565 characters
+ 3831808 bytes of node memory
+ 1747 symbolic tokens
+ 9i,82n,16p,312b,5f stack positions out of 16i,98n,20p,312b,6f
+23 output files written: data-patt.1 .. data-patt.15
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  22 DEC 2024 19:16
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 55 numeric registers used out of 32768
+
+[1] ) 
+Here is how much of TeX's memory you used:
+ 319 strings out of 95671
+ 4251 string characters out of 1192323
+ 119085 words of memory out of 1599128
+ 1712 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/T
+herion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/type
+1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 64178 bytes).
+PDF statistics:
+ 56 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+writing Outputs/AP7_Entree.lox ...... done
+writing Outputs/AP7_Entree.kml ... done
+writing Outputs/AP7_Entree-Cave-list.html ... done
+writing Outputs/AP7_Entree-Surveys.html ... done
+compilation time: 3 sec
+
+
+###################### scrap distortions #######################
+ PROJECTION: plan
+ AVERAGE  MAXIMAL  SCRAP
+   0.00%    1.43%  SP-AP7_Entree_01@AP7_Entree
+   0.00%    0.00%  SP-AP7_Entree_02@AP7_Entree
+   0.00%    0.00%  SP-AP7_Entree_03@AP7_Entree
+################### end of scrap distortions ###################
+
+
+###################### scrap distortions #######################
+ PROJECTION: extended
+ AVERAGE  MAXIMAL  SCRAP
+   0.00%    0.11%  SC-AP7_Entree_01@AP7_Entree
+   0.00%    0.00%  SC-AP7_Entree_02@AP7_Entree
+   0.00%    0.00%  SC-AP7_Entree_03@AP7_Entree
+################### end of scrap distortions ###################
+
+############# CRS transformations chosen by PROJ ###############
+  Area of Use (AoU): (-0.741, 42.974) (-0.741, 42.974)
+  [UTM30 → LONG-LAT] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 → LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 → UTM30] AoU: [yes] transformation: [Inverse of UTM zone 30N + UTM zone 30N] definition: [proj=noop ellps=GRS80] accuracy: [0.000 m]
+  [UTM30 → EPSG:4326] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [EPSG:4326 → UTM30] AoU: [yes] transformation: [axis order change (2D) + UTM zone 30N] definition: [proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=30 ellps=WGS84] accuracy: [0.000 m]
+########## end of CRS transformations chosen by PROJ ###########

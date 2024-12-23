@@ -45,7 +45,7 @@ input config.thc
 layout xviexport
 	#cs UTM32
 	# echelle à laquelle on veut dessiner la topo
-	scale 1 100
+	scale 1 1000
 	#scale 1 1000
 	# taille de la grille
 	grid-size 2 2 2 m
@@ -57,7 +57,7 @@ endlayout
 #debut de la definition du layout "my_layout"
 layout my_layout
 	# Rajout des coordonnées de l'entrée
-	copy Coords_Header_CDa
+	#copy Coords_Header_CDa
 	# Call the config settings (Layout config inside the config.thc file)
 	copy drawingconfig
 	copy headerl
@@ -73,14 +73,14 @@ layout my_layout
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 100
+	base-scale 1 1000
 	
 	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
 	# pour faire l'ampliation-réduction entre dessin et le résultat de l'imprimante
 	# C'est tres important s'assurer que la configuration de l'imprimante ne spécifie pas l'option "Fit in page"
 	# ou similaire, sinon, l'échelle sera changée pendant l'impression!
-	scale 1 100
+	scale 1 1000
 	
 	# Echelle graphique 100 m ampleur (Généralement, le choix scale/10 est plutôt pas mal)
 	scale-bar 10 m
@@ -110,7 +110,7 @@ layout my_layout
 	# Auteur
 	doc-author "Alexandre Pont"
 	# Titre
-	doc-title "AP7_Arres_Planeres plan - 1:100"
+	doc-title "AP7_Arres_Planeres plan - 1:1000"
 	
 	# Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -141,12 +141,12 @@ layout my_layout
 	statistics copyright 2
 	
 	# Dessin ou pas du cheminement topo
-	symbol-hide point station
-	symbol-hide line survey
-	symbol-hide point u:symbol_plan
-	symbol-hide point u:symbol_extend
+	#symbol-hide point station
+	#symbol-hide line survey
+	#symbol-hide point u:symbol_plan
+	#symbol-hide point u:symbol_extend
 	#debug scrap-names
-	#debug station-names
+	debug station-names
 	
 	
 	# color map-fg [100 100 80]
@@ -170,7 +170,7 @@ layout my_layout
 		reassign cavename to describe selected maps as a group
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\cavename={AP7_Arres_Planeres, plan 1:100}
+		%\cavename={AP7_Arres_Planeres, plan 1:100}
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		%\newtoks\wpage \wpage={https://www.arsip.fr/}
@@ -185,7 +185,7 @@ endlayout
 #debut de la definition du layout "layout-coupe"
 layout layout-coupe
 	## Rajout des coordonnées de l'entrée
-	copy Coords_Header_CDa
+	#copy Coords_Header_CDa
 	## Call the config settings (Layout config inside the config.thc file)
 	copy drawingconfig
 	copy header_coupe
@@ -203,14 +203,14 @@ layout layout-coupe
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 250
+	base-scale 1 1000
 	
 	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
 	# pour faire l'ampliation-réduction entre dessin et le résultat de l'imprimante
 	# C'est tres important s'assurer que la configuration de l'imprimante ne spécifie pas l'option "Fit in page"
 	# ou similaire, sinon, l'échelle sera changée pendant l'impression!
-	scale 1 250
+	scale 1 1000
 	
 	# Echelle graphique 100 m ampleur (Généralement, le choix scale/10 est plutôt pas mal)
 	scale-bar 40 m
@@ -237,7 +237,7 @@ layout layout-coupe
 	# Auteur
 	doc-author "Alexandre Pont"
 	# Titre
-	doc-title "AP7_Arres_Planeres coupe développée - 1:250"
+	doc-title "AP7_Arres_Planeres coupe développée - 1:1000"
 	
 	# Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -268,7 +268,7 @@ layout layout-coupe
 	
 	# Dessin ou pas du cheminement topo
 	#symbol-hide point station
-	symbol-hide line survey
+	#symbol-hide line survey
 	#symbol-hide point u:symbol_plan
 	#symbol-hide point u:symbol_extend
 	# debug scrap-names
@@ -297,7 +297,7 @@ layout layout-coupe
 		reassign cavename to describe selected maps as a group
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\cavename={AP7_Arres_Planeres, coupe développée}
+		%\cavename={AP7_Arres_Planeres, coupe développée}
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		%\newtoks\wpage \wpage={https://www.arsip.fr/}
@@ -330,15 +330,15 @@ endlayout
 #export map -proj extended -layout xviexport -fmt xvi -o Data/AP7_Arres_Planeres-coupe.xvi
 
 # Selection des Maps à exporter
-# select MP-AP7_Arres_Planeres-plan-tot@AP7_Arres_Planeres
-# select MC-AP7_Arres_Planeres-coupe-tot@AP7_Arres_Planeres
+select MP-AP7_Arres_Planeres-plan-tot@AP7_Arres_Planeres
+select MC-AP7_Arres_Planeres-coupe-tot@AP7_Arres_Planeres
 
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
-# export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/AP7_Arres_Planeres-Coupe.pdf
+export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/AP7_Arres_Planeres-Coupe.pdf
 #export map -projection extended -fmt pdf -layout layout-coupe-LT -o Outputs/AP7_Arres_Planeres-Coupe-LT.pdf
 #export map -projection plan -fmt pdf -layout layout-plan-LT -o Outputs/AP7_Arres_Planeres-Plan-LT.pdf
-# export map -projection plan -fmt pdf -layout my_layout -o Outputs/AP7_Arres_Planeres-Plan.pdf
+export map -projection plan -fmt pdf -layout my_layout -o Outputs/AP7_Arres_Planeres-Plan.pdf
 #export map -projection extended -fmt pdf -layout layout-coupe-plan -o Outputs/AP7_Arres_Planeres-Coupe-Plan.pdf
 
 

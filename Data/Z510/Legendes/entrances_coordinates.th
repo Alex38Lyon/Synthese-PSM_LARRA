@@ -40,7 +40,7 @@ layout Coords_Header_CDa
 		%{\size[\thsizem] \ss\thjunk\vss}
 		%\fi
 		\edef\tmp{\thlocationCDa} \ifx\tmp\empty \else
-		{\size[\thsizem]\hskip0cm  \ss\thlocationCDa\vss}	% The first one should be without hskip
+		{\size[\thsizem]\hskip2cm  \ss\thlocationCDa\vss}	% The first one should be without hskip
 		\fi
 		}
 	endcode

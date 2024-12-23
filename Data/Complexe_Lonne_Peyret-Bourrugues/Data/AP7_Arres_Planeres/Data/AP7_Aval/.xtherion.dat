@@ -1,0 +1,15 @@
+set xth(ctrl,cp,datlist) {}
+xth_cp_data_tree_insert 1 {} 0   "" "" "length: 2241.47m (surface 0.00m, duplicated 0.00m)\nvertical range: 36.80m (from SF33X@AP7_Aval.AP7_Aval at 13.61m to S3_97@AP7_Aval.AP7_Aval at -23.19m)\nnorth-south range: 327.67m (from 10_2@AP7_Aval.AP7_Aval at 206.38m to GN30@AP7_Aval.AP7_Aval at -121.29m)\neast-west range: 406.31m (from S3_142@AP7_Aval.AP7_Aval at 75.69m to S3_60@AP7_Aval.AP7_Aval at -330.62m)\nnumber of shots: 510\nnumber of stations: 508"
+xth_cp_data_tree_insert 49 1 1 AP7_Aval AP7_Aval "AP7\_Aval" "AP7\_Aval" "length: 2241.47m (surface 0.00m, duplicated 0.00m)\nvertical range: 36.80m (from SF33X@AP7_Aval.AP7_Aval at 13.61m to S3_97@AP7_Aval.AP7_Aval at -23.19m)\nnorth-south range: 327.67m (from 10_2@AP7_Aval.AP7_Aval at 206.38m to GN30@AP7_Aval.AP7_Aval at -121.29m)\neast-west range: 406.31m (from S3_142@AP7_Aval.AP7_Aval at 75.69m to S3_60@AP7_Aval.AP7_Aval at -330.62m)\nnumber of shots: 510\nnumber of stations: 508"
+xth_cp_data_tree_insert 51 49 2 AP7_Aval AP7_Aval.AP7_Aval "Gouffre des arres planères AP7 - Réseau Nord" "Gouffre des arres planeres AP7 - Reseau Nord" "length: 2241.47m (surface 0.00m, duplicated 0.00m)\nvertical range: 36.80m (from SF33X@AP7_Aval.AP7_Aval at 13.61m to S3_97@AP7_Aval.AP7_Aval at -23.19m)\nnorth-south range: 327.67m (from 10_2@AP7_Aval.AP7_Aval at 206.38m to GN30@AP7_Aval.AP7_Aval at -121.29m)\neast-west range: 406.31m (from S3_142@AP7_Aval.AP7_Aval at 75.69m to S3_60@AP7_Aval.AP7_Aval at -330.62m)\nnumber of shots: 510\nnumber of stations: 508"
+xth_cp_data_tree_create
+set xth(ctrl,cp,maplist) {}
+xth_cp_map_tree_insert projection 0 p1 {} 0 plan {} {} {}
+xth_cp_map_tree_insert projection 0 p2 {} 0 extended {} {} {}
+xth_cp_map_tree_insert map 1 3159X1 p1 1 MP-AP7_Aval-Plan-tot MP-AP7_Aval-Plan-tot@AP7_Aval "AP7\_Aval" "AP7\_Aval"
+xth_cp_map_tree_insert map 1 3160X1 p2 1 MC-AP7_Aval-Extended-tot MC-AP7_Aval-Extended-tot@AP7_Aval "AP7\_Aval" "AP7\_Aval"
+xth_cp_map_tree_create
+xth_cp_comp_stat 2241 46
+set xth(th_exit_state) 1
+set xth(th_exit_number) 1734881636
+

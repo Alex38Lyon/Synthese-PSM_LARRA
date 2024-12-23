@@ -7,13 +7,19 @@ encoding utf-8
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 map MP-AP7_Arres_Planeres-plan-tot -title "AP7_Arres_Planeres"
-	SP-AP7_Arres_Planeres_01
+	MP-AP7_Entree-Plan-tot@AP7_Entree
 	break
-	SP-AP7_Arres_Planeres_02
+	MP-AP7_Aval-Plan-tot@AP7_Aval
+	break
+	MP-AP7_Amonts-Plan-tot@AP7_Amonts
+	break
 endmap
 
 map MC-AP7_Arres_Planeres-coupe-tot -title "AP7_Arres_Planeres"
-	SC-AP7_Arres_Planeres_01
+	MC-AP7_Entree-Extended-tot@AP7_Entree
 	break
-	SC-AP7_Arres_Planeres_02
+	MC-AP7_Aval-Extended-tot@AP7_Aval
+	break
+	MC-AP7_Amonts-Extended-tot@AP7_Amonts
+	break
 endmap

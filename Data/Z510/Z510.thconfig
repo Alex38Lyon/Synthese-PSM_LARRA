@@ -56,7 +56,7 @@ endlayout
 #debut de la definition du layout "my_layout"
 layout my_layout
 	# Rajout des coordonnées de l'entrée
-	copy Coords_Header_CDa
+	# copy Coords_Header_CDa
 	# Call the config settings (Layout config inside the config.thc file)
 	copy drawingconfig
 	copy headerl
@@ -108,8 +108,8 @@ layout my_layout
 	
 	# Auteur
 	doc-author "Alexandre Pont"
-	# Titule
-	doc-title "Gouffre Z510 plan - 1:100"
+	# Titre
+	doc-title "Gouffre Z510 plan - 1:500"
 	
 	# Maitenant on spécifie la position de la manchette, dont l'interieur est ocuppé par le titule, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -167,9 +167,9 @@ layout my_layout
 		\ifx\temp\nostring             % test if cavename is empty
 		% if empty
 		reassign cavename to describe selected maps as a group
+		\cavename={Gouffre Z510, plan 1:100}
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\cavename={Gouffre Z510, plan 1:100}
 		\newtoks\club \club={Clan des Tritons, CESAME, Interclubs Gouffre des Partages}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		%\newtoks\wpage \wpage={http://cesame.ardeche.free.fr}
@@ -184,7 +184,7 @@ endlayout
 #debut de la definition du layout "layout-coupe"
 layout layout-coupe
 	## Rajout des coordonnées de l'entrée
-	copy Coords_Header_CDa
+	#copy Coords_Header_CDa
 	## Call the config settings (Layout config inside the config.thc file)
 	copy drawingconfig
 	copy header_coupe
@@ -196,20 +196,20 @@ layout layout-coupe
 	# Définition du système de projection du plan
 	cs UTM30
 	
-	# La ligne base-scale specifie l'échelle auquel nous avons dessiné nos croquis.
-	# Par defaut, Therion pense que c'est une échelle 1:200. Si on a utilisé une autre échelle,
+	# La ligne base-scale spécifie l'échelle auquel nous avons dessiné nos croquis.
+	# Par défaut, Therion pense que c'est une échelle 1:200. Si on a utilisé une autre échelle,
 	# il faut enlever le "#" et spécifier l'échelle vraiment employée, comme c'est le cas
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 250
+	base-scale 1 1000
 	
-	# Maitenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
-	# La combination entre scale et base-scale controlle l'épaisseur des lignes, rotation, etc, convenable
-	# pour faire l'ampliation-réduction entre dessin et le resultat de l'imprimante
-	# C'est tres important s'assurer que la configuration de l'imprimante ne specifie pas l'option "Fit in page"
+	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
+	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
+	# pour faire l'ampliation-réduction entre dessin et le résultat de l'imprimante
+	# C'est tres important s'assurer que la configuration de l'imprimante ne spécifie pas l'option "Fit in page"
 	# ou similaire, sinon, l'échelle sera changée pendant l'impression!
-	scale 1 250
+	scale 1 500
 	
 	# Echelle graphique 100 m ampleur (Généralement, le choix scale/10 est plutôt pas mal)
 	scale-bar 40 m
@@ -235,29 +235,31 @@ layout layout-coupe
 	
 	# Auteur
 	doc-author "Alexandre Pont"
-	# Titule
-	doc-title "Gouffre Z510 coupe développée - 1:250"
+	# Title
+	doc-title "Gouffre Z510 coupe développée - 1:500"
 	
-	# Maitenant on spécifie la position de la manchette, dont l'interieur est ocuppé par le titule, auteurs, etc.
+	# Maintenant on spécifie la position de la manchette, dont l’intérieur est occupé par le titre, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
 	# 0 0, c'est en bas, à gauche, 100 100, c'est en haut, à droite
 	# La manchette a des "points cardinaux" autour : n, s, ne, sw, etc.
 	# Il faut specifier un de ces points comme ce que sera placé sur les cordonnées.
 	# Alors nous pouvons specifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	# ou une autre combination...
-	map-header 98 98 ne
+	map-header 95 98 ne
 	# arrière plan de la manchette
 	map-header-bg on
-	# Légende pour expliciter les symboles. "on" imprimera seulement la legende des symboles dessinés
+	# Légende pour expliciter les symboles. "on" imprimera seulement la légende des symboles dessinés
 	# sur la topo. Si l'on veut pour tous les symboles, utilisés ou pas, il faut indiquer "all".
-	# "legend off" = pas de legende
+	# "legend off" = pas de légende
 	legend on
 	# Par défaut, la légende est de 14 cm de largeur
 	legend-width 14 cm
-	legend-columns 3
-	# Un commentaire à ajounter au titule, on pourrait indiquer ici la mairie où est placée la cavité
-	# dont le nom est probablement le titule de la topo.
-	map-comment "Massif de la Pierre Saint Martin - Larra"
+	legend-columns 2
+	# Un commentaire à ajouter au titre, on pourrait indiquer ici la mairie où est placée la cavité
+	# dont le nom est probablement le titre de la topo.
+	
+	map-comment "Massif de la Pierre Saint Martin - Larra<br>Coordonnées : UTM30 WGS84 X : 679.298 Y : 4758.093 Alt. : 1 644 m<br>\"
+	
 	# Afficher les statistiques d'explo/topo par équipe/nom. C'est lourd
 	# si la cavité est importante et qu'il y a beaucoup d'explorateurs/topographes.
 	statistics explo-length off
@@ -266,12 +268,12 @@ layout layout-coupe
 	statistics copyright 2
 	
 	# Dessin ou pas du cheminement topo
-	#symbol-hide point station
+	symbol-hide point station
 	symbol-hide line survey
-	#symbol-hide point u:symbol_plan
-	#symbol-hide point u:symbol_extend
+	symbol-hide point u:symbol_plan
+	symbol-hide point u:symbol_extend
 	# debug scrap-names
-	debug station-names
+	#debug station-names
 	
 	
 	# color map-fg [100 100 80]
@@ -280,10 +282,15 @@ layout layout-coupe
 	
 	layers on
 	
-	overlap 3 cm
+	overlap 2 cm
 	
 	# Modification du Titre de la topo
 	code tex-map
+		\legendwidth=14cm
+		\legendtextsize={\size[11]}
+		\legendtextheadersize={\size[28]} %%% Taille du titre
+		\legendtextsectionsize={\size[14]} %%% Taille du titre
+		% \legendtextcolor={\color[0 0 110]}      %# RGB values 0--100
 		% Output map title as determined by Therion is stored in cavename, défini par la une Map.
 		% It will be empty if there are multiple maps selected for any one projection
 		% AND there are multiple source surveys identified in the thconfig file
@@ -294,6 +301,7 @@ layout layout-coupe
 		\ifx\temp\nostring             % test if cavename is empty
 		% if empty
 		reassign cavename to describe selected maps as a group
+		
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
 		\cavename={Gouffre Z510, coupe développée}
@@ -422,7 +430,7 @@ layout layout-coupe-plan
 		%\cavename={Grotte du Curé}
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\cavename={Gouffre Z510}
+		%\cavename={Gouffre Z510}
 		\newtoks\club \club={Interclubs gouffre des Partages}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		%\newtoks\wpage \wpage={http://cesame.ardeche.free.fr}

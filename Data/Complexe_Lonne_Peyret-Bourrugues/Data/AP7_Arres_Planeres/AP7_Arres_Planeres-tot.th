@@ -7,15 +7,19 @@ encoding utf-8
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 survey AP7_Arres_Planeres -title "AP7 Arres Planères"
-	input Data/AP7_Entree.th
+	input Data/AP7_Entree/AP7_Entree-tot.th
+	input Data/AP7_Aval/AP7_Aval-tot.th
+	equate GN34@AP7_Entree.AP7_Entree GN34@AP7_Aval.AP7_Aval
+	input Data/AP7_Amonts/AP7_Amonts-tot.th
+	equate GN30@AP7_Aval.AP7_Aval GN30@AP7_Amonts.AP7_Amonts
 	
 	## Pour le plan
-	# input Data/AP7_Arres_Planeres-plan.th2
+	#input Data/AP7_Arres_Planeres-plan.th2
 	
 	## Pour la coupe développée
 	# input Data/AP7_Arres_Planeres-coupe.th2
 	
 	## Appel des maps
-	# input AP7_Arres_Planeres-maps.th
+	input AP7_Arres_Planeres-maps.th
 	
 endsurvey
