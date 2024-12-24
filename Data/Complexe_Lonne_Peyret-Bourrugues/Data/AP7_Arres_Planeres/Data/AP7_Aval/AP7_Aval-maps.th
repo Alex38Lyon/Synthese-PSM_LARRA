@@ -11,9 +11,9 @@ encoding utf-8
 map MP-AP7_Aval-Plan-tot -title "AP7_Aval"
 	SP-AP7_Aval_01
 	break
-	SP-AP7_Aval_02
-	break
 	SP-AP7_Aval_03
+	break
+	SP-AP7_Aval_02
 	break
 	SP-AP7_Aval_04
 	break

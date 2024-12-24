@@ -1,4 +1,7 @@
 encoding  utf-8
+#####################################################################################################
+# Version ARSIP By Alex 2024 12 23
+#####################################################################################################
 
 # Licence
 #
@@ -12,7 +15,7 @@ encoding  utf-8
 #<en> File to set up specific settings for Therion drawing outputs
 #     In your *.thconfig file, you need to call this file with:
 #<fr> Fichier pour définir une configuration pour les dessins de issus de Therion
-#     Dans votre fichier *.thconfig, vous devez appeller ce fichier avec la ligne :
+#     Dans votre fichier *.thconfig, vous devez appeler ce fichier avec la ligne :
 #         input <path/to/the/file/>config.thc
 #<en> and then, in each layout, you need to call the corresponding layout:
 #<fr> et ensuite, dans chaque layout de votre thconfig, vous devez appeler les layouts qui vous intéressent comme par exemple :
@@ -343,92 +346,110 @@ layout drawingconfig
 	#<fr> Auteur du pdf
 	doc-author "Xavier Robert"
 	
-	#<en> Set the symology you want to use: UIS, ASF (Australie) CCNP (Etats Units) ou
-	#                                       SKB (tchecoslovakia)
+	#<en> Set the symology you want to use: UIS, ASF (Australie) CCNP (Etats Units), SKB (tchecoslovakia)
 	#<fr> Définit la banque de symboles que nous voulons utiliser :
 	#         UIS, ASF (Australie) CCNP (Etats Units) ou SKB (tchecoslovakia)
 	#symbol-set UIS
 	#<en> Change the type or colors of specific symbols:
 	#<fr> Changer le type ou la couleur de symboles spécifiques:
-	symbol-assign point station:temporary SKBB
-	symbol-assign point pillar AUT
 	
-	symbol-color point water-flow [17 46 100]
-	symbol-color point water-flow:intermittent [17 46 100]
-	symbol-color point water-flow:paleo [17 46 100]
-	symbol-color point water-drip [17 46 100]
-	symbol-color point water [17 46 100]
-	symbol-color line water-flow [17 46 100]
-	symbol-color line water-flow:conjectural [17 46 100]
-	symbol-color line water-flow:intermittent [17 46 100]
-	symbol-color point ice [0 0 100]
-	symbol-color line wall:ice [0 0 100]
-	symbol-color point ice-pillar [0 0 100]
-	symbol-color point ice-stalagmite [0 0 100]
-	symbol-color point ice-stalactite [0 0 100]
-	symbol-color area ice [0 0 100]
-	symbol-color point snow [0 0 100]
-	symbol-color area snow [0 0 100]
-	symbol-color point spring [17 46 100]
-	symbol-color point root [52 33 6]
-	symbol-color point vegetable-debris [13 47 6]
-	symbol-color point seed-germination [13 47 6]
-	symbol-color point altitude [100 50 0]
-	symbol-color point station [54 7 60]
-	symbol-color line flowstone [100 60 20]
-	symbol-color line wall:flowstone [100 60 20]
-	symbol-color point flowstone [100 60 20]
+	
+	symbol-assign area sand AUT
+	symbol-assign point pillar AUT
+	symbol-assign point station:temporary SKBB
+	symbol-assign point entrance ASF
+	
+	
+	symbol-color area clay [52 33 6]	# Color to verify
 	symbol-color area flowstone [100 60 20]
+	symbol-color area ice [0 0 100]
 	symbol-color area moonmilk [100 60 20]	# Change the color ?
-	symbol-color point moonmilk [100 60 20]	# Change the color ?
-	symbol-color line wall:moonmilk [100 60 20]	# Change the color ?
-	symbol-color point curtains [100 60 20]
-	symbol-color point curtain [100 60 20]
-	symbol-color point disc-pillar [100 60 20]
-	symbol-color point disc-stalactite [100 60 20]
-	symbol-color point disc-stalagmite [100 60 20]
-	symbol-color point disc-pillars [100 60 20]
-	symbol-color point disc-stalactites [100 60 20]
-	symbol-color point disc-stalagmites [100 60 20]
-	symbol-color point disk [100 60 20]
-	symbol-color point wall-calcite [100 60 20]
-	symbol-color point pillar [100 60 20]
-	symbol-color point pillar-with-curtains [100 60 20]
-	symbol-color point pillars-with-curtains [100 60 20]
-	symbol-color point stalactite [100 60 20]
-	symbol-color point stalagmite [100 60 20]
-   symbol-color point stalactite-stalagmite [100 60 20]
-	symbol-color point stalactites-stalagmites [100 60 20]	  																	 
-	symbol-color point stalactites [100 60 20]
-	symbol-color point stalagmites [100 60 20]
-	symbol-color point stalactite-stalagmite [100 60 20]
-	symbol-color point stalactites-stalagmites [100 60 20]
-	symbol-color point popcorn [100 60 20]
-	symbol-color point flowstone-choke [100 60 20]
-	symbol-color line rimstone-dam [100 60 20]
-	symbol-color line rimstone-pool [100 60 20]
-	symbol-color point rimstone-dam [100 60 20]
+	symbol-color area mudcrack [52 33 6]	# Color to verify ; Maybe to darken
+	symbol-color area pillar [100 60 20]
+	symbol-color area pillar-with-curtains [100 60 20]
+	symbol-color area sand [67 49 1]	# Color to verify
+	symbol-color area snow [0 0 100]
 	symbol-color area stalactite [100 60 20]
 	symbol-color area stalactite-stalagmite [100 60 20]
 	symbol-color area stalagmite [100 60 20]
-	symbol-color area pillar [100 60 20]
-	symbol-color area pillar-with-curtains [100 60 20]
-	symbol-color area mudcrack [52 33 6]	# Color to verify ; Maybe to darken
-	symbol-color area clay [52 33 6]	# Color to verify
-	symbol-color point volcano [52 33 6]	# Color to verify
+	
+	symbol-color line contour [34 21 3]    # Marron : (87, 56, 8)
+	symbol-color line ceiling-meander [34 21 3]    # Marron : (87, 56, 8)
+	symbol-color line flowstone [100 60 20]
+	symbol-color line floor-meander [34 21 3]    # Marron : (87, 56, 8)
+	symbol-color line floor-step [34 21 3]    # Marron : (87, 56, 8)
+	symbol-color line map-connection [69 69 69]	# gris acier (175, 175, 175)
+	symbol-color line rimstone-dam [100 60 20]
+	symbol-color line rimstone-pool [100 60 20]
+	symbol-color line rock-border [34 21 3]    # Marron : (87, 56, 8)
+	symbol-color line rock-edge [34 21 3]    # Marron : (87, 56, 8)
+	symbol-color line slope [34 21 3]    # Marron : (87, 56, 8)
+	symbol-color line survey [69 69 69]	# gris acier (175, 175, 175)
+	symbol-color line wall:clay [52 33 6]	# Color to verify
+	symbol-color line wall:flowstone [100 60 20]
+	symbol-color line wall:ice [0 0 100]
+	symbol-color line wall:moonmilk [100 60 20]	# Change the color ?
+	symbol-color line water-flow [17 46 100]
+	symbol-color line water-flow:conjectural [17 46 100]
+	symbol-color line water-flow:intermittent [17 46 100]
+	
+	symbol-color point altitude [100 50 0]
+	symbol-color point aragonite [100 60 20]
+	symbol-color point blocks [34 21 3]    # Marron : (87, 56, 8)
+	symbol-color point breakdown-choke [34 21 3]    # Marron : (87, 56, 8)
+	symbol-color point cave-pearl [100 60 20]
+	symbol-color point clay [52 33 6]	# Color to verify
+	symbol-color point clay-choke [52 33 6]	# Color to verify
+	symbol-color point curtain [100 60 20]
+	symbol-color point curtains [100 60 20]
+	symbol-color point disc-pillar [100 60 20]
+	symbol-color point disc-pillars [100 60 20]
+	symbol-color point disc-stalactite [100 60 20]
+	symbol-color point disc-stalactites [100 60 20]
+	symbol-color point disc-stalagmite [100 60 20]
+	symbol-color point disc-stalagmites [100 60 20]
+	symbol-color point disk [100 60 20]
+	symbol-color point flowstone [100 60 20]
+	symbol-color point flowstone-choke [100 60 20]
+	symbol-color point helictite [100 60 20]
+	symbol-color point helictites [100 60 20]
+	symbol-color point ice [0 0 100]
+	symbol-color point ice-pillar [0 0 100]
+	symbol-color point ice-stalactite [0 0 100]
+	symbol-color point ice-stalagmite [0 0 100]
+	symbol-color point moonmilk [100 60 20]	# Change the color ?
 	symbol-color point mud [52 33 6]	# Color to verify
 	symbol-color point mudcrack [52 33 6]	# Color to verify
-	symbol-color point clay [52 33 6]	# Color to verify
-	symbol-color line wall:clay [52 33 6]	# Color to verify
-	#symbol-color point clay-tree [52 33 6]	# Color to verify
-	symbol-color point clay-choke [52 33 6]	# Color to verify
-	#symbol-color point wall-altitude [78 8 52]	# rouge-violet 199, 21, 133
-	symbol-color point wall-altitude [100 50 0]
+	symbol-color point pillar [100 60 20]
+	symbol-color point pillar-with-curtains [100 60 20]
+	symbol-color point pillars [100 60 20]
+	symbol-color point pillars-with-curtains [100 60 20]
+	symbol-color point popcorn [100 60 20]
+	symbol-color point rimstone-dam [100 60 20]
+	symbol-color point root [52 33 6]
+	symbol-color point seed-germination [13 47 6]
+	symbol-color point snow [0 0 100]
+	symbol-color point soda-straw [100 60 20]
+	symbol-color point spring [17 46 100]
+	symbol-color point stalactite [100 60 20]
+	symbol-color point stalactite-stalagmite [100 60 20]
+	symbol-color point stalactite-stalagmite [100 60 20]
+	symbol-color point stalactites [100 60 20]
+	symbol-color point stalactites-stalagmites [100 60 20]
+	symbol-color point stalactites-stalagmites [100 60 20]
+	symbol-color point stalagmite [100 60 20]
+	symbol-color point stalagmites [100 60 20]
+	symbol-color point station [54 7 60]
 	symbol-color point station-name [80 80 80]	# light grey
-	
-	
-	#symbol-color line map-connection [81 81 81]	# gris argent (206, 206, 206)
-	symbol-color line map-connection [69 69 69]	# gris acier (175, 175, 175)
+	symbol-color point vegetable-debris [13 47 6]
+	symbol-color point volcano [52 33 6]	# Color to verify
+	symbol-color point wall-altitude [100 50 0]
+	symbol-color point wall-calcite [100 60 20]
+	symbol-color point water [17 46 100]
+	symbol-color point water-drip [17 46 100]
+	symbol-color point water-flow [17 46 100]
+	symbol-color point water-flow:intermittent [17 46 100]
+	symbol-color point water-flow:paleo [17 46 100]
 	
 	####### Metapost-changes ############
 	code metapost

@@ -12,7 +12,7 @@ encoding  utf-8
 # x_min: -1095.768, x_max: 1095.768 ecart : 1826.28
 # y_min: -1532.268, y_max: 1532.268 ecart : 2553.78
 
-scrap SC-AP7_Entree_01 -station-names "" "@AP7_Entree" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/"
+scrap SC-AP7_Entree_01 -station-names "" "@AP7_Entree" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/"
     
     point -913.14 1276.89 station -name AP_7
     point -872.88 1190.54 station -name AP1
@@ -569,13 +569,13 @@ scrap SC-AP7_Entree_01 -station-names "" "@AP7_Entree" -projection extended -aut
     
 endscrap
                         
-scrap SC-AP7_Entree_02 -station-names "" "@AP7_Entree" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Entree_02 -station-names "" "@AP7_Entree" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Entree_03 -station-names "" "@AP7_Entree" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Entree_03 -station-names "" "@AP7_Entree" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 

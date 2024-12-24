@@ -23,11 +23,11 @@ writing Data/AP7_Aval-Extended.xvi ... done
 
 
 ############### export maps & scraps selection #################
-M    -5.21 MP-AP7_Aval-Plan-tot@AP7_Aval (AP7_Aval)
-S    -5.21 SP-AP7_Aval_01@AP7_Aval ()
-S     -.-- SP-AP7_Aval_02@AP7_Aval ()
-S     -.-- SP-AP7_Aval_03@AP7_Aval ()
-S     -.-- SP-AP7_Aval_04@AP7_Aval ()
+M    -3.92 MP-AP7_Aval-Plan-tot@AP7_Aval (AP7_Aval)
+S    -8.27 SP-AP7_Aval_01@AP7_Aval ()
+S    -2.29 SP-AP7_Aval_03@AP7_Aval ()
+S    -5.71 SP-AP7_Aval_02@AP7_Aval ()
+S     0.62 SP-AP7_Aval_04@AP7_Aval ()
 S     -.-- SP-AP7_Aval_05@AP7_Aval ()
 S     -.-- SP-AP7_Aval_06@AP7_Aval ()
 S     -.-- SP-AP7_Aval_07@AP7_Aval ()
@@ -50,7 +50,7 @@ S     -.-- SP-AP7_Aval_23@AP7_Aval ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/AP7_Aval-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  22 DEC 2024 16:33
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  24 DEC 2024 16:39
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -58,49 +58,61 @@ Preloading the plain mem file, version 1.005) ) (./data.mp
 {randomseed:=42}
  [1] [2] [3] [4]
 [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
-[15] [1] [2] [3] (./mptextmp.mp) [4] (./mptextmp.mp) (./mptextmp.mp)
-(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [5] [6] [7]
-[8] [9] [10] [11] [12] [13] [14] [15] [16] [17] )
+[15]
+[Warning: undefined symbol `p_entrance_ASF'] [1] [2] [3] [4] [5] [6] [7] [8]
+[Error: area borders l813-349--86 and l812-371--76 don't intersect in scrap SP-
+AP7_Aval_03@AP7_Aval (file Data/AP7_Aval-Plan.th2 [2579])]
+[Error: area borders l812-371--76 and l813-349--86 don't intersect in scrap SP-
+AP7_Aval_03@AP7_Aval (file Data/AP7_Aval-Plan.th2 [2579])] [9] [10] [11] [12]
+[13]
+[Warning: scrap outline intersects itself in scrap SP-AP7_Aval_01@AP7_Aval]
+[14] [15] [16] (./mptextmp.mp) [17] (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [18] [19] [20]
+[21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
+[36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50]
+[51] [52] [53] [54] [55] [56] [57] [58] )
  
 Here is how much of MetaPost's memory you used:
- 52260 strings using 1598723 characters
- 4710512 bytes of node memory
- 1745 symbolic tokens
- 9i,82n,16p,312b,5f stack positions out of 16i,98n,20p,312b,6f
-32 output files written: data-patt.1 .. data.17
+ 29998 strings using 746554 characters
+ 5297584 bytes of node memory
+ 1751 symbolic tokens
+ 10i,82n,16p,366b,5f stack positions out of 16i,98n,20p,390b,6f
+73 output files written: data-patt.1 .. data.58
 
 
 #################### end of metapost log file ####################
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  22 DEC 2024 16:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  24 DEC 2024 16:39
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
 (c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
 rogram Files/Therion/texmf/fonts/pdftex.map})
 (./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
- 64 numeric registers used out of 32768
+ 114 numeric registers used out of 32768
 
-[1] ) 
+[1] )
+(\end occurred when \ifx on line 12 was incomplete) 
 Here is how much of TeX's memory you used:
- 325 strings out of 95671
- 4285 string characters out of 1192323
- 582645 words of memory out of 2028688
- 1718 multiletter control sequences out of 15000+50000
+ 375 strings out of 95671
+ 4741 string characters out of 1192323
+ 261918 words of memory out of 1735961
+ 1768 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
  12i,5n,8p,715b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
-<c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/T
-herion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/type
-1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 183004 bytes).
+<c:/Program Files/Therion/te
+xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
+pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
+erion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 248883 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 179 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 145 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 461 words of extra memory for PDF output out of 10000 (max. 10000000)
 
 
 ##################### end of pdftex log file #####################
@@ -135,7 +147,7 @@ S     -.-- SC-AP7_Aval_23@AP7_Aval ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/AP7_Aval-Extended.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  22 DEC 2024 16:33
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  24 DEC 2024 16:39
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -143,14 +155,15 @@ Preloading the plain mem file, version 1.005) ) (./data.mp
 {randomseed:=42}
  [1] [2] [3] [4]
 [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
-[15] [1] [2] [3] (./mptextmp.mp) [4] (./mptextmp.mp) (./mptextmp.mp)
-(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [5] [6] [7]
-[8] )
+[15]
+[Warning: undefined symbol `p_entrance_ASF'] [1] [2] [3] (./mptextmp.mp) [4]
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) [5] [6] [7] [8] )
  
 Here is how much of MetaPost's memory you used:
- 54691 strings using 1717517 characters
- 4776176 bytes of node memory
- 1745 symbolic tokens
+ 54706 strings using 1717839 characters
+ 5528864 bytes of node memory
+ 1746 symbolic tokens
  9i,82n,16p,312b,5f stack positions out of 16i,98n,20p,312b,6f
 23 output files written: data-patt.1 .. data-patt.15
 
@@ -159,7 +172,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  22 DEC 2024 16:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  24 DEC 2024 16:39
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -172,7 +185,7 @@ rogram Files/Therion/texmf/fonts/pdftex.map})
 Here is how much of TeX's memory you used:
  316 strings out of 95671
  4213 string characters out of 1192323
- 586898 words of memory out of 2029941
+ 587076 words of memory out of 2030119
  1709 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
@@ -180,7 +193,7 @@ Here is how much of TeX's memory you used:
 <c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/T
 herion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/type
 1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 178565 bytes).
+Output written on data.pdf (1 page, 178650 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  33 compressed objects within 1 object stream
@@ -190,12 +203,14 @@ PDF statistics:
 
 ##################### end of pdftex log file #####################
 done
-writing Outputs/AP7_Aval.lox .......................... done
+writing Outputs/AP7_Aval.lox .....
+C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_02@AP7_Aval -- multiple scrap outer outlines not supported yet
+C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_02@AP7_Aval -- invalid scrap outline
+..................... done
 C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
 writing Outputs/AP7_Aval-Cave-list.html ... done
 writing Outputs/AP7_Aval-Surveys.html ... done
-writing xtherion file ... done
-compilation time: 4 sec
+compilation time: 3 sec
 
 
 ######################### loop errors ##########################
@@ -209,8 +224,10 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ###################### scrap distortions #######################
  PROJECTION: plan
  AVERAGE  MAXIMAL  SCRAP
-   0.00%   64.31%  SP-AP7_Aval_01@AP7_Aval
-   0.00%    0.00%  SP-AP7_Aval_12@AP7_Aval
+   0.00%    0.18%  SP-AP7_Aval_02@AP7_Aval
+   0.00%    0.18%  SP-AP7_Aval_04@AP7_Aval
+   0.00%    0.16%  SP-AP7_Aval_01@AP7_Aval
+   0.00%    0.15%  SP-AP7_Aval_03@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_23@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_22@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_21@AP7_Aval
@@ -222,6 +239,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.00%    0.00%  SP-AP7_Aval_15@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_14@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_13@AP7_Aval
+   0.00%    0.00%  SP-AP7_Aval_12@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_11@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_10@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_09@AP7_Aval
@@ -229,9 +247,6 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.00%    0.00%  SP-AP7_Aval_07@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_06@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_05@AP7_Aval
-   0.00%    0.00%  SP-AP7_Aval_04@AP7_Aval
-   0.00%    0.00%  SP-AP7_Aval_03@AP7_Aval
-   0.00%    0.00%  SP-AP7_Aval_02@AP7_Aval
 ################### end of scrap distortions ###################
 
 

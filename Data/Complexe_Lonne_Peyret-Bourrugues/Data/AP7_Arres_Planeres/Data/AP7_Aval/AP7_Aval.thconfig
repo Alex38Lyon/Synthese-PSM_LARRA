@@ -79,7 +79,7 @@ layout layout-Plan
 	## après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	## Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	## des caractères et des traits.
-	base-scale 1 500
+	base-scale 1 400
 	
 	## Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	## La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
@@ -116,7 +116,7 @@ layout layout-Plan
 	#surface-opacity 100
 	
 	## Auteur
-	doc-author "Alexandre PONT"
+	doc-author "Alexandre Pont"
 	## Titre
 	doc-title "AP7_Aval Plan - 1:500"
 	
@@ -150,7 +150,7 @@ layout layout-Plan
 	
 	## Dessin ou pas du cheminement topo
 	#symbol-hide point station
-	#symbol-hide line survey
+	symbol-hide line survey
 	#symbol-hide point u:symbol_plan
 	#symbol-hide point u:symbol_extend
 	#debug scrap-names
@@ -178,7 +178,7 @@ layout layout-Plan
 		%\newtoks\thanksto \thanksto={Merçi à tout le monde}
 		%\newtoks\wpage \wpage={https://www.arsip.fr/}
 		%\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM_LARRA}
-		\newtoks\synth \synth={Alexandre PONT}
+		\newtoks\synth \synth={Alexandre Pont}
 		\framethickness=0.5mm
 	endcode
 		
@@ -240,7 +240,7 @@ layout layout-Extended
 	#surface-opacity 100
 	
 	## Auteur
-	doc-author "Alexandre PONT"
+	doc-author "Alexandre Pont"
 	## Titre
 	doc-title "AP7_Aval Coupe développée - 1:500"
 	
@@ -302,7 +302,7 @@ layout layout-Extended
 		%\newtoks\thanksto \thanksto={Merçi à tout le monde}
 		%\newtoks\wpage \wpage={https://www.arsip.fr/}
 		%\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM_LARRA}
-		\newtoks\synth \synth={Alexandre PONT}
+		\newtoks\synth \synth={Alexandre Pont}
 		\framethickness=0.5mm
 	endcode
 	

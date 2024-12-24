@@ -12,7 +12,7 @@ encoding  utf-8
 # x_min: -4476.371999999999, x_max: 4476.371999999999 ecart : 7460.62
 # y_min: -173.88, y_max: 173.88 ecart : 289.8
 
-scrap SC-AP7_Aval_01 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/"
+scrap SC-AP7_Aval_01 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/"
     
     point -1083.16 37.74 station -name RN01
     point -1150.98 27.26 station -name RN02
@@ -3069,133 +3069,133 @@ scrap SC-AP7_Aval_01 -station-names "" "@AP7_Aval" -projection extended -author 
     
 endscrap
                         
-scrap SC-AP7_Aval_02 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_02 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_03 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_03 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_04 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_04 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_05 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_05 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_06 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_06 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_07 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_07 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_08 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_08 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_09 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_09 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_10 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_10 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_11 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_11 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_12 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_12 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_13 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_13 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_14 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_14 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_15 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_15 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_16 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_16 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_17 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_17 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_18 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_18 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_19 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_19 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_20 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_20 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_21 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_21 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_22 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_22 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
 
                         
-scrap SC-AP7_Aval_23 -station-names "" "@AP7_Aval" -projection extended -author 2024 "Alexandre PONT" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
+scrap SC-AP7_Aval_23 -station-names "" "@AP7_Aval" -projection extended -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" 
     
 endscrap
 
