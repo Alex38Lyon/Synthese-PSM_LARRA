@@ -51,7 +51,7 @@ Licence
 L'ensemble de ces données est publié sous la licence libre Creative Commons CC BY-NC-ND 4.0 (Attribution, partage à l'identique et pas d'utilisation commerciale) :
 https://creativecommons.org/licenses/by-nc-nd/4.0/
 
-.. image:: https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nd.png
+.. image:: https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-nd.png
   :align: center
   :width: 100px
   :target: https://creativecommons.org/licenses/by-nc-nd/4.0/

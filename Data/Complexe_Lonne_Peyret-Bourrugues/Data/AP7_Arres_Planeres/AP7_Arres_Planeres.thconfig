@@ -35,7 +35,7 @@ source AP7_Arres_Planeres-tot.th
 input Legendes/entrances_coordinates.th
 
 # Add config file
-input config.thc
+input ../../../../config.thc
 
 # 2-LAYOUT
 # Ici, on peut specifier des choses comme les symboles à utiliser (UIS, etc)
@@ -53,6 +53,26 @@ layout xviexport
 	grid bottom
 endlayout
 # fin de la définition du layout "xviexport"
+
+lookup altitude -title "Altitude legend"
+		1800 [0 100 0] "2000 m a.s.l."
+		1200 [100 0 100] "below 500 m"
+endlookup
+
+lookup altitude:scale1
+	1800
+	1600
+	1400
+	1200
+endlookup
+	
+lookup topo-date
+ 2010.12.31 [] "2010 and before"
+ 2011.12.31 [] 2011
+ 2012.12.31 [] 2012
+ - [] "2013 and later"  #my experimentation suggests that '-' colours undated surveys if last in the list, and all surveys if first in list.  Bruce
+endlookup
+
 
 #debut de la definition du layout "my_layout"
 layout my_layout
@@ -73,7 +93,7 @@ layout my_layout
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 1000
+	base-scale 1 800
 	
 	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
@@ -100,7 +120,7 @@ layout my_layout
 	transparency on
 	# Couleur de la topographie
 	# color map-fg [100 100 80]
-	color map-fg 90
+	#color map-fg 90
 	# ça marche seulement si transparency est "on" 90% blanc= 10% noir
 	opacity 75
 	
@@ -119,7 +139,7 @@ layout my_layout
 	# Il faut specifier un de ces points comme ce que sera placé sur les cordonnées.
 	# Alors nous pouvons specifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	# ou une autre combination...
-	map-header 2 98 nw
+	map-header 80 98 nw
 	
 	# arrière plan de la manchette
 	map-header-bg on
@@ -135,27 +155,135 @@ layout my_layout
 	map-comment "Massif de la Pierre Saint Martin - Larra"
 	# Afficher les statistiques d'explo/topo par équipe/nom. C'est lourd
 	# si la cavité est importante et qu'il y a beaucoup d'explorateurs/topographes.
-	statistics explo-length off
-	statistics topo-length off
+	statistics explo-length off   #on/off/hide 
+	statistics topo-length off    #on/off/hide 
 	# Afficher un copyright
 	statistics copyright 2
 	
 	# Dessin ou pas du cheminement topo
-	#symbol-hide point station
+	symbol-hide point station
 	#symbol-hide line survey
 	#symbol-hide point u:symbol_plan
 	#symbol-hide point u:symbol_extend
 	#debug scrap-names
-	debug station-names
+	#debug station-names
+	#debug first # first transformation, red lines - scrap rotated and scaled only
+	#debug second # second transformation, blue lines - scrap morphed according to station positions
+
+
 	
-	
-	# color map-fg [100 100 80]
+	color map-fg [100 100 80]
 	# color map-fg altitude
 	# color-legend off
 	
 	layers on
 	
 	overlap 3 cm
+	
+	# Centreline that is only visible when not in a scrap  by Tarquin 2019
+	code metapost
+		def l_survey_cave_MY(expr P) =
+			if ATTR__scrap_centerline:
+				l_survey_cave_SKBB(P);
+			fi;
+		enddef;
+		initsymbol("l_survey_cave_MY");
+		
+	endcode
+	
+	symbol-assign line survey:cave MY
+	# end
+	#color map-fg altitude
+	
+	
+	code metapost
+	# Voir : https://therion.speleo.sk/wiki/tbe:wiki6
+	# Voir : https://therion.speleo.sk/wiki/metapost
+	
+		def p_entrance_MY (expr pos,theta,sc,al)=
+			U:=(.2u,.5u);
+			T:=identity aligned al rotated 0.0 scaled sc shifted pos;
+			path p;
+			p = (-.3u,-.25u) -- (-.2u,-.25u){dir 135} .. (0u, .25u) .. {dir 225}(.2u,-.25u) -- (.3u,-.25u);
+			thdraw p withpen PenA;
+			thdraw unitsquare scaled u shifted (-0.5u,-0.5u) rotated 45 withpen PenD;
+		enddef;
+		
+		initsymbol("p_entrance_MY");
+		
+		def p_u_block(expr pos,theta,sc,al) =
+			T:=identity aligned al rotated theta scaled sc shifted pos;
+			path p q;
+			p := (2.3u,0.9u)--(0.65u,1u)--(-0.9u,0.6u)--(-2.15u,-0.1u)--(-2.35u,-0.25u)--(-2.5u,-0.5u)--(-2u,-0.65u)--(-0.75u,-0.65u)--(0.6u,-0.7u)--(1.1u,-0.5u)--(2.1u,-0.15u)--cycle;
+			pickup PenB;
+			thdraw p;
+			% The following line uses the code from Colour Dependant Visualization of Symbols by Bruce Mutton
+			if known colour_block_bg: thfill p withcolor colour_block_bg; else: thfill p withcolor (0.75,0.75,0.75); fi;
+				q := (-2.5u,-0.5u)--(-2u,-0.65u)--(-0.75u,-0.65u)--(0.6u,-0.7u)--(1.1u,-0.5u)--(2.1u,-0.15u)--(2.3u,0.9u)--(2.5u,0.7u)--(2.5u,0.5u)--(2.25u,-0.9u)--(1.1u,-1.3u)--(0.5u,-1.5u)--(-0.75u,-1.4u)--(-2u,-1.15u)--(-2.35u,-0.65u)--cycle;
+				thdraw q;
+				thfill q withcolor(0.6,0.6,0.6);
+				pickup PenD;
+				path p;
+				p := (-2u,-0.65u)--(-1.9u,-1u);
+				thdraw p;
+				path p;
+				p := (0.6u,-0.7u)--(0.5u,-1.3u);
+				thdraw p;
+				path p;
+				p := (2.1u,-0.15u)--(2.3u,-0.4u);
+				thdraw p;
+		enddef;
+		
+		initsymbol("p_u_block");
+			
+	
+	def p_blocks (expr pos,theta,sc,al)=
+		base_symbolsize :=0.30u; %Factor*u; Factor=size of the blocks
+		size_factor := 0.5 + uniformdeviate 0.5; % Pour le polygone principal
+		symbolsize := base_symbolsize * size_factor;
+		U:=(.5u,.5u);
+		random_theta := uniformdeviate 360;
+		T:=identity aligned al rotated random_theta scaled sc shifted pos;
+      pickup PenC;
+		thfill (.0symbolsize,.0symbolsize)--(1.0symbolsize,-.5symbolsize)--(0.0symbolsize,-1.5symbolsize)--(-1.0symbolsize,-1.0symbolsize)--cycle withcolor green withalpha 0.5;
+		thdraw (.0symbolsize,.0symbolsize)--(1.0symbolsize,-.5symbolsize)--(0.0symbolsize,-1.5symbolsize)--(-1.0symbolsize,-1.0symbolsize)--cycle;
+		thfill (.5symbolsize,-.25symbolsize)--(1.0symbolsize,.5symbolsize)--(0.0symbolsize,1.5symbolsize)--(-0.5symbolsize,.5symbolsize)--cycle withcolor ( 0.34, 0.21, 0.3) withalpha 0.5;
+		thdraw (.5symbolsize,-.25symbolsize)--(1.0symbolsize,.5symbolsize)--(0.0symbolsize,1.5symbolsize)--(-0.5symbolsize,.5symbolsize)--cycle;
+		thfill (.0symbolsize,.0symbolsize)--(.0symbolsize,.5symbolsize)--(-1.5symbolsize,.5symbolsize)--(-1.5symbolsize,-0.5symbolsize)--(-0.5symbolsize,-0.5symbolsize)--cycle withcolor (0.87, 0.56, 0.8) withalpha 0.5;
+		thdraw (.0symbolsize,.0symbolsize)--(.0symbolsize,.5symbolsize)--(-1.5symbolsize,.5symbolsize)--(-1.5symbolsize,-0.5symbolsize)--(-0.5symbolsize,-0.5symbolsize)--cycle;
+   enddef;
+	
+	%initsymbol("p_blocks");
+	
+	def l_rockborder (expr p) =
+		% Vérifie si le chemin est fermé
+		%if p[0] = point infinity of p:
+			% Remplit la zone avec une couleur si le chemin est fermé
+			%fill p withcolor (0.34, 0.21, 0.3);
+			
+			%draw p withcolor 0.5green;
+		%fi;
+		thfill p --cycle withcolor green withalpha 0.5;
+		thdraw p --cycle withcolor blue;
+		% Dessine la bordure de la ligne (même si elle n'est pas fermée)
+		%draw p withcolor (0.34, 0.21, 0.3);
+	enddef;
+	
+
+	def l_rockedge (expr p) =
+		if abs(llcorner p - urcorner p) > u:
+			l_rockedge_UIS(p);
+		fi;
+	enddef;
+
+   #fonts_setup(18, 10, 14, 32, 48);
+	
+endcode		
+
+symbol-assign point entrance MY 
+		
+	
+
 	
 	code tex-map
 		% Output map title as determined by Therion is stored in cavename, défini par la une Map.
@@ -170,13 +298,14 @@ layout my_layout
 		reassign cavename to describe selected maps as a group
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		%\cavename={AP7_Arres_Planeres, plan 1:100}
+		\cavename={AP7 Arres Planères}
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
-		%\newtoks\wpage \wpage={https://www.arsip.fr/}
-		%\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM_LARRA}
+		\newtoks\wpage \wpage={https://www.arsip.fr/}
+		\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM\_LARRA}
+		%\newtoks\datat \datat={https://github.com/Alex38Lyon}
 		\newtoks\synth \synth={Alexandre Pont}
-		\framethickness=0.5mm
+		\framethickness=0.5mm!!
 	endcode
 	
 	

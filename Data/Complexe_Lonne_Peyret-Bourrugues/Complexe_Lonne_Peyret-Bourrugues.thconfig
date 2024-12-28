@@ -126,7 +126,7 @@ layout my_layout
 	# Légende pour expliciter les symboles. "on" imprimera seulement la légende des symboles dessinés
 	# sur la topo. Si l'on veut pour tous les symboles, utilisés ou pas, il faut indiquer "all".
 	# "legend off" = pas de légende
-	legend all
+	legend on
 	# Par défaut, la légende est de 14 cm de largeur
 	legend-width 60 cm
 	legend-columns 3

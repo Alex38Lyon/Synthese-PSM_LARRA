@@ -73,6 +73,35 @@ layout layout-Plan
 	## Définition du système de projection du plan
 	cs UTM30
 	
+	# https://therion.speleo.sk/wiki/metapost	
+  code metapost
+  	
+  % def p_blocks_UIS (expr pos,theta,sc,al)=
+%		symbolsize:=0.4u; %Factor*u; Factor=size of the blocks
+%		U:=(.5u,.5u);
+%		T:=identity aligned al rotated theta scaled sc shifted pos;
+%		pickup PenC;
+%		thdraw (.0symbolsize,.0symbolsize)--(1.0symbolsize,-.5symbolsize)--(0.0symbolsize,-1.5symbolsize)--(-1.0symbolsize,-1.0symbolsize)--cycle withcolor (0.7, 0.7, 0.7);
+%		thdraw (.5symbolsize,-.25symbolsize)--(1.0symbolsize,.5symbolsize)--(0.0symbolsize,1.5symbolsize)--(-0.5symbolsize,.5symbolsize);
+%		thdraw (.0symbolsize,.0symbolsize)--(.0symbolsize,.5symbolsize)--(-1.5symbolsize,.5symbolsize)--(-1.5symbolsize,-0.5symbolsize)--(-0.5symbolsize,-0.5symbolsize);
+%	enddef;
+	
+  %def l_rockborder (expr p) =
+  %  if abs(llcorner p - urcorner p) > u:
+  %    l_rockborder_UIS(p);
+  %  fi;
+  %enddef;
+  
+  %def l_rockedge (expr p) =
+  %  if abs(llcorner p - urcorner p) > u:
+  %    l_rockedge_UIS(p);
+  %  fi;
+  %enddef;
+  
+	
+  endcode
+	
+  
 	## La ligne base-scale spécifie l'échelle auquel nous avons dessiné nos croquis.
 	## Par défaut, Therion pense que c'est une échelle 1:200. Si on a utilisé une autre échelle,
 	## il faut enlever le "#" et spécifier l'échelle vraiment employée, comme c'est le cas
@@ -127,7 +156,7 @@ layout layout-Plan
 	## Il faut specifier un de ces points comme ce que sera placé sur les cordonnées.
 	## Alors nous pouvons specifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	## ou une autre combination...
-	map-header 2 98 nw
+	map-header 2 50 nw
 	
 	## arrière plan de la manchette
 	map-header-bg on
@@ -149,10 +178,10 @@ layout layout-Plan
 	statistics copyright 2
 	
 	## Dessin ou pas du cheminement topo
-	#symbol-hide point station
+	symbol-hide point station
 	symbol-hide line survey
-	#symbol-hide point u:symbol_plan
-	#symbol-hide point u:symbol_extend
+	symbol-hide point u:symbol_plan
+	symbol-hide point u:symbol_extend
 	#debug scrap-names
 	#debug station-names
 	
@@ -173,7 +202,7 @@ layout layout-Plan
 		reassign cavename to describe selected maps as a group
 		\else                            % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		%\cavename={AP7_Aval, Plan 1:500}     % Note Alex : Bug avec certains fichiers ?
+		\cavename={AP7 Aval, Plan 1:500}     % Note Alex : Bug avec certains fichiers ?
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Merçi à tout le monde}
 		%\newtoks\wpage \wpage={https://www.arsip.fr/}

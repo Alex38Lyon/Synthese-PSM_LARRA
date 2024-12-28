@@ -357,7 +357,7 @@ layout drawingconfig
 	symbol-assign area sand AUT
 	symbol-assign point pillar AUT
 	symbol-assign point station:temporary SKBB
-	symbol-assign point entrance ASF
+	#symbol-assign point entrance UIS
 	
 	
 	symbol-color area clay [52 33 6]	# Color to verify
@@ -453,6 +453,8 @@ layout drawingconfig
 	
 	####### Metapost-changes ############
 	code metapost
+	
+		#fonts_setup( 12, 16, 32, 64, 96 );
 		
 		#<en> Modify length/depth statistics to print
 		#<fr> Modifier l'aspect et les données des statistiques de longueur affichées si besoin

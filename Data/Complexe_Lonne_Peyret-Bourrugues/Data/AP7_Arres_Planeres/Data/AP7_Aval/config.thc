@@ -346,19 +346,18 @@ layout drawingconfig
 	#<fr> Auteur du pdf
 	doc-author "Xavier Robert"
 	
-	#<en> Set the symology you want to use: UIS, ASF (Australie) CCNP (Etats Units), SKB (tchecoslovakia)
+	#<en> Set the symology you want to use: UIS, ASF (Australie), AUT (Austrian), CCNP (Etats Units), SKB (tchecoslovakia), BCRA, NDD, NZSS, SBE, SKBB
 	#<fr> Définit la banque de symboles que nous voulons utiliser :
 	#         UIS, ASF (Australie) CCNP (Etats Units) ou SKB (tchecoslovakia)
 	#symbol-set UIS
 	#<en> Change the type or colors of specific symbols:
 	#<fr> Changer le type ou la couleur de symboles spécifiques:
 	
-	
 	symbol-assign area sand AUT
 	symbol-assign point pillar AUT
 	symbol-assign point station:temporary SKBB
-	symbol-assign point entrance ASF
-	
+	symbol-assign point entrance UIS
+	symbol-assign point blocks UIS
 	
 	symbol-color area clay [52 33 6]	# Color to verify
 	symbol-color area flowstone [100 60 20]
@@ -451,8 +450,16 @@ layout drawingconfig
 	symbol-color point water-flow:intermittent [17 46 100]
 	symbol-color point water-flow:paleo [17 46 100]
 	
+	
 	####### Metapost-changes ############
 	code metapost
+		# voir exemples : https://therion.speleo.sk/wiki/metapost
+	
+		#<en> Modify fontds size if needed 
+		#<fr> Modifier la taille des polices si besoin	
+		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
+		fonts_setup(8,14,18,20,25); 
+		% default values depend on scale; for 1:200 they are 7,8,10,20,30 
 		
 		#<en> Modify length/depth statistics to print
 		#<fr> Modifier l'aspect et les données des statistiques de longueur affichées si besoin
@@ -1531,6 +1538,26 @@ layout drawingconfig
 			thdrawoptions();
 		fi;
 	enddef;
+	
+	
+	def l_blocks =
+		  if currentname = "rock-border":
+			 % Définir le contour rouge
+			 pickup pencircle scaled 0.5pt;            % Épaisseur du contour
+			 draw currentpicture
+				withpen pencircle scaled 0.5pt         % Contour de 0.5pt
+				withcolor (1, 0, 0);                   % Couleur rouge (RVB)
+
+			 % Définir le remplissage rouge clair pour simuler la transparence
+			 fill currentpicture
+				withcolor (1, 0.5, 0.5);               % Rouge clair (50% de transparence simulée)
+		  fi;
+	enddef;
+
+
+	
+	
+	
 	
 endcode
 # Endcode for all the definition
