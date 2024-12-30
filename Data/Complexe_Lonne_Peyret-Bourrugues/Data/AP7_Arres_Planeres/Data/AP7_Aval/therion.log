@@ -10,12 +10,45 @@ scanning centreline tree ... done
 searching for centerline loops ... done
 calculating station coordinates ... done
 average loop error: 1.47%
+processing survey data ... 
+####################### cavern log file ########################
+ 1> Survex 1.4.15
+ 2> Copyright ¸ 1990-2024 Olly Betts
+ 3> C:\Users\alexa\AppData\Local\Temp\th20012\data.svx:6: info: La topographie n'a pas de points fixes. Par cons‚quent j'ai fix‚ 1 … (0,0,0)
+ 4> 
+ 5> La topographie contient 508 stations, connect‚es par 510 vis‚es.
+ 6> Il y a 3 bouclages.
+ 7> Longueur totale de la topographie = 2241.47m (2241.47m ajust‚)
+ 8> Longueur totale en projection horizontale = 2095.73m
+ 9> Longueur totale verticale =  419.75m
+10> Intervalle vertical = 36.81m (de 331 … 13.59m jusqu'… 427 … -23.22m)
+11> Intervalle Nord-Sud = 327.70m (de 473 … 206.40m jusqu'… 110 … -121.29m)
+12> Intervalle Est-Ouest = 406.31m (de 472 … 75.69m jusqu'… 392 … -330.62m)
+13>   43 1-noeuds.
+14>  424 2-noeuds.
+15>   35 3-noeuds.
+16>    6 4-noeuds.
+17> 
+######################### transcription ########################
+ 3> input:6 -- Data/AP7_Aval.th [30]
+ 3> 1 : RN01@AP7_Aval.AP7_Aval
+ 5> 508 : 10_37@AP7_Aval.AP7_Aval
+ 6> 3 : RN02@AP7_Aval.AP7_Aval
+10> 331 : SF33X@AP7_Aval.AP7_Aval -- 427 : S3_97@AP7_Aval.AP7_Aval
+11> 473 : 10_2@AP7_Aval.AP7_Aval -- 110 : GN30@AP7_Aval.AP7_Aval
+12> 472 : S3_142@AP7_Aval.AP7_Aval -- 392 : S3_60@AP7_Aval.AP7_Aval
+13> 43 : PS08@AP7_Aval.AP7_Aval
+14> 424 : S3_92@AP7_Aval.AP7_Aval
+15> 35 : VD04@AP7_Aval.AP7_Aval
+16> 6 : RN05@AP7_Aval.AP7_Aval
+#################### end of cavern log file ####################
+done
 calculating basic statistics ... done
 processing extended elevation ... done
 processing references ... done
 selecting export objects ... done
 processing projection plan ... done
-average distortion: 0.00%
+average distortion: 0.03%
 writing Data/AP7_Aval-Plan.xvi ... done
 processing projection extended ... done
 average distortion: 0.00%
@@ -23,14 +56,14 @@ writing Data/AP7_Aval-Extended.xvi ... done
 
 
 ############### export maps & scraps selection #################
-M    -7.24 MP-AP7_Aval-Plan-tot@AP7_Aval (AP7_Aval)
-S     1.63 SP-AP7_Aval_01@AP7_Aval ()
-S    -2.29 SP-AP7_Aval_03@AP7_Aval ()
-S    -5.71 SP-AP7_Aval_02@AP7_Aval ()
-S     0.62 SP-AP7_Aval_04@AP7_Aval ()
-S    -5.71 SP-AP7_Aval_05@AP7_Aval ()
-S   -18.02 SP-AP7_Aval_06@AP7_Aval ()
-S   -21.21 SP-AP7_Aval_07@AP7_Aval ()
+M    -7.26 MP-AP7_Aval-Plan-tot@AP7_Aval (AP7_Aval)
+S     1.62 SP-AP7_Aval_01@AP7_Aval ()
+S    -2.31 SP-AP7_Aval_03@AP7_Aval ()
+S    -5.74 SP-AP7_Aval_02@AP7_Aval ()
+S     0.59 SP-AP7_Aval_04@AP7_Aval ()
+S    -5.74 SP-AP7_Aval_05@AP7_Aval ()
+S   -18.04 SP-AP7_Aval_06@AP7_Aval ()
+S   -21.24 SP-AP7_Aval_07@AP7_Aval ()
 S     -.-- SP-AP7_Aval_08@AP7_Aval ()
 S     -.-- SP-AP7_Aval_09@AP7_Aval ()
 S     -.-- SP-AP7_Aval_10@AP7_Aval ()
@@ -50,7 +83,7 @@ S     -.-- SP-AP7_Aval_23@AP7_Aval ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/AP7_Aval-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  27 DEC 2024 16:47
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  30 DEC 2024 16:36
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -75,7 +108,7 @@ Preloading the plain mem file, version 1.005) ) (./data.mp
 [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] )
  
 Here is how much of MetaPost's memory you used:
- 48538 strings using 1228565 characters
+ 50221 strings using 1233890 characters
  5221648 bytes of node memory
  1757 symbolic tokens
  10i,82n,16p,465b,5f stack positions out of 16i,98n,20p,487b,6f
@@ -86,7 +119,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  27 DEC 2024 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  30 DEC 2024 16:36
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -100,7 +133,7 @@ rogram Files/Therion/texmf/fonts/pdftex.map})
 Here is how much of TeX's memory you used:
  396 strings out of 95671
  4975 string characters out of 1192323
- 93095 words of memory out of 1575138
+ 93067 words of memory out of 1575110
  1789 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
@@ -109,7 +142,7 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 326276 bytes).
+Output written on data.pdf (1 page, 329936 bytes).
 PDF statistics:
  226 PDF objects out of 1000 (max. 8388607)
  117 compressed objects within 2 object streams
@@ -149,7 +182,7 @@ S     -.-- SC-AP7_Aval_23@AP7_Aval ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/AP7_Aval-Extended.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  27 DEC 2024 16:47
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  30 DEC 2024 16:36
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -162,7 +195,7 @@ Preloading the plain mem file, version 1.005) ) (./data.mp
 [8] )
  
 Here is how much of MetaPost's memory you used:
- 54742 strings using 1724834 characters
+ 54512 strings using 1723846 characters
  5535360 bytes of node memory
  1749 symbolic tokens
  9i,82n,16p,312b,5f stack positions out of 16i,98n,20p,312b,6f
@@ -173,7 +206,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  27 DEC 2024 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  30 DEC 2024 16:36
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -186,7 +219,7 @@ rogram Files/Therion/texmf/fonts/pdftex.map})
 Here is how much of TeX's memory you used:
  316 strings out of 95671
  4213 string characters out of 1192323
- 587076 words of memory out of 2030119
+ 587536 words of memory out of 2030579
  1709 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
@@ -194,7 +227,7 @@ Here is how much of TeX's memory you used:
 <c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/T
 herion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/type
 1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 179328 bytes).
+Output written on data.pdf (1 page, 179258 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  33 compressed objects within 1 object stream
@@ -230,13 +263,13 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ###################### scrap distortions #######################
  PROJECTION: plan
  AVERAGE  MAXIMAL  SCRAP
-   0.00%    0.23%  SP-AP7_Aval_05@AP7_Aval
-   0.00%    0.18%  SP-AP7_Aval_02@AP7_Aval
-   0.00%    0.18%  SP-AP7_Aval_04@AP7_Aval
-   0.00%    0.16%  SP-AP7_Aval_01@AP7_Aval
-   0.00%    0.15%  SP-AP7_Aval_03@AP7_Aval
-   0.00%    0.06%  SP-AP7_Aval_06@AP7_Aval
-   0.00%    0.03%  SP-AP7_Aval_07@AP7_Aval
+   0.05%    5.05%  SP-AP7_Aval_02@AP7_Aval
+   0.04%    4.11%  SP-AP7_Aval_03@AP7_Aval
+   0.04%    3.16%  SP-AP7_Aval_04@AP7_Aval
+   0.01%    1.52%  SP-AP7_Aval_05@AP7_Aval
+   0.03%    1.42%  SP-AP7_Aval_01@AP7_Aval
+   0.01%    0.58%  SP-AP7_Aval_06@AP7_Aval
+   0.01%    0.14%  SP-AP7_Aval_07@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_23@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_22@AP7_Aval
    0.00%    0.00%  SP-AP7_Aval_21@AP7_Aval
@@ -259,7 +292,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ###################### scrap distortions #######################
  PROJECTION: extended
  AVERAGE  MAXIMAL  SCRAP
-   0.00%    0.28%  SC-AP7_Aval_01@AP7_Aval
+   0.00%    6.01%  SC-AP7_Aval_01@AP7_Aval
    0.00%    0.00%  SC-AP7_Aval_12@AP7_Aval
    0.00%    0.00%  SC-AP7_Aval_23@AP7_Aval
    0.00%    0.00%  SC-AP7_Aval_22@AP7_Aval

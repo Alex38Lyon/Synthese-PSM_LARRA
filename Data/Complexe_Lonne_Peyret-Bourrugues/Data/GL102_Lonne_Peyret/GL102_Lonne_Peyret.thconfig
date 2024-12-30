@@ -74,7 +74,7 @@ layout my_layout
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 1000
+	base-scale 1 800
 	
 	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable

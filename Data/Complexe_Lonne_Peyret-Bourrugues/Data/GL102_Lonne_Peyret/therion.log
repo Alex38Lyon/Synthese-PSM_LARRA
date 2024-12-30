@@ -47,7 +47,7 @@ S  1299.88 SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/GL102_Lonne_Peyret-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  23 DEC 2024 11:50
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  30 DEC 2024 10:10
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -68,36 +68,36 @@ _Lonne_Peyret] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49]
 (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
 (./mptextmp.mp) [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72]
 [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87]
-[88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] )
+[88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] )
  
 Here is how much of MetaPost's memory you used:
- 25007 strings using 588292 characters
- 4177192 bytes of node memory
- 1758 symbolic tokens
+ 25033 strings using 589713 characters
+ 4376760 bytes of node memory
+ 1764 symbolic tokens
  10i,82n,17p,471b,5f stack positions out of 16i,98n,20p,487b,6f
-116 output files written: data-patt.1 .. data.101
+115 output files written: data-patt.1 .. data.100
 
 
 #################### end of metapost log file ####################
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  23 DEC 2024 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  30 DEC 2024 10:10
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
 (c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
 rogram Files/Therion/texmf/fonts/pdftex.map})
 (./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
- 180 numeric registers used out of 32768
+ 179 numeric registers used out of 32768
 
 [1] )
 (\end occurred when \ifx on line 12 was incomplete) 
 Here is how much of TeX's memory you used:
- 445 strings out of 95671
- 5589 string characters out of 1192323
- 78384 words of memory out of 1558427
- 1838 multiletter control sequences out of 15000+50000
+ 444 strings out of 95671
+ 5582 string characters out of 1192323
+ 95453 words of memory out of 1572496
+ 1837 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
  12i,5n,8p,1688b,73s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -105,12 +105,12 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 312744 bytes).
+Output written on data.pdf (1 page, 325733 bytes).
 PDF statistics:
- 337 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
+ 335 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 931 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 925 words of extra memory for PDF output out of 10000 (max. 10000000)
 
 
 ##################### end of pdftex log file #####################
@@ -124,7 +124,7 @@ average distortion: 0.92%
 done
 writing Outputs/GL102_Lonne_Peyret.html ... done
 writing Outputs/Surveys.html ... done
-compilation time: 4 sec
+compilation time: 3 sec
 
 
 ###################### scrap distortions #######################

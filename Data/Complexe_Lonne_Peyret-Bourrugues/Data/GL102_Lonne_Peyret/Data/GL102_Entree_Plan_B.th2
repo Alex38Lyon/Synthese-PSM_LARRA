@@ -11,14 +11,14 @@ scrap SP-GL102_Entree_02A -author 2024 "Alexandre Pont" -copyright 2024 "licence
 	
 	point 38769.0 6712.0 height -value [-105 m]
 	
-	line rock-edge -close on
+	line rock-border -close on
 		38853.0 6491.0
 		38847.5 6476.5
 		38860.5 6477.0
 		38853.0 6491.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		38853.5 6536.5
 		38844.0 6528.5
 		38854.0 6519.5
@@ -268,7 +268,7 @@ scrap SP-GL102_Aval_01E -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	
 	point 29355.0 6182.0 continuation -attr code A -attr Cavite "GL102" -attr reseau "Grand chao"  -text "à topographier" # -attr CA "inconnu"
 	
-	line rock-edge -close on
+	line rock-border -close on
 		28510.0 6500.0
 		28508.0 6472.0
 		28540.0 6471.0
@@ -276,7 +276,7 @@ scrap SP-GL102_Aval_01E -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		28510.0 6500.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		28474.0 6528.0
 		28489.0 6506.0
 		28516.0 6516.0

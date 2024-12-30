@@ -73,14 +73,14 @@ layout my_layout
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 1000
+	base-scale 1 180
 	
 	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
 	# pour faire l'ampliation-réduction entre dessin et le résultat de l'imprimante
 	# C'est tres important s'assurer que la configuration de l'imprimante ne spécifie pas l'option "Fit in page"
 	# ou similaire, sinon, l'échelle sera changée pendant l'impression!
-	scale 1 500
+	scale 1 200
 	
 	# Echelle graphique 100 m ampleur (Généralement, le choix scale/10 est plutôt pas mal)
 	scale-bar 20 m
@@ -110,7 +110,7 @@ layout my_layout
 	# Auteur
 	doc-author "Alexandre Pont"
 	# Titre
-	doc-title "B3 Amonts (plan - 1:1000)"
+	doc-title "B3 Amonts (plan - 1:200)"
 	
 	# Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -146,7 +146,7 @@ layout my_layout
 	# symbol-hide point u:symbol_plan
 	# symbol-hide point u:symbol_extend
 	#debug scrap-names
-	#debug station-names
+	debug station-names
 	
 	
 	# color map-fg [100 100 80]
@@ -170,11 +170,11 @@ layout my_layout
 		reassign cavename to describe selected maps as a group
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\cavename={B3 Amonts, plan 1:1000}
+		\cavename={B3 Amonts, plan 1:200}
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		\newtoks\wpage \wpage={https://www.arsip.fr/}
-		%\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM_LARRA}
+		\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM\_LARRA}
 		\newtoks\synth \synth={Alexandre Pont}
 		\framethickness=0.5mm
 	endcode

@@ -1,6 +1,6 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -331.488 -393.06 331.488 393.06
-##XTHERION## xth_me_area_zoom_to 200
+##XTHERION## xth_me_area_zoom_to 400
 ##XTHERION## xth_me_image_insert {-214.67100000000005 1 1.0} {5.199999999999989 AP_7} AP7_Entree-Plan.xvi 0 {}
 
 
@@ -9,29 +9,35 @@ scrap SP-AP7_Entree_01 -projection plan -author 2019 "Philippe Guillemin" -autho
 
 point -172.3564 -26.4468 label -scale xl -text AP7
 
-point -188.0883 87.4297 height -value [-45 m]
+line pit
+  -245.0 58.75
+  -245.0 58.75 -222.0 50.25 -218.0 54.5
+endline
 
-point -179.3223 31.6617 height -value [-10 m]
+point -190.8383 57.9297 height -value [-45 m] -align right
 
-point -30.0 133.75 height -value [+4 m]
+point -191.3223 31.9117 height -value [-18 m] -align right
 
-point -65.75 150.25 height -value [-20 m]
+point -53.0 73.0 height -value [+4 m] -align left
 
-point -155.75 159.25 height -value [-8 m]
+point -120.75 114.25 height -value [-20 m] -align left
 
-point -194.5 193.0 height -value [-8 m]
+line pit -reverse on
+  -133.0 146.5
+  -133.0 146.5 -118.25 169.0 -111.75 169.0
+endline
 
-point -209.25 241.0 height -value [-8 m]
+point -143.25 143.5 height -value [-8 m]
 
-point -153.5 307.0 height -value [-8 m]
+point -201.5 206.0 height -value [-8 m] -align left
 
-point -139.5 238.5 label -text [Le méandre]
+point -153.5 307.0 height -value [-8 m] -align right
 
-point -329.5 236.75 label -text [Puits Sterlingot]
+point -155.0 239.75 label -text [Le méandre] -align right
 
-point -328.25 199.5 height -value [-138 m]
+point -286.25 243.75 label -text [<center>Puits Sterlingot<br>P138] -scale l -align left
 
-point -284.5 297.5 height -value [-30 m]
+point -260.25 302.5 height -value [-30 m] -align left
 
 point -174.5 -1.5 entrance -orientation 278.7
 
@@ -494,7 +500,9 @@ endline
 
 point 61.25 27.0 label -text [La douche]
 
-point 13.75 159.25 label -text [Salle Odette]
+point -37.75 137.75 passage-height -value [-8 m]
+
+point 10.0 154.25 label -text [Salle Odette]
 
 line rock-border -close on
   48.0 114.0
@@ -560,6 +568,17 @@ line wall
   smooth off
 endline
 
+line rock-edge
+  -189.5 332.25
+  -179.0 325.75
+endline
+
+line rock-edge
+  -178.75 331.75
+  -189.5 332.25
+  -205.75 330.5
+endline
+
 line wall
   -207.5 15.0
   -207.5 15.0 -210.0 16.5 -219.0 19.75
@@ -590,6 +609,21 @@ line wall
 endline
 
 point 62.36 97.6 station -name AP58
+
+line contour -reverse on
+  -239.0 101.5
+  -239.0 101.5 -236.5 79.75 -258.75 75.5
+endline
+
+line contour -reverse on
+  -235.0 104.0
+  -235.0 104.0 -211.25 90.5 -249.5 73.5
+endline
+
+line contour -reverse on
+  -228.5 107.75
+  -228.5 107.75 -218.75 94.5 -219.75 88.25
+endline
 
 endscrap
 
@@ -639,9 +673,12 @@ endline
 
 point 111.5 41.25 height -value [-10 m]
 
-point 128.5 173.5 label -text [Puits Odette]
+point 139.75 158.0 label -text [<center>Puits Odette<br>P40] -scale l
 
-point 128.5 155.5 height -value [-40 m]
+line rock-edge
+  243.75 19.0
+  243.75 11.75
+endline
 
 line pit
   119.0 108.0

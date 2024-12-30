@@ -29,7 +29,7 @@ scrap SC-GL102_Amont_01A -projection extended -station-names "" "@GL102_Amont_01
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		4930.0 1058.0
 		4872.0 1038.0
 		4888.0 1002.0
@@ -37,7 +37,7 @@ scrap SC-GL102_Amont_01A -projection extended -station-names "" "@GL102_Amont_01
 		4930.0 1058.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		3770.0 1040.0
 		3738.0 1014.0
 		3738.0 1014.0 3802.0 966.0 3810.0 970.0

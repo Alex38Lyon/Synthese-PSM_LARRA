@@ -39,6 +39,35 @@ geomag declinations (deg):
 scanning centreline tree ... done
 searching for centerline loops ... done
 calculating station coordinates ... done
+processing survey data ... 
+####################### cavern log file ########################
+ 1> Survex 1.4.15
+ 2> Copyright ¸ 1990-2024 Olly Betts
+ 3> 
+ 4> La topographie contient 756 stations, connect‚es par 755 vis‚es.
+ 5> Il y a 0 bouclages.
+ 6> Longueur totale de la topographie = 6615.73m (6615.73m ajust‚)
+ 7> Longueur totale en projection horizontale = 6209.18m
+ 8> Longueur totale verticale = 1224.12m
+ 9> Intervalle vertical = 667.24m (de 2 … 1620.00m jusqu'… 530 … 952.76m)
+10> Intervalle Nord-Sud = 2240.86m (de 530 … 4762904.13m jusqu'… 570 … 4760663.26m)
+11> Intervalle Est-Ouest = 1555.20m (de 530 … 684905.05m jusqu'… 257 … 683349.85m)
+12>   19 1-noeuds.
+13>  721 2-noeuds.
+14>   15 3-noeuds.
+15>    1 4-noeud.
+16> 
+######################### transcription ########################
+ 4> 756 : 81@B3_Amonts_03.B3_Amonts.B3-Bourrugues -- 755 : 80@B3_Amonts_03.B3_Amonts.B3-Bourrugues
+ 9> 2 : A-00@B3_Entree_01.B3_Entree.B3-Bourrugues -- 530 : N-00@B3_Aval_02.B3_Aval.B3-Bourrugues
+10> 530 : N-00@B3_Aval_02.B3_Aval.B3-Bourrugues -- 570 : VA3@B3_Amonts_02.B3_Amonts.B3-Bourrugues
+11> 530 : N-00@B3_Aval_02.B3_Aval.B3-Bourrugues -- 257 : K-63@B3_Aval_01.B3_Aval.B3-Bourrugues
+12> 19 : A-17@B3_Entree_01.B3_Entree.B3-Bourrugues
+13> 721 : 46@B3_Amonts_03.B3_Amonts.B3-Bourrugues
+14> 15 : A-13@B3_Entree_01.B3_Entree.B3-Bourrugues
+15> 1 : B_3@B3_Entree_01.B3_Entree.B3-Bourrugues
+#################### end of cavern log file ####################
+done
 calculating basic statistics ... done
 processing extended elevation ... done
 processing references ... done
@@ -59,7 +88,7 @@ S     0.00 SC-B3_Entree_06@B3_Entree.B3-Bourrugues ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/B3-Bourrugues-Coupe.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  4 DEC 2024 17:16
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  30 DEC 2024 17:56
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -73,9 +102,9 @@ Preloading the plain mem file, version 1.005) ) (./data.mp
 [23] [24] [25] [26] )
  
 Here is how much of MetaPost's memory you used:
- 25179 strings using 727659 characters
- 4015360 bytes of node memory
- 1751 symbolic tokens
+ 25337 strings using 730239 characters
+ 4099728 bytes of node memory
+ 1760 symbolic tokens
  9i,82n,16p,312b,5f stack positions out of 16i,98n,20p,312b,6f
 41 output files written: data-patt.1 .. data.26
 
@@ -84,7 +113,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  4 DEC 2024 17:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  30 DEC 2024 17:56
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -109,7 +138,7 @@ e |
 Here is how much of TeX's memory you used:
  357 strings out of 95671
  4699 string characters out of 1192323
- 86428 words of memory out of 1571471
+ 86394 words of memory out of 1571437
  1750 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
@@ -117,7 +146,7 @@ Here is how much of TeX's memory you used:
 <c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/
 Therion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/typ
 e1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 160160 bytes).
+Output written on data.pdf (1 page, 160971 bytes).
 PDF statistics:
  138 PDF objects out of 1000 (max. 8388607)
  74 compressed objects within 1 object stream
@@ -128,7 +157,7 @@ PDF statistics:
 ##################### end of pdftex log file #####################
 done
 processing projection plan ... done
-average distortion: 0.13%
+average distortion: 0.14%
 
 
 ############### export maps & scraps selection #################
@@ -142,7 +171,7 @@ S  1303.76 SP-B3_Entree_04@B3_Entree.B3-Bourrugues ()
 S  1310.27 SP-B3_Entree_05@B3_Entree.B3-Bourrugues ()
 S  1274.10 SP-B3_Entree_06@B3_Entree.B3-Bourrugues ()
 M  1149.46 MP-B3_Aval-plan-tot@B3_Aval.B3-Bourrugues (B3 Aval)
-S  1276.05 SP-B3_Aval_01@B3_Aval.B3-Bourrugues ()
+S  1276.04 SP-B3_Aval_01@B3_Aval.B3-Bourrugues ()
 S  1260.20 SP-B3_Aval_01A@B3_Aval.B3-Bourrugues ()
 S  1184.14 SP-B3_Aval_01B@B3_Aval.B3-Bourrugues ()
 S  1113.63 SP-B3_Aval_01C@B3_Aval.B3-Bourrugues ()
@@ -156,7 +185,7 @@ S  1357.02 SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/B3-Bourrugues-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  4 DEC 2024 17:16
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  30 DEC 2024 17:56
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -181,9 +210,9 @@ urrugues] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49]
 [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] )
  
 Here is how much of MetaPost's memory you used:
- 57186 strings using 1354440 characters
- 4100104 bytes of node memory
- 1761 symbolic tokens
+ 57241 strings using 1360518 characters
+ 4436824 bytes of node memory
+ 1770 symbolic tokens
  10i,82n,16p,374b,5f stack positions out of 16i,98n,20p,390b,6f
 112 output files written: data-patt.1 .. data.97
 
@@ -192,7 +221,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  4 DEC 2024 17:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  30 DEC 2024 17:56
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -206,7 +235,7 @@ rogram Files/Therion/texmf/fonts/pdftex.map})
 Here is how much of TeX's memory you used:
  494 strings out of 95671
  6284 string characters out of 1192323
- 118301 words of memory out of 1587344
+ 118254 words of memory out of 1587297
  1887 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
@@ -215,7 +244,7 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 509770 bytes).
+Output written on data.pdf (1 page, 512424 bytes).
 PDF statistics:
  438 PDF objects out of 1000 (max. 8388607)
  223 compressed objects within 3 object streams
@@ -231,39 +260,39 @@ C:\Program Files\Therion\therion.exe: warning -- SP-B3_Entree_05@B3_Entree.B3-Bo
 writing Outputs/B3-Bourrugues.kml ... done
 writing Outputs/B3-Bourrugues-Cave-list.html ... done
 writing Outputs/B3-Bourrugues-Surveys.html ... done
-compilation time: 17 sec
+compilation time: 15 sec
 
 
 ###################### scrap distortions #######################
  PROJECTION: plan
  AVERAGE  MAXIMAL  SCRAP
    0.57%  100.00%  SP-B3_Aval_01B@B3_Aval.B3-Bourrugues
-   0.20%   90.95%  SP-B3_Aval_01@B3_Aval.B3-Bourrugues
-   0.13%   72.45%  SP-B3_Entree_06@B3_Entree.B3-Bourrugues
-   4.10%   62.44%  SP-B3_Entree_01B@B3_Entree.B3-Bourrugues
-   0.15%   47.47%  SP-B3_Entree_01@B3_Entree.B3-Bourrugues
-   0.10%   25.28%  SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues
-   0.02%    7.83%  SP-B3_Aval_01D@B3_Aval.B3-Bourrugues
-   0.02%    4.14%  SP-B3_Aval_01A@B3_Aval.B3-Bourrugues
-   0.01%    3.82%  SP-B3_Aval_02E@B3_Aval.B3-Bourrugues
-   0.05%    2.56%  SP-B3_Entree_05@B3_Entree.B3-Bourrugues
-   0.01%    1.81%  SP-B3_Entree_02@B3_Entree.B3-Bourrugues
-   0.00%    0.27%  SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues
-   0.00%    0.04%  SP-B3_Entree_04@B3_Entree.B3-Bourrugues
-   0.00%    0.03%  SP-B3_Amonts_02@B3_Amonts.B3-Bourrugues
-   0.00%    0.03%  SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues
-   0.00%    0.02%  SP-B3_Entree_03@B3_Entree.B3-Bourrugues
-   0.00%    0.01%  SP-B3_Aval_01C@B3_Aval.B3-Bourrugues
+   0.20%   91.01%  SP-B3_Aval_01@B3_Aval.B3-Bourrugues
+   0.14%   72.45%  SP-B3_Entree_06@B3_Entree.B3-Bourrugues
+   4.09%   62.42%  SP-B3_Entree_01B@B3_Entree.B3-Bourrugues
+   0.16%   46.66%  SP-B3_Entree_01@B3_Entree.B3-Bourrugues
+   0.10%   25.24%  SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues
+   0.02%    7.89%  SP-B3_Aval_01D@B3_Aval.B3-Bourrugues
+   0.02%    4.13%  SP-B3_Aval_01A@B3_Aval.B3-Bourrugues
+   0.02%    3.87%  SP-B3_Aval_02E@B3_Aval.B3-Bourrugues
+   0.06%    2.47%  SP-B3_Entree_05@B3_Entree.B3-Bourrugues
+   0.02%    1.78%  SP-B3_Entree_02@B3_Entree.B3-Bourrugues
+   0.02%    0.93%  SP-B3_Amonts_02@B3_Amonts.B3-Bourrugues
+   0.01%    0.50%  SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues
+   0.01%    0.48%  SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues
+   0.01%    0.39%  SP-B3_Entree_04@B3_Entree.B3-Bourrugues
+   0.03%    0.35%  SP-B3_Entree_03@B3_Entree.B3-Bourrugues
+   0.01%    0.20%  SP-B3_Aval_01C@B3_Aval.B3-Bourrugues
 ################### end of scrap distortions ###################
 
 
 ###################### scrap distortions #######################
  PROJECTION: extended
  AVERAGE  MAXIMAL  SCRAP
-   0.09%    4.75%  SC-B3_Entree_01@B3_Entree.B3-Bourrugues
-   0.01%    0.99%  SC-B3_Entree_06@B3_Entree.B3-Bourrugues
-   0.00%    0.37%  SC-B3_Entree_02@B3_Entree.B3-Bourrugues
-   0.00%    0.01%  SC-B3_Entree_04@B3_Entree.B3-Bourrugues
+   0.09%    4.63%  SC-B3_Entree_01@B3_Entree.B3-Bourrugues
+   0.01%    1.06%  SC-B3_Entree_06@B3_Entree.B3-Bourrugues
+   0.00%    0.41%  SC-B3_Entree_02@B3_Entree.B3-Bourrugues
+   0.00%    0.26%  SC-B3_Entree_04@B3_Entree.B3-Bourrugues
    0.00%    0.00%  SC-B3_Entree_03@B3_Entree.B3-Bourrugues
    0.00%    0.00%  SC-B3_Entree_05@B3_Entree.B3-Bourrugues
 ################### end of scrap distortions ###################

@@ -622,7 +622,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 	
 	point 35632.0 5352.0 breakdown-choke
 	
-	line rock-edge -close on
+	line rock-border -close on
 		36811.0 5517.0
 		36774.0 5496.0
 		36819.0 5474.0
@@ -730,7 +730,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		35208.0 5356.0
 		35192.0 5328.0
 		35219.0 5309.0
@@ -738,7 +738,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		35208.0 5356.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		35178.0 5504.5
 		35178.0 5504.5 35166.0 5440.5 35167.5 5438.0
 		35169.0 5435.5 35194.0 5418.0 35194.0 5418.0
@@ -803,7 +803,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		37924.0 5640.0
 		37886.0 5611.0
 		37908.0 5589.0
@@ -811,7 +811,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		37924.0 5640.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		37550.0 5696.0
 		37506.0 5692.0
 		37488.0 5646.0
@@ -836,7 +836,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		38147.0 5560.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		38104.0 5750.0
 		38075.0 5732.0
 		38112.0 5691.0
@@ -844,7 +844,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		38104.0 5750.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		38052.0 5618.0
 		38028.0 5591.0
 		38056.0 5575.0
@@ -852,7 +852,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		38052.0 5618.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		37616.0 5839.0
 		37585.0 5816.0
 		37581.0 5781.0
@@ -861,7 +861,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		37616.0 5839.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		37742.0 5744.0
 		37723.0 5709.0
 		37764.0 5703.0
@@ -869,7 +869,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		37742.0 5744.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		37979.0 5840.0
 		37914.0 5794.0
 		37949.0 5763.0
@@ -877,7 +877,7 @@ scrap SP-GL102_Entree_02B -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		37979.0 5840.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		38304.0 6086.0
 		38265.0 6064.0
 		38281.0 6029.0
@@ -1051,7 +1051,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 	line rock-edge
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		34456.0 5532.0
 		34432.0 5416.0
 		34536.0 5432.0
@@ -1059,7 +1059,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		34456.0 5532.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		31696.0 6076.0
 		31696.0 5996.0
 		31772.0 6000.0
@@ -1067,7 +1067,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		31696.0 6076.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		33068.0 6196.0
 		33024.0 6132.0
 		33140.0 6096.0
@@ -1075,14 +1075,14 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		33068.0 6196.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		30884.0 6260.0
 		30900.0 6180.0
 		30948.0 6204.0
 		30884.0 6260.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		29988.0 6764.0
 		29948.0 6668.0
 		30060.0 6672.0
@@ -1090,7 +1090,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		29988.0 6764.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		29324.0 6720.0
 		29224.0 6612.0
 		29320.0 6548.0
@@ -1127,7 +1127,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		31544.0 6332.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		28750.0 6852.0
 		28646.0 6744.0
 		28646.0 6744.0 28476.0 6796.0 28478.0 6804.0
@@ -1137,7 +1137,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		28750.0 6852.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		29792.0 7120.0
 		29780.0 7000.0
 		29780.0 7000.0 29900.0 6992.0 29910.0 7002.0
@@ -1146,7 +1146,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		29792.0 7120.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		30762.0 6630.0
 		30762.0 6630.0 30554.0 6508.0 30566.0 6498.0
 		30578.0 6488.0 30646.0 6454.0 30646.0 6454.0
@@ -1157,7 +1157,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		30762.0 6630.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		31214.0 6412.0
 		31214.0 6412.0 31210.0 6264.0 31218.0 6246.0
 		31226.0 6228.0 31330.0 6150.0 31330.0 6150.0
@@ -1166,7 +1166,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		31214.0 6412.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		31570.0 6654.0
 		31552.0 6570.0
 		31552.0 6570.0 31636.0 6568.0 31642.0 6570.0
@@ -1175,7 +1175,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		31570.0 6654.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		32436.0 6190.0
 		32386.0 6068.0
 		32386.0 6068.0 32464.0 6072.0 32472.0 6076.0
@@ -1184,7 +1184,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		32436.0 6190.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		33382.0 5920.0
 		33288.0 5866.0
 		33336.0 5806.0
@@ -1192,7 +1192,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		33382.0 5920.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		33862.0 5540.0
 		33856.0 5536.0 33762.0 5432.0 33762.0 5432.0
 		smooth off
@@ -1201,7 +1201,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		33890.0 5456.0 33868.0 5544.0 33862.0 5540.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		33992.0 5862.0
 		33992.0 5862.0 33918.0 5836.0 33920.0 5826.0
 		33922.0 5816.0 33970.0 5778.0 33970.0 5778.0
@@ -1215,7 +1215,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		32850.0 5712.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		32980.0 5880.0
 		32896.0 5870.0
 		32924.0 5804.0
@@ -1257,7 +1257,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 		34158.0 5558.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		35256.0 5706.0
 		35200.0 5676.0
 		35226.0 5618.0
@@ -1310,7 +1310,7 @@ scrap SP-GL102_Entree_02C -author 2024 "Alexandre Pont" -copyright 2024 "licence
 	line wall
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		34910.0 5302.0
 		34844.0 5231.0
 		34789.0 5220.0
@@ -1357,7 +1357,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	l311-25836-5270
 	endarea
 	
-	line rock-edge -close on
+	line rock-border -close on
 		25356.0 5150.0
 		25360.0 5004.0
 		25360.0 5004.0 25430.0 5030.0 25430.0 5038.0
@@ -1366,7 +1366,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		25356.0 5150.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		25450.0 5680.0
 		25450.0 5680.0 25402.0 5634.0 25408.0 5630.0
 		25414.0 5626.0 25490.0 5614.0 25490.0 5614.0
@@ -1384,7 +1384,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		27952.0 6644.0
 		27946.0 6560.0
 		27996.0 6574.0
@@ -1443,7 +1443,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		28224.0 6888.0
 		28164.0 6678.0
 		28290.0 6632.0
@@ -1452,7 +1452,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		28224.0 6888.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		28424.0 6522.0
 		28344.0 6518.0
 		28336.0 6578.0
@@ -1461,7 +1461,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		28424.0 6522.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		27808.0 6440.0
 		27778.0 6392.0
 		27810.0 6370.0
@@ -1471,7 +1471,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		27808.0 6440.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		25396.0 5526.0
 		25402.0 5408.0
 		25474.0 5456.0
@@ -1479,7 +1479,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		25396.0 5526.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		25600.0 5270.0
 		25600.0 5270.0 25560.0 5226.0 25556.0 5218.0
 		25552.0 5210.0 25578.0 5124.0 25578.0 5124.0
@@ -1537,7 +1537,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		24344.0 5614.0
 		24294.0 5458.0
 		24414.0 5482.0
@@ -1545,7 +1545,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		24344.0 5614.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		23504.0 5340.0
 		23502.0 5216.0
 		23604.0 5264.0
@@ -1553,7 +1553,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		23504.0 5340.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		23998.0 5480.0
 		23848.0 5486.0
 		23844.0 5362.0
@@ -1561,7 +1561,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		23998.0 5480.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		25046.0 5098.0
 		24978.0 5028.0
 		25086.0 4936.0
@@ -1569,7 +1569,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		25046.0 5098.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		22970.0 5408.0
 		22978.0 5324.0
 		23104.0 5296.0
@@ -1578,7 +1578,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		22970.0 5408.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		23386.0 5722.0
 		23336.0 5602.0
 		23348.0 5498.0
@@ -1622,7 +1622,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		24604.0 5240.0
 		24512.0 5168.0
 		24630.0 5098.0
@@ -1631,7 +1631,7 @@ scrap SP-GL102_Aval_01A -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		24604.0 5240.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		25066.0 5642.0
 		24932.0 5572.0
 		25042.0 5522.0
@@ -1718,7 +1718,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	
 	point 21212.58 5954.33 station -name 102@GL102_Aval_01
 	
-	line rock-edge -close on
+	line rock-border -close on
 		21838.0 5982.0
 		21768.0 5964.0
 		21804.0 5908.0
@@ -1746,7 +1746,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		18724.0 8342.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18872.0 8382.0
 		18808.0 8380.0
 		18794.0 8260.0
@@ -1754,7 +1754,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		18872.0 8382.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18570.0 8186.0
 		18476.0 8120.0
 		18508.0 8066.0
@@ -1762,7 +1762,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		18570.0 8186.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18402.0 8002.0
 		18282.0 7980.0
 		18280.0 7804.0
@@ -1774,7 +1774,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	
 	point 18976.0 7708.0 height -value [-5 m]
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18488.0 7722.0
 		18444.0 7666.0
 		18598.0 7606.0
@@ -1802,7 +1802,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18446.0 7542.0
 		18438.0 7542.0 18210.0 7494.0 18210.0 7494.0
 		smooth off
@@ -1811,7 +1811,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		18444.0 7418.0 18454.0 7542.0 18446.0 7542.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18760.0 7558.0
 		18760.0 7558.0 18680.0 7578.0 18540.0 7610.0
 		18400.0 7642.0 18344.0 7650.0 18342.0 7640.0
@@ -1825,7 +1825,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	
 	point 19272.0 7244.0 traverse
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18970.0 7278.0
 		18658.0 7370.0
 		18620.0 7246.0
@@ -1833,7 +1833,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		18970.0 7278.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18842.0 7498.0
 		18790.0 7448.0
 		18864.0 7380.0
@@ -1841,7 +1841,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		18842.0 7498.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		19124.0 7266.0
 		19020.0 7276.0
 		19008.0 7194.0
@@ -1849,7 +1849,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		19124.0 7266.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		19466.0 7164.0
 		19334.0 7144.0
 		19370.0 7066.0
@@ -1869,7 +1869,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	
 	point 19394.0 6618.0 label -text R2
 	
-	line rock-edge -close on
+	line rock-border -close on
 		20416.0 6640.0
 		20310.0 6632.0
 		20310.0 6512.0
@@ -1878,7 +1878,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		20416.0 6640.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		19854.0 7070.0
 		19932.0 6978.0
 		20076.0 6954.0
@@ -1890,7 +1890,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	
 	point 20150.0 7044.0 rope
 	
-	line rock-edge -close on
+	line rock-border -close on
 		20000.0 6858.0
 		19994.0 6862.0 19916.0 6932.0 19890.0 6932.0
 		19864.0 6932.0 19778.0 6880.0 19778.0 6880.0
@@ -1932,7 +1932,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		22192.0 5898.0
 		22132.0 5882.0
 		22106.0 5830.0
@@ -1944,7 +1944,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	line rock-edge
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18502.0 7772.0
 		18486.0 7748.0
 		18516.0 7738.0
@@ -1978,7 +1978,7 @@ scrap SP-GL102_Aval_01B -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	
 	point 21120.0 5722.0 air-draught -orientation 316.7 -subtype summer
 	
-	line rock-edge -close on
+	line rock-border -close on
 		21858.0 6188.0
 		21268.0 6032.0
 		21252.0 6116.0
@@ -2037,7 +2037,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	
 	point 8676.360000000002 5407.08 station -name 141@GL102_Aval_01
 	
-	line rock-edge -close on
+	line rock-border -close on
 		18114.0 8712.0
 		18114.0 8712.0 18120.0 8624.0 18128.0 8622.0
 		18136.0 8620.0 18200.0 8650.0 18200.0 8650.0
@@ -2046,7 +2046,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		18114.0 8712.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		17668.0 8634.0
 		17618.0 8572.0
 		17678.0 8538.0
@@ -2144,7 +2144,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 	
 	point 11000.0 6072.0 stalactites
 	
-	line rock-edge -close on
+	line rock-border -close on
 		7754.0 4862.0
 		7748.0 4712.0
 		7892.0 4708.0
@@ -2152,7 +2152,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		7754.0 4862.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		8070.0 4790.0
 		7996.0 4736.0
 		8046.0 4700.0
@@ -2160,7 +2160,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		8070.0 4790.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		8792.0 5238.0
 		8764.0 5132.0
 		8832.0 5092.0
@@ -2168,7 +2168,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		8792.0 5238.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		9978.0 5428.0
 		9932.0 5266.0
 		9932.0 5266.0 10018.0 5266.0 10024.0 5270.0
@@ -2178,7 +2178,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		9978.0 5428.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		10680.0 6140.0
 		10646.0 6064.0
 		10712.0 6042.0
@@ -2186,7 +2186,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		10680.0 6140.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		11636.0 6366.0
 		11604.0 6272.0
 		11668.0 6242.0
@@ -2194,7 +2194,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		11636.0 6366.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		12016.0 6802.0
 		11974.0 6734.0
 		12066.0 6704.0
@@ -2208,7 +2208,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		12504.0 7329.0
 		12555.0 7273.0
 		12584.0 7329.0
@@ -2216,7 +2216,7 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		12504.0 7329.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		12696.0 7292.0
 		12668.0 7176.0
 		12748.0 7172.0
@@ -2224,14 +2224,14 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		12696.0 7292.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		13444.0 7980.0
 		13468.0 7868.0
 		13560.0 7884.0
 		13444.0 7980.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		14060.0 8324.0
 		14244.0 8388.0
 		14280.0 8292.0
@@ -2239,14 +2239,14 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		14060.0 8324.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		14656.0 9000.0
 		14656.0 8916.0
 		14784.0 8848.0
 		14656.0 9000.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		16588.0 8932.0
 		16568.0 8840.0
 		16728.0 8876.0
@@ -2254,14 +2254,14 @@ scrap SP-GL102_Aval_01C -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		16588.0 8932.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		16084.0 9116.0
 		15976.0 9048.0
 		16008.0 8984.0
 		16084.0 9116.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		17120.0 8736.0
 		17016.0 8688.0
 		17064.0 8596.0
@@ -2474,7 +2474,7 @@ scrap SP-GL102_Aval_01D -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		7480.0 5262.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		6994.0 5840.0
 		6920.0 5772.0
 		6992.0 5670.0
@@ -2482,7 +2482,7 @@ scrap SP-GL102_Aval_01D -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		6994.0 5840.0
 	endline
 	
-	line rock-edge -close on -reverse on
+	line rock-border -close on -reverse on
 		6934.0 5424.0
 		6828.0 5374.0
 		6864.0 5248.0
@@ -2490,7 +2490,7 @@ scrap SP-GL102_Aval_01D -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		6934.0 5424.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		5806.0 5420.0
 		5730.0 5354.0
 		5730.0 5354.0 5770.0 5266.0 5778.0 5264.0
@@ -2499,7 +2499,7 @@ scrap SP-GL102_Aval_01D -author 2024 "Alexandre Pont" -copyright 2024 "licence C
 		5806.0 5420.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		5936.0 5554.0
 		5888.0 5516.0
 		5972.0 5372.0

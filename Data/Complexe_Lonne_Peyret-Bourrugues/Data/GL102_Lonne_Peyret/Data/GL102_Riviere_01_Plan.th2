@@ -18,7 +18,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		4848.0 2428.0
 		4778.0 2384.0
 		4818.0 2328.0
@@ -27,7 +27,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		4848.0 2428.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		5016.0 2884.0
 		5000.0 2806.0
 		5078.0 2788.0
@@ -38,7 +38,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 	line rock-edge
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		5470.0 2620.0
 		5474.0 2550.0
 		5548.0 2596.0
@@ -46,7 +46,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		5470.0 2620.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		5262.0 2912.0
 		5198.0 2840.0
 		5198.0 2840.0 5322.0 2806.0 5328.0 2816.0
@@ -72,7 +72,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 	
 	point 5434.0 1542.0 label -text embarcadère -scale xl
 	
-	line rock-edge -close on
+	line rock-border -close on
 		4984.0 2152.0
 		4962.0 2058.0
 		5020.0 2054.0
@@ -80,7 +80,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		4984.0 2152.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		5528.0 2450.0
 		5438.0 2394.0
 		5496.0 2266.0
@@ -122,7 +122,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		4666.0 1420.0
 		4636.0 1328.0
 		4702.0 1312.0
@@ -130,7 +130,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		4666.0 1420.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		3774.0 1014.0
 		3756.0 932.0
 		3804.0 916.0
@@ -138,7 +138,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		3774.0 1014.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		4312.0 1382.0
 		4274.0 1330.0
 		4300.0 1292.0
@@ -157,7 +157,7 @@ scrap SP-GL102_Riviere_01A -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		4402.0 1654.0
 		4410.0 1570.0
 		4536.0 1468.0
@@ -276,7 +276,7 @@ scrap SP-GL102_Riviere_01B -station-names "" "@GL102_Riviere" -author 2024 "Alex
 	
 	point 578.0 1622.0 continuation -attr code A -attr Cavite "GL102" -attr reseau "Aval embarcadère"  -text "Rivière, à topographier" # -attr CA "inconnu"
 	
-	line rock-edge -close on
+	line rock-border -close on
 		1476.0 1476.0
 		1466.0 1402.0
 		1502.0 1404.0
@@ -284,7 +284,7 @@ scrap SP-GL102_Riviere_01B -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		1476.0 1476.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		2118.0 926.0
 		2102.0 870.0
 		2160.0 870.0
@@ -292,7 +292,7 @@ scrap SP-GL102_Riviere_01B -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		2118.0 926.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		2834.0 1002.0
 		2804.0 946.0
 		2866.0 922.0
@@ -300,7 +300,7 @@ scrap SP-GL102_Riviere_01B -station-names "" "@GL102_Riviere" -author 2024 "Alex
 		2834.0 1002.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		3318.0 912.0
 		3272.0 870.0
 		3342.0 820.0

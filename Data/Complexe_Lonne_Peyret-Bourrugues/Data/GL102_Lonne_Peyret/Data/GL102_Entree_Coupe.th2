@@ -803,7 +803,7 @@ scrap SC-GL102_Entree_02B -projection extended -author 2024 "Alexandre Pont" -co
 	
 	point 9688.0 7880.0 station-name -scale xs
 	
-	line rock-edge -close on
+	line rock-border -close on
 		9474.580000000002 7928.7199999999975
 		9444.0 7906.0
 		9444.0 7906.0 9426.0 7872.0 9436.0 7872.0
@@ -1043,7 +1043,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		5668.0 7490.0
 		5584.0 7488.0
 		5586.0 7436.0
@@ -1051,7 +1051,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		5668.0 7490.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		3586.0 7342.0
 		3508.0 7310.0
 		3502.0 7206.0
@@ -1060,7 +1060,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		3586.0 7342.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		4076.0 7382.0
 		3996.0 7360.0
 		4010.0 7282.0
@@ -1068,7 +1068,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		4076.0 7382.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		2826.0 7132.0
 		2726.0 7156.0
 		2660.0 7092.0
@@ -1076,7 +1076,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		2826.0 7132.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		1320.0 6736.0
 		1228.0 6714.0
 		1270.0 6600.0
@@ -1084,7 +1084,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		1320.0 6736.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		1074.0 6604.0
 		938.0 6596.0
 		840.0 6566.0
@@ -1092,7 +1092,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		1074.0 6604.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		92.0 6308.0
 		6.0 6272.0
 		46.0 6230.0
@@ -1100,7 +1100,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		92.0 6308.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		530.0 6488.0
 		394.0 6434.0
 		356.0 6314.0
@@ -1109,7 +1109,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		530.0 6488.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-358.0 6176.0
 		-416.0 6112.0
 		-418.0 6058.0
@@ -1117,7 +1117,7 @@ scrap SC-GL102_Entree_02C -projection extended -author 2024 "Alexandre Pont" -co
 		-358.0 6176.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-954.0 5978.0
 		-998.0 5944.0
 		-984.0 5874.0
@@ -1302,7 +1302,7 @@ scrap SC-GL102_Aval_01A -projection extended -author 2024 "Alexandre Pont" -copy
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-8312.0 5382.0
 		-8360.0 5288.0
 		-8360.0 5288.0 -8286.0 5260.0 -8280.0 5262.0
@@ -1312,7 +1312,7 @@ scrap SC-GL102_Aval_01A -projection extended -author 2024 "Alexandre Pont" -copy
 		-8312.0 5382.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-6342.0 5670.0
 		-6426.0 5584.0
 		-6426.0 5584.0 -6364.0 5570.0 -6356.0 5568.0
@@ -1322,7 +1322,7 @@ scrap SC-GL102_Aval_01A -projection extended -author 2024 "Alexandre Pont" -copy
 		-6342.0 5670.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-7230.0 5494.0
 		-7278.0 5428.0
 		-7206.0 5420.0
@@ -1435,7 +1435,7 @@ scrap SC-GL102_Aval_01A -projection extended -author 2024 "Alexandre Pont" -copy
 	
 	point -492.0 5664.0 continuation -attr code A -attr Cavite "GL102" -attr reseau "Grand chao"  -text "à topographier" # -attr CA "inconnu"
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-2114.0 5616.0
 		-2182.0 5578.0
 		-2116.0 5556.0
@@ -1443,7 +1443,7 @@ scrap SC-GL102_Aval_01A -projection extended -author 2024 "Alexandre Pont" -copy
 		-2114.0 5616.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-1496.0 5930.0
 		-1504.0 5932.0 -1622.0 5876.0 -1622.0 5876.0
 		smooth off
@@ -1454,7 +1454,7 @@ scrap SC-GL102_Aval_01A -projection extended -author 2024 "Alexandre Pont" -copy
 		-1464.0 5924.0 -1488.0 5928.0 -1496.0 5930.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-1724.0 5674.0
 		-1766.0 5624.0
 		-1696.0 5612.0
@@ -1585,7 +1585,7 @@ scrap SC-GL102_Aval_01B -projection extended -author 2024 "Alexandre Pont" -copy
 	
 	point -12714.529999999999 5864.149999999998 station -name 112@GL102_Aval_01
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-12626.0 5796.0
 		-12626.0 5796.0 -12806.0 5800.0 -12832.0 5798.0
 		-12858.0 5796.0 -12980.0 5804.0 -12982.0 5778.0
@@ -1612,7 +1612,7 @@ scrap SC-GL102_Aval_01B -projection extended -author 2024 "Alexandre Pont" -copy
 	line rock-edge
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-12328.0 5762.0
 		-12556.0 5780.0
 		-12542.0 5642.0
@@ -1653,7 +1653,7 @@ scrap SC-GL102_Aval_01B -projection extended -author 2024 "Alexandre Pont" -copy
 		-10464.0 5474.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-8948.0 5412.0
 		-9048.0 5396.0
 		-9024.0 5324.0
@@ -1661,7 +1661,7 @@ scrap SC-GL102_Aval_01B -projection extended -author 2024 "Alexandre Pont" -copy
 		-8948.0 5412.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-10016.0 5528.0
 		-10082.0 5450.0
 		-10082.0 5450.0 -10008.0 5382.0 -10000.0 5382.0
@@ -1670,7 +1670,7 @@ scrap SC-GL102_Aval_01B -projection extended -author 2024 "Alexandre Pont" -copy
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-10568.0 5594.0
 		-10722.0 5522.0
 		-10632.0 5442.0
@@ -1679,7 +1679,7 @@ scrap SC-GL102_Aval_01B -projection extended -author 2024 "Alexandre Pont" -copy
 		-10568.0 5594.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-11764.0 5768.0
 		-11970.0 5766.0
 		-11968.0 5718.0
@@ -1759,7 +1759,7 @@ scrap SC-GL102_Aval_01B -projection extended -author 2024 "Alexandre Pont" -copy
 	
 	point -9724.0 5458.0 air-draught -orientation 277.5 -subtype summer
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-9280.0 5842.0
 		-9684.0 5548.0
 		-9804.0 5554.0
@@ -2010,7 +2010,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-27022.0 4336.0
 		-27066.0 4300.0
 		-27004.0 4254.0
@@ -2018,7 +2018,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		-27022.0 4336.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-25356.0 4480.0
 		-25352.0 4404.0
 		-25352.0 4404.0 -25298.0 4406.0 -25296.0 4412.0
@@ -2027,14 +2027,14 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		-25356.0 4480.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-24446.0 4626.0
 		-24446.0 4570.0
 		-24332.0 4596.0
 		-24446.0 4626.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-23358.0 4762.0
 		-23392.0 4710.0
 		-23342.0 4682.0
@@ -2042,7 +2042,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		-23358.0 4762.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-22316.0 4808.0
 		-22352.0 4740.0
 		-22272.0 4712.0
@@ -2050,7 +2050,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		-22316.0 4808.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-20118.0 5262.0
 		-20174.0 5164.0
 		-20084.0 5136.0
@@ -2058,7 +2058,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		-20118.0 5262.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-18814.0 5498.0
 		-18878.0 5416.0
 		-18828.0 5384.0
@@ -2066,7 +2066,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		-18814.0 5498.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-17348.0 5542.0
 		-17368.0 5498.0
 		-17320.0 5496.0
@@ -2074,7 +2074,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		-17348.0 5542.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-16008.0 5762.0
 		-16034.0 5700.0
 		-15962.0 5652.0
@@ -2082,7 +2082,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		-16008.0 5762.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-15058.0 5868.0
 		-15122.0 5824.0
 		-15056.0 5760.0
@@ -2092,7 +2092,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 	
 	point -21592.0 4630.0 label -text R4
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-21826.0 4960.0
 		-21868.0 4912.0
 		-21854.0 4866.0
@@ -2100,7 +2100,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		-21826.0 4960.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-21538.0 5088.0
 		-21598.0 5078.0
 		-21602.0 5016.0
@@ -2148,7 +2148,7 @@ scrap SC-GL102_Aval_01C -projection extended -author 2024 "Alexandre Pont" -copy
 		smooth off
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-27180.0 4238.0
 		-27272.0 4266.0
 		-27296.0 4136.0
@@ -2202,7 +2202,7 @@ scrap SC-GL102_Aval_01D -projection extended -author 2024 "Alexandre Pont" -copy
 	
 	point -28402.19 4135.409999999998 station -name 146@GL102_Aval_01
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-27776.0 4346.0
 		-27852.0 4284.0
 		-27786.0 4238.0
@@ -2211,14 +2211,14 @@ scrap SC-GL102_Aval_01D -projection extended -author 2024 "Alexandre Pont" -copy
 		-27776.0 4346.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-29016.0 3680.0
 		-29048.0 3628.0
 		-29010.0 3648.0
 		-29016.0 3680.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-29942.0 3448.0
 		-29948.0 3412.0
 		-29902.0 3414.0
@@ -2226,7 +2226,7 @@ scrap SC-GL102_Aval_01D -projection extended -author 2024 "Alexandre Pont" -copy
 		-29942.0 3448.0
 	endline
 	
-	line rock-edge -close on
+	line rock-border -close on
 		-30832.0 3182.0
 		-30874.0 3146.0
 		-30858.0 3104.0
