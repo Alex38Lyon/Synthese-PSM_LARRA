@@ -1,0 +1,8 @@
+set XVIgrids {2.0 m}
+set XVIstations {
+  {        0.00         0.00 NL_31}
+}
+set XVIshots {
+  {        0.00         0.00         0.00         0.00}
+}
+set XVIgrid  {-7.87402 -15.748 15.748 0.0 0.0 15.748 1 2}

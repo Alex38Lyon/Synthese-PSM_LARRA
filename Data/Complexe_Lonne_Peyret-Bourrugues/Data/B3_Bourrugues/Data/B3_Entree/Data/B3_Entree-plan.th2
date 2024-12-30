@@ -1,6 +1,6 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -128.00000000000182 -128.0 30128.0162 16774.1822
-##XTHERION## xth_me_area_zoom_to 200
+##XTHERION## xth_me_area_zoom_to 100
 ##XTHERION## xth_me_image_insert {26614.199999999997 1 1.0} {3425.2 B_3@B3_Entree_01.B3_Entree} B3_Entree-map.xvi 0 {}
 
 # Copyright (C) ARSIP 2024 https://www.arsip.fr/
@@ -13,6 +13,8 @@ encoding  utf-8
 
 
 scrap SP-B3_Entree_01 -station-names "" "@B3_Entree_01" -author 1990 "Yvon Hénaff"  -author 1990 "François Ichas"  -author 1990 "Olivier Gaspé"  -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+
+point 26547.0 3104.0 label -text B3 -scale xl
 
 point 26555.0 3304.0 entrance -orientation 40.6
 
@@ -346,6 +348,7 @@ line wall -reverse on
   26922.0 3620.0 26967.0 3641.0 26985.0 3631.0
   27003.0 3621.0 27012.0 3625.0 27018.0 3588.0
   27024.0 3551.0 27006.0 3485.5 27001.0 3465.5
+  smooth off
 endline
 
 line wall -reverse on

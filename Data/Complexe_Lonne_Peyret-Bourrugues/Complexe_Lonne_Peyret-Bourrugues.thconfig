@@ -59,6 +59,7 @@ layout my_layout
 	# Rajout des coordonnées de l'entrée
 	#copy Coords_Header_CDa
 	# Call the config settings (Layout config inside the config.thc file)
+	copy fonts_1000
 	copy drawingconfig
 	copy headerl
 	copy langue-fr

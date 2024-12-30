@@ -9,7 +9,11 @@ encoding utf-8
 survey Complexe_Lonne_Peyret-Bourrugues -title "Complexe Lonné Peyret-Bourrugues"
 	input Data/B3_Bourrugues/B3_Bourrugues-tot.th
 	input Data/GL102_Lonne_Peyret/GL102_Lonne_Peyret-tot.th
-	input Data/AP7_Arres_Planeres/AP7_Arres_Planeres-tot.th
+	input Data/AP260/AP260-tot.th
+	input Data/GL04_Cam_Claque/GL04_Cam_Claque-tot.th
+	input Data/NL31_Squelettes/NL31_Squelettes-tot.th
+	input Data/GL80/GL80-tot.th
+	
 	## Pour le plan
 	# input Data/Complexe_Lonne_Peyret-Bourrugues-plan.th2
 	
