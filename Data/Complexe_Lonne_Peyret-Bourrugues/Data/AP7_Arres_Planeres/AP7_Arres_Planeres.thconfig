@@ -83,12 +83,7 @@ layout my_layout
 	copy drawingconfig
 	copy headerl
 	copy langue-fr
-	
-	
-	# code metapost			
-   	# 	# fonts_setup(18, 10, 14, 32, 48);
-	# 	fonts_setup(48, 48, 48, 48, 48);
-	# endcode
+	copy Survey_No_Scrap
 	
 
 	# Définition du système de projection du plan
@@ -147,7 +142,7 @@ layout my_layout
 	# Il faut specifier un de ces points comme ce que sera placé sur les cordonnées.
 	# Alors nous pouvons specifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	# ou une autre combination...
-	map-header 2 2 nw
+	map-header 98 98 nw
 	
 	# arrière plan de la manchette
 	map-header-bg on
@@ -265,7 +260,7 @@ layout my_layout
 		\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM\_LARRA}
 		%\newtoks\datat \datat={https://github.com/Alex38Lyon}
 		\newtoks\synth \synth={Alexandre Pont}
-		\framethickness=0.5mm!!
+		\framethickness=0.5mm
 	endcode
 	
 

@@ -6,11 +6,13 @@ encoding utf-8
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
-map MP-B3_Entree-plan-tot -title "B3 Entrée (plan)"
-	SP-B3_Entree_01
+map MP-B3_Entree1 -title "B3 Entrée (plan)"
+	SP-B3_Entree_01 # [180 0 m] # below # above
 	break
 	SP-B3_Entree_01B
-	break
+endmap
+
+map MP-B3_Entree2 -title "B3 Entrée suite (plan)"
 	SP-B3_Entree_02
 	break
 	SP-B3_Entree_03
@@ -20,6 +22,12 @@ map MP-B3_Entree-plan-tot -title "B3 Entrée (plan)"
 	SP-B3_Entree_05
 	break
 	SP-B3_Entree_06
+endmap
+
+map MP-B3_Entree-plan-tot -title "B3 Entrée (plan)"
+	MP-B3_Entree1  # [10 50 m] below # above
+	break
+	MP-B3_Entree2
 endmap
 
 map MC-B3_Entree-coupe-tot -title "B3_Entree"

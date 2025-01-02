@@ -12,6 +12,8 @@
 <Point> <coordinates>-0.76355919170487,42.97528412852289,1636.00000000000000</coordinates> </Point>
 </Placemark>
 <Folder>
+<name><![CDATA[GL04_Cam_Claque]]></name>
+<Folder>
 <name><![CDATA[Gouffre du Cam de Caque GL04]]></name>
 <Placemark>
 <name>GL_04</name>
@@ -22,6 +24,7 @@
 </coordinates></LineString>
 </MultiGeometry>
 </Placemark>
+</Folder>
 </Folder>
 </Folder>
 </kml>

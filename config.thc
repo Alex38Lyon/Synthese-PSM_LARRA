@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2024 12 30
+# Version ARSIP By Alex 2025 01 02
 ######################################################################################################################################
 
 
@@ -64,6 +64,7 @@ encoding  utf-8
 #	- Dive line/fil d'Ariane (u:ariane)
 #	- Deviation (u:deviation)
 #	- rock border 
+#	- Shot_Survey line (u:Shot_Survey)
 
 # Existing user areas:
 # 	- boue/mud (u:boue)
@@ -96,7 +97,10 @@ encoding  utf-8
 #	- layout northarrowMG
 #	- layout test
 #	- layout depth
-#	- layout font_1000
+#	- layout fonts_2000
+#	- layout fonts_1000
+#	- layout fonts_500
+#	- layout Survey_No_Scrap
 
 ######################################################################################################################################
 #<en> change the names for the legend
@@ -181,6 +185,10 @@ text es "line u:sentier" "sendero"
 text en "point u:shell" "shell"
 text fr "point u:shell" "fossile"
 text es "point u:shell" "fosíl"
+
+text en "line u:Shot_Survey" "Shot"
+text fr "line u:Shot_Survey" "Visée"
+text es "line u:Shot_Survey" "Referido"
 
 # Correction texte espagnol
 text es "point air-draught" "corriente de aire"
@@ -521,6 +529,15 @@ layout drawingconfig
 		enddef;
 		
 		initsymbol("p_entrance_MY");
+		
+		#<en> Define Shot_Survey (u:Shot_Survey) in thin red
+		#<fr> Définition de la ligne file d'Shot_Survey en rouge fin
+		def l_u_Shot_Survey (expr Path) =
+			T:=identity;
+			pickup PenA;
+			draw Path withcolor black; 
+		enddef;
+		
 
 		#<en> Change the block symbole 
 		#<fr> Changer le symbole de block
@@ -543,17 +560,18 @@ layout drawingconfig
 		#<en> Change the rock bordersymbole 
 		#<fr> Changer le symbole des ligne rock border
 		def l_rockborder (expr p) =
-			% Vérifie si le chemin est fermé
+			%%Vérifie si le chemin est fermé
 			%if p[0] = point infinity of p:
-				% Remplit la zone avec une couleur si le chemin est fermé
-				%fill p withcolor (0.34, 0.21, 0.3);
-				
+				%%Remplit la zone avec une couleur si le chemin est fermé
+				%fill p withcolor (0.34, 0.21, 0.3);	
 				%draw p withcolor 0.5green;
 			%fi;
-			thfill p --cycle withcolor (0.341117, 0.219607, 0.031372) withalpha 0.5;
-			thdraw p --cycle withcolor (0.341117, 0.219607, 0.031372);
-			% Dessine la bordure de la ligne (même si elle n'est pas fermée)
-			%draw p withcolor (0.34, 0.21, 0.3);
+			%thfill p --cycle withcolor (0.341117, 0.219607, 0.031372) withalpha 0.5;
+			fill p --cycle withcolor (0.341117, 0.219607, 0.031372) withalpha 0.5;
+			%thdraw p --cycle withcolor (0.341117, 0.219607, 0.031372);
+			draw p --cycle withcolor (0.341117, 0.219607, 0.031372);
+			%%Dessine la bordure de la ligne (même si elle n'est pas fermée)
+			%draw p withcolor red;
 		enddef;
 		
 
@@ -2024,8 +2042,11 @@ layout headerl
 		\color[0 0 0]
 		}
 		% Add Logos
-		#\legendbox{50}{60}{NW}{\loadpicture{Logos/Logo_FFS_small.jpg}}
-		
+		# \def\loadpicture#1{\pdfximage{#1}\pdfrefximage\pdflastximage}
+		# \def\maplayout{
+		# \legendbox{0}{100}{NE}{\the\legendcontent}
+		# \legendbox{100}{100}{NW}{\loadpicture{D:/Logo-ARSIP-Synthese-Topo.jpg}}        %%% pdf, png, jpg supported
+		# }
 	endcode
 endlayout
 		
@@ -3113,13 +3134,79 @@ layout depth
 endlayout
 
 ######################################################################################################################################
+layout fonts_2000
+	#<en> If you want to change font size 
+	#<fr> Si vous voulez changer la police 
+	
+	code metapost
+		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
+		fonts_setup(10, 14, 20, 28, 32);
+	endcode
+	
+endlayout
+
+
+######################################################################################################################################
 layout fonts_1000
 	#<en> If you want to change font size 
 	#<fr> Si vous voulez changer la police 
 	
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
-		fonts_setup(8,14,18,20,25);
+		fonts_setup(8, 14, 18, 20, 25);
+	endcode
+	
+endlayout
+
+######################################################################################################################################
+layout fonts_500
+	#<en> If you want to change font size 
+	#<fr> Si vous voulez changer la police 
+	
+	code metapost
+		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
+		fonts_setup(6, 10, 12, 14, 18);
+	endcode
+	
+endlayout
+
+######################################################################################################################################
+layout Survey_No_Scrap
+
+	code metapost
+	  def l_survey_cave_MY(expr P) =
+		 if ATTR__scrap_centerline:
+			l_survey_cave_SKBB(P);
+		 else:
+			draw P withcolor black;
+		 fi;
+	  enddef;
+	  initsymbol("l_survey_cave_MY");
+	endcode
+	
+	symbol-assign line survey:cave MY
+	#symbol-color line cave_MY [100 60 20]
+	#symbol-color line rock-edge [34 21 3]   					# Marron : (87, 56, 8)
+	
+endlayout
+
+######################################################################################################################################
+# NOK for test
+layout logo_ARSIP
+	#<en> If you want to change font size 
+	#<fr> Si vous voulez changer la police 
+	
+	code metapost
+		beginfig(1);
+			 % Charger le logo
+			 drawimage "Logo-ARSIP-Synthese-Topo.jpg" scaled 1 shifted (10, 10);
+			 
+			 % Exemple de dessin (ajouter vos éléments topographiques ici)
+			 draw (0,0)--(100,0)--(100,100)--(0,100)--cycle withcolor .7white;
+
+			 % Ajouter une légende ou d'autres détails
+			 label("Topographie avec logo", (50, 110)) withcolor black;
+		endfig;
 	endcode
 	
 endlayout

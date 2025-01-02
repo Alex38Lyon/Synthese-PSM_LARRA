@@ -11,14 +11,11 @@ survey Gouffre_du_Lonne_Peyret -title "Gouffre du Lonné Peyret"
 	equate PTR_02_41@GL102_Entree_01 PTR_02_41@GL102_Entree_02
 	equate PTR_A86_82@GL102_Entree_02 PTR_A86_82@GL102_Aval_01
 	
-	
 	input Data/GL102_Riviere_01.th
 	equate PTR_B66_154@GL102_Aval_01 PTR_B66_6@GL102_Riviere
 	
-	
 	input Data/GL102_Amont_01.th
 	equate PTR_A84_52@GL102_Entree_02 PTR_A84_0@GL102_Amont_01
-	
 	
 	# Import du dessin en plan
 	input  Data/GL102_Entree_Plan.th2

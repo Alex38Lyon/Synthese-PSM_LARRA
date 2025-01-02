@@ -1,43 +1,47 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -331.488 -393.06 331.488 393.06
-##XTHERION## xth_me_area_zoom_to 400
+##XTHERION## xth_me_area_zoom_to 200
 ##XTHERION## xth_me_image_insert {-214.67100000000005 1 1.0} {5.199999999999989 AP_7} AP7_Entree-Plan.xvi 0 {}
 
 
 
 scrap SP-AP7_Entree_01 -projection plan -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -station-names "" @AP7_Entree -scale [-331.488 -393.06 331.488 -393.06 0.0 0.0 16.8395904 0.0 m]
 
-point -172.3564 -26.4468 label -scale xl -text AP7
+point -175.8564 -33.446799999999996 label -scale xl -text AP7 -align center
 
 line pit
   -245.0 58.75
   -245.0 58.75 -222.0 50.25 -218.0 54.5
+  smooth off
 endline
 
-point -190.8383 57.9297 height -value [-45 m] -align right
+point -190.8383 57.9297 height -value [-45 m] -align right -scale xs
 
-point -191.3223 31.9117 height -value [-18 m] -align right
+point -191.3223 31.9117 height -value [-18 m] -align right -scale xs
 
-point -53.0 73.0 height -value [+4 m] -align left
+point -53.0 73.0 height -value [+4 m] -align left -scale xs
 
-point -120.75 114.25 height -value [-20 m] -align left
+point -122.75 114.25 height -value [-20 m] -align left -scale xs
 
 line pit -reverse on
   -133.0 146.5
   -133.0 146.5 -118.25 169.0 -111.75 169.0
+  smooth off
 endline
 
-point -143.25 143.5 height -value [-8 m]
+point -143.25 143.5 height -value [-8 m] -align left -scale xs
 
-point -201.5 206.0 height -value [-8 m] -align left
+point -201.5 206.0 height -value [-8 m] -align left -scale xs
 
-point -153.5 307.0 height -value [-8 m] -align right
+point -271.5 373.5 map-connection
 
-point -155.0 239.75 label -text [Le méandre] -align right
+point -153.5 307.0 height -value [-8 m] -align right -scale xs
 
-point -286.25 243.75 label -text [<center>Puits Sterlingot<br>P138] -scale l -align left
+point -155.0 239.75 label -text [Le méandre] -align right -scale xs
 
-point -260.25 302.5 height -value [-30 m] -align left
+point -286.25 243.75 label -text [<center>Puits Sterlingot<br>P138] -align left -scale m
+
+point -260.25 302.5 height -value [-30 m] -align left -scale xs
 
 point -174.5 -1.5 entrance -orientation 278.7
 
@@ -491,18 +495,18 @@ line pit
   smooth off
 endline
 
-point 23.0 56.0 height -value [-8 m]
+point 23.0 56.0 height -value [-8 m] -align center -scale xs
 
 line arrow
   61.75 44.75
   64.5 83.5
 endline
 
-point 61.25 27.0 label -text [La douche]
+point 61.25 27.0 label -text [La douche] -align center -scale xs
 
-point -37.75 137.75 passage-height -value [-8 m]
+point -37.75 137.75 height -align center -value [-8 m] -scale xs
 
-point 10.0 154.25 label -text [Salle Odette]
+point 10.0 154.25 label -text [Salle Odette] -align center -scale xs
 
 line rock-border -close on
   48.0 114.0
@@ -613,16 +617,19 @@ point 62.36 97.6 station -name AP58
 line contour -reverse on
   -239.0 101.5
   -239.0 101.5 -236.5 79.75 -258.75 75.5
+  smooth off
 endline
 
 line contour -reverse on
   -235.0 104.0
   -235.0 104.0 -211.25 90.5 -249.5 73.5
+  smooth off
 endline
 
 line contour -reverse on
   -228.5 107.75
   -228.5 107.75 -218.75 94.5 -219.75 88.25
+  smooth off
 endline
 
 endscrap
@@ -671,9 +678,9 @@ line pit
   smooth off
 endline
 
-point 111.5 41.25 height -value [-10 m]
+point 111.5 41.25 height -value [-10 m] -align center -scale xs
 
-point 139.75 158.0 label -text [<center>Puits Odette<br>P40] -scale l
+point 139.75 158.0 label -text [<center>Puits Odette<br>P40] -align center -scale xs
 
 line rock-edge
   243.75 19.0

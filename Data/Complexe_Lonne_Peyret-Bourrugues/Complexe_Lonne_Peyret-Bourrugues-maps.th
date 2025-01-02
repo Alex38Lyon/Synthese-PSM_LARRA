@@ -6,14 +6,32 @@ encoding utf-8
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
-map MP-Complexe_Lonne_Peyret-Bourrugues-plan-tot -title "Complexe_Lonne_Peyret-Bourrugues"
-	SP-Complexe_Lonne_Peyret-Bourrugues_01
+map MP-Complexe_Lonne_Peyret-Bourrugues-Plan-tot -title "Complexe_Lonne_Peyret-Bourrugues"
+	MP-AP7_Arres_Planeres-plan-tot@AP7_Arres_Planeres
 	break
-	SP-Complexe_Lonne_Peyret-Bourrugues_02
+	MP-AP260-Plan-tot@AP260
+	break
+	MP-B3-Bourrugues-plan-tot@B3-Bourrugues
+	break
+	MP-GL04_Cam_Claque-Plan-tot@GL04_Cam_Claque
+	break
+	MP-GL04_Amonts-Plan-tot@GL04_Amonts
+	break
+	MP-GL80-Plan-tot@GL80
+	break
+	MP-GL102_Gouffre_du_Lonne_Peyret@Gouffre_du_Lonne_Peyret
+	break
+	MP-NL31_Squelettes-Plan-tot@NL31_Squelettes
 endmap
 
-map MC-Complexe_Lonne_Peyret-Bourrugues-coupe-tot -title "Complexe_Lonne_Peyret-Bourrugues"
-	SC-Complexe_Lonne_Peyret-Bourrugues_01
-	break
-	SC-Complexe_Lonne_Peyret-Bourrugues_02
+
+# map MC-Complexe_Lonne_Peyret-Bourrugues-coupe-tot -title "Complexe_Lonne_Peyret-Bourrugues"
+	# SC-Complexe_Lonne_Peyret-Bourrugues_01
+	# break
+	# SC-Complexe_Lonne_Peyret-Bourrugues_02
+# endmap
+
+
+map MC-GL102_Puits-Coupe-tot -title "GL102 coupe puits"
+	MC-GL102_Puits@Gouffre_du_Lonne_Peyret
 endmap

@@ -2246,6 +2246,12 @@ line rock-border -close on
   14656.0 9000.0
 endline
 
+line label -text [Chaos des Titans] -scale xl
+  14052.0 10412.0
+  14052.0 10412.0 16208.0 10480.0 16664.0 10468.0
+  17120.0 10456.0 18468.0 10200.0 18684.0 10168.0
+endline
+
 line rock-border -close on
   16588.0 8932.0
   16568.0 8840.0
@@ -2561,5 +2567,7 @@ endline
 point 7757.060000000003 5266.530000000001 station -name 145@GL102_Aval_01
 
 endscrap
+
+
 
 

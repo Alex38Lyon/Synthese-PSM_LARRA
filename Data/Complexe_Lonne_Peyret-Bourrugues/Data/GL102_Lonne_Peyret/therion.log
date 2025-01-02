@@ -14,6 +14,63 @@ geomag declinations (deg):
 scanning centreline tree ... done
 searching for centerline loops ... done
 calculating station coordinates ... done
+processing survey data ... 
+####################### cavern log file ########################
+ 1> Survex 1.4.15
+ 2> Copyright ¸ 1990-2024 Olly Betts
+ 3> 
+ 4> La topographie contient 1973 stations, connect‚es par 1972 vis‚es.
+ 5> Il y a 0 bouclages.
+ 6> Longueur totale de la topographie = 2455.45m (2455.45m ajust‚)
+ 7> Longueur totale en projection horizontale = 1990.00m
+ 8> Longueur totale verticale =  878.94m
+ 9> Intervalle vertical = 471.60m (de 28 … 1635.15m jusqu'… 1513 … 1163.55m)
+10> Intervalle Nord-Sud = 249.98m (de 1131 … 4760736.25m jusqu'… 1973 … 4760486.28m)
+11> Intervalle Est-Ouest = 1119.18m (de 1701 … 682472.40m jusqu'… 1531 … 681353.22m)
+12> 1733 1-noeuds.
+13>    5 2-noeuds.
+14>    3 4-noeuds.
+15>   34 5-noeuds.
+16>   25 6-noeuds.
+17>   16 7-noeuds.
+18>   16 8-noeuds.
+19>   23 9-noeuds.
+20>   34 10-noeuds.
+21>   22 11-noeuds.
+22>   21 12-noeuds.
+23>   13 13-noeuds.
+24>   16 14-noeuds.
+25>    3 15-noeuds.
+26>    6 16-noeuds.
+27>    1 17-noeud.
+28>    1 18-noeud.
+29>    1 19-noeud.
+30> 
+######################### transcription ########################
+ 4> 1973 : .@GL102_Amont_01.Gouffre_du_Lonne_Peyret -- 1972 : .@GL102_Amont_01.Gouffre_du_Lonne_Peyret
+ 9> 28 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret -- 1513 : .@GL102_Riviere.Gouffre_du_Lonne_Peyret
+10> 1131 : .@GL102_Aval_01.Gouffre_du_Lonne_Peyret -- 1973 : .@GL102_Amont_01.Gouffre_du_Lonne_Peyret
+11> 1701 : .@GL102_Amont_01.Gouffre_du_Lonne_Peyret -- 1531 : .@GL102_Riviere.Gouffre_du_Lonne_Peyret
+12> 1733 : .@GL102_Amont_01.Gouffre_du_Lonne_Peyret
+13> 5 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+14> 3 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+15> 34 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+16> 25 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+17> 16 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+18> 16 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+19> 23 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+20> 34 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+21> 22 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+22> 21 : 2@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+23> 13 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+24> 16 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+25> 3 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+26> 6 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+27> 1 : 00@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+28> 1 : 00@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+29> 1 : 00@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+#################### end of cavern log file ####################
+done
 calculating basic statistics ... done
 processing extended elevation ... done
 processing references ... done
@@ -23,22 +80,22 @@ C:\Program Files\Therion\therion.exe: warning -- GL102_Lonne_Peyret.thconfig [78
 C:\Program Files\Therion\therion.exe: warning -- GL102_Lonne_Peyret.thconfig [783] -- object not found -- "MP-GL102_Gouffre_du_GL102_Lonne_Peyret"
 done
 processing projection plan ... done
-average distortion: 0.40%
+average distortion: 0.39%
 
 
 ############### export maps & scraps selection #################
 M  1283.12 MP-GL102_Gouffre_du_Lonne_Peyret@Gouffre_du_Lonne_Peyret (GL102 - Gouffre du LonnÃ© Peyret)
 S  1563.40 SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret ()
-S  1436.21 SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret ()
+S  1436.22 SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret ()
 S  1283.67 SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret ()
 S  1269.19 SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret ()
-S  1281.50 SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret ()
+S  1281.49 SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret ()
 S  1237.44 SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret ()
 S  1235.92 SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret ()
 S  1224.68 SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret ()
 S  1181.88 SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret ()
 S  1339.93 SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret ()
-S  1237.35 SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret ()
+S  1237.36 SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret ()
 S  1173.15 SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret ()
 S  1171.06 SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret ()
 S  1296.02 SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret ()
@@ -47,7 +104,7 @@ S  1299.88 SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/GL102_Lonne_Peyret-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  30 DEC 2024 10:10
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 JAN 2025 16:04
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -71,9 +128,9 @@ _Lonne_Peyret] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49]
 [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] )
  
 Here is how much of MetaPost's memory you used:
- 25033 strings using 589713 characters
- 4376760 bytes of node memory
- 1764 symbolic tokens
+ 26995 strings using 639337 characters
+ 4416264 bytes of node memory
+ 1769 symbolic tokens
  10i,82n,17p,471b,5f stack positions out of 16i,98n,20p,487b,6f
 115 output files written: data-patt.1 .. data.100
 
@@ -82,7 +139,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  30 DEC 2024 10:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  2 JAN 2025 16:04
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -96,7 +153,7 @@ rogram Files/Therion/texmf/fonts/pdftex.map})
 Here is how much of TeX's memory you used:
  444 strings out of 95671
  5582 string characters out of 1192323
- 95453 words of memory out of 1572496
+ 95502 words of memory out of 1572545
  1837 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
@@ -105,7 +162,7 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 325733 bytes).
+Output written on data.pdf (1 page, 343529 bytes).
 PDF statistics:
  335 PDF objects out of 1000 (max. 8388607)
  172 compressed objects within 2 object streams
@@ -124,28 +181,29 @@ average distortion: 0.92%
 done
 writing Outputs/GL102_Lonne_Peyret.html ... done
 writing Outputs/Surveys.html ... done
+writing xtherion file ... done
 compilation time: 3 sec
 
 
 ###################### scrap distortions #######################
  PROJECTION: plan
  AVERAGE  MAXIMAL  SCRAP
-   0.99%   48.06%  SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret
-   1.61%   43.83%  SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret
-   1.31%   33.28%  SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret
-   0.24%   33.23%  SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret
-   0.86%   32.13%  SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret
-   5.40%   29.50%  SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret
-   0.11%   25.56%  SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret
-   0.06%    9.50%  SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret
-   0.24%    6.63%  SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret
-   0.09%    3.68%  SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret
-   0.03%    0.63%  SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret
-   0.01%    0.36%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret
-   0.04%    0.21%  SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret
-   0.01%    0.17%  SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret
-   0.01%    0.16%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret
-   0.01%    0.09%  SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret
+   0.99%   48.10%  SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret
+   1.61%   43.82%  SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret
+   1.30%   33.33%  SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret
+   0.25%   33.23%  SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret
+   0.85%   32.09%  SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret
+   5.41%   29.53%  SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret
+   0.08%   25.46%  SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret
+   0.07%    9.47%  SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret
+   0.26%    6.66%  SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret
+   0.04%    1.60%  SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret
+   0.05%    1.07%  SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret
+   0.00%    0.01%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret
+   0.00%    0.01%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret
+   0.00%    0.01%  SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret
+   0.00%    0.00%  SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret
+   0.00%    0.00%  SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret
    0.00%    0.00%  scrap339@Gouffre_du_Lonne_Peyret
    0.00%    0.00%  scrap51@Gouffre_du_Lonne_Peyret
 ################### end of scrap distortions ###################
@@ -154,20 +212,20 @@ compilation time: 3 sec
 ###################### scrap distortions #######################
  PROJECTION: extended
  AVERAGE  MAXIMAL  SCRAP
-   0.28%   77.93%  SC-GL102_Entree_02B@Gouffre_du_Lonne_Peyret
-  13.03%   49.60%  SC-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret
-   0.67%   40.39%  SC-GL102_Aval_01D@Gouffre_du_Lonne_Peyret
-   2.38%   24.92%  SC-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret
+   0.28%   77.98%  SC-GL102_Entree_02B@Gouffre_du_Lonne_Peyret
+  13.03%   49.61%  SC-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret
+   0.67%   40.38%  SC-GL102_Aval_01D@Gouffre_du_Lonne_Peyret
+   2.38%   24.94%  SC-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret
    0.06%   13.35%  SC-GL102_Amont_01A@Gouffre_du_Lonne_Peyret
    0.08%    8.24%  SC-GL4_01B@Gouffre_du_Lonne_Peyret
-   0.03%    1.24%  SC-GL4_01A@Gouffre_du_Lonne_Peyret
-   0.01%    0.17%  SC-GL102_Entree_01B@Gouffre_du_Lonne_Peyret
-   0.01%    0.17%  SC-GL102_Entree_01A@Gouffre_du_Lonne_Peyret
-   0.00%    0.13%  SC-GL102_Aval_01B@Gouffre_du_Lonne_Peyret
-   0.00%    0.09%  SC-GL102_Aval_01C@Gouffre_du_Lonne_Peyret
-   0.00%    0.09%  SC-GL102_Aval_01A@Gouffre_du_Lonne_Peyret
-   0.01%    0.08%  SC-GL102_Entree_02A@Gouffre_du_Lonne_Peyret
-   0.00%    0.04%  SC-GL102_Entree_02C@Gouffre_du_Lonne_Peyret
+   0.03%    1.18%  SC-GL4_01A@Gouffre_du_Lonne_Peyret
+   0.00%    0.02%  SC-GL102_Entree_02A@Gouffre_du_Lonne_Peyret
+   0.00%    0.01%  SC-GL102_Entree_01A@Gouffre_du_Lonne_Peyret
+   0.00%    0.01%  SC-GL102_Entree_01B@Gouffre_du_Lonne_Peyret
+   0.00%    0.00%  SC-GL102_Aval_01A@Gouffre_du_Lonne_Peyret
+   0.00%    0.00%  SC-GL102_Aval_01C@Gouffre_du_Lonne_Peyret
+   0.00%    0.00%  SC-GL102_Aval_01B@Gouffre_du_Lonne_Peyret
+   0.00%    0.00%  SC-GL102_Entree_02C@Gouffre_du_Lonne_Peyret
 ################### end of scrap distortions ###################
 
 ############# CRS transformations chosen by PROJ ###############

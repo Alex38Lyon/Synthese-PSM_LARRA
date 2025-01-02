@@ -24,7 +24,7 @@ line pit -reverse on
   smooth off
 endline
 
-point 26043.0 3149.0 height -value [-28 m]
+point 26043.0 3149.0 height -value [-28 m] -scale xs
 
 line pit
   25991.0 3439.0
@@ -32,7 +32,7 @@ line pit
   smooth off
 endline
 
-point 25901.0 3555.0 height -value [-25 m]
+point 25901.0 3555.0 height -value [-25 m] -scale xs
 
 line pit -reverse on
   25827.0 3774.0
@@ -40,7 +40,7 @@ line pit -reverse on
   smooth off
 endline
 
-point 26263.0 3727.0 height -value [-30 m]
+point 26263.0 3727.0 height -value [-30 m] -scale xs -align right
 
 line pit -reverse on
   26022.0 3895.0
@@ -49,7 +49,7 @@ line pit -reverse on
   smooth off
 endline
 
-point 26880.0 4074.0 height -value [-74 m]
+point 26880.0 4074.0 height -value [-74 m] -scale xs
 
 line pit -reverse on
   26448.0 3981.0
@@ -300,12 +300,12 @@ line pit -reverse on
   smooth off
 endline
 
-point 26933.0 3356.0 height -value [-26 m]
+point 26933.0 3356.0 height -value [-26 m] -scale xs
 
 line wall
 endline
 
-point 27101.0 3623.0 height -value [-23 m]
+point 27101.0 3623.0 height -value [-23 m] -scale xs
 
 point 26946.17 3468.96 station -name A-40
 
@@ -1634,7 +1634,7 @@ point 8250.0 12702.0 water-flow -orientation 35.0
 
 point 7014.0 13134.0 water-flow -orientation 35.0
 
-point 4340.0 12912.0 label -text [S3 (140 m, -15 m)]  -scale xl
+point 4340.0 12912.0 label -text [S3 (140 m, -15 m)]  -scale xl -align center
 
 area water
   l347-6200-13876
@@ -1683,9 +1683,9 @@ line contour -id l343-5224-13148 -close on -visibility off
   4704.0 14160.0
 endline
 
-point 8810.0 9908.0 label -text [S1 (15 m, -5 m)] -scale xl
+point 8810.0 9908.0 label -text [S1 (15 m, -5 m)] -scale xl -align center
 
-point 9352.0 11462.0 label -text [S2 (50 m, -5 m)] -scale xl
+point 9352.0 11462.0 label -text [S2 (50 m, -5 m)] -scale xl -align right
 
 point 9312.0 12748.0 label -text R3
 

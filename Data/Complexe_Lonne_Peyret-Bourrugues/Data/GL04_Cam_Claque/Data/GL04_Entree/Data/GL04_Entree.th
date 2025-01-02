@@ -1,0 +1,36 @@
+# Copyright (C) ARSIP 2024
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+# <http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+encoding utf-8
+
+survey GL04_Entree -title "Gouffre du Cam de Caque GL04" -entrance "GL_04"
+	
+	centerline
+		date 2024.06.30
+		
+		team "Michel Douat"
+
+		
+		#explo-date YYYY.MM.DD
+		explo-team "ARSIP"
+
+		
+		cs UTM30
+		fix	GL_04	682365	4760497	1636 # Coordonnées MD 30 06 2024 Karsteau
+		station	GL_04 "GL4 Gouffre du Cam de Caque" entrance
+		
+		
+		units length meters
+		units compass degrees
+		units clino degrees
+		
+		data topofil from to length compass clino left right up down
+		
+		GL_04	-	0.00	0.00	0.00	0	0	0	0	#
+	
+	endcenterline
+	
+endsurvey
+	
+

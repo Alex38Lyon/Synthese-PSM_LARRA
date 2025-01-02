@@ -405,7 +405,7 @@ line floor-step -reverse on
   smooth off
 endline
 
-point 1058.5 -1133.25 height -value [-10 m]
+point 1058.5 -1133.25 height -value [-10 m] -align left -scale xs
 
 line wall
   1304.75 -945.75
@@ -521,7 +521,9 @@ area water
   l595-1358--877
 endarea
 
-point 941.0 -955.0 label -text [Réseau nord] -scale xl
+point 1247.0 -1220.0 map-connection
+
+point 1119.5 -916.5 label -text [Réseau nord] -scale xl -align left
 
 point 1375.75 -894.25 water-flow -orientation 276.4
 
@@ -3881,7 +3883,7 @@ line contour -reverse on
   smooth off
 endline
 
-line wall -reverse on
+line floor-step -reverse on
   -593.75 560.25
   -593.75 560.25 -581.5 557.25 -576.25 549.5
   smooth off
@@ -4503,14 +4505,14 @@ line wall
 endline
 
 line label -scale l -text [Galerie Eloïse]
-  -538.0 506.0
-  -454.0 378.0
+  -536.0 522.0
+  -443.0 377.0
 endline
 
-line label -scale l -text [Galerie Chichistreet]
-  -18.0 170.0
-  -18.0 170.0 17.0 161.0 60.0 148.0
-  103.0 135.0 152.0 116.0 152.0 116.0
+line label -text [Galerie Chichistreet] -scale l
+  -69.0 195.0
+  -69.0 195.0 15.0 170.0 58.0 157.0
+  101.0 144.0 172.0 125.0 172.0 125.0
   smooth off
 endline
 
@@ -4625,9 +4627,9 @@ line wall -close on -reverse on -outline in
 endline
 
 line label -text [Galerie du barbu] -scale l
-  -534.5 774.25
-  -534.5 774.25 -474.75 788.25 -442.0 796.5
-  -409.25 804.75 -349.0 810.0 -344.5 810.75
+  -514.0 783.0
+  -514.0 783.0 -447.75 803.75 -415.0 812.0
+  -382.25 820.25 -286.5 849.25 -282.0 850.0
   smooth off
 endline
 
@@ -5189,22 +5191,22 @@ line wall -reverse on
 endline
 
 line label -text [Galerie du mille-feuille pourri] -scale l
-  1086.0 354.0
-  1086.0 354.0 1327.0 218.0 1356.0 200.0
-  1385.0 182.0 1527.0 93.0 1527.0 93.0
+  901.0 170.0
+  901.0 170.0 1171.0 14.0 1200.0 -4.0
+  1229.0 -22.0 1456.0 -158.5 1456.0 -158.5
   smooth off
 endline
 
 line label -scale l -text [La rivière nord]
-  160.0 646.0
-  160.0 646.0 392.0 580.0 416.0 574.0
+  -61.0 532.0
+  -61.0 532.0 158.0 469.0 182.0 463.0
   smooth off
 endline
 
 line wall
 endline
 
-point 589.25 519.75 label -text [Salle de la barquette] -align center -scale l
+point 588.25 542.75 label -text [Salle de la barquette] -align center -scale l
 
 line rock-border -close on
   671.5 433.0
@@ -5481,7 +5483,7 @@ line arrow
   980.5 278.25
 endline
 
-point 945.25 257.0 label -align center -text [La lame]
+point 945.25 257.0 label -text [La lame] -scale xs -align left
 
 line rock-border -close on
   983.75 288.25
@@ -5552,11 +5554,11 @@ line pit-chimney -close on
   smooth off
 endline
 
-point 1245.75 103.0 label -text [Perte] -scale xs
+point 1245.75 103.0 label -text [Perte] -scale xs -align left
 
-point 1166.75 229.5 label -text [Galerie supérieure] -scale xs
+point 1166.75 229.5 label -text [Galerie supérieure] -scale xs -align right
 
-point 1078.0 272.25 label -text [Les marmites] -scale xs
+point 1075.0 268.25 label -text [Les marmites] -scale xs -align right
 
 line contour -reverse on
   1191.5 180.0
@@ -6223,7 +6225,7 @@ point 1446.36 20.86 station -name S3_133
 
 point 1463.07 8.47 station -name S3_134
 
-point 1604.5 -144.25 label -text [Désob en cours] -scale s -align right
+point 1604.5 -144.25 label -text [Désob en cours] -align right -scale xs
 
 line contour
   1579.75 -52.75
@@ -6253,7 +6255,7 @@ line rock-border
   1516.0 -21.75
 endline
 
-point 1446.5 -35.25 label -text Affluent -scale s
+point 1438.0 -23.75 label -text Affluent -scale s -align left
 
 point 1453.0 -9.5 air-draught -orientation 222.1
 
@@ -6352,9 +6354,9 @@ area water
   l1361--923-720
 endarea
 
-point -850.5 977.25 label -text [Coulées] -align right -scale s
+point -850.5 977.25 label -text [Coulées] -align right -scale xs
 
-point -881.75 1041.0 label -text [Cascade R4] -align right -scale xs
+point -886.75 1059.5 label -text [Cascade R4] -align right -scale xs
 
 line contour -id l1361--923-720 -close on -visibility off
   -799.75 737.25
@@ -6706,9 +6708,9 @@ line wall
   -642.5 1014.0 -635.5 1017.5 -622.5 1020.0
   -609.5 1022.5 -586.0 1019.5 -568.0 1021.5
   -550.0 1023.5 -518.5 1028.0 -506.5 1028.0
-  -494.5 1028.0 -481.5 1027.0 -466.5 1027.0
+  -494.5 1028.0 -456.0 1026.5 -441.0 1026.5
   altitude .
-  -451.5 1027.0 -412.5 1025.5 -397.5 1025.5
+  -426.0 1026.5 -412.5 1025.5 -397.5 1025.5
   -382.5 1025.5 -348.0 1024.5 -332.5 1020.5
   -317.0 1016.5 -307.0 1020.0 -297.5 1023.5
   -288.0 1027.0 -275.5 1023.5 -258.0 1024.0

@@ -59,6 +59,8 @@ map MC-GL102_Gouffre_du_Lonne_Peyret -title "GL102 - Rivière"
 	break
 	SC-GL102_Entree_02B
 	break
+	SC-GL102_Entree_02B2
+	break
 	SC-GL102_Entree_02C
 	break
 	SC-GL102_Aval_01A
@@ -76,3 +78,14 @@ map MC-GL102_Gouffre_du_Lonne_Peyret -title "GL102 - Rivière"
 	SC-GL102_Amont_01A
 endmap
 
+map MC-GL102_Puits -title "GL102 - Puits"
+	SC-GL102_Entree_01A
+	break
+	SC-GL102_Entree_01B
+	break
+	SC-GL102_Entree_02A
+	break
+	SC-GL102_Entree_02B
+	# break
+	# SC-GL102_Entree_02C
+endmap

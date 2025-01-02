@@ -1,0 +1,239 @@
+therion 6.3.1 (2024-11-22)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: GL04_Amonts.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+processing survey data ... 
+####################### cavern log file ########################
+ 1> Survex 1.4.15
+ 2> Copyright ¸ 1990-2024 Olly Betts
+ 3> C:\Users\alexa\AppData\Local\Temp\th39128\data.svx:7: info: La topographie n'a pas de points fixes. Par cons‚quent j'ai fix‚ 1 … (0,0,0)
+ 4> 
+ 5> La topographie contient 256 stations, connect‚es par 255 vis‚es.
+ 6> Il y a 0 bouclages.
+ 7> Longueur totale de la topographie = 2701.95m (2701.95m ajust‚)
+ 8> Longueur totale en projection horizontale = 2625.11m
+ 9> Longueur totale verticale =  373.47m
+10> Intervalle vertical = 87.69m (de 124 … 87.69m jusqu'… 2 … 0.00m)
+11> Intervalle Nord-Sud = 406.93m (de 2 … 0.00m jusqu'… 124 … -406.93m)
+12> Intervalle Est-Ouest = 1127.49m (de 207 … 1127.49m jusqu'… 2 … 0.00m)
+13>   15 1-noeuds.
+14>  235 2-noeuds.
+15>    5 4-noeuds.
+16>    1 5-noeud.
+17> 
+######################### transcription ########################
+ 3> input:7 -- Data/GL04_Amonts.th [29]
+ 3> 1 : A@GL4_Amonts.GL04_Amonts
+ 5> 256 : 248@GL4_Amonts.GL04_Amonts -- 255 : 247@GL4_Amonts.GL04_Amonts
+10> 124 : G@GL4_Amonts.GL04_Amonts -- 2 : -@GL4_Amonts.GL04_Amonts
+11> 2 : -@GL4_Amonts.GL04_Amonts -- 124 : G@GL4_Amonts.GL04_Amonts
+12> 207 : 202@GL4_Amonts.GL04_Amonts -- 2 : -@GL4_Amonts.GL04_Amonts
+13> 15 : 13@GL4_Amonts.GL04_Amonts
+14> 235 : 228@GL4_Amonts.GL04_Amonts
+15> 5 : 3@GL4_Amonts.GL04_Amonts
+16> 1 : A@GL4_Amonts.GL04_Amonts
+#################### end of cavern log file ####################
+done
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+processing projection plan ... done
+average distortion: 0.00%
+writing Data/GL04_Amonts-Plan.xvi ... done
+processing projection extended ... done
+average distortion: 0.00%
+writing Data/GL04_Amonts-Extended.xvi ... done
+
+
+############### export maps & scraps selection #################
+M    38.87 MP-GL04_Amonts-Plan-tot@GL04_Amonts (GL04_Amonts)
+S    38.87 SP-GL4_Amonts_01@GL04_Amonts ()
+S     -.-- SP-GL4_Amonts_02@GL04_Amonts ()
+S     -.-- SP-GL4_Amonts_03@GL04_Amonts ()
+S     -.-- SP-GL4_Amonts_04@GL04_Amonts ()
+S     -.-- SP-GL4_Amonts_05@GL04_Amonts ()
+S     -.-- SP-GL4_Amonts_06@GL04_Amonts ()
+S     -.-- SP-GL4_Amonts_07@GL04_Amonts ()
+S     -.-- SP-GL4_Amonts_08@GL04_Amonts ()
+########## end of export maps & scraps selection ###############
+writing Outputs/GL04_Amonts-Plan.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 JAN 2025 11:27
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] [2] (./mptextmp.mp) [3] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp
+) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [4] [5] [6] [7] [8] [9] [10]
+[11] [12] [13] [14] [15] [16] )
+ 
+Here is how much of MetaPost's memory you used:
+ 1675 strings using 52163 characters
+ 4489184 bytes of node memory
+ 1754 symbolic tokens
+ 9i,82n,12p,312b,5f stack positions out of 16i,98n,15p,312b,6f
+31 output files written: data-patt.1 .. data.16
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  2 JAN 2025 11:28
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 63 numeric registers used out of 32768
+
+[1] )
+(\end occurred when \ifx on line 12 was incomplete) 
+Here is how much of TeX's memory you used:
+ 324 strings out of 95671
+ 4274 string characters out of 1192323
+ 302382 words of memory out of 1769425
+ 1717 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,715b,73s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/te
+xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
+pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
+erion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 86034 bytes).
+PDF statistics:
+ 72 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+
+
+############### export maps & scraps selection #################
+M     0.00 MC-GL04_Amonts-Extended-tot@GL04_Amonts (GL04_Amonts)
+S     0.00 SC-GL4_Amonts_01@GL04_Amonts ()
+S     -.-- SC-GL4_Amonts_02@GL04_Amonts ()
+S     -.-- SC-GL4_Amonts_03@GL04_Amonts ()
+S     -.-- SC-GL4_Amonts_04@GL04_Amonts ()
+S     -.-- SC-GL4_Amonts_05@GL04_Amonts ()
+S     -.-- SC-GL4_Amonts_06@GL04_Amonts ()
+S     -.-- SC-GL4_Amonts_07@GL04_Amonts ()
+S     -.-- SC-GL4_Amonts_08@GL04_Amonts ()
+########## end of export maps & scraps selection ###############
+writing Outputs/GL04_Amonts-Extended.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 JAN 2025 11:28
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] [2] (./mptextmp.mp) [3] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp
+) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [4] [5] [6] [7] )
+ 
+Here is how much of MetaPost's memory you used:
+ 1644 strings using 48237 characters
+ 4495328 bytes of node memory
+ 1754 symbolic tokens
+ 9i,82n,12p,312b,5f stack positions out of 16i,98n,15p,312b,6f
+22 output files written: data-patt.1 .. data-patt.15
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  2 JAN 2025 11:28
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex
+Overfull \hbox (23.15439pt too wide) in paragraph at lines 12--12
+[]\thfb GL04 Amonts, Coupe d\thfc ^^e9\thfb velopp\thfc ^^e9\thfb e 1:500 |
+
+\hbox(19.44444+5.44444)x426.79134, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\thfb G
+.\thfb L
+.\thfb 0
+.\thfb 4
+.etc.
+
+(./th_legend.tex)) (./th_pages.tex)
+ 54 numeric registers used out of 32768
+ [1] ) 
+Here is how much of TeX's memory you used:
+ 315 strings out of 95671
+ 4202 string characters out of 1192323
+ 298175 words of memory out of 1764218
+ 1708 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,715b,73s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/
+Therion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/typ
+e1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 78887 bytes).
+PDF statistics:
+ 54 PDF objects out of 1000 (max. 8388607)
+ 32 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+writing Outputs/GL04_Amonts.lox ........... done
+C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+writing Outputs/GL04_Amonts-Cave-list.html ... done
+writing Outputs/GL04_Amonts-Surveys.html ... done
+writing xtherion file ... done
+compilation time: 3 sec
+
+
+###################### scrap distortions #######################
+ PROJECTION: plan
+ AVERAGE  MAXIMAL  SCRAP
+   0.00%    0.06%  SP-GL4_Amonts_01@GL04_Amonts
+   0.00%    0.00%  SP-GL4_Amonts_02@GL04_Amonts
+   0.00%    0.00%  SP-GL4_Amonts_03@GL04_Amonts
+   0.00%    0.00%  SP-GL4_Amonts_04@GL04_Amonts
+   0.00%    0.00%  SP-GL4_Amonts_05@GL04_Amonts
+   0.00%    0.00%  SP-GL4_Amonts_06@GL04_Amonts
+   0.00%    0.00%  SP-GL4_Amonts_07@GL04_Amonts
+   0.00%    0.00%  SP-GL4_Amonts_08@GL04_Amonts
+################### end of scrap distortions ###################
+
+
+###################### scrap distortions #######################
+ PROJECTION: extended
+ AVERAGE  MAXIMAL  SCRAP
+   0.00%    0.12%  SC-GL4_Amonts_01@GL04_Amonts
+   0.00%    0.00%  SC-GL4_Amonts_02@GL04_Amonts
+   0.00%    0.00%  SC-GL4_Amonts_03@GL04_Amonts
+   0.00%    0.00%  SC-GL4_Amonts_04@GL04_Amonts
+   0.00%    0.00%  SC-GL4_Amonts_05@GL04_Amonts
+   0.00%    0.00%  SC-GL4_Amonts_06@GL04_Amonts
+   0.00%    0.00%  SC-GL4_Amonts_07@GL04_Amonts
+   0.00%    0.00%  SC-GL4_Amonts_08@GL04_Amonts
+################### end of scrap distortions ###################

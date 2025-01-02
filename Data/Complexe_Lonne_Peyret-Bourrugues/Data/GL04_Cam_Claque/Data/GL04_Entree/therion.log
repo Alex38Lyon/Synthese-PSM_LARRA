@@ -1,0 +1,261 @@
+therion 6.3.1 (2024-11-22)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: GL04_Entree.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+output coordinate system: UTM30
+meridian convergence (deg): -1.5250
+geomag declinations (deg):
+  2024.1.1  1.0683
+  2025.1.1  1.2332
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+processing survey data ... 
+####################### cavern log file ########################
+ 1> Survex 1.4.15
+ 2> Copyright ¸ 1990-2024 Olly Betts
+ 3> 
+ 4> La topographie contient 2 stations, connect‚es par 1 vis‚.
+ 5> Il y a 0 bouclages.
+ 6> Longueur totale de la topographie =    0.00m (   0.00m ajust‚)
+ 7> Longueur totale en projection horizontale =    0.00m
+ 8> Longueur totale verticale =    0.00m
+ 9> Intervalle vertical = 0.00m (de 2 … 1636.00m jusqu'… 2 … 1636.00m)
+10> Intervalle Nord-Sud = 0.00m (de 2 … 4760497.00m jusqu'… 2 … 4760497.00m)
+11> Intervalle Est-Ouest = 0.00m (de 2 … 682365.00m jusqu'… 2 … 682365.00m)
+12>    2 1-noeuds.
+13> 
+######################### transcription ########################
+ 4> 2 : -@GL04_Entree.GL04_Entree -- 1 : GL_04@GL04_Entree.GL04_Entree
+ 9> 2 : -@GL04_Entree.GL04_Entree -- 2 : -@GL04_Entree.GL04_Entree
+10> 2 : -@GL04_Entree.GL04_Entree -- 2 : -@GL04_Entree.GL04_Entree
+11> 2 : -@GL04_Entree.GL04_Entree -- 2 : -@GL04_Entree.GL04_Entree
+12> 2 : -@GL04_Entree.GL04_Entree
+#################### end of cavern log file ####################
+done
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+processing projection plan ... done
+writing Data/GL04_Entree-Plan.xvi ... done
+processing projection extended ... done
+writing Data/GL04_Entree-Extended.xvi ... done
+
+
+############### export maps & scraps selection #################
+M  1636.00 MP-GL04_Entree-Plan-tot@GL04_Entree (GL04_Cam_Claque)
+S  1636.00 SP-GL04_Entree_01@GL04_Entree ()
+########## end of export maps & scraps selection ###############
+writing Outputs/GL04_Entree-Plan.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 JAN 2025 13:35
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] [2] (./mptextmp.mp) [3] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp
+) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [4] [5] [6] [7] [8] [9] [10]
+[11] [12] [13] [14] [15] )
+ 
+Here is how much of MetaPost's memory you used:
+ 1743 strings using 50741 characters
+ 3668728 bytes of node memory
+ 1756 symbolic tokens
+ 9i,82n,16p,351b,5f stack positions out of 16i,98n,20p,390b,6f
+30 output files written: data-patt.1 .. data.15
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  2 JAN 2025 13:35
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 62 numeric registers used out of 32768
+
+[1] )
+(\end occurred when \ifx on line 12 was incomplete) 
+Here is how much of TeX's memory you used:
+ 326 strings out of 95671
+ 4306 string characters out of 1192323
+ 22777 words of memory out of 1509820
+ 1719 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,1688b,73s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/te
+xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
+pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
+erion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 41740 bytes).
+PDF statistics:
+ 70 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+
+
+############### export maps & scraps selection #################
+M     0.00 MC-GL04_Entree-Extended-tot@GL04_Entree (GL04_Cam_Claque)
+S     0.00 SC-GL04_Entree_01@GL04_Entree ()
+########## end of export maps & scraps selection ###############
+writing Outputs/GL04_Entree-Extended.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 JAN 2025 13:35
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] (./mptextmp.mp) [2] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [3] [4] )
+ 
+Here is how much of MetaPost's memory you used:
+ 1608 strings using 44114 characters
+ 3666640 bytes of node memory
+ 1754 symbolic tokens
+ 9i,82n,12p,348b,5f stack positions out of 16i,98n,15p,390b,6f
+19 output files written: data-patt.1 .. data-patt.15
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  2 JAN 2025 13:35
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex
+Overfull \hbox (2.15431pt too wide) in paragraph at lines 12--12
+[]\thfb GL04 Cam Claque, Coupe d\thfc ^^e9\thfb velopp\thfc ^^e9\thfb e|
+
+\hbox(19.44444+5.44444)x426.79134, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\thfb G
+.\thfb L
+.\thfb 0
+.\thfb 4
+.etc.
+
+(./th_legend.tex)) (./th_pages.tex
+Overfull \hbox (0.42943pt too wide) in paragraph at lines 66--1
+[][][]   |
+
+\hbox(4.015+0.0)x4.015, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\hbox(4.015+0.0)x0.0
+..\pdfliteral{/OC /oc7 BDC}
+..\pdfliteral{q 0 0 0 0 k}
+..\pdfliteral{Q}
+..\pdfliteral{EMC}
+..\hbox(4.015+0.0)x0.0, glue set - 4.015fil
+...\kern 0.0
+...\hbox(4.015+0.0)x4.015 []
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..etc.
+.\hbox(0.0+0.0)x0.0
+..\hbox(4.015+358.09253)x0.0, glue set - 4.015fil
+...\kern -422.85704
+...\hbox(362.10753+0.0)x426.87204, shifted 358.09253 []
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.etc.
+
+)
+ 51 numeric registers used out of 32768
+ [1]
+Overfull \vbox (5.985pt too high) has occurred while \output is active
+\vbox(4.015+0.0)x4.015
+.\glue(\topskip) 5.985 plus 60.0
+.\hbox(4.015+0.0)x4.015, glue set - 1.0
+..\hbox(0.0+0.0)x0.0
+..\hbox(4.015+0.0)x0.0
+...\pdfliteral{/OC /oc7 BDC}
+...\pdfliteral{q 0 0 0 0 k}
+...\pdfliteral{Q}
+...\pdfliteral{EMC}
+...\hbox(4.015+0.0)x0.0, glue set - 4.015fil []
+...etc.
+..\hbox(0.0+0.0)x0.0
+...\hbox(4.015+358.09253)x0.0, glue set - 4.015fil []
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..etc.
+.\hbox(0.0+0.0)x4.015
+.\kern 0.0
+.\glue 0.0 plus 1.0fil
+
+ [2] ) 
+Here is how much of TeX's memory you used:
+ 315 strings out of 95671
+ 4216 string characters out of 1192323
+ 22070 words of memory out of 1509113
+ 1708 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,1688b,73s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/
+Therion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/typ
+e1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (2 pages, 38578 bytes).
+PDF statistics:
+ 51 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 67 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+writing Outputs/GL04_Entree.lox .... done
+writing Outputs/GL04_Entree.kml ... done
+writing Outputs/GL04_Entree-Cave-list.html ... done
+writing Outputs/GL04_Entree-Surveys.html ... done
+writing xtherion file ... done
+compilation time: 2 sec
+
+
+###################### scrap distortions #######################
+ PROJECTION: plan
+ AVERAGE  MAXIMAL  SCRAP
+   0.00%    0.00%  SP-GL04_Entree_01@GL04_Entree
+################### end of scrap distortions ###################
+
+
+###################### scrap distortions #######################
+ PROJECTION: extended
+ AVERAGE  MAXIMAL  SCRAP
+   0.00%    0.00%  SC-GL04_Entree_01@GL04_Entree
+################### end of scrap distortions ###################
+
+############# CRS transformations chosen by PROJ ###############
+  Area of Use (AoU): (-0.764, 42.975) (-0.764, 42.975)
+  [UTM30 â†’ LONG-LAT] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 â†’ LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 â†’ UTM30] AoU: [yes] transformation: [Inverse of UTM zone 30N + UTM zone 30N] definition: [proj=noop ellps=GRS80] accuracy: [0.000 m]
+  [UTM30 â†’ EPSG:4326] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [EPSG:4326 â†’ UTM30] AoU: [yes] transformation: [axis order change (2D) + UTM zone 30N] definition: [proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=30 ellps=WGS84] accuracy: [0.000 m]
+########## end of CRS transformations chosen by PROJ ###########

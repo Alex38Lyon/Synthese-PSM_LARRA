@@ -1,6 +1,6 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -128.0 -128.0 85561.117 84773.715
-##XTHERION## xth_me_area_zoom_to 50
+##XTHERION## xth_me_area_zoom_to 25
 ##XTHERION## xth_me_image_insert {19527.579999999998 1 1.0} {9606.32 Q-08@B3_Aval_01.B3_Aval} B3_Aval-map.xvi 0 {}
 
 # Copyright (C) ARSIP 2024 https://www.arsip.fr/
@@ -2626,7 +2626,7 @@ line wall -reverse on
   smooth off
 endline
 
-point 69372.0 68308.0 label -text [Salle Poggia] -scale xl
+point 69372.0 68308.0 label -text [Salle Poggia] -scale xl -align right
 
 line wall -reverse on -subtype pit
   63092.0 61988.0
@@ -2665,11 +2665,11 @@ line wall -reverse on
   smooth off
 endline
 
-point 62484.0 63148.0 label -text [Affluent 7x7]
+point 62784.0 62992.0 label -text [Affluent 7x7] -align left
 
-point 65600.0 64296.0 label -text [Salle du Solitaire]
+point 65348.0 64364.0 label -text [Salle du Solitaire] -align right
 
-point 65332.0 65932.0 label -text [Chaos]
+point 65424.0 65820.0 label -text [Chaos] -align left
 
 line pit -reverse on
   65872.0 65748.0
@@ -2749,9 +2749,9 @@ line contour -close on -visibility off
   smooth off
 endline
 
-point 68444.0 67372.0 label -text [Perte de l'actif]
+point 68184.0 67364.0 label -text [Perte de l'actif] -align right
 
-point 67588.0 65968.0 label -text Lac
+point 67392.0 66000.0 label -text Lac -align right
 
 line rock-border -close on
   68508.0 69232.0
@@ -3147,7 +3147,7 @@ endline
 
 point 76690.0 75124.0 continuation -attr code S -attr Cavite "B3" -attr reseau "Aval principal"  -text "S5, Siphon terminal" # -attr CA "inconnu" -align left
 
-point 76690.0 75310.0 label -text S5 -scale xl
+point 76690.0 75310.0 label -text S5 -scale xl -align right
 
 line wall -reverse on
   74760.0 75156.0

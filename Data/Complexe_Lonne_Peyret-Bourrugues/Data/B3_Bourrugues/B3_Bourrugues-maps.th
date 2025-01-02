@@ -7,7 +7,7 @@ encoding utf-8
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 map MP-B3-Bourrugues-plan-tot -title "Gouffre B3 - Bourrugues"
-	MP-B3_Entree-plan-tot@B3_Entree
+	MP-B3_Entree-plan-tot@B3_Entree 
 	break
 	MP-B3_Aval-plan-tot@B3_Aval
 	break
