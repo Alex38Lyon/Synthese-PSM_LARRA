@@ -13,8 +13,8 @@ map MP-GL04_Amonts-Plan-tot -title "GL04_Amonts"
 	break
 	SP-GL4_Amonts_02
 	break
-	SP-GL4_Amonts_03
-	break
+	#SP-GL4_Amonts_03
+	#break
 	SP-GL4_Amonts_04
 	break
 	SP-GL4_Amonts_05

@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2025 01 02
+# Version ARSIP By Alex 2025 01 03
 ######################################################################################################################################
 
 
@@ -429,7 +429,7 @@ layout drawingconfig
 	symbol-color line flowstone [100 60 20]
 	symbol-color line floor-meander [34 21 3]    				# Marron : (87, 56, 8)
 	symbol-color line floor-step [34 21 3]    					# Marron : (87, 56, 8)
-	symbol-color line map-connection [69 69 69]				# Gris acier (175, 175, 175)
+	#symbol-color line map-connection [69 69 69]				# Gris acier (175, 175, 175)
 	symbol-color line rimstone-dam [100 60 20]
 	symbol-color line rimstone-pool [100 60 20]
 	symbol-color line rock-border [34 21 3]    				# Marron : (87, 56, 8)
@@ -504,6 +504,7 @@ layout drawingconfig
 	symbol-color point water-flow:intermittent [17 46 100]
 	symbol-color point water-flow:paleo [17 46 100]
 	
+
 	####### Metapost-changes ############
 	code metapost
 		
@@ -601,6 +602,16 @@ layout drawingconfig
 		initsymbol("p_u_block");
 			
 
+		#<en> Change the dashed line for the line map_connection
+		#<fr> Changer la ligne pointillée du symbole map_connection
+		#def l_mapconnection (expr P) =
+			#T:=identity;
+			#pickup PenB;
+			# Old definition
+			#thdraw P dashed evenly scaled (2*optical_zoom);
+			# New definition
+			#thdraw P dashed evenly scaled (.1u);
+		#enddef;
 
 		#<en> Change the dashed line for the line wall:presumed
 		#<fr> Changer la ligne pointillée du symbole line wall:presumed

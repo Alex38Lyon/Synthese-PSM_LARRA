@@ -163,8 +163,8 @@ layout layout-Plan
 	#symbol-hide point station-name
 	#symbol-hide point u:symbol_plan
 	#symbol-hide point u:symbol_extend
-	#debug scrap-names
-	#debug station-names
+	debug scrap-names
+	debug station-names
 	
 	layers on
 	

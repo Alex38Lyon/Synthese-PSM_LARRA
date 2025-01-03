@@ -12,7 +12,10 @@ survey AP7_Amonts -title "AP7_Amonts"
 	input Data/AP7_Amonts.th
 	
 	## Pour le plan
-	input Data/AP7_Amonts-Plan.th2
+	input Data/AP7_Amonts-Plan-A.th2
+	input Data/AP7_Amonts-Plan-B.th2
+	join SP-AP7_Amonts_05 SP-AP7_Amonts_08
+	input Data/AP7_Amonts-Plan-C.th2
 	
 	## Pour la coupe développée
 	input Data/AP7_Amonts-Extended.th2

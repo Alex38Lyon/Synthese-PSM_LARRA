@@ -13,6 +13,9 @@ survey Complexe_Lonne_Peyret-Bourrugues -title "Complexe Lonné Peyret-Bourrugue
 	input Data/GL04_Cam_Claque/GL04_Cam_Claque-tot.th
 	input Data/GL04_Cam_Claque/Data/GL04_Amonts/GL04_Amonts-tot.th
 		equate 4_3@AP7_Amonts.AP7_Amonts.AP7_Arres_Planeres I@GL4_Amonts.GL04_Amonts
+		equate 3_0@AP7_Amonts.AP7_Amonts.AP7_Arres_Planeres H@GL4_Amonts.GL04_Amonts
+		join SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres SP-GL4_Amonts_06@GL04_Amonts
+		join SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres SP-GL4_Amonts_02@GL04_Amonts
 	
 	input Data/GL80/GL80-tot.th
 	input Data/GL102_Lonne_Peyret/GL102_Lonne_Peyret-tot.th

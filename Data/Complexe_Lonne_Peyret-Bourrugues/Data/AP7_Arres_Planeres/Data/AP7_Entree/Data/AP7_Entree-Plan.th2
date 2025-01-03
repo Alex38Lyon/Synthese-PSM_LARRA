@@ -1,6 +1,6 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -331.488 -393.06 331.488 393.06
-##XTHERION## xth_me_area_zoom_to 200
+##XTHERION## xth_me_area_zoom_to 400
 ##XTHERION## xth_me_image_insert {-214.67100000000005 1 1.0} {5.199999999999989 AP_7} AP7_Entree-Plan.xvi 0 {}
 
 
@@ -33,7 +33,7 @@ point -143.25 143.5 height -value [-8 m] -align left -scale xs
 
 point -201.5 206.0 height -value [-8 m] -align left -scale xs
 
-point -271.5 373.5 map-connection
+point -241.75 332.5 map-connection
 
 point -153.5 307.0 height -value [-8 m] -align right -scale xs
 
@@ -762,6 +762,8 @@ line wall
   smooth off
 endline
 
+point 300.25 44.25 label -text [Galerie de la lucarne] -align right -scale s
+
 line wall
   205.25 -39.25
   209.75 -34.25 210.75 -32.25 212.25 -28.0
@@ -931,7 +933,9 @@ line rock-border -close on
   -86.25 -270.25
 endline
 
-point -113.5 -340.75 height -value [-13 m]
+point -157.5 -326.25 map-connection
+
+point -113.5 -341.25 height -value [-13 m]
 
 line pit -reverse on
   -159.25 -320.75

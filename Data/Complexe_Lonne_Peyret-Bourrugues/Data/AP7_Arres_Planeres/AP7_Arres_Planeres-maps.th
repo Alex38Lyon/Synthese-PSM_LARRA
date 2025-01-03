@@ -7,7 +7,7 @@ encoding utf-8
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 map MP-AP7_Arres_Planeres-plan-tot -title "AP7_Arres_Planeres"
-	MP-AP7_Entree-Plan-tot@AP7_Entree [180 0 m]  below # above
+	MP-AP7_Entree-Plan-tot@AP7_Entree [180 -40 m] above # below
 	break
 	MP-AP7_Aval-Plan-tot@AP7_Aval
 	break

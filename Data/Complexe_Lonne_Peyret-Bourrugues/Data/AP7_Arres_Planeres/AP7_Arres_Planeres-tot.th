@@ -15,6 +15,7 @@ survey AP7_Arres_Planeres -title "AP7 Arres Planères"
 	
 	## Pour le plan
 	#input Data/AP7_Arres_Planeres-plan.th2
+	join SP-AP7_Aval_01@AP7_Aval  SP-AP7_Amonts_02@AP7_Amonts
 	
 	## Pour la coupe développée
 	# input Data/AP7_Arres_Planeres-coupe.th2

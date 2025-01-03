@@ -112,7 +112,7 @@ S     -.-- SC-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/AP7_Arres_Planeres-Coupe.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 JAN 2025 14:02
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  3 JAN 2025 15:49
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -136,7 +136,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  2 JAN 2025 14:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  3 JAN 2025 15:49
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -168,13 +168,14 @@ PDF statistics:
 ##################### end of pdftex log file #####################
 done
 processing projection plan ... done
-average distortion: 0.06%
+average distortion: 0.08%
 
 
 ############### export maps & scraps selection #################
-M  1405.71 MP-AP7_Arres_Planeres-plan-tot@AP7_Arres_Planeres (AP7_Arres_Planeres)
-M  1438.06 MP-AP7_Entree-Plan-tot@AP7_Entree.AP7_Arres_Planeres (AP7_Entree)
+M  1414.29 MP-AP7_Arres_Planeres-plan-tot@AP7_Arres_Planeres (AP7_Arres_Planeres)
+M  1529.84 MP-AP7_Entree-Plan-A@AP7_Entree.AP7_Arres_Planeres (AP7_Entree)
 S  1529.84 SP-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres ()
+M  1392.17 MP-AP7_Entree-Plan-B@AP7_Entree.AP7_Arres_Planeres (AP7_Entree)
 S  1402.96 SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres ()
 S  1381.39 SP-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres ()
 M  1367.38 MP-AP7_Aval-Plan-tot@AP7_Aval.AP7_Arres_Planeres (AP7_Aval)
@@ -201,23 +202,25 @@ S     -.-- SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres ()
 S     -.-- SP-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres ()
 S     -.-- SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres ()
 S     -.-- SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres ()
-M  1411.69 MP-AP7_Amonts-Plan-tot@AP7_Amonts.AP7_Arres_Planeres (AP7_Amonts)
-S  1411.69 SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres ()
-S     -.-- SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres ()
+M  1407.52 MP-AP7_Amonts-Plan-A@AP7_Amonts.AP7_Arres_Planeres (AP7_Amonts)
+S  1368.90 SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres ()
+S  1365.65 SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres ()
+S  1394.01 SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres ()
+S  1383.52 SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres ()
+S  1423.91 SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres ()
+S  1394.47 SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres ()
+S  1435.50 SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres ()
+S  1462.19 SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres ()
+S  1417.97 SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres ()
+S  1418.13 SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres ()
+S  1418.45 SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres ()
+S     -.-- SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres ()
+M  1421.46 MP-AP7_Amonts-Plan-B@AP7_Amonts.AP7_Arres_Planeres (AP7_Amonts)
+S  1421.46 SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/AP7_Arres_Planeres-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 JAN 2025 14:02
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  3 JAN 2025 15:49
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -225,63 +228,72 @@ Preloading the plain mem file, version 1.005) ) (./data.mp
 {randomseed:=42}
  [1] [2] [3] [4]
 [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
-[15] [1] [2] [3] [4] [5] [6] [7] [8] [9]
+[15] [1]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Entree_01@AP7_Entree.
-AP7_Arres_Planeres] [10] [11] [12] [13]
+AP7_Arres_Planeres] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Aval_07@AP7_Aval.AP7_
-Arres_Planeres] [14] [15] [16] [17]
+Arres_Planeres] [16] [17] [18] [19]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Aval_06@AP7_Aval.AP7_
-Arres_Planeres] [18] [19] [20] [21]
+Arres_Planeres] [20] [21] [22] [23]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Aval_05@AP7_Aval.AP7_
-Arres_Planeres] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33]
-[34] [35] [36] [37] [38] [39] [40] [41] [42] (./mptextmp.mp) [43]
+Arres_Planeres] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
+[36] [37] [38] [39] [40] [41] [42] [43] [44]
+[Warning: scrap outline intersects itself in scrap SP-AP7_Amonts_11@AP7_Amonts.
+AP7_Arres_Planeres] [45] [46]
+[Warning: scrap outline intersects itself in scrap SP-AP7_Amonts_10@AP7_Amonts.
+AP7_Arres_Planeres] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]
+[58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70]
+[Warning: text scaled down to fit the path in scrap SP-AP7_Amonts_01@AP7_Amonts
+.AP7_Arres_Planeres] [71] [72] [73] [74] (./mptextmp.mp) [75] (./mptextmp.mp)
 (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
-(./mptextmp.mp) [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55]
-[56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70]
-[71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85]
-[86] [87] [88] [89] )
+[76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90]
+[91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103] [104]
+[105] [106] [107] [108] [109] [110] [111] [112] [113] [114] [115] [116] [117]
+[118] [119] [120] )
  
 Here is how much of MetaPost's memory you used:
- 69927 strings using 1777660 characters
- 5414648 bytes of node memory
- 1775 symbolic tokens
- 10i,82n,16p,500b,5f stack positions out of 16i,98n,20p,608b,6f
-104 output files written: data-patt.1 .. data.89
+ 88281 strings using 2142244 characters
+ 5602512 bytes of node memory
+ 1773 symbolic tokens
+ 10i,82n,16p,593b,5f stack positions out of 16i,98n,20p,608b,6f
+135 output files written: data-patt.1 .. data.120
 
 
 #################### end of metapost log file ####################
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  2 JAN 2025 14:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  3 JAN 2025 15:49
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
 (c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
 rogram Files/Therion/texmf/fonts/pdftex.map})
-(./th_formdef.tex) (./th_pagedef.tex [1] (./th_legend.tex)) (./th_pages.tex)
- 187 numeric registers used out of 32768
-
-[2] )
+(./th_formdef.tex
+Normal \count register pool exhausted, switching to extended pool.)
+(./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 253 numeric registers used out of 32768
+ [1] )
 (\end occurred when \ifx on line 12 was incomplete) 
 Here is how much of TeX's memory you used:
- 452 strings out of 95671
- 5671 string characters out of 1192323
- 143647 words of memory out of 1624690
- 1845 multiletter control sequences out of 15000+50000
+ 549 strings out of 95671
+ 6930 string characters out of 1192323
+ 159915 words of memory out of 1637958
+ 1942 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
- 12i,5n,8p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 12i,5n,9p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
 <c:/Program Files/Therion/te
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (2 pages, 523253 bytes).
+Output written on data.pdf (1 page, 1070327 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 176 compressed objects within 2 object streams
+ 559 PDF objects out of 1000 (max. 8388607)
+ 283 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 941 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1595 words of extra memory for PDF output out of 10000 (max. 10000000)
 
 
 ##################### end of pdftex log file #####################
@@ -289,16 +301,16 @@ done
 writing Outputs/AP7_Arres_Planeres.lox ........
 C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres -- multiple scrap outer outlines not supported yet
 C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres -- invalid scrap outline
-..
-C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres -- multiple scrap outer outlines not supported yet
-..
+....
 C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres -- multiple scrap outer outlines not supported yet
 C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres -- invalid scrap outline
-............................. done
+..................
+C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres -- multiple scrap outer outlines not supported yet
+............ done
 writing Outputs/AP7_Arres_Planeres.kml ... done
 writing Outputs/AP7_Arres_Planeres-Cave-list.html ... done
 writing Outputs/AP7_Arres_Planeres-Surveys.html ... done
-compilation time: 7 sec
+compilation time: 8 sec
 
 
 ######################### loop errors ##########################
@@ -312,44 +324,45 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ###################### scrap distortions #######################
  PROJECTION: plan
  AVERAGE  MAXIMAL  SCRAP
-   0.06%   71.85%  SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres
+   0.16%   73.20%  SP-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres
+   0.92%   64.79%  SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres
    0.12%   56.64%  SP-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres
+   0.07%   43.41%  SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres
+   0.22%   37.58%  SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres
    0.05%   15.91%  SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres
+   0.01%   13.57%  SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres
    0.06%   11.75%  SP-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres
    0.05%    9.79%  SP-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres
-   0.05%    7.03%  SP-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres
    0.05%    4.53%  SP-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres
-   0.04%    0.86%  SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres
+   0.05%    2.25%  SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres
+   0.02%    1.38%  SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres
+   0.02%    1.35%  SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres
+   0.05%    0.86%  SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres
+   0.03%    0.63%  SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres
+   0.03%    0.63%  SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres
+   0.07%    0.53%  SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres
    0.01%    0.45%  SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres
+   0.03%    0.39%  SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres
    0.02%    0.35%  SP-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres
    0.01%    0.21%  SP-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres
+   0.02%    0.13%  SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres
    0.00%    0.00%  SP-AP7_Aval_15@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres
-   0.00%    0.00%  SP-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres
    0.00%    0.00%  SP-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres
+   0.00%    0.00%  SP-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres
 ################### end of scrap distortions ###################
 
 
