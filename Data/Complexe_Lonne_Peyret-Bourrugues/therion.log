@@ -135,7 +135,7 @@ processing extended elevation ... done
 processing references ... done
 selecting export objects ... done
 processing projection plan ... done
-average distortion: 0.19%
+average distortion: 0.18%
 
 
 ############### export maps & scraps selection #################
@@ -241,7 +241,7 @@ S  1620.00 SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/Complexe_Lonne_Peyret-Bourrugues-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  4 JAN 2025 10:40
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  6 JAN 2025 18:16
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -303,38 +303,41 @@ urrugues.Complexe_Lonne_Peyret-Bourrugues] [122] [123] [124] [125]
 urrugues.Complexe_Lonne_Peyret-Bourrugues] [126] [127] [128] [129] [130] [131]
 [132] [133] [134] [135] [136] [137] [138] [139] [140] [141] [142] [143] [144]
 [145] [146] [147] [148] [149] [150] [151] [152] [153] [154] [155] [156] [157]
-[158] [159] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
-[171] [172] [173] [174] [175] [176] [177]
+[158] [159] [160] [161] [162]
+[Warning: scrap outline intersects itself in scrap SP-GL4_Amonts_06@GL04_Amonts
+.Complexe_Lonne_Peyret-Bourrugues] [163] [164] [165] [166] [167] [168] [169]
+[170] [171] [172] [173] [174] [175] [176] [177] [178] [179] [180] [181] [182]
+[183]
 [Warning: scrap outline intersects itself in scrap SP-GL102_Amont_01B@Gouffre_d
-u_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues] [178] [179] [180] [181] [182]
-[183] [184] [185] [186] [187] [188] [189] [190] [191] [192]
+u_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues] [184] [185] [186] [187] [188]
+[189] [190] [191] [192] [193] [194] [195] [196] [197] [198]
 [Warning: scrap outline intersects itself in scrap SP-GL102_Aval_01E@Gouffre_du
-_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues] [193] [194] [195] [196] [197]
-[198] [199] [200] [201] [202] [203] [204] [205] [206] [207] [208] [209] [210]
+_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues] [199] [200] [201] [202] [203]
+[204] [205] [206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216]
 [Warning: scrap outline intersects itself in scrap SP-GL102_Aval_01A@Gouffre_du
-_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues] [211] [212] [213] [214] [215]
-[216] [217] [218] [219] [220] [221] [222] [223] [224] [225] [226] [227] [228]
-[229] [230] [231] [232] [233] [234] (./mptextmp.mp) [235] (./mptextmp.mp)
+_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues] [217] [218] [219] [220] [221]
+[222] [223] [224] [225] [226] [227] [228] [229] [230] [231] [232] [233] [234]
+[235] [236] [237] [238] [239] [240] (./mptextmp.mp) [241] (./mptextmp.mp)
 (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
-[236] [237] [238] [239] [240] [241] [242] [243] [244] [245] [246] [247] [248]
-[249] [250] [251] [252] [253] [254] [255] [256] [257] [258] [259] [260] [261]
-[262] [263] [264] [265] [266] [267] [268] [269] [270] [271] [272] [273] [274]
-[275] [276] [277] [278] [279] [280] [281] [282] [283] [284] [285] [286] [287]
-[288] [289] [290] [291] [292] )
+[242] [243] [244] [245] [246] [247] [248] [249] [250] [251] [252] [253] [254]
+[255] [256] [257] [258] [259] [260] [261] [262] [263] [264] [265] [266] [267]
+[268] [269] [270] [271] [272] [273] [274] [275] [276] [277] [278] [279] [280]
+[281] [282] [283] [284] [285] [286] [287] [288] [289] [290] [291] [292] [293]
+[294] [295] [296] [297] [298] [299] [300] [301] [302] [303] [304] )
  
 Here is how much of MetaPost's memory you used:
- 190613 strings using 4588052 characters
- 6782656 bytes of node memory
- 1780 symbolic tokens
- 10i,82n,17p,612b,5f stack positions out of 16i,98n,20p,760b,6f
-307 output files written: data-patt.1 .. data.292
+ 210817 strings using 5057128 characters
+ 8350832 bytes of node memory
+ 1804 symbolic tokens
+ 11i,82n,17p,612b,5f stack positions out of 16i,98n,20p,760b,6f
+319 output files written: data-patt.1 .. data.304
 
 
 #################### end of metapost log file ####################
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  4 JAN 2025 10:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  6 JAN 2025 18:16
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -345,15 +348,18 @@ Normal \count register pool exhausted, switching to extended pool.)
 (./th_pagedef.tex (./th_legend.tex) <d:/08 GitHub/Synthese-PSM_LARRA/Data/Compl
 exe_Lonne_Peyret-Bourrugues/../../Logos/Logo-ARSIP-Synthese-Topographique_XL.pn
 g> <d:/08 GitHub/Synthese-PSM_LARRA/Data/Complexe_Lonne_Peyret-Bourrugues/Outpu
-ts/GL102_Puits-Coupe.pdf>) (./th_pages.tex)
+ts/GL102_Puits-Coupe.pdf> <d:/08 GitHub/Synthese-PSM_LARRA/Data/Complexe_Lonne_
+Peyret-Bourrugues/Outputs/B3_Puits-Coupe.pdf> <d:/08 GitHub/Synthese-PSM_LARRA/
+Data/Complexe_Lonne_Peyret-Bourrugues/Outputs/AP7_Puits-Coupe.pdf>)
+(./th_pages.tex)
  253 numeric registers used out of 32768
  [1] )
 (\end occurred when \ifx on line 12 was incomplete) 
 Here is how much of TeX's memory you used:
- 918 strings out of 95671
- 11457 string characters out of 1192323
- 303939 words of memory out of 1773982
- 2311 multiletter control sequences out of 15000+50000
+ 930 strings out of 95671
+ 11561 string characters out of 1192323
+ 354782 words of memory out of 1811825
+ 2323 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
  13i,5n,9p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -361,106 +367,17 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 6931501 bytes).
+Output written on data.pdf (1 page, 7388566 bytes).
 PDF statistics:
- 1453 PDF objects out of 1728 (max. 8388607)
- 729 compressed objects within 8 object streams
+ 1555 PDF objects out of 1728 (max. 8388607)
+ 785 compressed objects within 8 object streams
  0 named destinations out of 1000 (max. 500000)
- 4077 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4159 words of extra memory for PDF output out of 10000 (max. 10000000)
 
 
 ##################### end of pdftex log file #####################
 done
-processing projection extended ... done
-average distortion: 18.78%
-
-
-############### export maps & scraps selection #################
-M     0.00 MC-GL102_Puits-Coupe-tot@Complexe_Lonne_Peyret-Bourrugues (GL102 coupe puits)
-M     0.00 MC-GL102_Puits@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues (GL102 - Puits)
-S     0.00 SC-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues ()
-S     0.00 SC-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues ()
-S     0.00 SC-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues ()
-S     0.00 SC-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues ()
-########## end of export maps & scraps selection ###############
-writing Outputs/GL102_Puits-Coupe.pdf ...
-####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  4 JAN 2025 10:40
-**data.mp
-(c:/Program Files/Therion/texmf/mpost/mpost.mp
-(c:/Program Files/Therion/texmf/mpost/plain.mp
-Preloading the plain mem file, version 1.005) ) (./data.mp
-{randomseed:=42}
- [1] [2] [3] [4]
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
-[15] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13]
-[Warning: scrap outline intersects itself in scrap SC-GL102_Entree_01A@Gouffre_
-du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues] [14] [15] [16] (./mptextmp.mp
-) [17] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
-(./mptextmp.mp) (./mptextmp.mp) [18] )
- 
-Here is how much of MetaPost's memory you used:
- 8070 strings using 204597 characters
- 3915968 bytes of node memory
- 1770 symbolic tokens
- 9i,82n,17p,312b,5f stack positions out of 16i,98n,21p,312b,6f
-33 output files written: data-patt.1 .. data.18
-
-
-#################### end of metapost log file ####################
-converting scraps ... done
-making map ... done
-######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  4 JAN 2025 10:40
-entering extended mode
-**data.tex
-(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
-(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
-rogram Files/Therion/texmf/fonts/pdftex.map})
-(./th_formdef.tex) (./th_pagedef.tex) (./th_pages.tex)
- 85 numeric registers used out of 32768
- [1] ) 
-Here is how much of TeX's memory you used:
- 344 strings out of 95671
- 4594 string characters out of 1192323
- 29493 words of memory out of 1516536
- 1742 multiletter control sequences out of 15000+50000
- 16503 words of font info for 54 fonts, out of 1000000 for 2000
- 844 hyphenation exceptions out of 5000
- 6i,5n,6p,1688b,36s stack positions out of 5000i,500n,10000p,200000b,50000s
-<c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb>
-Output written on data.pdf (1 page, 65133 bytes).
-PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 289 words of extra memory for PDF output out of 10000 (max. 10000000)
-
-
-##################### end of pdftex log file #####################
-done
-writing Outputs/Complexe_Lonne_Peyret-Bourrugues.lox ........
-C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues -- multiple scrap outer outlines not supported yet
-C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues -- invalid scrap outline
-.........................................
-C:\Program Files\Therion\therion.exe: warning -- SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues -- multiple scrap outer outlines not supported yet
-........................................ done
-writing Outputs/Complexe_Lonne_Peyret-Bourrugues.kml ... done
-####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  4 JAN 2025 10:41
-**data.mp
-(c:/Program Files/Therion/texmf/mpost/mpost.mp
-(c:/Program Files/Therion/texmf/mpost/plain.mp
-Preloading the plain mem file, version 1.005) ) (./data.mp [1] )
-1 output file written: data.1
-
-
-#################### end of metapost log file ####################
-writing Outputs/SHP/ ... done
-writing Outputs/SHP/ ... done
-writing Outputs/Complexe_Lonne_Peyret-Bourrugues-Cave-list.html ... done
-writing Outputs/Complexe_Lonne_Peyret-Bourrugues-Surveys.html ... done
-compilation time: 66 sec
+compilation time: 12 sec
 
 
 ######################### loop errors ##########################
@@ -492,7 +409,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    1.31%   33.31%  SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.25%   33.23%  SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.89%   32.11%  SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.12%   31.53%  SP-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
+   0.08%   31.53%  SP-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    5.41%   29.52%  SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.11%   25.80%  SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.10%   25.25%  SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
@@ -521,8 +438,8 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.01%    0.79%  SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.75%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.02%    0.63%  SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.01%    0.63%  SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.03%    0.62%  SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.01%    0.55%  SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.53%  SP-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.50%  SP-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.47%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
@@ -561,83 +478,6 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.00%    0.00%  SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  SP-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues
-################### end of scrap distortions ###################
-
-
-###################### scrap distortions #######################
- PROJECTION: extended
- AVERAGE  MAXIMAL  SCRAP
-  49.45%  100.00%  SC-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-  53.37%   99.84%  SC-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-  22.90%   99.61%  SC-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.81%   77.61%  SC-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-  13.03%   49.61%  SC-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.67%   40.38%  SC-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   2.38%   24.94%  SC-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.06%   13.35%  SC-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.12%   10.17%  SC-GL102_Entree_02B2@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.08%    8.24%  SC-GL4_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.09%    4.63%  SC-B3_Entree_01@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   0.03%    1.18%  SC-GL4_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.01%    1.06%  SC-B3_Entree_06@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.41%  SC-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.31%  SC-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.26%  SC-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.01%  SC-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.01%  SC-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.01%  SC-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL4_Amonts_03@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_15@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SC-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
 ################### end of scrap distortions ###################
 
 ############# CRS transformations chosen by PROJ ###############

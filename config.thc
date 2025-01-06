@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2025 01 03
+# Version ARSIP By Alex 2025 01 06
 ######################################################################################################################################
 
 
@@ -15,7 +15,8 @@ encoding  utf-8
 #
 # Written by: / Écrit par : Xavier Robert
 #
-
+#
+######################################################################################################################################
 #<en> File to set up specific settings for Therion drawing outputs
 #     In your *.thconfig file, you need to call this file with:
 #<fr> Fichier pour définir une configuration pour les dessins de issus de Therion
@@ -28,53 +29,16 @@ encoding  utf-8
 #<en> Lots of definition comes from (or are deeply inspired by) the excellent Therion Wiki
 #<fr> Beaucoup de définitions proviennent (ou sont fortement inspirées) de l'excellent Wiki Therion
 #         https://therion.speleo.sk/wiki/doku.php
-#	     https://therion.speleo.sk/wiki/tbe:wiki6
-#		https://therion.speleo.sk/wiki/metapost
-#		https://thomas-holder.de/projects/therion/
+#	       https://therion.speleo.sk/wiki/tbe:wiki6
+#		    https://therion.speleo.sk/wiki/metapost
+#		    https://thomas-holder.de/projects/therion/
+#
+#
+##############
+#	- Translation English, Frensh and Spanich : en, fr, es 
+#
 
-
-# Existing user points / nouvelles définitions de points :
-#	- nid/nest (u:nest)
-#	- gradient -->	geologic dip
-#	- danger (u:danger)
-#	- chauves-souris/bats (u:bats)
-#	- stalactite boss (u:boss)
-#	- Shell/coquille fossile (u:shell)
-#	- Masonry/maçonnerie (u:masonry)
-#	- Ex voto/Signature (u:ex_voto)
-#	- Human bones/Ossements humains (u:human_bones)
-#	- Walking Caver/Spéléo qui marche (u:man_w)
-# 	- Climbing caver/Spéléo qui grimpe (u:man_c)
-#	- Plan view symbol/symbole de vue en plan (u:symbol_plan)
-#	- extended view symbol/symbole de vue en coupe développée (u:symbol_extend)
-#    - entrance
-#	- block point
-#	- block user (u:block)
-
-# Existing user lines:
-#	- strate/strata (u:strata; option -clip off)
-#	- coupole (u:coupole; option -clip off)
-#	- faille/fault (u:fault; option -clip off)
-#	- doline (u:doline; option -clip off)
-#	- chauves-souris/bats (u:bats)
-#	- rail (u:rail)
-#	- plan walk/ (u:planwalk)
-#	- handrail/rambarde (u:handrail)
-#	- Surface (u:surf)
-#	- Dive line/fil d'Ariane (u:ariane)
-#	- Deviation (u:deviation)
-#	- rock border 
-#	- Shot_Survey line (u:Shot_Survey)
-
-# Existing user areas:
-# 	- boue/mud (u:boue)
-#	- guano (u:guano)
-#	- chauves-souris/bats (u:bats)
-#	- tronc/tree-trunk (u:tronc)
-#	- feuilles/tree-leaves (u:feuilles)
-#	- Tunnel initiation/Départ de galerie (u:galerie)
-
-# layout definition:
+############## layout definition:
 #	- layout langue-fr
 #	- layout langue-es
 #	- layout langue-en
@@ -101,6 +65,63 @@ encoding  utf-8
 #	- layout fonts_1000
 #	- layout fonts_500
 #	- layout Survey_No_Scrap
+
+############## Point, line and area in layout drawingconfig
+############## Existing user points / nouvelles définitions de points :
+#		- nid/nest (u:nest)
+#		- gradient -->	geologic dip
+#		- danger (u:danger)
+#		- chauves-souris/bats (u:bats)
+#		- stalactite boss (u:boss)
+#		- Shell/coquille fossile (u:shell)
+#		- Walking Caver/Spéléo qui marche (u:man_w)
+# 		- Climbing caver/Spéléo qui grimpe (u:man_c)
+#		- Plan view symbol/symbole de vue en plan (u:symbol_plan)
+#		- extended view symbol/symbole de vue en coupe développée (u:symbol_extend)
+#  	- entrance 
+#		- blocks 
+#		- block user (u:block)
+#		- altitude
+#		- label
+#		- anchor artificial
+#		- anchor natural
+
+
+############## Existing user lines:
+#		- strate/strata (u:strata; option -clip off)
+#		- coupole (u:coupole; option -clip off)
+#		- faille/fault (u:fault; option -clip off)
+#		- doline (u:doline; option -clip off)
+#		- chauves-souris/bats (u:bats)
+#		- rail (u:rail)
+#		- plan walk/ (u:planwalk)
+#		- Surface (u:surf  -clip off)
+#		- Dive line/fil d'Ariane (u:ariane)
+#		- Deviation (u:deviation)
+#		- rock border 
+#		- Shot_Survey line (u:Shot_Survey)
+#  	- treetrunk line (u -subtype treetrunk  -clip off)
+#  	- bush line (u -subtype bush -attr bulgesize 1 -attr bulges 20 -clip off)
+#		- wall presumed
+#		- chimeney
+#		- slope
+#		- flowstone
+#		- wall unsurveyed
+#		- survey cave
+
+############## Existing user areas:
+# 		- boue/mud (u:boue)
+#		- guano (u:guano)
+#		- chauves-souris/bats (u:bats)
+#		- tronc/tree-trunk (u:tronc)
+#		- feuilles/tree-leaves (u:feuilles)
+#		- Tunnel initiation/Départ de galerie (u:galerie)
+#  	- blocks
+#		- sands
+#		- pebbles
+#		- sump
+#		- water
+
 
 ######################################################################################################################################
 #<en> change the names for the legend
@@ -201,10 +222,8 @@ text es "line water-flow:permanent" "riachuelo"
 text es "point water-flow:intermittent" "riachuelo intermitente"
 text es "line water-flow:intermittent" "riachuelo intermitente"
 text es "line water-flow:conjectural" "riachuelo supuesto"
-
 text es "line rock-edge" "arista de bloque"
 text es "point cave-pearl" "perlas de cavernas"
-
 text es "point rimstone-dam" "travertino"
 text es "point rimstone-pool" "travertino"
 text es "point stalactite" "estalactita"
@@ -239,6 +258,14 @@ text es "point u:symbol_extend" ""
 text en "point wall-altitude" "altitude (m)"
 text fr "point wall-altitude" "altitude (m)"
 text es "point wall-altitude" "altura (m)"
+
+text en "line u:treetrunk" "tree"
+text fr "line u:treetrunk" "arbre"
+text es "line u:treetrunk" "árbol"
+
+text en "line u:bush" "bush"
+text fr "line u:bush" "buisson"
+text es "line u:bush" "arbusto"
 
 
 
@@ -405,6 +432,7 @@ layout drawingconfig
 	
 	
 	symbol-assign area sand AUT
+	symbol-assign area clay AUT
 	symbol-assign point pillar AUT
 	symbol-assign point station:temporary SKBB
 	symbol-assign point entrance MY 
@@ -418,7 +446,7 @@ layout drawingconfig
 	symbol-color area mudcrack [52 33 6]						# Color to verify ; Maybe to darken
 	symbol-color area pillar [100 60 20]
 	symbol-color area pillar-with-curtains [100 60 20]
-	symbol-color area sand [67 49 1]							# Color to verify
+	symbol-color area sand [67 49 1]							   # Color to verify
 	symbol-color area snow [0 0 100]
 	symbol-color area stalactite [100 60 20]
 	symbol-color area stalactite-stalagmite [100 60 20]
@@ -478,8 +506,8 @@ layout drawingconfig
 	symbol-color point pillars-with-curtains [100 60 20]
 	symbol-color point popcorn [100 60 20]
 	symbol-color point rimstone-dam [100 60 20]
+	symbol-color point rimstone-pool [100 60 20]
 	symbol-color point root [52 33 6]
-	
 	symbol-color point seed-germination [13 47 6]
 	symbol-color point snow [0 0 100]
 	symbol-color point soda-straw [100 60 20]
@@ -518,8 +546,102 @@ layout drawingconfig
 		#	\cavedepth{243\thinspace{}m}
 		#endcode
 
+		########################################################
+		#<en> the tree/trunk and bush symbole from Tarquin 2019 
+		#<fr> Symbole d'arbre d'arès Tarkin 2019
+		########################################################
+		def l_u_treetrunk(expr P)=
+			T:=identity;
+			pickup PenC;
+			draw P withcolor (0.31, 0.15, 0);
+		enddef;
+		
+		initsymbol("l_u_treetrunk");
+			
+		def l_u_treetrunk_legend =
+			l_u_treetrunk(((.4,.9) .. controls (.5,.8) and (.44,.2) .. (.3,0)) inscale);
+			l_u_treetrunk(((.6,0) .. controls (.55,.2) and (.5,.7) .. (.7,.9)) inscale);
+			l_u_treetrunk(((.65,.95) .. controls (.6,.8) and (.5,.7) .. (.45,.95)) inscale);
+		enddef;
+
+	  def l_u_bush (expr P)=
+		 begingroup;
+			save pathlength, bulges, bulgesper, bulgesize, newpoint, newdirection, bulgedpath, steps, pathfactor, slopefactor, extradirection, curincrement, samplepoint, sinefactor;
+			T:=identity;
+			pathlength:=arclength P;
+			if known ATTR_bulges:
+			  bulges:=max(ceiling(scantokens(ATTR_bulges)),1);
+			else:
+			  bulges:=10;
+			fi;
+			if known ATTR_bulgesper:
+			  if ATTR_bulgesper = "tenu":
+				 bulges:=ceiling(bulges*(pathlength/10u));
+			  fi;
+			fi;
+			if known ATTR_bulgesize:
+			  bulgesize:=scantokens(ATTR_bulgesize) * u;
+			else:
+			  bulgesize:=u;
+			fi;
+			pair newpoint;
+			pair newdirection;
+			path bulgedpath;
+			steps:=3; % number of samples per bulge
+			% precompute various numbers to avoid arithmetic overflows with large numbers of bulges
+			pathfactor:=pathlength/(steps*bulges);
+			slopefactor:=pathlength/(bulges*3.14159);
+			extradirection:=angle(slopefactor,-bulgesize*cosd(180));
+			curincrement:=0;
+			forever:
+			  samplepoint:=arctime (curincrement*pathfactor) of P;
+			  sinefactor:=180 * (curincrement mod steps) / steps;
+			  newpoint:=((point samplepoint of P) shifted (bulgesize * sind(sinefactor) * unitvector(thdir(P,samplepoint) rotated -90)));
+			  newdirection:=thdir(P,samplepoint) rotated angle(slopefactor,-bulgesize*cosd(sinefactor));
+			  % enable for debugging
+			  %thdraw (point samplepoint of P) withcolor (100,0,0) withpen PenC;
+			  %thdraw newpoint--(newpoint shifted (bulgesize*unitvector(newdirection))) withcolor (0,0,100) withpen PenC;
+			  if known bulgedpath:
+				 if ((curincrement mod steps) = 0):
+					% this is a corner where one bulge ends and another starts, two points are needed so that the direction vectors can control curves 
+					%thdraw newpoint--(newpoint shifted (bulgesize*unitvector(thdir(P,samplepoint) rotated extradirection))) withcolor (0,0,100) withpen PenC;
+					bulgedpath:=bulgedpath .. newpoint{thdir(P,samplepoint) rotated extradirection};
+					if curincrement <> steps * bulges:
+					  % don't add one in the final increment, since --cycle then has two identical point vectors
+					  bulgedpath:=bulgedpath -- newpoint{newdirection};
+					fi;
+				 else:
+					bulgedpath:=bulgedpath .. newpoint{newdirection};
+				 fi;
+			  else:
+				 % first point in the path
+				 bulgedpath:=newpoint{newdirection};
+			  fi;
+			  exitif curincrement = steps * bulges;
+			  curincrement:=curincrement + 1;
+			endfor;
+			if cycle P:
+			  bulgedpath:=bulgedpath -- cycle;
+			fi;
+			thdraw bulgedpath withcolor green withpen PenC;
+		 endgroup;
+	  enddef;
+  
+	  initsymbol("l_u_bush");
+  
+	  def l_u_bush_legend =
+		 begingroup;
+			save ATTR_bulgesize;
+			string ATTR_bulgesize;
+			ATTR_bulgesize:=".2";
+			l_u_bush(((.6,.1)..controls (.8,.3) and (.9,.7)..(.5,.9)..controls (.1,.7) and (.2,.3)..(.4,.1)) inscale);
+		 endgroup;
+	  enddef;
+
+		########################################################
 		#<en> Change the entrance symbole 
 		#<fr> Changer le symbole d'entrée 
+		########################################################
 		def p_entrance_MY (expr pos,theta,sc,al)=
 			U:=(0.0u,0.0u);
 			T:=identity aligned al rotated 0.0 scaled sc shifted pos;
@@ -531,35 +653,43 @@ layout drawingconfig
 		
 		initsymbol("p_entrance_MY");
 		
+		########################################################
 		#<en> Define Shot_Survey (u:Shot_Survey) in thin red
 		#<fr> Définition de la ligne file d'Shot_Survey en rouge fin
+		########################################################
 		def l_u_Shot_Survey (expr Path) =
 			T:=identity;
 			pickup PenA;
 			draw Path withcolor black; 
 		enddef;
 		
-
+		########################################################
 		#<en> Change the block symbole 
 		#<fr> Changer le symbole de block
+		########################################################
 		def p_blocks (expr pos,theta,sc,al)=
 			base_symbolsize :=0.30u; %Factor*u; Factor=size of the blocks
 			size_factor := 0.5 + uniformdeviate 0.5; % Pour le polygone principal
 			symbolsize := base_symbolsize * size_factor;
-			U:=(.5u,.5u);
+			U :=(.5u,.5u);
 			random_theta := uniformdeviate 360;
+			AlphaFactor1 := 0.5 + uniformdeviate 0.4;
+			AlphaFactor2 := 0.5 + uniformdeviate 0.4;
+			AlphaFactor3 := 0.5 + uniformdeviate 0.4;
 			T:=identity aligned al rotated random_theta scaled sc shifted pos;
 			pickup PenC;
-			thfill (.0symbolsize,.0symbolsize)--(1.0symbolsize,-.5symbolsize)--(0.0symbolsize,-1.5symbolsize)--(-1.0symbolsize,-1.0symbolsize)--cycle withcolor (0.341117, 0.219607, 0.031372) withalpha 0.6;
+			thfill (.0symbolsize,.0symbolsize)--(1.0symbolsize,-.5symbolsize)--(0.0symbolsize,-1.5symbolsize)--(-1.0symbolsize,-1.0symbolsize)--cycle withcolor (0.341117, 0.219607, 0.031372) withalpha AlphaFactor1;
 			thdraw (.0symbolsize,.0symbolsize)--(1.0symbolsize,-.5symbolsize)--(0.0symbolsize,-1.5symbolsize)--(-1.0symbolsize,-1.0symbolsize)--cycle  withcolor (0.341117, 0.219607, 0.031372);
-			thfill (.5symbolsize,-.25symbolsize)--(1.0symbolsize,.5symbolsize)--(0.0symbolsize,1.5symbolsize)--(-0.5symbolsize,.5symbolsize)--cycle withcolor (0.341117, 0.219607, 0.031372) withalpha 0.4;
+			thfill (.5symbolsize,-.25symbolsize)--(1.0symbolsize,.5symbolsize)--(0.0symbolsize,1.5symbolsize)--(-0.5symbolsize,.5symbolsize)--cycle withcolor (0.341117, 0.219607, 0.031372) withalpha AlphaFactor2;
 			thdraw (.5symbolsize,-.25symbolsize)--(1.0symbolsize,.5symbolsize)--(0.0symbolsize,1.5symbolsize)--(-0.5symbolsize,.5symbolsize)--cycle  withcolor (0.341117, 0.219607, 0.031372);
-			thfill (.0symbolsize,.0symbolsize)--(.0symbolsize,.5symbolsize)--(-1.5symbolsize,.5symbolsize)--(-1.5symbolsize,-0.5symbolsize)--(-0.5symbolsize,-0.5symbolsize)--cycle withcolor (0.341117, 0.219607, 0.031372) withalpha 0.5;
+			thfill (.0symbolsize,.0symbolsize)--(.0symbolsize,.5symbolsize)--(-1.5symbolsize,.5symbolsize)--(-1.5symbolsize,-0.5symbolsize)--(-0.5symbolsize,-0.5symbolsize)--cycle withcolor (0.341117, 0.219607, 0.031372) withalpha AlphaFactor3;
 			thdraw (.0symbolsize,.0symbolsize)--(.0symbolsize,.5symbolsize)--(-1.5symbolsize,.5symbolsize)--(-1.5symbolsize,-0.5symbolsize)--(-0.5symbolsize,-0.5symbolsize)--cycle  withcolor (0.341117, 0.219607, 0.031372);
 		enddef;
 
+		########################################################
 		#<en> Change the rock bordersymbole 
 		#<fr> Changer le symbole des ligne rock border
+		########################################################
 		def l_rockborder (expr p) =
 			%%Vérifie si le chemin est fermé
 			%if p[0] = point infinity of p:
@@ -568,14 +698,18 @@ layout drawingconfig
 				%draw p withcolor 0.5green;
 			%fi;
 			%thfill p --cycle withcolor (0.341117, 0.219607, 0.031372) withalpha 0.5;
-			fill p --cycle withcolor (0.341117, 0.219607, 0.031372) withalpha 0.5;
+			AlphaFactor := 0.3 + uniformdeviate 0.4;
+			fill p --cycle withcolor (0.341117, 0.219607, 0.031372) withalpha AlphaFactor;
 			%thdraw p --cycle withcolor (0.341117, 0.219607, 0.031372);
 			draw p --cycle withcolor (0.341117, 0.219607, 0.031372);
 			%%Dessine la bordure de la ligne (même si elle n'est pas fermée)
 			%draw p withcolor red;
 		enddef;
 		
-
+		########################################################
+		#<en> u:block definition  
+		#<fr>définition du bloc u:block
+		########################################################
 		def p_u_block(expr pos,theta,sc,al) =
 			T:=identity aligned al rotated theta scaled sc shifted pos;
 			path p q;
@@ -588,22 +722,18 @@ layout drawingconfig
 				thdraw q;
 				thfill q withcolor(0.6,0.6,0.6);
 				pickup PenD;
-				path p;
-				p := (-2u,-0.65u)--(-1.9u,-1u);
-				thdraw p;
-				path p;
-				p := (0.6u,-0.7u)--(0.5u,-1.3u);
-				thdraw p;
-				path p;
-				p := (2.1u,-0.15u)--(2.3u,-0.4u);
-				thdraw p;
+				path p; p := (-2u,-0.65u)--(-1.9u,-1u); thdraw p;
+				path p; p := (0.6u,-0.7u)--(0.5u,-1.3u); thdraw p;
+				path p; p := (2.1u,-0.15u)--(2.3u,-0.4u); thdraw p;
 		enddef;
 		
 		initsymbol("p_u_block");
 			
-
+		########################################################
 		#<en> Change the dashed line for the line map_connection
 		#<fr> Changer la ligne pointillée du symbole map_connection
+		########################################################
+		
 		#def l_mapconnection (expr P) =
 			#T:=identity;
 			#pickup PenB;
@@ -613,8 +743,10 @@ layout drawingconfig
 			#thdraw P dashed evenly scaled (.1u);
 		#enddef;
 
+		########################################################
 		#<en> Change the dashed line for the line wall:presumed
 		#<fr> Changer la ligne pointillée du symbole line wall:presumed
+		########################################################
 		def l_wall_presumed (expr P) =
 			T:=identity;
 			pickup PenA;
@@ -624,8 +756,10 @@ layout drawingconfig
 			thdraw P dashed evenly scaled (.1u);
 		enddef;
 		
+		########################################################
 		#<en> Change the dashed line for the line chimney
 		#<fr> Changer la ligne pointillée du symbole line chemney (cheminée)
+		########################################################
 		def l_chimney (expr P) =
 			T:=identity;
 			pickup PenC;
@@ -633,8 +767,10 @@ layout drawingconfig
 			thdraw P dashed evenly scaled (.05u);
 		enddef;
 		
+		########################################################
 		#<en> To change blocs size in the area blocks
 		#<fr> Pour modifier la taille des blocs dans l'aire blocks
+		########################################################
 		def a_blocks (expr p) =
 			T:=identity;
 			pickup PenC;
@@ -642,25 +778,29 @@ layout drawingconfig
 			picture tmp_pic;
 			uu := max(u, (xpart urcorner q - xpart llcorner q)/100, (ypart urcorner q - ypart     llcorner q)/100);
 			tmp_pic := image(
-			for i = xpart llcorner q step 1.0uu until xpart urcorner q:
-			for j = ypart llcorner q step 1.0uu until ypart urcorner q:
-			qq := punked (((-.3uu,-.3uu)--(.3uu,-.3uu)--(.3uu,.3uu)--(-.3uu,.3uu)--cycle)
-			randomized (uu/2))
-			rotated uniformdeviate(360)
-			shifted ((i,j) randomized 1.0uu);
-			if xpart (p intersectiontimes qq) < 0:
-				thclean qq;
-				thdraw qq;
-			fi;
-			endfor;
-			endfor;
+				for i = xpart llcorner q step 1.0uu until xpart urcorner q:
+					for j = ypart llcorner q step 1.0uu until ypart urcorner q:
+						qq := punked (((-.3uu,-.3uu)--(.3uu,-.3uu)--(.3uu,.3uu)--(-.3uu,.3uu)--cycle)
+						randomized (uu/2))
+						rotated uniformdeviate(360)
+						shifted ((i,j) randomized 1.0uu);
+						if xpart (p intersectiontimes qq) < 0:
+							thclean qq;
+							AlphaFactor := 0.5 + uniformdeviate 0.4;
+							thdraw qq --cycle withcolor (0.341117, 0.219607, 0.031372);
+							thfill qq --cycle withcolor (0.341117, 0.219607, 0.031372) withalpha AlphaFactor;
+						fi;
+					endfor;
+				endfor;
 			);
 			clip tmp_pic to p;
 			draw tmp_pic;
 		enddef;
 		
+		########################################################
 		#<en> To change sand aspects
 		#<fr> Pour modifier les aspects du sable dans l'aire associée
+		########################################################
 		def a_sands (expr p) =
 			T:=identity;
 			pickup PenC;
@@ -677,8 +817,10 @@ layout drawingconfig
 			draw tmp_pic;
 		enddef;
 		
+		########################################################
 		#<en> To change pebbles aspects
 		#<fr> Pour modifier l'aspects de l'aire pebbles (galets)
+		########################################################
 		def a_pebbles_SKBB (expr p) =
 			T:=identity;
 			pickup PenC;
@@ -701,8 +843,10 @@ layout drawingconfig
 			draw tmp_pic;
 		enddef;
 		
+		########################################################
 		#<en> To change slopes aspects
 		#<fr> Pour modifier la ligne aspects
+		########################################################
 		def l_slope (expr P,S)(text Q) =
 			%show Q;
 			T:=identity;
@@ -818,8 +962,10 @@ layout drawingconfig
 			%for i=0 upto li: draw point i of P; endfor;
 		enddef;
 			
+		########################################################	
 		#<en> To change color of Mud area
 		#<fr> Pour modifier la couleur de l'aire Boue
+		########################################################
 		def a_u_boue (expr p) =
 			T:=identity;
 			#thfill p withcolor (0.22, 0.22, 0.95);
@@ -827,49 +973,62 @@ layout drawingconfig
 			thfill p withcolor (0.49, 0.20, 0.00);
 		enddef;
 	
+		########################################################
 		#<en> To change color of Sump
 		#<fr> Pour modifier la couleur de l'aire siphon
+		########################################################
 		def a_sump (expr p) =
 			T:=identity;
 			#thfill p withcolor (0.22, 0.22, 0.95);
 			thfill p withcolor (0.06, 0.20, 0.65);
 		enddef;
 	
+		########################################################
 		#<en> To change color of guano
 		#<fr> Pour modifier la couleur de l'aire guano
+		########################################################
 		def a_u_guano (expr p) =
 			T:=identity;
 			thfill p withcolor (0.53, 0.26, 0.11);
 		enddef;
 	
+		########################################################
 		#<en> To change color of a tree-trunk
 		#     I advise to use a line "border" to delimit the area
 		#	  If used with tree-leaves, add the option -place top
 		#<fr> Pour modifier la couleur de l'aire tronc
 		#	  Je suggère d'utiliser une ligne "border/bord" pour délimiter l'aire
 		#	  Si utilisé conjointement avec l'aire feuilles d'arbres, utiliser l'option -place top
+		########################################################
 		def a_u_tronc (expr p) =
 			T:=identity;
 			thfill p withcolor (0.62, 0.24, 0.05);
 		enddef;
 	
+		########################################################
 		#<en> To change color of a tree-leaves
 		#<fr> Pour modifier la couleur de l'aire feuilles d'arbre/feuillage
+		########################################################
 		def a_u_feuilles (expr p) =
 			T:=identity;
 			thfill p withcolor (0.0, 1.0, 0.0);
 		enddef;
 	
+		########################################################
 		#<en> To change color of Water area
 		#<fr> Pour modifier la couleur de l'aire eau
+		########################################################
 		def a_water (expr p) =
 			T:=identity;
 			#thfill p withcolor (0.60, 0.8, 1);
 			thfill p withcolor (0.17, 0.46, 1);
 		enddef;
 
+		########################################################
 		#<en> Northarrow more funnier !
 		#<fr> Pour définir une nouvelle flèche du nord
+		########################################################
+		
 		# def s_northarrow (expr rot) =
 		# 	begingroup
 		# 		interim defaultscale:=0.7; % scale your north arrow here
@@ -914,8 +1073,11 @@ layout drawingconfig
 			endgroup;
 		enddef;
 
+	########################################################
 	#		#<en> Change Scale bar type
 	#	 	#<fr> Pour modifier la barre d'échelle
+	########################################################
+	
 	#		def s_scalebar (expr l, units, txt) =
 	#			begingroup
 	#				interim warningcheck:=0;
@@ -942,9 +1104,11 @@ layout drawingconfig
 	#			endgroup;
 	#		enddef;
 	
-	
+	########################################################
 	#		#<en> Write the point depth (not functionning...)
 	#		#<fr> Définir un point qui écrit la côte/profondeur (Ne fonctionne pas actuellement...)
+	########################################################
+	
 	#		def p_u_prof (expr pos) =
 	#			T:=identity shifted pos;
 	#			pickup PenD;
@@ -999,7 +1163,7 @@ layout drawingconfig
 	#		enddef;
 	
 	
-	
+		########################################################
 		#<en> Change the altitude definition
 		#     This label requires to specify the position of text relative to point with
 		#     help of -align in the options box.
@@ -1007,6 +1171,7 @@ layout drawingconfig
 		#     Ce label nécessite la position spécifique de l'étiquette de texte de façon relative
 		#      au point avec l'aide de l'option -align.
 		#ex: -align bottom-right/top-left/top-right/bottom-left/top/bottom/left/right...
+		########################################################
 		
 		def p_altitude (expr pos) =
 			T:=identity shifted pos;
@@ -1017,47 +1182,49 @@ layout drawingconfig
 			thclean p; thdraw p;
 		enddef;
 
-	vardef p_label@#(expr txt,pos,rot,mode) =
-		if mode=1:
-			thdrawoptions(withcolor .8red + .4blue);
-			p_altitude(pos);
-			% append "m" to label
-			picture txtm;
-			txtm:=image(
-				draw txt;
-				interim labeloffset:=0;
-				label.urt(btex \thaltitude { m} etex, lrcorner txt);
-				#label.urt(btex \thheight m etex, lrcorner txt);
-			);
-			% give extra offset in case of l/r/t/b alignment
-			pair ctmp;
-			ctmp:=center thelabel@#("x", (0,0));
-			if (xpart ctmp * ypart ctmp)=0:
-				interim labeloffset:=(.4u);
-			else: % diagonal alignment
-				interim labeloffset:=(.2u);
+		vardef p_label@#(expr txt,pos,rot,mode) =
+			if mode=1:
+				thdrawoptions(withcolor .8red + .4blue);
+				p_altitude(pos);
+				% append "m" to label
+				picture txtm;
+				txtm:=image(
+					draw txt;
+					interim labeloffset:=0;
+					label.urt(btex \thaltitude { m} etex, lrcorner txt);
+					#label.urt(btex \thheight m etex, lrcorner txt);
+				);
+				% give extra offset in case of l/r/t/b alignment
+				pair ctmp;
+				ctmp:=center thelabel@#("x", (0,0));
+				if (xpart ctmp * ypart ctmp)=0:
+					interim labeloffset:=(.4u);
+				else: % diagonal alignment
+					interim labeloffset:=(.2u);
+				fi;
+				% draw label
+				lab:=thelabel@#(txtm, pos);
+				draw lab _thop_; % use color
+				thdrawoptions();
+				bboxmargin:=0.8bp;
+				write_circ_bbox((bbox lab) smoothed 2);
+			else:
+				if mode=7: interim labeloffset:=(u/8) fi;
+					lab:=thelabel@#(txt, pos);
+				if mode>1: pickup PenD fi;
+					if mode=2: process_uplabel;
+					elseif mode=3: process_downlabel;
+					elseif mode=4: process_updownlabel;
+					elseif mode=5: process_circledlabel;
+					elseif mode=6: process_boxedlabel;
+					elseif mode=7: process_label(pos,rot);  % station name
+					elseif mode=8: process_filledlabel(pos, rot);
+					else: process_label(pos,rot); 
+				fi;
 			fi;
-			% draw label
-			lab:=thelabel@#(txtm, pos);
-			draw lab _thop_; % use color
-			thdrawoptions();
-			bboxmargin:=0.8bp;
-			write_circ_bbox((bbox lab) smoothed 2);
-		else:
-		if mode=7: interim labeloffset:=(u/8) fi;
-			lab:=thelabel@#(txt, pos);
-		if mode>1: pickup PenD fi;
-			if mode=2: process_uplabel;
-			elseif mode=3: process_downlabel;
-			elseif mode=4: process_updownlabel;
-			elseif mode=5: process_circledlabel;
-			elseif mode=6: process_boxedlabel;
-			elseif mode=7: process_label(pos,rot);  % station name
-			elseif mode=8: process_filledlabel(pos, rot);
-			else: process_label(pos,rot); fi;
-			fi;
-		enddef;
+			enddef;
 		
+		########################################################
 		#<en> For point height with P or C prefixe
 		#     use “point 0 0 height -value [+10 m]”
 		#     or “point 0 0 height -value [-85 m]”
@@ -1066,9 +1233,10 @@ layout drawingconfig
 		#     utiliser “point 0 0 height -value [+10 m]”
 		#     ou “point 0 0 height -value [-85 m]”
 		#     dans les données vous donner E10 ou P85 respectivement
+		########################################################
 		verbatimtex \def\thheightpos{E}\def\thheightneg{P} etex
 		
-		
+		########################################################
 		#<en> Change the altitude definition for the wall-line label (add units)
 		#	  To modify the color, you need to modify the triplets after the 3 withcolor command.
 		#	  BE CAREFUL ! Sometimes, it generates mpost errors when using point wall:altitude.
@@ -1077,6 +1245,7 @@ layout drawingconfig
 		#	  Pour modifier la couleur, modifier le triplet (RGB) après les 3 commandes withcolor.
 		#	  ATTENTION ! Parfois, cette redéfinition génère des erreurs métapost.
 		#		Si c'est le cas, commenter toute la redéfinition du point p_wallaltitude.
+		########################################################
 		
 		#def p_wallaltitude (expr pprev,pos,pnext,txt) =
 		#	rot:=angle(unitvector(pnext-pos)+unitvector(pos-pprev)) - 90;
@@ -1122,16 +1291,17 @@ layout drawingconfig
 		#enddef;
 		
 		
-		
+		########################################################
 		#<en> Definition of new lines symbols
 		#<fr> Définition de nouveau symboles de lignes
-		
 		
 		#<en> Line symbol for strata for cross sections (u:strata). It works exactly as line section
 		#     symbol but you should use -clip off option:
 		#<fr> Symbole de ligne pour dessiner des strates (u:strata).
 		#     Cela fonctionne exactement comme les autres sections de ligne
 		#     mais vous devrez rajouter l'option -clip off:
+		########################################################
+		
 		def l_u_strata (expr P) =
 			T:=identity;
 			path Q; Q = punked P;
@@ -1164,10 +1334,11 @@ layout drawingconfig
 			endfor;
 		enddef;
 		
-		
+		########################################################
 		#<en> Line symbol for Coupoles (u:coupole). It works exactly as line section
 		#<fr> Symbole de ligne pour dessiner des coupoles de plafond.
 		#     Fonctionne comme les autres lignes
+		########################################################
 		def l_u_coupole (expr P) =
 			T:=identity;
 			cas := 0;                            % cursor to step along path
@@ -1186,12 +1357,14 @@ layout drawingconfig
 			thdraw P;      %continuous line
 		enddef;
 		
-		
+		########################################################
 		#<en> Line symbol for fault.
 		#     It works exactly as line section symbol but you should use -clip off option:
 		#<fr> Symbole de ligne pour dessiner des failles (u:fault).
 		#     Cela fonctionne exactement comme les autres sections de ligne
 		#     mais vous devrez rajouter l'option -clip off:
+		########################################################
+		
 		def l_u_fault (expr P) =
 			T:=identity;
 			path Q; Q = punked P;
@@ -1215,12 +1388,14 @@ layout drawingconfig
 			endfor;
 		enddef;
 		
-		
+		########################################################
 		#<en> Line symbol for the surface.
 		#     It works exactly as line section symbol but you should use -clip off option:
 		#<fr> Symbole de ligne pour dessiner la surface (u:surf).
 		#     Cela fonctionne exactement comme les autres sections de ligne
 		#     mais vous devrez rajouter l'option -clip off:
+		########################################################
+		
 		def l_u_surf (expr P) =
 			T:=identity;
 			path Q; Q = punked P;
@@ -1228,11 +1403,12 @@ layout drawingconfig
 			draw Q dashed evenly withcolor (0.5, 0, 0);
 		enddef;
 		
-		
+		########################################################
 		#<en> To add a doline line (u:doline); Do not forget the option -clip off !
 		#<fr> Symbole de ligne pour dessiner une ligne doline (u:doline).
 		#     Cela fonctionne exactement comme les autres sections de ligne
 		#     mais vous devrez rajouter l'option -clip off:
+		########################################################
 		def l_u_doline (expr P) =
 			T:=identity;
 			laenge:= arclength P;
@@ -1255,7 +1431,7 @@ layout drawingconfig
 			endfor;
 		enddef;
 		
-		
+		########################################################
 		#<en> Modify length/depth statistics to print
 		#<fr> Modifier l'aspect et les données des statistiques de longueur affichées si besoin
 		#code tex-map
@@ -1263,9 +1439,10 @@ layout drawingconfig
 		#	+ 150\thinspace{}m estimes}
 		#	\cavedepth{243\thinspace{}m}
 		
-		
 		#<en> Defines the gradient as geologic dip
 		#<fr> Définit le gradient comme pendage géologique
+		########################################################
+		
 		def p_gradient_XA (expr P,R,S,A) =
 			U:=(.15u, .4u);
 			T:=identity aligned A rotated R scaled S shifted P;
@@ -1276,9 +1453,10 @@ layout drawingconfig
 		initsymbol ("p_gradient_XA");
 		symbol-assign point gradient XA
 		
-		
+		########################################################
 		#<en> Section to define the bat symbol (point, line, area)
 		#<fr> Section pour définir le symbole Chauve souris utilisé en point, ligne ou aire
+		########################################################
 		path bat_path_x;
 		bat_path_x := (160.43589,619.76148)
 			.. controls (200.83034,598.56215) and (225.01974,599.82632) .. (242.33709,601.15842)
@@ -1320,15 +1498,21 @@ layout drawingconfig
 		path bat_path;
 		bat_path = bat_path_x shifted (-(llcorner bat_path_bb) - (urcorner bat_path_bb - llcorner bat_path_bb) / 2.0) scaled (1u / ((xpart urcorner bat_path_bb) - (xpart llcorner bat_path_bb))) rotated 210;
 		
+		########################################################
 		#<en> Section of your layout define point u:bats symbol like this
 		#<fr> Pour définir le point chauve souris : u:bats
+		########################################################
+		
 		def p_u_bats(expr pos, theta, sc, al) =
 			T := identity shifted pos;
 			thfill (bat_path scaled 1.5) withcolor black;
 		enddef;
 		
+		########################################################
 		#<en> similarly the line u:bat symbol
 		#<fr> Idem pour la ligne
+		########################################################
+		
 		def l_u_bats(expr P) =
 			T:=identity;
 			cas := 0;
@@ -1343,8 +1527,11 @@ layout drawingconfig
 			endfor;
 		enddef;
 		
+		########################################################
 		#<en> and finally the area u:bat symbol (pattern in this case)
 		#<fr> Et pour l'aire
+		########################################################
+		
 		% bat pattern
 		beginpattern(pattern_bat);
 			fill bat_path withcolor black;
@@ -1357,6 +1544,7 @@ layout drawingconfig
 			thfill Path withpattern pattern_bat;
 		enddef;
 		
+		########################################################
 		#<en> These symbols will be included also in the legend. To
 		#     change the way how they are drawn there just define appropriate
 		#     macro. Its name should be symbol macro name with <code>_legend</code>
@@ -1365,13 +1553,15 @@ layout drawingconfig
 		#     sont dessinés, juste, définissez la macro appropriée.
 		#     Son nom doit être le nom de la macro symbol approprié avec le suffixe
 		#     <code>_legend</code>.
+		########################################################
 		def l_u_bats_legend =
 			l_u_bats(((.2,.2) -- (.8,.8)) inscale)
 		enddef;
 		
-		
+		########################################################
 		#<en> Definition of a stalagmite boss symbol
 		#<fr> Définition du point stalagmite boss
+		########################################################
 		def p_u_boss (expr pos,theta,sc,al)=
 			T:=identity aligned al rotated theta scaled sc shifted pos;
 			pickup PenD;
@@ -1391,9 +1581,11 @@ layout drawingconfig
 			%thdraw p withcolor;
 		enddef;
 		
-		
+		########################################################
 		#<en> Definition of a shell limestone symbol
 		#<fr> Définition du point coquille fossile
+		########################################################
+		
 		def p_u_shell (expr pos,theta,sc,al)=
 			T:=identity shifted pos;
 			pickup PenB;
@@ -1411,9 +1603,11 @@ layout drawingconfig
 		enddef;
 		initsymbol ("p_u_shell");
 		
-		
+		########################################################
 		#<en> Define Danger symbol
 		#<fr> Définition du point Danger
+		########################################################
+		
 		def p_u_danger (expr P,R,S,A)=
 			T:=identity aligned A rotated R scaled S shifted P;
 			thfill (0,-u)--(u,0)--(0,u)--(0,.9u)--(.9u,0)--(0,-.9u)--cycle;
@@ -1421,21 +1615,26 @@ layout drawingconfig
 			thfill (.1u,-.45u)..(0,-.35u)..(-.1u,-.45u)..(0,-.55u)..cycle;
 			thfill (0,-.2u)..(.1u,-.1u)--(.2u,.4u)..(0,.6u)..(-.2u,.4u)--(-.1u,-.1u)..cycle;
 		enddef;
+		
 		#initsymbol("p_entrance_MY");
 		#let p_entrance = p_entrance_MY;
 		
-		
+		########################################################
 		#<en> Define dive line (u:ariane) in thin red
 		#<fr> Définition de la ligne file d'Ariane en rouge fin
+		########################################################
+		
 		def l_u_ariane (expr Path) =
 			T:=identity;
 			pickup PenD;
 			draw Path withcolor (100, 0, 0);
 		enddef;
 		
-		
+		########################################################
 		#<en> Definition of plankwalk
 		#<fr> Définition d'une ligne de main courante
+		########################################################
+		
 		def l_u_plankwalk  (expr P) = T:=identity;
 			# by Dave Clucas
 			cas := 0;
@@ -1454,9 +1653,11 @@ layout drawingconfig
 			%draw path withcolor (0.5, 0 ,0)
 		enddef;
 		
-		
+		########################################################
 		#<en> Definition of a line rail
 		#<fr> Définition d'une ligne rail
+		########################################################
+		
 		def l_u_rail (expr P) =
 			# by Andrew Aktinson
 			T:=identity;
@@ -1482,9 +1683,11 @@ layout drawingconfig
 			endfor;
 		enddef;
 		
-		
+		########################################################
 		#<en> Change fig Flowstone, increase the number of arcs
 		#<fr> Modifier le symbole flowstone en augmentant le nombr d'arc
+		########################################################
+		
 		def l_flowstone (expr p) =
 			#draw p withpen PenC withcolor (0.0, 0.5, 1.0);
 			T:=identity;
@@ -1504,9 +1707,11 @@ layout drawingconfig
 			endfor;
 		enddef;
 		
-		
+		########################################################
 		#<en> Point that represent a bird nest
 		#<fr> Point pour représenter un nid d'oiseau
+		########################################################
+		
 		def p_u_nid (expr pos,theta,sc,al)=
 			U:=(.4u,.2u);
 			T:=identity aligned al rotated theta scaled sc shifted pos;
@@ -1515,18 +1720,23 @@ layout drawingconfig
 			thdraw (-.2u,.1u){dir -70}..{dir 70}(.2u,.1u) withcolor (0.53, 0.26, 0.11);
 		enddef;
 		
-		
+		########################################################
 		#<en> Artificial anchor point (From a post by Evaristo Quiroga)
 		#<fr> Point ancrage artificiel (From a post by Evaristo Quiroga)
+		########################################################
+		
 		def p_u_anchor_artificial(expr pos,theta,sc,al) =
 			T:=identity shifted pos;
 			thdraw origin withpen pencircle scaled 0.25u withcolor (0.58, 0.44, 0.25);
 		enddef;
+		
 		initsymbol ("p_u_anchor_artificial");
 		
-		
+		########################################################
 		#<en> Natural anchor point (From a post by Evaristo Quiroga)
 		#<fr> Point ancrage naturel (From a post by Evaristo Quiroga)
+		########################################################
+		
 		def p_u_anchor_natural(expr pos,theta,sc,al) =
 			U:=(.2u,.2u);
 			T:=identity aligned al rotated theta scaled sc shifted pos;
@@ -1534,32 +1744,38 @@ layout drawingconfig
 		enddef;
 		initsymbol ("p_u_anchor_natural");
 		
-		
+		########################################################
 		#<en> Deviation line (by Tarquin 2019)
 		#<fr> Ligne pour dessiner une déviation (D'après Tarquin 2019)
+		########################################################
+		
 		def l_u_deviation (expr P) =
 			begingroup;
-			save ellipse;
-			T:=identity;
-			pickup PenC;
-			path ellipse;
-			ellipse:=fullcircle xscaled (.5u) yscaled (.25u) shifted (point (length P) of P);
-			thdraw P cutafter ellipse;
-			draw ellipse;
-		endgroup;
+				save ellipse;
+				T:=identity;
+				pickup PenC;
+				path ellipse;
+				ellipse:=fullcircle xscaled (.5u) yscaled (.25u) shifted (point (length P) of P);
+				thdraw P cutafter ellipse;
+				draw ellipse;
+			endgroup;
 		enddef;
+		
 		initsymbol("l_u_deviation");
 	
 		def l_u_deviation_legend =
 			l_u_deviation(((.1,.5)--(.8,.5)) inscale);
 		enddef;
 	
-	
+		########################################################
 		#<en> Climbing caver point (by Juraj Halama, 2020)
 		#	  Climbing one has center where the rope should go on the harness...
 		#<fr> Point pour dessiner un spéléo qui grimpe ou escalade (D'après Juraj Halama, 2020)
 		#	  Le point correspond au centre du spéléo au niveau du harnais, qui doit donc être sur la corde
+		########################################################
+		
 		picture u_man_c_pic;
+		
 		u_man_c_pic := image (
 			draw (0cm, -0cm) -- (-8cm, 27cm) -- (-36cm, 55cm) -- (-50cm, 99cm) withpen pencircle scaled 16cm;
 			draw (27cm, 48cm) -- (0, 64cm) -- (-29cm, 61cm) -- (-38cm, 102cm)  withpen pencircle scaled 16cm;
@@ -1572,20 +1788,27 @@ layout drawingconfig
 			T:=identity aligned A rotated R scaled S shifted P;
 			thdraw u_man_c_pic scaled (0.01 / Scale);
 		enddef;
+		
 		initsymbol ("p_u_man_c");
 		
+		########################################################
 		#<en> The scale on the map and in the legend is matching just for 1:500...
 		#<fr> L'échelle sur la carte et sur la légende correspond au 1:500...
+		########################################################
+		
 		def p_u_man_c_legend =
 			draw u_man_c_pic scaled (u / 175cm) shifted ((.5, .5) inscale);
 		enddef;
 	
-		
+		########################################################
 		#<en> Walking caver point (by Juraj Halama, 2020)
 		#	  Use "-align top" for proper alignment of the walking man when his point is on the groung.
 		#<fr> Point pour dessiner un spéléo marchant (D'après Juraj Halama, 2020)
 		#	  Utiliser l'option "-align top" pour un alignement correct quand le point est au sol
+		########################################################
+		
 		picture u_man_w_pic;
+		
 		u_man_w_pic := image (
 			draw (0, 0) -- (7.5cm, 36cm) -- (0cm, 69cm) -- (9cm, 99cm) withpen pencircle scaled 16cm;
 			draw (42cm, 9cm) -- (37.5cm, 42cm) -- (13.5cm, 69cm) -- (30cm, 102cm) withpen pencircle scaled 16cm;
@@ -1599,17 +1822,23 @@ layout drawingconfig
 			T:=identity aligned A rotated R scaled S shifted P;
 			thdraw u_man_w_pic scaled (0.01 / Scale);
 		enddef;
+		
 		initsymbol ("p_u_man_w");
 		
+		########################################################
 		#<en> The scale on the map and in the legend is matching just for 1:500...
 		#<fr> L'échelle sur la carte et sur la légende correspond au 1:500...
+		########################################################
+		
 		def p_u_man_w_legend =
 			draw u_man_w_pic scaled (u / 175cm) shifted ((.5, .5) inscale);
 		enddef;
 	
-	
+		########################################################
 		#<en> Plan view symbol point (by Juraj Halama, 2020)
 		#<fr> Point dessinant un symbole de "vue en plan" (D'après Juraj Halama, 2020)
+		########################################################
+		
 		def p_u_symbol_plan (expr pos,theta,sc,al) =
 			U := (-3.25u, 3.25u);
 			T := identity aligned al rotated theta scaled sc shifted pos;
@@ -1623,9 +1852,11 @@ layout drawingconfig
 			thdraw (0u, 0u) -- (0u, 2.31u) withcolor .5green;
 		enddef;
 		
-	
+		########################################################
 		#<en> Extended view symbol point (by Juraj Halama, 2020)
 		#<fr> Point dessinant un symbole de "vue en coupe développée" (D'après Juraj Halama, 2020)
+		########################################################
+		
 		def p_u_symbol_extend (expr pos,theta,sc,al) =
 			U := (-2.5u, 2.5u);
 			T := identity aligned al rotated theta scaled sc shifted pos;
@@ -1645,16 +1876,20 @@ layout drawingconfig
 			thdraw (0u, 0u) -- (2.31u, 0u) withcolor .5green;
 		enddef;
 	
-	
+		########################################################
 		#<en> Change rope line color
 		#<fr> Changer la couleur de la ligne rope (corde)
+		########################################################
+		
 		#symbol-colour line rope [58 44 25]
 		
-		
+		########################################################
 		#<en> Area for galerie initiation
 		#     You will probably need to adapt the color to match the color of your galeries
 		#<fr> Aire pour matérialiser le départ d'une galerie
 		#     A adapter en fonction de la couleur de vos galeries
+		########################################################
+		
 		def a_u_galerie(expr P) =
 			T:=identity;
 			## jaune chamois (208, 192, 122)
@@ -1674,20 +1909,24 @@ layout drawingconfig
 			#thfill P withcolor (0.937,0;937,0.937) withalpha 0.5;
 		enddef;
 	
-	
+		########################################################
 		#<en> Make unsurveyed wall lines more light-weight and dashed
 		#<fr> Rendre les parois non topographiées plus légères et en pointillés
 		#Bruce Mutton 2010.06.20 for Therion 5.3.9
+		########################################################
+		
 		def l_wall_unsurveyed (expr P) =
 			T:=identity;
 			pickup PenC;
 			thdraw P dashed evenly scaled (0.5*optical_zoom);
 		enddef;
 	
-	
+		########################################################
 		#<en> thin grey cave splays, yellow duplicates and dashed approximate legs
 		#<fr> Pour modifier la couleur du squelette en fonction du type de visées
 		#     (splays, normal, duplicates, approximate...)
+		########################################################
+		
 		def l_survey_cave (expr P) =
 			% always draws full centreline, rather than short stubs like default cave centrelines
 			T:=identity;
@@ -1710,6 +1949,7 @@ layout drawingconfig
 		enddef;
 	
 	endcode
+	
 	# Endcode for all the definition
 
 
@@ -3007,12 +3247,12 @@ layout northarrowMG
 endlayout 
 				
 				
-	#######################################################################################################################################
-	layout test
+#######################################################################################################################################
+layout test
 		#<en> A test layout to test you new symbols, configurations,... ;-)
 		#<fr> Un layout de test pour tester vos nouveaux symboles, configurations,... ;-)
 		
-		code metapost
+	code metapost
 			
 			def p_u_prof (expr P,R,S,A)=
 				T:=identity aligned A rotated R scaled S shifted P;
@@ -3072,9 +3312,9 @@ endlayout
 				fi;
 			enddef;
 				
-		endcode
+	endcode
 			
-	endlayout
+endlayout
 					
 					
 ######################################################################################################################################
@@ -3202,22 +3442,3 @@ layout Survey_No_Scrap
 endlayout
 
 ######################################################################################################################################
-# NOK for test
-layout logo_ARSIP
-	#<en> If you want to change font size 
-	#<fr> Si vous voulez changer la police 
-	
-	code metapost
-		beginfig(1);
-			 % Charger le logo
-			 drawimage "Logo-ARSIP-Synthese-Topo.jpg" scaled 1 shifted (10, 10);
-			 
-			 % Exemple de dessin (ajouter vos éléments topographiques ici)
-			 draw (0,0)--(100,0)--(100,100)--(0,100)--cycle withcolor .7white;
-
-			 % Ajouter une légende ou d'autres détails
-			 label("Topographie avec logo", (50, 110)) withcolor black;
-		endfig;
-	endcode
-	
-endlayout

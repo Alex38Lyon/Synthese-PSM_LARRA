@@ -24,14 +24,20 @@ map MP-Complexe_Lonne_Peyret-Bourrugues-Plan-tot -title "Complexe_Lonne_Peyret-B
 	MP-NL31_Squelettes-Plan-tot@NL31_Squelettes
 endmap
 
-
 # map MC-Complexe_Lonne_Peyret-Bourrugues-coupe-tot -title "Complexe_Lonne_Peyret-Bourrugues"
 	# SC-Complexe_Lonne_Peyret-Bourrugues_01
 	# break
 	# SC-Complexe_Lonne_Peyret-Bourrugues_02
 # endmap
 
-
 map MC-GL102_Puits-Coupe-tot -title "GL102 coupe puits"
 	MC-GL102_Puits@Gouffre_du_Lonne_Peyret
+endmap
+
+map MC-B3_Puits-Coupe-tot -title "B3 Bourrugues coupe puits"
+	 MC-B3-Puits-coupe-tot@B3-Bourrugues
+endmap
+
+map MC-AP7_Puits-Coupe-tot -title "AP7 coupe puits"
+	 MC-AP7_Puits-coupe-tot@AP7_Arres_Planeres
 endmap

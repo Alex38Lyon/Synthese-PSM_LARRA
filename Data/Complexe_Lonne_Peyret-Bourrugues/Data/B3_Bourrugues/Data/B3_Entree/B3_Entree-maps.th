@@ -30,7 +30,7 @@ map MP-B3_Entree-plan-tot -title "B3 Entrée (plan)"
 	MP-B3_Entree2
 endmap
 
-map MC-B3_Entree-coupe-tot -title "B3_Entree"
+map MC-B3_Entree-coupe-tot -title "B3 Coupe Entree"
 	SC-B3_Entree_01
 	break
 	SC-B3_Entree_02
@@ -42,4 +42,18 @@ map MC-B3_Entree-coupe-tot -title "B3_Entree"
 	SC-B3_Entree_05
 	break
 	SC-B3_Entree_06
+endmap
+
+map MC-B3_Puits-coupe-tot -title "B3 Puits"
+	SC-B3_Entree_01
+	# break
+	# SC-B3_Entree_02
+	# break
+	# SC-B3_Entree_03
+	# break
+	# SC-B3_Entree_04
+	# break
+	# SC-B3_Entree_05
+	# break
+	# SC-B3_Entree_06
 endmap

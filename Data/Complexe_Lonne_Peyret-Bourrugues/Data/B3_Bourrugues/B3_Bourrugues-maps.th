@@ -19,3 +19,9 @@ map MC-B3-Bourrugues-coupe-tot -title "Gouffre B3-Bourrugues"
 	# 	break
 	# 	SC-B3-Bourrugues_02
 endmap
+
+map MC-B3-Puits-coupe-tot -title "Gouffre B3-Bourrugues"
+	MC-B3_Puits-coupe-tot@B3_Entree
+	# 	break
+	# 	SC-B3-Bourrugues_02
+endmap

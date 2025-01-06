@@ -25,9 +25,9 @@ line rope
   7508.0 16919.0
 endline
 
-point 7374.0 19834.0 label -text R2 -scale s
+point 7382.0 19758.0 label -text R2 -scale s -align right
 
-point 7306.0 19960.0 label -text R2 -scale s
+point 7306.0 19960.0 label -text R2 -scale s -align right
 
 line rope
   6616.0 21237.0
@@ -44,7 +44,7 @@ line rope
   7266.0 17719.0
 endline
 
-point 6584.0 21620.0 label -text GL102 -scale xl
+point 6600.0 21776.0 label -text GL102 -scale xl -align center
 
 point 6594.0 21456.0 entrance -orientation 151.0
 
@@ -285,13 +285,13 @@ point 6844.0 19716.0 dig
 
 point 7524.0 16780.0 dig
 
-point 7320.0 16408.0 height -value [-17 m] -scale l
+point 7424.0 16376.0 height -value [-17 m] -scale l -align left
 
-point 6694.0 18202.0 height -value [-50 m] -scale l
+point 6694.0 18202.0 height -value [-50 m] -scale l -align left
 
-point 7090.0 20714.0 height -value [-34 m] -scale l
+point 7090.0 20714.0 height -value [-34 m] -scale l -align right
 
-point 6300.0 19736.0 height -value [-15 m] -scale l
+point 6300.0 19736.0 height -value [-15 m] -scale l -align left
 
 line rope
   6731.0 20005.0
@@ -363,7 +363,7 @@ point 8565.630000000001 14432.259999999998 station -name 24@GL102_Entree_01
 
 point 8403.93 14535.409999999998 station -name PTR_01_23@GL102_Entree_01
 
-point 7748.0 15140.0 height -value [-38 m] -scale l
+point 7868.0 15116.0 height -value [-38 m] -scale l -align left
 
 point 8068.0 14596.0 station-name -align left -scale xs
 
@@ -392,7 +392,7 @@ line wall
   smooth off
 endline
 
-point 8154.0 14102.0 height -value [-12 m] -scale l
+point 8234.0 14062.0 height -value [-12 m] -scale l -align left
 
 line wall -reverse on -subtype invisible
   8818.0 14634.0
@@ -507,11 +507,11 @@ line rope
   9452.0 12608.0
 endline
 
-point 9436.0 12422.0 height -value [-5 m] -scale l
+point 9436.0 12422.0 height -value [-5 m] -scale l -align left
 
-point 8868.0 12890.0 height -value [-18 m] -scale l
+point 8960.0 12858.0 height -value [-18 m] -scale l -align left
 
-point 8642.0 13448.0 height -value [-21 m] -scale l
+point 8694.0 13428.0 height -value [-21 m] -scale l -align left
 
 line border
   9208.0 13218.0
@@ -782,6 +782,7 @@ line wall
   8398.0 7674.0 8398.0 7610.0 8354.0 7592.0
   8310.0 7574.0 8276.0 7604.0 8244.0 7596.0
   8212.0 7588.0 8098.0 7570.0 8042.0 7556.0
+  smooth off
 endline
 
 point 8254.0 7370.0 water-flow -orientation 269.3
@@ -810,6 +811,7 @@ point 9474.580000000002 7928.7199999999975 station -name PTR_A84_52@GL102_Entree
 line wall -reverse on
   8282.0 7358.0
   8222.0 7338.0 8122.0 7342.0 8060.0 7342.0
+  smooth off
 endline
 
 endscrap

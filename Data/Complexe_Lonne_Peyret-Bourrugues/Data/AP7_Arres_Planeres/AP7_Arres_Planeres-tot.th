@@ -9,9 +9,9 @@ encoding utf-8
 survey AP7_Arres_Planeres -title "AP7 Arres Planères"
 	input Data/AP7_Entree/AP7_Entree-tot.th
 	input Data/AP7_Aval/AP7_Aval-tot.th
-	equate GN34@AP7_Entree.AP7_Entree GN34@AP7_Aval.AP7_Aval
+		equate GN34@AP7_Entree.AP7_Entree GN34@AP7_Aval.AP7_Aval
 	input Data/AP7_Amonts/AP7_Amonts-tot.th
-	equate GN30@AP7_Aval.AP7_Aval GN30@AP7_Amonts.AP7_Amonts
+		equate GN30@AP7_Aval.AP7_Aval GN30@AP7_Amonts.AP7_Amonts
 	
 	## Pour le plan
 	#input Data/AP7_Arres_Planeres-plan.th2

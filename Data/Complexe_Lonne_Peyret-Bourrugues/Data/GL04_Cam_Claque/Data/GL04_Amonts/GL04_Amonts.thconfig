@@ -38,7 +38,7 @@ encoding  utf-8
 source GL04_Amonts-tot.th
 
 ## Add config file
-input config.thc
+input ../../../../../../config.thc
 
 ###############################################################################################
 ## 2-LAYOUT
@@ -131,7 +131,7 @@ layout layout-Plan
 	## Il faut specifier un de ces points comme ce que sera placé sur les cordonnées.
 	## Alors nous pouvons specifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	## ou une autre combination...
-	map-header 2 98 nw
+	map-header 2 2 nw
 	
 	## arrière plan de la manchette
 	map-header-bg on

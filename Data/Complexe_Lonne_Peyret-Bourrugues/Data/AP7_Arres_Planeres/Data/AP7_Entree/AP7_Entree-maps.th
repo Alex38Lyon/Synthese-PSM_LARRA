@@ -36,4 +36,9 @@ map MC-AP7_Entree-Extended-tot -title "AP7_Entree"
 	break
 endmap
 
-
+map MC-AP7_Puits -title "AP7_Entree"
+	SC-AP7_Entree_01
+	break
+	SC-AP7_Entree_02
+	break
+endmap

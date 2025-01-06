@@ -6,7 +6,7 @@ encoding utf-8
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
 #	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
-map MP-AP7_Arres_Planeres-plan-tot -title "AP7_Arres_Planeres"
+map MP-AP7_Arres_Planeres-plan-tot -title "AP7 Arres Planères"
 	MP-AP7_Entree-Plan-tot@AP7_Entree [180 -40 m] above # below
 	break
 	MP-AP7_Aval-Plan-tot@AP7_Aval
@@ -15,11 +15,17 @@ map MP-AP7_Arres_Planeres-plan-tot -title "AP7_Arres_Planeres"
 	break
 endmap
 
-map MC-AP7_Arres_Planeres-coupe-tot -title "AP7_Arres_Planeres"
+map MC-AP7_Arres_Planeres-coupe-tot -title "AP7 Arres Planères"
 	MC-AP7_Entree-Extended-tot@AP7_Entree
 	break
 	MC-AP7_Aval-Extended-tot@AP7_Aval
 	break
 	MC-AP7_Amonts-Extended-tot@AP7_Amonts
 	break
+endmap
+
+map MC-AP7_Puits-coupe-tot -title "AP7 Arres Planères"
+	MC-AP7_Puits@AP7_Entree
+	# 	break
+	# 	SC-B3-Bourrugues_02
 endmap

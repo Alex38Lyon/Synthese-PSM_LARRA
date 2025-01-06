@@ -12,79 +12,125 @@ encoding  utf-8
 
 
 
-scrap SC-B3_Entree_01 -projection extended -station-names "" "@B3_Entree_01" -author 1990 "Yvon Hénaff"  -author 1990 "François Ichas"  -author 1990 "Olivier Gaspé"  -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
+scrap SC-B3_Entree_01 -projection extended -station-names "" "" -author 1990 "Yvon Hénaff"  -author 1990 "François Ichas"  -author 1990 "Olivier Gaspé"  -author 2024 "Alexandre Pont" -copyright 2024 "licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [0 0 1600 0 0.0 0.0 40.64 0.0 m]
 
-point 8635.429999999997 10094.33 station -name A-32
+line wall -reverse on -clip off -outline none
+  5032.0 18516.0
+  5032.0 18516.0 5288.0 18534.0 5380.0 18550.0
+  5472.0 18566.0 5590.0 18616.0 5590.0 18616.0
+  smooth off
+endline
 
-point 9679.159999999996 8154.469999999999 station -name A-42
+line u -subtype bush -attr bulges 10 -clip off
+  5292.0 18756.0
+  5292.0 18756.0 5500.08 19086.24 5186.0 19090.0
+  4852.0 19094.0 5034.0 18764.0 5034.0 18764.0
+  smooth off
+endline
 
-point 9620.329999999996 8159.62 station -name A-43
+line wall -reverse on -subtype invisible
+  4508.0 18492.0
+  5032.0 18516.0
+endline
 
-point 9710.579999999996 8152.27 station -name A-41
+line u -reverse on -subtype bush -attr bulgesize 0.2 -attr bulges 5 -clip off
+  5160.0 18834.0
+  5160.0 18834.0 5184.0 18926.0 5208.0 18832.0
+endline
 
-point 9504.709999999995 9120.79 station -name A-40
+line u -reverse on -subtype bush -attr bulgesize 0.5 -attr bulges 8 -clip off
+  5104.0 18788.0
+  5104.0 18788.0 5044.0 18787.79 5044.0 18898.0
+  5044.0 18930.0 5117.03 18945.78 5172.0 18958.0
+  5226.0 18970.0 5316.0 18948.0 5296.0 18878.0
+  5276.0 18808.0 5254.0 18792.0 5230.0 18790.0
+endline
 
-point 9477.799999999996 9505.68 station -name A-39
+line u -subtype treetrunk  -clip off
+  5180.0 18762.0
+  5180.0 18762.0 5178.0 18640.0 5186.0 18600.0
+  5194.0 18560.0 5218.0 18530.0 5218.0 18530.0
+  smooth off
+endline
 
-point 9316.0 9986.0 station -name A-38
+line u -subtype treetrunk  -clip off
+  5142.0 18534.0
+  5142.0 18534.0 5166.0 18718.0 5158.0 18782.0
+endline
 
-point 9143.579999999996 9914.66 station -name A-37
+point 4432.0 19054.0 label -align center -text B3 -scale xl
 
-point 9086.809999999996 9898.380000000001 station -name A-36
+point 8635.429999999997 10094.33 station -name A-32@B3_Entree_01
 
-point 9012.969999999996 9974.84 station -name A-35
+point 9679.159999999996 8154.469999999999 station -name A-42@B3_Entree_01
 
-point 8875.239999999996 10022.27 station -name A-34
+point 9620.329999999996 8159.62 station -name A-43@B3_Entree_01
 
-point 8736.529999999995 10078.31 station -name A-33
+point 9710.579999999996 8152.27 station -name A-41@B3_Entree_01
 
-point 8546.609999999997 10367.66 station -name A-31
+point 9504.709999999995 9120.79 station -name A-40@B3_Entree_01
 
-point 8362.839999999997 10438.21 station -name A-30
+point 9477.799999999996 9505.68 station -name A-39@B3_Entree_01
 
-point 8168.489999999996 10550.41 station -name A-29
+point 9316.0 9986.0 station -name A-38@B3_Entree_01
 
-point 8168.489999999996 10484.27 station -name A-28
+point 9143.579999999996 9914.66 station -name A-37@B3_Entree_01
 
-point 7882.759999999997 11630.29 station -name A-27
+point 9086.809999999996 9898.380000000001 station -name A-36@B3_Entree_01
 
-point 7722.509999999997 11722.81 station -name A-26
+point 9012.969999999996 9974.84 station -name A-35@B3_Entree_01
 
-point 7544.929999999997 11787.44 station -name A-25
+point 8875.239999999996 10022.27 station -name A-34@B3_Entree_01
 
-point 7544.929999999997 11722.48 station -name A-24
+point 8736.529999999995 10078.31 station -name A-33@B3_Entree_01
 
-point 7544.929999999997 12675.24 station -name A-23
+point 8546.609999999997 10367.66 station -name A-31@B3_Entree_01
 
-point 7418.059999999996 12754.52 station -name A-22
+point 8362.839999999997 10438.21 station -name A-30@B3_Entree_01
 
-point 7113.899999999996 13260.72 station -name A-21
+point 8168.489999999996 10550.41 station -name A-29@B3_Entree_01
 
-point 6940.679999999997 13907.2 station -name A-20
+point 8168.489999999996 10484.27 station -name A-28@B3_Entree_01
 
-point 6797.609999999996 14244.24 station -name A-19
+point 7882.759999999997 11630.29 station -name A-27@B3_Entree_01
 
-point 6705.899999999996 14483.15 station -name A-18
+point 7722.509999999997 11722.81 station -name A-26@B3_Entree_01
 
-point 6451.019999999997 14729.28 station -name A-17
+point 7544.929999999997 11787.44 station -name A-25@B3_Entree_01
 
-point 6060.689999999996 14653.41 station -name A-16
+point 7544.929999999997 11722.48 station -name A-24@B3_Entree_01
 
-point 6060.0 15544.0 station -name A-15
+point 7544.929999999997 12675.24 station -name A-23@B3_Entree_01
 
-point 5926.449999999996 16163.71 station -name A-14
+point 7418.059999999996 12754.52 station -name A-22@B3_Entree_01
 
-point 5833.979999999996 16448.28 station -name A-13
+point 7113.899999999996 13260.72 station -name A-21@B3_Entree_01
 
-point 5759.529999999996 16473.92 station -name A-12
+point 6940.679999999997 13907.2 station -name A-20@B3_Entree_01
 
-point 5700.479999999996 16576.2 station -name A-11
+point 6797.609999999996 14244.24 station -name A-19@B3_Entree_01
 
-point 5576.669999999996 16691.66 station -name A-10
+point 6705.899999999996 14483.15 station -name A-18@B3_Entree_01
 
-point 5537.889999999997 17134.85 station -name A-09
+point 6451.019999999997 14729.28 station -name A-17@B3_Entree_01
 
-point 5447.3399999999965 17134.85 station -name A-08
+point 6060.689999999996 14653.41 station -name A-16@B3_Entree_01
+
+point 6060.0 15544.0 station -name A-15@B3_Entree_01
+
+point 5926.449999999996 16163.71 station -name A-14@B3_Entree_01
+
+point 5833.979999999996 16448.28 station -name A-13@B3_Entree_01
+
+point 5759.529999999996 16473.92 station -name A-12@B3_Entree_01
+
+point 5700.479999999996 16576.2 station -name A-11@B3_Entree_01
+
+point 5576.669999999996 16691.66 station -name A-10@B3_Entree_01
+
+point 5537.889999999997 17134.85 station -name A-09@B3_Entree_01
+
+point 5447.3399999999965 17134.85 station -name A-08@B3_Entree_01
 
 line wall -close on -outline in
   6792.0 14124.0
@@ -107,17 +153,17 @@ line wall -close on -reverse on -outline in
   6774.0 14436.0
 endline
 
-point 5447.3399999999965 17461.62 station -name A-07
+point 5447.3399999999965 17461.62 station -name A-07@B3_Entree_01
 
-point 5349.419999999996 17527.67 station -name A-06
+point 5349.419999999996 17527.67 station -name A-06@B3_Entree_01
 
-point 5073.099999999997 17881.34 station -name A-05
+point 5073.099999999997 17881.34 station -name A-05@B3_Entree_01
 
-point 4970.8399999999965 18035.69 station -name A-03
+point 4970.8399999999965 18035.69 station -name A-03@B3_Entree_01
 
-point 4762.719999999997 18266.82 station -name A-02
+point 4762.719999999997 18266.82 station -name A-02@B3_Entree_01
 
-point 4762.719999999997 18483.36 station -name A-01
+point 4762.719999999997 18483.36 station -name A-01@B3_Entree_01
 
 line wall
 endline
@@ -251,13 +297,13 @@ line wall -reverse on
   smooth off
 endline
 
-point 9156.0 8718.0 height -value [-26 m]
+point 9274.0 8660.0 height -value [-26 m] -align left -scale l
 
-point 8914.0 9364.0 height -value [-23 m]
+point 9174.0 9352.0 height -value [-23 m] -align left -scale l
 
-point 8012.0 10056.0 height -value [-11 m]
+point 8226.0 10144.0 height -value [-11 m] -scale l -align left
 
-point 7526.0 11004.0 height -value [-28 m]
+point 7642.0 11016.0 height -value [-28 m] -align left -scale l
 
 line wall -reverse on -subtype invisible
   8538.0 10602.0
@@ -296,13 +342,13 @@ endline
 
 point 4742.0 18714.0 entrance -orientation 178.2
 
-point 5388.0 18086.0 height -value [-30 m]
+point 5388.0 18086.0 height -value [-30 m] -align right -scale l
 
 line wall
   4508.0 18492.0
   altitude .
-  4508.0 18492.0 4568.0 18508.0 4608.0 18460.0
-  4648.0 18412.0 4673.0 18374.0 4686.0 18347.0
+  4508.0 18492.0 4580.0 18490.0 4608.0 18460.0
+  4650.64 18414.32 4673.0 18374.0 4686.0 18347.0
   4699.0 18320.0 4694.0 18304.0 4713.0 18263.0
   4732.0 18222.0 4862.0 18080.0 4872.0 18076.0
   4882.0 18072.0 4903.0 18024.0 4927.0 18002.0
@@ -324,7 +370,7 @@ line wall -subtype invisible
   5278.0 17374.0
 endline
 
-point 5204.0 15752.0 height -value [-74 m]
+point 5472.0 15746.0 height -value [-74 m] -align left -scale l
 
 line wall -close on -reverse on -outline in
   6504.0 14672.0
@@ -338,13 +384,13 @@ line wall -close on -reverse on -outline in
   smooth off
 endline
 
-point 6796.0 12890.0 height -value [-13 m]
+point 6848.0 12952.0 height -value [-13 m] -align left -scale l
 
-point 7584.0 13972.0 height -value [-30 m]
+point 7438.0 13946.0 height -value [-30 m] -align right -scale l
 
-point 7248.0 14732.0 height -value [-11 m]
+point 7072.0 14762.0 height -value [-11 m] -scale l -align right
 
-point 7058.0 12168.0 height -value [-25 m]
+point 7208.0 12154.0 height -value [-25 m] -align left -scale l
 
 line rock-border -close on
   7276.0 12782.0
@@ -473,7 +519,25 @@ line wall
   smooth off
 endline
 
-point 4566.949999999996 18503.93 station -name A-00
+point 4566.949999999996 18503.93 station -name A-00@B3_Entree_01
+
+point 9479.969999999996 8139.889999999999 station -name B-40@B3_Entree_02
+
+point 9095.609999999997 8106.26 station -name B-39@B3_Entree_02
+
+line wall -reverse on
+  9066.0 8224.0
+  9066.0 8224.0 9302.0 8254.0 9366.0 8256.0
+  9430.0 8258.0 9558.0 8270.0 9558.0 8270.0
+  smooth off
+endline
+
+line wall
+  9096.0 8030.0
+  9096.0 8030.0 9366.0 8052.0 9432.0 8062.0
+  9498.0 8072.0 9602.0 8086.0 9602.0 8086.0
+  smooth off
+endline
 
 endscrap
 
@@ -554,20 +618,6 @@ point 7665.019999999997 7975.66 station -name B-34
 point 7770.279999999996 7990.45 station -name B-35
 
 point 8035.999999999996 8023.08 station -name B-36
-
-line wall
-  9096.0 8030.0
-  9096.0 8030.0 9366.0 8052.0 9432.0 8062.0
-  9498.0 8072.0 9602.0 8086.0 9602.0 8086.0
-  smooth off
-endline
-
-line wall -reverse on
-  9066.0 8224.0
-  9066.0 8224.0 9302.0 8254.0 9366.0 8256.0
-  9430.0 8258.0 9558.0 8270.0 9558.0 8270.0
-  smooth off
-endline
 
 line wall -reverse on
   -3982.0 7134.0
@@ -687,10 +737,6 @@ endline
 point 8385.539999999997 8047.52 station -name B-37
 
 point 8837.199999999997 8079.1 station -name B-38
-
-point 9095.609999999997 8106.26 station -name B-39
-
-point 9479.969999999996 8139.889999999999 station -name B-40
 
 endscrap
 

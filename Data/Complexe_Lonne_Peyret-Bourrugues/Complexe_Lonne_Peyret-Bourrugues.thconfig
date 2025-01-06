@@ -189,6 +189,8 @@ layout my_layout
 
 	map-image 4 77 nw ../../Logos/Logo-ARSIP-Synthese-Topographique_XL.png
 	map-image 25 40 n Outputs/GL102_Puits-Coupe.pdf
+	map-image 72 45 n Outputs/B3_Puits-Coupe.pdf
+	map-image 55 30 n Outputs/AP7_Puits-Coupe.pdf
 	
 endlayout
 
@@ -344,26 +346,26 @@ endlayout
 
 
 select MP-Complexe_Lonne_Peyret-Bourrugues-Plan-tot@Complexe_Lonne_Peyret-Bourrugues
-select MC-GL102_Puits-Coupe-tot@Complexe_Lonne_Peyret-Bourrugues
+# select MC-GL102_Puits-Coupe-tot@Complexe_Lonne_Peyret-Bourrugues
 
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
 export map -projection plan -fmt pdf -layout my_layout -o Outputs/Complexe_Lonne_Peyret-Bourrugues-Plan.pdf
-export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Puits-Coupe.pdf
+# export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Puits-Coupe.pdf
 
 
 # Export du fichier 3d pour Loch
-export model -enable all -o Outputs/Complexe_Lonne_Peyret-Bourrugues.lox
-export model -enable all -o Outputs/Complexe_Lonne_Peyret-Bourrugues.kml
+# export model -enable all -o Outputs/Complexe_Lonne_Peyret-Bourrugues.lox
+# export model -enable all -o Outputs/Complexe_Lonne_Peyret-Bourrugues.kml
 
 # Export des fichiers ESRI
-export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
-export model -fmt esri -o Outputs/SHP/ -enc UTF-8
+# export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
+# export model -fmt esri -o Outputs/SHP/ -enc UTF-8
 #export map -proj plan -fmt esri -o Outputs/SHP/therion -layout my_layout -enc ASCII
 
 # Export des fichiers kml
 #export map -proj plan -fmt kml -o Outputs/Complexe_Lonne_Peyret-Bourrugues.kml -layout layout-kml
 #export model -fmt kml -o Outputs/Complexe_Lonne_Peyret-Bourrugues-model.kml -enable all
 #export model -enable all -o Outputs/Complexe_Lonne_Peyret-Bourrugues-3D.kml
-export cave-list -location on -o Outputs/Complexe_Lonne_Peyret-Bourrugues-Cave-list.html
-export survey-list -location on -o Outputs/Complexe_Lonne_Peyret-Bourrugues-Surveys.html
+# export cave-list -location on -o Outputs/Complexe_Lonne_Peyret-Bourrugues-Cave-list.html
+# export survey-list -location on -o Outputs/Complexe_Lonne_Peyret-Bourrugues-Surveys.html

@@ -256,7 +256,7 @@ line pit
   smooth off
 endline
 
-line pit
+line pit -reverse on
   -236.25 243.0
   -243.75 242.5 -260.0 257.0 -259.0 256.5
   smooth off

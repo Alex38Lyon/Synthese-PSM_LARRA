@@ -9,7 +9,9 @@ survey GL4_Amonts -title "Gouffre GL4 - Lonne-Peyret Amonts"
 centerline
 		date 1971.07.01
 		
-		# team "Xxxxx Xxxxx"
+		team "Lambert Martin"
+		
+		## Données reçu de Lambert Martin via Mickey Décembre 2024...
 		
 		explo-date 1971.07.01
 		explo-team "CRS"
