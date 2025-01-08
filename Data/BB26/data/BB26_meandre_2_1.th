@@ -1,0 +1,18 @@
+ survey BB26_meandre_2_1 -title "second meandre"
+
+	centerline
+		explo-date 2019.08.07  
+		explo-team "D. BUTAEYE" 
+		 date 2019.08.09
+		team "L. CORE"
+	 
+		32 m0 4.62 218.9 28.3
+		m1 m1f 3.48 252.2 -0.3
+		m1 m2 0.71 106.7 10.1
+		m2 m3 0.71 140.8 11.7
+		m3 m4 1.33 104.1 3.8
+		m4 m5 0.88 53.1 7.4
+		m5 m6 1.51 120.4 -14.5
+		m6 m0 0.51 48.6 20.1
+	endcenterline
+endsurvey

@@ -1,6 +1,6 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -3768.612 -977.484 3768.612 977.484
-##XTHERION## xth_me_area_zoom_to 200
+##XTHERION## xth_me_area_zoom_to 100
 ##XTHERION## xth_me_image_insert {-2760.5909999999994 1.0 1.0} {193.06999999999994 4_0} AP7_Amonts-Plan.xvi 0 {}
 
 # Copyright (C) ARSIP 2024
@@ -383,7 +383,7 @@ point -289.25 -758.0 label -align center -scale xs -text [Vers P7]
 point -412.0 -775.75 label -text [<center>Accès rivière<br>principale] -align center -scale xs
 
 line wall -subtype invisible
-  -404.5 -734.25
+  -404.5 -734.25	
   -400.25 -734.5
 endline
 
@@ -402,6 +402,24 @@ line wall -reverse on
 endline
 
 point -931.38 -572.20 station -name EN_0
+
+endscrap
+
+
+
+scrap SP-AP7_Amonts_13 -projection plan -station-names "" "@AP7_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-3768.612 -977.484 3768.612 -977.484 0.0 0.0 191.4454896 0.0 m]
+
+line wall -close on -clip off -outline none
+  -1000.0 -500.0
+  -1000.0 -850.0
+  -200.0 -850.0
+  -200.0 -500.0
+  -1000.0 -500.0
+endline
+
+point -284.06 -709.37 station -name EN_12
+
+point -886.34 -637.48 station -name EN_1
 
 endscrap
 

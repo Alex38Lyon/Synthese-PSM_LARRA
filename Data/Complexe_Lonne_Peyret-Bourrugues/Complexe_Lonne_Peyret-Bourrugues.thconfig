@@ -60,7 +60,7 @@ layout my_layout
 	#copy Coords_Header_CDa
 	# Call the config settings (Layout config inside the config.thc file)
 	copy Survey_No_Scrap
-	copy fonts_2000
+	copy fonts_1000
 	copy drawingconfig
 	copy headerl
 	copy langue-fr

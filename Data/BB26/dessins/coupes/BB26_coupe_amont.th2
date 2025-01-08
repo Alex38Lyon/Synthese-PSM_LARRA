@@ -1,0 +1,81 @@
+encoding  utf-8
+##XTHERION## xth_me_area_adjust -129.0 -129.0 305.16499999999996 423.275
+##XTHERION## xth_me_area_zoom_to 400
+##XTHERION## xth_me_image_insert {54.1431 1 1.0} {108.80799999999999 23} fichier_xvi/BB26_amont.xvi 0 {}
+
+
+
+scrap BB26_coupe_amont -projection [elevation 180] -scale [-128.0 -128.0 442.96 -128.0 0.0 0.0 14.502384000000001 0.0 m]
+
+point 54.1431 108.80799999999999 station -name 23@BB26_amont
+
+point 56.0731 60.257999999999996 station -name 24@BB26_amont
+
+point 63.3431 47.80799999999999 station -name 25@BB26_amont
+
+point 64.34309999999999 64.618 station -name 26@BB26_amont
+
+point 123.9031 100.65799999999999 station -name 27@BB26_amont
+
+point 158.6331 98.118 station -name 28@BB26_amont
+
+line wall
+  92.0 265.0
+  70.0 122.0
+  64.0 267.0
+endline
+
+line wall
+  147.0 171.0
+  141.0 111.0
+  124.0 108.0
+  88.0 106.0
+  80.0 115.0
+  103.0 259.0
+endline
+
+line wall
+  44.0 248.0
+  55.0 115.0
+  60.0 135.0
+  52.0 280.0
+endline
+
+line wall -close on -subtype presumed
+  53.75 29.25
+  53.0 21.5
+  53.75 29.25
+endline
+
+line wall
+endline
+
+line wall
+  163.0 86.0
+  131.0 76.0
+  103.0 58.0
+  73.0 35.0
+  55.0 33.0
+  53.75 29.25
+endline
+
+point 51.25 33.75 water-flow -orientation 187.4 -subtype intermittent
+
+line wall -subtype presumed
+  46.25 34.25
+  46.0 30.5
+  46.25 20.75
+endline
+
+line wall
+  46.25 34.25
+  31.5 52.0
+  39.0 75.0
+  47.0 77.0
+  45.0 98.0
+  28.0 245.0
+endline
+
+endscrap
+
+

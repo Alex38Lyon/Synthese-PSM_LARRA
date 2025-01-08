@@ -3858,8 +3858,3 @@ endscrap
 
 
 
-scrap SP-AP7_Amonts_13 -projection plan -station-names "" "@AP7_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-3768.612 -977.484 3768.612 -977.484 0.0 0.0 191.4454896 0.0 m]
-
-endscrap
-
-

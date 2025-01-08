@@ -1,7 +1,7 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -331.488 -393.06 331.488 393.06
-##XTHERION## xth_me_area_zoom_to 400
-##XTHERION## xth_me_image_insert {-214.67100000000005 1 1.0} {5.199999999999989 AP_7} AP7_Entree-Plan.xvi 0 {}
+##XTHERION## xth_me_area_zoom_to 100
+##XTHERION## xth_me_image_insert {-214.6710000000001 1 1.0} {5.199999999999989 AP_7} AP7_Entree-Plan.xvi 0 {}
 
 
 
@@ -965,6 +965,26 @@ line wall
   185.5 -55.5 205.25 -39.25 205.25 -39.25
   smooth off
 endline
+
+endscrap
+
+
+
+scrap SP-AP7_Entree_04 -projection plan -author 2019 "Philippe Guillemin" -author 2019 "Franck Soulage" -author 2024 "Alexandre Pont" -author 2024 "Alexandre Pont"  -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -station-names "" @AP7_Entree -scale [-331.488 -393.06 331.488 -393.06 0.0 0.0 16.8395904 0.0 m]
+
+point -159.76 -327.55 station -name L21
+
+point -252.13 19.94 station -name AP1
+
+line wall -close on -reverse on -clip off -outline none
+  -455.0 430.0
+  450.0 430.0
+  450.0 -430.0
+  -455.0 -430.0
+  -455.0 430.0
+endline
+
+point -12.5 400.0 label -orientation 0 -align center -text [Zone des puits AP7 ] -scale m
 
 endscrap
 

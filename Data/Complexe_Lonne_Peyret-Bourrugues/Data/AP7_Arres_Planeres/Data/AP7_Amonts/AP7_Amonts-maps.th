@@ -11,7 +11,7 @@ encoding utf-8
 map MP-AP7_Amonts-Plan-tot -title "AP7_Amonts"
 	MP-AP7_Amonts-Plan-A
 	break
-	MP-AP7_Amonts-Plan-B   [0 -50 m] above 
+	MP-AP7_Amonts-Plan-B   [0 -60 m] above 
 	break
 endmap
 
@@ -39,12 +39,12 @@ map MP-AP7_Amonts-Plan-A -title "AP7_Amonts"
 	break
 	SP-AP7_Amonts_12
 	break
-	SP-AP7_Amonts_13
-	break
 endmap
 
 map MP-AP7_Amonts-Plan-B -title "AP7_Amonts"
 	SP-AP7_Amonts_06
+	break
+	SP-AP7_Amonts_13
 	break
 endmap
 

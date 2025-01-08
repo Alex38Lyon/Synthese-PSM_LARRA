@@ -1,0 +1,99 @@
+encoding  utf-8
+survey BB26_meandre_1_2 -title "BB26_meandre"
+    
+  centerline
+explo-date 2019.08.03  
+    explo-team "M. EGELS" 
+    explo-team "L. CORE" 
+    explo-team "F. MACIEJAK" 
+     date 2019.08.05
+    team "M. EGELS"
+      units length meters
+    units compass clino degrees
+    data normal from to length compass clino
+      
+    11 12 1.75 144.0 -83.1
+  # Blocs coincé
+    12 13 3.07 225.8 -81.6
+    # extend auto
+    13 . 0.41 163.9 15.3
+    13 . 0.31 34.6 3.8
+    extend ignore
+    13 13_b 2.06 288.2 50.1
+    # extend auto
+    13_b . 0.56 177.5 -21.9
+    13_b . 0.85 237.9 12.2
+    extend ignore
+    13_b 13c 1.75 285.4 19.0
+    # extend auto
+    13c . 0.59 58.9 5.5
+    13c . 0.42 0.6 25.9
+    extend ignore
+  # fissure impénétrable
+    13c 13d 3.45 265.4 19.9
+    13 14 6.08 104.9 -33.9
+    flags duplicate
+    13 15 11.91 122.7 -82.0
+    flags not duplicate
+     16 16b 1.14 54.0 -38.8
+    # extend auto
+    16b . 0.67 57.2 -4.0
+    16b . 0.82 343.4 -4.3
+    16b . 0.69 130.7 -9.7
+    extend ignore
+  # fond puits parallèle
+    16b 16c 8.87 291.6 -82.6
+    # extend auto
+    16b . 0.99 14.3 -3.7
+    16b . 1.29 310.3 -79.5
+    extend ignore
+    16 17 1.52 291.8 -1.9
+    # extend auto
+    17 . 0.95 213.9 -17.3
+    17 . 1.39 343.7 -80.3
+    17 . 6.17 131.5 74.0
+    extend ignore
+    17 18 2.05 265.5 0.1
+    # extend auto
+    18 . 0.29 61.8 -0.4
+    18 . 1.21 30.9 -77.7
+    18 . 4.18 317.7 69.8
+    extend ignore
+    18 19 2.58 327.7 9.7
+    # extend auto
+    19 . 0.65 187.7 -5.1
+    19 . 1.27 347.7 -80.3
+    19 . 4.77 145.2 74.2
+    extend ignore
+    19 20 2.04 234.6 6.3
+    # extend auto
+    20 . 1.00 24.0 -3.6
+    20 . 1.45 313.1 -73.2
+    20 . 7.48 55.8 77.2
+    extend ignore
+     13 16 10.43 235.7 -86.6
+    20 22 2.20 237.5 11.1
+    # extend auto
+    22 . 0.60 64.5 75.8
+    22 . 0.45 264.3 25.4
+    22 . 0.35 99.4 -2.0
+    extend ignore
+    22 23 2.08 201.1 45.1
+    # extend auto
+   
+    mc 30 1.09 312.7 5.4
+    20 mc 0.99 359.6 -13.7
+    # extend auto
+    mc . 0.88 260.4 -5.2
+    mc . 4.35 208.4 75.4
+    mc . 1.50 10.1 -76.6
+    mc . 0.96 117.2 1.5
+    30 . 0.36 277.5 -14.1
+    mc . 4.59 192.3 74.2
+    30 32 28.86 357.8 -83.8
+    
+    20 . 6.59 279.3 52.4
+    
+ endcenterline
+endsurvey
+

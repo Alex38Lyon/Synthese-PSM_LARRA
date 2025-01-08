@@ -1,0 +1,33 @@
+encoding utf-8
+
+# Copyright (C) ARSIP 2024 https://www.arsip.fr/
+# Auteur : Alexandre Pont <alexandre.pont***@***yahoo.fr>
+# Fichiers / Organisation dossiers, d'après Xavier Robert
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de la Pierre Saint Martin-PSM"
+	MP-Complexe_Lonne_Peyret-Bourrugues-Plan-tot@Complexe_Lonne_Peyret-Bourrugues
+	break
+	MP-Z510-plan-tot@Z510
+	break
+	plan_BB26@BB26
+endmap
+
+# map MC-Complexe_Lonne_Peyret-Bourrugues-coupe-tot -title "Complexe_Lonne_Peyret-Bourrugues"
+	# SC-Complexe_Lonne_Peyret-Bourrugues_01
+	# break
+	# SC-Complexe_Lonne_Peyret-Bourrugues_02
+# endmap
+
+# map MC-GL102_Puits-Coupe-tot -title "GL102 coupe puits"
+	# MC-GL102_Puits@Gouffre_du_Lonne_Peyret
+# endmap
+
+# map MC-B3_Puits-Coupe-tot -title "B3 Bourrugues coupe puits"
+	 # MC-B3-Puits-coupe-tot@B3-Bourrugues
+# endmap
+
+# map MC-AP7_Puits-Coupe-tot -title "AP7 coupe puits"
+	 # MC-AP7_Puits-coupe-tot@AP7_Arres_Planeres
+# endmap

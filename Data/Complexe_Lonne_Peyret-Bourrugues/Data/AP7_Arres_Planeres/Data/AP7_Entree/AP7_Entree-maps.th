@@ -24,7 +24,8 @@ map MP-AP7_Entree-Plan-B -title "AP7_Entree"
 	SP-AP7_Entree_02
 	break
 	SP-AP7_Entree_03
-	break
+	break	
+	SP-AP7_Entree_04
 endmap
 
 map MC-AP7_Entree-Extended-tot -title "AP7_Entree"

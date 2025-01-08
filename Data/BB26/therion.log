@@ -1,0 +1,192 @@
+therion 6.3.1 (2024-11-22)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: BB26.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+output coordinate system: UTM30
+meridian convergence (deg): -1.5506
+geomag declinations (deg):
+  2018.1.1  0.1068
+  2019.1.1  0.2615
+  2020.1.1  0.4160
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+processing survey data ... 
+####################### cavern log file ########################
+ 1> Survex 1.4.15
+ 2> Copyright ¸ 1990-2024 Olly Betts
+ 3> 
+ 4> La topographie contient 255 stations, connect‚es par 254 vis‚es.
+ 5> Il y a 0 bouclages.
+ 6> Longueur totale de la topographie =  227.19m ( 227.19m ajust‚)
+ 7> Longueur totale en projection horizontale =  136.31m
+ 8> Longueur totale verticale =  139.37m
+ 9> Intervalle vertical = 70.31m (de 6 … 1518.76m jusqu'… 207 … 1448.44m)
+10> Intervalle Nord-Sud = 24.29m (de 199 … 4761489.16m jusqu'… 255 … 4761464.87m)
+11> Intervalle Est-Ouest = 39.37m (de 6 … 685377.39m jusqu'… 167 … 685338.02m)
+12>  191 1-noeuds.
+13>   23 2-noeuds.
+14>    4 3-noeuds.
+15>    6 4-noeuds.
+16>    9 5-noeuds.
+17>    7 6-noeuds.
+18>    7 7-noeuds.
+19>    2 8-noeuds.
+20>    3 10-noeuds.
+21>    1 11-noeud.
+22>    2 21-noeuds.
+23> 
+######################### transcription ########################
+ 4> 255 : 28@BB26_amont.BB26 -- 254 : .@BB26_amont.BB26
+ 9> 6 : 4@BB26.BB26 -- 207 : 32d@BB26_P30_salle.BB26
+10> 199 : 40@BB26_vire_P30.BB26 -- 255 : 28@BB26_amont.BB26
+11> 6 : 4@BB26.BB26 -- 167 : m1f@BB26_meandre_2_1.BB26
+12> 191 : .@BB26_vire_P30.BB26
+13> 23 : .@BB26.BB26
+14> 4 : 2@BB26.BB26
+15> 6 : 4@BB26.BB26
+16> 9 : -@BB26.BB26
+17> 7 : BB26@BB26.BB26
+18> 7 : BB26@BB26.BB26
+19> 2 : f@BB26.BB26
+20> 3 : 1@BB26.BB26
+21> 1 : 0@BB26.BB26
+22> 2 : f@BB26.BB26
+#################### end of cavern log file ####################
+done
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+processing projection plan ... done
+average distortion: 0.61%
+
+
+############### export maps & scraps selection #################
+M  1488.48 plan_BB26@BB26 (Gouffre du BB26)
+M  1510.83 zone_entree_BB26@BB26 (Zone d'entree du BB 26)
+S  1514.92 BB26_meandre_entree@BB26 ()
+S  1508.98 BB26_salle_entree@BB26 ()
+S  1508.58 BB26_p12_entree@BB26 ()
+M  1489.56 meandre_nieaux_principaux@BB26 ()
+S  1498.83 BB26_puits_p12@BB26 ()
+S  1491.99 BB26_meandre_1_a@BB26 ()
+S  1477.87 BB26_meandre_1_c@BB26 ()
+M  1489.16 meandre_niveau_intermediaire@BB26 ()
+S  1489.16 BB26_meandre_1_b@BB26 ()
+M  1465.25 zone_P30@BB26 (Zone du P30)
+S  1479.12 BB26_sup_P30@BB26 ()
+S  1450.88 BB26_salle_P30@BB26 ()
+S  1451.93 BB26_meandre_2_a@BB26 ()
+S  1479.07 BB26_affluent@BB26 ()
+########## end of export maps & scraps selection ###############
+writing Output/BB26-2025-Plan.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  8 JAN 2025 15:42
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] [2] [3] [4] [5] [6] [7] [8]
+[Error: area borders l19-270-247 and l13-317-246 don't intersect in scrap BB26_
+meandre_entree@BB26 (file dessins/plans/BB26.th2 [97])]
+[Error: area borders l15-282-233 and l19-270-247 don't intersect in scrap BB26_
+meandre_entree@BB26 (file dessins/plans/BB26.th2 [97])] [9] [10] [11] [12]
+[13] [14] [15] [16]
+[Error: area borders l51-156-129 and l67-156-133 don't intersect in scrap BB26_
+meandre_1_a@BB26 (file dessins/plans/BB26_p12_p6.th2 [402])] [17] [18] [19]
+[20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
+[35] [36] [37] [38] [39]
+[Error: area borders l89-43-258 and l113-61-270 don't intersect in scrap BB26_s
+up_P30@BB26 (file dessins/plans/BB26_meandre_p11.th2 [603])] [40] [41] [42]
+[43] (./mptextmp.mp) [44] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [45] [46] [47] [48] [49] [50]
+[51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65]
+[66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+[81] [82] [83] [84] )
+ 
+Here is how much of MetaPost's memory you used:
+ 13967 strings using 330240 characters
+ 5687160 bytes of node memory
+ 1787 symbolic tokens
+ 11i,82n,18p,580b,5f stack positions out of 16i,98n,21p,608b,6f
+99 output files written: data-patt.1 .. data.84
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  8 JAN 2025 15:42
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 189 numeric registers used out of 32768
+
+[1] )
+(\end occurred when \ifx on line 12 was incomplete) 
+Here is how much of TeX's memory you used:
+ 456 strings out of 95671
+ 5756 string characters out of 1192323
+ 149797 words of memory out of 1620840
+ 1849 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/te
+xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
+pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
+erion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 217115 bytes).
+PDF statistics:
+ 336 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 929 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+writing Output/BB26-2025.lox ........
+C:\Program Files\Therion\therion.exe: warning -- BB26_meandre_1_a@BB26 -- multiple scrap outer outlines not supported yet
+..
+C:\Program Files\Therion\therion.exe: warning -- BB26_meandre_1_c@BB26 -- scrap 3D reconstruction failed
+.... done
+writing Output/BB26-2025.kml ... done
+compilation time: 2 sec
+
+
+###################### scrap distortions #######################
+ PROJECTION: plan
+ AVERAGE  MAXIMAL  SCRAP
+   1.73%   24.42%  BB26_meandre_1_a@BB26
+   1.32%    8.35%  BB26_p12_entree@BB26
+   2.05%    8.30%  BB26_puits_p12@BB26
+   0.09%    5.36%  BB26_affluent@BB26
+   0.26%    3.14%  BB26_salle_entree@BB26
+   0.27%    2.26%  BB26_meandre_1_c@BB26
+   0.21%    1.38%  BB26_meandre_entree@BB26
+   0.03%    1.14%  BB26_salle_P30@BB26
+   0.07%    0.60%  BB26_meandre_1_b@BB26
+   0.13%    0.57%  BB26_meandre_2_a@BB26
+   0.04%    0.20%  BB26_sup_P30@BB26
+################### end of scrap distortions ###################
+
+############# CRS transformations chosen by PROJ ###############
+  Area of Use (AoU): (-0.726, 42.983) (-0.726, 42.983)
+  [UTM30 â†’ LONG-LAT] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 â†’ LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 â†’ UTM30] AoU: [yes] transformation: [Inverse of UTM zone 30N + UTM zone 30N] definition: [proj=noop ellps=GRS80] accuracy: [0.000 m]
+  [UTM30 â†’ EPSG:4326] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [EPSG:4326 â†’ UTM30] AoU: [yes] transformation: [axis order change (2D) + UTM zone 30N] definition: [proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=30 ellps=WGS84] accuracy: [0.000 m]
+########## end of CRS transformations chosen by PROJ ###########
