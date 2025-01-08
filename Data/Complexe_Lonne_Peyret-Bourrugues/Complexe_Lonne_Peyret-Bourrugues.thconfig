@@ -183,6 +183,7 @@ layout my_layout
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		\newtoks\wpage \wpage={https://www.arsip.fr/}
 		\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM\_LARRA}
+		\newtoks\database \database={https://karsteau.org/}
 		\newtoks\synth \synth={Alexandre Pont pour l'ARSIP}
 		\framethickness=0.5mm
 	endcode

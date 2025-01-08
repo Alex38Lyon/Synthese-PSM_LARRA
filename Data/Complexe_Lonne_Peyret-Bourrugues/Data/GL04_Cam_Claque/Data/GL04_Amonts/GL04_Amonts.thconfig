@@ -97,7 +97,7 @@ layout layout-Plan
 	
 	## Une ligne pour specifier que la grille est 1000x1000x1000 m
 	## (Trois dimensions, oui, ça sert pour la coupe aussi)
-	grid-size 50 50 50 m
+	grid-size 250 250 250 m
 	
 	## la topo est transparente (on peut voir les galeries en dessous)
 	## C'est on par défaut, donc, pas vraiment besoin de specifier
@@ -122,7 +122,7 @@ layout layout-Plan
 	## Auteur
 	doc-author "Alexandre Pont"
 	## Titre
-	doc-title "GL04 Amonts Plan - 1:500"
+	doc-title "GL04 Amonts Plan - 1:1000"
 	
 	## Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	## Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -131,7 +131,7 @@ layout layout-Plan
 	## Il faut specifier un de ces points comme ce que sera placé sur les cordonnées.
 	## Alors nous pouvons specifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	## ou une autre combination...
-	map-header 2 2 nw
+	map-header 5 60 nw
 	
 	## arrière plan de la manchette
 	map-header-bg on
@@ -156,11 +156,11 @@ layout layout-Plan
 	statistics copyright 2
 	
 	## Dessin ou pas du cheminement topo
-	#symbol-hide point station
-	#symbol-hide line survey
+	symbol-hide point station
+	symbol-hide line survey
 	#symbol-hide group
-     #symbol-show line wall
-	#symbol-hide point station-name
+   #symbol-show line wall
+	symbol-hide point station-name
 	#symbol-hide point u:symbol_plan
 	#symbol-hide point u:symbol_extend
 	#debug scrap-names
@@ -185,14 +185,15 @@ layout layout-Plan
 		\edef\nostring{}                 % empty string
 		\ifx\temp\nostring               % test if cavename is empty
 		% if empty
-		reassign cavename to describe selected maps as a group
+			reassign cavename to describe selected maps as a group
 		\else                            % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\cavename={GL04 Amonts, Plan 1:500}     % Note Alex : Bug avec certains fichiers ?
+		\cavename={GL04 Amonts, Plan 1:1000}     % Note Alex : Bug avec certains fichiers ?
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Merçi à tout le monde}
 		\newtoks\wpage \wpage={https://www.arsip.fr/}
 		\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM\_LARRA}
+		\newtoks\database \database={https://karsteau.org/}
 		\newtoks\synth \synth={Alexandre Pont}
 		\framethickness=0.5mm
 	endcode

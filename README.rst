@@ -21,7 +21,7 @@ Ce travail est réalisé par les menbres de l'ARSIP, collectif d'exploration du 
 
 
 
-Une convention a aussi été mise en place pour la gestion des points d'interrogation, avec la définition de différents champs :
+Une convention a aussi été mise en place pour la gestion des points d'interrogation, avec la définition des différents champs :
 
 	* le champ "Code" qui décrit le type de terminus. Il peut prendre les valeurs : 
 	

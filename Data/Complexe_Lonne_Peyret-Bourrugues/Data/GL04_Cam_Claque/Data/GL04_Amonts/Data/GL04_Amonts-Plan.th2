@@ -1,7 +1,7 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -5326.727999999999 -1922.5079999999998 5326.727999999999 1922.5079999999998
-##XTHERION## xth_me_area_zoom_to 200
-##XTHERION## xth_me_image_insert {-4438.941 1.0 1.0} {1602.09 A} GL04_Amonts-Plan.xvi 0 {}
+##XTHERION## xth_me_area_zoom_to 400
+##XTHERION## xth_me_image_insert {-4438.941000000001 1.0 1.0} {1602.09 A} GL04_Amonts-Plan.xvi 0 {}
 
 # Copyright (C) ARSIP 2024
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
@@ -15,7 +15,7 @@ encoding  utf-8
 
 
 
-scrap SP-GL4_Amonts_01 -projection plan -station-names "" "@GL4_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
+scrap SP-GL4_Amonts_01 -projection plan -station-names "" "@GL4_Amonts" -author 1971 "Lambert Martin" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
 
 point -4438.94 1602.09 station -name A
 
@@ -133,7 +133,24 @@ line rock-border -close on
   -622.0 1052.0
 endline
 
-point -162.0 1052.0 blocks
+point -1123.0 997.5 continuation -attr code E -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Arrivée au plafond" # -attr CA "Inconnu" -align right
+
+line slope
+  -1108.0 1041.0
+  -1108.0 1041.0 -1092.5 1050.5 -1081.5 1050.0
+  -1070.5 1049.5 -1061.0 1050.0 -1052.0 1049.5
+  orientation 2.9
+  l-size 14.5
+  -1043.0 1049.0 -1027.5 1049.5 -1020.5 1047.5
+  -1013.5 1045.5 -993.0 1036.0 -993.0 1036.0
+  smooth off
+endline
+
+point -1202.5 1008.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Inconnu" # -attr CA "Inconnu" -align right
+
+point -1292.5 1125.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Voute basse" # -attr CA "Inconnu" -align right
+
+point -168.0 1037.0 blocks
 
 point 273.0 1047.0 blocks
 
@@ -210,9 +227,9 @@ point -3754.5 1240.5 blocks
 
 point -3714.5 1222.0 blocks
 
-point -4096.0 1290.5 water-flow -orientation 335.3
+point -4103.5 1319.5 water-flow -orientation 335.3
 
-point -4118.0 1395.5 water-flow -orientation 335.3
+point -4134.0 1387.5 water-flow -orientation 335.3
 
 area water
   l457--4091-1313
@@ -315,7 +332,7 @@ point -3594.5 1159.0 soda-straw
 
 point -3720.5 1097.0 label -align center -text Affluent -scale xs
 
-point -3717.0 1138.5 water-flow -orientation 36.0
+point -3717.0 1147.0 water-flow -orientation 36.0
 
 line wall -subtype invisible
   -3707.0 1172.0
@@ -327,8 +344,26 @@ line wall
   -4360.0 1443.75 -4315.5 1438.0 -4298.5 1436.5
   -4281.5 1435.0 -4265.0 1434.0 -4252.5 1424.5
   -4240.0 1415.0 -4186.0 1372.5 -4168.0 1364.0
-  -4150.0 1355.5 -4096.0 1333.0 -4080.0 1326.5
-  -4064.0 1320.0 -4032.0 1302.5 -4012.0 1301.0
+  -4150.0 1355.5 -4126.5 1346.0 -4126.5 1346.0
+  smooth off
+endline
+
+point -4217.5 1480.0 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Arrivée rivière" # -attr CA "Inconnu" -align left
+
+point -4285.0 1602.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Perte rivière" # -attr CA "Inconnu" -align left
+
+point -4368.5 1475.0 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Inconnu" # -attr CA "Inconnu" -align left
+
+point -4391.5 1448.0 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Inconnu" # -attr CA "Inconnu" -align left
+
+line wall -subtype invisible
+  -4126.5 1346.0
+  -4126.5 1346.0 -4109.0 1339.5 -4093.0 1333.0
+endline
+
+line wall
+  -4093.0 1333.0
+  -4077.0 1326.5 -4032.0 1302.5 -4012.0 1301.0
   -3992.0 1299.5 -3991.0 1303.5 -3978.0 1297.5
   -3965.0 1291.5 -3912.5 1268.5 -3891.5 1260.5
   -3870.5 1252.5 -3744.5 1218.5 -3729.0 1212.0
@@ -505,6 +540,10 @@ line wall
   smooth off
 endline
 
+point -745.0 993.0 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Inconnu" # -attr CA "Inconnu" -align right
+
+point 607.5 940.0 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Inconnu" # -attr CA "Inconnu" -align right
+
 line wall
   576.5 975.0
   570.0 991.0 615.5 997.5 637.5 997.5
@@ -631,7 +670,28 @@ point -2255.0 910.5 label -align center -text [Cascade stalgamitique] -scale xs
 
 point -2065.5 1118.5 label -align center -text [Laisse profonde] -scale xs
 
-point -2400.0 1213.5 label -align center -text [Laisse du canot] -scale xs
+point -4115.5 1290.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Sortie rivière" # -attr CA "Inconnu" -align left
+
+point -4140.5 1413.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Perte rivière" # -attr CA "Inconnu" -align left
+
+point -3741.5 1139.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Affluent" # -attr CA "Inconnu" -align left
+
+point -3391.5 1021.0 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Inconnu" # -attr CA "Inconnu" -align left
+
+line slope
+  -2321.5 975.0
+  -2321.5 975.0 -2311.0 980.0 -2303.0 979.0
+  -2295.0 978.0 -2283.5 979.0 -2277.5 978.0
+  orientation 5.1
+  l-size 12.5
+  -2271.5 977.0 -2251.5 972.0 -2246.0 966.5
+endline
+
+point -2324.5 940.0 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Inconnu" # -attr CA "Inconnu" -align left
+
+point -2633.5 1119.0 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Inconnu" # -attr CA "Inconnu" -align left
+
+point -2395.5 1190.0 label -align center -text [Laisse du canot] -scale xs
 
 line wall -subtype invisible
   -2545.0 1120.0
@@ -892,8 +952,8 @@ line contour -id l367-796-972 -close on -visibility off
 endline
 
 line wall
-  769.0 1087.0
-  769.0 1087.0 676.0 1024.0 665.0 1022.0
+  778.5 1089.5
+  781.0 1074.0 676.0 1024.0 665.0 1022.0
   654.0 1020.0 648.0 1026.0 634.5 1023.5
   621.0 1021.0 445.0 977.0 434.5 981.0
   424.0 985.0 322.0 1040.5 322.0 1040.5
@@ -1006,7 +1066,7 @@ endscrap
 
 
 
-scrap SP-GL4_Amonts_02 -projection plan -station-names "" "@GL4_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
+scrap SP-GL4_Amonts_02 -projection plan -station-names "" "@GL4_Amonts" -author 1971 "Lambert Martin" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
 
 point 3565.16 319.80 station -name 181
 
@@ -1069,6 +1129,8 @@ line contour -id l302-4422-359 -close on -visibility off
   3840.0 455.0
   3733.0 456.0
 endline
+
+point 4456.5 352.0 continuation -attr code S -attr Cavite "AP7" -attr reseau "Affluent noir"  -text "Siphon" # -attr CA "Aucun" -align right
 
 line label -text [Affluent noir] -scale s
   3718.0 260.0
@@ -1137,7 +1199,7 @@ endscrap
 
 
 
-scrap SP-GL4_Amonts_03 -projection plan -station-names "" "@GL4_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
+scrap SP-GL4_Amonts_03 -projection plan -station-names "" "@GL4_Amonts" -author 1971 "Lambert Martin" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
 
 point 4146.02 854.45 station -name 196
 
@@ -1193,7 +1255,7 @@ endscrap
 
 
 
-scrap SP-GL4_Amonts_04 -projection plan -station-names "" "@GL4_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
+scrap SP-GL4_Amonts_04 -projection plan -station-names "" "@GL4_Amonts" -author 1971 "Lambert Martin" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
 
 line wall
 endline
@@ -1232,7 +1294,7 @@ endscrap
 
 
 
-scrap SP-GL4_Amonts_05 -projection plan -station-names "" "@GL4_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
+scrap SP-GL4_Amonts_05 -projection plan -station-names "" "@GL4_Amonts" -author 1971 "Lambert Martin" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
 
 point 1298.15 -276.34 station -name 203
 
@@ -1241,6 +1303,10 @@ point 1300.98 -317.20 station -name 204
 point 1281.14 -306.65 station -name 205
 
 point 1259.09 -324.53 station -name 206
+
+point 1360.5 -335.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Cassade des deux plongeurs"  -text "Arrivée rivière" # -attr CA "Inconnu" -align left
+
+point 1217.5 -237.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Cassade des deux plongeurs"  -text "Inconnu" # -attr CA "Inconnu" -align left
 
 line wall -reverse on
   1241.5 -234.0
@@ -1253,7 +1319,9 @@ line wall -reverse on
   smooth off
 endline
 
-point 664.75 184.75 label -align center -text Siphon -scale xs
+point 665.0 144.5 continuation -attr code S -attr Cavite "GL4" -attr reseau "Galerie des Gnoufs"  -text "Siphon" # -attr CA "Inconnu" -align right
+
+point 664.5 176.5 label -align center -text Siphon -scale xs
 
 area sump
   l543-703-117
@@ -1340,6 +1408,7 @@ endline
 line pit -reverse on
   471.0 -205.5
   471.0 -205.5 489.75 -275.75 484.25 -286.75
+  smooth off
 endline
 
 point 728.0 -229.0 blocks
@@ -1415,7 +1484,9 @@ line wall -reverse on
   smooth off
 endline
 
-point 622.0 -130.0 water-flow -orientation 102.5
+point 612.0 -128.75 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Galerie des Gnoufs"  -text "Affluent" # -attr CA "Inconnu" -align left
+
+point 630.75 -131.75 water-flow -orientation 102.5
 
 line wall -reverse on
   274.0 -250.0
@@ -1486,6 +1557,7 @@ line pit
   1289.5 -285.5 1268.5 -287.0 1265.0 -289.0
   1261.5 -291.0 1264.0 -301.0 1267.75 -302.5
   1271.5 -304.0 1283.25 -311.0 1284.25 -319.5
+  smooth off
 endline
 
 line wall -reverse on -subtype invisible
@@ -1508,7 +1580,7 @@ endline
 
 point 1254.0 -298.75 water-flow -orientation 83.0
 
-point 1357.75 -317.25 water-flow -orientation 326.1
+point 1348.25 -325.25 water-flow -orientation 318.9
 
 point 834.75 -210.0 aragonite
 
@@ -1558,6 +1630,7 @@ endline
 line pit -reverse on
   780.25 -231.5
   780.25 -231.5 775.0 -238.75 764.25 -243.0
+  smooth off
 endline
 
 line wall -reverse on -subtype invisible
@@ -1584,9 +1657,10 @@ line wall -reverse on
   848.5 -235.0 822.0 -230.0 811.0 -229.0
   800.0 -228.0 791.5 -223.0 783.5 -227.0
   775.5 -231.0 774.25 -234.5 795.0 -237.75
+  smooth off
 endline
 
-point 483.0 -304.5 water-flow -orientation 295.4
+point 479.0 -306.0 water-flow -orientation 295.4
 
 line wall
 endline
@@ -1594,11 +1668,13 @@ endline
 line wall -subtype unsurveyed
   274.0 -250.0
   274.0 -250.0 272.0 -238.5 271.75 -236.5
+  smooth off
 endline
 
 line wall -reverse on -subtype unsurveyed
   268.0 -249.5
   268.0 -249.5 266.75 -239.5 266.0 -236.0
+  smooth off
 endline
 
 line wall -reverse on -subtype invisible
@@ -1606,7 +1682,7 @@ line wall -reverse on -subtype invisible
   271.25 -235.25
 endline
 
-point 265.75 -219.0 water-flow -orientation 349.8
+point 268.0 -226.5 water-flow -orientation 349.8
 
 area blocks
   l572-378--351
@@ -1775,6 +1851,7 @@ line pit
   263.75 -269.25 272.5 -266.5 274.25 -279.25
   276.0 -292.0 279.5 -301.5 282.25 -307.5
   285.0 -313.5 299.0 -322.75 305.25 -327.0
+  smooth off
 endline
 
 line pit
@@ -1783,12 +1860,19 @@ line pit
   415.25 -286.25 381.25 -278.25 360.0 -279.75
   338.75 -281.25 309.0 -284.75 297.0 -281.75
   285.0 -278.75 280.0 -267.75 278.25 -260.0
+  smooth off
 endline
 
 line wall -reverse on -subtype invisible
   467.0 -296.25
   463.5 -305.5
 endline
+
+point 266.0 -211.25 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Galerie des Gnoufs"  -text "Perte actif" # -attr CA "Inconnu" -align center
+
+point 498.0 -307.25 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Galerie des Gnoufs"  -text "Arrivée actif" # -attr CA "Inconnu"
+
+point 803.75 -244.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Galerie des Gnoufs"  -text "Inconnu" # -attr CA "Inconnu" -align right
 
 line wall -reverse on
   793.25 -241.0
@@ -1835,13 +1919,14 @@ endline
 line label -text [Galerie fossile] -scale xs
   1085.25 -270.25
   1085.25 -270.25 1221.0 -360.5 1231.5 -364.75
+  smooth off
 endline
 
-point 1227.75 -235.25 label -align left -text Boyau -scale xs
+point 1232.75 -216.25 label -align left -text Boyau -scale xs
 
 point 1259.0 -320.0 blocks
 
-point 1375.5 -347.75 label -align right -text Rivière -scale s
+point 1354.0 -364.25 label -text Rivière -scale s -align center
 
 area blocks
   l519-1404--256
@@ -1862,6 +1947,7 @@ endline
 line contour -reverse on
   1333.0 -254.5
   1333.0 -254.5 1333.25 -290.5 1334.5 -296.25
+  smooth off
 endline
 
 line wall -reverse on
@@ -1970,7 +2056,7 @@ endscrap
 
 
 
-scrap SP-GL4_Amonts_06 -projection plan -station-names "" "@GL4_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
+scrap SP-GL4_Amonts_06 -projection plan -station-names "" "@GL4_Amonts" -author 1971 "Lambert Martin" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
 
 point 986.50 1250.67 station -name 122
 
@@ -2212,11 +2298,13 @@ point 2662.5 1099.0 water-flow -orientation 260.8
 
 point 1531.5 1213.0 water-flow -orientation 275.5
 
+point 979.5 1277.5 blocks
+
 line contour -id l314-1564-1114 -close on -visibility off
   1249.5 1334.0
   1044.5 1322.0
-  1044.5 1322.0 965.5 1260.5 941.5 1246.5
-  917.5 1232.5 928.0 1213.5 928.0 1213.5
+  1044.5 1322.0 971.0 1254.5 941.5 1246.5
+  914.69 1239.23 928.0 1213.5 928.0 1213.5
   smooth off
   1029.5 1216.5
   1144.5 1251.0
@@ -2239,6 +2327,8 @@ line wall -reverse on -subtype invisible
   1085.5 1311.0
   1093.0 1308.0
 endline
+
+point 1113.5 1336.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "rivière des arres planères"  -text "Inconnu" # -attr CA "Inconnu" -align right
 
 line wall
   4101.0 827.0
@@ -2297,7 +2387,7 @@ endscrap
 
 
 
-scrap SP-GL4_Amonts_07 -projection plan -station-names "" "@GL4_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
+scrap SP-GL4_Amonts_07 -projection plan -station-names "" "@GL4_Amonts" -author 1971 "Lambert Martin"-author 1971 "Lambert Martin" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
 
 line label -scale l -text [Galerie du Grand Galop]
   2412.0 -284.0
@@ -2319,7 +2409,8 @@ line wall -reverse on
   1903.5 -350.0 1921.0 -357.5 1935.0 -364.0
   1949.0 -370.5 1949.5 -378.0 1948.0 -391.5
   1946.5 -405.0 1945.0 -407.5 1955.0 -407.0
-  1965.0 -406.5 2124.5 -428.0 2094.5 -396.0
+  1965.0 -406.5 2155.5 -433.75 2085.75 -391.0
+  smooth off
 endline
 
 line wall -subtype invisible
@@ -2330,6 +2421,7 @@ endline
 line pit -reverse on
   3034.0 -1164.5
   3034.0 -1164.5 3058.5 -1195.5 3064.0 -1208.0
+  smooth off
 endline
 
 area blocks
@@ -2350,8 +2442,8 @@ line contour -id l614-2054--492 -close on -visibility off
 endline
 
 line wall -subtype invisible
-  2103.0 -390.0
-  2094.5 -396.0
+  2091.0 -385.75
+  2085.75 -391.0
 endline
 
 area water
@@ -2391,9 +2483,9 @@ line rock-border -id l633-3684--1621 -close on -visibility off
   smooth off
 endline
 
-point 3725.5 -1640.5 water-flow -orientation 312.9
+point 3698.0 -1633.0 water-flow -orientation 297.7
 
-point 2958.0 -1137.0 water-flow -orientation 312.9
+point 2972.25 -1143.0 water-flow -orientation 302.0
 
 point 3195.5 -1411.0 water-flow -orientation 312.9
 
@@ -2401,33 +2493,55 @@ point 3201.0 -1462.0 blocks
 
 point 3218.0 -1481.5 blocks
 
-point 3086.0 -1354.5 blocks
+point 3106.5 -1358.25 blocks
 
 point 3123.5 -1386.5 blocks
 
-point 3031.5 -1300.0 blocks
-
-point 3030.5 -1262.0 blocks
+point 3153.0 -1408.0 blocks
 
 point 3048.5 -1300.0 blocks
 
 point 3074.5 -1325.0 blocks
 
-point 3055.0 -1332.0 blocks
+point 3178.5 -1439.25 blocks
+
+area blocks
+  l669-3124--1325
+endarea
+
+line contour -id l669-3124--1325 -close on -visibility off
+  3072.0 -1220.75
+  3072.0 -1220.75 3072.5 -1262.0 3056.5 -1271.0
+  3040.5 -1280.0 2988.75 -1295.0 2984.0 -1302.5
+  2979.25 -1310.0 2986.75 -1342.75 3000.25 -1354.75
+  3013.75 -1366.75 3044.75 -1374.75 3057.0 -1368.25
+  3069.25 -1361.75 3124.0 -1347.75 3124.0 -1324.0
+  3124.0 -1300.25 3121.5 -1242.75 3109.75 -1234.5
+  3098.0 -1226.25 3072.0 -1220.75 3072.0 -1220.75
+  smooth off
+endline
 
 line pit -reverse on
   3131.5 -1351.5
   3131.5 -1351.5 3102.5 -1391.5 3078.0 -1391.0
+  smooth off
 endline
 
 line pit -reverse on
   3623.0 -1556.5
   3623.0 -1556.5 3604.5 -1602.0 3594.0 -1605.5
+  smooth off
 endline
 
+point 3719.5 -1645.25 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Galerie du grand Galop"  -text "Arrivée rivière" # -attr CA "Inconnu" -align center
+
+point 2944.75 -1120.0 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Galerie du grand Galop"  -text "Perte rivière" # -attr CA "Inconnu" -align center
+
+point 2074.0 -379.25 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Galerie du grand Galop"  -text "Inconnu" # -attr CA "Inconnu" -align left
+
 line wall -reverse on
-  2103.0 -390.0
-  2112.5 -419.5 2129.0 -403.5 2148.0 -396.0
+  2091.0 -385.75
+  2126.25 -419.25 2129.0 -403.5 2148.0 -396.0
   2167.0 -388.5 2178.5 -387.0 2190.0 -389.5
   2201.5 -392.0 2258.5 -406.0 2276.0 -414.0
   2293.5 -422.0 2309.5 -434.5 2321.5 -445.5
@@ -2519,12 +2633,14 @@ line label -scale xs -text [Galerie fossile]
   1966.0 -298.5
   1966.0 -298.5 2157.5 -318.0 2187.5 -323.5
   2217.5 -329.0 2306.0 -369.5 2317.5 -375.0
+  smooth off
 endline
 
 line label -text [Galerie semi-active] -scale xs
   1489.5 -267.0
   1489.5 -267.0 1599.0 -276.5 1620.0 -271.5
   1641.0 -266.5 1701.0 -266.0 1717.5 -267.0
+  smooth off
 endline
 
 area blocks
@@ -2679,7 +2795,7 @@ endscrap
 
 
 
-scrap SP-GL4_Amonts_08 -projection plan -station-names "" "@GL4_Amonts" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
+scrap SP-GL4_Amonts_08 -projection plan -station-names "" "@GL4_Amonts" -author 1971 "Lambert Martin" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-5326.727999999999 -1922.5079999999998 5326.727999999999 -1922.5079999999998 0.0 0.0 270.59778239999997 0.0 m]
 
 point 984.06 1179.41 station -name D
 
@@ -2728,6 +2844,7 @@ point 1645.5 271.0 label -align center -text E -scale xs
 line pit
   1635.0 238.5
   1635.0 238.5 1636.5 214.0 1617.0 203.0
+  smooth off
 endline
 
 line pit -reverse on
@@ -2857,7 +2974,7 @@ point 1532.5 177.5 water-flow -orientation 61.1
 
 point 1392.5 -168.0 water-flow -orientation 40.7
 
-point 1303.0 -108.5 water-flow -orientation 40.7
+point 1311.0 -102.0 water-flow -orientation 54.8
 
 line wall -subtype invisible
   1321.5 -86.0
@@ -2872,6 +2989,7 @@ endline
 line wall -subtype unsurveyed
   1335.5 -73.0
   1335.5 -73.0 1328.0 -80.5 1321.5 -86.0
+  smooth off
 endline
 
 point 1341.5 -3.0 blocks
@@ -2907,6 +3025,7 @@ point 1459.5 -83.0 label -scale xs -text C14
 line pit
   1365.5 -37.5
   1365.5 -37.5 1363.0 -78.5 1416.5 -67.0
+  smooth off
 endline
 
 area blocks
@@ -2917,21 +3036,25 @@ line contour -id l486-1702-36 -close on -visibility off
   1707.5 68.5
   1707.5 68.5 1724.0 115.0 1711.0 127.5
   1698.0 140.0 1686.0 155.0 1662.5 153.0
-  1639.0 151.0 1603.5 150.0 1588.5 148.0
-  1573.5 146.0 1517.0 124.0 1502.0 120.5
-  1487.0 117.0 1480.0 113.0 1465.5 115.5
-  1451.0 118.0 1442.0 120.0 1424.0 124.0
-  1406.0 128.0 1395.5 126.5 1403.0 121.0
-  1410.5 115.5 1461.0 102.5 1460.5 96.0
-  1460.0 89.5 1462.24 67.38 1460.12 54.69
-  1458.0 42.0 1458.5 27.0 1451.5 11.0
-  1444.5 -5.0 1414.0 -18.0 1407.0 -19.0
-  1400.0 -20.0 1402.5 -21.5 1406.5 -31.0
+  1639.0 151.0 1604.5 154.5 1589.5 152.5
+  1574.5 150.5 1516.0 127.5 1501.0 124.0
+  1486.0 120.5 1480.0 113.0 1465.5 115.5
+  1451.0 118.0 1418.0 142.0 1400.0 146.0
+  1382.0 150.0 1370.5 133.0 1378.0 127.5
+  1385.5 122.0 1446.5 99.5 1446.0 93.0
+  1445.5 86.5 1444.62 70.19 1442.5 57.5
+  1440.38 44.81 1441.0 33.5 1434.0 17.5
+  1427.0 1.5 1412.5 -7.0 1405.5 -8.0
+  1398.5 -9.0 1402.5 -21.5 1406.5 -31.0
   1410.5 -40.5 1626.5 -16.0 1626.5 -16.0
   smooth off
   1700.0 36.0
   1707.5 68.5
 endline
+
+point 1295.0 -117.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Cassade des deux plongeurs"  -text "Inconnu" # -attr CA "Inconnu" -align right
+
+point 1844.0 125.5 continuation -attr code Q -attr Cavite "GL4" -attr reseau "Cassade des deux plongeurs"  -text "Méandre" # -attr CA "Inconnu" -align right
 
 line contour -id l484-1712-248 -close on -visibility off
   1669.5 254.5
@@ -2948,14 +3071,14 @@ line contour -id l484-1712-248 -close on -visibility off
   1450.5 89.5 1455.5 111.0 1474.5 119.0
   1493.5 127.0 1549.0 142.5 1573.0 150.5
   1597.0 158.5 1643.5 154.0 1655.5 156.0
-  1667.5 158.0 1709.5 166.5 1718.0 165.0
-  1726.5 163.5 1743.5 181.5 1746.5 187.5
-  1749.5 193.5 1711.5 247.0 1711.5 247.0
+  1667.5 158.0 1746.5 148.5 1755.0 147.0
+  1763.5 145.5 1774.5 166.0 1777.5 172.0
+  1780.5 178.0 1711.5 247.0 1711.5 247.0
   smooth off
   1669.5 254.5
 endline
 
-point 1869.0 126.5 label -scale xs -text Méandre -align right
+point 1869.5 115.0 label -scale xs -text Méandre -align right
 
 line wall -reverse on -subtype invisible
   1834.0 135.5
@@ -3024,10 +3147,10 @@ line contour -id l364-1227-867 -close on -visibility off
   872.5 1111.5 865.5 1085.5 858.5 1092.0
   851.5 1098.5 849.0 1107.0 851.0 1119.5
   853.0 1132.0 857.5 1146.0 853.5 1148.5
-  849.5 1151.0 785.0 1125.0 785.0 1108.0
-  785.0 1091.0 782.0 1080.0 795.5 1078.0
-  809.0 1076.0 831.0 1084.5 828.5 1078.0
-  826.0 1071.5 798.0 1061.0 792.5 1057.5
+  849.5 1151.0 774.0 1124.0 774.0 1107.0
+  774.0 1090.0 777.5 1074.0 795.5 1078.0
+  808.82 1080.96 821.5 1083.0 819.0 1076.5
+  816.5 1070.0 798.0 1061.0 792.5 1057.5
   787.0 1054.0 758.0 1031.5 758.0 1031.5
   smooth off
   789.5 994.5
@@ -3094,8 +3217,8 @@ line wall
 endline
 
 line wall -reverse on
-  769.0 1087.0
-  769.0 1087.0 804.0 1111.5 823.0 1120.5
+  778.5 1089.5
+  775.0 1108.5 804.0 1111.5 823.0 1120.5
   842.0 1129.5 857.0 1139.0 872.5 1140.5
   888.0 1142.0 885.0 1134.5 899.0 1142.5
   913.0 1150.5 956.0 1174.5 961.0 1181.0

@@ -80,7 +80,7 @@ processing survey data ...
  8> Longueur totale en projection horizontale = 14832.81m
  9> Longueur totale verticale = 3657.63m
 10> Intervalle vertical = 767.24m (de 980 … 1720.00m jusqu'… 1510 … 952.76m)
-11> Intervalle Nord-Sud = 2825.44m (de 1510 … 4762904.08m jusqu'… 1862 … 4760078.64m)
+11> Intervalle Nord-Sud = 2825.38m (de 1510 … 4762904.08m jusqu'… 1862 … 4760078.70m)
 12> Intervalle Est-Ouest = 3981.78m (de 980 … 685335.00m jusqu'… 3527 … 681353.22m)
 13> 1841 1-noeuds.
 14> 1809 2-noeuds.
@@ -241,7 +241,7 @@ S  1620.00 SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/Complexe_Lonne_Peyret-Bourrugues-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  6 JAN 2025 18:16
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  8 JAN 2025 11:50
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -326,8 +326,8 @@ _Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues] [217] [218] [219] [220] [221]
 [294] [295] [296] [297] [298] [299] [300] [301] [302] [303] [304] )
  
 Here is how much of MetaPost's memory you used:
- 210817 strings using 5057128 characters
- 8350832 bytes of node memory
+ 211180 strings using 5062091 characters
+ 8437536 bytes of node memory
  1804 symbolic tokens
  11i,82n,17p,612b,5f stack positions out of 16i,98n,20p,760b,6f
 319 output files written: data-patt.1 .. data.304
@@ -337,7 +337,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  6 JAN 2025 18:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  8 JAN 2025 11:50
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -356,10 +356,10 @@ Data/Complexe_Lonne_Peyret-Bourrugues/Outputs/AP7_Puits-Coupe.pdf>)
  [1] )
 (\end occurred when \ifx on line 12 was incomplete) 
 Here is how much of TeX's memory you used:
- 930 strings out of 95671
- 11561 string characters out of 1192323
- 354782 words of memory out of 1811825
- 2323 multiletter control sequences out of 15000+50000
+ 932 strings out of 95671
+ 11579 string characters out of 1192323
+ 356448 words of memory out of 1812491
+ 2325 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
  13i,5n,9p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -367,7 +367,7 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 7388566 bytes).
+Output written on data.pdf (1 page, 7397539 bytes).
 PDF statistics:
  1555 PDF objects out of 1728 (max. 8388607)
  785 compressed objects within 8 object streams
@@ -398,56 +398,56 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.14%   72.46%  SP-B3_Entree_06@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    3.41%   65.89%  SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    4.10%   62.46%  SP-B3_Entree_01B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   1.86%   58.01%  SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   1.86%   58.02%  SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.12%   56.80%  SP-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.99%   48.11%  SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.16%   46.66%  SP-B3_Entree_01@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   0.75%   43.95%  SP-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
+   0.74%   43.93%  SP-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    1.61%   43.82%  SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.07%   42.84%  SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.18%   36.76%  SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.08%   43.36%  SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.23%   37.38%  SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    1.31%   33.31%  SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.25%   33.23%  SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.89%   32.11%  SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.08%   31.53%  SP-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
+   0.17%   31.53%  SP-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    5.41%   29.52%  SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.11%   25.80%  SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.10%   25.25%  SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.05%   17.71%  SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.09%   12.50%  SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.06%   12.44%  SP-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.07%    9.47%  SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.01%    8.12%  SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.05%    8.00%  SP-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.02%    7.89%  SP-B3_Aval_01D@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.26%    6.65%  SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.05%    5.40%  SP-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.21%    4.61%  SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.01%    4.36%  SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.20%    4.42%  SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.02%    4.08%  SP-B3_Aval_01A@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   1.03%    3.95%  SP-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
+   1.03%    4.02%  SP-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.02%    3.87%  SP-B3_Aval_02E@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.07%    3.81%  SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.06%    2.47%  SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   0.07%    2.24%  SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.02%    1.88%  SP-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.01%    1.56%  SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.02%    1.39%  SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.02%    1.15%  SP-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
+   0.02%    1.42%  SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.02%    1.17%  SP-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.05%    1.07%  SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.02%    0.93%  SP-B3_Amonts_02@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.04%    0.86%  SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.04%    0.85%  SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.79%  SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
+   0.05%    0.79%  SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.75%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
-   0.02%    0.63%  SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.01%    0.63%  SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-   0.03%    0.62%  SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.02%    0.67%  SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.03%    0.63%  SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.53%  SP-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
-   0.01%    0.50%  SP-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.47%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.02%    0.46%  SP-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
    0.02%    0.45%  SP-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.02%    0.40%  SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.01%    0.43%  SP-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.34%  SP-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
-   0.02%    0.25%  SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.02%    0.27%  SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.08%    0.24%  SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.04%    0.23%  SP-GL4_Amonts_03@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.22%  SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues
@@ -456,12 +456,12 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.01%    0.16%  SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.01%    0.14%  SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  SP-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  scrap339@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.00%  SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  SP-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
+   0.00%    0.00%  scrap51@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  SP-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  SP-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
-   0.00%    0.00%  scrap51@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
    0.00%    0.00%  SP-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues
