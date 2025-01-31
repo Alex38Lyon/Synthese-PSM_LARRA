@@ -14,7 +14,7 @@
 <Folder>
 <name><![CDATA[GL102 - Gouffre du Lonné Peyret - Entrée]]></name>
 <Placemark>
-<name>00</name>
+<name>GL_102</name>
 <styleUrl>#ThSurveyLine</styleUrl>
 <MultiGeometry>
 <LineString><coordinates>

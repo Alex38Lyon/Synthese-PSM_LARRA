@@ -1,7 +1,7 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust 0.0 0.0 0.0 0.0
 ##XTHERION## xth_me_area_zoom_to 100
-##XTHERION## xth_me_image_insert {0.001 1.0} {0.00 GL_04} GL04_Cam_Claque-Extended.xvi 0 {} 
+##XTHERION## xth_me_image_insert {0.001 1.0} {0.00 GL04} GL04_Cam_Claque-Extended.xvi 0 {} 
 
 # Copyright (C) ARSIP 2024
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
@@ -14,7 +14,7 @@ encoding  utf-8
 
 scrap SC-GL04_Entree_01 -station-names "" "@GL04_Entree" -projection extended -author 2024 "Alexandre Pont" -copyright 2024 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/"
     
-    point 0.00 0.00 station -name GL_04
+    point 0.00 0.00 station -name GL_4
     
 
     

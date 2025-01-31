@@ -3,7 +3,7 @@
 # equate PTR_02_41@GL102_Entree_01 PTR_02_41@GL102_Entree_02
 # equate PTR_A86_82@GL102_Entree_02 PTR_A86_82@GL102_Aval_01
 
-survey GL102_Entree_01 -title "GL102 - Gouffre du Lonné Peyret - Entrée"
+survey GL102_Entree_01 -title "GL102 - Gouffre du Lonné Peyret - Entrée" -entrance "GL_102"
 	
 	centerline
 		date 2024.08.05
@@ -20,25 +20,25 @@ survey GL102_Entree_01 -title "GL102 - Gouffre du Lonné Peyret - Entrée"
 		
 		cs UTM30
 		# fix 00 0682342 4760585	1636 # GPS Garmin Fenix6 Alex
-		fix 00 682343 4760590	1633 # GPS Karsteau 30/06/2024 - Michel DOUAT
-		station 00 "GL102" entrance
+		fix GL_102 682343 4760590	1633 # GPS Karsteau 30/06/2024 - Michel DOUAT
+		station GL_102 "GL102" entrance
 		
 		units length meters
 		units compass clino degrees
 		data normal from to length compass clino
 		
 		extend right
-		00 . 0.22 96.0 -7.1
-		00 . 0.40 147.5 -6.2
-		00 . 0.53 35.6 -0.4
-		00 . 0.79 334.6 2.6
-		00 . 0.67 278.9 -4.6
-		00 . 3.38 0.9 4.4
-		00 . 4.48 5.7 3.7
-		00 . 1.67 11.5 2.5
-		00 . 0.23 131.3 -79.0
-		00 . 1.11 86.9 60.6
-		00 1 2.28 0.7 -0.3
+		GL_102 . 0.22 96.0 -7.1
+		GL_102 . 0.40 147.5 -6.2
+		GL_102 . 0.53 35.6 -0.4
+		GL_102 . 0.79 334.6 2.6
+		GL_102 . 0.67 278.9 -4.6
+		GL_102 . 3.38 0.9 4.4
+		GL_102 . 4.48 5.7 3.7
+		GL_102 . 1.67 11.5 2.5
+		GL_102 . 0.23 131.3 -79.0
+		GL_102 . 1.11 86.9 60.6
+		GL_102 1 2.28 0.7 -0.3
 		
 		1 . 0.23 278.3 -0.6
 		1 . 0.30 86.9 -1.4

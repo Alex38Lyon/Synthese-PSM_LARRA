@@ -66,9 +66,9 @@ processing survey data ...
 24> 16 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
 25> 3 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
 26> 6 : .@GL102_Entree_01.Gouffre_du_Lonne_Peyret
-27> 1 : 00@GL102_Entree_01.Gouffre_du_Lonne_Peyret
-28> 1 : 00@GL102_Entree_01.Gouffre_du_Lonne_Peyret
-29> 1 : 00@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+27> 1 : GL_102@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+28> 1 : GL_102@GL102_Entree_01.Gouffre_du_Lonne_Peyret
+29> 1 : GL_102@GL102_Entree_01.Gouffre_du_Lonne_Peyret
 #################### end of cavern log file ####################
 done
 calculating basic statistics ... done
@@ -104,7 +104,7 @@ S  1299.88 SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/GL102_Lonne_Peyret-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 JAN 2025 16:04
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  23 JAN 2025 18:08
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -128,9 +128,9 @@ _Lonne_Peyret] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49]
 [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] )
  
 Here is how much of MetaPost's memory you used:
- 26995 strings using 639337 characters
- 4416264 bytes of node memory
- 1769 symbolic tokens
+ 27254 strings using 642626 characters
+ 4465928 bytes of node memory
+ 1793 symbolic tokens
  10i,82n,17p,471b,5f stack positions out of 16i,98n,20p,487b,6f
 115 output files written: data-patt.1 .. data.100
 
@@ -139,7 +139,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  2 JAN 2025 16:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  23 JAN 2025 18:08
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -151,10 +151,10 @@ rogram Files/Therion/texmf/fonts/pdftex.map})
 [1] )
 (\end occurred when \ifx on line 12 was incomplete) 
 Here is how much of TeX's memory you used:
- 444 strings out of 95671
- 5582 string characters out of 1192323
- 95502 words of memory out of 1572545
- 1837 multiletter control sequences out of 15000+50000
+ 446 strings out of 95671
+ 5600 string characters out of 1192323
+ 95615 words of memory out of 1572658
+ 1839 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
  12i,5n,8p,1688b,73s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -162,7 +162,7 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 343529 bytes).
+Output written on data.pdf (1 page, 343505 bytes).
 PDF statistics:
  335 PDF objects out of 1000 (max. 8388607)
  172 compressed objects within 2 object streams
@@ -177,12 +177,12 @@ writing Outputs/GL102_Lonne_Peyret.plt ... done
 writing Outputs/GL102_Lonne_Peyret.kml ... done
 writing Outputs/GL102_Lonne_Peyret.sql ... 
 processing projection extended ... done
-average distortion: 0.92%
+average distortion: 0.93%
 done
 writing Outputs/GL102_Lonne_Peyret.html ... done
 writing Outputs/Surveys.html ... done
 writing xtherion file ... done
-compilation time: 3 sec
+compilation time: 4 sec
 
 
 ###################### scrap distortions #######################
@@ -212,16 +212,17 @@ compilation time: 3 sec
 ###################### scrap distortions #######################
  PROJECTION: extended
  AVERAGE  MAXIMAL  SCRAP
-   0.28%   77.98%  SC-GL102_Entree_02B@Gouffre_du_Lonne_Peyret
+   0.81%   77.61%  SC-GL102_Entree_02B@Gouffre_du_Lonne_Peyret
   13.03%   49.61%  SC-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret
    0.67%   40.38%  SC-GL102_Aval_01D@Gouffre_du_Lonne_Peyret
    2.38%   24.94%  SC-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret
    0.06%   13.35%  SC-GL102_Amont_01A@Gouffre_du_Lonne_Peyret
+   0.12%   10.17%  SC-GL102_Entree_02B2@Gouffre_du_Lonne_Peyret
    0.08%    8.24%  SC-GL4_01B@Gouffre_du_Lonne_Peyret
    0.03%    1.18%  SC-GL4_01A@Gouffre_du_Lonne_Peyret
-   0.00%    0.02%  SC-GL102_Entree_02A@Gouffre_du_Lonne_Peyret
    0.00%    0.01%  SC-GL102_Entree_01A@Gouffre_du_Lonne_Peyret
    0.00%    0.01%  SC-GL102_Entree_01B@Gouffre_du_Lonne_Peyret
+   0.00%    0.01%  SC-GL102_Entree_02A@Gouffre_du_Lonne_Peyret
    0.00%    0.00%  SC-GL102_Aval_01A@Gouffre_du_Lonne_Peyret
    0.00%    0.00%  SC-GL102_Aval_01C@Gouffre_du_Lonne_Peyret
    0.00%    0.00%  SC-GL102_Aval_01B@Gouffre_du_Lonne_Peyret

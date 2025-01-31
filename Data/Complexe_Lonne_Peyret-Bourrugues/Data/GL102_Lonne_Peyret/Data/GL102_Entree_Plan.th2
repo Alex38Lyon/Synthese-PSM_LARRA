@@ -1,7 +1,7 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -128.0 -128.0 42726.4482 13120.133
 ##XTHERION## xth_me_area_zoom_to 25
-##XTHERION## xth_me_image_insert {38622.020000000004 1 1.0} {3700.7900000000004 00@GL102_Entree_01} GL102_Entree-plan.xvi 0 {}
+##XTHERION## xth_me_image_insert {38622.020000000004 1 1.0} {3700.7900000000004 GL_102@GL102_Entree_01} GL102_Entree-plan.xvi 0 {}
 
 
 
@@ -252,7 +252,7 @@ point 38620.06 3832.6700000000005 station -name 2@GL102_Entree_01
 
 point 38622.42 3790.55 station -name 1@GL102_Entree_01
 
-point 38622.020000000004 3700.7900000000004 station -name 00@GL102_Entree_01
+point 38622.020000000004 3700.7900000000004 station -name GL_102@GL102_Entree_01
 
 point 38631.47 3748.4200000000005 station -name 5@GL102_Entree_01
 

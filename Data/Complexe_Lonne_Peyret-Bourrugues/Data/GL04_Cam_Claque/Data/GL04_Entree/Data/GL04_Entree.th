@@ -4,7 +4,7 @@
 
 encoding utf-8
 
-survey GL04_Entree -title "Gouffre du Cam de Caque GL04" -entrance "GL_04"
+survey GL04_Entree -title "Gouffre du Cam de Caque GL04" -entrance "GL_4"
 	
 	centerline
 		date 2024.06.30
@@ -17,8 +17,8 @@ survey GL04_Entree -title "Gouffre du Cam de Caque GL04" -entrance "GL_04"
 
 		
 		cs UTM30
-		fix	GL_04	682365	4760497	1636 # Coordonnées MD 30 06 2024 Karsteau
-		station	GL_04 "GL4 Gouffre du Cam de Caque" entrance
+		fix	GL_4	682365	4760497	1636 # Coordonnées MD 30 06 2024 Karsteau
+		station	GL_4 "GL4 Gouffre du Cam de Caque" entrance
 		
 		
 		units length meters
@@ -27,7 +27,7 @@ survey GL04_Entree -title "Gouffre du Cam de Caque GL04" -entrance "GL_04"
 		
 		data topofil from to length compass clino left right up down
 		
-		GL_04	-	0.00	0.00	0.00	0	0	0	0	#
+		GL_4	-	0.00	0.00	0.00	0	0	0	0	#
 	
 	endcenterline
 	

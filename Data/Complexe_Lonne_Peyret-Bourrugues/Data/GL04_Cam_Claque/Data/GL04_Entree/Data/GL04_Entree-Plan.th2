@@ -21,7 +21,7 @@ point 3.0 284.0 label -text GL4 -scale xl
 
 point 34.5 39.0 entrance -orientation 215.8
 
-point 0.00 0.00 station -name GL_04
+point 0.00 0.00 station -name GL_4
 
 endscrap
 

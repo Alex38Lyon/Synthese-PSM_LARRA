@@ -1,6 +1,6 @@
 set XVIgrids {2.0 m}
 set XVIstations {
-  {        0.00         0.00 GL_04}
+  {        0.00         0.00 GL_4}
 }
 set XVIshots {
   {        0.00         0.00         0.00         0.00}

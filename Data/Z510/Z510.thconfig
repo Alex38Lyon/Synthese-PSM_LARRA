@@ -668,22 +668,25 @@ select MC-Z510-coupe-tot@Z510
 
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
-export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/Z510-Coupe.pdf
+#export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/Z510-Coupe.pdf
 #export map -projection extended -fmt pdf -layout layout-coupe-LT -o Outputs/Z510-Coupe-LT.pdf
 #export map -projection plan -fmt pdf -layout layout-plan-LT -o Outputs/Z510-Plan-LT.pdf
-export map -projection plan -fmt pdf -layout my_layout -o Outputs/Z510-Plan.pdf
+#export map -projection plan -fmt pdf -layout my_layout -o Outputs/Z510-Plan.pdf
 #export map -projection extended -fmt pdf -layout layout-coupe-plan -o Outputs/Z510-Coupe-Plan.pdf
 
 
 # Export du fichier 3d pour Loch
 export model -enable all -o Outputs/Z510.lox
 export model -enable all -o Outputs/Z510.kml
+export database -fmt sql -o Outputs/Z510.sql
 
 # Export des fichiers ESRI
 #export map -proj plan -fmt esri -o Outputs/Z510
+export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
+export model -fmt esri -o Outputs/SHP/ -enc UTF-8
 
 # Export des fichiers kml
-#export map -proj plan -fmt kml -o Outputs/Z510.kml -layout layout-kml
+#export map -proj plan -fmt kml -o Outputs/Z510-plan.kml -layout layout-kml
 #export model -fmt kml -o Outputs/Z510-model.kml -enable all
 #export model -enable all -o Outputs/Z510-3D.kml
 export cave-list -location on -o Outputs/Z510-Cave-list.html

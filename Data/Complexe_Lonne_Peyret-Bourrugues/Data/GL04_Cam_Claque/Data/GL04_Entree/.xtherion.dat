@@ -10,6 +10,6 @@ xth_cp_map_tree_insert map 1 69X1 p1 1 MP-GL04_Entree-Plan-tot MP-GL04_Entree-Pl
 xth_cp_map_tree_insert map 1 70X1 p2 1 MC-GL04_Entree-Extended-tot MC-GL04_Entree-Extended-tot@GL04_Entree "GL04\_Cam\_Claque" "GL04\_Cam\_Claque"
 xth_cp_map_tree_create
 xth_cp_comp_stat 0 2
-set xth(th_exit_state) 2
-set xth(th_exit_number) 1735821344
+set xth(th_exit_state) 1
+set xth(th_exit_number) 1737651873
 
