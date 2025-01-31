@@ -1,0 +1,18 @@
+#Template for pyCreate_th2.py
+encoding utf-8
+
+{Copyright}
+
+{file_info}
+
+map MP-{fileName}-Plan-tot -title "{fileName}"
+	SP-{Target}_01
+{other_scraps_plan}	break
+endmap
+
+map MC-{fileName}-Extended-tot -title "{fileName}"
+	SC-{Target}_01
+{other_scraps_extended}	break
+endmap
+
+

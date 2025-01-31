@@ -1,0 +1,16 @@
+
+matplotlib
+pandas
+Shapely
+Fiona
+pyproj
+scipy
+netCDF4
+xarray
+joblib
+geopandas
+motionless
+salem
+configparser
+
+

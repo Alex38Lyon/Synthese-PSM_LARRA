@@ -1,0 +1,96 @@
+Nad Padavkou
+SURVEY NAME: nad_pad.pod30
+SURVEY DATE: 01 08 2000 COMMENT: None(Length : 63.23m Surface : 0.0m Duplicate : 0.0m)
+SURVEY TEAM:
+Martin Budaj, Stacho Mudrak, Libor Stubna
+DECLINATION:    0.00  FORMAT: DMMDUDRLLAaDdNF  CORRECTIONS:  0.00 0.00 0.00  CORRECTIONS2:  0.00 0.00 
+
+                FROM                   TO   LENGTH  BEARING      INC     LEFT       UP     DOWN    RIGHT   FLAGS  COMMENTS
+
+             [Lonne]15    [Lonne]24    19.84    162.90   39.60     0.00     0.00     0.00     0.00  [ 99@padavka None - 1@nad_pad None ] 
+             [Lonne]17    [Lonne]32    27.28    182.70   41.40     0.00     0.00     0.00     0.00  [ 101@padavka None - 9@nad_pad None ] 
+             [Lonne]24    [Lonne]25    14.80    74.70    -5.40     0.00     0.00     0.00     0.00  [ 1@nad_pad None - 2@nad_pad None ] 
+             [Lonne]25    [Lonne]26    8.44     81.00    -1.80     0.00     0.00     0.00     0.00  [ 2@nad_pad None - 3@nad_pad None ] 
+             [Lonne]25    [Lonne]29    12.79    15.30    -23.40     0.00     0.00     0.00     0.00  [ 2@nad_pad None - 6@nad_pad None ] 
+             [Lonne]26    [Lonne]27    19.15    74.70    9.90     0.00     0.00     0.00     0.00  [ 3@nad_pad None - 4@nad_pad None ] 
+             [Lonne]26    [Lonne]30    11.46    356.40   -25.20     0.00     0.00     0.00     0.00  [ 3@nad_pad None - 7@nad_pad None ] 
+             [Lonne]27    [Lonne]28    19.49    49.50    -28.80     0.00     0.00     0.00     0.00  [ 4@nad_pad None - 5@nad_pad None ] 
+             [Lonne]28    [Lonne]17    21.57    100.80   3.60     0.00     0.00     0.00     0.00  [ 5@nad_pad None - 101@padavka None ] 
+             [Lonne]30    [Lonne]29    5.04     261.00   0.90     0.00     0.00     0.00     0.00  [ 7@nad_pad None - 6@nad_pad None ] 
+             [Lonne]32    [Lonne]33    11.43    199.80   55.80     0.00     0.00     0.00     0.00  [ 9@nad_pad None - 10@nad_pad None ] 
+             [Lonne]33    [Lonne]34    5.42     264.60   -7.20     0.00     0.00     0.00     0.00  [ 10@nad_pad None - 11@nad_pad None ] 
+             [Lonne]34    [Lonne]35    9.04     161.10   -3.60     0.00     0.00     0.00     0.00  [ 11@nad_pad None - 12@nad_pad None ] 
+             [Lonne]35    [Lonne]36    13.54    231.30   10.80     0.00     0.00     0.00     0.00  [ 12@nad_pad None - 13@nad_pad None ] 
+             [Lonne]35    [Lonne]37    8.13     89.10    15.30     0.00     0.00     0.00     0.00  [ 12@nad_pad None - 14@nad_pad None ] 
+
+Prepoj Traverz-Padavka
+SURVEY NAME: nad_pad2.pod30
+SURVEY DATE: 12 08 2000 COMMENT: None(Length : 27.81m Surface : 0.0m Duplicate : 0.0m)
+SURVEY TEAM:
+Martin Budaj, Peter Sterba, Libor Stubna
+DECLINATION:    0.00  FORMAT: DMMDUDRLLAaDdNF  CORRECTIONS:  0.00 0.00 0.00  CORRECTIONS2:  0.00 0.00 
+
+                FROM                   TO   LENGTH  BEARING      INC     LEFT       UP     DOWN    RIGHT   FLAGS  COMMENTS
+
+             [Lonne]38    [Lonne]39    13.48    262.80   -57.60     0.00     0.00     0.00     0.00  [ 0@nad_pad2 None - 1@nad_pad2 None ] 
+             [Lonne]39    [Lonne]40    25.39    18.90    -50.40     0.00     0.00     0.00     0.00  [ 1@nad_pad2 None - 2@nad_pad2 None ] 
+             [Lonne]40    [Lonne]18    17.10    29.70    -48.60     0.00     0.00     0.00     0.00  [ 2@nad_pad2 None - 102@padavka None ] 
+             [Lonne]40    [Lonne]33    35.28    219.60   30.60     0.00     0.00     0.00     0.00  [ 2@nad_pad2 None - 10@nad_pad None ] 
+
+Nad Padavkou
+SURVEY NAME: nad_pad3.pod30
+SURVEY DATE: 12 08 2000 COMMENT: None(Length : 80.59m Surface : 0.0m Duplicate : 0.0m)
+SURVEY TEAM:
+Martin Budaj, Peter Sterba, Libor Stubna
+DECLINATION:    0.00  FORMAT: DMMDUDRLLAaDdNF  CORRECTIONS:  0.00 0.00 0.00  CORRECTIONS2:  0.00 0.00 
+
+                FROM                   TO   LENGTH  BEARING      INC     LEFT       UP     DOWN    RIGHT   FLAGS  COMMENTS
+
+             [Lonne]6     [Lonne]44    7.24     145.80   40.50     0.00     0.00     0.00     0.00  [ 90@padavka None - 1@nad_pad3 None ] 
+             [Lonne]36    [Lonne]49    11.02    235.80   -21.60     0.00     0.00     0.00     0.00  [ 13@nad_pad None - 6@nad_pad3 None ] 
+             [Lonne]44    [Lonne]45    17.01    120.60   63.00     0.00     0.00     0.00     0.00  [ 1@nad_pad3 None - 2@nad_pad3 None ] 
+             [Lonne]45    [Lonne]46    20.88    144.00   53.10     0.00     0.00     0.00     0.00  [ 2@nad_pad3 None - 3@nad_pad3 None ] 
+             [Lonne]46    [Lonne]47    16.06    185.40   30.60     0.00     0.00     0.00     0.00  [ 3@nad_pad3 None - 4@nad_pad3 None ] 
+             [Lonne]47    [Lonne]36    19.84    214.20   55.80     0.00     0.00     0.00     0.00  [ 4@nad_pad3 None - 13@nad_pad None ] 
+             [Lonne]49    [Lonne]50    20.47    280.80   -22.50     0.00     0.00     0.00     0.00  [ 6@nad_pad3 None - 7@nad_pad3 None ] 
+             [Lonne]50    [Lonne]51    18.43    280.80   -27.00     0.00     0.00     0.00     0.00  [ 7@nad_pad3 None - 8@nad_pad3 None ] 
+             [Lonne]51    [Lonne]52    23.31    321.30   -55.80     0.00     0.00     0.00     0.00  [ 8@nad_pad3 None - 9@nad_pad3 None ] 
+             [Lonne]52    [Lonne]53    17.64    7.20     -44.10     0.00     0.00     0.00     0.00  [ 9@nad_pad3 None - 10@nad_pad3 None ] 
+             [Lonne]53    [Lonne]54    20.63    298.80   32.40     0.00     0.00     0.00     0.00  [ 10@nad_pad3 None - 11@nad_pad3 None ] 
+             [Lonne]54    [Lonne]15    10.71    23.40    15.30     0.00     0.00     0.00     0.00  [ 11@nad_pad3 None - 99@padavka None ] 
+             [Lonne]56    [Lonne]57    4.79     172.80   -58.50     0.00     0.00     0.00     0.00  [ 13@nad_pad3 None - 14@nad_pad3 None ] 
+             [Lonne]57    [Lonne]58    26.61    0.00     -90.00     0.00     0.00     0.00     0.00  [ 14@nad_pad3 None - 15@nad_pad3 None ] 
+             [Lonne]58    [Lonne]59    16.54    176.40   5.40     0.00     0.00     0.00     0.00  [ 15@nad_pad3 None - 16@nad_pad3 None ] 
+             [Lonne]59    [Lonne]15    13.23    270.90   -14.40     0.00     0.00     0.00     0.00  [ 16@nad_pad3 None - 99@padavka None ] 
+
+Dom Padavky, Klenotnica
+SURVEY NAME: padavka.pod30
+SURVEY DATE: 31 12 1986 COMMENT: None(Length : 175.9m Surface : 0.0m Duplicate : 0.0m)
+SURVEY TEAM:
+Evzen Janousek, Gabriela Rekosova, Stanislav Vanecek
+DECLINATION:    0.00  FORMAT: DMMDUDRLLAaDdNF  CORRECTIONS:  0.00 0.00 0.00  CORRECTIONS2:  0.00 0.00 
+
+                FROM                   TO   LENGTH  BEARING      INC     LEFT       UP     DOWN    RIGHT   FLAGS  COMMENTS
+
+             [Lonne]1     [Lonne]2     61.35    304.00   -37.00     0.00     0.00     0.00     0.00  [ 86@padavka None - 87@padavka None ] 
+             [Lonne]2     [Lonne]3     36.75    78.00    0.00     0.00     0.00     0.00     0.00  [ 87@padavka None - 88@padavka None ] 
+             [Lonne]2     [Lonne]5     55.77    288.00   -9.00     0.00     0.00     0.00     0.00  [ 87@padavka None - 1087@padavka None ] 
+             [Lonne]2     [Lonne]6     47.90    238.00   6.00     0.00     0.00     0.00     0.00  [ 87@padavka None - 90@padavka None ] 
+             [Lonne]3     [Lonne]4     14.11    47.00    -41.00     0.00     0.00     0.00     0.00  [ 88@padavka None - 89@padavka None ] 
+             [Lonne]6     [Lonne]7     27.56    222.00   4.00     0.00     0.00     0.00     0.00  [ 90@padavka None - 91@padavka None ] 
+             [Lonne]7     [Lonne]8     23.29    263.00   20.00     0.00     0.00     0.00     0.00  [ 91@padavka None - 92@padavka None ] 
+             [Lonne]8     [Lonne]9     9.51     258.00   0.00     0.00     0.00     0.00     0.00  [ 92@padavka None - 93@padavka None ] 
+             [Lonne]8     [Lonne]14    19.69    288.00   11.00     0.00     0.00     0.00     0.00  [ 92@padavka None - 98@padavka None ] 
+             [Lonne]9     [Lonne]10    16.40    150.00   37.00     0.00     0.00     0.00     0.00  [ 93@padavka None - 94@padavka None ] 
+             [Lonne]10    [Lonne]11    20.01    269.00   -19.00     0.00     0.00     0.00     0.00  [ 94@padavka None - 95@padavka None ] 
+             [Lonne]11    [Lonne]12    13.12    239.00   30.00     0.00     0.00     0.00     0.00  [ 95@padavka None - 96@padavka None ] 
+             [Lonne]12    [Lonne]13    9.19     204.00   13.00     0.00     0.00     0.00     0.00  [ 96@padavka None - 97@padavka None ] 
+             [Lonne]14    [Lonne]15    14.76    19.00    27.00     0.00     0.00     0.00     0.00  [ 98@padavka None - 99@padavka None ] 
+             [Lonne]15    [Lonne]16    19.36    63.00    10.00     0.00     0.00     0.00     0.00  [ 99@padavka None - 100@padavka None ] 
+             [Lonne]15    [Lonne]19    27.23    262.00   3.00     0.00     0.00     0.00     0.00  [ 99@padavka None - 103@padavka None ] 
+             [Lonne]16    [Lonne]17    62.01    94.00    3.00     0.00     0.00     0.00     0.00  [ 100@padavka None - 101@padavka None ] 
+             [Lonne]17    [Lonne]18    28.22    80.00    -4.00     0.00     0.00     0.00     0.00  [ 101@padavka None - 102@padavka None ] 
+             [Lonne]19    [Lonne]20    13.12    270.00   -20.00     0.00     0.00     0.00     0.00  [ 103@padavka None - 104@padavka None ] 
+             [Lonne]20    [Lonne]21    21.65    313.00   -14.00     0.00     0.00     0.00     0.00  [ 104@padavka None - 105@padavka None ] 
+             [Lonne]21    [Lonne]22    36.09    278.00   -32.00     0.00     0.00     0.00     0.00  [ 105@padavka None - 106@padavka None ] 
+

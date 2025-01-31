@@ -1,0 +1,6 @@
+therion 6.3.1 (2024-11-22)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+C:\Program Files\Therion\therion.exe: error -- can't open file for input -- B3_Amonts.thconfig
+Press ENTER to exit!

@@ -1,0 +1,20 @@
+@0.000,0.000,0.000,0,0.000;
+&European 1950;
+!gIvotscxpl;
+
+// *******************************************************************************************
+// * Conversion d'une database (.sql) Therion en fichiers Compass .dat .mak                  *
+// *       Script pyThtoDat par alexandre.pont@yahoo.fr                                      *
+// *       Version: Septembre 2024                                                           *
+// *       Fichier source: ./Inputs/Lonne_Peyret.sql                                         *
+// *       Fichier destination: ./Outputs/Lonne_Peyret/Lonne_Peyret.dat                      *
+// *       Fichier destination: ./Outputs/Lonne_Peyret/Lonne_Peyret.mak                      *
+// *       Date: 2024_09_30__09:47:02                                                        *
+// *******************************************************************************************
+/
+$31;
+&European 1950;
+*0.00;
+
+#Lonne_Peyret.dat,
+ 1[m,16779.240,1662.379,1571.244];

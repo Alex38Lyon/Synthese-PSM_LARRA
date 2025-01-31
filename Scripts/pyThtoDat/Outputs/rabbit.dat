@@ -1,0 +1,25 @@
+Rabbit Cave
+SURVEY NAME: rabbit
+SURVEY DATE: 10 08 1997 COMMENT: None(Length : 75.93m Surface : 35.18m Duplicate : 0.0m)
+SURVEY TEAM:
+Martin Budaj, Miroslav Hofer, Stacho Mudrak
+DECLINATION:    0.00  FORMAT: DMMDUDRLLAaDdNF  CORRECTIONS:  0.00 0.00 0.00  CORRECTIONS2:  0.00 0.00 
+
+                FROM                   TO   LENGTH  BEARING      INC     LEFT       UP     DOWN    RIGHT   FLAGS  COMMENTS
+
+             [Lonne]1     [Lonne]2     21.00    180.00   4.50     0.00     0.00     0.00     0.00  [ 0@rabbit None - 1@rabbit None ] 
+             [Lonne]2     [Lonne]3     17.06    65.70    -7.20     0.00     0.00     0.00     0.00  [ 1@rabbit None - 2@rabbit None ] 
+             [Lonne]3     [Lonne]4     6.86     37.80    -9.00     0.00     0.00     0.00     0.00  [ 2@rabbit None - 3@rabbit None ] 
+             [Lonne]4     [Lonne]5     13.12    73.80    25.20     0.00     0.00     0.00     0.00  [ 3@rabbit None - 4@rabbit None ] 
+             [Lonne]5     [Lonne]6     27.17    18.90    -7.20     0.00     0.00     0.00     0.00  [ 4@rabbit None - 5@rabbit None ] 
+             [Lonne]5     [Lonne]7     35.73    318.60   -4.50     0.00     0.00     0.00     0.00  [ 4@rabbit None - 6@rabbit None ] 
+             [Lonne]7     [Lonne]8     23.23    322.20   4.50     0.00     0.00     0.00     0.00  [ 6@rabbit None - 7@rabbit None ] 
+             [Lonne]8     [Lonne]9     8.96     234.00   0.90     0.00     0.00     0.00     0.00  [ 7@rabbit None - 8@rabbit None ] 
+             [Lonne]9     [Lonne]10    23.88    343.80   7.20     0.00     0.00     0.00     0.00  [ 8@rabbit None - 9@rabbit None ] 
+             [Lonne]10    [Lonne]11    21.62    277.20   1.80     0.00     0.00     0.00     0.00  [ 9@rabbit None - 10@rabbit None ] 
+             [Lonne]11    [Lonne]12    11.29    335.70   -12.60     0.00     0.00     0.00     0.00  [ 10@rabbit None - 11@rabbit None ] 
+             [Lonne]12    [Lonne]13    22.87    248.40   -1.80     0.00     0.00     0.00     0.00  [ 11@rabbit None - 12@rabbit None ] 
+             [Lonne]12    [Lonne]14    16.34    351.00   55.80     0.00     0.00     0.00     0.00  [ 11@rabbit None - 13@rabbit None ] 
+             [Lonne]14    [Lonne]15    39.04    265.50   2.70     0.00     0.00     0.00     0.00  #|PL#  [ 13@rabbit None - 14@rabbit None ] 
+             [Lonne]15    15           76.38    153.00   1.80     0.00     0.00     0.00     0.00  #|PL#  [ 14@rabbit None - 15@rabbit fix ] 
+
