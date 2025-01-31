@@ -6,8 +6,8 @@ Scripts pour Therion
 pyThtoDat
 ---------
 
-.. centered:: Script pour convertir une database (.sql) produit par Therion                                    
-.. centered:: en fichier Compass (.dat) et (.mak)
+Script pour convertir une database (.sql) produit par Therion
+en fichier Compass (.dat) et (.mak)
 
 
 Usage : python pyThtoDat.py
@@ -22,7 +22,7 @@ Utilisation :
 pyCreate_th2
 ------------
 
-.. centered:: Script pour automatiser la création des dossiers et fichiers pour un fichier .th
+Script pour automatiser la création des dossiers et fichiers pour un fichier .th
 
 Définir les différentes variables dans fichier config.ini   
 Création des dossiers nécessaires d'après dossier 'template'
