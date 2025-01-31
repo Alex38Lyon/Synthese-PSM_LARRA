@@ -2,6 +2,8 @@
 README
 ======
 
-🇫🇷 **[Lire en Français](README.fr.rst)**  
-🇬🇧 **[Read in English](README.en.rst)**  
+🇫🇷 **[Lire en Français](./README.fr.rst)**
+
+🇬🇧 **[Read in English](./README.en.rst)**
+
 
