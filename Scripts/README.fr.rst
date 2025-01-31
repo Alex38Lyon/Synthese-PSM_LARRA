@@ -11,12 +11,15 @@ en fichier Compass (.dat) et (.mak)
 
 
 Usage : python pyThtoDat.py
-- Utilisation :
+
+Utilisation :
 	- Exporter le fichier .sql avec Therion, commande dans fichier .thconfig: 'export database -o Outputs/database.sql'
 	- Sélectionner le fichier database.sql à calculer dans la fenêtre
 	- Définir l’éventuel préfix à chaque station
-- Résultat : fichiers (.dat) et (.mak) dans le même dossier
-- Attention : Les stations sont nommées avec le numéro d'ordre de la BD Therion et pas les numéros des fichiers (.th)
+
+Résultat : fichiers (.dat) et (.mak) dans le même dossier
+
+Attention : Les stations sont nommées avec le numéro d'ordre de la BD Therion et pas les numéros des fichiers (.th)
 	
 ------------
 pyCreate_th2
