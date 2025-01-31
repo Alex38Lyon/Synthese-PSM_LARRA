@@ -1,8 +1,6 @@
-====================
 Scripts pour Therion
 ====================
 
----------
 pyThtoDat
 ---------
 
@@ -21,7 +19,6 @@ Résultat : fichiers (.dat) et (.mak) dans le même dossier
 
 Attention : Les stations sont nommées avec le numéro d'ordre de la BD Therion et pas les numéros des fichiers (.th)
 	
-------------
 pyCreate_th2
 ------------
 

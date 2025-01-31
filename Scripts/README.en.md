@@ -1,8 +1,6 @@
-====================
 Scripts for Therion
 ====================
 
----------
 pyThtoDat
 ---------
 
@@ -20,7 +18,6 @@ Result: (.dat) and (.mak) files are created in the same folder
 
 Note: Stations are named using the order number from the Therion database, not the numbers from the (.th) files  
 
-------------
 pyCreate_th2
 ------------
 
