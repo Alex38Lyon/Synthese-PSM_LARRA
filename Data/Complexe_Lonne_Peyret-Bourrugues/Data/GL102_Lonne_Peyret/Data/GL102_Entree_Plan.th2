@@ -1,7 +1,7 @@
 encoding  utf-8
 ##XTHERION## xth_me_area_adjust -128.0 -128.0 42726.4482 13120.133
-##XTHERION## xth_me_area_zoom_to 25
-##XTHERION## xth_me_image_insert {38622.020000000004 1 1.0} {3700.7900000000004 GL_102@GL102_Entree_01} GL102_Entree-plan.xvi 0 {}
+##XTHERION## xth_me_area_zoom_to 50
+##XTHERION## xth_me_image_insert {77244.04000000001 1 1.0} {7401.580000000001 00@GL102_Entree_01} GL102_Entree-plan.xvi 0 {}
 
 
 
@@ -639,12 +639,6 @@ endline
 
 point 34822.5 4956.0 station-name -scale xs
 
-line wall -close on -reverse on -subtype invisible
-  36875.0 5582.0
-  36960.0 5654.0
-  36875.0 5582.0
-endline
-
 area water
   l253-36448-5631
 endarea
@@ -695,11 +689,6 @@ line contour -id l251-37349-5718 -close on -visibility off
   37553.0 5782.0 37570.0 5840.0 37569.0 5849.0
   37568.0 5858.0 37552.0 5854.0 37552.0 5854.0
   smooth off
-endline
-
-line wall -reverse on -subtype invisible
-  36322.0 5566.0
-  36450.0 5524.0
 endline
 
 line wall
@@ -994,8 +983,8 @@ line contour
 endline
 
 line wall -reverse on
-  28246.0 7250.0
-  28246.0 7250.0 28652.0 7400.0 28764.0 7412.0
+  28332.0 7274.0
+  28332.0 7274.0 28652.0 7400.0 28764.0 7412.0
   28876.0 7424.0 29624.0 7668.0 29720.0 7604.0
   29816.0 7540.0 29764.0 7464.0 29860.0 7404.0
   29956.0 7344.0 30032.0 7416.0 30124.0 7364.0
@@ -1650,8 +1639,8 @@ line pit-chimney -close on
 endline
 
 line wall
-  28246.0 7250.0
-  28246.0 7250.0 28280.0 7252.0 28152.0 7228.0
+  28332.0 7274.0
+  28332.0 7274.0 28280.0 7252.0 28152.0 7228.0
   28024.0 7204.0 28012.0 7140.0 27976.0 7068.0
   27940.0 6996.0 27900.0 6952.0 27864.0 6904.0
   27828.0 6856.0 27788.0 6752.0 27740.0 6688.0
@@ -2250,6 +2239,7 @@ line label -text [Chaos des Titans] -scale xl
   14052.0 10412.0
   14052.0 10412.0 16208.0 10480.0 16664.0 10468.0
   17120.0 10456.0 18468.0 10200.0 18684.0 10168.0
+  smooth off
 endline
 
 line rock-border -close on
@@ -2567,7 +2557,5 @@ endline
 point 7757.060000000003 5266.530000000001 station -name 145@GL102_Aval_01
 
 endscrap
-
-
 
 

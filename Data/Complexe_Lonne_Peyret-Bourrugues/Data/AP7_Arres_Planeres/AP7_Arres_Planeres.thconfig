@@ -432,7 +432,11 @@ export model -enable all -o Outputs/AP7_Arres_Planeres.lox
 export model -enable all -o Outputs/AP7_Arres_Planeres.kml
 
 # Export des fichiers ESRI
-#export map -proj plan -fmt esri -o Outputs/AP7_Arres_Planeres
+export map -proj plan -fmt esri -o Outputs/SHP/ -layout my_layout -enc UTF-8
+export map -proj extended -fmt esri -o Outputs/SHP_Extended/ -layout layout-coupe -enc UTF-8
+export map -proj plan -fmt esri -o Outputs/SHP_Plan/ -layout my_layout -enc UTF-8
+
+
 
 # Export des fichiers kml
 #export map -proj plan -fmt kml -o Outputs/AP7_Arres_Planeres.kml -layout layout-kml

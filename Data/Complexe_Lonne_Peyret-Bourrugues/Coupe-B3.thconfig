@@ -323,6 +323,7 @@ export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/B3_Puit
 # export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
 # export model -fmt esri -o Outputs/SHP/ -enc UTF-8
 #export map -proj plan -fmt esri -o Outputs/SHP/therion -layout my_layout -enc ASCII
+export map -proj extended -fmt esri -o Outputs/SHP_Extended_B3/ -layout layout-coupe -enc UTF-8
 
 # Export des fichiers kml
 #export map -proj plan -fmt kml -o Outputs/Complexe_Lonne_Peyret-Bourrugues.kml -layout layout-kml

@@ -325,8 +325,8 @@ endlayout
 ###############################################################################################
 
 ## Export des xvi pour le dessin si besoin
-export map -proj plan -layout xviexport -fmt xvi -o Data/AP7_Entree-Plan.xvi
-export map -proj extended -layout xviexport -fmt xvi -o Data/AP7_Entree-Extended.xvi
+# export map -proj plan -layout xviexport -fmt xvi -o Data/AP7_Entree-Plan.xvi
+# export map -proj extended -layout xviexport -fmt xvi -o Data/AP7_Entree-Extended.xvi
 
 ## Selection des Maps à exporter
 select MP-AP7_Entree-Plan-tot@AP7_Entree
@@ -344,6 +344,14 @@ export model -enable all -o Outputs/AP7_Entree.kml
 
 ## Export des fichiers ESRI
 #export map -proj plan -fmt esri -o Outputs/AP7_Entree
+# export model -fmt esri -o Outputs/SHP/ -enc UTF-8
+
+# select MP-AP7_Entree-Plan-tot@AP7_Entree
+# export map -proj plan -fmt esri -o Outputs/SHP_Plan/ -layout layout-Plan -enc UTF-8
+
+select MC-AP7_Entree-Extended-tot@AP7_Entree
+export map -proj extended -fmt esri -o Outputs/SHP_Extended/ -layout layout-Extended -enc UTF-8
+
 
 ## Export des fichiers kml
 #export map -proj plan -fmt kml -o Outputs/AP7_Entree.kml -layout layout-kml

@@ -17,9 +17,11 @@ map MP-B3_Entree2 -title "B3 Entrée suite (plan)"
 	break
 	SP-B3_Entree_03
 	break
-	SP-B3_Entree_04
-	break
 	SP-B3_Entree_05
+	break
+	SP-B3_Entree_05B
+	break
+	SP-B3_Entree_04
 	break
 	SP-B3_Entree_06
 endmap

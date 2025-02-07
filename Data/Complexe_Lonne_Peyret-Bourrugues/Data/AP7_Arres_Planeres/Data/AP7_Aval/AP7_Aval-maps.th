@@ -11,6 +11,8 @@ encoding utf-8
 map MP-AP7_Aval-Plan-tot -title "AP7_Aval"
 	SP-AP7_Aval_01
 	break
+	SP-AP7_Aval_09
+	break
 	SP-AP7_Aval_03
 	break
 	SP-AP7_Aval_02
@@ -24,8 +26,6 @@ map MP-AP7_Aval-Plan-tot -title "AP7_Aval"
 	SP-AP7_Aval_07
 	break
 	SP-AP7_Aval_08
-	break
-	SP-AP7_Aval_09
 	break
 	SP-AP7_Aval_10
 	break
@@ -61,6 +61,8 @@ map MC-AP7_Aval-Extended-tot -title "AP7_Aval"
 	SC-AP7_Aval_01
 	break
 	SC-AP7_Aval_02
+	break	
+	SC-AP7_Aval_09
 	break
 	SC-AP7_Aval_03
 	break
@@ -73,8 +75,6 @@ map MC-AP7_Aval-Extended-tot -title "AP7_Aval"
 	SC-AP7_Aval_07
 	break
 	SC-AP7_Aval_08
-	break
-	SC-AP7_Aval_09
 	break
 	SC-AP7_Aval_10
 	break

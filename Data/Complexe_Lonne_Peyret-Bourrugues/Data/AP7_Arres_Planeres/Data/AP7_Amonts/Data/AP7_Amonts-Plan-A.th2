@@ -138,16 +138,16 @@ area sand
   l400--2229-485
 endarea
 
-line contour -id l400--2229-485 -close on -visibility off
-  -2229.25 485.25
-  -2231.25 482.25 -2235.5 503.5 -2243.5 510.75
+line contour -id l400--2229-485 -close off -visibility off
+  -2235.75 486.75
+  -2233.1 489.26 -2235.5 503.5 -2243.5 510.75
   -2251.5 518.0 -2258.25 521.5 -2262.0 522.0
   -2265.75 522.5 -2288.0 522.25 -2297.25 517.75
   -2306.5 513.25 -2331.75 499.0 -2338.0 495.5
   -2344.25 492.0 -2365.75 474.75 -2362.75 467.25
   -2359.75 459.75 -2324.25 445.25 -2324.25 445.25
   smooth off
-  -2324.25 445.25 -2227.25 488.25 -2229.25 485.25
+  -2324.25 445.25 -2242.25 484.25 -2235.75 486.75
 endline
 
 point -2229.0 593.75 water-flow -orientation 33.1
@@ -1896,6 +1896,7 @@ endline
 line contour
   2188.75 -648.5
   2191.25 -647.25 2236.5 -633.25 2227.5 -624.75
+  smooth off
 endline
 
 line contour
@@ -1904,6 +1905,7 @@ line contour
   2071.75 -655.25 2107.25 -643.5 2113.0 -643.0
   2118.75 -642.5 2134.75 -640.75 2136.75 -635.5
   2138.75 -630.25 2141.25 -618.25 2129.25 -619.25
+  smooth off
 endline
 
 line contour
@@ -1912,16 +1914,19 @@ line contour
   2105.25 -650.25 2149.75 -641.0 2157.5 -640.5
   2165.25 -640.0 2177.25 -634.5 2172.75 -629.5
   2168.25 -624.5 2157.75 -621.5 2154.75 -621.5
+  smooth off
 endline
 
 line contour
   2223.25 -684.0
   2223.25 -684.0 2246.75 -662.25 2251.25 -654.5
+  smooth off
 endline
 
 line contour -reverse on
   2235.25 -637.5
   2235.25 -637.5 2215.5 -660.0 2202.75 -664.25
+  smooth off
 endline
 
 point 1665.0 -591.75 blocks
@@ -2177,6 +2182,7 @@ line pit -reverse on
   792.5 -430.5 769.5 -437.5 772.75 -439.5
   776.0 -441.5 786.5 -443.0 795.75 -443.25
   805.0 -443.5 818.25 -446.75 820.0 -447.5
+  smooth off
 endline
 
 point 737.0 -493.0 label -align center -scale xs -text [Salle du 7 inversé]
@@ -2216,26 +2222,31 @@ endline
 line contour -reverse on
   773.5 -429.25
   773.5 -429.25 752.0 -461.5 766.25 -469.25
+  smooth off
 endline
 
 line contour -reverse on
   754.75 -424.75
   754.75 -424.75 736.5 -462.25 745.75 -474.25
+  smooth off
 endline
 
 line contour -reverse on
   731.5 -427.5
   731.5 -427.5 732.5 -466.75 726.75 -470.75
+  smooth off
 endline
 
 line contour -reverse on
   716.25 -426.75
   716.25 -426.75 720.25 -458.5 715.5 -464.25
+  smooth off
 endline
 
 line contour -reverse on
   701.25 -423.0
   701.25 -423.0 716.0 -449.5 706.5 -460.75
+  smooth off
 endline
 
 line rock-border -close on
@@ -2295,11 +2306,13 @@ line contour -visibility off
   1345.75 -513.5
   1345.75 -513.5 1357.75 -500.25 1378.5 -500.0
   1399.25 -499.75 1441.25 -500.5 1402.75 -490.5
+  smooth off
 endline
 
 line contour -reverse on -visibility off
   1328.25 -470.75
   1328.25 -470.75 1328.75 -500.0 1310.5 -502.75
+  smooth off
 endline
 
 point 1544.75 -535.75 water-flow -orientation 305.7
@@ -2436,16 +2449,19 @@ endline
 line contour -reverse on
   1278.5 -451.0
   1278.5 -451.0 1242.0 -467.5 1245.0 -487.25
+  smooth off
 endline
 
 line contour -reverse on
   1221.75 -423.0
   1221.75 -423.0 1219.5 -451.75 1200.0 -461.5
+  smooth off
 endline
 
 line contour -reverse on
   1180.75 -412.5
   1180.75 -412.5 1165.25 -469.25 1150.25 -473.5
+  smooth off
 endline
 
 point 1097.5 -417.5 blocks
@@ -2642,11 +2658,13 @@ point 35.0 -590.25 label -align center -text [Méandre du gypse] -scale xs
 line contour
   38.75 -633.25
   38.75 -633.25 39.5 -651.75 55.0 -652.75
+  smooth off
 endline
 
 line contour
   31.0 -631.5
   31.0 -631.5 24.0 -664.5 39.5 -665.0
+  smooth off
 endline
 
 line contour
@@ -2659,12 +2677,14 @@ endline
 line contour
   9.25 -620.0
   9.25 -620.0 34.75 -660.5 0.0 -668.75
+  smooth off
 endline
 
 line contour
   -5.5 -624.75
   -5.5 -624.75 1.5 -641.25 -5.5 -645.5
   -12.5 -649.75 -52.25 -666.25 -65.5 -672.25
+  smooth off
 endline
 
 line rock-border -close on
@@ -2728,6 +2748,7 @@ line floor-step -reverse on
   -143.5 -681.25
   -143.5 -681.25 -151.0 -700.75 -144.75 -700.75
   -138.5 -700.75 -125.75 -697.5 -120.5 -696.5
+  smooth off
 endline
 
 line rock-border -close on
@@ -3333,6 +3354,7 @@ line wall -subtype unsurveyed
   2721.0 -710.75 2728.0 -708.0 2730.0 -712.0
   2732.0 -716.0 2737.5 -722.75 2740.5 -723.25
   2743.5 -723.75 2769.23 -717.6 2775.0 -713.75
+  smooth off
 endline
 
 line wall -reverse on -subtype unsurveyed
@@ -3341,6 +3363,7 @@ line wall -reverse on -subtype unsurveyed
   2722.25 -707.5 2731.75 -704.5 2733.75 -707.0
   2735.75 -709.5 2737.5 -720.5 2741.75 -720.25
   2746.0 -720.0 2770.0 -712.0 2775.25 -708.75
+  smooth off
 endline
 
 point 2677.0 -700.5 label -scale xs -align right -text C8
@@ -3703,6 +3726,7 @@ line border -reverse on
   1101.5 -412.25
   1101.5 -412.25 1109.0 -412.5 1124.0 -413.0
   1139.0 -413.5 1165.0 -409.5 1170.75 -408.0
+  smooth off
 endline
 
 point 1101.0 -408.25 sink
@@ -3855,6 +3879,5 @@ point -508.31 -484.96 station -name 13_07
 point -565.63 -498.19 station -name 13_06B
 
 endscrap
-
 
 
