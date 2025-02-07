@@ -1,0 +1,19 @@
+*******************************************************************************************
+* Calcul des statistiques par entrées d'une BD Therion                                    *
+*       Script pythStat par alexandre.pont@yahoo.fr                                       *
+*       Version : 2025.02.07                                                              *
+*       Fichier source : ./test/rabbit.sql                                                *
+*       Dossier destination : ./test/stat_rabbit_2025-02-07/                              *
+*       Date : 2025-02-07 16:30:25                                                        *
+*       Durée calcul: 03(s) sans erreur                                                   *
+*******************************************************************************************
+Développement total centerline:	75.93     	0.00      	35.18     	-         	-         	Dev.(m), Dupl.(m), Surf.(m)
+
+Développement total par réseaux
+	Entrée(s)                     	Nbre      	Dev.(m)   	Prof.(m)  	Dupl.(m)  	Surf.(m)  	Visées    	ID Sta.   	Alt. min(m)	ID Sta.   	Alt. max(m)
+	Totaux (entrées et points fixes)	1         	75.93     	7.23      	0.00      	35.18     	15        	3         	627.0     	15        	634.23
+	15                            	1         	75.93     	7.23      	0.00      	35.18     	15        	3         	627.00    	15        	634.23
+
+Développement total topographié par année(s)
+	Année     	Dev.(m)   	Cumul (m) 	Dupl.(m)  	Cumul (m) 	Surf.(m)  	Cumul (m)
+	1997      	75.93     	75.93     	0.00      	0.00      	35.18     	35.18

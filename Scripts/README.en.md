@@ -18,6 +18,7 @@ Result: (.dat) and (.mak) files are created in the same folder
 
 Note: Stations are named using the order number from the Therion database, not the numbers from the (.th) files  
 
+
 pyCreate_th2
 ------------
 
@@ -29,3 +30,14 @@ Script to automate the creation of folders and files for a .th file
 - Create scraps with topo stations  
 
 Usage: python pyCreate_th2.py  
+
+
+pyThStat
+--------
+
+Script to calculate statistics of joined entities from a database File (.sql) Produced by Therion
+
+Usage:
+- Export the SQL file using Therion command (.thconfig) : export database -o Outputs/database.sql
+- Command : python pythStat.py ./path/to/file.sql
+- Or : python pythStat.py to open a window

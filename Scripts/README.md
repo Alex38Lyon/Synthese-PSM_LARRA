@@ -20,6 +20,7 @@ Utilisation :
 Résultat : fichiers (.dat) et (.mak) dans le même dossier
 
 Attention : Les stations sont nommées avec le numéro d'ordre de la BD Therion et pas les numéros des fichiers (.th)
+
 	
 pyCreate_th2
 ------------
@@ -32,3 +33,14 @@ Script pour automatiser la création des dossiers et fichiers pour un fichier .t
 - Création des scraps avec les stations topo
 
 Usage : python pyCreate_th2.py
+
+
+pyThStat
+--------
+
+Script pour calculer les statistiques des entités jonctionnées d'un fichier database (.sql) produit par Therion
+
+Utilisation:
+- Exporter le fichier sql avec therion, commande therion.thconfig : export database -o Outputs/database.sql
+- Commande : python pythStat.py ./chemin/fichier.sql
+- Ou : python pythStat.py  pour ouvrir une fenêtre
