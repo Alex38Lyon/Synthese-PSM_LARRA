@@ -120,6 +120,8 @@ layout layout-Plan
 	doc-author "{Author}"
 	## Titre
 	doc-title "{cavename} Plan - 1:{Scale}"
+	doc-subject  "{cavename}, topographie en plan"
+	doc-keywords "Cave, Survey, {cavename}, Pierre saint Martin - Larra, {map_comment}"
 	
 	## Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	## Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -259,6 +261,9 @@ layout layout-Extended
 	doc-author "{Author}"
 	## Titre
 	doc-title "{cavename} Coupe développée - 1:{Scale}"
+	
+	doc-subject  "{cavename}, topographie en coupe développée"
+	doc-keywords "Cave, Survey, {cavename}, Pierre saint Martin - Larra, Coupe développée, {map_comment}"
 	
 	## Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	## Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
