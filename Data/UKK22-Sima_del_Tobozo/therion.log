@@ -1,0 +1,65 @@
+therion 6.3.3 (2025-01-06)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: Tobozo.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+output coordinate system: UTM30
+meridian convergence (deg): -1.5260
+geomag declinations (deg):
+  1987.1.1  -3.9561
+  1988.1.1  -3.8278
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+processing survey data ... 
+####################### cavern log file ########################
+ 1> Survex 1.4.15
+ 2> Copyright ¸ 1990-2024 Olly Betts
+ 3> 
+ 4> La topographie contient 6498 stations, connect‚es par 6497 vis‚es.
+ 5> Il y a 0 bouclages.
+ 6> Longueur totale de la topographie = 7228.73m (7228.73m ajust‚)
+ 7> Longueur totale en projection horizontale = 6472.11m
+ 8> Longueur totale verticale = 1928.32m
+ 9> Intervalle vertical = 512.47m (de 4 … 1964.00m jusqu'… 4838 … 1451.53m)
+10> Intervalle Nord-Sud = 479.10m (de 4835 … 4756176.19m jusqu'… 3125 … 4755697.10m)
+11> Intervalle Est-Ouest = 2814.85m (de 3449 … 684816.49m jusqu'… 5933 … 682001.65m)
+12> 5776 1-noeuds.
+13>   34 9-noeuds.
+14>  656 10-noeuds.
+15>   32 11-noeuds.
+16> 
+######################### transcription ########################
+ 4> 6498 : -@Tobozo_2131.Tobozo -- 6497 : -@Tobozo_2131.Tobozo
+ 9> 4 : -@Tobozo_1.Tobozo -- 4838 : -@Tobozo_24.Tobozo
+10> 4835 : -@Tobozo_24.Tobozo -- 3125 : -@Tobozo_9.Tobozo
+11> 3449 : -@Tobozo_9.Tobozo -- 5933 : -@Tobozo_211.Tobozo
+12> 5776 : -@Tobozo_211.Tobozo
+13> 34 : -@Tobozo_1.Tobozo
+14> 656 : -@Tobozo_2.Tobozo
+15> 32 : -@Tobozo_1.Tobozo
+#################### end of cavern log file ####################
+done
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+writing Outputs/Tobozo.lox ...
+processing projection plan ... done
+ done
+writing Outputs/Tobozo.kml ... done
+writing Outputs/Tobozo-Cave-list.html ... done
+writing Outputs/Tobozo-Surveys.html ... done
+compilation time: 1 sec
+
+############# CRS transformations chosen by PROJ ###############
+  Area of Use (AoU): (-0.760, 42.933) (-0.760, 42.933)
+  [UTM30 â†’ LONG-LAT] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 â†’ LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 â†’ UTM30] AoU: [yes] transformation: [Inverse of UTM zone 30N + UTM zone 30N] definition: [proj=noop ellps=GRS80] accuracy: [0.000 m]
+  [UTM30 â†’ EPSG:4326] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [EPSG:4326 â†’ UTM30] AoU: [yes] transformation: [axis order change (2D) + UTM zone 30N] definition: [proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=30 ellps=WGS84] accuracy: [0.000 m]
+########## end of CRS transformations chosen by PROJ ###########

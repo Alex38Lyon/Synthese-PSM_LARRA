@@ -1,0 +1,53 @@
+2
+D‚veloppement: 12.50 metre
+Galerie de raccord: 22
+Station de raccord: 45
+*******************
+23
+********************
+ STATION 0        :  34686526 7537455  -48915  
+
+ PROFIL STATION 0
+ point droit      :  34686370 7538443  -48915  
+ point gauche     :  34686537 7537386  -48915  
+ point haut       :  34686526 7537455  -47915  
+ point bas        :  34686526 7537455  -49915  
+
+ point haut-droit :  34686416 7538154  -48208  
+ point haut-gauche:  34686532 7537419  -48381  
+ point bas-droit  :  34686416 7538154  -49622  
+ point bas-gauche :  34686532 7537419  -49449  
+******************************************
+
+23
+********************
+ STATION 1      S :  34686510 7537155  -48915  
+
+ PROFIL STATION 
+ point droit      :  34686500 7537156  -48915  
+ point gauche     :  34686520 7537155  -48915  
+ point haut       :  34686510 7537155  -48905  
+ point bas        :  34686510 7537155  -48925  
+
+ point haut-droit :  34686503 7537156  -48908  
+ point haut-gauche:  34686517 7537155  -48908  
+ point bas-droit  :  34686503 7537156  -48922  
+ point bas-gauche :  34686517 7537155  -48922  
+******************************************
+
+23
+********************
+ STATION 2      S :  34686510 7537155  -49865  
+
+ PROFIL STATION 
+ point droit      :  34686500 7537156  -49865  
+ point gauche     :  34686520 7537155  -49865  
+ point haut       :  34686510 7537155  -49855  
+ point bas        :  34686510 7537155  -49875  
+
+ point haut-droit :  34686503 7537156  -49858  
+ point haut-gauche:  34686517 7537155  -49858  
+ point bas-droit  :  34686503 7537156  -49872  
+ point bas-gauche :  34686517 7537155  -49872  
+******************************************
+
