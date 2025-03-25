@@ -15,14 +15,17 @@
 #                                                        	                                #
 #############################################################################################
 
-Creation Alex the 2024 12 16 :
+Création Alex the 2024 12 16 :
         Thank's too         
         - Tanguy Racine for the script             https://github.com/tr1813
         - Xavier Robert for the main principes     https://github.com/robertxa
         - Benoit Urruty                            https://github.com/BenoitURRUTY
+        
+Version 2025 03 21 :   Création mode --update th2
+        
 """
 
-Version ="2025.01.02"  
+Version ="2025.03.21"  
 
 #################################################################################################
 #################################################################################################
@@ -61,7 +64,7 @@ wpage = "https://therion.speleo.sk/"
 template_path = "./template"
 station_by_scrap = 20
 final_therion_exe = True
-therion_path = "C:\Therion\therion.exe"
+therion_path = "C:/Therion/therion.exe"
 LINES = -1
 NAMES = -1
 
@@ -365,10 +368,13 @@ def select_file():
 
 
 #################################################################################################
+#  main function                                                                                #
 #################################################################################################
 if __name__ == u'__main__':	
     
-    # Parse arguments
+    #################################################################################################
+    # Parse arguments                                                                               #
+    #################################################################################################
     parser = argparse.ArgumentParser(
         description=f"{Colors.HEADER}Create a skeleton folder and th2 files with scraps from a .th Therion file\nVersion: {Colors.ENDC}{Version}\n",
         formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -382,6 +388,7 @@ if __name__ == u'__main__':
     parser.add_argument("--scale", help="Scale for the exports", default="500")
     parser.add_argument("--lines", type=str_to_bool, help="Shot lines in th2 files", default=-1)
     parser.add_argument("--names", type=str_to_bool, help="Stations names in th2 files", default=-1)
+    parser.add_argument("--update", help="Mode update, option th2", default="")
                         
     parser.epilog = (
         f"{Colors.GREEN}Please, complete {Colors.RED}config.ini{Colors.GREEN} file for personal configuration{Colors.ENDC}\n"
@@ -392,12 +399,13 @@ if __name__ == u'__main__':
         f"\t> python pyCreate_th2.py\n\n")
     args = parser.parse_args()
 
-    print("args.survey_file : " + args.survey_file )
+    # print("args.survey_file : " + args.survey_file )
+    # print("args.update : " + args.update )
+    
     if args.survey_file == "":
         args.survey_file = select_file()
-        print(f"Fichier sélectionné : {args.survey_file}")
-        
-
+        print(f"Selected file : {args.survey_file}")
+              
     ENTRY_FILE = abspath(args.survey_file)
     # PROJECTION = args.proj.capitalize()
     PROJECTION = "Plan"
@@ -426,6 +434,9 @@ if __name__ == u'__main__':
     # print("DEST_PATH: " + DEST_PATH )
     # print("ABS_PATH: " + ABS_PATH )  
     
+    #################################################################################################
+    # Reading config.ini                                                                            #
+    #################################################################################################
     try:
         # Load the 'database' section from the configuration file
         read_config("config.ini")
@@ -470,41 +481,61 @@ if __name__ == u'__main__':
     
     if not survey:
         raise NoSurveysFoundException(f"{Colors.ERROR}Error: No survey found with that selector{Colors.ENDC}")
- 
     
+   
+    if args.update == "th2": 
+        print(f"{Colors.GREEN} Update th2 files {Colors.ENDC}")
+        print(f"\t{Colors.BLUE}survey_file :  {Colors.ENDC} {args.survey_file}")
+        print(f"\t{Colors.BLUE}ENTRY_FILE:    {Colors.ENDC} {ENTRY_FILE}") 
+        print(f"\t{Colors.BLUE}PROJECTION:    {Colors.ENDC} {PROJECTION}") 
+        print(f"\t{Colors.BLUE}TARGET:        {Colors.ENDC} {TARGET}") 
+        print(f"\t{Colors.BLUE}OUTPUT:        {Colors.ENDC} {OUTPUT}") 
+        print(f"\t{Colors.BLUE}FORMAT:        {Colors.ENDC} {FORMAT}")     
+        print(f"\t{Colors.BLUE}SCALE:         {Colors.ENDC} {SCALE}")
+        print(f"\t{Colors.BLUE}TH_NAME:       {Colors.ENDC} {TH_NAME}")
+        DEST_PATH = os.path.dirname(args.survey_file)
+        print(f"\t{Colors.BLUE}DEST_PATH:     {Colors.ENDC} {DEST_PATH}")
+        print(f"\t{Colors.BLUE}ABS_PATH:      {Colors.ENDC} {ABS_PATH}")
+        
+         
     
-    
+#################################################################################################    
+# Copy template folders                                                                         #
 #################################################################################################
-    # Copy template folders
-    # print(f"{Colors.GREEN}Copy template folder and adapte it{Colors.ENDC}")
-    copy_template_if_not_exists(template_path, DEST_PATH)
-    copy_file_with_copyright(ENTRY_FILE, DEST_PATH + "/Data", Copyright)
-    
-    # Adapte templates 
-    config_vars = {
-        'fileName': TH_NAME,
-        'cavename': TH_NAME.replace("_", " "),
-        'Author': Author,
-        'Copyright': Copyright,
-        'Scale' : SCALE,
-        'Target' : TARGET,
-        'map_comment' : map_comment,
-        'club' : club,
-        'thanksto' : thanksto.replace("_", r"\_"),
-        'datat' : datat.replace("_", r"\_"),
-        'wpage' : wpage.replace("_", r"\_"), 
-        'cs' : cs,
-        'other_scraps_plan' : "",
-        'file_info' : f'# File generated by pyCreate_th2.py (version {Version}) date: {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}',
-    }
-    
-    process_template(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  TH_NAME + '.thconfig')
-    process_template(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' +  TH_NAME + '-tot.th')
-    process_template(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/readme.md')
-                
+ 
+    if args.update == "": 
+        # print(f"{Colors.GREEN}Copy template folder and adapte it{Colors.ENDC}")
+        copy_template_if_not_exists(template_path, DEST_PATH)
+        copy_file_with_copyright(ENTRY_FILE, DEST_PATH + "/Data", Copyright)
+        
+        # Adapte templates 
+        config_vars = {
+            'fileName': TH_NAME,
+            'cavename': TH_NAME.replace("_", " "),
+            'Author': Author,
+            'Copyright': Copyright,
+            'Scale' : SCALE,
+            'Target' : TARGET,
+            'map_comment' : map_comment,
+            'club' : club,
+            'thanksto' : thanksto.replace("_", r"\_"),
+            'datat' : datat.replace("_", r"\_"),
+            'wpage' : wpage.replace("_", r"\_"), 
+            'cs' : cs,
+            'other_scraps_plan' : "",
+            'file_info' : f'# File generated by pyCreate_th2.py (version {Version}) date: {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}',
+        }
+        
+        process_template(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  TH_NAME + '.thconfig')
+        process_template(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' +  TH_NAME + '-tot.th')
+        process_template(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/readme.md')
+        
      
+       
+  #################################################################################################                   
+  # Produce the parsable XVI file                                                                 #
   #################################################################################################      
-    # Produce the parsable XVI file
+    
     print(f"{Colors.GREEN}Compiling 2D XVI file:      \t{Colors.ENDC} {TH_NAME}")
     
     template = """source "{th_file}"
@@ -519,20 +550,33 @@ if __name__ == u'__main__':
     export map -projection extended -o "{th_name}-Extended.xvi" -layout minimal -layout-debug station-names
     """
 
-    template_args = {
-        "th_file": DEST_PATH + "/Data/" + TH_NAME + ".th",  
-        "selector": survey.therion_id,
-        "th_name": DEST_PATH + "/Data/" + TH_NAME, 
-        "scale": SCALE,
-    }
+    if args.update == "th2": 
+        template_args = {
+            "th_file": DEST_PATH + "/" + TH_NAME + ".th",  
+            "selector": survey.therion_id,
+            "th_name": DEST_PATH + "/" + TH_NAME, 
+            "scale": SCALE,
+        }
+
+    else :
+        template_args = {
+            "th_file": DEST_PATH + "/Data/" + TH_NAME + ".th",  
+            "selector": survey.therion_id,
+            "th_name": DEST_PATH + "/Data/" + TH_NAME, 
+            "scale": SCALE,
+        }
 
     log, tmpdir = compile_template(template, template_args, cleanup=False, therion_path=therion_path)
    
-    
-
+#################################################################################################    
+# Parse the Plan XVI file                                                                       #
 #################################################################################################
-    # Parse the Plan XVI file
-    th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Plan.xvi" 
+    
+    if args.update == "th2": 
+        th_name_xvi =  DEST_PATH + "/" + TH_NAME + "-Plan.xvi" 
+    else :     
+        th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Plan.xvi" 
+        
     print(f"{Colors.GREEN}Parsing plan XVI file:\t{Colors.ENDC}{th_name_xvi}")
     
     stations = {}
@@ -592,8 +636,10 @@ if __name__ == u'__main__':
                 station2 = stations[key2][2] if key2 in stations else None
                 lines.append([x1, y1, x2, y2, station1, station2])
     # shutil.rmtree(tmpdir)
-
-    th2_name = DEST_PATH + "/Data/" + TH_NAME
+    if args.update == "th2": 
+        th2_name = DEST_PATH + "/" + TH_NAME
+    else : 
+        th2_name = DEST_PATH + "/Data/" + TH_NAME
     output_path = f'{th2_name}-{PROJECTION}.{FORMAT}'
     
     scrap_to_add = int(len(stations)/station_by_scrap)-1
@@ -715,9 +761,14 @@ endscrap
                         )
                             
 
-
+#################################################################################################    
+# Parse the Extended XVI file                                                                   #
 #################################################################################################
-    th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Extended.xvi" 
+    if args.update == "th2": 
+        th_name_xvi =  DEST_PATH + "/" + TH_NAME + "-Extended.xvi" 
+    else :
+        th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Extended.xvi" 
+            
     print(f"{Colors.GREEN}Parsing extended XVI file:\t{Colors.ENDC}{th_name_xvi}")
     
     # Parse the Extended XVI file
@@ -779,7 +830,10 @@ endscrap
                 lines.append([x1, y1, x2, y2, station1, station2])
     shutil.rmtree(tmpdir)
 
-    th2_name = DEST_PATH + "/Data/" + TH_NAME
+    if args.update == "th2":
+        th2_name = DEST_PATH + "/" + TH_NAME
+    else :
+        th2_name = DEST_PATH + "/Data/" + TH_NAME
     output_path = f'{th2_name}-Extended.{FORMAT}'
     
     print(f"{Colors.GREEN}Writing output to:\t\t{Colors.ENDC}{output_path}")
@@ -894,34 +948,40 @@ endscrap
                         )
     
     
+#################################################################################################     
+# Update -maps files                                                                            #
+#################################################################################################      
+    if args.update == "":                      
+        config_vars = {
+                        'fileName': TH_NAME,
+                        'Author': Author,
+                        'Copyright': Copyright,
+                        'Scale' : SCALE,
+                        'Target' : TARGET,
+                        'map_comment' : map_comment,
+                        'club' : club,
+                        'thanksto' : thanksto,
+                        'datat' : datat,
+                        'wpage' : wpage, 
+                        'cs' : cs,
+                        'other_scraps_plan' : other_scraps_plan,
+                        'other_scraps_extended' : other_scraps_extended,
+                        'file_info' : f"# File generated by pyCreate_th2.py version {Version} date: {datetime.now().strftime("%Y.%m.%d-%H:%M:%S")}",
+                }
+                
+        process_template(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  TH_NAME + '-maps.th')
     
     
-#################################################################################################                            
-    config_vars = {
-                    'fileName': TH_NAME,
-                    'Author': Author,
-                    'Copyright': Copyright,
-                    'Scale' : SCALE,
-                    'Target' : TARGET,
-                    'map_comment' : map_comment,
-                    'club' : club,
-                    'thanksto' : thanksto,
-                    'datat' : datat,
-                    'wpage' : wpage, 
-                    'cs' : cs,
-                    'other_scraps_plan' : other_scraps_plan,
-                    'other_scraps_extended' : other_scraps_extended,
-                    'file_info' : f"# File generated by pyCreate_th2.py version {Version} date: {datetime.now().strftime("%Y.%m.%d-%H:%M:%S")}",
-            }
-            
-    process_template(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  TH_NAME + '-maps.th')
-    
-    
-if final_therion_exe == True:
-    print(f"{Colors.GREEN}Final therion compilation{Colors.ENDC}")
-    PATH = os.path.dirname(args.survey_file) + "/" + TH_NAME + "/" + TH_NAME + ".thconfig"
-       
-    compile_file(PATH, therion_path=therion_path) 
+#################################################################################################     
+# Final therion compilation                                                                     #
+#################################################################################################
+
+if args.update == "":   
+    if final_therion_exe == True:
+        print(f"{Colors.GREEN}Final therion compilation{Colors.ENDC}")
+        PATH = os.path.dirname(args.survey_file) + "/" + TH_NAME + "/" + TH_NAME + ".thconfig"
+        
+        compile_file(PATH, therion_path=therion_path) 
 
 
 
