@@ -17,8 +17,13 @@ centerline
      explo-team "CRS"
      
      cs UTM30
-	  fix 0 682756 4755825	1960 # A confirmer 
-	  station 0 "Sima del Tobozo" entrance
+	  # fix 0 682756 4755825	1960 # A confirmer 
+	  fix 0 682681 4755870	1975 # MD par mail le 25/03/2025   
+	  # Le Tobozo est presque au sommet d'une croupe sur le versant sud et on accroche pas mal de satellites. 
+	  # Les données de 2014 sont la moyenne d'un relevé de 45 mn avec un point toutes les 15 s
+	  # Z est déterminé par report des coordonnées sur la cartographie IDENA
+	  
+	  station 0 "UKK22 - Sima del Tobozo" entrance
         
      data cartesian from to easting northing altitude
      
@@ -29,6 +34,8 @@ centerline
 # Station de raccord: 0
 # 
 # 0 0 347220.95 75127.65 0.0
+
+extend left
 0 - 0.41 0.92 0.0
 0 - -1.63 -3.65 0.0
 0 - 0.0 0.0 4.0
