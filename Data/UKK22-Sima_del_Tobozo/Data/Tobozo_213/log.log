@@ -1,0 +1,197 @@
+therion 6.3.3 (2025-01-06)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: D:/08 GitHub/Synthese-PSM_LARRA/Data/UKK22-Sima_del_Tobozo/Data/Tobozo_213/Tobozo_213.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+processing survey data ... 
+####################### cavern log file ########################
+ 1> Survex 1.4.15
+ 2> Copyright ¸ 1990-2024 Olly Betts
+ 3> C:\Users\alexa\AppData\Local\Temp\th4184\data.svx:7: info: La topographie n'a pas de points fixes. Par cons‚quent j'ai fix‚ 1 … (0,0,0)
+ 4> 
+ 5> La topographie contient 207 stations, connect‚es par 206 vis‚es.
+ 6> Il y a 0 bouclages.
+ 7> Longueur totale de la topographie =  185.85m ( 185.85m ajust‚)
+ 8> Longueur totale en projection horizontale =  184.35m
+ 9> Longueur totale verticale =   15.59m
+10> Intervalle vertical = 11.00m (de 4 … 10.00m jusqu'… 5 … -1.00m)
+11> Intervalle Nord-Sud = 125.59m (de 201 … 124.46m jusqu'… 3 … -1.13m)
+12> Intervalle Est-Ouest = 95.39m (de 200 … 79.35m jusqu'… 39 … -16.04m)
+13>  184 1-noeuds.
+14>    2 9-noeuds.
+15>   21 10-noeuds.
+16> 
+######################### transcription ########################
+ 3> input:7 -- D:/08 GitHub/Synthese-PSM_LARRA/Data/UKK22-Sima_del_Tobozo/Data/Tobozo_213/Data/Tobozo_213.th [29]
+ 3> 1 : 0@Tobozo_213.Tobozo_213
+ 5> 207 : -@Tobozo_213.Tobozo_213 -- 206 : -@Tobozo_213.Tobozo_213
+10> 4 : -@Tobozo_213.Tobozo_213 -- 5 : -@Tobozo_213.Tobozo_213
+11> 201 : -@Tobozo_213.Tobozo_213 -- 3 : -@Tobozo_213.Tobozo_213
+12> 200 : -@Tobozo_213.Tobozo_213 -- 39 : -@Tobozo_213.Tobozo_213
+13> 184 : -@Tobozo_213.Tobozo_213
+14> 2 : -@Tobozo_213.Tobozo_213
+15> 21 : -@Tobozo_213.Tobozo_213
+#################### end of cavern log file ####################
+done
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+processing projection plan ... done
+average distortion: 0.00%
+writing D:/08 GitHub/Synthese-PSM_LARRA/Data/UKK22-Sima_del_Tobozo/Data/Tobozo_213/Data/Tobozo_213-Plan.xvi ... done
+processing projection extended ... done
+average distortion: 0.00%
+writing D:/08 GitHub/Synthese-PSM_LARRA/Data/UKK22-Sima_del_Tobozo/Data/Tobozo_213/Data/Tobozo_213-Extended.xvi ... done
+
+
+############### export maps & scraps selection #################
+M     5.37 MP-Tobozo_213-Plan-tot@Tobozo_213 (Tobozo_213)
+S     5.37 SP-Tobozo_213_01@Tobozo_213 ()
+########## end of export maps & scraps selection ###############
+writing D:/08 GitHub/Synthese-PSM_LARRA/Data/UKK22-Sima_del_Tobozo/Data/Tobozo_213/Outputs/Tobozo_213-Plan.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  15 APR 2025 08:29
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] (./mptextmp.mp) [2] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [3] [4] [5] [6] [7] [8] [9]
+[10] [11] [12] [13] [14] )
+ 
+Here is how much of MetaPost's memory you used:
+ 1626 strings using 47520 characters
+ 3733920 bytes of node memory
+ 1753 symbolic tokens
+ 9i,82n,12p,312b,5f stack positions out of 16i,98n,15p,312b,6f
+29 output files written: data-patt.1 .. data-patt.15
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  15 APR 2025 08:29
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 61 numeric registers used out of 32768
+
+[1] )
+(\end occurred when \ifx on line 12 was incomplete) 
+Here is how much of TeX's memory you used:
+ 322 strings out of 95671
+ 4257 string characters out of 1192323
+ 37976 words of memory out of 1525019
+ 1715 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,715b,73s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/te
+xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
+pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
+erion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 44654 bytes).
+PDF statistics:
+ 68 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 127 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+
+
+############### export maps & scraps selection #################
+M     0.00 MC-Tobozo_213-Extended-tot@Tobozo_213 (Tobozo_213)
+S     0.00 SC-Tobozo_213_01@Tobozo_213 ()
+########## end of export maps & scraps selection ###############
+writing D:/08 GitHub/Synthese-PSM_LARRA/Data/UKK22-Sima_del_Tobozo/Data/Tobozo_213/Outputs/Tobozo_213-Extended.pdf ...
+####################### metapost log file ########################
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  15 APR 2025 08:29
+**data.mp
+(c:/Program Files/Therion/texmf/mpost/mpost.mp
+(c:/Program Files/Therion/texmf/mpost/plain.mp
+Preloading the plain mem file, version 1.005) ) (./data.mp
+{randomseed:=42}
+ [1] [2] [3] [4]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [1] (./mptextmp.mp) [2] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [3] [4] [5] )
+ 
+Here is how much of MetaPost's memory you used:
+ 1599 strings using 44047 characters
+ 3733920 bytes of node memory
+ 1753 symbolic tokens
+ 9i,82n,12p,312b,5f stack positions out of 16i,98n,15p,312b,6f
+20 output files written: data-patt.1 .. data-patt.15
+
+
+#################### end of metapost log file ####################
+converting scraps ... done
+making map ... done
+######################## pdftex log file #########################
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  15 APR 2025 08:29
+entering extended mode
+**data.tex
+(./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
+(c:/Program Files/Therion/texmf/tex/glyphtounicode.tex)) (./th_fontdef.tex{c:/P
+rogram Files/Therion/texmf/fonts/pdftex.map})
+(./th_formdef.tex) (./th_pagedef.tex (./th_legend.tex)) (./th_pages.tex)
+ 52 numeric registers used out of 32768
+
+[1] ) 
+Here is how much of TeX's memory you used:
+ 313 strings out of 95671
+ 4185 string characters out of 1192323
+ 37507 words of memory out of 1524550
+ 1706 multiletter control sequences out of 15000+50000
+ 21229 words of font info for 66 fonts, out of 1000000 for 2000
+ 844 hyphenation exceptions out of 5000
+ 12i,5n,8p,715b,73s stack positions out of 5000i,500n,10000p,200000b,50000s
+<c:/Program Files/Therion/texmf/fonts/type1/cmss10.pfb><c:/Program Files/T
+herion/texmf/fonts/type1/cmssi10.pfb><c:/Program Files/Therion/texmf/fonts/type
+1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/csssi10.pfb>
+Output written on data.pdf (1 page, 42220 bytes).
+PDF statistics:
+ 50 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+
+##################### end of pdftex log file #####################
+done
+writing D:/08 GitHub/Synthese-PSM_LARRA/Data/UKK22-Sima_del_Tobozo/Data/Tobozo_213/Outputs/Tobozo_213.lox .... done
+C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+writing D:/08 GitHub/Synthese-PSM_LARRA/Data/UKK22-Sima_del_Tobozo/Data/Tobozo_213/Outputs/Tobozo_213-Cave-list.html ... done
+writing D:/08 GitHub/Synthese-PSM_LARRA/Data/UKK22-Sima_del_Tobozo/Data/Tobozo_213/Outputs/Tobozo_213-Surveys.html ... done
+compilation time: 2 sec
+
+
+###################### scrap distortions #######################
+ PROJECTION: plan
+ AVERAGE  MAXIMAL  SCRAP
+   0.00%    0.05%  SP-Tobozo_213_01@Tobozo_213
+################### end of scrap distortions ###################
+
+
+###################### scrap distortions #######################
+ PROJECTION: extended
+ AVERAGE  MAXIMAL  SCRAP
+   0.00%    0.08%  SC-Tobozo_213_01@Tobozo_213
+################### end of scrap distortions ###################

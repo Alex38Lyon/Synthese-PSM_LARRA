@@ -691,3 +691,9 @@ export model -fmt esri -o Outputs/SHP/ -enc UTF-8
 #export model -enable all -o Outputs/Z510-3D.kml
 export cave-list -location on -o Outputs/Z510-Cave-list.html
 export survey-list -location on -o Outputs/Z510-Surveys.html
+export cave-list -location on -o Outputs/Z510-Cave-list.txt
+export survey-list -location on -o Outputs/Z510-Surveys.txt
+export cave-list -location on -o Outputs/Z510-Cave-list.dbf
+export survey-list -location on -o Outputs/Z510-Surveys.dbf
+export cave-list -location on -o Outputs/Z510-Cave-list.kml
+export survey-list -location on -o Outputs/Z510-Surveys.kml

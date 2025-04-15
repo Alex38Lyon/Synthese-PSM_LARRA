@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document>
+<name><![CDATA[Z510-Cave-list.kml]]></name>
+<Folder>
+<name><![CDATA[Z510]]></name>
+<Placemark>
+<name><![CDATA[Gouffre Z510]]></name>
+<Point>
+<coordinates>-0.80191485229366,42.95438026016650,1644.00000000000000</coordinates>
+</Point>
+</Placemark>
+</Folder>
+</Document>
+</kml>

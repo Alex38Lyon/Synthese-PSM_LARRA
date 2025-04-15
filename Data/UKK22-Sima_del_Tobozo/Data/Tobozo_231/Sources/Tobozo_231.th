@@ -1,0 +1,86 @@
+
+encoding  utf-8
+
+# Copyright (C) ARSIP 2025
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+# <http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+# Conversion d'après fichier 231.LEC de coordonnées cartésiens Lambert Martin / CRS par Alex 03/2025
+
+survey Tobozo_231 -title "Sima del Tobozo (galerie 231)"
+
+centerline
+
+     date 1987.08.01
+     team "Lambert Martin"
+     explo-date 1987
+     explo-team "CRS"
+     
+        
+     data cartesian from to easting northing altitude
+     
+     # 
+# Nbre de stations : 4
+# Développement: 58.83 metre
+# Galerie de raccord: 23
+# Station de raccord: 2
+# 
+# 0 0 346865.1 75371.55 -498.65
+0 - -0.1 0.01 0.0
+0 - 0.1 0.0 0.0
+0 - 0.0 0.0 0.1
+0 - 0.0 0.0 -0.1
+0 - -0.07 0.01 0.07
+0 - 0.07 0.0 0.07
+0 - -0.07 0.01 -0.07
+0 - 0.07 0.0 -0.07
+#
+
+0 1 -1.11 -4.46 -0.56 # S
+1 - -9.75 2.25 0.0
+1 - 0.97 -0.22 0.0
+1 - 0.0 0.0 6.0
+1 - 0.0 0.0 -3.0
+1 - -6.68 1.54 4.12
+1 - 0.53 -0.12 3.45
+1 - -6.06 1.4 -1.9
+1 - 0.6 -0.14 -1.91
+#
+
+1 2 -3.72 -19.14 -1.37
+2 - -9.2 7.71 0.0
+2 - 0.07 -0.07 0.0
+2 - 0.0 0.0 9.0
+2 - 0.0 0.0 -2.0
+2 - -6.43 5.39 6.32
+2 - 0.06 -0.05 4.55
+2 - -5.3 4.44 -1.09
+2 - 0.04 -0.04 -1.05
+#
+
+2 3 -18.87 -6.87 6.14
+3 - -1.21 4.85 0.0
+3 - 1.21 -4.85 0.0
+3 - 0.0 0.0 3.0
+3 - 0.0 0.0 -4.0
+3 - -0.83 3.33 2.06
+3 - 0.83 -3.33 2.06
+3 - -0.85 3.39 -2.83
+3 - 0.84 -3.39 -2.83
+#
+
+3 4 -13.24 -2.1 2.61
+4 - -0.31 1.98 0.0
+4 - 1.25 -7.9 0.0
+4 - 0.0 0.0 2.0
+4 - 0.0 0.0 -1.0
+4 - -0.22 1.4 1.41
+4 - 0.76 -4.79 1.21
+4 - -0.21 1.32 -0.68
+4 - 0.7 -4.41 -0.55
+#
+
+# Conversion OK : station 4
+endcenterline
+
+endsurvey

@@ -117,6 +117,8 @@ layout my_layout
 	doc-author "Alexandre Pont pour l'ARSIP"
 	# Titre
 	doc-title "Complexe Lonné Peyret - Bourrugues"
+	doc-subject  "Complexe Lonné Peyret - Bourrugues, topographie en plan"
+	doc-keywords "Cave, Survey, Complexe Lonné Peyret - Bourrugues, Pierre saint Martin - Larra, Massif de la Pierre Saint Martin - Larra"
 	
 	# Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -140,6 +142,7 @@ layout my_layout
 	# dont le nom est probablement le titre de la topo.
 
 	map-comment "Massif de la Pierre Saint Martin - Larra"
+	# map-comment "Massif de la Pierre Saint Martin - Larra<br>Coordonnées : (UTM30/WGS84) 682.xxx, 4755.xxx, Alt.: 1xxx m"
 	# Afficher les statistiques d'explo/topo par équipe/nom. C'est lourd
 	# si la cavité est importante et qu'il y a beaucoup d'explorateurs/topographes.
 	statistics explo-length off

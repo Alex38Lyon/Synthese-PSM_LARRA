@@ -11,6 +11,48 @@ encoding utf-8
 map MP-Tobozo-Plan-tot -title "UKK22 Sima del Tobozo"
 	MP-Tobozo_1-Plan-tot@Tobozo_1
 	break
+	MP-Tobozo_2-Plan-tot@Tobozo_2
+	break
+	MP-Tobozo_3-Plan-tot@Tobozo_3
+	break
+	MP-Tobozo_4-Plan-tot@Tobozo_4
+	break
+	MP-Tobozo_5-Plan-tot@Tobozo_5
+	break
+	MP-Tobozo_6-Plan-tot@Tobozo_6
+	break
+	MP-Tobozo_7-Plan-tot@Tobozo_7
+	break
+	MP-Tobozo_8-Plan-tot@Tobozo_8
+	break
+	MP-Tobozo_9-Plan-tot@Tobozo_9
+	break
+	MP-Tobozo_10-Plan-tot@Tobozo_10
+	break	
+	MP-Tobozo_21-Plan-tot@Tobozo_21
+	break
+	MP-Tobozo_22-Plan-tot@Tobozo_22
+	break
+	MP-Tobozo_23-Plan-tot@Tobozo_23
+	break
+	MP-Tobozo_24-Plan-tot@Tobozo_24
+	break
+	MP-Tobozo_31-Plan-tot@Tobozo_31
+	break
+	MP-Tobozo_41-Plan-tot@Tobozo_41
+	break
+	MP-Tobozo_42-Plan-tot@Tobozo_42
+	break
+	MP-Tobozo_211-Plan-tot@Tobozo_211
+	break
+	MP-Tobozo_212-Plan-tot@Tobozo_212
+	break
+	MP-Tobozo_213-Plan-tot@Tobozo_213
+	break
+	MP-Tobozo_2131-Plan-tot@Tobozo_2131
+	break
+	MP-Tobozo_231-Plan-tot@Tobozo_231
+	break
 endmap
 
 map MC-Tobozo-Extended-tot -title "UKK22 Sima del Tobozo"

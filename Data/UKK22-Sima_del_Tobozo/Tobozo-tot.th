@@ -10,48 +10,71 @@ encoding utf-8
 
 survey Tobozo -title "UK22 Sima del Tobozo"
 	input Data/Tobozo_1/Tobozo_1-tot
-	input Data/Tobozo_2.TH
-	equate 66@Tobozo_1.Tobozo_1 1@Tobozo_2
-	input Data/Tobozo_3.TH
-	equate 12@Tobozo_2 1@Tobozo_3
-	input Data/Tobozo_4.TH
-	equate 128@Tobozo_3 1@Tobozo_4
-	input Data/Tobozo_5.TH
-	equate 50@Tobozo_4 1@Tobozo_5
-	input Data/Tobozo_6.TH
-	equate 13@Tobozo_5 1@Tobozo_6
-	input Data/Tobozo_7.TH
-	equate 21@Tobozo_6 1@Tobozo_7
-	input Data/Tobozo_8.TH
-	equate 20@Tobozo_7 1@Tobozo_8
-	input Data/Tobozo_9.TH
-	equate 26@Tobozo_8 1@Tobozo_9
-	input Data/Tobozo_10.TH
-	equate 49@Tobozo_9 1@Tobozo_10
-	input Data/Tobozo_21.TH
-	equate 12@Tobozo_2 1@Tobozo_21
-	input Data/Tobozo_22.TH
-	equate 23@Tobozo_21 1@Tobozo_22
-	input Data/Tobozo_23.TH
-	equate 45@Tobozo_22 1@Tobozo_23
-	input Data/Tobozo_24.TH
-	equate 2@Tobozo_23 1@Tobozo_24
-	input Data/Tobozo_31.TH
-	equate 100@Tobozo_3 1@Tobozo_31
-	input Data/Tobozo_41.TH
-	equate 50@Tobozo_4 1@Tobozo_41
-	input Data/Tobozo_42.TH
-	equate 7@Tobozo_41 1@Tobozo_42
-	input Data/Tobozo_211.TH
-	equate 14@Tobozo_21 1@Tobozo_211
-	input Data/Tobozo_212.TH
-	equate 11@Tobozo_21 1@Tobozo_212
-	input Data/Tobozo_213.TH
-	equate 4@Tobozo_21 1@Tobozo_213
-	input Data/Tobozo_231.TH
-	equate 2@Tobozo_23 1@Tobozo_231
-	input Data/Tobozo_2131.TH
-	equate 16@Tobozo_213 1@Tobozo_2131
+	
+	input Data/Tobozo_2/Tobozo_2-tot
+	equate 66@Tobozo_1.Tobozo_1 0@Tobozo_2.Tobozo_2
+	
+	input Data/Tobozo_3/Tobozo_3-tot
+	equate 12@Tobozo_2.Tobozo_2 0@Tobozo_3.Tobozo_3	
+	
+	input Data/Tobozo_4/Tobozo_4-tot
+	equate 128@Tobozo_3.Tobozo_3 0@Tobozo_4.Tobozo_4
+	
+	input Data/Tobozo_5/Tobozo_5-tot
+	equate 50@Tobozo_4.Tobozo_4 0@Tobozo_5.Tobozo_5
+	
+	input Data/Tobozo_6/Tobozo_6-tot
+	equate 13@Tobozo_5.Tobozo_5 0@Tobozo_6.Tobozo_6
+	
+	input Data/Tobozo_7/Tobozo_7-tot
+	equate 20@Tobozo_6.Tobozo_6 0@Tobozo_7.Tobozo_7
+	
+	input Data/Tobozo_8/Tobozo_8-tot
+	equate 20@Tobozo_7.Tobozo_7 0@Tobozo_8.Tobozo_8
+	
+	input Data/Tobozo_9/Tobozo_9-tot
+	equate 26@Tobozo_8.Tobozo_8 0@Tobozo_9.Tobozo_9
+	
+	input Data/Tobozo_10/Tobozo_10-tot
+	equate 49@Tobozo_9.Tobozo_9 0@Tobozo_10.Tobozo_10
+	
+	input Data/Tobozo_21/Tobozo_21-tot
+	equate 12@Tobozo_2.Tobozo_2 0@Tobozo_21.Tobozo_21
+   join 	SP-Tobozo_2_01@Tobozo_2 SP-Tobozo_21_01@Tobozo_21
+	join 	SP-Tobozo_3_01@Tobozo_3 SP-Tobozo_21_01@Tobozo_21
+	
+	input Data/Tobozo_22/Tobozo_22-tot
+	equate 23@Tobozo_21.Tobozo_21 0@Tobozo_22.Tobozo_22
+	
+	input Data/Tobozo_23/Tobozo_23-tot
+	equate 45@Tobozo_22.Tobozo_22 0@Tobozo_23.Tobozo_23
+	
+	input Data/Tobozo_24/Tobozo_24-tot
+	equate 2@Tobozo_23.Tobozo_23 0@Tobozo_24.Tobozo_24
+	
+	input Data/Tobozo_31/Tobozo_31-tot
+	equate 100@Tobozo_3.Tobozo_3 0@Tobozo_31.Tobozo_31
+	
+	input Data/Tobozo_41/Tobozo_41-tot
+	equate 50@Tobozo_4.Tobozo_4 0@Tobozo_41.Tobozo_41
+	
+	input Data/Tobozo_42/Tobozo_42-tot
+	equate 7@Tobozo_41.Tobozo_41 0@Tobozo_42.Tobozo_42
+	
+	input Data/Tobozo_211/Tobozo_211-tot
+	equate 14@Tobozo_21.Tobozo_21 0@Tobozo_211.Tobozo_211
+	
+	input Data/Tobozo_212/Tobozo_212-tot
+	equate 10@Tobozo_21.Tobozo_21 0@Tobozo_212.Tobozo_212
+	
+	input Data/Tobozo_213/Tobozo_213-tot
+	equate 4@Tobozo_21.Tobozo_21 0@Tobozo_213.Tobozo_213
+	
+	input Data/Tobozo_231/Tobozo_231-tot
+	equate 2@Tobozo_23.Tobozo_23 0@Tobozo_231.Tobozo_231
+	
+	input Data/Tobozo_2131/Tobozo_2131-tot
+	equate 16@Tobozo_213.Tobozo_213 0@Tobozo_2131.Tobozo_2131
 	
 	
 	## Pour le plan
