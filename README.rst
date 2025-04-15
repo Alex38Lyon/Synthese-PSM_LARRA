@@ -44,6 +44,9 @@ Une convention a aussi été mise en place pour la gestion des points d'interrog
 	* le champ "Reseau" qui indique la partie de la cavité où se situe le point d'interrogation (pour pouvoir le retrouver plus rapidement sur les topographies),
 	
 	* le champ "CA" qui est rempli si présence de courant d'air, avec éventuellement des remarques/commentaires.
+	
+Exemple :  
+point 3922.0 1660.0 continuation -attr code Q -attr Cavite "GL102" -attr reseau "Grand Chao"  -text "Rivière à topographier" -attr CA "inconnu"
 
 Licence
 -------

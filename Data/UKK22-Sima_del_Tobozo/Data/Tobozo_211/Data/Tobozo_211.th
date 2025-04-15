@@ -7,13 +7,13 @@ encoding  utf-8
 
 # Conversion d'après fichier 211.LEC de coordonnées cartésiens Lambert Martin / CRS par Alex 03/2025
 
-survey Tobozo_211 -title "Sima del Tobozo (galerie 211)"
+survey Tobozo_211 -title "Boulevard TWA"
 
 centerline
 
-     date 1987.08.01
+     date 1988.08.01
      team "Lambert Martin"
-     explo-date 1987
+     explo-date 1988
      explo-team "CRS"
      
         

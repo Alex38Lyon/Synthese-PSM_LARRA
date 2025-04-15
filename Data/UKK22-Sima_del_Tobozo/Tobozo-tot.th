@@ -63,18 +63,21 @@ survey Tobozo -title "UK22 Sima del Tobozo"
 	
 	input Data/Tobozo_211/Tobozo_211-tot
 	equate 14@Tobozo_21.Tobozo_21 0@Tobozo_211.Tobozo_211
+	join 	SP-Tobozo_211_01@Tobozo_211 SP-Tobozo_21_01@Tobozo_21 -count 2
 	
 	input Data/Tobozo_212/Tobozo_212-tot
 	equate 10@Tobozo_21.Tobozo_21 0@Tobozo_212.Tobozo_212
 	
 	input Data/Tobozo_213/Tobozo_213-tot
 	equate 4@Tobozo_21.Tobozo_21 0@Tobozo_213.Tobozo_213
+	join 	SP-Tobozo_213_01@Tobozo_213 SP-Tobozo_21_01@Tobozo_21
 	
 	input Data/Tobozo_231/Tobozo_231-tot
 	equate 2@Tobozo_23.Tobozo_23 0@Tobozo_231.Tobozo_231
 	
 	input Data/Tobozo_2131/Tobozo_2131-tot
 	equate 16@Tobozo_213.Tobozo_213 0@Tobozo_2131.Tobozo_2131
+	join 	SP-Tobozo_213_01@Tobozo_213 SP-Tobozo_2131_01@Tobozo_2131
 	
 	
 	## Pour le plan

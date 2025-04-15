@@ -7,7 +7,7 @@ encoding  utf-8
 
 # Conversion d'après fichier 21.LEC de coordonnées cartésiens Lambert Martin / CRS par Alex 03/2025
 
-survey Tobozo_21 -title "Sima del Tobozo (galerie 21)"
+survey Tobozo_21 -title "Boulevard des TUTSI"
 
 centerline
 
