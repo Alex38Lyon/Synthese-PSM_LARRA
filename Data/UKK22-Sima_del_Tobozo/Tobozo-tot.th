@@ -19,24 +19,31 @@ survey Tobozo -title "UK22 Sima del Tobozo"
 	
 	input Data/Tobozo_4/Tobozo_4-tot
 	equate 128@Tobozo_3.Tobozo_3 0@Tobozo_4.Tobozo_4
+	join 	SP-Tobozo_3_04@Tobozo_3 SP-Tobozo_4_01@Tobozo_4
 	
 	input Data/Tobozo_5/Tobozo_5-tot
 	equate 50@Tobozo_4.Tobozo_4 0@Tobozo_5.Tobozo_5
+	join 	SP-Tobozo_41_01@Tobozo_41 SP-Tobozo_5_01@Tobozo_5
 	
 	input Data/Tobozo_6/Tobozo_6-tot
 	equate 13@Tobozo_5.Tobozo_5 0@Tobozo_6.Tobozo_6
+	join 	SP-Tobozo_6_01@Tobozo_6 SP-Tobozo_5_01@Tobozo_5
 	
 	input Data/Tobozo_7/Tobozo_7-tot
 	equate 20@Tobozo_6.Tobozo_6 0@Tobozo_7.Tobozo_7
+	join 	SP-Tobozo_6_01@Tobozo_6 SP-Tobozo_7_01@Tobozo_7
 	
 	input Data/Tobozo_8/Tobozo_8-tot
 	equate 20@Tobozo_7.Tobozo_7 0@Tobozo_8.Tobozo_8
+	join 	SP-Tobozo_7_01@Tobozo_7 SP-Tobozo_8_01@Tobozo_8
 	
 	input Data/Tobozo_9/Tobozo_9-tot
 	equate 26@Tobozo_8.Tobozo_8 0@Tobozo_9.Tobozo_9
+	join 	SP-Tobozo_8_01@Tobozo_8 SP-Tobozo_9_01@Tobozo_9
 	
 	input Data/Tobozo_10/Tobozo_10-tot
 	equate 49@Tobozo_9.Tobozo_9 0@Tobozo_10.Tobozo_10
+	join 	SP-Tobozo_9_01@Tobozo_9 SP-Tobozo_10_01@Tobozo_10
 	
 	input Data/Tobozo_21/Tobozo_21-tot
 	equate 12@Tobozo_2.Tobozo_2 0@Tobozo_21.Tobozo_21
@@ -51,15 +58,18 @@ survey Tobozo -title "UK22 Sima del Tobozo"
 	
 	input Data/Tobozo_24/Tobozo_24-tot
 	equate 2@Tobozo_23.Tobozo_23 0@Tobozo_24.Tobozo_24
+	join 	SP-Tobozo_24_01@Tobozo_24 SP-Tobozo_22_01@Tobozo_22
 	
 	input Data/Tobozo_31/Tobozo_31-tot
 	equate 100@Tobozo_3.Tobozo_3 0@Tobozo_31.Tobozo_31
+	join 	SP-Tobozo_31_01@Tobozo_31 SP-Tobozo_3_03@Tobozo_3
 	
 	input Data/Tobozo_41/Tobozo_41-tot
 	equate 50@Tobozo_4.Tobozo_4 0@Tobozo_41.Tobozo_41
 	
 	input Data/Tobozo_42/Tobozo_42-tot
 	equate 7@Tobozo_41.Tobozo_41 0@Tobozo_42.Tobozo_42
+	join 	SP-Tobozo_41_01@Tobozo_41 SP-Tobozo_42_01@Tobozo_42
 	
 	input Data/Tobozo_211/Tobozo_211-tot
 	equate 14@Tobozo_21.Tobozo_21 0@Tobozo_211.Tobozo_211
@@ -74,6 +84,8 @@ survey Tobozo -title "UK22 Sima del Tobozo"
 	
 	input Data/Tobozo_231/Tobozo_231-tot
 	equate 2@Tobozo_23.Tobozo_23 0@Tobozo_231.Tobozo_231
+	join 	SP-Tobozo_231_01@Tobozo_231 SP-Tobozo_21_01@Tobozo_21
+	join 	SP-Tobozo_231_01@Tobozo_231 SP-Tobozo_22_01@Tobozo_22
 	
 	input Data/Tobozo_2131/Tobozo_2131-tot
 	equate 16@Tobozo_213.Tobozo_213 0@Tobozo_2131.Tobozo_2131

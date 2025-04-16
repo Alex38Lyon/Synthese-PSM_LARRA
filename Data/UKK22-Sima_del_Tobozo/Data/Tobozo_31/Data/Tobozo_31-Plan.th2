@@ -1,7 +1,7 @@
 encoding  utf-8
-##XTHERION## xth_me_area_adjust -161.1 -503.904 130.2 482.556
-##XTHERION## xth_me_area_zoom_to 100
-##XTHERION## xth_me_image_insert {49.841 1.0} {402.13 0} Tobozo_31-Plan.xvi 0 {} 
+##XTHERION## xth_me_area_adjust -377.369 -639.26 351.071 624.612
+##XTHERION## xth_me_area_zoom_to 200
+##XTHERION## xth_me_image_insert {49.84100000000001 1.0 1.0} {402.13 0} Tobozo_31-Plan.xvi 0 {}
 
 # Copyright (C) ARSIP 2025
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
@@ -12,35 +12,117 @@ encoding  utf-8
 # x_min: -161.1, x_max: 130.2 ecart : 242.75
 # y_min: -503.904, y_max: 482.556 ecart : 822.05
 
-scrap SP-Tobozo_31_01 -station-names "" "@Tobozo_31" -projection plan -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/"
-    
-    point 49.84 402.13 station -name 0
-    point -94.80 389.45 station -name 1
-    point -25.04 345.83 station -name 2
-    point 10.00 285.28 station -name 3
-    point -21.18 280.87 station -name 4
-    point -10.16 154.33 station -name 5
-    point 37.40 97.64 station -name 6
-    point 30.47 53.46 station -name 7
-    point 24.88 29.61 station -name 8
-    point 10.47 35.75 station -name 9
-    point 15.83 17.17 station -name 10
-    point 25.75 -4.17 station -name 11
-    point -11.18 -27.24 station -name 12
-    point -21.50 -49.37 station -name 13
-    point -1.26 -108.11 station -name 14
-    point -16.22 -116.77 station -name 15
-    point -85.67 -227.95 station -name 16
-    point -95.04 -229.06 station -name 17
-    point -54.17 -277.80 station -name 18
-    point -104.80 -310.63 station -name 19
-    point -134.25 -387.40 station -name 20
-    point -24.80 -355.98 station -name 21
-    point 104.72 -365.04 station -name 22
-    point 108.50 -419.92 station -name 23
-    
 
-    
 
-    
+
+scrap SP-Tobozo_31_01 -projection plan -station-names "" "@Tobozo_31" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-161.1 -503.904 130.2 -503.904 0.0 0.0 7.399019999999998 0.0 m]
+
+point 49.84 402.13 station -name 0
+
+point -94.80 389.45 station -name 1
+
+point -25.04 345.83 station -name 2
+
+line wall -reverse on
+  -36.0 368.0
+  -36.0 368.0 -26.5 354.0 -20.5 345.0
+  -14.5 336.0 30.5 281.5 24.0 279.0
+  17.5 276.5 -7.0 292.5 -8.0 270.0
+  -9.0 247.5 -4.5 170.5 8.5 159.5
+  21.5 148.5 55.5 115.0 59.0 103.0
+  62.5 91.0 49.5 70.0 43.5 63.0
+  37.5 56.0 33.5 46.5 32.5 38.0
+  31.5 29.5 40.0 38.0 44.0 30.0
+  48.0 22.0 76.0 -4.5 81.5 -17.5
+  87.0 -30.5 78.0 -29.0 57.5 -37.0
+  37.0 -45.0 27.0 -40.5 25.0 -57.0
+  23.0 -73.5 7.0 -79.0 29.5 -92.5
+  52.0 -106.0 174.5 -156.0 162.0 -165.5
+  149.5 -175.0 126.0 -170.5 117.5 -179.5
+  109.0 -188.5 74.0 -143.5 46.5 -153.0
+  19.0 -162.5 -20.5 -157.5 -19.5 -169.5
+  -18.5 -181.5 -37.0 -223.5 -42.0 -229.5
+  -47.0 -235.5 -40.5 -243.0 -35.5 -250.0
+  -30.5 -257.0 -37.5 -275.5 -26.0 -286.0
+  -14.5 -296.5 4.0 -331.0 18.0 -333.5
+  32.0 -336.0 56.5 -337.5 77.5 -346.0
+  98.5 -354.5 114.0 -363.5 118.5 -366.0
+  123.0 -368.5 130.0 -386.5 131.5 -393.5
+  133.0 -400.5 136.5 -416.5 136.5 -416.5
+  smooth off
+endline
+
+line wall
+endline
+
+line wall
+  -80.0 358.0
+  -80.0 358.0 -67.5 345.5 -61.5 335.5
+  -55.5 325.5 -43.0 320.0 -41.5 297.5
+  -40.0 275.0 -33.5 203.0 -33.5 179.5
+  -33.5 156.0 -36.0 148.0 -22.5 131.0
+  -9.0 114.0 7.5 107.5 12.5 92.0
+  17.5 76.5 17.5 69.5 14.0 56.0
+  10.5 42.5 7.0 44.0 2.0 27.5
+  -3.0 11.0 0.5 12.0 -8.5 0.5
+  -17.5 -11.0 -20.0 -13.0 -33.5 -27.5
+  -47.0 -42.0 -63.5 -33.5 -52.5 -54.0
+  -41.5 -74.5 -18.0 -89.5 -23.0 -94.5
+  -28.0 -99.5 -35.5 -90.0 -40.0 -95.5
+  -44.5 -101.0 -90.5 -206.5 -97.0 -222.5
+  -103.5 -238.5 -88.0 -247.5 -92.5 -263.5
+  -97.0 -279.5 -108.5 -281.5 -113.0 -296.0
+  -117.5 -310.5 -125.0 -322.0 -130.5 -344.0
+  -136.0 -366.0 -159.0 -401.0 -148.5 -405.5
+  -138.0 -410.0 -100.5 -407.5 -79.0 -403.5
+  -57.5 -399.5 -37.0 -391.5 -15.0 -395.0
+  7.0 -398.5 60.0 -382.0 70.0 -388.5
+  80.0 -395.0 80.0 -402.0 83.0 -420.0
+  altitude .
+endline
+
+point 10.00 285.28 station -name 3
+
+point -21.18 280.87 station -name 4
+
+point -10.16 154.33 station -name 5
+
+point 37.40 97.64 station -name 6
+
+point 30.47 53.46 station -name 7
+
+point 24.88 29.61 station -name 8
+
+point 10.47 35.75 station -name 9
+
+point 15.83 17.17 station -name 10
+
+point 25.75 -4.17 station -name 11
+
+point -11.18 -27.24 station -name 12
+
+point -21.50 -49.37 station -name 13
+
+point -1.26 -108.11 station -name 14
+
+point -16.22 -116.77 station -name 15
+
+point -85.67 -227.95 station -name 16
+
+point -95.04 -229.06 station -name 17
+
+point -54.17 -277.80 station -name 18
+
+point -104.80 -310.63 station -name 19
+
+point -134.25 -387.40 station -name 20
+
+point -24.80 -355.98 station -name 21
+
+point 104.72 -365.04 station -name 22
+
+point 108.50 -419.92 station -name 23
+
 endscrap
+
+

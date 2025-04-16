@@ -1,7 +1,7 @@
 encoding  utf-8
-##XTHERION## xth_me_area_adjust -1404.8999999999999 -190.344 1403.856 158.784
+##XTHERION## xth_me_area_adjust -1553.3110000000004 -543.079 1537.3289999999995 516.069
 ##XTHERION## xth_me_area_zoom_to 100
-##XTHERION## xth_me_image_insert {-1078.861 1.0} {-52.87 0} Tobozo_6-Plan.xvi 0 {} 
+##XTHERION## xth_me_image_insert {-1078.8610000000003 1.0 1.0} {-52.870000000000005 0} Tobozo_6-Plan.xvi 0 {}
 
 # Copyright (C) ARSIP 2025
 # This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
@@ -12,32 +12,127 @@ encoding  utf-8
 # x_min: -1404.8999999999999, x_max: 1403.856 ecart : 2340.63
 # y_min: -190.344, y_max: 158.784 ecart : 290.94
 
-scrap SP-Tobozo_6_01 -station-names "" "@Tobozo_6" -projection plan -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/"
-    
-    point -1078.86 -52.87 station -name 0
-    point -1150.91 5.47 station -name 1
-    point -1170.75 -39.09 station -name 2
-    point -1142.87 -151.06 station -name 3
-    point -1082.56 -145.79 station -name 4
-    point -991.54 -158.62 station -name 5
-    point -940.98 -114.69 station -name 6
-    point -886.89 -141.06 station -name 7
-    point -771.14 -105.71 station -name 8
-    point -737.52 -129.17 station -name 9
-    point -657.36 -95.16 station -name 10
-    point -628.86 -113.66 station -name 11
-    point -600.59 -106.65 station -name 12
-    point -549.09 -93.82 station -name 14
-    point 109.02 -70.83 station -name 15
-    point 307.13 -63.90 station -name 16
-    point 508.94 -13.58 station -name 17
-    point 716.42 111.06 station -name 18
-    point 889.96 132.32 station -name 19
-    point 1099.88 91.54 station -name 20
-    point 1169.88 36.89 station -name 21
-    
 
-    
 
-    
+
+scrap SP-Tobozo_6_01 -projection plan -station-names "" "@Tobozo_6" -author 2025 "Alexandre Pont" -copyright 2025 "Licence CC by-nc-nd : http://creativecommons.org/licenses/by-nc-nd/4.0/" -scale [-1404.8999999999999 -190.344 1403.856 -190.344 0.0 0.0 71.3424024 0.0 m]
+
+line wall
+  -1181.0 -85.0
+  -1181.0 -85.0 -1170.0 -98.0 -1161.0 -128.0
+  -1152.0 -158.0 -1171.0 -178.0 -1137.0 -171.0
+  -1103.0 -164.0 -1097.0 -157.0 -1075.0 -160.0
+  -1053.0 -163.0 -1011.0 -179.0 -989.0 -167.0
+  -967.0 -155.0 -952.0 -127.0 -937.0 -132.0
+  -922.0 -137.0 -905.0 -152.0 -891.0 -151.0
+  -877.0 -150.0 -779.0 -108.0 -771.5 -113.5
+  -764.0 -119.0 -749.54 -127.34 -737.52 -129.17
+  -725.5 -131.0 -668.5 -101.0 -657.0 -103.0
+  -645.5 -105.0 -638.5 -119.0 -629.0 -117.5
+  -619.5 -116.0 -613.5 -122.0 -594.5 -115.0
+  -575.5 -108.0 -563.0 -101.0 -551.0 -101.0
+  -539.0 -101.0 -285.5 -101.0 -246.0 -96.0
+  -206.5 -91.0 -50.5 -96.5 3.5 -96.0
+  57.5 -95.5 158.0 -89.5 188.0 -90.0
+  218.0 -90.5 277.5 -90.0 314.5 -82.5
+  351.5 -75.0 495.5 -43.5 512.5 -35.0
+  529.5 -26.5 685.0 71.0 722.0 82.0
+  759.0 93.0 853.5 125.5 884.5 122.5
+  915.5 119.5 1022.18 80.19 1048.0 73.5
+  1075.0 66.5 1133.5 77.0 1172.0 6.0
+  smooth off
+  altitude .
+endline
+
+line wall
+endline
+
+line wall -reverse on
+  1054.5 135.0
+  1054.5 135.0 1039.0 127.5 1049.5 121.5
+  1060.0 115.5 1122.0 87.0 1158.0 85.0
+  1194.0 83.0 1220.5 78.5 1217.5 75.0
+  1214.5 71.5 1206.0 70.0 1189.5 66.0
+  1173.0 62.0 1162.5 67.0 1172.5 52.0
+  1182.5 37.0 1184.5 25.5 1191.5 13.5
+  smooth off
+endline
+
+line wall -reverse on
+  -1139.0 -90.0
+  -1139.0 -90.0 -1143.0 -130.0 -1111.0 -131.0
+  -1079.0 -132.0 -1008.0 -151.0 -993.0 -139.0
+  -978.0 -127.0 -966.0 -108.0 -948.0 -107.0
+  -930.0 -106.0 -913.0 -135.0 -889.0 -128.0
+  -865.0 -121.0 -791.0 -94.0 -775.0 -97.0
+  -759.0 -100.0 -756.0 -115.0 -733.0 -107.0
+  -710.0 -99.0 -676.0 -74.0 -657.0 -76.0
+  -638.0 -78.0 -642.0 -93.0 -615.0 -92.0
+  -588.0 -91.0 -582.0 -79.0 -556.0 -78.0
+  -530.0 -77.0 -28.0 -58.0 4.0 -57.0
+  36.0 -56.0 92.0 -61.0 121.0 -59.0
+  150.0 -57.0 275.0 -56.0 303.0 -46.0
+  331.0 -36.0 450.0 -24.0 492.0 -3.0
+  534.0 18.0 642.0 95.0 676.0 104.0
+  710.0 113.0 694.0 123.0 719.0 127.0
+  744.0 131.0 887.0 166.0 906.0 161.0
+  925.0 156.0 962.03 148.71 991.0 143.0
+  1024.0 136.5 1031.0 129.5 1035.0 139.5
+  smooth off
+endline
+
+point -1078.86 -52.87 station -name 0
+
+point -1150.91 5.47 station -name 1
+
+point -1170.75 -39.09 station -name 2
+
+point -1142.87 -151.06 station -name 3
+
+point -1082.56 -145.79 station -name 4
+
+point -991.54 -158.62 station -name 5
+
+point -940.98 -114.69 station -name 6
+
+point -886.89 -141.06 station -name 7
+
+point -771.14 -105.71 station -name 8
+
+point -737.52 -129.17 station -name 9
+
+point -657.36 -95.16 station -name 10
+
+point -628.86 -113.66 station -name 11
+
+point -600.59 -106.65 station -name 12
+
+point -549.09 -93.82 station -name 14
+
+point 109.02 -70.83 station -name 15
+
+point 307.13 -63.90 station -name 16
+
+point 508.94 -13.58 station -name 17
+
+line label -scale s -text [L'enfer serait moins monotone...]
+  -588.0 -265.0
+  -588.0 -265.0 417.0 -226.0 426.0 -226.0
+endline
+
+line label -scale s -text [Laminoir de 140m]
+  -621.0 132.0
+  -621.0 132.0 406.0 156.0 434.0 156.0
+endline
+
+point 716.42 111.06 station -name 18
+
+point 889.96 132.32 station -name 19
+
+point 1099.88 91.54 station -name 20
+
+point 1169.88 36.89 station -name 21
+
 endscrap
+
+

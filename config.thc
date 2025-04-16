@@ -439,6 +439,7 @@ layout drawingconfig
 	
 	symbol-assign area sand AUT
 	symbol-assign area clay AUT
+	symbol-assign point camp UIS
 	symbol-assign point pillar AUT
 	symbol-assign point station:temporary SKBB
 	symbol-assign point entrance MY 
