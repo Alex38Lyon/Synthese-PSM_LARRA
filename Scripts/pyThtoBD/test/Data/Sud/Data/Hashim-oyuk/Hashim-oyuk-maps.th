@@ -1,0 +1,21 @@
+encoding  utf-8
+
+# Copyright (C) 2024 Xavier Robert <xavier.robert***@***ird.fr>
+# This work is under the Creative Commons Attribution-ShareAlike-NonCommecial License:
+#	<http://creativecommons.org/licenses/by-nc-sa/4.0/>
+
+map MP-Hashim-oyuk -title "Hashim-oyuk"
+	MP-Boucle1@Boucle1
+	break
+	MP-Entree@Entree
+	break
+	MP-Hashimoyuk4@Hashimoyuk4
+	break
+	MP-AshimyukFond@AshimyukFond
+endmap
+
+
+#map MC-Ochimoyuk -title "Ochimoyuk"
+#	SC-Ochimoyuk-1
+#endmap
+
