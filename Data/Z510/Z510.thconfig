@@ -678,12 +678,16 @@ select MC-Z510-coupe-tot@Z510
 # Export du fichier 3d pour Loch
 export model -enable all -o Outputs/Z510.lox
 export model -enable all -o Outputs/Z510.kml
+export model -enable all -o Outputs/Z510.3d
+export model -enable all -o Outputs/Z510.wrl
 export database -fmt sql -o Outputs/Z510.sql
 
 # Export des fichiers ESRI
 #export map -proj plan -fmt esri -o Outputs/Z510
 export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
 export model -fmt esri -o Outputs/SHP/ -enc UTF-8
+
+
 
 # Export des fichiers kml
 #export map -proj plan -fmt kml -o Outputs/Z510-plan.kml -layout layout-kml

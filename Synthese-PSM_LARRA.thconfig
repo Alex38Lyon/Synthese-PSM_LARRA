@@ -227,6 +227,12 @@ export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_L
 export model -enable all -o Outputs/Synthese-PSM_LARRA.lox
 export model -enable all -o Outputs/Synthese-PSM_LARRA.kml
 
+# Export de la database sql
+# export des statistiques de l'ensemble de la cavité
+#    Attention, les points de départ et d'arrivée de chaque centreline correspondent
+#    au second point et à l'avant dernier point de la série.
+export database -fmt sql -o Outputs/database_Synthese-PSM_LARRA.sql
+
 # Export des fichiers ESRI
 export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
 export model -fmt esri -o Outputs/SHP/ -enc UTF-8

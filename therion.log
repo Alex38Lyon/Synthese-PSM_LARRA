@@ -1,5 +1,5 @@
-therion 6.3.1 (2024-11-22)
-  - using Proj 9.4.1, compiled against 9.4.1
+therion 6.3.4 (2025-04-08)
+  - using Proj 9.5.1, compiled against 9.5.1
 initialization file: C:\Program Files\Therion/therion.ini
 reading ... done
 configuration file: Synthese-PSM_LARRA.thconfig
@@ -7,63 +7,63 @@ reading ... done
 reading source files ... done
 preprocessing database ... done
 output coordinate system: UTM30
-meridian convergence (deg): -1.5308
+meridian convergence (deg): -1.53
 geomag declinations (deg):
-  1971.1.1  -6.0955
-  1972.1.1  -5.9913
-  1973.1.1  -5.8876
-  1974.1.1  -5.7841
-  1975.1.1  -5.6811
-  1976.1.1  -5.5289
-  1977.1.1  -5.3770
-  1978.1.1  -5.2256
-  1979.1.1  -5.0745
-  1980.1.1  -4.9238
-  1981.1.1  -4.7817
-  1982.1.1  -4.6398
-  1983.1.1  -4.4982
-  1984.1.1  -4.3567
-  1985.1.1  -4.2154
-  1986.1.1  -4.0868
-  1987.1.1  -3.9584
-  1988.1.1  -3.8300
-  1989.1.1  -3.7018
-  1990.1.1  -3.5737
-  1991.1.1  -3.4569
-  1992.1.1  -3.3401
-  1993.1.1  -3.2235
-  1994.1.1  -3.1070
-  1995.1.1  -2.9907
-  1996.1.1  -2.8507
-  1997.1.1  -2.7109
-  1998.1.1  -2.5713
-  1999.1.1  -2.4318
-  2000.1.1  -2.2926
-  2001.1.1  -2.1676
-  2002.1.1  -2.0428
-  2003.1.1  -1.9181
-  2004.1.1  -1.7936
-  2005.1.1  -1.6693
-  2006.1.1  -1.5456
-  2007.1.1  -1.4221
-  2008.1.1  -1.2988
-  2009.1.1  -1.1757
-  2010.1.1  -1.0528
+  1971.1.1  -6.095
+  1972.1.1  -5.991
+  1973.1.1  -5.887
+  1974.1.1  -5.784
+  1975.1.1  -5.681
+  1976.1.1  -5.529
+  1977.1.1  -5.377
+  1978.1.1  -5.225
+  1979.1.1  -5.074
+  1980.1.1  -4.924
+  1981.1.1  -4.782
+  1982.1.1  -4.64
+  1983.1.1  -4.498
+  1984.1.1  -4.356
+  1985.1.1  -4.215
+  1986.1.1  -4.087
+  1987.1.1  -3.958
+  1988.1.1  -3.83
+  1989.1.1  -3.702
+  1990.1.1  -3.574
+  1991.1.1  -3.457
+  1992.1.1  -3.34
+  1993.1.1  -3.223
+  1994.1.1  -3.107
+  1995.1.1  -2.99
+  1996.1.1  -2.851
+  1997.1.1  -2.711
+  1998.1.1  -2.571
+  1999.1.1  -2.432
+  2000.1.1  -2.292
+  2001.1.1  -2.167
+  2002.1.1  -2.043
+  2003.1.1  -1.918
+  2004.1.1  -1.794
+  2005.1.1  -1.669
+  2006.1.1  -1.545
+  2007.1.1  -1.422
+  2008.1.1  -1.299
+  2009.1.1  -1.176
+  2010.1.1  -1.053
   2011.1.1  -0.9151
-  2012.1.1  -0.7777
-  2013.1.1  -0.6405
-  2014.1.1  -0.5035
-  2015.1.1  -0.3667
-  2016.1.1  -0.2111
-  2017.1.1  -0.0559
-  2018.1.1  0.0991
-  2019.1.1  0.2539
-  2020.1.1  0.4083
-  2021.1.1  0.5743
-  2022.1.1  0.7400
-  2023.1.1  0.9054
-  2024.1.1  1.0706
-  2025.1.1  1.2355
+  2012.1.1  -0.7776
+  2013.1.1  -0.6404
+  2014.1.1  -0.5034
+  2015.1.1  -0.3666
+  2016.1.1  -0.2115
+  2017.1.1  -0.05669
+  2018.1.1  0.09789
+  2019.1.1  0.2522
+  2020.1.1  0.4062
+  2021.1.1  0.5502
+  2022.1.1  0.694
+  2023.1.1  0.8376
+  2024.1.1  0.9811
+  2025.1.1  1.124
 scanning centreline tree ... done
 searching for centerline loops ... done
 calculating station coordinates ... done
@@ -73,16 +73,16 @@ processing survey data ...
  1> Survex 1.4.15
  2> Copyright ¸ 1990-2024 Olly Betts
  3> 
- 4> La topographie contient 4800 stations, connect‚es par 4795 vis‚es.
+ 4> La topographie contient 11298 stations, connect‚es par 11292 vis‚es.
  5> Il y a 4 bouclages.
- 6> La topographie contient 9 composants connect‚s.
- 7> Longueur totale de la topographie = 17273.65m (17270.32m ajust‚)
- 8> Longueur totale en projection horizontale = 15344.96m
- 9> Longueur totale verticale = 4351.69m
-10> Intervalle vertical = 767.24m (de 980 … 1720.00m jusqu'… 1510 … 952.76m)
-11> Intervalle Nord-Sud = 4881.53m (de 1510 … 4762904.06m jusqu'… 4264 … 4758022.54m)
-12> Intervalle Est-Ouest = 6138.99m (de 4551 … 685377.39m jusqu'… 4264 … 679238.41m)
-13> 2457 1-noeuds.
+ 6> La topographie contient 10 composants connect‚s.
+ 7> Longueur totale de la topographie = 24502.38m (24499.04m ajust‚)
+ 8> Longueur totale en projection horizontale = 21817.08m
+ 9> Longueur totale verticale = 6280.01m
+10> Intervalle vertical = 1026.24m (de 4804 … 1979.00m jusqu'… 1510 … 952.76m)
+11> Intervalle Nord-Sud = 7146.34m (de 1510 … 4762904.06m jusqu'… 10095 … 4755757.72m)
+12> Intervalle Est-Ouest = 6138.93m (de 4551 … 685377.39m jusqu'… 4264 … 679238.46m)
+13> 8233 1-noeuds.
 14> 1911 2-noeuds.
 15>   84 3-noeuds.
 16>   22 4-noeuds.
@@ -90,9 +90,9 @@ processing survey data ...
 18>   61 6-noeuds.
 19>   24 7-noeuds.
 20>   18 8-noeuds.
-21>   24 9-noeuds.
-22>   40 10-noeuds.
-23>   27 11-noeuds.
+21>   38 9-noeuds.
+22>  736 10-noeuds.
+23>   39 11-noeuds.
 24>   24 12-noeuds.
 25>   18 13-noeuds.
 26>   19 14-noeuds.
@@ -104,13 +104,13 @@ processing survey data ...
 32>    2 21-noeuds.
 33> 
 ######################### transcription ########################
- 4> 4800 : 28@BB26_amont.BB26.Synthese-PSM_LARRA -- 4795 : 27@BB26_amont.BB26.Synthese-PSM_LARRA
+ 4> 11298 : -@Tobozo_2131.Tobozo_2131.Tobozo.Synthese-PSM_LARRA -- 11292 : -@Tobozo_2131.Tobozo_2131.Tobozo.Synthese-PSM_LARRA
  5> 4 : AP2@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
- 6> 9 : AP7@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-10> 980 : -@AP260_Entree.AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA -- 1510 : N-00@B3_Aval_02.B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-11> 1510 : N-00@B3_Aval_02.B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA -- 4264 : .@Z510.Z510.Synthese-PSM_LARRA
+ 6> 10 : AP8@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+10> 4804 : -@Tobozo_1.Tobozo_1.Tobozo.Synthese-PSM_LARRA -- 1510 : N-00@B3_Aval_02.B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+11> 1510 : N-00@B3_Aval_02.B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA -- 10095 : -@Tobozo_42.Tobozo_42.Tobozo.Synthese-PSM_LARRA
 12> 4551 : 4@BB26.BB26.Synthese-PSM_LARRA -- 4264 : .@Z510.Z510.Synthese-PSM_LARRA
-13> 2457 : .@GL102_Entree_02.Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+13> 8233 : -@Tobozo_9.Tobozo_9.Tobozo.Synthese-PSM_LARRA
 14> 1911 : 169@GL4_Amonts.GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
 15> 84 : L13@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
 16> 22 : AP20@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
@@ -118,9 +118,9 @@ processing survey data ...
 18> 61 : AP59@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
 19> 24 : AP22@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
 20> 18 : AP16@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-21> 24 : AP22@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-22> 40 : AP38@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-23> 27 : AP25@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+21> 38 : AP36@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+22> 736 : 8_14@AP7_Amonts.AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+23> 39 : AP37@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
 24> 24 : AP22@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
 25> 18 : AP16@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
 26> 19 : AP17@AP7_Entree.AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
@@ -137,28 +137,28 @@ processing extended elevation ... done
 processing references ... done
 selecting export objects ... done
 processing projection plan ... done
-average distortion: 0.20%
+average distortion: 0.19%
 
 
 ############### export maps & scraps selection #################
-M  1503.37 MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA (SynthÃ¨se gÃ©nÃ©rale des rÃ©seaux de la Pierre Saint Martin-PSM)
-M  1529.84 MP-AP7_Entree-Plan-A@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Entree)
-S  1529.84 SP-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1440.61 MP-AP7_Entree-Plan-B@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Entree)
-S  1402.96 SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1381.39 SP-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1537.49 SP-AP7_Entree_04@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1367.38 MP-AP7_Aval-Plan-tot@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Aval)
-S  1376.26 SP-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1372.33 SP-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1368.91 SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1375.23 SP-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1368.91 SP-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1356.60 SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1353.41 SP-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S     -.-- SP-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S     -.-- SP-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S     -.-- SP-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA (SynthÃ¨se gÃ©nÃ©rale des rÃ©seaux de la Pierre Saint Martin-PSM)
+M  1.5e+03 MP-AP7_Entree-Plan-A@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Entree)
+S  1.5e+03 SP-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.4e+03 MP-AP7_Entree-Plan-B@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Entree)
+S  1.4e+03 SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.5e+03 SP-AP7_Entree_04@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.4e+03 MP-AP7_Aval-Plan-tot@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Aval)
+S  1.4e+03 SP-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
 S     -.-- SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
 S     -.-- SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
 S     -.-- SP-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
@@ -172,103 +172,155 @@ S     -.-- SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bour
 S     -.-- SP-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
 S     -.-- SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
 S     -.-- SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1408.42 MP-AP7_Amonts-Plan-A@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Amonts)
-S  1369.32 SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1365.64 SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1395.06 SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1384.57 SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1424.97 SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1395.53 SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1436.56 SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1463.24 SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1419.03 SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1419.19 SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1419.51 SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1422.68 MP-AP7_Amonts-Plan-B@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Amonts)
-S  1422.52 SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1422.85 SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1720.00 MP-AP260-Plan-tot@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP260)
-S  1720.00 SP-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1457.39 MP-B3_Entree1@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (B3 EntrÃ©e (plan))
-S  1517.51 SP-B3_Entree_01@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1397.27 SP-B3_Entree_01B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1311.33 MP-B3_Entree2@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (B3 EntrÃ©e suite (plan))
-S  1342.30 SP-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1326.22 SP-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1303.76 SP-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1310.27 SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1274.10 SP-B3_Entree_06@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1149.46 MP-B3_Aval-plan-tot@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (B3 Aval)
-S  1276.04 SP-B3_Aval_01@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1260.20 SP-B3_Aval_01A@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1184.14 SP-B3_Aval_01B@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1113.63 SP-B3_Aval_01C@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1071.45 SP-B3_Aval_01D@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S   991.30 SP-B3_Aval_02E@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1361.12 MP-B3_Amonts-plan-tot@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (B3 Amonts)
-S  1361.65 SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1371.54 SP-B3_Amonts_02@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1354.28 SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1357.02 SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1636.00 MP-GL04_Entree-Plan-tot@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (GL04_Cam_Claque)
-S  1636.00 SP-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1366.51 MP-GL04_Amonts-Plan-tot@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (GL04_Amonts)
-S  1346.77 SP-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1374.72 SP-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1366.68 SP-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1368.21 SP-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1356.80 SP-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1396.58 SP-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1355.83 SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1655.00 MP-GL80-Plan-tot@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (GL80)
-S  1655.00 SP-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1283.12 MP-GL102_Gouffre_du_Lonne_Peyret@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (GL102 - Gouffre du LonnÃ© Peyret)
-S  1563.40 SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1436.22 SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1283.67 SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1269.19 SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1281.49 SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1237.44 SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1235.92 SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1224.68 SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1181.88 SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1339.93 SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1237.36 SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1173.15 SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1171.06 SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1296.02 SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1298.62 SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-S  1299.88 SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1620.00 MP-NL31_Squelettes-Plan-tot@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (NL31_Squelettes)
-S  1620.00 SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
-M  1521.43 MP-Z510-plan-tot@Z510.Synthese-PSM_LARRA (Z510)
-S  1639.22 SP-Z510_01@Z510.Synthese-PSM_LARRA ()
-S  1582.48 SP-Z510_01B@Z510.Synthese-PSM_LARRA ()
-S  1510.12 SP-Z510_02@Z510.Synthese-PSM_LARRA ()
-S  1567.61 SP-Z510_02B@Z510.Synthese-PSM_LARRA ()
-S  1493.22 SP-Z510_03@Z510.Synthese-PSM_LARRA ()
-S  1454.06 SP-Z510_04@Z510.Synthese-PSM_LARRA ()
-S  1428.99 SP-Z510_05@Z510.Synthese-PSM_LARRA ()
-S  1495.77 SP-Z510_06@Z510.Synthese-PSM_LARRA ()
-M  1510.83 zone_entree_BB26@BB26.Synthese-PSM_LARRA (Zone d'entree du BB 26)
-S  1514.92 BB26_meandre_entree@BB26.Synthese-PSM_LARRA ()
-S  1508.98 BB26_salle_entree@BB26.Synthese-PSM_LARRA ()
-S  1508.58 BB26_p12_entree@BB26.Synthese-PSM_LARRA ()
-M  1489.56 meandre_nieaux_principaux@BB26.Synthese-PSM_LARRA ()
-S  1498.83 BB26_puits_p12@BB26.Synthese-PSM_LARRA ()
-S  1491.99 BB26_meandre_1_a@BB26.Synthese-PSM_LARRA ()
-S  1477.87 BB26_meandre_1_c@BB26.Synthese-PSM_LARRA ()
-M  1489.16 meandre_niveau_intermediaire@BB26.Synthese-PSM_LARRA ()
-S  1489.16 BB26_meandre_1_b@BB26.Synthese-PSM_LARRA ()
-M  1465.25 zone_P30@BB26.Synthese-PSM_LARRA (Zone du P30)
-S  1479.12 BB26_sup_P30@BB26.Synthese-PSM_LARRA ()
-S  1450.88 BB26_salle_P30@BB26.Synthese-PSM_LARRA ()
-S  1451.93 BB26_meandre_2_a@BB26.Synthese-PSM_LARRA ()
-S  1479.07 BB26_affluent@BB26.Synthese-PSM_LARRA ()
+M  1.4e+03 MP-AP7_Amonts-Plan-A@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Amonts)
+S  1.4e+03 SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.5e+03 SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.4e+03 MP-AP7_Amonts-Plan-B@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP7_Amonts)
+S  1.4e+03 SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.7e+03 MP-AP260-Plan-tot@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (AP260)
+S  1.7e+03 SP-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-B3_Entree1@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (B3 EntrÃ©e (plan))
+S  1.5e+03 SP-B3_Entree_01@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-B3_Entree_01B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.3e+03 MP-B3_Entree2@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (B3 EntrÃ©e suite (plan))
+S  1.3e+03 SP-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-B3_Entree_05B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-B3_Entree_06@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.1e+03 MP-B3_Aval-plan-tot@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (B3 Aval)
+S  1.3e+03 SP-B3_Aval_01@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-B3_Aval_01A@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.2e+03 SP-B3_Aval_01B@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.1e+03 SP-B3_Aval_01C@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.1e+03 SP-B3_Aval_01D@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  9.9e+02 SP-B3_Aval_02E@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.4e+03 MP-B3_Amonts-plan-tot@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (B3 Amonts)
+S  1.4e+03 SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-B3_Amonts_02@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.6e+03 MP-GL04_Entree-Plan-tot@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (GL04_Cam_Claque)
+S  1.6e+03 SP-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.4e+03 MP-GL04_Amonts-Plan-tot@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (GL04_Amonts)
+S  1.3e+03 SP-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.7e+03 MP-GL80-Plan-tot@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (GL80)
+S  1.7e+03 SP-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.3e+03 MP-GL102_Gouffre_du_Lonne_Peyret@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (GL102 - Gouffre du LonnÃ© Peyret)
+S  1.6e+03 SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.2e+03 SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.2e+03 SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.2e+03 SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.2e+03 SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.2e+03 SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.2e+03 SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.2e+03 SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+S  1.3e+03 SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.6e+03 MP-NL31_Squelettes-Plan-tot@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA (NL31_Squelettes)
+S  1.6e+03 SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Z510-plan-tot@Z510.Synthese-PSM_LARRA (Z510)
+S  1.6e+03 SP-Z510_01@Z510.Synthese-PSM_LARRA ()
+S  1.6e+03 SP-Z510_01B@Z510.Synthese-PSM_LARRA ()
+S  1.5e+03 SP-Z510_02@Z510.Synthese-PSM_LARRA ()
+S  1.6e+03 SP-Z510_02B@Z510.Synthese-PSM_LARRA ()
+S  1.5e+03 SP-Z510_03@Z510.Synthese-PSM_LARRA ()
+S  1.5e+03 SP-Z510_04@Z510.Synthese-PSM_LARRA ()
+S  1.4e+03 SP-Z510_05@Z510.Synthese-PSM_LARRA ()
+S  1.5e+03 SP-Z510_06@Z510.Synthese-PSM_LARRA ()
+M  1.5e+03 zone_entree_BB26@BB26.Synthese-PSM_LARRA (Zone d'entree du BB 26)
+S  1.5e+03 BB26_meandre_entree@BB26.Synthese-PSM_LARRA ()
+S  1.5e+03 BB26_salle_entree@BB26.Synthese-PSM_LARRA ()
+S  1.5e+03 BB26_p12_entree@BB26.Synthese-PSM_LARRA ()
+M  1.5e+03 meandre_nieaux_principaux@BB26.Synthese-PSM_LARRA ()
+S  1.5e+03 BB26_puits_p12@BB26.Synthese-PSM_LARRA ()
+S  1.5e+03 BB26_meandre_1_a@BB26.Synthese-PSM_LARRA ()
+S  1.5e+03 BB26_meandre_1_c@BB26.Synthese-PSM_LARRA ()
+M  1.5e+03 meandre_niveau_intermediaire@BB26.Synthese-PSM_LARRA ()
+S  1.5e+03 BB26_meandre_1_b@BB26.Synthese-PSM_LARRA ()
+M  1.5e+03 zone_P30@BB26.Synthese-PSM_LARRA (Zone du P30)
+S  1.5e+03 BB26_sup_P30@BB26.Synthese-PSM_LARRA ()
+S  1.5e+03 BB26_salle_P30@BB26.Synthese-PSM_LARRA ()
+S  1.5e+03 BB26_meandre_2_a@BB26.Synthese-PSM_LARRA ()
+S  1.5e+03 BB26_affluent@BB26.Synthese-PSM_LARRA ()
+M  1.7e+03 MP-Tobozo_1-Plan-tot@Tobozo_1.Tobozo.Synthese-PSM_LARRA (Tobozo 1)
+S  1.9e+03 SP-Tobozo_1_01@Tobozo_1.Tobozo.Synthese-PSM_LARRA ()
+S  1.8e+03 SP-Tobozo_1_02@Tobozo_1.Tobozo.Synthese-PSM_LARRA ()
+S  1.6e+03 SP-Tobozo_1_03@Tobozo_1.Tobozo.Synthese-PSM_LARRA ()
+S  1.6e+03 SP-Tobozo_1_04@Tobozo_1.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_2-Plan-tot@Tobozo_2.Tobozo.Synthese-PSM_LARRA (Tobozo_2)
+S  1.5e+03 SP-Tobozo_2_01@Tobozo_2.Tobozo.Synthese-PSM_LARRA ()
+M  1.6e+03 MP-Tobozo_3-Plan-tot@Tobozo_3.Tobozo.Synthese-PSM_LARRA (Tobozo_3)
+S  1.5e+03 SP-Tobozo_3_01@Tobozo_3.Tobozo.Synthese-PSM_LARRA ()
+S  1.6e+03 SP-Tobozo_3_02@Tobozo_3.Tobozo.Synthese-PSM_LARRA ()
+S  1.6e+03 SP-Tobozo_3_03@Tobozo_3.Tobozo.Synthese-PSM_LARRA ()
+S  1.7e+03 SP-Tobozo_3_04@Tobozo_3.Tobozo.Synthese-PSM_LARRA ()
+M  1.7e+03 MP-Tobozo_41-Plan-tot@Tobozo_41.Tobozo.Synthese-PSM_LARRA (Tobozo_41)
+S  1.7e+03 SP-Tobozo_41_01@Tobozo_41.Tobozo.Synthese-PSM_LARRA ()
+M  1.7e+03 MP-Tobozo_4-Plan-tot@Tobozo_4.Tobozo.Synthese-PSM_LARRA (Tobozo_4)
+S  1.7e+03 SP-Tobozo_4_01@Tobozo_4.Tobozo.Synthese-PSM_LARRA ()
+M  1.8e+03 MP-Tobozo_5-Plan-tot@Tobozo_5.Tobozo.Synthese-PSM_LARRA (Tobozo_5)
+S  1.8e+03 SP-Tobozo_5_01@Tobozo_5.Tobozo.Synthese-PSM_LARRA ()
+M  1.8e+03 MP-Tobozo_6-Plan-tot@Tobozo_6.Tobozo.Synthese-PSM_LARRA (Tobozo_6)
+S  1.8e+03 SP-Tobozo_6_01@Tobozo_6.Tobozo.Synthese-PSM_LARRA ()
+M  1.8e+03 MP-Tobozo_7-Plan-tot@Tobozo_7.Tobozo.Synthese-PSM_LARRA (Tobozo_7)
+S  1.8e+03 SP-Tobozo_7_01@Tobozo_7.Tobozo.Synthese-PSM_LARRA ()
+M  1.8e+03 MP-Tobozo_8-Plan-tot@Tobozo_8.Tobozo.Synthese-PSM_LARRA (Tobozo_8)
+S  1.8e+03 SP-Tobozo_8_01@Tobozo_8.Tobozo.Synthese-PSM_LARRA ()
+M  1.9e+03 MP-Tobozo_9-Plan-tot@Tobozo_9.Tobozo.Synthese-PSM_LARRA (Tobozo_9)
+S  1.9e+03 SP-Tobozo_9_01@Tobozo_9.Tobozo.Synthese-PSM_LARRA ()
+M  1.9e+03 MP-Tobozo_10-Plan-tot@Tobozo_10.Tobozo.Synthese-PSM_LARRA (Tobozo_10)
+S  1.9e+03 SP-Tobozo_10_01@Tobozo_10.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_22-Plan-tot@Tobozo_22.Tobozo.Synthese-PSM_LARRA (Tobozo_22)
+S  1.5e+03 SP-Tobozo_22_01@Tobozo_22.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_21-Plan-tot@Tobozo_21.Tobozo.Synthese-PSM_LARRA (Tobozo_21)
+S  1.5e+03 SP-Tobozo_21_01@Tobozo_21.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_23-Plan-tot@Tobozo_23.Tobozo.Synthese-PSM_LARRA (Tobozo_23)
+S  1.5e+03 SP-Tobozo_23_01@Tobozo_23.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_24-Plan-tot@Tobozo_24.Tobozo.Synthese-PSM_LARRA (Tobozo_24)
+S  1.5e+03 SP-Tobozo_24_01@Tobozo_24.Tobozo.Synthese-PSM_LARRA ()
+M  1.7e+03 MP-Tobozo_31-Plan-tot@Tobozo_31.Tobozo.Synthese-PSM_LARRA (Tobozo_31)
+S  1.7e+03 SP-Tobozo_31_01@Tobozo_31.Tobozo.Synthese-PSM_LARRA ()
+M  1.8e+03 MP-Tobozo_42-Plan-tot@Tobozo_42.Tobozo.Synthese-PSM_LARRA (Tobozo_42)
+S  1.8e+03 SP-Tobozo_42_01@Tobozo_42.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_211-Plan-tot@Tobozo_211.Tobozo.Synthese-PSM_LARRA (Tobozo_211)
+S  1.5e+03 SP-Tobozo_211_01@Tobozo_211.Tobozo.Synthese-PSM_LARRA ()
+S  1.5e+03 SP-Tobozo_211_02@Tobozo_211.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_212-Plan-tot@Tobozo_212.Tobozo.Synthese-PSM_LARRA (Tobozo_212)
+S  1.5e+03 SP-Tobozo_212_01@Tobozo_212.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_213-Plan-tot@Tobozo_213.Tobozo.Synthese-PSM_LARRA (Tobozo_213)
+S  1.5e+03 SP-Tobozo_213_01@Tobozo_213.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_2131-Plan-tot@Tobozo_2131.Tobozo.Synthese-PSM_LARRA (Tobozo_2131)
+S  1.5e+03 SP-Tobozo_2131_01@Tobozo_2131.Tobozo.Synthese-PSM_LARRA ()
+M  1.5e+03 MP-Tobozo_231-Plan-tot@Tobozo_231.Tobozo.Synthese-PSM_LARRA (Tobozo_231)
+S  1.5e+03 SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  8 JAN 2025 16:12
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  23 APR 2025 18:44
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -285,117 +337,128 @@ AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [2]
 [11] [12] [13] [14]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Entree_01@AP7_Entree.
 AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [15]
-[16] [17] [18]
-[Warning: scrap outline intersects itself in scrap SP-AP7_Aval_07@AP7_Aval.AP7_
-Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [19] [20]
-[21] [22] [23] [24] [25] [26]
-[Warning: scrap outline intersects itself in scrap SP-AP7_Aval_05@AP7_Aval.AP7_
-Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [27] [28]
+[16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30]
+[31] [32] [33] [34] [35] [36]
 [Warning: text scaled down to fit the path in scrap SP-AP7_Aval_05@AP7_Aval.AP7
 _Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA]
 [Warning: text scaled down to fit the path in scrap SP-AP7_Aval_05@AP7_Aval.AP7
-_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [29] [30]
-[31] [32]
-[Warning: text scaled down to fit the path in scrap SP-AP7_Aval_04@AP7_Aval.AP7
-_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA]
-[Warning: text scaled down to fit the path in scrap SP-AP7_Aval_04@AP7_Aval.AP7
-_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA]
-[Warning: text scaled down to fit the path in scrap SP-AP7_Aval_04@AP7_Aval.AP7
-_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [33] [34]
-[35] [36]
-[Warning: text scaled down to fit the path in scrap SP-AP7_Aval_02@AP7_Aval.AP7
 _Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [37] [38]
-[39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52]
+[39] [40]
+[Warning: text scaled down to fit the path in scrap SP-AP7_Aval_04@AP7_Aval.AP7
+_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA]
+[Warning: text scaled down to fit the path in scrap SP-AP7_Aval_04@AP7_Aval.AP7
+_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA]
+[Warning: text scaled down to fit the path in scrap SP-AP7_Aval_04@AP7_Aval.AP7
+_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [41] [42]
+[43] [44]
+[Warning: text scaled down to fit the path in scrap SP-AP7_Aval_02@AP7_Aval.AP7
+_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [45] [46]
+[47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61]
+[62] [63] [64]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Amonts_10@AP7_Amonts.
-AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [53]
-[54] [55]
+AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [65]
+[66] [67]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Amonts_09@AP7_Amonts.
-AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [56]
-[57] [58] [59] [60] [61] [62] [63]
+AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [68]
+[69] [70] [71] [72] [73] [74] [75]
 [Warning: text scaled down to fit the path in scrap SP-AP7_Amonts_07@AP7_Amonts
-.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [64]
-[65]
+.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [76]
+[77]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Amonts_05@AP7_Amonts.
-AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [66]
-[67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81]
-[82] [83]
+AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [78]
+[79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93]
+[94] [95]
 [Warning: text scaled down to fit the path in scrap SP-AP7_Amonts_01@AP7_Amonts
-.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [84]
-[85] [86]
+.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [96]
+[97] [98]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Amonts_06@AP7_Amonts.
-AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [87]
-[88] [89]
+AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [99]
+[100] [101]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Amonts_06@AP7_Amonts.
-AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [90]
-[91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101]
+AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [102]
+[103] [104] [105] [106] [107] [108] [109] [110] [111] [112] [113]
 [Warning: scrap outline intersects itself in scrap SP-B3_Entree_06@B3_Entree.B3
--Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [102] [103]
-[104] [105] [106] [107] [108] [109] [110] [111] [112] [113] [114] [115] [116]
-[117] [118] [119] [120]
+-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [114] [115]
+[116] [117] [118] [119] [120] [121] [122]
+[Warning: scrap outline intersects itself in scrap SP-B3_Entree_05@B3_Entree.B3
+-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [123] [124]
+[125] [126] [127] [128] [129]
+[Warning: scrap outline intersects itself in scrap SP-B3_Entree_02@B3_Entree.B3
+-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [130] [131]
+[132] [133]
 [Warning: scrap outline intersects itself in scrap SP-B3_Aval_02E@B3_Aval.B3-Bo
-urrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [121] [122] [123]
-[124]
+urrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [134] [135] [136]
+[137]
 [Warning: scrap outline intersects itself in scrap SP-B3_Aval_01D@B3_Aval.B3-Bo
-urrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [125] [126] [127]
-[128]
+urrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [138] [139] [140]
+[141]
 [Warning: scrap outline intersects itself in scrap SP-B3_Aval_01C@B3_Aval.B3-Bo
-urrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [129] [130] [131]
-[132] [133] [134] [135] [136] [137] [138] [139] [140] [141] [142] [143] [144]
+urrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [142] [143] [144]
 [145] [146] [147] [148] [149] [150] [151] [152] [153] [154] [155] [156] [157]
-[158] [159] [160] [161] [162] [163] [164] [165]
+[158] [159] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
+[171] [172] [173] [174] [175] [176] [177] [178]
 [Warning: scrap outline intersects itself in scrap SP-GL4_Amonts_06@GL04_Amonts
-.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [166] [167] [168] [169]
-[170] [171] [172] [173] [174] [175] [176] [177] [178] [179] [180] [181] [182]
-[183] [184] [185] [186]
-[Warning: scrap outline intersects itself in scrap SP-GL102_Amont_01B@Gouffre_d
-u_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [187] [188]
-[189] [190] [191] [192] [193] [194] [195] [196] [197] [198] [199] [200] [201]
+.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [179] [180] [181] [182]
+[183] [184] [185] [186] [187] [188] [189] [190] [191] [192] [193] [194] [195]
+[196] [197] [198] [199] [200] [201] [202] [203] [204] [205] [206] [207] [208]
+[209] [210] [211] [212] [213] [214]
 [Warning: scrap outline intersects itself in scrap SP-GL102_Aval_01E@Gouffre_du
-_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [202] [203]
-[204] [205] [206] [207] [208] [209] [210] [211] [212] [213] [214] [215] [216]
-[217] [218] [219]
-[Warning: scrap outline intersects itself in scrap SP-GL102_Aval_01A@Gouffre_du
-_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [220] [221]
-[222] [223] [224] [225] [226] [227] [228] [229] [230] [231] [232] [233] [234]
-[235] [236] [237] [238] [239] [240] [241] [242] [243] [244] [245] [246] [247]
-[248] [249] [250] [251] [252] [253] [254] [255] [256] [257] [258] [259] [260]
-[261] [262] [263] [264] [265] [266] [267] [268] [269] [270] [271] [272] [273]
-[274]
+_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [215] [216]
+[217] [218] [219] [220] [221] [222] [223] [224] [225] [226] [227] [228] [229]
+[230] [231] [232] [233] [234] [235] [236] [237] [238] [239] [240] [241] [242]
+[243] [244] [245] [246] [247] [248] [249] [250] [251] [252] [253] [254] [255]
+[256] [257] [258] [259] [260] [261] [262] [263] [264] [265] [266] [267] [268]
+[269]
+[Warning: scrap outline intersects itself in scrap SP-Z510_03@Z510.Synthese-PSM
+_LARRA] [270] [271] [272] [273] [274] [275] [276] [277] [278] [279] [280] [281]
+[282] [283] [284] [285] [286] [287]
 [Warning: text scaled down to fit the path in scrap SP-Z510_01@Z510.Synthese-PS
-M_LARRA] [275] [276] [277] [278] [279] [280] [281] [282] [283]
+M_LARRA] [288] [289] [290] [291] [292] [293] [294] [295] [296]
 [Error: area borders l19-270-247 and l13-317-246 don't intersect in scrap BB26_
 meandre_entree@BB26.Synthese-PSM_LARRA (file Data/BB26/dessins/plans/BB26.th2 [
-97])] [284] [285] [286] [287] [288] [289] [290] [291]
+97])] [297] [298] [299] [300] [301] [302] [303] [304]
 [Error: area borders l51-156-129 and l67-156-133 don't intersect in scrap BB26_
 meandre_1_a@BB26.Synthese-PSM_LARRA (file Data/BB26/dessins/plans/BB26_p12_p6.t
-h2 [402])] [292] [293] [294] [295] [296] [297] [298] [299] [300] [301]
+h2 [402])] [305] [306] [307] [308] [309] [310] [311] [312] [313] [314]
 [Warning: text scaled down to fit the path in scrap BB26_meandre_1_b@BB26.Synth
-ese-PSM_LARRA] [302] [303] [304] [305] [306] [307] [308] [309] [310] [311]
-[312] [313] [314]
+ese-PSM_LARRA] [315] [316] [317] [318] [319] [320] [321] [322] [323] [324]
+[325] [326] [327]
 [Error: area borders l89-43-258 and l113-61-270 don't intersect in scrap BB26_s
 up_P30@BB26.Synthese-PSM_LARRA (file Data/BB26/dessins/plans/BB26_meandre_p11.t
-h2 [603])] [315] [316] [317] [318] (./mptextmp.mp) [319] (./mptextmp.mp)
+h2 [603])] [328] [329] [330] [331] [332] [333] [334] [335] [336] [337] [338]
+[339] [340] [341] [342] [343] [344] [345] [346] [347] [348] [349] [350] [351]
+[352] [353] [354] [355] [356] [357] [358] [359] [360] [361] [362] [363] [364]
+[365] [366] [367] [368] [369] [370] [371] [372] [373] [374] [375] [376] [377]
+[378] [379] [380] [381] [382] [383] [384] [385] [386]
+[Warning: scrap outline intersects itself in scrap SP-Tobozo_21_01@Tobozo_21.To
+bozo.Synthese-PSM_LARRA] [387] [388] [389] [390]
+[Warning: scrap outline intersects itself in scrap SP-Tobozo_24_01@Tobozo_24.To
+bozo.Synthese-PSM_LARRA] [391] [392] [393] [394] [395] [396] [397] [398] [399]
+[400]
+[Warning: scrap outline intersects itself in scrap SP-Tobozo_211_02@Tobozo_211.
+Tobozo.Synthese-PSM_LARRA] [401] [402] [403] [404] [405] [406] [407] [408]
+[409] [410] [411] [412] [413] [414] [415] [416] [417] (./mptextmp.mp) [418]
 (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
-[320] [321] [322] [323] [324] [325] [326] [327] [328] [329] [330] [331] [332]
-[333] [334] [335] [336] [337] [338] [339] [340] [341] [342] [343] [344] [345]
-[346] [347] [348] [349] [350] [351] [352] [353] [354] [355] [356] [357] [358]
-[359] [360] [361] [362] [363] [364] [365] [366] [367] [368] [369] [370] [371]
-[372] [373] [374] [375] [376] [377] [378] [379] [380] [381] [382] [383] [384]
-[385] [386] [387] [388] [389] [390] )
+(./mptextmp.mp) [419] [420] [421] [422] [423] [424] [425] [426] [427] [428]
+[429] [430] [431] [432] [433] [434] [435] [436] [437] [438] [439] [440] [441]
+[442] [443] [444] [445] [446] [447] [448] [449] [450] [451] [452] [453] [454]
+[455] [456] [457] [458] [459] [460] [461] [462] [463] [464] [465] [466] [467]
+[468] [469] [470] [471] [472] [473] [474] [475] [476] [477] [478] [479] [480]
+[481] [482] [483] [484] [485] [486] [487] [488] [489] )
  
 Here is how much of MetaPost's memory you used:
- 227083 strings using 5423317 characters
- 7879920 bytes of node memory
- 1804 symbolic tokens
+ 276907 strings using 6641628 characters
+ 8758064 bytes of node memory
+ 1809 symbolic tokens
  11i,82n,18p,612b,5f stack positions out of 16i,98n,20p,760b,6f
-405 output files written: data-patt.1 .. data.390
+504 output files written: data-patt.1 .. data.489
 
 
 #################### end of metapost log file ####################
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  8 JAN 2025 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  23 APR 2025 18:44
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -409,10 +472,10 @@ go-ARSIP-Synthese-Topographique_XL.png>) (./th_pages.tex)
  [1] )
 (\end occurred when \ifx on line 12 was incomplete) 
 Here is how much of TeX's memory you used:
- 1115 strings out of 95671
- 13814 string characters out of 1192323
- 412215 words of memory out of 1873258
- 2508 multiletter control sequences out of 15000+50000
+ 1369 strings out of 95671
+ 17028 string characters out of 1192323
+ 501931 words of memory out of 1954974
+ 2762 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
  13i,5n,9p,1688b,75s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -420,29 +483,31 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 8530064 bytes).
+Output written on data.pdf (1 page, 11974584 bytes).
 PDF statistics:
- 1817 PDF objects out of 2073 (max. 8388607)
- 908 compressed objects within 10 object streams
+ 2389 PDF objects out of 2487 (max. 8388607)
+ 1193 compressed objects within 12 object streams
  0 named destinations out of 1000 (max. 500000)
- 5344 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 7054 words of extra memory for PDF output out of 10000 (max. 10000000)
 
 
 ##################### end of pdftex log file #####################
 done
-writing Outputs/Synthese-PSM_LARRA.lox .........
-C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA -- multiple scrap outer outlines not supported yet
-C:\Program Files\Therion\therion.exe: warning -- SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA -- invalid scrap outline
-.........................................
-C:\Program Files\Therion\therion.exe: warning -- SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA -- multiple scrap outer outlines not supported yet
-.....................................................
+writing Outputs/Synthese-PSM_LARRA.lox ........................................................................................................
 C:\Program Files\Therion\therion.exe: warning -- BB26_meandre_1_a@BB26.Synthese-PSM_LARRA -- multiple scrap outer outlines not supported yet
 ..
 C:\Program Files\Therion\therion.exe: warning -- BB26_meandre_1_c@BB26.Synthese-PSM_LARRA -- scrap 3D reconstruction failed
-.... done
+.................................. done
 writing Outputs/Synthese-PSM_LARRA.kml ... done
+writing Outputs/database_Synthese-PSM_LARRA.sql ... 
+processing projection extended ... done
+average distortion: 12.91%
+
+processing projection elevation ... done
+average distortion: 0.46%
+done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  8 JAN 2025 16:14
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  23 APR 2025 18:46
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -471,14 +536,15 @@ writing Outputs/Synthese-PSM_LARRA-model.kml ... done
 writing Outputs/Synthese-PSM_LARRA-3D.kml ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.html ... done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
-compilation time: 78 sec
+writing xtherion file ... done
+compilation time: 153 sec
 
 
 ######################### loop errors ##########################
 REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
-  6.42%   12.5m  194.7m  33    1.6m  -12.3m   -1.4m [GN30@AP7_Amonts.AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - 3_0 = H@GL4_Amonts.GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - 164 - 165 - 166 - 167 - 168 - 169 - 170 - 171 - 172 - 173 - 174 - 175 - I = 4_3@AP7_Amonts.AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - 4_4 - 4_6 - 4_7 - 4_8 - 4_9 - 4_10 - 4_11 - 4_12 - 4_13 - 4_14 - 4_15 - 4_16 - 4_17 - 4_18 - 4_19 - 2_2 - 2_1 - 2_0 - GN30]
-  4.61%    1.0m   20.7m   7   -0.8m   -0.4m    0.3m [SF48@AP7_Aval.AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - SF54 - SF53 - SF52 - SF51 - SF50 - SF49 - SF48]
-  2.46%    2.7m  108.0m  27   -0.0m   -0.0m   -2.7m [GN05@AP7_Aval.AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - Y01 - Y02 - Y03 - Y04 - Y05 - Y06 - Y07 - Z19 - Z18 - Z17 - Z16 - Z15 - Z14 - Z13 - Z12 - Z11 - Z10 - Z03 - Z02 - Z01 - Z00 - RN01 - GN01 - GN02 - GN03 - GN04 - GN05]
+   6.4%   12.5m  194.7m  33    1.6m  -12.3m   -1.4m [GN30@AP7_Amonts.AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - 3_0 = H@GL4_Amonts.GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - 164 - 165 - 166 - 167 - 168 - 169 - 170 - 171 - 172 - 173 - 174 - 175 - I = 4_3@AP7_Amonts.AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - 4_4 - 4_6 - 4_7 - 4_8 - 4_9 - 4_10 - 4_11 - 4_12 - 4_13 - 4_14 - 4_15 - 4_16 - 4_17 - 4_18 - 4_19 - 2_2 - 2_1 - 2_0 - GN30]
+   4.6%    1.0m   20.7m   7   -0.8m   -0.4m    0.3m [SF48@AP7_Aval.AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - SF54 - SF53 - SF52 - SF51 - SF50 - SF49 - SF48]
+   2.5%    2.7m  108.0m  27   -0.0m   -0.0m   -2.7m [GN05@AP7_Aval.AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - Y01 - Y02 - Y03 - Y04 - Y05 - Y06 - Y07 - Z19 - Z18 - Z17 - Z16 - Z15 - Z14 - Z13 - Z12 - Z11 - Z10 - Z03 - Z02 - Z01 - Z00 - RN01 - GN01 - GN02 - GN03 - GN04 - GN05]
   0.18%    0.3m  167.2m  38   -0.0m   -0.0m   -0.3m [Z03@AP7_Aval.AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA - Z04 - Z05 - Z06 - Z07 - Z08 - C17 - C16 - C15 - C14 - C13 - C12 - C11 - C10 - C09 - C08 - C07 - C06 - C05 - C04 - C03 - C02 - C01 - RN20 - RN11 - RN10 - RN09 - RN08 - RN07 - RN06 - RN05 - RN04 - RN03 - RN02 - RN01 - Z00 - Z01 - Z02 - Z03]
 ##################### end of loop errors #######################
 
@@ -486,116 +552,268 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ###################### scrap distortions #######################
  PROJECTION: plan
  AVERAGE  MAXIMAL  SCRAP
-   0.57%  100.00%  SP-B3_Aval_01B@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.20%   90.95%  SP-B3_Aval_01@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.17%   73.54%  SP-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.14%   72.45%  SP-B3_Entree_06@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   3.41%   65.89%  SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   4.10%   62.46%  SP-B3_Entree_01B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   1.86%   58.00%  SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.12%   56.64%  SP-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.99%   48.10%  SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.16%   46.66%  SP-B3_Entree_01@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.73%   43.97%  SP-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   1.62%   43.82%  SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.07%   43.37%  SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.20%   37.38%  SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   1.31%   33.31%  SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.24%   33.23%  SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.90%   32.33%  SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.16%   31.58%  SP-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   5.41%   29.50%  SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   1.92%   27.51%  BB26_meandre_1_a@BB26.Synthese-PSM_LARRA
-   0.11%   25.45%  SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.10%   25.26%  SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.04%   17.97%  SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.29%   15.51%  SP-Z510_04@Z510.Synthese-PSM_LARRA
-   0.01%   13.57%  SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.09%   12.52%  SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.06%   11.84%  SP-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.07%    9.47%  SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.20%    9.19%  SP-Z510_02@Z510.Synthese-PSM_LARRA
-   2.20%    9.03%  BB26_puits_p12@BB26.Synthese-PSM_LARRA
-   1.32%    8.08%  BB26_p12_entree@BB26.Synthese-PSM_LARRA
-   0.06%    8.00%  SP-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.02%    7.89%  SP-B3_Aval_01D@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.25%    6.65%  SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.05%    5.47%  SP-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.20%    4.49%  SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.02%    4.08%  SP-B3_Aval_01A@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   1.03%    4.02%  SP-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.02%    3.87%  SP-B3_Aval_02E@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.07%    3.81%  SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.08%    3.03%  SP-Z510_01@Z510.Synthese-PSM_LARRA
-   0.30%    2.88%  BB26_meandre_1_c@BB26.Synthese-PSM_LARRA
-   0.25%    2.63%  BB26_salle_entree@BB26.Synthese-PSM_LARRA
-   0.08%    2.48%  SP-Z510_01B@Z510.Synthese-PSM_LARRA
-   0.06%    2.47%  SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.07%    2.26%  SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.04%    2.26%  SP-Z510_06@Z510.Synthese-PSM_LARRA
-   0.02%    2.13%  SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.13%    2.13%  SP-Z510_05@Z510.Synthese-PSM_LARRA
-   0.08%    1.86%  BB26_affluent@BB26.Synthese-PSM_LARRA
-   0.01%    1.77%  SP-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.02%    1.73%  SP-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.11%    1.55%  SP-Z510_03@Z510.Synthese-PSM_LARRA
-   0.02%    1.26%  SP-B3_Amonts_02@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.04%    1.09%  BB26_salle_P30@BB26.Synthese-PSM_LARRA
-   0.05%    1.07%  SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.21%    1.07%  BB26_meandre_entree@BB26.Synthese-PSM_LARRA
-   0.01%    0.97%  SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.04%    0.91%  SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.05%    0.86%  SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.79%  SP-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.02%    0.75%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.02%    0.75%  SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.02%    0.62%  SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.13%    0.57%  BB26_meandre_2_a@BB26.Synthese-PSM_LARRA
-   0.02%    0.47%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.45%  SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.03%    0.45%  SP-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.04%    0.42%  BB26_sup_P30@BB26.Synthese-PSM_LARRA
-   0.01%    0.37%  SP-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.04%    0.36%  BB26_meandre_1_b@BB26.Synthese-PSM_LARRA
-   0.03%    0.34%  SP-Z510_02B@Z510.Synthese-PSM_LARRA
-   0.07%    0.32%  SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.31%  SP-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.02%    0.29%  SP-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.26%  SP-B3_Aval_01C@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.03%    0.25%  SP-GL4_Amonts_03@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.22%  SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.19%  SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.18%  SP-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.17%  SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.14%  SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Entree_04@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_15@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  scrap51@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  scrap339@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.00%    0.00%  SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.57%   1e+02%  SP-B3_Aval_01B@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    0.2%      91%  SP-B3_Aval_01@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.17%      74%  SP-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.14%      72%  SP-B3_Entree_06@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    3.4%      66%  SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    4.1%      62%  SP-B3_Entree_01B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    0.2%      60%  SP-Tobozo_213_01@Tobozo_213.Tobozo.Synthese-PSM_LARRA
+    1.9%      58%  SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.14%      57%  SP-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.99%      48%  SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.16%      47%  SP-B3_Entree_01@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.74%      44%  SP-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.19%      44%  SP-Tobozo_7_01@Tobozo_7.Tobozo.Synthese-PSM_LARRA
+    1.6%      44%  SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.062%      43%  SP-Tobozo_9_01@Tobozo_9.Tobozo.Synthese-PSM_LARRA
+  0.067%      43%  SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.18%      40%  SP-Tobozo_2131_01@Tobozo_2131.Tobozo.Synthese-PSM_LARRA
+  0.051%      39%  SP-Tobozo_10_01@Tobozo_10.Tobozo.Synthese-PSM_LARRA
+   0.19%      37%  SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    1.2%      33%  SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.24%      33%  SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.87%      32%  SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.16%      32%  SP-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    5.4%      29%  SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    1.9%      28%  BB26_meandre_1_a@BB26.Synthese-PSM_LARRA
+  0.074%      26%  SP-Tobozo_8_01@Tobozo_8.Tobozo.Synthese-PSM_LARRA
+   0.12%      25%  SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.099%      25%  SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.03%      24%  SP-Tobozo_24_01@Tobozo_24.Tobozo.Synthese-PSM_LARRA
+   0.17%      22%  SP-Tobozo_21_01@Tobozo_21.Tobozo.Synthese-PSM_LARRA
+   0.21%      22%  SP-Tobozo_31_01@Tobozo_31.Tobozo.Synthese-PSM_LARRA
+  0.047%      21%  SP-Tobozo_3_03@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+   0.11%      21%  SP-Tobozo_211_01@Tobozo_211.Tobozo.Synthese-PSM_LARRA
+  0.083%      18%  SP-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.034%      17%  SP-Tobozo_3_01@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+   0.21%      17%  SP-Tobozo_22_01@Tobozo_22.Tobozo.Synthese-PSM_LARRA
+   0.23%      16%  SP-Tobozo_6_01@Tobozo_6.Tobozo.Synthese-PSM_LARRA
+   0.23%      15%  SP-Tobozo_5_01@Tobozo_5.Tobozo.Synthese-PSM_LARRA
+   0.29%      15%  SP-Z510_04@Z510.Synthese-PSM_LARRA
+   0.81%      14%  SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA
+   0.26%      13%  SP-Tobozo_41_01@Tobozo_41.Tobozo.Synthese-PSM_LARRA
+   0.17%      13%  SP-Tobozo_42_01@Tobozo_42.Tobozo.Synthese-PSM_LARRA
+  0.084%      12%  SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.057%      12%  SP-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.068%     9.5%  SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    2.2%       9%  BB26_puits_p12@BB26.Synthese-PSM_LARRA
+   0.19%     8.5%  SP-Z510_02@Z510.Synthese-PSM_LARRA
+   0.22%     8.2%  SP-Tobozo_2_01@Tobozo_2.Tobozo.Synthese-PSM_LARRA
+  0.055%       8%  SP-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    1.3%       8%  BB26_p12_entree@BB26.Synthese-PSM_LARRA
+  0.025%     7.9%  SP-B3_Aval_01D@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.012%     7.2%  SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.26%     6.8%  SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.052%     6.8%  SP-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.089%     5.8%  SP-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    0.1%     4.7%  SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.072%     4.6%  SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.19%     4.6%  SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.021%     4.1%  SP-B3_Aval_01A@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.074%     4.1%  SP-Z510_01B@Z510.Synthese-PSM_LARRA
+      1%       4%  SP-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.019%     3.9%  SP-B3_Aval_02E@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.15%     3.5%  SP-Z510_01@Z510.Synthese-PSM_LARRA
+  0.034%     3.4%  SP-Tobozo_3_04@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+  0.039%       3%  SP-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    0.3%     2.9%  BB26_meandre_1_c@BB26.Synthese-PSM_LARRA
+   0.25%     2.7%  BB26_salle_entree@BB26.Synthese-PSM_LARRA
+   0.07%     2.3%  SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.07%     2.1%  SP-Z510_06@Z510.Synthese-PSM_LARRA
+   0.02%     2.1%  SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.14%     2.1%  SP-Tobozo_1_02@Tobozo_1.Tobozo.Synthese-PSM_LARRA
+   0.13%       2%  SP-Z510_03@Z510.Synthese-PSM_LARRA
+  0.078%     1.9%  BB26_affluent@BB26.Synthese-PSM_LARRA
+  0.016%     1.7%  SP-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.013%     1.6%  SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.023%     1.5%  SP-Tobozo_1_01@Tobozo_1.Tobozo.Synthese-PSM_LARRA
+ 0.0096%     1.4%  SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.015%     1.4%  SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.017%     1.3%  SP-B3_Amonts_02@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    0.1%     1.2%  SP-Z510_05@Z510.Synthese-PSM_LARRA
+  0.033%     1.2%  SP-Tobozo_4_01@Tobozo_4.Tobozo.Synthese-PSM_LARRA
+   0.14%     1.2%  BB26_meandre_2_a@BB26.Synthese-PSM_LARRA
+  0.037%     1.1%  BB26_salle_P30@BB26.Synthese-PSM_LARRA
+   0.21%     1.1%  BB26_meandre_entree@BB26.Synthese-PSM_LARRA
+  0.044%     1.1%  SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.12%    0.97%  SP-Tobozo_1_03@Tobozo_1.Tobozo.Synthese-PSM_LARRA
+  0.035%     0.9%  SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.048%    0.88%  SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.017%    0.87%  SP-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.062%    0.83%  SP-Tobozo_1_04@Tobozo_1.Tobozo.Synthese-PSM_LARRA
+  0.029%    0.67%  SP-B3_Entree_05B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.021%    0.62%  SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0083%    0.53%  SP-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0088%    0.51%  SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.009%     0.5%  SP-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.029%    0.45%  SP-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.015%    0.41%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.027%     0.4%  SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.086%    0.35%  SP-Z510_02B@Z510.Synthese-PSM_LARRA
+  0.041%    0.34%  BB26_meandre_1_b@BB26.Synthese-PSM_LARRA
+  0.021%    0.34%  SP-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.019%    0.33%  SP-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.018%    0.32%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.054%    0.29%  BB26_sup_P30@BB26.Synthese-PSM_LARRA
+  0.013%    0.27%  SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.038%    0.26%  SP-GL4_Amonts_03@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0063%    0.21%  SP-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.04%    0.19%  SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0055%    0.19%  SP-B3_Aval_01C@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.01%    0.17%  SP-Tobozo_3_02@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+ 0.0055%    0.17%  SP-Tobozo_211_02@Tobozo_211.Tobozo.Synthese-PSM_LARRA
+  0.042%    0.16%  SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0079%    0.15%  SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.013%   0.045%  SP-Tobozo_212_01@Tobozo_212.Tobozo.Synthese-PSM_LARRA
+ 1.4e-13%  1.1e-12%  SP-AP7_Entree_04@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Tobozo_23_01@Tobozo_23.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_15@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  scrap165@Tobozo_21.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  scrap339@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  scrap51@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+################### end of scrap distortions ###################
+
+
+###################### scrap distortions #######################
+ PROJECTION: extended
+ AVERAGE  MAXIMAL  SCRAP
+     49%   1e+02%  SC-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+     53%   1e+02%  SC-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+     23%   1e+02%  SC-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+     77%      99%  SC-Tobozo_5_01@Tobozo_5.Tobozo.Synthese-PSM_LARRA
+     50%      99%  SC-Tobozo_21_01@Tobozo_21.Tobozo.Synthese-PSM_LARRA
+     22%      98%  SC-Tobozo_2131_01@Tobozo_2131.Tobozo.Synthese-PSM_LARRA
+     22%      98%  SC-Tobozo_22_01@Tobozo_22.Tobozo.Synthese-PSM_LARRA
+      4%      97%  SC-Tobozo_211_01@Tobozo_211.Tobozo.Synthese-PSM_LARRA
+     33%      94%  SC-Tobozo_42_01@Tobozo_42.Tobozo.Synthese-PSM_LARRA
+    5.4%      92%  SC-Tobozo_24_01@Tobozo_24.Tobozo.Synthese-PSM_LARRA
+     11%      83%  SC-Tobozo_41_01@Tobozo_41.Tobozo.Synthese-PSM_LARRA
+   0.81%      78%  SC-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    6.9%      73%  SC-Tobozo_4_01@Tobozo_4.Tobozo.Synthese-PSM_LARRA
+     13%      50%  SC-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.67%      40%  SC-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    2.4%      25%  SC-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.056%      13%  SC-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.12%      10%  SC-GL102_Entree_02B2@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.084%     8.2%  SC-GL4_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.078%     4.6%  SC-B3_Entree_01@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.039%     4.2%  SC-Z510_02@Z510.Synthese-PSM_LARRA
+  0.031%     2.5%  SC-Z510_01@Z510.Synthese-PSM_LARRA
+    2.1%     2.2%  SC-Tobozo_31_01@Tobozo_31.Tobozo.Synthese-PSM_LARRA
+   0.12%     1.5%  SC-Tobozo_9_01@Tobozo_9.Tobozo.Synthese-PSM_LARRA
+    1.2%     1.2%  SC-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA
+  0.028%     1.2%  SC-GL4_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0085%     1.1%  SC-B3_Entree_06@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0052%    0.41%  SC-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.013%    0.31%  SC-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0025%    0.26%  SC-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0062%    0.25%  SC-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.11%    0.19%  SC-Tobozo_6_01@Tobozo_6.Tobozo.Synthese-PSM_LARRA
+   0.11%    0.15%  SC-Tobozo_3_01@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+   0.11%    0.13%  SC-Tobozo_8_01@Tobozo_8.Tobozo.Synthese-PSM_LARRA
+  0.088%    0.11%  SC-Tobozo_7_01@Tobozo_7.Tobozo.Synthese-PSM_LARRA
+ 0.00085%    0.11%  SC-Tobozo_1_01@Tobozo_1.Tobozo.Synthese-PSM_LARRA
+ 0.0022%    0.08%  SC-Tobozo_213_01@Tobozo_213.Tobozo.Synthese-PSM_LARRA
+  0.003%   0.023%  SC-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.001%   0.022%  SC-Z510_04@Z510.Synthese-PSM_LARRA
+ 0.0076%   0.021%  SC-Tobozo_23_01@Tobozo_23.Tobozo.Synthese-PSM_LARRA
+ 0.0011%   0.019%  SC-Tobozo_10_01@Tobozo_10.Tobozo.Synthese-PSM_LARRA
+ 0.00064%   0.016%  SC-Z510_06@Z510.Synthese-PSM_LARRA
+ 0.00043%   0.013%  SC-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.00066%   0.012%  SC-Z510_05@Z510.Synthese-PSM_LARRA
+ 0.00053%   0.011%  SC-Z510_03@Z510.Synthese-PSM_LARRA
+ 0.00046%  0.0097%  SC-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0012%  0.0087%  SC-Tobozo_2_01@Tobozo_2.Tobozo.Synthese-PSM_LARRA
+ 0.00042%  0.0062%  SC-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0003%  0.0044%  SC-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.0016%  0.0041%  SC-Tobozo_212_01@Tobozo_212.Tobozo.Synthese-PSM_LARRA
+ 0.00015%  0.0033%  SC-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.00023%  0.0032%  SC-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 0.00017%  0.0024%  SC-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 5.9e-06%  0.0011%  SC-Tobozo_1_02@Tobozo_1.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Tobozo_3_02@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SC-Tobozo_3_03@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SC-Tobozo_3_04@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Tobozo_211_02@Tobozo_211.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_03@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_15@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+################### end of scrap distortions ###################
+
+
+###################### scrap distortions #######################
+ PROJECTION: elevation
+ AVERAGE  MAXIMAL  SCRAP
+   0.84%      11%  BB26_coupe_vire_P30@BB26.Synthese-PSM_LARRA
+   0.75%     9.7%  BB26_coupe_entree@BB26.Synthese-PSM_LARRA
+    0.2%       9%  BB26_coupe_meandre_P11@BB26.Synthese-PSM_LARRA
+   0.22%     5.8%  BB26_coupe_P12_R6@BB26.Synthese-PSM_LARRA
+   0.17%    0.77%  BB26_coupe_amont@BB26.Synthese-PSM_LARRA
 ################### end of scrap distortions ###################
 
 ############# CRS transformations chosen by PROJ ###############
-  Area of Use (AoU): (-0.802, 42.954) (-0.726, 42.983)
+  Area of Use (AoU): (-0.802, 42.934) (-0.726, 42.983)
   [UTM30 â†’ LONG-LAT] AoU: [yes] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
   [UTM30 â†’ LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
   [UTM30 â†’ UTM30] AoU: [yes] transformation: [Inverse of UTM zone 30N + UTM zone 30N] definition: [proj=noop ellps=GRS80] accuracy: [0.000 m]

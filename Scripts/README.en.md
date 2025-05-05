@@ -24,12 +24,13 @@ pyCreate_th2
 
 Script to automate the creation of folders and files for a .th file
 
-- Define the different variables in the config.ini file  
-- Create the necessary folders based on the 'template' folder  
-- Generate the required files: th, th2, -tot.th  
-- Create scraps with topo stations  
-
 Usage: python pyCreate_th2.py  
+
+How to use:  
+	- Define the different variables in the config.ini file  
+	- Create the necessary folders based on the 'template' folder  
+	- Generate the required files: th, th2, -tot.th  
+	- Create scraps with topo stations  
 
 
 pyThStat
@@ -38,6 +39,19 @@ pyThStat
 Script to calculate statistics of joined entities from a database File (.sql) Produced by Therion
 
 Usage:
-- Export the SQL file using Therion command (.thconfig) : export database -o Outputs/database.sql
-- Command : python pythStat.py ./path/to/file.sql
-- Or : python pythStat.py to open a window
+	- Export the SQL file using Therion command (.thconfig) : export database -o Outputs/database.sql
+	- Command : python pythStat.py ./path/to/file.sql
+	- Or : python pythStat.py to open a window
+
+
+pyThtoBD (in process)
+--------
+
+Script to export therion data base to an other like Karsteau 
+
+Usage:
+    - Place Export_bd.ini files in each of the cave directories to be exported.
+    - Run python pyThtoDB.py, then select the Therion folder to export.
+    - Results for Karsteau will be in the /Outputs/Export_bd/ directory.
+    - Coming soon – Import the export results into Karsteau.
+	   

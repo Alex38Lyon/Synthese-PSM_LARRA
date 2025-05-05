@@ -84,12 +84,14 @@ processing projection plan ... done
 average distortion: 0.13%
 ........ done
 writing Outputs/Z510.kml ... done
+writing Outputs/Z510.3d ... done
+writing Outputs/Z510.wrl ... done
 writing Outputs/Z510.sql ... 
 processing projection extended ... done
 average distortion: 0.02%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  28 MAR 2025 16:42
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  24 APR 2025 22:32
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
