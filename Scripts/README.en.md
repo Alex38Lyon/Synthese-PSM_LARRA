@@ -51,7 +51,7 @@ Script to export therion data base to an other like Karsteau
 
 Usage:
     - Place Export_bd.ini files in each of the cave directories to be exported.
-    - Run python pyThtoDB.py, then select the Therion folder to export.
+    - Run python pyThtoBD.py, then select the Therion folder to export.
     - Results for Karsteau will be in the /Outputs/Export_bd/ directory.
     - Coming soon – Import the export results into Karsteau.
 	   

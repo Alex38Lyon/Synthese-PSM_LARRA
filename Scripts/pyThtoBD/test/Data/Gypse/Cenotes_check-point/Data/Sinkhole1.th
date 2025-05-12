@@ -15,7 +15,7 @@ survey SINKHOLE1 -title "Karabulak Gypsum Collapses 1"
 		
 		cs long-lat
 		fix 0 66.352551  37.618033 351
-		station 0 "Karabulak Gypsum Collapses 1" entrance
+		station 0 "Karabulak Gypsum Collapses 01" entrance
 		
 		units length meters
 		units compass clino degrees

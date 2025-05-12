@@ -91,7 +91,7 @@ processing projection extended ... done
 average distortion: 0.02%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  24 APR 2025 22:32
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  8 MAY 2025 17:53
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -112,6 +112,7 @@ writing Outputs/Z510-Cave-list.kml ... done
 writing Outputs/Z510-Surveys.kml ... 
 C:\Program Files\Therion\therion.exe: warning -- geographical reference is not associated with table
 done
+writing xtherion file ... done
 compilation time: 1 sec
 
 

@@ -12,7 +12,8 @@ Résultats dans le dossier /Outputs/Export_bd de la db Therion :
 	- Export_bd.xlxs	: fichier excel pour l'export vers Karsteau
 	- Export_bd.zip	: archive brute des données Therion
 	- Export_bd_data.zip : archive des documents à exporter vers Karsteau
-	 
+	
+Commande : python pyToBD.py --help
 
 ==============================
 Table des données exportées :

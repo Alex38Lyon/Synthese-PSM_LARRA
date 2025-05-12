@@ -54,7 +54,7 @@ Script pour exporter une base Therion vers une base de données type Karsteau
 
 Utilisation:
 	- Placer des fichiers Export_bd.ini dans chacun des dossiers des cavités à exporter                                    
-	- Lancer python pyThtoDB.py, sélectionner le dossier therion à exporter                                                 
+	- Lancer python pyThtoBD.py, sélectionner le dossier therion à exporter                                                 
 	- Résultats pour Karsteau dans le dossier /Outputs/Export_bd/                                                             
 	- A venir - Importer le résultat de l'importation dans Karsteau    
 
