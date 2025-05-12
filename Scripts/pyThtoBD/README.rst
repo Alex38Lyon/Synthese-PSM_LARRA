@@ -31,7 +31,9 @@ CAVITE_DENIV_PLUS        : Dénivelé positif de la cavité, à voir définition
 CAVITE_DENIV_MOINS       : Dénivelé négatif de la cavité (via le fichier .log de la cavité)
 CAVITE_PATH              : Interne au script pour identifier la cavité, chemin dans la base vers le dossier contenant la cavité   
 CAVITE_KEY_KARSTEAU      : Retour Karsteau, clé unique d'identification de la cavité
+CAVITE_HASH_SQL_FILE     : Hash du fichier sql de la cavité pour gérer les modifications
 CAVITE_DATE_UPDATE       : Date de mise à jour de la cavité (date d'execution du script)
+
 
 Entrées (la liste des entrées est générée après l'exécution du thconfig de la cavité via le fichier sql généré) 
 ---------------------------------------------------------------------------------------------------------------
@@ -69,6 +71,7 @@ DOCUMENT_x_DATE          : Date du document (via exif du pdf, à voir pour les a
 DOCUMENT_x_DATE_UPDATE   : Date de mise à jour du document (date d'exécution du script)
 DOCUMENT_x_DESCRIPTION   : Description du document (via exif du pdf, à voir pour les autres types)
 DOCUMENT_x_FILE          : Chemin dans les dossiers pour identifier le document   
+DOCUMENT_x_HASH_FILE     : Hash du fichier pour identifier le document
 DOCUMENT_x_LIE           : Cavité ou Entrée, ensemble des documents sont liés au cavités
 DOCUMENT_x_NATURE        : Nature du document : pdf, kml, zip... 
 DOCUMENT_x_TEXT          : Texte du document !!! Pas dispo dans Therion  
