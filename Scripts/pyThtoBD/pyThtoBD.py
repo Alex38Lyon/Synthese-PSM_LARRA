@@ -7,8 +7,9 @@
 #                                         By Alexandre PONT  alexandre.pont@yahoo.fr                                                   # 
 #                                                                                                                                      #
 # Commande : python pyThtoBD.py --help                                                                                                 #
+#                                                                                                                                      #  
 # Utilisation:                                                                                                                         #
-#   1 : Placer des fichiers Export_bd.ini dans chacun des dossiers des cavités à exporter                                              #
+#   1 : Placer des fichiers vides "Export_bd.ini" dans chacun des dossiers des cavités à exporter                                      #
 #   2 : Lancer python pyThtoBD.py, sélectionner le dossier therion à exporter                                                          # 
 #   3 : Résultats pour Karsteau dans le dossier /Outputs/Export_bd/                                                                    #    
 #   4 : (A venir - Importer le résultat de l'importation dans Karsteau )                                                               #   
@@ -18,9 +19,8 @@
 
 '''
 To do list :
-
-- A gérer le cas de données supprimées dans th... les supprimer de la BD
-- Fonction pour importer les clés Karsteau
+    - Fonction pour importer les clés Karsteau
+    - Refaire une fonction de calcul de développement/profondeur depuis fichier sql
 
 '''
 
@@ -42,14 +42,16 @@ from openpyxl import load_workbook
 from openpyxl.styles import PatternFill, Border, Side, Alignment, Font
 from openpyxl.utils import get_column_letter
 
-Version ="2025.05.12"  
+Version ="2025.05.13"  
 
 export_file ="Export_bd.ini"
 export_folder = "/Outputs/Export_bd/"
 export_db = "Export_bd.db"
 therion_path = "C:/Program Files/Therion/therion.exe"
 log_file = "Export_bd.log"
-debug_log = False  
+
+debug_log = False             # Mode debug des messages
+debug_exe_therion = False     # Coupe l'execution de Therion pour gagner du temps lors des tests
 
 
 #####################################################################################################################################
@@ -105,7 +107,7 @@ def importation_sql_db(fichier_sql, fichier_db):
 
         connection.close()
         
-        log.info(f"Importation réussie de la base de données Therion : {Colors.MAGENTA}{fichier_db}")
+        log.info(f"Importation réussie de la base de données Therion : {Colors.WHITE}{fichier_db}")
         
     except sqlite3.Error as e:
         log.error(f"Erreur lors de l'exécution de la requête importation_sql_data code:{Colors.CYAN}{e}") 
@@ -292,7 +294,7 @@ def create_new_db(db_path):
 
 
 #####################################################################################################################################
-#            Initialisation de la BD  (pour la détection des données supprimées dans Therion                                        #                                                                                   #
+#            Initialisation de TH_VALIDE de la BD  (pour la détection des données supprimées dans Therion)                          #                                                                                   #
 #####################################################################################################################################  
 def init_th_valide(conn):
     cursor = conn.cursor()      
@@ -304,9 +306,8 @@ def init_th_valide(conn):
 
         
 #####################################################################################################################################
-#            Nom de la cavité                                                                                                       #
+#            Nom de la cavité  (extrait du champs -title du fichier -tot.th)                                                        #
 #####################################################################################################################################      
-# extrait du champs -title du fichier -tot.th
 def cave_name(_path_name):  
     global error_count
 
@@ -339,8 +340,9 @@ def cave_name(_path_name):
 #            Execution du fichier thconfig                                                                                          #
 #####################################################################################################################################      
 def exe_therion_cave(_path_name):
-    global error_count
+    global error_count, debug_exe_therion, debug_log
     
+ 
     ligne_export_db = "export database "
     
     tot_files = []
@@ -357,21 +359,24 @@ def exe_therion_cave(_path_name):
         error_count += 1
         return 
     
-    with open(tot_files[0], 'r+', encoding='utf-8') as f:
-        lignes = f.readlines()
-        # Cherche une ligne commençant par la commande
-        ligne_existante = any(l.strip().startswith(ligne_export_db) for l in lignes)
+    if not debug_exe_therion :    
+        with open(tot_files[0], 'r+', encoding='utf-8') as f:
+            lignes = f.readlines()
+            # Cherche une ligne commençant par la commande
+            ligne_existante = any(l.strip().startswith(ligne_export_db) for l in lignes)
 
-        if not ligne_existante:
-            f.write("\n\n# Ajout automatique by script pyThtoBF.py pour export\n")    
-            f.write(ligne_export_db + '-o Outputs/database_export_db.sql\n')
-            log.debug(f"Ajout automatique de la commande : {Colors.MAGENTA}{ligne_export_db}-o Outputs/database_export_db.sql {Colors.YELLOW}dans le fichier : {Colors.MAGENTA}{tot_files[0]}")
-    
-    # print(tot_files[0])
+            if not ligne_existante:
+                f.write("\n\n# Ajout automatique by script pyThtoBF.py pour export\n")    
+                f.write(ligne_export_db + '-o Outputs/database_export_db.sql\n')
+                log.debug(f"Ajout automatique de la commande : {Colors.MAGENTA}{ligne_export_db}-o Outputs/database_export_db.sql {Colors.YELLOW}dans le fichier : {Colors.MAGENTA}{tot_files[0]}")
         
-    compile_file(tot_files[0].replace("\\", "/"))                           
+        # print(tot_files[0])
+            
+        compile_file(tot_files[0].replace("\\", "/"))                           
+    else :
+        log.debug(f"Execution Therion arrêtée (debug_exe_therion = False), pas de nouvelle execution de : {Colors.MAGENTA}{file_name}{Colors.YELLOW}")
         
-        
+              
 #####################################################################################################################################
 #            Développement et profondeur de la cavité                                                                               #
 #####################################################################################################################################      
@@ -437,7 +442,7 @@ def cave_sys(_path_name):
 
 
 #####################################################################################################################################
-#            Mise à jour pdf à exporter                                                                                             #
+#            Lecture de l'exif d'un pdf pour mise à jour données                                                                    #
 #####################################################################################################################################  
 def pdf_exif(file):
     """
@@ -494,7 +499,7 @@ def pdf_update(conn, base_path, path_name, _update, ID_CAVITE, NAME):
     if len(tot_files) > 1 :
         log.debug(f"Cavité: {Colors.WHITE}{NAME}{Colors.GREEN}, fichiers pdf à exporter : {Colors.WHITE}{len(tot_files)}")
     elif  tot_files == [] :
-        log.warning(f"Attention cavité: {Colors.WHITE}{NAME}{Colors.YELLOW}, pas de fichiers pdf : {Colors.MAGENTA}{_path_name}")
+        log.warning(f"Attention cavité: {Colors.MAGENTA}{NAME}{Colors.YELLOW}, pas de fichiers pdf : {Colors.MAGENTA}{_path_name}")
         return 
 
     for file in tot_files:
@@ -650,7 +655,7 @@ def kml_update(conn, base_path, path_name, _update, ID_CAVITE, NAME):
 
 
 #####################################################################################################################################
-#            Création des fichiers zip                                                                                              #
+#            Création des fichiers zip (filtré avec les données brutes nécessaires)                                                 #
 ##################################################################################################################################### 
 def zip_file(path_source, path_dest, _name_zip):
     
@@ -708,7 +713,7 @@ def zip_file(path_source, path_dest, _name_zip):
 
 
 #####################################################################################################################################
-#            Création du fichier zip avec les données à exporter                                                                    #
+#            Création du fichier zip avec l'ensemble des documents à exporter                                                       #
 ##################################################################################################################################### 
 def zip_data(conn, path_dest, base_path, _name_zip):
     
@@ -833,8 +838,7 @@ def zip_update(conn, base_path, path_name, _update, ID_CAVITE, Name) :
 #####################################################################################################################################
 #            Mise à jour des entrées                                                                                                #
 #####################################################################################################################################  
-def entrance_update(conn, base_path, path_name, _update, ID_CAVITE, NAME, syscoord):
-    
+def entrance_update(conn, base_path, path_name, _update, ID_CAVITE, NAME, syscoord): 
     global error_count
     
     _path_name = path_name + "/Outputs"
@@ -940,7 +944,7 @@ def entrance_update(conn, base_path, path_name, _update, ID_CAVITE, NAME, syscoo
 
      
 #####################################################################################################################################
-#            Update BD                                                                                                              #
+#            Mise à jour des cavités                                                                                                #
 #####################################################################################################################################      
 def cavite_update(conn, file_list, base_path, _update):
     cursor = conn.cursor()
@@ -993,7 +997,7 @@ def cavite_update(conn, file_list, base_path, _update):
                         WHERE ID = ?
                     """,
                     (rel_path_name, float(cave_Dev['length']), float(cave_Dev['depth']), 0.0, _update, ID_CAVITE))
-            log.info(f"Nouvelle cavité insérée avec ID : {Colors.MAGENTA}{ID_CAVITE}{Colors.YELLOW}, Name : {Colors.MAGENTA}{cave_Name}{Colors.YELLOW}, Dev : {Colors.MAGENTA}{cave_Dev['length']}m{Colors.YELLOW}, Prof : {Colors.MAGENTA}{cave_Dev['depth']}m{Colors.YELLOW}, Len path : {Colors.MAGENTA}{len(path_name)}")
+            log.info(f"Nouvelle cavité insérée avec ID : {Colors.CYAN}{ID_CAVITE}{Colors.YELLOW}, Name : {Colors.CYAN}{cave_Name}{Colors.YELLOW}, Dev : {Colors.CYAN}{cave_Dev['length']}m{Colors.YELLOW}, Prof : {Colors.CYAN}{cave_Dev['depth']}m{Colors.YELLOW}, Len path : {Colors.CYAN}{len(path_name)}")
             cave_config['Data_Export'] = {'ID_CAVITE': str(ID_CAVITE)}
             with open(file_path, 'w', encoding='utf-8') as configfile:
                 cave_config.write(configfile)
@@ -1066,204 +1070,169 @@ def db_to_excel(conn, excel_filename):
 
     :param conn: Connexion sqlite3.Connection ouverte
     :param excel_filename: Nom du fichier Excel de sortie
-    :param max_entries: Nombre max de ENTREE par cavité à inclure
-    :param max_documents: Nombre max de DOCUMENT par cavité à inclure
     """
-    cursor = conn.cursor()
+    global error_count
     
-    cursor.execute("""
-        SELECT MAX(doc_count) 
-        FROM (
-            SELECT COUNT(*) AS doc_count
-            FROM DOCUMENT
-            GROUP BY ID_CAVITE
-        )
-    """)
-    result = cursor.fetchone()
-    max_documents = result[0] if result[0] is not None else 0
+    try:
+        cursor = conn.cursor()
 
-    # query = """
-    #     SELECT *
-    #     FROM ENTREE
-    #     INNER JOIN CAVITE ON CAVITE.ID = ENTREE.ID_CAVITE
-    # """
-    
-    # df_cavite_2 = pd.read_sql_query(query, conn)
+        # Récupération du nombre maximum de documents par cavité
+        cursor.execute("""
+            SELECT MAX(doc_count) 
+            FROM (
+                SELECT COUNT(*) AS doc_count
+                FROM DOCUMENT
+                GROUP BY ID_CAVITE
+            )
+        """)
+        result = cursor.fetchone()
+        max_documents = result[0] if result[0] is not None else 0
 
-    # Charger les tables
-    df_cav = pd.read_sql_query("SELECT * FROM CAVITE", conn)
-    df_cav.columns = [f"CAVITE_{col}" for col in df_cav.columns]
+        # Chargement des tables
+        df_cav = pd.read_sql_query("SELECT * FROM CAVITE WHERE TH_VALIDE == TRUE", conn)
+        df_cav.columns = [f"CAVITE_{col}" for col in df_cav.columns]
 
-    df_ent = pd.read_sql_query("SELECT * FROM ENTREE", conn)
-    df_ent.columns = [f"ENT_{col}" for col in df_ent.columns]
-       
-    df_cavite = df_ent.merge(df_cav, how='left', left_on='ENT_ID_CAVITE', right_on='CAVITE_ID')
+        df_ent = pd.read_sql_query("SELECT * FROM ENTREE WHERE TH_VALIDE == TRUE", conn)
+        df_ent.columns = [f"ENT_{col}" for col in df_ent.columns]
 
-    df_document = pd.read_sql_query("SELECT * FROM DOCUMENT", conn)
-    
-    # Idem pour DOCUMENT
-    df_document['DOCUMENT_NUM'] = df_document.groupby('ID_CAVITE').cumcount() + 1
-    df_document = df_document[df_document['DOCUMENT_NUM'] <= max_documents]
+        df_cavite = df_ent.merge(df_cav, how='left', left_on='ENT_ID_CAVITE', right_on='CAVITE_ID')
 
-    df_document_flat = df_document.pivot(index='ID_CAVITE', columns='DOCUMENT_NUM')
-    df_document_flat.columns = [f"DOCUMENT_{num}_{col}" for col, num in df_document_flat.columns]
-    df_document_flat.reset_index(inplace=True)
-    
-    # print(df_document_flat)
-    
-    colonnes_tries = sorted(df_document_flat.columns)
-    # document_columns = sorted([col for col in df_document_flat.columns if col.startswith('DOCUMENT_')], key=lambda x: (int(x.split('_')[1]), x))
-  
-    df_document_flat = df_document_flat[colonnes_tries]
- 
-    # print(df_document_flat)
+        df_document = pd.read_sql_query("SELECT * FROM DOCUMENT WHERE TH_VALIDE == TRUE", conn)
+        df_document['DOCUMENT_NUM'] = df_document.groupby('ID_CAVITE').cumcount() + 1
+        df_document = df_document[df_document['DOCUMENT_NUM'] <= max_documents]
 
-    # Fusion avec CAVITE
-    df_cavite['_est_premiere'] = ~df_cavite.duplicated(subset='ENT_ID_CAVITE', keep='first')
+        df_document_flat = df_document.pivot(index='ID_CAVITE', columns='DOCUMENT_NUM')
+        df_document_flat.columns = [f"DOCUMENT_{num}_{col}" for col, num in df_document_flat.columns]
+        df_document_flat.reset_index(inplace=True)
 
-    # Joindre normalement    
-    df_merged = df_cavite.merge(df_document_flat, how='left',  left_on='ENT_ID_CAVITE', right_on='ID_CAVITE')
+        df_document_flat = df_document_flat[sorted(df_document_flat.columns)]
 
-    # Pour les lignes qui ne sont pas les premières : vider les colonnes venant de df_document_flat
-    colonnes_document = [col for col in df_document_flat.columns if col != 'ID_CAVITE']
-    df_merged.loc[~df_merged['_est_premiere'], colonnes_document] = pd.NA
+        df_cavite['_est_premiere'] = ~df_cavite.duplicated(subset='ENT_ID_CAVITE', keep='first')
 
-    # Nettoyage
-    df = df_merged.drop(columns=['_est_premiere'])
-    
-    # print(df)
+        df_merged = df_cavite.merge(df_document_flat, how='left',  left_on='ENT_ID_CAVITE', right_on='ID_CAVITE')
 
-    # Supprimer colonnes de jointure inutiles
-    df.drop(columns=['ID_CAVITE'], inplace=True, errors='ignore')
-    df.drop(columns=[col for col in df.columns if '_TH_VALIDE' in col], inplace=True, errors='ignore')
+        colonnes_document = [col for col in df_document_flat.columns if col != 'ID_CAVITE']
+        df_merged.loc[~df_merged['_est_premiere'], colonnes_document] = pd.NA
 
-   
-    # Export Excel
-    df.to_excel(excel_filename, index=False)
-         
-    log.info(f"Exportation excel terminée : {Colors.WHITE}{excel_filename}")
+        df = df_merged.drop(columns=['_est_premiere'])
+        df.drop(columns=['ID_CAVITE'], inplace=True, errors='ignore')
+        df.drop(columns=[col for col in df.columns if '_TH_VALIDE' in col], inplace=True, errors='ignore')
+
+        df.to_excel(excel_filename, index=False)
+        log.info(f"Exportation Excel terminée : {Colors.WHITE}{excel_filename}")
+
+    except Exception as e:
+        error_count += 1
+        log.critical(f"Erreur critique lors de l'exportation vers Excel :  {Colors.MAGENTA}{e}")
 
 
 #####################################################################################################################################
 #           Mise en forme du fichier EXCEL                                                                                          #
 #####################################################################################################################################  
-def adapt_excel(excel_filename, selected_folder, update, max_documents=5):
-    
-    # Chargement pour édition
-    wb = load_workbook(excel_filename)
-    ws = wb.active
+def adapt_excel(excel_filename, selected_folder, update):
+    """
+    Met en forme un fichier Excel produit précédemment : couleurs, largeur colonnes, bordures, etc.
 
-    # Définition des styles
-    yellow_fill = PatternFill(start_color="FFCC00", end_color="FFCC00", fill_type="solid")  # Jaune moyen
-    yellow_low_fill = PatternFill(start_color="FFEA8F", end_color="FFEA8F", fill_type="solid")  # Jaune moyen
-    green_fill = PatternFill(start_color="99CC00", end_color="99CC00", fill_type="solid")   # Vert clair
-    green_low_fill = PatternFill(start_color="E5FF9B", end_color="E5FF9B", fill_type="solid")   # Vert clair
-    blue_fill = PatternFill(start_color="2F97FF", end_color="2F97FF", fill_type="solid")   # bleu 
-    blue_low_fill = PatternFill(start_color="99CCFF", end_color="99CCFF", fill_type="solid")   # bleu 
-    gris_fill = PatternFill(start_color="777777", end_color="777777", fill_type="solid")  # Style de fond gris clair
-    gris_low_fill = PatternFill(start_color="C0C0C0", end_color="C0C0C0", fill_type="solid")  # Style de fond gris clair
-    header_fill = PatternFill(start_color="DDDDDD", end_color="DDDDDD", fill_type="solid")  # Style de fond gris clair
-    header_alignment = Alignment(horizontal="center", vertical="center", wrap_text=True) # Définir le style pour l'en-tête
-    header_font = Font(bold=True) # Définir le style pour l'en-tête
+    :param excel_filename: Chemin vers le fichier Excel à modifier
+    :param selected_folder: Dossier de base pour affichage dans la ligne de titre
+    :param update: Date ou texte de mise à jour
+    """
+    global error_count
+     
+    try:
+        wb = load_workbook(excel_filename)
+        ws = wb.active
 
+        # Styles
+        yellow_low_fill = PatternFill(start_color="FFEA8F", end_color="FFEA8F", fill_type="solid")
+        green_low_fill = PatternFill(start_color="E5FF9B", end_color="E5FF9B", fill_type="solid")
+        blue_low_fill = PatternFill(start_color="99CCFF", end_color="99CCFF", fill_type="solid")
+        gris_fill = PatternFill(start_color="777777", end_color="777777", fill_type="solid")
+        gris_low_fill = PatternFill(start_color="C0C0C0", end_color="C0C0C0", fill_type="solid")
+        header_fill = PatternFill(start_color="DDDDDD", end_color="DDDDDD", fill_type="solid")
+        header_alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        header_font = Font(bold=True)
 
+        # Coloration conditionnelle des colonnes
+        for col in range(1, ws.max_column + 1):
+            header_value = ws.cell(row=1, column=col).value
+            if header_value is None:
+                continue
+            if str(header_value).startswith("ENT_"):
+                fill = yellow_low_fill
+            elif str(header_value).startswith("CAVITE_"):
+                fill = green_low_fill
+            elif str(header_value).startswith("DOCUMENT_"):
+                fill = blue_low_fill
+            else:
+                continue
 
-    # Identifier les colonnes à colorier selon leur nom en première ligne
-    for col in range(1, ws.max_column + 1):
-        header_value = ws.cell(row=1, column=col).value
-        if header_value is None:
-            continue
-        if str(header_value).startswith("ENT_"):
-            fill = yellow_low_fill
-        elif str(header_value).startswith("CAVITE_"):
-            fill = green_low_fill
-        elif str(header_value).startswith("DOCUMENT_"):
-            fill = blue_low_fill
-        else:
-            continue
+            for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=col, max_col=col):
+                for cell in row:
+                    cell.fill = fill
 
-        # Appliquer la couleur aux cellules de la colonne (sauf entête si tu veux)
-        for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=col, max_col=col):
+        for col in range(1, ws.max_column + 1):
+            header_value = ws.cell(row=1, column=col).value
+            if header_value is None:
+                continue
+            if any(str(header_value).endswith(suffix) for suffix in [
+                "_ID", "_ID_CAVITE", "_PATH", "_DATE_UPDATE", "_HASH_SQL_FILE", "_HASH_FILE"
+            ]):
+                fill = gris_fill
+            elif str(header_value).endswith("_KEY_KARSTEAU"):
+                fill = gris_low_fill
+            else:
+                continue
+
+            for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=col, max_col=col):
+                for cell in row:
+                    cell.fill = fill
+
+        # Ajustement largeur colonnes
+        for column_cells in ws.columns:
+            length = max(len(str(cell.value)) if cell.value is not None else 0 for cell in column_cells)
+            col_letter = get_column_letter(column_cells[0].column)
+            ws.column_dimensions[col_letter].width = length + 2
+
+        # Bordures fines
+        thin_border = Border(
+            left=Side(style='thin'),
+            right=Side(style='thin'),
+            top=Side(style='thin'),
+            bottom=Side(style='thin')
+        )
+
+        for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=1, max_col=ws.max_column):
             for cell in row:
-                cell.fill = fill
-                
-        
-    for col in range(1, ws.max_column + 1):
-        header_value = ws.cell(row=1, column=col).value
-        if header_value is None:
-            continue
-        if str(header_value).endswith("_ID"):
-            fill = gris_fill
-        elif str(header_value).endswith("_ID_CAVITE"):
-            fill = gris_fill
-        elif str(header_value).endswith("_PATH"):
-            fill = gris_fill
-        elif str(header_value).endswith("_KEY_KARSTEAU"):
-            fill = gris_low_fill    
-        elif str(header_value).endswith("_DATE_UPDATE"):
-            fill = gris_fill
-        elif str(header_value).endswith("_HASH_SQL_FILE"):
-            fill = gris_fill
-        elif str(header_value).endswith("_HASH_FILE"):
-            fill = gris_fill          
-        else:
-            continue
+                cell.border = thin_border
 
-        # Appliquer la couleur aux cellules de la colonne (sauf entête si tu veux)
-        for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=col, max_col=col):
-            for cell in row:
-                cell.fill = fill
+        # Mise en forme ligne d’en-tête
+        for cell in ws[1]:
+            cell.alignment = header_alignment
+            cell.font = header_font
+            cell.fill = header_fill
 
+        ws.row_dimensions[1].height = 40
 
-    for column_cells in ws.columns:
-        length = max(len(str(cell.value)) if cell.value is not None else 0 for cell in column_cells)
-        col_letter = get_column_letter(column_cells[0].column)
-        ws.column_dimensions[col_letter].width = length + 2  # +2 pour un peu de marge
-        
-    # Définir une bordure fine sur tous les côtés
-    thin_border = Border(
-        left=Side(style='thin'),
-        right=Side(style='thin'),
-        top=Side(style='thin'),
-        bottom=Side(style='thin')
-    )
+        # Ajout ligne de titre personnalisée
+        ws.insert_rows(1)
+        ws['A1'].value = f"Tableau d'échange Therion - Karsteau, base : [{os.path.basename(selected_folder)}], mise à jour le : {update}"
 
-    # Appliquer la bordure à toutes les cellules sauf l'en-tête
-    for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=1, max_col=ws.max_column):
-        for cell in row:
-            cell.border = thin_border
-    
-    # Appliquer le style à chaque cellule de la première ligne
-    for cell in ws[1]:
-        cell.alignment = header_alignment
-        cell.font = header_font
-        cell.fill = header_fill
+        for col in range(1, ws.max_column + 1):
+            cell = ws.cell(row=1, column=col)
+            cell.alignment = Alignment(horizontal="left", vertical="center", wrap_text=False)
+            cell.font = header_font
+            cell.fill = header_fill
 
-    # Définir la hauteur de ligne à 40 pour la ligne 1
-    ws.row_dimensions[1].height = 40
-    
-    # Insérer une nouvelle ligne en haut
-    ws.insert_rows(1)
+        ws.row_dimensions[1].height = 40
 
-    # Mettre un message dans A1
-    ws['A1'].value = f"Tableau d'échange Therion - Karsteau, base : [{os.path.basename(selected_folder)}], mise à jour le : {update}"
+        # Sauvegarde
+        wb.save(excel_filename)
+        log.info(f"Mise en forme fichier Excel terminée : {Colors.WHITE}{excel_filename}")
 
-    # Appliquer le style à toutes les cellules de la nouvelle première ligne
-    for col in range(1, ws.max_column + 1):
-        cell = ws.cell(row=1, column=col)
-        cell.alignment = Alignment(horizontal="left", vertical="center", wrap_text=False)
-        cell.font = header_font
-        cell.fill = header_fill
-
-
-    # Hauteur de ligne
-    ws.row_dimensions[1].height = 40
-
-    # Sauvegarder les modifications
-    wb.save(excel_filename)
-    
-    log.info(f"Mise en forme fichier excel terminée : {Colors.WHITE}{excel_filename}")
-
+    except Exception as e:
+        error_count += 1
+        log.error(f"Erreur lors de la mise en forme du fichier Excel : {Colors.MAGENTA}{e}")
 
 
 #####################################################################################################################################
@@ -1318,11 +1287,12 @@ if __name__ == '__main__':
       
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
-        print(f"Dossier '{output_folder}' créé.")
-    else:
-        print(f"Dossier '{output_folder}' existe déjà.")
+        # print(f"Dossier '{output_folder}' créé.")
+    # else:
+        # print(f"Dossier '{output_folder}' existe déjà.")
+        
     
-    log = setup_logger(output_folder + log_file, debug_log)
+    log = setup_logger(output_folder + log_file, (debug_log or debug_exe_therion))
     
     # log.debug("Ceci est un message de debug")
     # log.info("Tout va bien")
@@ -1372,10 +1342,10 @@ if __name__ == '__main__':
     conn.close()
     
     if warning_fix > 0 :
-         log.warning(f"""Nbre de point(s) fixe trouvé(s) : {Colors.CYAN}{warning_fix}{Colors.YELLOW}, vérifier : une entrée doit avoir l'attribut type {Colors.CYAN}station 0 "Entrée XXXX" entrance{Colors.YELLOW} lors de sa déclaration""") 
+         log.warning(f"""Nbre de point(s) fixe trouvé(s) : {Colors.MAGENTA}{warning_fix}{Colors.YELLOW}, vérifier : une entrée doit avoir l'attribut type {Colors.MAGENTA}station 0 "Entrée XXXX" entrance{Colors.YELLOW} lors de sa déclaration""") 
     
     if error_count > 0 :
-         log.error(f"""Nbre d'erreur(s)  trouvé(s) : {Colors.CYAN}{error_count}{Colors.YELLOW}, à vérifier""")
+         log.error(f"""Nbre d'erreur(s)  trouvé(s) : {Colors.MAGENTA}{error_count}{Colors.YELLOW}, à vérifier""")
     else :         
-        log.info("Aucune d'erreur trouvée, parfait !")
+        log.info("Fin normale de l'execution du script, aucune d'erreur trouvée, fichier d'excel d'export disponible, parfait !")
 

@@ -72,34 +72,31 @@ def compile_file(filename, **kwargs):
             bufsize=1                  # ligne par ligne
         )
         
-        log.info(f"Start therion compilation file : {Colors.MAGENTA}{filename}")
+        log.info(f"Start therion compilation file : {Colors.WHITE}{filename}")
         # Lecture en temps réel        
         for line in process.stdout:
             line = line.rstrip()
             lower_line = line.lower()
             if "error" in lower_line:
-                log.error(f"\t\t{line}")
+                log.error(f"\t\t[Therion_Compile]\t\{line}")
             elif "warning" in lower_line:
-                log.warning(f"\t{line}")
+                log.warning(f"\t[Therion_Compile]\t{line}")
             else:
-                log.debug(f"\t\t{Colors.WHITE}{line}")
+                log.debug(f"\t\t[Therion_Compile]\t{Colors.WHITE}{line}")
 
         process.wait()
         
         # Si la commande échoue, result.returncode sera non nul
         if process.returncode != 0:
             # Affichage des erreurs et de la sortie standard
-            log.error(f"Error during Therion compilation")
-            log.error(f"stderr: \n{Colors.MAGENTA}{process.stderr.decode()}")
+            log.error(f"Error during Therion compilation, stderr : \n{Colors.MAGENTA}{process.stderr.decode()}")
         
-        log.info(f"Therion file : {Colors.MAGENTA}{filename} {Colors.GREEN}compilation succeeded")
+        log.info(f"Therion file : {Colors.WHITE}{filename} {Colors.GREEN}compilation succeeded")
         
     except Exception as e:
             log.error(f"Error: Therion file {Colors.ENDC}{filename}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")       
         
         
-        
-
 #################################################################################################
 def compile_file_th(filepath, **kwargs):
     template = """source {filepath}
@@ -111,9 +108,11 @@ def compile_file_th(filepath, **kwargs):
     logs, _ = compile_template(template, template_args, cleanup=True, **kwargs)
     return logs
 
-# Attention, version avec therion en français ! à voir pour les autres langues
+#################################################################################################
+# Attention fonctionne pour la version therion en français ! à voir pour les autres langues
 lengthre = re.compile(r".*Longueur totale de la topographie = \s*(\S+)m")
 depthre = re.compile(r".*Longueur totale verticale =\s*(\S+)m")
+
 
 #################################################################################################
 def get_stats_from_log(log):
@@ -124,7 +123,9 @@ def get_stats_from_log(log):
     return {"length": 0, "depth": 0}
 
 
+#################################################################################################
 syscoord = re.compile(r".*output coordinate system: \s*(\S+)")
+
 
 #################################################################################################
 def get_syscoord_from_log(log):
