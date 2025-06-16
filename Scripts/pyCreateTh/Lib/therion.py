@@ -32,6 +32,40 @@ class Colors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+
+#################################################################################################
+def safe_relpath(path):
+    """
+    Renvoie un chemin relatif si possible, sinon un chemin partiel à partir du dossier de référence.
+    """
+    
+    abs_path = os.path.abspath(path)
+    ref_path = os.path.abspath(os.getcwd())
+    
+    try:
+        valeur = "~\\" +  os.path.relpath(path, ref_path)
+        return valeur
+    
+    except ValueError:
+        max_depth = 7
+        
+        # Disques différents, afficher le chemin relatif partiel depuis la racine commune
+        path_parts = abs_path.split(os.sep)
+        ref_parts = ref_path.split(os.sep)
+        while path_parts and ref_parts and path_parts[0] == ref_parts[0]:
+            path_parts.pop(0)
+            ref_parts.pop(0)
+        result = os.path.join(*path_parts) if path_parts else os.path.basename(path)
+
+        # Si max_depth est défini, tronque le chemin
+        if max_depth is not None:
+            parts = result.split(os.sep)
+            if len(parts) > max_depth:
+                result = os.path.join("~\\" , *parts[-max_depth:])
+        
+        return result
+                
+
 #################################################################################################
 def compile_template(template, template_args, **kwargs):
     global error_count
@@ -61,8 +95,9 @@ def compile_template(template, template_args, **kwargs):
     except Exception as e:
         log.error(f"Therion template compilation error: {Colors.ENDC}{e}")
         error_count += 1
+  
         
-
+#################################################################################################
 def compile_template2(template, template_args, **kwargs):
     global error_count
     
@@ -128,7 +163,7 @@ def compile_template2(template, template_args, **kwargs):
             except Exception as cleanup_err:
                 log.warning(f"Could not delete temp directory: {Colors.ENDC}{cleanup_err}")
 
-        
+
 #################################################################################################
 def compile_file(filename, **kwargs):
     global error_count
@@ -147,7 +182,7 @@ def compile_file(filename, **kwargs):
             bufsize=1                  # ligne par ligne
         )
         
-        log.info(f"Start therion compilation file : {Colors.ENDC}~\\{os.path.relpath(filename)}")
+        log.info(f"Start therion compilation file : {Colors.ENDC}{safe_relpath(filename)}")
         # Lecture en temps réel        
         for line in process.stdout:
             line = line.rstrip()
@@ -167,15 +202,14 @@ def compile_file(filename, **kwargs):
             log.error(f"Error during Therion compilation, stderr : \n{Colors.ENDC}{process.stderr.decode()}")
             error_count += 1
         
-        log.info(f"Therion file : {Colors.ENDC}~\\{os.path.relpath(filename)}{Colors.GREEN} succeeded")
+        log.info(f"Therion file : {Colors.ENDC}{safe_relpath(filename)}{Colors.GREEN} succeeded")
         
     except Exception as e:
-            log.error(f"Therion file {Colors.ENDC}~\\{os.path.relpath(filename, os.path.expanduser('~'))}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
+            log.error(f"Therion file {Colors.ENDC}{safe_relpath(filename, os.path.expanduser('~'))}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
             error_count += 1
            
         
-
-
+#################################################################################################
 def compile_file2(filename, **kwargs):
     global error_count
     
@@ -232,12 +266,11 @@ def compile_file2(filename, **kwargs):
             error_count += 1
             
         else:
-            log.info(f"Therion file : {Colors.ENDC}~\\{os.path.relpath(filename)}{Colors.GREEN} compilation succeeded")
+            log.info(f"Therion file : {Colors.ENDC}{safe_relpath(filename)}{Colors.GREEN} compilation succeeded")
 
     except Exception as e:
-        log.error(f"Therion file {Colors.ENDC}~\\{os.path.relpath(filename)}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
+        log.error(f"Therion file {Colors.ENDC}{safe_relpath(filename)}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
         error_count += 1
-
 
 
 #################################################################################################

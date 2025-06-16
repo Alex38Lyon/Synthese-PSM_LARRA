@@ -35,7 +35,8 @@ encoding  utf-8
 source {fileName}-tot.th
 
 ## Add config file
-input config.thc
+input {configPath}config.thc
+
 
 ###############################################################################################
 ## 2-LAYOUT

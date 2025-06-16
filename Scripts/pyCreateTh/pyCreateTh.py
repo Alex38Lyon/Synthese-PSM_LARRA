@@ -50,9 +50,10 @@ import tkinter as tk
 from tkinter import filedialog
 from collections import defaultdict
 from charset_normalizer import from_path
+from copy import deepcopy
 
 from Lib.survey import SurveyLoader, NoSurveysFoundException
-from Lib.therion import compile_template, Colors, compile_file
+from Lib.therion import compile_template, Colors, compile_file, safe_relpath
 from Lib.logger_config import setup_logger
 
 
@@ -77,8 +78,8 @@ therion_path = "C:/Therion/therion.exe"
 LINES = -1
 NAMES = -1
 
-configIni = "config.ini"  # Default config file name
-debug_log = False             # Mode debug des messages
+configIni = "config.ini"      # Default config file name
+debug_log = False              # Mode debug des messages
 error_count = 0               # Compteur d'erreurs
 
 
@@ -210,9 +211,9 @@ def copy_template_if_not_exists(template_path, destination_path):
         if not os.path.exists(destination_path):
             # If the destination folder does not exist, copy the template
             shutil.copytree(template_path, destination_path)  
-            log.info(f"The folder '{Colors.ENDC}{template_path}{Colors.GREEN}' has been copied to '{Colors.ENDC}~\\{os.path.relpath(destination_path)}")
+            log.info(f"The folder '{Colors.ENDC}{template_path}{Colors.GREEN}' has been copied to '{Colors.ENDC}{safe_relpath(destination_path)}")
         else:
-            log.warning(f"The folder '{Colors.ENDC}~\\{os.path.relpath(destination_path)}{Colors.WARNING}' already exists. No files were copied.")
+            log.warning(f"The folder '{Colors.ENDC}{safe_relpath(destination_path)}{Colors.WARNING}' already exists. No files were copied.")
     except Exception as e:
         log.critical(f"Copy template error: {Colors.ENDC}{e}")
         exit(0)    
@@ -250,9 +251,9 @@ def copy_file_with_copyright(th_file, destination_path, copyright_text):
         # Ajouter le copyright dans l'en-tête si nécessaire
         add_copyright_header(dest_file, copyright_text)
         
-        log.debug(f"File '{Colors.ENDC}~\\{os.path.relpath(th_file)}{Colors.GREEN}' has been copied to '{Colors.ENDC}~\\{os.path.relpath(destination_path)}{Colors.GREEN}' with the copyright header added.{Colors.ENDC}")
+        log.debug(f"File '{Colors.ENDC}{safe_relpath(th_file)}{Colors.GREEN}' has been copied to '{Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN}' with the copyright header added.{Colors.ENDC}")
     else:
-        log.error(f"The file .th does not exist {Colors.ENDC}~\\{os.path.relpath(th_file)}")
+        log.error(f"The file .th does not exist {Colors.ENDC}{safe_relpath(th_file)}")
         error_count += 1
         
     
@@ -284,7 +285,7 @@ def process_template(template_path, variables, output_path):
         with open(output_path, 'w', encoding='utf-8') as file:
             file.write(content)
 
-        log.info(f"Update template successfully: {Colors.ENDC}~\\{os.path.relpath(output_path)}")
+        log.info(f"Update template successfully: {Colors.ENDC}{safe_relpath(output_path)}")
 
         # Delete the original template file
         os.remove(template_path)
@@ -335,15 +336,15 @@ def parse_therion_surveys(file_path):
                     survey_names.append(survey_name)
     
     except FileNotFoundError:
-        log.error(f"File {Colors.ENDC}~\\{os.path.relpath(file_path)}{Colors.ERROR} not found.{Colors.ENDC}")
+        log.error(f"File {Colors.ENDC}{safe_relpath(file_path)}{Colors.ERROR} not found.{Colors.ENDC}")
         error_count += 1
         
     except PermissionError:
-        log.error(f"Insufficient permissions to read {Colors.ENDC}~\\{os.path.relpath(file_path)}")
+        log.error(f"Insufficient permissions to read {Colors.ENDC}{safe_relpath(file_path)}")
         error_count += 1
         
     except Exception as e:
-        log.error(f"An error occurred (parse_therion_surveys): {Colors.ENDC}{e}{Colors.ERROR}, file: {Colors.ENDC}~\\{os.path.relpath(file_path)}")
+        log.error(f"An error occurred (parse_therion_surveys): {Colors.ENDC}{e}{Colors.ERROR}, file: {Colors.ENDC}{safe_relpath(file_path)}")
         error_count += 1
         
     
@@ -383,7 +384,7 @@ def select_file():
 ################################################################################################# 
 # Création des dossiers à partir d'un th file                                                   #
 #################################################################################################   
-def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "th2", SCALE = "500", UPDATE = "") :  
+def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "th2", SCALE = "500", UPDATE = "", CONFIG_PATH = "") :  
 #"""
 # Entrées :
 #   ENTRY_FILE : input th file 
@@ -435,7 +436,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "
         exit(1)
     
     if not os.path.isfile(ENTRY_FILE):
-        log.critical(f"The Therion file didn't exist: {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+        log.critical(f"The Therion file didn't exist: {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
         exit(1)
 
     if FORMAT not in ["th2", "plt"]:
@@ -443,7 +444,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "
         exit(1)
 
     # Normalise name, namespace, key, file path
-    log.info(f"Parsing survey entry file:\t{Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+    log.info(f"Parsing survey entry file:\t{Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
 
     survey_list = parse_therion_surveys(ENTRY_FILE)
     # print(survey_list)
@@ -463,7 +464,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "
     # print(survey.name)
     
     if not survey:
-        raise NoSurveysFoundException(f"{Colors.ERROR}No survey found with that selector{Colors.ENDC}")
+        raise NoSurveysFoundException(f"No survey found with that selector")
     
    
     if UPDATE == "th2": 
@@ -488,7 +489,6 @@ def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "
         log.debug(f"Copy template folder and adapte it")
         copy_template_if_not_exists(template_path, DEST_PATH)
         copy_file_with_copyright(ENTRY_FILE, DEST_PATH + "/Data", Copyright)
-        
         
         totdata = f"""\tinput Data/{TH_NAME}.th
             
@@ -516,6 +516,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "
             'datat' : datat.replace("_", r"\_"),
             'wpage' : wpage.replace("_", r"\_"), 
             'cs' : cs,
+            'configPath' : CONFIG_PATH,
             'totData' : totdata,
             'other_scraps_plan' : "",
             'file_info' : f'# File generated by pyCreateTh.py (version {Version}) date: {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}',
@@ -538,7 +539,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "
 
     select {selector}
 
-    export model -o "{th_name}.lox"
+    #export model -o "{th_name}.lox"
     export map -projection plan -o "{th_name}-Plan.xvi" -layout minimal -layout-debug station-names
     export map -projection extended -o "{th_name}-Extended.xvi" -layout minimal -layout-debug station-names
     """
@@ -570,7 +571,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "
     else :     
         th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Plan.xvi" 
 
-    log.info(f"Parsing plan XVI file:\t{Colors.ENDC}~\\{os.path.relpath(th_name_xvi)}")
+    log.info(f"Parsing plan XVI file:\t{Colors.ENDC}{safe_relpath(th_name_xvi)}")
 
     stations = {}
     lines = []
@@ -639,7 +640,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "Plan", TARGET = "None", FORMAT = "
 
     # log.debug(stations)
 
-    log.info(f"Writing output to:\t{Colors.ENDC}~\\{os.path.relpath(output_path)}")
+    log.info(f"Writing output to:\t{Colors.ENDC}{safe_relpath(output_path)}")
 
     # Write TH2
     if FORMAT == "th2":
@@ -703,7 +704,7 @@ endscrap"""
 
         else :
             name = TARGET, 
-            log.debug(f"Therion output path :\t{Colors.ENDC}~\\{os.path.relpath(output_path)}")
+            log.debug(f"Therion output path :\t{Colors.ENDC}{safe_relpath(output_path)}")
 
             with open(str(output_path), "w+") as f:
                 f.write(th2_file_header)
@@ -762,7 +763,7 @@ endscrap
     else :
         th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Extended.xvi" 
 
-    log.info(f"Parsing extended XVI file:\t{Colors.ENDC}~\\{os.path.relpath(th_name_xvi)}")
+    log.info(f"Parsing extended XVI file:\t{Colors.ENDC}{safe_relpath(th_name_xvi)}")
 
     # Parse the Extended XVI file
     stations = {}
@@ -829,7 +830,7 @@ endscrap
         th2_name = DEST_PATH + "/Data/" + TH_NAME
     output_path = f'{th2_name}-Extended.{FORMAT}'
 
-    log.info(f"Writing output to:\t\t{Colors.ENDC}~\\{os.path.relpath(output_path)}")
+    log.info(f"Writing output to:\t\t{Colors.ENDC}{safe_relpath(output_path)}")
 
     # Write TH2
     if FORMAT == "th2":
@@ -957,6 +958,7 @@ endscrap
                         'datat' : datat,
                         'wpage' : wpage, 
                         'cs' : cs,
+                        'configPath' : CONFIG_PATH,
                         'other_scraps_plan' : other_scraps_plan,
                         'other_scraps_extended' : other_scraps_extended,
                         'file_info' : f"# File generated by pyCreateTh.py version {Version} date: {datetime.now().strftime("%Y.%m.%d-%H:%M:%S")}",
@@ -973,7 +975,7 @@ endscrap
     if UPDATE == "":   
         if final_therion_exe == True:
             FILE = os.path.dirname(ENTRY_FILE) + "/" + TH_NAME + "/" + TH_NAME + ".thconfig"      
-            # log.info(f"Final therion compilation: {Colors.ENDC}~\\{os.path.relpath(FILE)}")     
+            # log.info(f"Final therion compilation: {Colors.ENDC}{safe_relpath(FILE)}")     
             compile_file(FILE, therion_path=therion_path) 
 
 ################################################################################################# 
@@ -1028,16 +1030,16 @@ def readMakFile (ENTRY_FILE) :
     
     # Vérification des valeurs
     if len(Datums) > 1:
-        log.critical(f"Several different Datums found in {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}{Colors.CRITICAL}, case not handled! : {Colors.ENDC}{Datums}")
+        log.critical(f"Several different Datums found in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.CRITICAL}, case not handled! : {Colors.ENDC}{Datums}")
         exit(0)
     elif not Datums :
-        log.critical(f"no datum found in mak file : {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+        log.critical(f"no datum found in mak file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
         exit(0)
     elif not datFiles :
-        log.critical(f"No dat file found in mak file : {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+        log.critical(f"No dat file found in mak file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
         exit(0)
     elif not fixPoints :
-        log.critical(f"No fix points found in mak file : {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+        log.critical(f"No fix points found in mak file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
         exit(0)
     
     datum_to_epsg = {
@@ -1114,7 +1116,7 @@ def readMakFile (ENTRY_FILE) :
     # Génération du CRS QGIS (format WKT)
     crs_wkt = f'EPSG:{epsg_code}'
 
-    log.info(f"Reading mak file : {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}{Colors.GREEN}, fixed station : {Colors.ENDC}{len(fixPoints)}{Colors.GREEN}, files {Colors.ENDC}{len(datFiles)}{Colors.GREEN}, UTM Zone : {Colors.ENDC}{UTM[0]}{Colors.GREEN}, Datum : {Colors.ENDC}{next(iter(Datums))}{Colors.GREEN}, SCR : {Colors.ENDC}{crs_wkt}")
+    log.info(f"Reading mak file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.GREEN}, fixed station : {Colors.ENDC}{len(fixPoints)}{Colors.GREEN}, files {Colors.ENDC}{len(datFiles)}{Colors.GREEN}, UTM Zone : {Colors.ENDC}{UTM[0]}{Colors.GREEN}, Datum : {Colors.ENDC}{next(iter(Datums))}{Colors.GREEN}, SCR : {Colors.ENDC}{crs_wkt}")
     # log.debug(datFiles)
     # log.debug(fixPoints)
 
@@ -1124,7 +1126,7 @@ def readMakFile (ENTRY_FILE) :
 ################################################################################################# 
 # Création des dossiers Th à partir d'un dat                                                    #
 #################################################################################################  
-def DatToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt ="") :
+def DatToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
 # Input : Dat file for conversion
 # Outputs : Th files by survey
     global Author
@@ -1144,6 +1146,25 @@ def DatToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt ="") :
     global NAMES
     global error_count
 
+    def station_List(data, list) :  
+        # Création d'un DataFrame à partir des données  
+        rows1 = [line.split() for line in data['DATA']]
+        dfDATA = pd.DataFrame(rows1)
+        
+        stations = pd.concat([dfDATA.iloc[1:, 0], dfDATA.iloc[1:, 1]]).drop_duplicates().str.replace('[', '__').str.replace(']', '___')
+        
+        fixed_names = {point[0] for point in fixPoints}
+        stations = stations[~stations.isin(fixed_names)]
+        
+        new_entries = pd.DataFrame({
+            'StationName': stations,
+            'Survey_Name_01': data['SURVEY_NAME']
+        })
+        
+        list = pd.concat([list, new_entries], ignore_index=True)
+        
+        return list, dfDATA
+
     
     # Détecter la fin de section (FF CR LF qui correspond à \x0c\r\n)
     section_separator = '\x0c'
@@ -1157,7 +1178,7 @@ def DatToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt ="") :
         best_guess = result.best()
         
         if best_guess is None or best_guess.encoding is None:
-            log.critical(f"Unable to detect the file encoding {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+            log.critical(f"Unable to detect the file encoding {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
             exit(0)
             return None
         
@@ -1167,16 +1188,16 @@ def DatToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt ="") :
             content = f.read()
         
         if encoding_detected.lower() != 'utf-8':
-            log.info(f"{Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}{Colors.GREEN}, encodage : {Colors.ENDC}{encoding_detected}{Colors.GREEN} conversion utf-8")
+            log.info(f"{Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.GREEN}, encodage : {Colors.ENDC}{encoding_detected}{Colors.GREEN} conversion utf-8")
         else :
-            log.debug(f"{Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}{Colors.DEBUG}, encodage : {Colors.ENDC}{encoding_detected}")
+            log.debug(f"{Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.DEBUG}, encodage : {Colors.ENDC}{encoding_detected}")
 
     except FileNotFoundError:
-        log.error(f"The dat file {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)} {Colors.ERROR}did not exist")
+        log.error(f"The dat file {Colors.ENDC}{safe_relpath(ENTRY_FILE)} {Colors.ERROR}did not exist")
         error_count += 1
         
     except Exception as e:
-        log.error(f"An error occurred (DatToThFiles): {Colors.ENDC}{e}{Colors.ERROR}, file : {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+        log.error(f"An error occurred (DatToThFiles): {Colors.ENDC}{e}{Colors.ERROR}, file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
         error_count += 1
         
     
@@ -1193,11 +1214,14 @@ def DatToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt ="") :
     totMapsExtended = ""
     
     # Tableau global pour stocker toutes les stations
-    stationList = pd.DataFrame(columns=['StationName', 'Survey_Name'])
-
+    stationList = pd.DataFrame(columns=['StationName', 'Survey_Name_01', 'Survey_Name_02'])
+    
     section0 = True; 
     
     for section in sections:
+        
+        listStationSection = pd.DataFrame(columns=['StationName', 'Survey_Name'])
+        
         if not section.strip():
             continue  # ignorer les sections vides
         
@@ -1212,7 +1236,8 @@ def DatToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt ="") :
             'DECLINATION': None,
             'FORMAT': None,
             'CORRECTIONS' : None,
-            'DATA' : [],
+            'DATA' : [],  
+            'STATION': [],
             'SOURCE' : []
         }
         
@@ -1281,70 +1306,259 @@ def DatToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt ="") :
         
         # Ajouter les données de la section à la liste
         if len(section_data['DATA']) > 0 :
-            data.append(section_data)
+            listStationSection, dfDATA = station_List(section_data, listStationSection)
+            section_data['STATION'] = listStationSection
+            data.append(section_data)    
             unique_id += 1 
-        
+
+            #################################################################################################     
+            # Détecter les survey avec plusieurs points de départ                                           #
+            #################################################################################################    
+            def pointsUniques(data, crs_wkt):
+                # Création d'un DataFrame à partir des lignes de données
+                rows = [line.split() for line in data['DATA']]
+                dfDATA = pd.DataFrame(rows)
+
+                # Extraction des colonnes 0 et 1, en ignorant la première ligne (souvent en-tête)
+                col0 = dfDATA.iloc[1:, 0]
+                col1 = dfDATA.iloc[1:, 1]
+
+                # Nettoyage des noms (remplacement des crochets)
+                col0_clean = col0.str.replace('[', '__', regex=False).str.replace(']', '___', regex=False)
+                col1_clean = col1.str.replace('[', '__', regex=False).str.replace(']', '___', regex=False)
+
+                # Exclure les points présents dans la colonne 1
+                uniques_col0 = col0_clean[~col0_clean.isin(col1_clean)]
+
+                # Supprimer les doublons
+                uniques_col0 = uniques_col0.drop_duplicates()
+
+                # Exclure les points présents dans la liste crs_wkt
+                if isinstance(crs_wkt, (set, list)):
+                    uniques_col0 = uniques_col0[~uniques_col0.isin(crs_wkt)]
+
+                return uniques_col0.reset_index(drop=True).tolist()
+            
+            points = pointsUniques(section_data, crs_wkt)
+
+            if len(points) > 1 :
+                log.warning(f"Points {Colors.ENDC}{points}{Colors.ERROR} uniques dans la section {Colors.ENDC}{section_data['SURVEY_NAME']}: ")
+                # error_count += 1
+                
+            else :
+                log.debug(f"Points {Colors.ENDC}{points}{Colors.DEBUG} uniques dans la section {section_data['SURVEY_NAME']}")
+
+
     
-    # print(len(data))
-    for line in data :
-        log.debug(f"SURVEY TITLE: {Colors.ENDC}{line['SURVEY_TITLE']}")
-        log.debug(f"SURVEY NAME: {Colors.ENDC}{line['SURVEY_NAME']}")
-        log.debug(f"SURVEY DATE: {Colors.ENDC}{line['SURVEY_DATE']}")
-        log.debug(f"COMMENT: {Colors.ENDC}{line['COMMENT']}")
-        log.debug(f"SURVEY TEAM: {Colors.ENDC}{line['SURVEY_TEAM']}")
-        log.debug(f"DECLINATION: {Colors.ENDC}{line['DECLINATION']}")
-        log.debug(f"FORMAT: {Colors.ENDC}{line['FORMAT']}")
-        log.debug(f"CORRECTIONS: {Colors.ENDC}{line['CORRECTIONS']}")
-        log.debug(f"Qté DATA: {Colors.ENDC}{len(line['DATA'])}\n")
-        # print(f"DATA: {Colors.ENDC}{line['DATA']}")
-        
-    #################################################################################################     
-    # Grouper les sections                                                                          #
+    #################################################################################################
+    # Grouper les sections ayant même date team et un point commun                                  #
     #################################################################################################
     
-    def group_and_merge_data(section_data):
-        global error_count
-        
+    def find_duplicates_by_date_and_team(data):
         grouped = defaultdict(list)
 
-        for entry in section_data['DATA']:
-            if isinstance(entry, dict) and 'DATA' in entry:
-                key = (entry.get('SURVEY_DATE'), entry.get('SURVEY_TEAM'))
-                grouped[key].extend(entry['DATA'])  # fusionne les sous-tableaux
-            else:
-                log.error(f"Ignoré (entrée non conforme) : {entry}")
-                error_count += 1    
+        # Étape 1 : regroupement par (SURVEY_DATE, SURVEY_TEAM)
+        for entry in data:
+            key = (entry['SURVEY_DATE'], entry['SURVEY_TEAM'])
+            grouped[key].append(entry)
 
-        # Facultatif : convertir le résultat en une liste de dictionnaires regroupés
-        grouped_result = []
-        for (date, team), data_rows in grouped.items():
-            grouped_result.append({
-                'SURVEY_DATE': date,
-                'SURVEY_TEAM': team,
-                'DATA': data_rows
-            })
+        duplicates = []
 
-        return grouped_result
+        # Étape 2 : chercher les entrées ayant des stations communes
+        for key, entries in grouped.items():
+            if len(entries) < 2:
+                continue
+
+            visited_pairs = set()
+
+            for i in range(len(entries)):
+                id_i = entries[i]['ID']
+                stations_i = set(entries[i]['STATION'].iloc[:, 0])
+
+                ids_group = [id_i]
+                common_stations = set()
+
+                for j in range(i+1, len(entries)):
+                    pair = tuple(sorted((id_i, entries[j]['ID'])))
+                    if pair in visited_pairs:
+                        continue
+
+                    visited_pairs.add(pair)
+                    stations_j = set(entries[j]['STATION'].iloc[:, 0])
+                    intersection = stations_i & stations_j
+
+                    if intersection:
+                        ids_group.append(entries[j]['ID'])
+                        common_stations.update(intersection)
+
+                if len(ids_group) > 1:
+                    ids_group = sorted(set(ids_group))
+                    common_stations = sorted(common_stations)
+                    already_recorded = False
+
+                    for d in duplicates:
+                        if set(d['IDS']) == set(ids_group):
+                            already_recorded = True
+                            break
+
+                    if not already_recorded:
+                        duplicates.append({
+                            'SURVEY_DATE': key[0],
+                            'SURVEY_TEAM': key[1],
+                            'IDS': ids_group,
+                            'COMMON_STATIONS': common_stations
+                        })
+
+        return duplicates
     
-    # grouped = defaultdict(list)
-
-    # for section in data:
-    #     key = (section['SURVEY_DATE'], section['SURVEY_TEAM'])
-    #     grouped[key].append(section)
-
-    # duplicates = [group for group in grouped.values() if len(group) > 1]
+    duplicates = find_duplicates_by_date_and_team(data)
     
-    # for group in duplicates:
-    #     print(f"\nDoublons pour date '{group[0]['SURVEY_DATE']}' et équipe '{group[0]['SURVEY_TEAM']}':")
-    #     for s in group:
-    #         print(f"  ID: {s['ID']}, Titre: {s['SURVEY_TITLE']}, Commentaire: {s['COMMENT']}, Qté DATA {len(s['DATA'])}")
+    # for d in duplicates:
+    #     print(d['IDS'])
+    #     for i  in range (len(d['IDS'])) :
+    #         log.debug(f"ID: {data[d['IDS'][i]]['ID']}, DATE: {data[d['IDS'][i]]['SURVEY_DATE']}, TEAM: {data[d['IDS'][i]]['SURVEY_TEAM']}, Station : {d['COMMON_STATIONS']}")
+    #     print()
+        
+    def merge_duplicate_surveys(data, duplicates, id_offset=10000):
+        id_to_entry = {entry['ID']: entry for entry in data}
+        merged_data = []
+        used_ids = set()
 
+        for i, group in enumerate(duplicates):
+            ids = group['IDS']
+            merged_entry = {
+                'ID': id_offset + i,
+                'SURVEY_TITLE': data[ids[0]]['SURVEY_TITLE'],
+                'SURVEY_NAME': None,
+                'SURVEY_DATE': group['SURVEY_DATE'],
+                'COMMENT': data[ids[0]]['COMMENT'],
+                'SURVEY_TEAM': group['SURVEY_TEAM'],
+                'DECLINATION': data[ids[0]]['DECLINATION'],
+                'FORMAT': data[ids[0]]['FORMAT'],
+                'CORRECTIONS': data[ids[0]]['CORRECTIONS'],
+                'DATA': [],
+                'STATION': [],
+                'SOURCE': []
+            }
+
+            # Liste des champs texte simples à hériter (on peut affiner selon stratégie souhaitée)
+            text_fields = ['SURVEY_TITLE', 'COMMENT', 'DECLINATION', 'FORMAT', 'CORRECTIONS']
+
+            # Regrouper les valeurs pour tous les champs à fusionner
+            text_values = {field: set() for field in text_fields}
+            survey_name_list = set()
+            source_set = set()
+            station_frames = []
+            
+            first_data_line = True
+
+            for id_ in ids:
+                entry = id_to_entry[id_]
+                used_ids.add(id_)
+
+                for field in text_fields:
+                    value = entry.get(field)
+                    if value not in [None, '']:
+                        text_values[field].add(value)
+                
+                name = entry.get('SURVEY_NAME')
+                if name not in [None, '']:
+                    survey_name_list.add(name)
+                
+                data_lines = entry.get('DATA', [])
+                if data_lines:
+                    if first_data_line:
+                        merged_entry['DATA'].extend(data_lines)
+                        first_data_line = False
+                    else:
+                        merged_entry['DATA'].extend(data_lines[1:])  # ignorer l'entête
+
+                sources = entry.get('SOURCE', [])
+                if isinstance(sources, str):
+                    source_set.add(sources)
+                elif isinstance(sources, list):
+                    source_set.update(sources)
+
+                if isinstance(entry['STATION'], pd.DataFrame):
+                    station_frames.append(entry['STATION'])
+
+            # Affecter les valeurs texte (si une seule unique valeur, sinon None)
+            for field in text_fields:
+                if len(text_values[field]) == 1:
+                    merged_entry[field] = next(iter(text_values[field]))
+                    
+            # Nouveau nom concaténé avec "_"
+            if survey_name_list:
+                sorted_names = sorted(survey_name_list)
+                full_name = "_".join(sorted_names)
+                if len(full_name) <= 40:
+                    merged_entry['SURVEY_NAME'] = full_name
+                else:
+                    # Tronquer au milieu
+                    prefix = sorted_names[0]
+                    suffix = sorted_names[-1]
+                    connector = "_-_"
+                    max_prefix_suffix_len = 50 - len(connector)
+                    # On répartit équitablement entre début et fin (si possible)
+                    half_len = max_prefix_suffix_len // 2
+                    prefix = prefix[:half_len]
+                    suffix = suffix[-(max_prefix_suffix_len - len(prefix)):]
+                    merged_entry['SURVEY_NAME'] = prefix + connector + suffix
+        
+            # Fusionner les DataFrames STATION
+            if station_frames:
+                merged_entry['STATION'] = pd.concat(station_frames, ignore_index=True)
+
+            merged_entry['SOURCE'] = "\n".join(sorted(source_set))
+            merged_data.append(merged_entry)
+
+        # Ajouter les entrées qui ne faisaient pas partie des doublons
+        for entry in data:
+            if entry['ID'] not in used_ids:
+                merged_data.append(deepcopy(entry))
+
+        return merged_data
     
+    oldLen = len(data)    
+    
+    # for line in data :
+    #     if line['ID'] == 3 :
+    #         log.debug(f"ID: {Colors.ENDC}{line['ID']}")
+    #         log.debug(f"SURVEY TITLE: {Colors.ENDC}{line['SURVEY_TITLE']}")
+    #         log.debug(f"SURVEY NAME: {Colors.ENDC}{line['SURVEY_NAME']}")
+    #         log.debug(f"SURVEY DATE: {Colors.ENDC}{line['SURVEY_DATE']}")
+    #         log.debug(f"COMMENT: {Colors.ENDC}{line['COMMENT']}")
+    #         log.debug(f"SURVEY TEAM: {Colors.ENDC}{line['SURVEY_TEAM']}")
+    #         log.debug(f"DECLINATION: {Colors.ENDC}{line['DECLINATION']}")
+    #         log.debug(f"FORMAT: {Colors.ENDC}{line['FORMAT']}")
+    #         log.debug(f"CORRECTIONS: {Colors.ENDC}{line['CORRECTIONS']}")
+    #         log.debug(f"DATA: {Colors.ENDC}{(line['DATA'])}")
+    #         log.debug(f"DATA Qté: {Colors.ENDC}{len(line['DATA'])}")
+    #         log.debug(f"STATION: {Colors.ENDC}{(line['STATION'])}")
+    #         log.debug(f"SOURCE: {Colors.ENDC}{line['SOURCE']}\n")
+    #         # print(f"DATA: {Colors.ENDC}{line['DATA']}")
 
-    # section_data = group_and_merge_data(section_data)
+    data = merge_duplicate_surveys(data, duplicates)
+    
+    # for line in data :
+    #     if line ['ID'] == 10000 :
+    #         log.debug(f"ID: {Colors.ENDC}{line['ID']}")
+    #         log.debug(f"SURVEY TITLE: {Colors.ENDC}{line['SURVEY_TITLE']}")
+    #         log.debug(f"SURVEY NAME: {Colors.ENDC}{line['SURVEY_NAME']}")
+    #         log.debug(f"SURVEY DATE: {Colors.ENDC}{line['SURVEY_DATE']}")
+    #         log.debug(f"COMMENT: {Colors.ENDC}{line['COMMENT']}")
+    #         log.debug(f"SURVEY TEAM: {Colors.ENDC}{line['SURVEY_TEAM']}")
+    #         log.debug(f"DECLINATION: {Colors.ENDC}{line['DECLINATION']}")
+    #         log.debug(f"FORMAT: {Colors.ENDC}{line['FORMAT']}")
+    #         log.debug(f"CORRECTIONS: {Colors.ENDC}{line['CORRECTIONS']}")
+    #         log.debug(f"DATA: {Colors.ENDC}{(line['DATA'])}")
+    #         log.debug(f"DATA Qté: {Colors.ENDC}{len(line['DATA'])}")
+    #         log.debug(f"STATION: {Colors.ENDC}{(line['STATION'])}")
+    #         log.debug(f"SOURCE: {Colors.ENDC}{line['SOURCE']}\n")
+    #         # print(f"DATA: {Colors.ENDC}{line['DATA']}")
 
-    log.info(f"Read dat file : {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}{Colors.GREEN} with {Colors.ENDC}{len(data)}{Colors.GREEN} survey")
-
+    log.info(f"Read dat file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.GREEN} with {Colors.ENDC}{len(data)}/{oldLen}{Colors.GREEN} survey")
+    
 
     #################################################################################################     
     # Créer fichier th converti                                                                     #
@@ -1361,6 +1575,12 @@ def DatToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt ="") :
     folderDest = os.path.dirname(ENTRY_FILE) + "\\" + SurveyTitle
     
     copy_template_if_not_exists(template_path,folderDest)
+    
+    if  args.survey_file[-3:].lower() != "dat" :
+        _destination =  folderDest + "\\config.thc"
+        print(f"destination_path : {_destination}")
+        os.remove(_destination)
+    
     
     for _line in data :    
     
@@ -1405,23 +1625,8 @@ endsurvey
         # gestion des DATA                                                                              #
         #################################################################################################
     
-        # Création d'un DataFrame à partir des données  
-        rows1 = [line.split() for line in _line['DATA']]
-        dfDATA = pd.DataFrame(rows1)
-        
-        stations = pd.concat([dfDATA.iloc[1:, 0], dfDATA.iloc[1:, 1]]).drop_duplicates().str.replace('[', '__').str.replace(']', '___')
-        
-        fixed_names = {point[0] for point in fixPoints}
-        stations = stations[~stations.isin(fixed_names)]
-        
-        new_entries = pd.DataFrame({
-            'StationName': stations,
-            'Survey_Name': _line['SURVEY_NAME']
-        })
-        
-        stationList = pd.concat([stationList, new_entries], ignore_index=True)
-        
-        
+        stationList, dfDATA = station_List(_line, stationList)
+
         def formated_DataFrame(df, dataFormat ,unit = "meter" ):
             global error_count
             
@@ -1439,23 +1644,33 @@ endsurvey
             Koef = 0.3048 if unit == "meter" else 1.0
                 
             if "length" in columns:
-                df_data.iloc[:, columns.index("length")-2] = df_data.iloc[:, columns.index("length")-2].astype(float) * Koef
+                df_data.iloc[:, columns.index("length")-2] = (df_data.iloc[:, columns.index("length")-2].astype(float) * Koef).apply(lambda x: f"{x:.2f}")
+            
             if "up" in columns:
-                df_data.iloc[:, columns.index("up")-2] = df_data.iloc[:, columns.index("up")-2].astype(float) * Koef
+                df_data.iloc[:, columns.index("up")-2] = (df_data.iloc[:, columns.index("up")-2].astype(float) * Koef).apply(lambda x: f"{x:.2f}")
                 df_data[columns.index("up")-2] = pd.to_numeric(df_data[columns.index("up")-2], errors='coerce')  # convertit en float
                 df_data[columns.index("up")-2] = df_data[columns.index("up")-2].apply(lambda x: "-" if pd.notna(x) and x < 0 else x)
+            
             if "down" in columns:
-                df_data.iloc[:, columns.index("down")-2] = df_data.iloc[:, columns.index("down")-2].astype(float) * Koef
+                df_data.iloc[:, columns.index("down")-2] = (df_data.iloc[:, columns.index("down")-2].astype(float) * Koef).apply(lambda x: f"{x:.2f}")
                 df_data[columns.index("down")-2] = pd.to_numeric(df_data[columns.index("down")-2], errors='coerce')  # convertit en float
                 df_data[columns.index("down")-2] = df_data[columns.index("down")-2].apply(lambda x: "-" if pd.notna(x) and x < 0 else x)
+            
             if "right" in columns:
-                df_data.iloc[:, columns.index("right")-2] = df_data.iloc[:, columns.index("right")-2].astype(float) * Koef
+                df_data.iloc[:, columns.index("right")-2] = (df_data.iloc[:, columns.index("right")-2].astype(float) * Koef).apply(lambda x: f"{x:.2f}")
                 df_data[columns.index("right")-2] = pd.to_numeric(df_data[columns.index("right")-2], errors='coerce')  # convertit en float
                 df_data[columns.index("right")-2] = df_data[columns.index("right")-2].apply(lambda x: "-" if pd.notna(x) and x < 0 else x)
+            
             if "left" in columns:
-                df_data.iloc[:, columns.index("left")-2] = df_data.iloc[:, columns.index("left")-2].astype(float) * Koef
+                df_data.iloc[:, columns.index("left")-2] = (df_data.iloc[:, columns.index("left")-2].astype(float) * Koef).apply(lambda x: f"{x:.2f}")
                 df_data[columns.index("left")-2] = pd.to_numeric(df_data[columns.index("left")-2], errors='coerce')  # convertit en float
                 df_data[columns.index("left")-2] = df_data[columns.index("left")-2].apply(lambda x: "-" if pd.notna(x) and x < 0 else x)
+            
+            if "compass" in columns:
+                df_data.iloc[:, columns.index("compass")-2] = (df_data.iloc[:, columns.index("compass")-2].astype(float)).apply(lambda x: f"{x:.1f}")
+            
+            if "clino" in columns:
+                df_data.iloc[:, columns.index("clino")-2] = (df_data.iloc[:, columns.index("clino")-2].astype(float)).apply(lambda x: f"{x:.1f}")
                 
             if "from" in columns: 
                 df_data.iloc[:, columns.index("from")-2] = (df_data.iloc[:, columns.index("from")-2]
@@ -1536,7 +1751,7 @@ endsurvey
                     not_surface_row = [" "] * len(row)
                     not_surface_row[0] = "flags not duplicate"
                     new_rows.append(not_surface_row)
-                    log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+                    log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
 
                 # Si la colonne 10 contient #|P#    exclude from plotting
                 elif "#|P#" in col10:
@@ -1549,7 +1764,7 @@ endsurvey
                     not_surface_row = [" "] * len(row)
                     not_surface_row[0] = "# flags not exclude from plot no implemented"
                     new_rows.append(not_surface_row)
-                    log.warning(f"Flags exclude from plot #|P# not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+                    log.warning(f"Flags exclude from plot #|P# not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
 
                 # Si la colonne 10 contient #|C#    exclude from closure
                 elif "#|C#" in col10:
@@ -1562,7 +1777,7 @@ endsurvey
                     not_surface_row = [" "] * len(row)
                     not_surface_row[0] = "# flags not exclude from closure no implemented"
                     new_rows.append(not_surface_row)
-                    log.warning(f"Flags #|C# exclude from closure not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+                    log.warning(f"Flags #|C# exclude from closure not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
 
                 # Si la colonne 10 contient #|PL#    exclude from plotting and Length
                 elif "#|PL#" in col10:
@@ -1575,7 +1790,7 @@ endsurvey
                     not_surface_row = [" "] * len(row)
                     not_surface_row[0] = "flags not duplicate"
                     new_rows.append(not_surface_row)
-                    log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+                    log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
 
                 # Si la colonne 10 contient #|LC#    exclude from Length and Closure
                 elif "#|LC#" in col10:
@@ -1588,7 +1803,7 @@ endsurvey
                     not_surface_row = [" "] * len(row)
                     not_surface_row[0] = "flags not duplicate"
                     new_rows.append(not_surface_row)
-                    log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+                    log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
 
 
                 # Si la colonne 10 contient #|PLC#    exclude from plotting, closure and length
@@ -1613,7 +1828,7 @@ endsurvey
                     not_surface_row = [" "] * len(row)
                     not_surface_row[0] = "# flags not unknown no implemented"
                     new_rows.append(not_surface_row)
-                    log.error(f"Flags unknown '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+                    log.error(f"Flags unknown '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
                     error_count += 1
                     
                 else:
@@ -1695,11 +1910,26 @@ endsurvey
                 elif point[1] == 'f' :
                     fixPoint +=  f"\t\tfix {point[0]} {point[2]*0.3048} {point[3]*0.3048}	{point[4]*0.3048} # Conversion feet - meter\n" 
         
-
          
         ################################################################################################# 
         # Gestion des formats
         ################################################################################################# 
+        if _line['FORMAT'] is None or len(_line['FORMAT']) < 11:
+            log.error(f"Error in format code ID {Colors.ENDC}{_line['ID']}")
+            log.debug(f"Error in format code SURVEY_NAME {Colors.ENDC}{_line['SURVEY_NAME']}")
+            log.debug(f"Error in format code SURVEY_DATE {Colors.ENDC}{_line['SURVEY_DATE']}")
+            log.debug(f"SURVEY TITLE: {Colors.ENDC}{_line['SURVEY_TITLE']}")
+            log.debug(f"COMMENT: {Colors.ENDC}{_line['COMMENT']}")
+            log.debug(f"SURVEY TEAM: {Colors.ENDC}{_line['SURVEY_TEAM']}")
+            log.debug(f"DECLINATION: {Colors.ENDC}{_line['DECLINATION']}")
+            log.debug(f"FORMAT: {Colors.ENDC}{_line['FORMAT']}")
+            log.debug(f"CORRECTIONS: {Colors.ENDC}{_line['CORRECTIONS']}")
+            log.debug(f"DATA: {Colors.ENDC}{(_line['DATA'])}")
+            log.debug(f"DATA Qté: {Colors.ENDC}{len(_line['DATA'])}")
+            log.debug(f"STATION: {Colors.ENDC}{(_line['STATION'])}")
+            log.debug(f"SOURCE: {Colors.ENDC}{_line['SOURCE']}\n")
+            error_count += 1
+        
         if _line['FORMAT'][0] == 'D' : compass = 'degree'
         elif _line['FORMAT'][0] == 'R' : compass = 'grads'
         else : 
@@ -1730,39 +1960,60 @@ endsurvey
         elif  _line['FORMAT'][4] == 'D' : dataFormat = dataFormat + " down"
         elif  _line['FORMAT'][4] == 'R' : dataFormat = dataFormat + " right"
         elif  _line['FORMAT'][4] == 'L' : dataFormat = dataFormat + " left"
+        else : 
+            log.error(f"Error in format str 4 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            error_count += 1
         
         if  _line['FORMAT'][5] == 'U' : dataFormat = dataFormat + " up"
         elif  _line['FORMAT'][5] == 'D' : dataFormat = dataFormat + " down"
         elif  _line['FORMAT'][5] == 'R' : dataFormat = dataFormat + " right"
         elif  _line['FORMAT'][5] == 'L' : dataFormat = dataFormat + " left"
+        else : 
+            log.error(f"Error in format str 5code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            error_count += 1
         
         if  _line['FORMAT'][6] == 'U' : dataFormat = dataFormat + " up"
         elif  _line['FORMAT'][6] == 'D' : dataFormat = dataFormat + " down"
         elif  _line['FORMAT'][6] == 'R' : dataFormat = dataFormat + " right"
         elif  _line['FORMAT'][6] == 'L' : dataFormat = dataFormat + " left"
+        else : 
+            log.error(f"Error in format str 6 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            error_count += 1
         
         if  _line['FORMAT'][7] == 'U' : dataFormat = dataFormat + " up"
         elif  _line['FORMAT'][7] == 'D' : dataFormat = dataFormat + " down"
         elif  _line['FORMAT'][7] == 'R' : dataFormat = dataFormat + " right"
         elif  _line['FORMAT'][7] == 'L' : dataFormat = dataFormat + " left"
+        else : 
+            log.error(f"Error in format str 7 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            error_count += 1
         
         if  _line['FORMAT'][10] == 'L' : dataFormat =  " length" + dataFormat
         elif  _line['FORMAT'][10] == 'A' : dataFormat = " compass" + dataFormat
         elif  _line['FORMAT'][10] == 'D' : dataFormat = " clino" + dataFormat
         elif  _line['FORMAT'][10] == 'a' : dataFormat = "  backcompass" + dataFormat
         elif  _line['FORMAT'][10] == 'd' : dataFormat = "  backclino" + dataFormat
+        else : 
+            log.error(f"Error in format str 10 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            error_count += 1
         
         if  _line['FORMAT'][9] == 'L' : dataFormat =  " length" + dataFormat
         elif  _line['FORMAT'][9] == 'A' : dataFormat = " compass" + dataFormat
         elif  _line['FORMAT'][9] == 'D' : dataFormat = " clino" + dataFormat
         elif  _line['FORMAT'][9] == 'a' : dataFormat = "  backcompass" + dataFormat
         elif  _line['FORMAT'][9] == 'd' : dataFormat = "  backclino" + dataFormat
+        else : 
+            log.error(f"Error in format str 9 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            error_count += 1
         
         if  _line['FORMAT'][8] == 'L' : dataFormat =  " length" + dataFormat
         elif  _line['FORMAT'][8] == 'A' : dataFormat = " compass" + dataFormat
         elif  _line['FORMAT'][8] == 'D' : dataFormat = " clino" + dataFormat
         elif  _line['FORMAT'][8] == 'a' : dataFormat = "  backcompass" + dataFormat
         elif  _line['FORMAT'][8] == 'd' : dataFormat = "  backclino" + dataFormat
+        else : 
+            log.error(f"Error in format str 8 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            error_count += 1
         
         dataFormat = "data normal from to" + dataFormat + " # comment"
         
@@ -1788,16 +2039,24 @@ endsurvey
         
         totdata +=f"\tinput Data/{_line['SURVEY_NAME']}/{_line['SURVEY_NAME']}-tot.th\n" 
 
-        log.info(f"Therion file : {Colors.ENDC}~\\{os.path.relpath(output_file)}{Colors.GREEN} created from {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+        log.info(f"Therion file : {Colors.ENDC}{safe_relpath(output_file)}{Colors.GREEN} created from {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
 
         ################################################################################################# 
         # Création des dossiers
         ################################################################################################# 
-                
-        createThFolders( ENTRY_FILE = output_file, SCALE = args.scale, UPDATE = args.update )      
+        
+        _Config_PATH = CONFIG_PATH + "../../"
+        
+        createThFolders( ENTRY_FILE = output_file, SCALE = args.scale, UPDATE = args.update, CONFIG_PATH = _Config_PATH,) 
+     
         _destination = output_file[:-3] + "\\Sources"
         destination_path = os.path.join(_destination, os.path.basename(output_file))
         shutil.move(output_file, destination_path)      
+        
+        _destination =  output_file[:-3] + "\\config.thc"
+        destination_path = os.path.join(_destination, os.path.basename(output_file))
+        print(f"destination_path : {_destination}")
+        os.remove(_destination)
         
         totMapsPlan += f"\tMP-{_line['SURVEY_NAME']}-Plan-tot@{_line['SURVEY_NAME']}\n\tbreak\n"
         totMapsExtended += f"\tMC-{_line['SURVEY_NAME']}-Extended-tot@{_line['SURVEY_NAME']}\n\tbreak\n"
@@ -1809,12 +2068,13 @@ endsurvey
         
     totdata +=f"\n" 
     
-    # On numérote les doublons de Survey_Name pour chaque StationName
-    stationList['Survey_Number'] = stationList.groupby('StationName').cumcount() + 1
+    _stationList = stationList.copy()
     
-
+    # On numérote les doublons de Survey_Name pour chaque StationName
+    _stationList['Survey_Number'] = _stationList.groupby('StationName').cumcount() + 1
+    
     # On pivote le tableau pour que chaque Survey_Name devienne une colonne
-    tableau_pivot = stationList.pivot(index='StationName', columns='Survey_Number', values='Survey_Name')
+    tableau_pivot = _stationList.pivot(index='StationName', columns='Survey_Number', values='Survey_Name_01')
     
     tableau_pivot.columns = [f'Survey_Name_{i}' for i in tableau_pivot.columns]
     
@@ -1828,7 +2088,7 @@ endsurvey
         tableau_equate = tableau_pivot[tableau_pivot['Survey_Name_2'].notna()]
 
 
-        log.info(f"Total 'equats' : {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}~\\{os.path.relpath(ENTRY_FILE)}")
+        log.info(f"Total 'equats' : {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
         # print(tableau_equate)
         # print(f"fixePoints : {Colors.ENDC}{fixed_names}{Colors.INFO} in {Colors.ENDC}{ENTRY_FILE}")
         
@@ -1863,6 +2123,7 @@ endsurvey
                     'wpage' : wpage, 
                     'cs' : crs_wkt,
                     'totData' : totdata,
+                    'configPath' : CONFIG_PATH,
                     'other_scraps_plan' : totMapsPlan,
                     'other_scraps_extended' : totMapsExtended,
                     'file_info' : f"# File generated by pyCreateTh.py version {Version} date: {datetime.now().strftime("%Y.%m.%d-%H:%M:%S")}",
@@ -1875,12 +2136,10 @@ endsurvey
     process_template(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  SurveyTitle + '-maps.th')
     process_template(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/readme.md')
         
-    # Créer un DataFrame pandas
-    df = pd.DataFrame(data)
+    stationList["Survey_Name_02"] = SurveyTitle
+
     
-    # print(df)
-    
-    return df
+    return stationList, SurveyTitle
 
     
 #################################################################################################
@@ -1938,9 +2197,9 @@ if __name__ == u'__main__':
             f'* Conversion Th, Dat, Mak files to Therion files and folders',
             f'*       Script pyCreateTh by : {Colors.ENDC}alexandre.pont@yahoo.fr',
             f'*       Version : {Colors.ENDC}{Version}',
-            f'*       Input file : {Colors.ENDC}~\\{os.path.relpath(args.survey_file)}',           
-            f'*       Output file : {Colors.ENDC}~\\{os.path.relpath(splitext(abspath(args.survey_file))[0])}',
-            f'*       Log file : {Colors.ENDC}~\\{os.path.relpath(output_log)}',
+            f'*       Input file : {Colors.ENDC}{safe_relpath(args.survey_file)}',           
+            f'*       Output file : {Colors.ENDC}{safe_relpath(splitext(abspath(args.survey_file))[0])}',
+            f'*       Log file : {Colors.ENDC}{safe_relpath(output_log)}',
             f'*       ',
             f'*       ',
             f'*       ',
@@ -1964,35 +2223,140 @@ if __name__ == u'__main__':
             ENTRY_FILE = abspath(args.survey_file), 
             TARGET = args.survey_name, 
             SCALE = args.scale, 
-            UPDATE = args.update )
+            UPDATE = args.update,
+            CONFIG_PATH = "")
         
     elif args.survey_file[-3:].lower() == "mak" :
+        _ConfigPath = "./../../"
+        
+        # _ConfigPath = "./../../../../"
+        #                ./../../
         datFiles, fixPoints, crs_wkt = readMakFile(abspath(args.survey_file))
         
-        folderDest = os.path.dirname(abspath(args.survey_file)) + "/" + os.path.basename(abspath(args.survey_file))[:-4]
+        SurveyTitleMak =  os.path.basename(abspath(args.survey_file))[:-4]
+        
+        folderDest = os.path.dirname(abspath(args.survey_file)) + "/" + SurveyTitleMak
         
         copy_template_if_not_exists(template_path,folderDest)
         
-        for file in datFiles :  
+        # _destination =  output_file[:-3] + "\\config.thc"
+        # destination_path = os.path.join(_destination, os.path.basename(output_file))
+        # print(f"destination_path : {_destination}")
+        # os.remove(_destination)
+        
+        stationList = pd.DataFrame(columns=['StationName', 'Survey_Name_01', 'Survey_Name_02'])
+        totdata = f"\t## Liste inputs\n"
+        totMapsPlan = ""
+        totMapsExtended = ""
+        
+        for file in datFiles :      
             _file = os.path.dirname(abspath(args.survey_file)) + "\\"+ file
             shutil.copy(_file, folderDest + "\\Data\\")
             ABS_file = folderDest + "\\Data\\"+ file
-            DatToThFiles (ABS_file, fixPoints, crs_wkt)
+            Station, SurveyTitle = DatToThFiles (ABS_file, fixPoints, crs_wkt, _ConfigPath)
             
+            totdata +=f"\tinput Data/{SurveyTitle}/{SurveyTitle}-tot.th\n" 
+            totMapsPlan += f"\tMP-{SurveyTitle}-Plan-tot@{SurveyTitle}\n\tbreak\n"
+            totMapsExtended += f"\tMC-{SurveyTitle}-Extended-tot@{SurveyTitle}\n\tbreak\n"
+
+            if not Station.empty:  # pour éviter d'ajouter des DataFrames vides
+                stationList = pd.concat([stationList, Station], ignore_index=True)
+                stationList.sort_values(by='Survey_Name_02', inplace=True, ignore_index=True)
+
+
             destination = os.path.join(folderDest, "Sources", os.path.basename(ABS_file))
             if os.path.exists(destination):
                 os.remove(destination)
 
             shutil.move(ABS_file, destination)  
         
+        
+        
+        ################################################################################################# 
+        # Gestion des equats 
+        #################################################################################################
+            
+        totdata +=f"\n" 
+        
+        _stationList = stationList.copy()
+        
+        _stationList["Survey_Name_01"] = _stationList["Survey_Name_01"] + "."+ _stationList["Survey_Name_01"]+ "." + _stationList["Survey_Name_02"]
+        # On numérote les doublons de Survey_Name pour chaque StationName
+        _stationList['Survey_Number'] = _stationList.groupby('StationName').cumcount() + 1
+
+        print(_stationList)
+
+        # On pivote le tableau pour que chaque Survey_Name devienne une colonne
+        tableau_pivot = _stationList.pivot(index='StationName', columns='Survey_Number', values='Survey_Name_01')
+        
+        tableau_pivot.columns = [f'Survey_Name_{i}' for i in tableau_pivot.columns]
+        
+        print(f"tableau_pivot : {Colors.ENDC}{tableau_pivot}{Colors.INFO} in {Colors.ENDC}{args.survey_file}")
+        
+        totdata +=f"\n\t## Liste equates\n"
+        
+        if 'Survey_Name_2' in tableau_pivot.columns:
+            # On réinitialise l'index pour avoir StationName comme colonne normale
+            tableau_pivot = tableau_pivot.reset_index()
+            tableau_equate = tableau_pivot[tableau_pivot['Survey_Name_2'].notna()]
+
+
+            log.info(f"Total des 'equats' : {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{safe_relpath(args.survey_file)}")
+            print(tableau_equate)
+            # print(f"fixePoints : {Colors.ENDC}{fixed_names}{Colors.INFO} in {Colors.ENDC}{args.survey_file}")
+            
+            # Pour chaque ligne du tableau
+            for _, row in tableau_equate.iterrows():
+                station = row['StationName']
+                
+                # On récupère tous les Survey_Name non vides (NaN exclus)
+                surveys = [row[col] for col in tableau_equate.columns if col.startswith('Survey_Name') and pd.notna(row[col])]
+                
+                # Pour chaque paire unique (i < j), on écrit la ligne 'equate'
+                for i in range(len(surveys)):
+                    for j in range(i + 1, len(surveys)):
+                        totdata +=f"\tequate {station}@{surveys[i]} {station}@{surveys[j]}\n"
+                        print(f"\tequate {station}@{surveys[i]} {station}@{surveys[j]}")
+        else:
+            log.info(f"No 'equats' found in {Colors.ENDC}{args.survey_file}")
+                
+        totdata +=f"\n\t## Appel des maps\n\tinput {SurveyTitleMak}-maps.th\n"
+            
+        config_vars = {
+                        'fileName': SurveyTitleMak,
+                        'cavename': SurveyTitleMak.replace("_", " "),
+                        'Author': Author,
+                        'Copyright': Copyright,
+                        'Scale' : args.scale,
+                        'Target' : "TARGET",
+                        'map_comment' : map_comment,
+                        'club' : club,
+                        'thanksto' : thanksto,
+                        'datat' : datat,
+                        'wpage' : wpage, 
+                        'cs' : crs_wkt,
+                        'configPath' : " ",
+                        'totData' : totdata,
+                        'other_scraps_plan' : totMapsPlan,
+                        'other_scraps_extended' : totMapsExtended,
+                        'file_info' : f"# File generated by pyCreateTh.py version {Version} date: {datetime.now().strftime("%Y.%m.%d-%H:%M:%S")}",
+                }
+
+        DEST_PATH = os.path.dirname(args.survey_file) + '/' +  SurveyTitleMak
+
+        process_template(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '.thconfig')
+        process_template(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitleMak + '-tot.th')
+        process_template(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '-maps.th')
+        process_template(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/readme.md')
+        
+        
     elif args.survey_file[-3:].lower() == "dat" :
-        
+        _ConfigPath = "./"
         ABS_file =abspath(args.survey_file)
-        
-        DatToThFiles (ABS_file)
-        
-    else : 
-        log.error(f"file {Colors.ENDC}~\\{os.path.relpath(args.survey_file)}{Colors.ERROR} not yet supported")
+        DatToThFiles (ABS_file, fixPoints = [], crs_wkt = "", CONFIG_PATH = _ConfigPath)
+
+    else :
+        log.error(f"file {Colors.ENDC}{safe_relpath(args.survey_file)}{Colors.ERROR} not yet supported")
         error_count += 1
 
     duration = (datetime.now() - start_time).total_seconds()
@@ -2000,7 +2364,7 @@ if __name__ == u'__main__':
         
         log.info(f"All files processed successfully in {Colors.ENDC}{duration:.2f}{Colors.INFO} secondes, without errors")
     else :
-        log.error(f"There were {Colors.ENDC}{error_count}{Colors.ERROR} errors during {Colors.ENDC}{duration:.2f}{Colors.ERROR} secondes, check the log file {Colors.ENDC}~\\{os.path.relpath(output_log)}")
+        log.error(f"There were {Colors.ENDC}{error_count}{Colors.ERROR} errors during {Colors.ENDC}{duration:.2f}{Colors.ERROR} secondes, check the log file {Colors.ENDC}{safe_relpath(output_log)}")
 
 
     

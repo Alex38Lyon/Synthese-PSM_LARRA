@@ -1,0 +1,1524 @@
+2025-06-16 08:05:34,912 - INFO - ********************************************************************************************************************************************
+2025-06-16 08:05:34,912 - INFO - * Conversion Th, Dat, Mak files to Therion files and folders
+2025-06-16 08:05:34,912 - INFO - *       Script pyCreateTh by : alexandre.pont@yahoo.fr
+2025-06-16 08:05:34,913 - INFO - *       Version : 2025.06.16
+2025-06-16 08:05:34,913 - INFO - *       Input file : ~\Tests\Fulfords.mak
+2025-06-16 08:05:34,913 - INFO - *       Output file : ~\Tests\Fulfords
+2025-06-16 08:05:34,913 - INFO - *       Log file : ~\Tests\Fulfords.log
+2025-06-16 08:05:34,914 - INFO - *       
+2025-06-16 08:05:34,914 - INFO - *       
+2025-06-16 08:05:34,914 - INFO - *       
+2025-06-16 08:05:34,914 - INFO - ********************************************************************************************************************************************
+2025-06-16 08:05:34,918 - INFO - Reading mak file : ~\Tests\Fulfords.mak, fixed station : 4, files 2, UTM Zone : 13, Datum : North American 1983, SCR : EPSG:26913
+2025-06-16 08:05:34,930 - INFO - The folder './template' has been copied to '~\Tests\Fulfords
+2025-06-16 08:05:34,940 - INFO - ~\Tests\Fulfords\Data\FULSURF.DAT, encodage : ascii conversion utf-8
+2025-06-16 08:05:34,944 - INFO - Read dat file : ~\Tests\Fulfords\Data\FULSURF.DAT with 4 survey
+2025-06-16 08:05:34,957 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave
+2025-06-16 08:05:34,974 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:34,974 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:34,975 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 4 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:34,975 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 5 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:34,976 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 6 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:34,976 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 7 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:34,978 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:34,978 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS.th
+2025-06-16 08:05:34,979 - INFO - Parsing survey target:	SS
+2025-06-16 08:05:34,991 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\SS
+2025-06-16 08:05:34,997 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS.thconfig
+2025-06-16 08:05:34,999 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS-tot.th
+2025-06-16 08:05:35,002 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\readme.md
+2025-06-16 08:05:35,003 - INFO - Compiling 2D XVI file:      	SS
+2025-06-16 08:05:35,773 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Plan.xvi
+2025-06-16 08:05:35,775 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Plan.th2
+2025-06-16 08:05:35,779 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Extended.xvi
+2025-06-16 08:05:35,782 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Extended.th2
+2025-06-16 08:05:35,785 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS-maps.th
+2025-06-16 08:05:35,795 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS.thconfig
+2025-06-16 08:05:36,075 - ERROR - !!!  [Therion_Compile] average loop error: 31.15%
+2025-06-16 08:05:36,174 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS.thconfig succeeded
+2025-06-16 08:05:36,187 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:36,187 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:36,188 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 4 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:36,189 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:36,190 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC.th
+2025-06-16 08:05:36,191 - INFO - Parsing survey target:	SC
+2025-06-16 08:05:36,200 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\SC
+2025-06-16 08:05:36,204 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC.thconfig
+2025-06-16 08:05:36,206 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC-tot.th
+2025-06-16 08:05:36,208 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\readme.md
+2025-06-16 08:05:36,209 - INFO - Compiling 2D XVI file:      	SC
+2025-06-16 08:05:36,568 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Plan.xvi
+2025-06-16 08:05:36,569 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Plan.th2
+2025-06-16 08:05:36,570 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Extended.xvi
+2025-06-16 08:05:36,571 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Extended.th2
+2025-06-16 08:05:36,573 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC-maps.th
+2025-06-16 08:05:36,581 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC.thconfig
+2025-06-16 08:05:36,832 - ERROR - !!!  [Therion_Compile] average loop error: 2.89%
+2025-06-16 08:05:36,927 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC.thconfig succeeded
+2025-06-16 08:05:36,941 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:36,942 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z.th
+2025-06-16 08:05:36,942 - INFO - Parsing survey target:	Z
+2025-06-16 08:05:36,953 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\Z
+2025-06-16 08:05:36,957 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z.thconfig
+2025-06-16 08:05:36,959 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z-tot.th
+2025-06-16 08:05:36,961 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\readme.md
+2025-06-16 08:05:36,962 - INFO - Compiling 2D XVI file:      	Z
+2025-06-16 08:05:37,204 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Plan.xvi
+2025-06-16 08:05:37,205 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Plan.th2
+2025-06-16 08:05:37,206 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Extended.xvi
+2025-06-16 08:05:37,207 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Extended.th2
+2025-06-16 08:05:37,209 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z-maps.th
+2025-06-16 08:05:37,218 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z.thconfig
+2025-06-16 08:05:37,459 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:37,470 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z.thconfig succeeded
+2025-06-16 08:05:37,482 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:37,483 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_.th
+2025-06-16 08:05:37,483 - INFO - Parsing survey target:	Z_
+2025-06-16 08:05:37,494 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_
+2025-06-16 08:05:37,498 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_.thconfig
+2025-06-16 08:05:37,500 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_-tot.th
+2025-06-16 08:05:37,502 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\readme.md
+2025-06-16 08:05:37,503 - INFO - Compiling 2D XVI file:      	Z_
+2025-06-16 08:05:37,761 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Plan.xvi
+2025-06-16 08:05:37,762 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Plan.th2
+2025-06-16 08:05:37,765 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Extended.xvi
+2025-06-16 08:05:37,767 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Extended.th2
+2025-06-16 08:05:37,769 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_-maps.th
+2025-06-16 08:05:37,776 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_.thconfig
+2025-06-16 08:05:37,989 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:37,999 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_.thconfig succeeded
+2025-06-16 08:05:38,007 - INFO - Total 'equats' : 2 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:05:38,010 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Fulford_Cave.thconfig
+2025-06-16 08:05:38,011 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Fulford_Cave-tot.th
+2025-06-16 08:05:38,013 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Fulford_Cave-maps.th
+2025-06-16 08:05:38,015 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\readme.md
+2025-06-16 08:05:38,025 - INFO - ~\Tests\Fulfords\Data\FULFORD.DAT, encodage : ascii conversion utf-8
+2025-06-16 08:05:38,031 - INFO - Read dat file : ~\Tests\Fulfords\Data\FULFORD.DAT with 25 survey
+2025-06-16 08:05:38,042 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD
+2025-06-16 08:05:38,054 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:38,054 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\A.th
+2025-06-16 08:05:38,055 - INFO - Parsing survey target:	A
+2025-06-16 08:05:38,066 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\A
+2025-06-16 08:05:38,070 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\A.thconfig
+2025-06-16 08:05:38,071 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\A-tot.th
+2025-06-16 08:05:38,073 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\readme.md
+2025-06-16 08:05:38,074 - INFO - Compiling 2D XVI file:      	A
+2025-06-16 08:05:38,459 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Plan.xvi
+2025-06-16 08:05:38,460 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Plan.th2
+2025-06-16 08:05:38,461 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Extended.xvi
+2025-06-16 08:05:38,463 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Extended.th2
+2025-06-16 08:05:38,464 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\A-maps.th
+2025-06-16 08:05:38,472 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\A\A.thconfig
+2025-06-16 08:05:38,804 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A\A.thconfig succeeded
+2025-06-16 08:05:38,816 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A_.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:38,816 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\A_.th
+2025-06-16 08:05:38,817 - INFO - Parsing survey target:	A_
+2025-06-16 08:05:38,827 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\A_
+2025-06-16 08:05:38,831 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_.thconfig
+2025-06-16 08:05:38,833 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_-tot.th
+2025-06-16 08:05:38,835 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\readme.md
+2025-06-16 08:05:38,836 - INFO - Compiling 2D XVI file:      	A_
+2025-06-16 08:05:39,068 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Plan.xvi
+2025-06-16 08:05:39,069 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Plan.th2
+2025-06-16 08:05:39,070 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Extended.xvi
+2025-06-16 08:05:39,072 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Extended.th2
+2025-06-16 08:05:39,074 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_-maps.th
+2025-06-16 08:05:39,082 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_.thconfig
+2025-06-16 08:05:39,204 - ERROR - !!!  [Therion_Compile] average loop error: 2.03%
+2025-06-16 08:05:39,284 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:39,294 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_.thconfig succeeded
+2025-06-16 08:05:39,308 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\B.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:39,309 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\B.th
+2025-06-16 08:05:39,309 - INFO - Parsing survey target:	B
+2025-06-16 08:05:39,321 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\B
+2025-06-16 08:05:39,324 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\B.thconfig
+2025-06-16 08:05:39,326 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\B-tot.th
+2025-06-16 08:05:39,328 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\readme.md
+2025-06-16 08:05:39,328 - INFO - Compiling 2D XVI file:      	B
+2025-06-16 08:05:39,567 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Plan.xvi
+2025-06-16 08:05:39,568 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Plan.th2
+2025-06-16 08:05:39,569 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Extended.xvi
+2025-06-16 08:05:39,572 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Extended.th2
+2025-06-16 08:05:39,576 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\B-maps.th
+2025-06-16 08:05:39,585 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\B\B.thconfig
+2025-06-16 08:05:39,793 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:39,803 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\B\B.thconfig succeeded
+2025-06-16 08:05:39,823 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:39,824 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\C.th
+2025-06-16 08:05:39,825 - INFO - Parsing survey target:	C
+2025-06-16 08:05:39,835 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\C
+2025-06-16 08:05:39,840 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\C.thconfig
+2025-06-16 08:05:39,842 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\C-tot.th
+2025-06-16 08:05:39,844 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\readme.md
+2025-06-16 08:05:39,844 - INFO - Compiling 2D XVI file:      	C
+2025-06-16 08:05:40,084 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Plan.xvi
+2025-06-16 08:05:40,085 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Plan.th2
+2025-06-16 08:05:40,086 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Extended.xvi
+2025-06-16 08:05:40,088 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Extended.th2
+2025-06-16 08:05:40,090 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\C-maps.th
+2025-06-16 08:05:40,099 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\C\C.thconfig
+2025-06-16 08:05:40,303 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:40,314 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C\C.thconfig succeeded
+2025-06-16 08:05:40,327 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C_.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:40,328 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\C_.th
+2025-06-16 08:05:40,328 - INFO - Parsing survey target:	C_
+2025-06-16 08:05:40,337 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\C_
+2025-06-16 08:05:40,342 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_.thconfig
+2025-06-16 08:05:40,343 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_-tot.th
+2025-06-16 08:05:40,344 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\readme.md
+2025-06-16 08:05:40,345 - INFO - Compiling 2D XVI file:      	C_
+2025-06-16 08:05:40,595 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Plan.xvi
+2025-06-16 08:05:40,596 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Plan.th2
+2025-06-16 08:05:40,597 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Extended.xvi
+2025-06-16 08:05:40,599 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Extended.th2
+2025-06-16 08:05:40,601 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_-maps.th
+2025-06-16 08:05:40,610 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_.thconfig
+2025-06-16 08:05:40,820 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:40,831 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_.thconfig succeeded
+2025-06-16 08:05:40,847 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C__.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:40,847 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\C__.th
+2025-06-16 08:05:40,848 - INFO - Parsing survey target:	C__
+2025-06-16 08:05:40,860 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\C__
+2025-06-16 08:05:40,863 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__.thconfig
+2025-06-16 08:05:40,865 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__-tot.th
+2025-06-16 08:05:40,866 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\readme.md
+2025-06-16 08:05:40,867 - INFO - Compiling 2D XVI file:      	C__
+2025-06-16 08:05:41,111 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Plan.xvi
+2025-06-16 08:05:41,112 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Plan.th2
+2025-06-16 08:05:41,113 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Extended.xvi
+2025-06-16 08:05:41,115 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Extended.th2
+2025-06-16 08:05:41,118 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__-maps.th
+2025-06-16 08:05:41,126 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__.thconfig
+2025-06-16 08:05:41,336 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:41,347 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__.thconfig succeeded
+2025-06-16 08:05:41,360 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A3.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:41,361 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\A3.th
+2025-06-16 08:05:41,361 - INFO - Parsing survey target:	A3
+2025-06-16 08:05:41,372 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\A3
+2025-06-16 08:05:41,376 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3.thconfig
+2025-06-16 08:05:41,377 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3-tot.th
+2025-06-16 08:05:41,379 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\readme.md
+2025-06-16 08:05:41,380 - INFO - Compiling 2D XVI file:      	A3
+2025-06-16 08:05:41,622 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Plan.xvi
+2025-06-16 08:05:41,623 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Plan.th2
+2025-06-16 08:05:41,624 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Extended.xvi
+2025-06-16 08:05:41,625 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Extended.th2
+2025-06-16 08:05:41,627 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3-maps.th
+2025-06-16 08:05:41,635 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3.thconfig
+2025-06-16 08:05:41,833 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:41,844 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3.thconfig succeeded
+2025-06-16 08:05:41,858 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:41,859 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:41,861 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AN.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:41,862 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AN.th
+2025-06-16 08:05:41,862 - INFO - Parsing survey target:	AN
+2025-06-16 08:05:41,874 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AN
+2025-06-16 08:05:41,878 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN.thconfig
+2025-06-16 08:05:41,879 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN-tot.th
+2025-06-16 08:05:41,881 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\readme.md
+2025-06-16 08:05:41,882 - INFO - Compiling 2D XVI file:      	AN
+2025-06-16 08:05:42,233 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Plan.xvi
+2025-06-16 08:05:42,233 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Plan.th2
+2025-06-16 08:05:42,234 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Extended.xvi
+2025-06-16 08:05:42,236 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Extended.th2
+2025-06-16 08:05:42,237 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN-maps.th
+2025-06-16 08:05:42,244 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN.thconfig
+2025-06-16 08:05:42,570 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN.thconfig succeeded
+2025-06-16 08:05:42,580 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AA.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:42,581 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AA.th
+2025-06-16 08:05:42,581 - INFO - Parsing survey target:	AA
+2025-06-16 08:05:42,590 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AA
+2025-06-16 08:05:42,594 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA.thconfig
+2025-06-16 08:05:42,595 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA-tot.th
+2025-06-16 08:05:42,597 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\readme.md
+2025-06-16 08:05:42,598 - INFO - Compiling 2D XVI file:      	AA
+2025-06-16 08:05:42,830 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Plan.xvi
+2025-06-16 08:05:42,831 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Plan.th2
+2025-06-16 08:05:42,833 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Extended.xvi
+2025-06-16 08:05:42,834 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Extended.th2
+2025-06-16 08:05:42,836 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA-maps.th
+2025-06-16 08:05:42,847 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA.thconfig
+2025-06-16 08:05:43,123 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:43,133 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA.thconfig succeeded
+2025-06-16 08:05:43,146 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AM.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:43,147 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AM.th
+2025-06-16 08:05:43,147 - INFO - Parsing survey target:	AM
+2025-06-16 08:05:43,157 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AM
+2025-06-16 08:05:43,165 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM.thconfig
+2025-06-16 08:05:43,167 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM-tot.th
+2025-06-16 08:05:43,168 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\readme.md
+2025-06-16 08:05:43,169 - INFO - Compiling 2D XVI file:      	AM
+2025-06-16 08:05:43,419 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Plan.xvi
+2025-06-16 08:05:43,420 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Plan.th2
+2025-06-16 08:05:43,421 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Extended.xvi
+2025-06-16 08:05:43,423 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Extended.th2
+2025-06-16 08:05:43,427 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM-maps.th
+2025-06-16 08:05:43,437 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM.thconfig
+2025-06-16 08:05:43,642 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:43,652 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM.thconfig succeeded
+2025-06-16 08:05:43,663 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CD.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:43,664 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CD.th
+2025-06-16 08:05:43,665 - INFO - Parsing survey target:	CD
+2025-06-16 08:05:43,676 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CD
+2025-06-16 08:05:43,679 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD.thconfig
+2025-06-16 08:05:43,680 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD-tot.th
+2025-06-16 08:05:43,682 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\readme.md
+2025-06-16 08:05:43,683 - INFO - Compiling 2D XVI file:      	CD
+2025-06-16 08:05:43,921 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Plan.xvi
+2025-06-16 08:05:43,922 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Plan.th2
+2025-06-16 08:05:43,923 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Extended.xvi
+2025-06-16 08:05:43,925 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Extended.th2
+2025-06-16 08:05:43,928 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD-maps.th
+2025-06-16 08:05:43,937 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD.thconfig
+2025-06-16 08:05:44,144 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:44,154 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD.thconfig succeeded
+2025-06-16 08:05:44,165 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:44,165 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:44,166 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\XS.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:44,167 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\XS.th
+2025-06-16 08:05:44,167 - INFO - Parsing survey target:	XS
+2025-06-16 08:05:44,177 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\XS
+2025-06-16 08:05:44,180 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS.thconfig
+2025-06-16 08:05:44,182 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS-tot.th
+2025-06-16 08:05:44,184 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\readme.md
+2025-06-16 08:05:44,185 - INFO - Compiling 2D XVI file:      	XS
+2025-06-16 08:05:44,553 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Plan.xvi
+2025-06-16 08:05:44,554 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Plan.th2
+2025-06-16 08:05:44,555 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Extended.xvi
+2025-06-16 08:05:44,556 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Extended.th2
+2025-06-16 08:05:44,560 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS-maps.th
+2025-06-16 08:05:44,569 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS.thconfig
+2025-06-16 08:05:44,802 - ERROR - !!!  [Therion_Compile] average loop error: 5.56%
+2025-06-16 08:05:44,890 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS.thconfig succeeded
+2025-06-16 08:05:44,902 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AL.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:44,902 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AL.th
+2025-06-16 08:05:44,903 - INFO - Parsing survey target:	AL
+2025-06-16 08:05:44,912 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AL
+2025-06-16 08:05:44,916 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL.thconfig
+2025-06-16 08:05:44,917 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL-tot.th
+2025-06-16 08:05:44,919 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\readme.md
+2025-06-16 08:05:44,919 - INFO - Compiling 2D XVI file:      	AL
+2025-06-16 08:05:45,164 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Plan.xvi
+2025-06-16 08:05:45,165 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Plan.th2
+2025-06-16 08:05:45,166 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Extended.xvi
+2025-06-16 08:05:45,168 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Extended.th2
+2025-06-16 08:05:45,170 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL-maps.th
+2025-06-16 08:05:45,177 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL.thconfig
+2025-06-16 08:05:45,381 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:45,391 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL.thconfig succeeded
+2025-06-16 08:05:45,405 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CC.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:45,406 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CC.th
+2025-06-16 08:05:45,406 - INFO - Parsing survey target:	CC
+2025-06-16 08:05:45,418 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CC
+2025-06-16 08:05:45,421 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC.thconfig
+2025-06-16 08:05:45,423 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC-tot.th
+2025-06-16 08:05:45,424 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\readme.md
+2025-06-16 08:05:45,425 - INFO - Compiling 2D XVI file:      	CC
+2025-06-16 08:05:45,665 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Plan.xvi
+2025-06-16 08:05:45,666 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Plan.th2
+2025-06-16 08:05:45,667 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Extended.xvi
+2025-06-16 08:05:45,669 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Extended.th2
+2025-06-16 08:05:45,670 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC-maps.th
+2025-06-16 08:05:45,679 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC.thconfig
+2025-06-16 08:05:45,802 - ERROR - !!!  [Therion_Compile] average loop error: 2.06%
+2025-06-16 08:05:45,887 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:45,897 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC.thconfig succeeded
+2025-06-16 08:05:45,910 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CE.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:45,911 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CE.th
+2025-06-16 08:05:45,911 - INFO - Parsing survey target:	CE
+2025-06-16 08:05:45,923 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CE
+2025-06-16 08:05:45,928 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE.thconfig
+2025-06-16 08:05:45,930 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE-tot.th
+2025-06-16 08:05:45,932 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\readme.md
+2025-06-16 08:05:45,933 - INFO - Compiling 2D XVI file:      	CE
+2025-06-16 08:05:46,184 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Plan.xvi
+2025-06-16 08:05:46,185 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Plan.th2
+2025-06-16 08:05:46,186 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Extended.xvi
+2025-06-16 08:05:46,188 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Extended.th2
+2025-06-16 08:05:46,191 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE-maps.th
+2025-06-16 08:05:46,200 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE.thconfig
+2025-06-16 08:05:46,408 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:46,418 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE.thconfig succeeded
+2025-06-16 08:05:46,430 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\BS.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:46,431 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\BS.th
+2025-06-16 08:05:46,431 - INFO - Parsing survey target:	BS
+2025-06-16 08:05:46,442 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\BS
+2025-06-16 08:05:46,448 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS.thconfig
+2025-06-16 08:05:46,449 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS-tot.th
+2025-06-16 08:05:46,450 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\readme.md
+2025-06-16 08:05:46,451 - INFO - Compiling 2D XVI file:      	BS
+2025-06-16 08:05:46,687 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Plan.xvi
+2025-06-16 08:05:46,687 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Plan.th2
+2025-06-16 08:05:46,688 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Extended.xvi
+2025-06-16 08:05:46,690 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Extended.th2
+2025-06-16 08:05:46,692 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS-maps.th
+2025-06-16 08:05:46,700 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS.thconfig
+2025-06-16 08:05:46,821 - ERROR - !!!  [Therion_Compile] average loop error: 1.17%
+2025-06-16 08:05:46,898 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:46,909 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS.thconfig succeeded
+2025-06-16 08:05:46,922 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CF.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:46,923 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CF.th
+2025-06-16 08:05:46,923 - INFO - Parsing survey target:	CF
+2025-06-16 08:05:46,933 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CF
+2025-06-16 08:05:46,937 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF.thconfig
+2025-06-16 08:05:46,938 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF-tot.th
+2025-06-16 08:05:46,940 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\readme.md
+2025-06-16 08:05:46,940 - INFO - Compiling 2D XVI file:      	CF
+2025-06-16 08:05:47,175 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Plan.xvi
+2025-06-16 08:05:47,175 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Plan.th2
+2025-06-16 08:05:47,178 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Extended.xvi
+2025-06-16 08:05:47,179 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Extended.th2
+2025-06-16 08:05:47,182 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF-maps.th
+2025-06-16 08:05:47,191 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF.thconfig
+2025-06-16 08:05:47,415 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:47,426 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF.thconfig succeeded
+2025-06-16 08:05:47,445 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CG.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:47,445 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CG.th
+2025-06-16 08:05:47,446 - INFO - Parsing survey target:	CG
+2025-06-16 08:05:47,457 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CG
+2025-06-16 08:05:47,461 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG.thconfig
+2025-06-16 08:05:47,463 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG-tot.th
+2025-06-16 08:05:47,464 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\readme.md
+2025-06-16 08:05:47,465 - INFO - Compiling 2D XVI file:      	CG
+2025-06-16 08:05:47,707 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Plan.xvi
+2025-06-16 08:05:47,708 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Plan.th2
+2025-06-16 08:05:47,709 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Extended.xvi
+2025-06-16 08:05:47,710 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Extended.th2
+2025-06-16 08:05:47,712 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG-maps.th
+2025-06-16 08:05:47,721 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG.thconfig
+2025-06-16 08:05:47,918 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:47,927 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG.thconfig succeeded
+2025-06-16 08:05:47,938 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CH.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:47,939 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CH.th
+2025-06-16 08:05:47,939 - INFO - Parsing survey target:	CH
+2025-06-16 08:05:47,951 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CH
+2025-06-16 08:05:47,955 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH.thconfig
+2025-06-16 08:05:47,957 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH-tot.th
+2025-06-16 08:05:47,959 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\readme.md
+2025-06-16 08:05:47,960 - INFO - Compiling 2D XVI file:      	CH
+2025-06-16 08:05:48,196 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Plan.xvi
+2025-06-16 08:05:48,196 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Plan.th2
+2025-06-16 08:05:48,197 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Extended.xvi
+2025-06-16 08:05:48,199 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Extended.th2
+2025-06-16 08:05:48,201 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH-maps.th
+2025-06-16 08:05:48,209 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH.thconfig
+2025-06-16 08:05:48,407 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:48,417 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH.thconfig succeeded
+2025-06-16 08:05:48,431 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AAA.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:48,432 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AAA.th
+2025-06-16 08:05:48,432 - INFO - Parsing survey target:	AAA
+2025-06-16 08:05:48,444 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AAA
+2025-06-16 08:05:48,449 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA.thconfig
+2025-06-16 08:05:48,451 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA-tot.th
+2025-06-16 08:05:48,453 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\readme.md
+2025-06-16 08:05:48,453 - INFO - Compiling 2D XVI file:      	AAA
+2025-06-16 08:05:48,688 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Plan.xvi
+2025-06-16 08:05:48,689 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Plan.th2
+2025-06-16 08:05:48,690 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Extended.xvi
+2025-06-16 08:05:48,692 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Extended.th2
+2025-06-16 08:05:48,694 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA-maps.th
+2025-06-16 08:05:48,702 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA.thconfig
+2025-06-16 08:05:48,903 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:48,913 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA.thconfig succeeded
+2025-06-16 08:05:48,924 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AB.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:48,924 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AB.th
+2025-06-16 08:05:48,925 - INFO - Parsing survey target:	AB
+2025-06-16 08:05:48,936 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AB
+2025-06-16 08:05:48,941 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB.thconfig
+2025-06-16 08:05:48,943 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB-tot.th
+2025-06-16 08:05:48,944 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\readme.md
+2025-06-16 08:05:48,945 - INFO - Compiling 2D XVI file:      	AB
+2025-06-16 08:05:49,185 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Plan.xvi
+2025-06-16 08:05:49,185 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Plan.th2
+2025-06-16 08:05:49,186 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Extended.xvi
+2025-06-16 08:05:49,188 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Extended.th2
+2025-06-16 08:05:49,190 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB-maps.th
+2025-06-16 08:05:49,197 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB.thconfig
+2025-06-16 08:05:49,393 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:49,402 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB.thconfig succeeded
+2025-06-16 08:05:49,413 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AC.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:49,413 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AC.th
+2025-06-16 08:05:49,414 - INFO - Parsing survey target:	AC
+2025-06-16 08:05:49,425 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AC
+2025-06-16 08:05:49,430 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC.thconfig
+2025-06-16 08:05:49,431 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC-tot.th
+2025-06-16 08:05:49,433 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\readme.md
+2025-06-16 08:05:49,434 - INFO - Compiling 2D XVI file:      	AC
+2025-06-16 08:05:49,660 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Plan.xvi
+2025-06-16 08:05:49,661 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Plan.th2
+2025-06-16 08:05:49,663 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Extended.xvi
+2025-06-16 08:05:49,665 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Extended.th2
+2025-06-16 08:05:49,667 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC-maps.th
+2025-06-16 08:05:49,675 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC.thconfig
+2025-06-16 08:05:49,873 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:49,883 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC.thconfig succeeded
+2025-06-16 08:05:49,899 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CJ.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:49,900 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CJ.th
+2025-06-16 08:05:49,901 - INFO - Parsing survey target:	CJ
+2025-06-16 08:05:49,913 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CJ
+2025-06-16 08:05:49,918 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ.thconfig
+2025-06-16 08:05:49,920 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ-tot.th
+2025-06-16 08:05:49,923 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\readme.md
+2025-06-16 08:05:49,924 - INFO - Compiling 2D XVI file:      	CJ
+2025-06-16 08:05:50,186 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Plan.xvi
+2025-06-16 08:05:50,186 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Plan.th2
+2025-06-16 08:05:50,188 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Extended.xvi
+2025-06-16 08:05:50,189 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Extended.th2
+2025-06-16 08:05:50,193 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ-maps.th
+2025-06-16 08:05:50,202 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ.thconfig
+2025-06-16 08:05:50,410 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:50,420 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ.thconfig succeeded
+2025-06-16 08:05:50,433 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CK.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:50,433 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CK.th
+2025-06-16 08:05:50,434 - INFO - Parsing survey target:	CK
+2025-06-16 08:05:50,445 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CK
+2025-06-16 08:05:50,450 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK.thconfig
+2025-06-16 08:05:50,452 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK-tot.th
+2025-06-16 08:05:50,454 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\readme.md
+2025-06-16 08:05:50,454 - INFO - Compiling 2D XVI file:      	CK
+2025-06-16 08:05:50,695 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Plan.xvi
+2025-06-16 08:05:50,696 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Plan.th2
+2025-06-16 08:05:50,697 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Extended.xvi
+2025-06-16 08:05:50,699 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Extended.th2
+2025-06-16 08:05:50,701 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK-maps.th
+2025-06-16 08:05:50,709 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK.thconfig
+2025-06-16 08:05:50,910 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:50,921 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK.thconfig succeeded
+2025-06-16 08:05:50,935 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CL.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:50,935 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CL.th
+2025-06-16 08:05:50,936 - INFO - Parsing survey target:	CL
+2025-06-16 08:05:50,946 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CL
+2025-06-16 08:05:50,951 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL.thconfig
+2025-06-16 08:05:50,953 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL-tot.th
+2025-06-16 08:05:50,955 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\readme.md
+2025-06-16 08:05:50,956 - INFO - Compiling 2D XVI file:      	CL
+2025-06-16 08:05:51,218 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Plan.xvi
+2025-06-16 08:05:51,218 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Plan.th2
+2025-06-16 08:05:51,219 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Extended.xvi
+2025-06-16 08:05:51,221 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Extended.th2
+2025-06-16 08:05:51,224 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL-maps.th
+2025-06-16 08:05:51,231 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL.thconfig
+2025-06-16 08:05:51,439 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:05:51,448 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL.thconfig succeeded
+2025-06-16 08:05:51,454 - INFO - Total 'equats' : 25 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:05:51,458 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\FULFORD.thconfig
+2025-06-16 08:05:51,460 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\FULFORD-tot.th
+2025-06-16 08:05:51,461 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\FULFORD-maps.th
+2025-06-16 08:05:51,463 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\readme.md
+2025-06-16 08:05:51,466 - INFO - All files processed successfully in 39.10 secondes, without errors
+2025-06-16 08:12:25,246 - INFO - ********************************************************************************************************************************************
+2025-06-16 08:12:25,246 - INFO - * Conversion Th, Dat, Mak files to Therion files and folders
+2025-06-16 08:12:25,246 - INFO - *       Script pyCreateTh by : alexandre.pont@yahoo.fr
+2025-06-16 08:12:25,247 - INFO - *       Version : 2025.06.16
+2025-06-16 08:12:25,247 - INFO - *       Input file : ~\Tests\Fulfords.mak
+2025-06-16 08:12:25,247 - INFO - *       Output file : ~\Tests\Fulfords
+2025-06-16 08:12:25,247 - INFO - *       Log file : ~\Tests\Fulfords.log
+2025-06-16 08:12:25,247 - INFO - *       
+2025-06-16 08:12:25,247 - INFO - *       
+2025-06-16 08:12:25,247 - INFO - *       
+2025-06-16 08:12:25,248 - INFO - ********************************************************************************************************************************************
+2025-06-16 08:12:25,249 - INFO - Reading mak file : ~\Tests\Fulfords.mak, fixed station : 4, files 2, UTM Zone : 13, Datum : North American 1983, SCR : EPSG:26913
+2025-06-16 08:12:25,257 - INFO - The folder './template' has been copied to '~\Tests\Fulfords
+2025-06-16 08:12:25,264 - INFO - ~\Tests\Fulfords\Data\FULSURF.DAT, encodage : ascii conversion utf-8
+2025-06-16 08:12:25,267 - INFO - Read dat file : ~\Tests\Fulfords\Data\FULSURF.DAT with 4 survey
+2025-06-16 08:12:25,274 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave
+2025-06-16 08:12:25,287 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:25,287 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:25,287 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 4 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:25,288 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 5 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:25,288 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 6 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:25,289 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 7 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:25,289 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:25,290 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS.th
+2025-06-16 08:12:25,291 - INFO - Parsing survey target:	SS
+2025-06-16 08:12:25,300 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\SS
+2025-06-16 08:12:25,304 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS.thconfig
+2025-06-16 08:12:25,305 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS-tot.th
+2025-06-16 08:12:25,307 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\readme.md
+2025-06-16 08:12:25,307 - INFO - Compiling 2D XVI file:      	SS
+2025-06-16 08:12:25,687 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Plan.xvi
+2025-06-16 08:12:25,689 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Plan.th2
+2025-06-16 08:12:25,690 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Extended.xvi
+2025-06-16 08:12:25,692 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Extended.th2
+2025-06-16 08:12:25,697 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS-maps.th
+2025-06-16 08:12:25,704 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS.thconfig
+2025-06-16 08:12:26,038 - ERROR - !!!  [Therion_Compile] average loop error: 31.15%
+2025-06-16 08:12:26,115 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS.thconfig succeeded
+2025-06-16 08:12:26,124 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:26,124 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:26,124 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 4 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:26,125 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:26,126 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC.th
+2025-06-16 08:12:26,126 - INFO - Parsing survey target:	SC
+2025-06-16 08:12:26,136 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\SC
+2025-06-16 08:12:26,139 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC.thconfig
+2025-06-16 08:12:26,140 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC-tot.th
+2025-06-16 08:12:26,141 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\readme.md
+2025-06-16 08:12:26,142 - INFO - Compiling 2D XVI file:      	SC
+2025-06-16 08:12:26,435 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Plan.xvi
+2025-06-16 08:12:26,436 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Plan.th2
+2025-06-16 08:12:26,436 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Extended.xvi
+2025-06-16 08:12:26,438 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Extended.th2
+2025-06-16 08:12:26,440 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC-maps.th
+2025-06-16 08:12:26,443 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC.thconfig
+2025-06-16 08:12:26,632 - ERROR - !!!  [Therion_Compile] average loop error: 2.89%
+2025-06-16 08:12:26,708 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC.thconfig succeeded
+2025-06-16 08:12:26,716 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:26,716 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z.th
+2025-06-16 08:12:26,717 - INFO - Parsing survey target:	Z
+2025-06-16 08:12:26,724 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\Z
+2025-06-16 08:12:26,727 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z.thconfig
+2025-06-16 08:12:26,730 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z-tot.th
+2025-06-16 08:12:26,732 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\readme.md
+2025-06-16 08:12:26,733 - INFO - Compiling 2D XVI file:      	Z
+2025-06-16 08:12:26,926 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Plan.xvi
+2025-06-16 08:12:26,926 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Plan.th2
+2025-06-16 08:12:26,927 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Extended.xvi
+2025-06-16 08:12:26,928 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Extended.th2
+2025-06-16 08:12:26,930 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z-maps.th
+2025-06-16 08:12:26,933 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z.thconfig
+2025-06-16 08:12:27,086 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:27,093 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z.thconfig succeeded
+2025-06-16 08:12:27,101 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:27,102 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_.th
+2025-06-16 08:12:27,103 - INFO - Parsing survey target:	Z_
+2025-06-16 08:12:27,113 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_
+2025-06-16 08:12:27,116 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_.thconfig
+2025-06-16 08:12:27,117 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_-tot.th
+2025-06-16 08:12:27,118 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\readme.md
+2025-06-16 08:12:27,118 - INFO - Compiling 2D XVI file:      	Z_
+2025-06-16 08:12:27,305 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Plan.xvi
+2025-06-16 08:12:27,306 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Plan.th2
+2025-06-16 08:12:27,307 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Extended.xvi
+2025-06-16 08:12:27,309 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Extended.th2
+2025-06-16 08:12:27,311 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_-maps.th
+2025-06-16 08:12:27,316 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_.thconfig
+2025-06-16 08:12:27,468 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:27,476 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_.thconfig succeeded
+2025-06-16 08:12:27,482 - INFO - Total 'equats' : 2 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:12:27,485 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Fulford_Cave.thconfig
+2025-06-16 08:12:27,486 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Fulford_Cave-tot.th
+2025-06-16 08:12:27,487 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Fulford_Cave-maps.th
+2025-06-16 08:12:27,488 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\readme.md
+2025-06-16 08:12:27,495 - INFO - ~\Tests\Fulfords\Data\FULFORD.DAT, encodage : ascii conversion utf-8
+2025-06-16 08:12:27,501 - INFO - Read dat file : ~\Tests\Fulfords\Data\FULFORD.DAT with 25 survey
+2025-06-16 08:12:27,509 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD
+2025-06-16 08:12:27,518 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:27,518 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\A.th
+2025-06-16 08:12:27,519 - INFO - Parsing survey target:	A
+2025-06-16 08:12:27,530 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\A
+2025-06-16 08:12:27,533 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\A.thconfig
+2025-06-16 08:12:27,534 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\A-tot.th
+2025-06-16 08:12:27,536 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\readme.md
+2025-06-16 08:12:27,536 - INFO - Compiling 2D XVI file:      	A
+2025-06-16 08:12:27,818 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Plan.xvi
+2025-06-16 08:12:27,819 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Plan.th2
+2025-06-16 08:12:27,820 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Extended.xvi
+2025-06-16 08:12:27,821 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Extended.th2
+2025-06-16 08:12:27,822 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\A-maps.th
+2025-06-16 08:12:27,826 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\A\A.thconfig
+2025-06-16 08:12:28,084 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A\A.thconfig succeeded
+2025-06-16 08:12:28,092 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A_.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:28,093 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\A_.th
+2025-06-16 08:12:28,093 - INFO - Parsing survey target:	A_
+2025-06-16 08:12:28,103 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\A_
+2025-06-16 08:12:28,106 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_.thconfig
+2025-06-16 08:12:28,107 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_-tot.th
+2025-06-16 08:12:28,108 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\readme.md
+2025-06-16 08:12:28,108 - INFO - Compiling 2D XVI file:      	A_
+2025-06-16 08:12:28,298 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Plan.xvi
+2025-06-16 08:12:28,298 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Plan.th2
+2025-06-16 08:12:28,299 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Extended.xvi
+2025-06-16 08:12:28,300 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Extended.th2
+2025-06-16 08:12:28,302 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_-maps.th
+2025-06-16 08:12:28,305 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_.thconfig
+2025-06-16 08:12:28,441 - ERROR - !!!  [Therion_Compile] average loop error: 2.03%
+2025-06-16 08:12:28,502 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:28,511 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_.thconfig succeeded
+2025-06-16 08:12:28,521 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\B.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:28,522 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\B.th
+2025-06-16 08:12:28,522 - INFO - Parsing survey target:	B
+2025-06-16 08:12:28,531 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\B
+2025-06-16 08:12:28,534 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\B.thconfig
+2025-06-16 08:12:28,536 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\B-tot.th
+2025-06-16 08:12:28,537 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\readme.md
+2025-06-16 08:12:28,538 - INFO - Compiling 2D XVI file:      	B
+2025-06-16 08:12:28,725 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Plan.xvi
+2025-06-16 08:12:28,726 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Plan.th2
+2025-06-16 08:12:28,728 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Extended.xvi
+2025-06-16 08:12:28,730 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Extended.th2
+2025-06-16 08:12:28,731 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\B-maps.th
+2025-06-16 08:12:28,736 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\B\B.thconfig
+2025-06-16 08:12:28,890 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:28,898 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\B\B.thconfig succeeded
+2025-06-16 08:12:28,909 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:28,910 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\C.th
+2025-06-16 08:12:28,910 - INFO - Parsing survey target:	C
+2025-06-16 08:12:28,922 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\C
+2025-06-16 08:12:28,926 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\C.thconfig
+2025-06-16 08:12:28,928 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\C-tot.th
+2025-06-16 08:12:28,929 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\readme.md
+2025-06-16 08:12:28,930 - INFO - Compiling 2D XVI file:      	C
+2025-06-16 08:12:29,152 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Plan.xvi
+2025-06-16 08:12:29,153 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Plan.th2
+2025-06-16 08:12:29,154 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Extended.xvi
+2025-06-16 08:12:29,156 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Extended.th2
+2025-06-16 08:12:29,158 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\C-maps.th
+2025-06-16 08:12:29,162 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\C\C.thconfig
+2025-06-16 08:12:29,317 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:29,324 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C\C.thconfig succeeded
+2025-06-16 08:12:29,337 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C_.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:29,338 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\C_.th
+2025-06-16 08:12:29,338 - INFO - Parsing survey target:	C_
+2025-06-16 08:12:29,349 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\C_
+2025-06-16 08:12:29,353 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_.thconfig
+2025-06-16 08:12:29,354 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_-tot.th
+2025-06-16 08:12:29,356 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\readme.md
+2025-06-16 08:12:29,356 - INFO - Compiling 2D XVI file:      	C_
+2025-06-16 08:12:29,543 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Plan.xvi
+2025-06-16 08:12:29,543 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Plan.th2
+2025-06-16 08:12:29,544 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Extended.xvi
+2025-06-16 08:12:29,546 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Extended.th2
+2025-06-16 08:12:29,548 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_-maps.th
+2025-06-16 08:12:29,553 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_.thconfig
+2025-06-16 08:12:29,709 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:29,716 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_.thconfig succeeded
+2025-06-16 08:12:29,732 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C__.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:29,733 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\C__.th
+2025-06-16 08:12:29,733 - INFO - Parsing survey target:	C__
+2025-06-16 08:12:29,741 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\C__
+2025-06-16 08:12:29,744 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__.thconfig
+2025-06-16 08:12:29,745 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__-tot.th
+2025-06-16 08:12:29,747 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\readme.md
+2025-06-16 08:12:29,747 - INFO - Compiling 2D XVI file:      	C__
+2025-06-16 08:12:29,934 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Plan.xvi
+2025-06-16 08:12:29,934 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Plan.th2
+2025-06-16 08:12:29,935 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Extended.xvi
+2025-06-16 08:12:29,937 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Extended.th2
+2025-06-16 08:12:29,940 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__-maps.th
+2025-06-16 08:12:29,944 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__.thconfig
+2025-06-16 08:12:30,115 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:30,123 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__.thconfig succeeded
+2025-06-16 08:12:30,132 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A3.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:30,133 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\A3.th
+2025-06-16 08:12:30,134 - INFO - Parsing survey target:	A3
+2025-06-16 08:12:30,145 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\A3
+2025-06-16 08:12:30,148 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3.thconfig
+2025-06-16 08:12:30,150 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3-tot.th
+2025-06-16 08:12:30,152 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\readme.md
+2025-06-16 08:12:30,152 - INFO - Compiling 2D XVI file:      	A3
+2025-06-16 08:12:30,335 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Plan.xvi
+2025-06-16 08:12:30,336 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Plan.th2
+2025-06-16 08:12:30,337 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Extended.xvi
+2025-06-16 08:12:30,338 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Extended.th2
+2025-06-16 08:12:30,339 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3-maps.th
+2025-06-16 08:12:30,342 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3.thconfig
+2025-06-16 08:12:30,496 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:30,503 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3.thconfig succeeded
+2025-06-16 08:12:30,513 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:30,514 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:30,515 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AN.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:30,516 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AN.th
+2025-06-16 08:12:30,516 - INFO - Parsing survey target:	AN
+2025-06-16 08:12:30,526 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AN
+2025-06-16 08:12:30,530 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN.thconfig
+2025-06-16 08:12:30,531 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN-tot.th
+2025-06-16 08:12:30,532 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\readme.md
+2025-06-16 08:12:30,533 - INFO - Compiling 2D XVI file:      	AN
+2025-06-16 08:12:30,811 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Plan.xvi
+2025-06-16 08:12:30,812 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Plan.th2
+2025-06-16 08:12:30,814 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Extended.xvi
+2025-06-16 08:12:30,815 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Extended.th2
+2025-06-16 08:12:30,817 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN-maps.th
+2025-06-16 08:12:30,821 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN.thconfig
+2025-06-16 08:12:31,094 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN.thconfig succeeded
+2025-06-16 08:12:31,103 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AA.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:31,104 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AA.th
+2025-06-16 08:12:31,104 - INFO - Parsing survey target:	AA
+2025-06-16 08:12:31,114 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AA
+2025-06-16 08:12:31,118 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA.thconfig
+2025-06-16 08:12:31,119 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA-tot.th
+2025-06-16 08:12:31,121 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\readme.md
+2025-06-16 08:12:31,122 - INFO - Compiling 2D XVI file:      	AA
+2025-06-16 08:12:31,309 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Plan.xvi
+2025-06-16 08:12:31,309 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Plan.th2
+2025-06-16 08:12:31,310 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Extended.xvi
+2025-06-16 08:12:31,311 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Extended.th2
+2025-06-16 08:12:31,314 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA-maps.th
+2025-06-16 08:12:31,320 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA.thconfig
+2025-06-16 08:12:31,474 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:31,481 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA.thconfig succeeded
+2025-06-16 08:12:31,491 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AM.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:31,491 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AM.th
+2025-06-16 08:12:31,492 - INFO - Parsing survey target:	AM
+2025-06-16 08:12:31,502 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AM
+2025-06-16 08:12:31,507 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM.thconfig
+2025-06-16 08:12:31,508 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM-tot.th
+2025-06-16 08:12:31,510 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\readme.md
+2025-06-16 08:12:31,511 - INFO - Compiling 2D XVI file:      	AM
+2025-06-16 08:12:31,693 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Plan.xvi
+2025-06-16 08:12:31,693 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Plan.th2
+2025-06-16 08:12:31,694 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Extended.xvi
+2025-06-16 08:12:31,695 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Extended.th2
+2025-06-16 08:12:31,696 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM-maps.th
+2025-06-16 08:12:31,700 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM.thconfig
+2025-06-16 08:12:31,857 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:31,864 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM.thconfig succeeded
+2025-06-16 08:12:31,873 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CD.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:31,873 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CD.th
+2025-06-16 08:12:31,874 - INFO - Parsing survey target:	CD
+2025-06-16 08:12:31,884 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CD
+2025-06-16 08:12:31,887 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD.thconfig
+2025-06-16 08:12:31,888 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD-tot.th
+2025-06-16 08:12:31,889 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\readme.md
+2025-06-16 08:12:31,889 - INFO - Compiling 2D XVI file:      	CD
+2025-06-16 08:12:32,069 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Plan.xvi
+2025-06-16 08:12:32,070 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Plan.th2
+2025-06-16 08:12:32,072 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Extended.xvi
+2025-06-16 08:12:32,074 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Extended.th2
+2025-06-16 08:12:32,075 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD-maps.th
+2025-06-16 08:12:32,079 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD.thconfig
+2025-06-16 08:12:32,236 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:32,246 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD.thconfig succeeded
+2025-06-16 08:12:32,258 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:32,258 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:32,259 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\XS.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:32,259 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\XS.th
+2025-06-16 08:12:32,260 - INFO - Parsing survey target:	XS
+2025-06-16 08:12:32,270 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\XS
+2025-06-16 08:12:32,273 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS.thconfig
+2025-06-16 08:12:32,274 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS-tot.th
+2025-06-16 08:12:32,275 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\readme.md
+2025-06-16 08:12:32,276 - INFO - Compiling 2D XVI file:      	XS
+2025-06-16 08:12:32,564 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Plan.xvi
+2025-06-16 08:12:32,564 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Plan.th2
+2025-06-16 08:12:32,565 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Extended.xvi
+2025-06-16 08:12:32,566 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Extended.th2
+2025-06-16 08:12:32,568 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS-maps.th
+2025-06-16 08:12:32,571 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS.thconfig
+2025-06-16 08:12:32,797 - ERROR - !!!  [Therion_Compile] average loop error: 5.56%
+2025-06-16 08:12:32,870 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS.thconfig succeeded
+2025-06-16 08:12:32,877 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AL.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:32,878 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AL.th
+2025-06-16 08:12:32,878 - INFO - Parsing survey target:	AL
+2025-06-16 08:12:32,887 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AL
+2025-06-16 08:12:32,890 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL.thconfig
+2025-06-16 08:12:32,891 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL-tot.th
+2025-06-16 08:12:32,892 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\readme.md
+2025-06-16 08:12:32,893 - INFO - Compiling 2D XVI file:      	AL
+2025-06-16 08:12:33,083 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Plan.xvi
+2025-06-16 08:12:33,083 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Plan.th2
+2025-06-16 08:12:33,084 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Extended.xvi
+2025-06-16 08:12:33,085 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Extended.th2
+2025-06-16 08:12:33,086 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL-maps.th
+2025-06-16 08:12:33,090 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL.thconfig
+2025-06-16 08:12:33,242 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:33,249 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL.thconfig succeeded
+2025-06-16 08:12:33,260 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CC.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:33,261 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CC.th
+2025-06-16 08:12:33,262 - INFO - Parsing survey target:	CC
+2025-06-16 08:12:33,271 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CC
+2025-06-16 08:12:33,274 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC.thconfig
+2025-06-16 08:12:33,275 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC-tot.th
+2025-06-16 08:12:33,276 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\readme.md
+2025-06-16 08:12:33,277 - INFO - Compiling 2D XVI file:      	CC
+2025-06-16 08:12:33,464 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Plan.xvi
+2025-06-16 08:12:33,464 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Plan.th2
+2025-06-16 08:12:33,467 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Extended.xvi
+2025-06-16 08:12:33,469 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Extended.th2
+2025-06-16 08:12:33,471 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC-maps.th
+2025-06-16 08:12:33,475 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC.thconfig
+2025-06-16 08:12:33,577 - ERROR - !!!  [Therion_Compile] average loop error: 2.06%
+2025-06-16 08:12:33,640 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:33,648 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC.thconfig succeeded
+2025-06-16 08:12:33,660 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CE.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:33,660 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CE.th
+2025-06-16 08:12:33,661 - INFO - Parsing survey target:	CE
+2025-06-16 08:12:33,669 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CE
+2025-06-16 08:12:33,673 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE.thconfig
+2025-06-16 08:12:33,674 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE-tot.th
+2025-06-16 08:12:33,675 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\readme.md
+2025-06-16 08:12:33,675 - INFO - Compiling 2D XVI file:      	CE
+2025-06-16 08:12:33,861 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Plan.xvi
+2025-06-16 08:12:33,862 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Plan.th2
+2025-06-16 08:12:33,863 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Extended.xvi
+2025-06-16 08:12:33,864 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Extended.th2
+2025-06-16 08:12:33,868 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE-maps.th
+2025-06-16 08:12:33,872 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE.thconfig
+2025-06-16 08:12:34,030 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:34,038 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE.thconfig succeeded
+2025-06-16 08:12:34,049 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\BS.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:34,050 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\BS.th
+2025-06-16 08:12:34,050 - INFO - Parsing survey target:	BS
+2025-06-16 08:12:34,061 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\BS
+2025-06-16 08:12:34,064 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS.thconfig
+2025-06-16 08:12:34,065 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS-tot.th
+2025-06-16 08:12:34,065 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\readme.md
+2025-06-16 08:12:34,066 - INFO - Compiling 2D XVI file:      	BS
+2025-06-16 08:12:34,247 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Plan.xvi
+2025-06-16 08:12:34,248 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Plan.th2
+2025-06-16 08:12:34,249 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Extended.xvi
+2025-06-16 08:12:34,250 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Extended.th2
+2025-06-16 08:12:34,252 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS-maps.th
+2025-06-16 08:12:34,255 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS.thconfig
+2025-06-16 08:12:34,357 - ERROR - !!!  [Therion_Compile] average loop error: 1.17%
+2025-06-16 08:12:34,419 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:34,429 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS.thconfig succeeded
+2025-06-16 08:12:34,440 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CF.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:34,441 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CF.th
+2025-06-16 08:12:34,441 - INFO - Parsing survey target:	CF
+2025-06-16 08:12:34,452 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CF
+2025-06-16 08:12:34,454 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF.thconfig
+2025-06-16 08:12:34,455 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF-tot.th
+2025-06-16 08:12:34,456 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\readme.md
+2025-06-16 08:12:34,457 - INFO - Compiling 2D XVI file:      	CF
+2025-06-16 08:12:34,645 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Plan.xvi
+2025-06-16 08:12:34,646 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Plan.th2
+2025-06-16 08:12:34,647 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Extended.xvi
+2025-06-16 08:12:34,648 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Extended.th2
+2025-06-16 08:12:34,649 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF-maps.th
+2025-06-16 08:12:34,653 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF.thconfig
+2025-06-16 08:12:34,809 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:34,817 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF.thconfig succeeded
+2025-06-16 08:12:34,829 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CG.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:34,830 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CG.th
+2025-06-16 08:12:34,830 - INFO - Parsing survey target:	CG
+2025-06-16 08:12:34,839 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CG
+2025-06-16 08:12:34,842 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG.thconfig
+2025-06-16 08:12:34,843 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG-tot.th
+2025-06-16 08:12:34,844 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\readme.md
+2025-06-16 08:12:34,845 - INFO - Compiling 2D XVI file:      	CG
+2025-06-16 08:12:35,021 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Plan.xvi
+2025-06-16 08:12:35,022 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Plan.th2
+2025-06-16 08:12:35,023 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Extended.xvi
+2025-06-16 08:12:35,024 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Extended.th2
+2025-06-16 08:12:35,027 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG-maps.th
+2025-06-16 08:12:35,030 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG.thconfig
+2025-06-16 08:12:35,186 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:35,193 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG.thconfig succeeded
+2025-06-16 08:12:35,202 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CH.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:35,203 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CH.th
+2025-06-16 08:12:35,203 - INFO - Parsing survey target:	CH
+2025-06-16 08:12:35,212 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CH
+2025-06-16 08:12:35,215 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH.thconfig
+2025-06-16 08:12:35,216 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH-tot.th
+2025-06-16 08:12:35,217 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\readme.md
+2025-06-16 08:12:35,217 - INFO - Compiling 2D XVI file:      	CH
+2025-06-16 08:12:35,407 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Plan.xvi
+2025-06-16 08:12:35,408 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Plan.th2
+2025-06-16 08:12:35,409 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Extended.xvi
+2025-06-16 08:12:35,410 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Extended.th2
+2025-06-16 08:12:35,412 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH-maps.th
+2025-06-16 08:12:35,415 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH.thconfig
+2025-06-16 08:12:35,572 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:35,579 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH.thconfig succeeded
+2025-06-16 08:12:35,591 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AAA.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:35,591 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AAA.th
+2025-06-16 08:12:35,592 - INFO - Parsing survey target:	AAA
+2025-06-16 08:12:35,601 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AAA
+2025-06-16 08:12:35,605 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA.thconfig
+2025-06-16 08:12:35,606 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA-tot.th
+2025-06-16 08:12:35,607 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\readme.md
+2025-06-16 08:12:35,608 - INFO - Compiling 2D XVI file:      	AAA
+2025-06-16 08:12:35,797 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Plan.xvi
+2025-06-16 08:12:35,798 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Plan.th2
+2025-06-16 08:12:35,801 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Extended.xvi
+2025-06-16 08:12:35,802 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Extended.th2
+2025-06-16 08:12:35,803 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA-maps.th
+2025-06-16 08:12:35,807 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA.thconfig
+2025-06-16 08:12:35,959 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:35,968 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA.thconfig succeeded
+2025-06-16 08:12:35,981 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AB.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:35,981 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AB.th
+2025-06-16 08:12:35,982 - INFO - Parsing survey target:	AB
+2025-06-16 08:12:35,991 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AB
+2025-06-16 08:12:35,994 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB.thconfig
+2025-06-16 08:12:35,996 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB-tot.th
+2025-06-16 08:12:35,997 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\readme.md
+2025-06-16 08:12:35,998 - INFO - Compiling 2D XVI file:      	AB
+2025-06-16 08:12:36,183 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Plan.xvi
+2025-06-16 08:12:36,183 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Plan.th2
+2025-06-16 08:12:36,184 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Extended.xvi
+2025-06-16 08:12:36,185 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Extended.th2
+2025-06-16 08:12:36,187 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB-maps.th
+2025-06-16 08:12:36,190 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB.thconfig
+2025-06-16 08:12:36,343 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:36,351 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB.thconfig succeeded
+2025-06-16 08:12:36,360 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AC.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:36,361 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AC.th
+2025-06-16 08:12:36,361 - INFO - Parsing survey target:	AC
+2025-06-16 08:12:36,370 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AC
+2025-06-16 08:12:36,373 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC.thconfig
+2025-06-16 08:12:36,374 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC-tot.th
+2025-06-16 08:12:36,375 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\readme.md
+2025-06-16 08:12:36,376 - INFO - Compiling 2D XVI file:      	AC
+2025-06-16 08:12:36,566 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Plan.xvi
+2025-06-16 08:12:36,566 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Plan.th2
+2025-06-16 08:12:36,567 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Extended.xvi
+2025-06-16 08:12:36,568 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Extended.th2
+2025-06-16 08:12:36,569 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC-maps.th
+2025-06-16 08:12:36,572 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC.thconfig
+2025-06-16 08:12:36,728 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:36,736 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC.thconfig succeeded
+2025-06-16 08:12:36,750 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CJ.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:36,750 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CJ.th
+2025-06-16 08:12:36,751 - INFO - Parsing survey target:	CJ
+2025-06-16 08:12:36,758 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CJ
+2025-06-16 08:12:36,761 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ.thconfig
+2025-06-16 08:12:36,762 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ-tot.th
+2025-06-16 08:12:36,763 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\readme.md
+2025-06-16 08:12:36,764 - INFO - Compiling 2D XVI file:      	CJ
+2025-06-16 08:12:36,947 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Plan.xvi
+2025-06-16 08:12:36,948 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Plan.th2
+2025-06-16 08:12:36,949 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Extended.xvi
+2025-06-16 08:12:36,952 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Extended.th2
+2025-06-16 08:12:36,955 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ-maps.th
+2025-06-16 08:12:36,958 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ.thconfig
+2025-06-16 08:12:37,114 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:37,121 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ.thconfig succeeded
+2025-06-16 08:12:37,133 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CK.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:37,134 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CK.th
+2025-06-16 08:12:37,134 - INFO - Parsing survey target:	CK
+2025-06-16 08:12:37,143 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CK
+2025-06-16 08:12:37,146 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK.thconfig
+2025-06-16 08:12:37,147 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK-tot.th
+2025-06-16 08:12:37,149 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\readme.md
+2025-06-16 08:12:37,149 - INFO - Compiling 2D XVI file:      	CK
+2025-06-16 08:12:37,329 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Plan.xvi
+2025-06-16 08:12:37,329 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Plan.th2
+2025-06-16 08:12:37,330 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Extended.xvi
+2025-06-16 08:12:37,332 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Extended.th2
+2025-06-16 08:12:37,334 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK-maps.th
+2025-06-16 08:12:37,337 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK.thconfig
+2025-06-16 08:12:37,526 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:37,536 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK.thconfig succeeded
+2025-06-16 08:12:37,547 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CL.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:37,547 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CL.th
+2025-06-16 08:12:37,548 - INFO - Parsing survey target:	CL
+2025-06-16 08:12:37,557 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CL
+2025-06-16 08:12:37,563 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL.thconfig
+2025-06-16 08:12:37,565 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL-tot.th
+2025-06-16 08:12:37,566 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\readme.md
+2025-06-16 08:12:37,567 - INFO - Compiling 2D XVI file:      	CL
+2025-06-16 08:12:37,764 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Plan.xvi
+2025-06-16 08:12:37,765 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Plan.th2
+2025-06-16 08:12:37,767 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Extended.xvi
+2025-06-16 08:12:37,768 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Extended.th2
+2025-06-16 08:12:37,770 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL-maps.th
+2025-06-16 08:12:37,774 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL.thconfig
+2025-06-16 08:12:37,928 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:12:37,936 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL.thconfig succeeded
+2025-06-16 08:12:37,940 - INFO - Total 'equats' : 25 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:12:37,944 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\FULFORD.thconfig
+2025-06-16 08:12:37,945 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\FULFORD-tot.th
+2025-06-16 08:12:37,946 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\FULFORD-maps.th
+2025-06-16 08:12:37,948 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\readme.md
+2025-06-16 08:12:37,951 - INFO - All files processed successfully in 15.59 secondes, without errors
+2025-06-16 08:55:33,210 - INFO - ********************************************************************************************************************************************
+2025-06-16 08:55:33,210 - INFO - * Conversion Th, Dat, Mak files to Therion files and folders
+2025-06-16 08:55:33,210 - INFO - *       Script pyCreateTh by : alexandre.pont@yahoo.fr
+2025-06-16 08:55:33,210 - INFO - *       Version : 2025.06.16
+2025-06-16 08:55:33,211 - INFO - *       Input file : ~\Tests\Fulfords.mak
+2025-06-16 08:55:33,211 - INFO - *       Output file : ~\Tests\Fulfords
+2025-06-16 08:55:33,211 - INFO - *       Log file : ~\Tests\Fulfords.log
+2025-06-16 08:55:33,211 - INFO - *       
+2025-06-16 08:55:33,211 - INFO - *       
+2025-06-16 08:55:33,211 - INFO - *       
+2025-06-16 08:55:33,212 - INFO - ********************************************************************************************************************************************
+2025-06-16 08:55:33,213 - INFO - Reading mak file : ~\Tests\Fulfords.mak, fixed station : 4, files 2, UTM Zone : 13, Datum : North American 1983, SCR : EPSG:26913
+2025-06-16 08:55:33,224 - INFO - The folder './template' has been copied to '~\Tests\Fulfords
+2025-06-16 08:55:33,232 - INFO - ~\Tests\Fulfords\Data\FULSURF.DAT, encodage : ascii conversion utf-8
+2025-06-16 08:55:33,235 - INFO - Read dat file : ~\Tests\Fulfords\Data\FULSURF.DAT with 4 survey
+2025-06-16 08:55:33,243 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave
+2025-06-16 08:55:33,254 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:33,254 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:33,254 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 4 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:33,255 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 5 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:33,255 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 6 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:33,255 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 7 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:33,256 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:33,257 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS.th
+2025-06-16 08:55:33,257 - INFO - Parsing survey target:	SS
+2025-06-16 08:55:33,266 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\SS
+2025-06-16 08:55:33,269 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS.thconfig
+2025-06-16 08:55:33,270 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS-tot.th
+2025-06-16 08:55:33,271 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\readme.md
+2025-06-16 08:55:33,271 - INFO - Compiling 2D XVI file:      	SS
+2025-06-16 08:55:33,648 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Plan.xvi
+2025-06-16 08:55:33,650 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Plan.th2
+2025-06-16 08:55:33,652 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Extended.xvi
+2025-06-16 08:55:33,654 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\Data\SS-Extended.th2
+2025-06-16 08:55:33,658 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS-maps.th
+2025-06-16 08:55:33,664 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS.thconfig
+2025-06-16 08:55:33,966 - ERROR - !!!  [Therion_Compile] average loop error: 31.15%
+2025-06-16 08:55:34,044 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SS\SS.thconfig succeeded
+2025-06-16 08:55:34,052 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:34,052 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:34,053 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 4 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:34,053 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:34,054 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC.th
+2025-06-16 08:55:34,054 - INFO - Parsing survey target:	SC
+2025-06-16 08:55:34,062 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\SC
+2025-06-16 08:55:34,065 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC.thconfig
+2025-06-16 08:55:34,066 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC-tot.th
+2025-06-16 08:55:34,068 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\readme.md
+2025-06-16 08:55:34,068 - INFO - Compiling 2D XVI file:      	SC
+2025-06-16 08:55:34,358 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Plan.xvi
+2025-06-16 08:55:34,359 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Plan.th2
+2025-06-16 08:55:34,360 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Extended.xvi
+2025-06-16 08:55:34,361 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\Data\SC-Extended.th2
+2025-06-16 08:55:34,363 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC-maps.th
+2025-06-16 08:55:34,368 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC.thconfig
+2025-06-16 08:55:34,558 - ERROR - !!!  [Therion_Compile] average loop error: 2.89%
+2025-06-16 08:55:34,638 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\SC\SC.thconfig succeeded
+2025-06-16 08:55:34,645 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:34,645 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z.th
+2025-06-16 08:55:34,646 - INFO - Parsing survey target:	Z
+2025-06-16 08:55:34,654 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\Z
+2025-06-16 08:55:34,657 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z.thconfig
+2025-06-16 08:55:34,658 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z-tot.th
+2025-06-16 08:55:34,659 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\readme.md
+2025-06-16 08:55:34,660 - INFO - Compiling 2D XVI file:      	Z
+2025-06-16 08:55:34,858 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Plan.xvi
+2025-06-16 08:55:34,858 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Plan.th2
+2025-06-16 08:55:34,859 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Extended.xvi
+2025-06-16 08:55:34,860 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Data\Z-Extended.th2
+2025-06-16 08:55:34,861 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z-maps.th
+2025-06-16 08:55:34,865 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z.thconfig
+2025-06-16 08:55:35,042 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:35,050 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z\Z.thconfig succeeded
+2025-06-16 08:55:35,064 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_.th created from ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:35,065 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_.th
+2025-06-16 08:55:35,065 - INFO - Parsing survey target:	Z_
+2025-06-16 08:55:35,073 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_
+2025-06-16 08:55:35,077 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_.thconfig
+2025-06-16 08:55:35,079 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_-tot.th
+2025-06-16 08:55:35,080 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\readme.md
+2025-06-16 08:55:35,081 - INFO - Compiling 2D XVI file:      	Z_
+2025-06-16 08:55:35,276 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Plan.xvi
+2025-06-16 08:55:35,277 - INFO - Writing output to:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Plan.th2
+2025-06-16 08:55:35,279 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Extended.xvi
+2025-06-16 08:55:35,280 - INFO - Writing output to:		~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Data\Z_-Extended.th2
+2025-06-16 08:55:35,282 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_-maps.th
+2025-06-16 08:55:35,286 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_.thconfig
+2025-06-16 08:55:35,442 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:35,449 - INFO - Therion file : ~\Tests\Fulfords\Data\Fulford_Cave\Data\Z_\Z_.thconfig succeeded
+2025-06-16 08:55:35,455 - INFO - Total 'equats' : 2 in ~\Tests\Fulfords\Data\FULSURF.DAT
+2025-06-16 08:55:35,457 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Fulford_Cave.thconfig
+2025-06-16 08:55:35,458 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Fulford_Cave-tot.th
+2025-06-16 08:55:35,460 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\Fulford_Cave-maps.th
+2025-06-16 08:55:35,462 - INFO - Update template successfully: ~\Tests\Fulfords\Data\Fulford_Cave\readme.md
+2025-06-16 08:55:35,468 - INFO - ~\Tests\Fulfords\Data\FULFORD.DAT, encodage : ascii conversion utf-8
+2025-06-16 08:55:35,474 - INFO - Read dat file : ~\Tests\Fulfords\Data\FULFORD.DAT with 25 survey
+2025-06-16 08:55:35,483 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD
+2025-06-16 08:55:35,491 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:35,492 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\A.th
+2025-06-16 08:55:35,492 - INFO - Parsing survey target:	A
+2025-06-16 08:55:35,502 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\A
+2025-06-16 08:55:35,504 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\A.thconfig
+2025-06-16 08:55:35,505 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\A-tot.th
+2025-06-16 08:55:35,507 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\readme.md
+2025-06-16 08:55:35,507 - INFO - Compiling 2D XVI file:      	A
+2025-06-16 08:55:35,860 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Plan.xvi
+2025-06-16 08:55:35,861 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Plan.th2
+2025-06-16 08:55:35,862 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Extended.xvi
+2025-06-16 08:55:35,863 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\A\Data\A-Extended.th2
+2025-06-16 08:55:35,864 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A\A-maps.th
+2025-06-16 08:55:35,867 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\A\A.thconfig
+2025-06-16 08:55:36,129 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A\A.thconfig succeeded
+2025-06-16 08:55:36,137 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A_.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:36,138 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\A_.th
+2025-06-16 08:55:36,138 - INFO - Parsing survey target:	A_
+2025-06-16 08:55:36,146 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\A_
+2025-06-16 08:55:36,149 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_.thconfig
+2025-06-16 08:55:36,150 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_-tot.th
+2025-06-16 08:55:36,151 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\readme.md
+2025-06-16 08:55:36,151 - INFO - Compiling 2D XVI file:      	A_
+2025-06-16 08:55:36,343 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Plan.xvi
+2025-06-16 08:55:36,344 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Plan.th2
+2025-06-16 08:55:36,344 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Extended.xvi
+2025-06-16 08:55:36,346 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\A_\Data\A_-Extended.th2
+2025-06-16 08:55:36,347 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_-maps.th
+2025-06-16 08:55:36,350 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_.thconfig
+2025-06-16 08:55:36,445 - ERROR - !!!  [Therion_Compile] average loop error: 2.03%
+2025-06-16 08:55:36,514 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:36,522 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A_\A_.thconfig succeeded
+2025-06-16 08:55:36,533 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\B.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:36,534 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\B.th
+2025-06-16 08:55:36,534 - INFO - Parsing survey target:	B
+2025-06-16 08:55:36,543 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\B
+2025-06-16 08:55:36,549 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\B.thconfig
+2025-06-16 08:55:36,550 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\B-tot.th
+2025-06-16 08:55:36,551 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\readme.md
+2025-06-16 08:55:36,552 - INFO - Compiling 2D XVI file:      	B
+2025-06-16 08:55:36,738 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Plan.xvi
+2025-06-16 08:55:36,739 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Plan.th2
+2025-06-16 08:55:36,740 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Extended.xvi
+2025-06-16 08:55:36,741 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\B\Data\B-Extended.th2
+2025-06-16 08:55:36,745 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\B\B-maps.th
+2025-06-16 08:55:36,748 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\B\B.thconfig
+2025-06-16 08:55:36,904 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:36,911 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\B\B.thconfig succeeded
+2025-06-16 08:55:36,921 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:36,922 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\C.th
+2025-06-16 08:55:36,923 - INFO - Parsing survey target:	C
+2025-06-16 08:55:36,932 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\C
+2025-06-16 08:55:36,934 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\C.thconfig
+2025-06-16 08:55:36,935 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\C-tot.th
+2025-06-16 08:55:36,936 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\readme.md
+2025-06-16 08:55:36,937 - INFO - Compiling 2D XVI file:      	C
+2025-06-16 08:55:37,132 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Plan.xvi
+2025-06-16 08:55:37,133 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Plan.th2
+2025-06-16 08:55:37,134 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Extended.xvi
+2025-06-16 08:55:37,135 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\C\Data\C-Extended.th2
+2025-06-16 08:55:37,138 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C\C-maps.th
+2025-06-16 08:55:37,143 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\C\C.thconfig
+2025-06-16 08:55:37,302 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:37,309 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C\C.thconfig succeeded
+2025-06-16 08:55:37,320 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C_.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:37,320 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\C_.th
+2025-06-16 08:55:37,321 - INFO - Parsing survey target:	C_
+2025-06-16 08:55:37,329 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\C_
+2025-06-16 08:55:37,331 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_.thconfig
+2025-06-16 08:55:37,332 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_-tot.th
+2025-06-16 08:55:37,334 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\readme.md
+2025-06-16 08:55:37,334 - INFO - Compiling 2D XVI file:      	C_
+2025-06-16 08:55:37,515 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Plan.xvi
+2025-06-16 08:55:37,515 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Plan.th2
+2025-06-16 08:55:37,518 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Extended.xvi
+2025-06-16 08:55:37,520 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\C_\Data\C_-Extended.th2
+2025-06-16 08:55:37,521 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_-maps.th
+2025-06-16 08:55:37,525 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_.thconfig
+2025-06-16 08:55:37,678 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:37,687 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C_\C_.thconfig succeeded
+2025-06-16 08:55:37,697 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C__.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:37,698 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\C__.th
+2025-06-16 08:55:37,698 - INFO - Parsing survey target:	C__
+2025-06-16 08:55:37,706 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\C__
+2025-06-16 08:55:37,711 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__.thconfig
+2025-06-16 08:55:37,712 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__-tot.th
+2025-06-16 08:55:37,713 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\readme.md
+2025-06-16 08:55:37,713 - INFO - Compiling 2D XVI file:      	C__
+2025-06-16 08:55:37,896 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Plan.xvi
+2025-06-16 08:55:37,896 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Plan.th2
+2025-06-16 08:55:37,897 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Extended.xvi
+2025-06-16 08:55:37,899 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\C__\Data\C__-Extended.th2
+2025-06-16 08:55:37,901 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__-maps.th
+2025-06-16 08:55:37,906 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__.thconfig
+2025-06-16 08:55:38,068 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:38,076 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\C__\C__.thconfig succeeded
+2025-06-16 08:55:38,084 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A3.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:38,085 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\A3.th
+2025-06-16 08:55:38,085 - INFO - Parsing survey target:	A3
+2025-06-16 08:55:38,095 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\A3
+2025-06-16 08:55:38,098 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3.thconfig
+2025-06-16 08:55:38,099 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3-tot.th
+2025-06-16 08:55:38,100 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\readme.md
+2025-06-16 08:55:38,100 - INFO - Compiling 2D XVI file:      	A3
+2025-06-16 08:55:38,284 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Plan.xvi
+2025-06-16 08:55:38,285 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Plan.th2
+2025-06-16 08:55:38,285 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Extended.xvi
+2025-06-16 08:55:38,287 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\A3\Data\A3-Extended.th2
+2025-06-16 08:55:38,288 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3-maps.th
+2025-06-16 08:55:38,291 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3.thconfig
+2025-06-16 08:55:38,446 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:38,453 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\A3\A3.thconfig succeeded
+2025-06-16 08:55:38,460 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:38,461 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:38,464 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AN.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:38,464 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AN.th
+2025-06-16 08:55:38,465 - INFO - Parsing survey target:	AN
+2025-06-16 08:55:38,476 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AN
+2025-06-16 08:55:38,481 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN.thconfig
+2025-06-16 08:55:38,482 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN-tot.th
+2025-06-16 08:55:38,483 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\readme.md
+2025-06-16 08:55:38,484 - INFO - Compiling 2D XVI file:      	AN
+2025-06-16 08:55:38,771 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Plan.xvi
+2025-06-16 08:55:38,772 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Plan.th2
+2025-06-16 08:55:38,773 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Extended.xvi
+2025-06-16 08:55:38,774 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AN\Data\AN-Extended.th2
+2025-06-16 08:55:38,775 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN-maps.th
+2025-06-16 08:55:38,778 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN.thconfig
+2025-06-16 08:55:39,058 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AN\AN.thconfig succeeded
+2025-06-16 08:55:39,066 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AA.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:39,067 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AA.th
+2025-06-16 08:55:39,067 - INFO - Parsing survey target:	AA
+2025-06-16 08:55:39,075 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AA
+2025-06-16 08:55:39,081 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA.thconfig
+2025-06-16 08:55:39,082 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA-tot.th
+2025-06-16 08:55:39,083 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\readme.md
+2025-06-16 08:55:39,083 - INFO - Compiling 2D XVI file:      	AA
+2025-06-16 08:55:39,282 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Plan.xvi
+2025-06-16 08:55:39,283 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Plan.th2
+2025-06-16 08:55:39,284 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Extended.xvi
+2025-06-16 08:55:39,285 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AA\Data\AA-Extended.th2
+2025-06-16 08:55:39,286 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA-maps.th
+2025-06-16 08:55:39,290 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA.thconfig
+2025-06-16 08:55:39,447 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:39,455 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AA\AA.thconfig succeeded
+2025-06-16 08:55:39,467 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AM.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:39,468 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AM.th
+2025-06-16 08:55:39,468 - INFO - Parsing survey target:	AM
+2025-06-16 08:55:39,476 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AM
+2025-06-16 08:55:39,479 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM.thconfig
+2025-06-16 08:55:39,481 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM-tot.th
+2025-06-16 08:55:39,482 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\readme.md
+2025-06-16 08:55:39,482 - INFO - Compiling 2D XVI file:      	AM
+2025-06-16 08:55:39,669 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Plan.xvi
+2025-06-16 08:55:39,670 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Plan.th2
+2025-06-16 08:55:39,671 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Extended.xvi
+2025-06-16 08:55:39,672 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AM\Data\AM-Extended.th2
+2025-06-16 08:55:39,673 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM-maps.th
+2025-06-16 08:55:39,677 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM.thconfig
+2025-06-16 08:55:39,832 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:39,841 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AM\AM.thconfig succeeded
+2025-06-16 08:55:39,852 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CD.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:39,852 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CD.th
+2025-06-16 08:55:39,853 - INFO - Parsing survey target:	CD
+2025-06-16 08:55:39,861 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CD
+2025-06-16 08:55:39,865 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD.thconfig
+2025-06-16 08:55:39,866 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD-tot.th
+2025-06-16 08:55:39,866 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\readme.md
+2025-06-16 08:55:39,867 - INFO - Compiling 2D XVI file:      	CD
+2025-06-16 08:55:40,053 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Plan.xvi
+2025-06-16 08:55:40,053 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Plan.th2
+2025-06-16 08:55:40,056 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Extended.xvi
+2025-06-16 08:55:40,057 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CD\Data\CD-Extended.th2
+2025-06-16 08:55:40,058 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD-maps.th
+2025-06-16 08:55:40,063 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD.thconfig
+2025-06-16 08:55:40,223 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:40,231 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CD\CD.thconfig succeeded
+2025-06-16 08:55:40,243 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 2 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:40,243 - WARNING - Flags exclude from plot #|P# not implemented in therion, line 3 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:40,244 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\XS.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:40,244 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\XS.th
+2025-06-16 08:55:40,245 - INFO - Parsing survey target:	XS
+2025-06-16 08:55:40,255 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\XS
+2025-06-16 08:55:40,258 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS.thconfig
+2025-06-16 08:55:40,259 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS-tot.th
+2025-06-16 08:55:40,260 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\readme.md
+2025-06-16 08:55:40,260 - INFO - Compiling 2D XVI file:      	XS
+2025-06-16 08:55:40,543 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Plan.xvi
+2025-06-16 08:55:40,543 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Plan.th2
+2025-06-16 08:55:40,544 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Extended.xvi
+2025-06-16 08:55:40,546 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\XS\Data\XS-Extended.th2
+2025-06-16 08:55:40,547 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS-maps.th
+2025-06-16 08:55:40,551 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS.thconfig
+2025-06-16 08:55:40,740 - ERROR - !!!  [Therion_Compile] average loop error: 5.56%
+2025-06-16 08:55:40,818 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\XS\XS.thconfig succeeded
+2025-06-16 08:55:40,826 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AL.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:40,826 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AL.th
+2025-06-16 08:55:40,827 - INFO - Parsing survey target:	AL
+2025-06-16 08:55:40,835 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AL
+2025-06-16 08:55:40,839 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL.thconfig
+2025-06-16 08:55:40,840 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL-tot.th
+2025-06-16 08:55:40,841 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\readme.md
+2025-06-16 08:55:40,841 - INFO - Compiling 2D XVI file:      	AL
+2025-06-16 08:55:41,032 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Plan.xvi
+2025-06-16 08:55:41,032 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Plan.th2
+2025-06-16 08:55:41,035 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Extended.xvi
+2025-06-16 08:55:41,036 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AL\Data\AL-Extended.th2
+2025-06-16 08:55:41,037 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL-maps.th
+2025-06-16 08:55:41,040 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL.thconfig
+2025-06-16 08:55:41,199 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:41,206 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AL\AL.thconfig succeeded
+2025-06-16 08:55:41,217 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CC.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:41,218 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CC.th
+2025-06-16 08:55:41,218 - INFO - Parsing survey target:	CC
+2025-06-16 08:55:41,226 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CC
+2025-06-16 08:55:41,228 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC.thconfig
+2025-06-16 08:55:41,229 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC-tot.th
+2025-06-16 08:55:41,230 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\readme.md
+2025-06-16 08:55:41,231 - INFO - Compiling 2D XVI file:      	CC
+2025-06-16 08:55:41,415 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Plan.xvi
+2025-06-16 08:55:41,416 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Plan.th2
+2025-06-16 08:55:41,417 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Extended.xvi
+2025-06-16 08:55:41,418 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CC\Data\CC-Extended.th2
+2025-06-16 08:55:41,419 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC-maps.th
+2025-06-16 08:55:41,424 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC.thconfig
+2025-06-16 08:55:41,526 - ERROR - !!!  [Therion_Compile] average loop error: 2.06%
+2025-06-16 08:55:41,588 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:41,595 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CC\CC.thconfig succeeded
+2025-06-16 08:55:41,606 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CE.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:41,606 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CE.th
+2025-06-16 08:55:41,607 - INFO - Parsing survey target:	CE
+2025-06-16 08:55:41,617 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CE
+2025-06-16 08:55:41,621 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE.thconfig
+2025-06-16 08:55:41,622 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE-tot.th
+2025-06-16 08:55:41,623 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\readme.md
+2025-06-16 08:55:41,623 - INFO - Compiling 2D XVI file:      	CE
+2025-06-16 08:55:41,810 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Plan.xvi
+2025-06-16 08:55:41,810 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Plan.th2
+2025-06-16 08:55:41,811 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Extended.xvi
+2025-06-16 08:55:41,812 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CE\Data\CE-Extended.th2
+2025-06-16 08:55:41,814 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE-maps.th
+2025-06-16 08:55:41,817 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE.thconfig
+2025-06-16 08:55:41,980 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:41,991 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CE\CE.thconfig succeeded
+2025-06-16 08:55:42,005 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\BS.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:42,005 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\BS.th
+2025-06-16 08:55:42,006 - INFO - Parsing survey target:	BS
+2025-06-16 08:55:42,021 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\BS
+2025-06-16 08:55:42,025 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS.thconfig
+2025-06-16 08:55:42,026 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS-tot.th
+2025-06-16 08:55:42,028 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\readme.md
+2025-06-16 08:55:42,028 - INFO - Compiling 2D XVI file:      	BS
+2025-06-16 08:55:42,220 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Plan.xvi
+2025-06-16 08:55:42,221 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Plan.th2
+2025-06-16 08:55:42,222 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Extended.xvi
+2025-06-16 08:55:42,224 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\BS\Data\BS-Extended.th2
+2025-06-16 08:55:42,225 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS-maps.th
+2025-06-16 08:55:42,228 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS.thconfig
+2025-06-16 08:55:42,324 - ERROR - !!!  [Therion_Compile] average loop error: 1.17%
+2025-06-16 08:55:42,388 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:42,396 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\BS\BS.thconfig succeeded
+2025-06-16 08:55:42,407 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CF.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:42,408 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CF.th
+2025-06-16 08:55:42,409 - INFO - Parsing survey target:	CF
+2025-06-16 08:55:42,415 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CF
+2025-06-16 08:55:42,418 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF.thconfig
+2025-06-16 08:55:42,419 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF-tot.th
+2025-06-16 08:55:42,420 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\readme.md
+2025-06-16 08:55:42,420 - INFO - Compiling 2D XVI file:      	CF
+2025-06-16 08:55:42,603 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Plan.xvi
+2025-06-16 08:55:42,603 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Plan.th2
+2025-06-16 08:55:42,604 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Extended.xvi
+2025-06-16 08:55:42,605 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CF\Data\CF-Extended.th2
+2025-06-16 08:55:42,608 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF-maps.th
+2025-06-16 08:55:42,612 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF.thconfig
+2025-06-16 08:55:42,771 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:42,780 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CF\CF.thconfig succeeded
+2025-06-16 08:55:42,792 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CG.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:42,792 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CG.th
+2025-06-16 08:55:42,793 - INFO - Parsing survey target:	CG
+2025-06-16 08:55:42,801 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CG
+2025-06-16 08:55:42,804 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG.thconfig
+2025-06-16 08:55:42,805 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG-tot.th
+2025-06-16 08:55:42,806 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\readme.md
+2025-06-16 08:55:42,806 - INFO - Compiling 2D XVI file:      	CG
+2025-06-16 08:55:42,992 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Plan.xvi
+2025-06-16 08:55:42,992 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Plan.th2
+2025-06-16 08:55:42,993 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Extended.xvi
+2025-06-16 08:55:42,994 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CG\Data\CG-Extended.th2
+2025-06-16 08:55:42,996 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG-maps.th
+2025-06-16 08:55:42,999 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG.thconfig
+2025-06-16 08:55:43,213 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:43,221 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CG\CG.thconfig succeeded
+2025-06-16 08:55:43,230 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CH.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:43,231 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CH.th
+2025-06-16 08:55:43,231 - INFO - Parsing survey target:	CH
+2025-06-16 08:55:43,240 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CH
+2025-06-16 08:55:43,242 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH.thconfig
+2025-06-16 08:55:43,244 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH-tot.th
+2025-06-16 08:55:43,245 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\readme.md
+2025-06-16 08:55:43,246 - INFO - Compiling 2D XVI file:      	CH
+2025-06-16 08:55:43,446 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Plan.xvi
+2025-06-16 08:55:43,447 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Plan.th2
+2025-06-16 08:55:43,448 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Extended.xvi
+2025-06-16 08:55:43,449 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CH\Data\CH-Extended.th2
+2025-06-16 08:55:43,451 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH-maps.th
+2025-06-16 08:55:43,455 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH.thconfig
+2025-06-16 08:55:43,618 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:43,627 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CH\CH.thconfig succeeded
+2025-06-16 08:55:43,638 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AAA.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:43,638 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AAA.th
+2025-06-16 08:55:43,639 - INFO - Parsing survey target:	AAA
+2025-06-16 08:55:43,646 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AAA
+2025-06-16 08:55:43,649 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA.thconfig
+2025-06-16 08:55:43,650 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA-tot.th
+2025-06-16 08:55:43,651 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\readme.md
+2025-06-16 08:55:43,652 - INFO - Compiling 2D XVI file:      	AAA
+2025-06-16 08:55:43,893 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Plan.xvi
+2025-06-16 08:55:43,894 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Plan.th2
+2025-06-16 08:55:43,895 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Extended.xvi
+2025-06-16 08:55:43,897 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AAA\Data\AAA-Extended.th2
+2025-06-16 08:55:43,900 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA-maps.th
+2025-06-16 08:55:43,906 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA.thconfig
+2025-06-16 08:55:44,118 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:44,128 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AAA\AAA.thconfig succeeded
+2025-06-16 08:55:44,141 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AB.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:44,141 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AB.th
+2025-06-16 08:55:44,142 - INFO - Parsing survey target:	AB
+2025-06-16 08:55:44,152 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AB
+2025-06-16 08:55:44,156 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB.thconfig
+2025-06-16 08:55:44,158 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB-tot.th
+2025-06-16 08:55:44,160 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\readme.md
+2025-06-16 08:55:44,161 - INFO - Compiling 2D XVI file:      	AB
+2025-06-16 08:55:44,391 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Plan.xvi
+2025-06-16 08:55:44,392 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Plan.th2
+2025-06-16 08:55:44,393 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Extended.xvi
+2025-06-16 08:55:44,394 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AB\Data\AB-Extended.th2
+2025-06-16 08:55:44,396 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB-maps.th
+2025-06-16 08:55:44,401 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB.thconfig
+2025-06-16 08:55:44,579 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:44,587 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AB\AB.thconfig succeeded
+2025-06-16 08:55:44,597 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AC.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:44,598 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\AC.th
+2025-06-16 08:55:44,598 - INFO - Parsing survey target:	AC
+2025-06-16 08:55:44,607 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\AC
+2025-06-16 08:55:44,610 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC.thconfig
+2025-06-16 08:55:44,612 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC-tot.th
+2025-06-16 08:55:44,613 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\readme.md
+2025-06-16 08:55:44,614 - INFO - Compiling 2D XVI file:      	AC
+2025-06-16 08:55:44,826 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Plan.xvi
+2025-06-16 08:55:44,827 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Plan.th2
+2025-06-16 08:55:44,829 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Extended.xvi
+2025-06-16 08:55:44,831 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\AC\Data\AC-Extended.th2
+2025-06-16 08:55:44,832 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC-maps.th
+2025-06-16 08:55:44,837 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC.thconfig
+2025-06-16 08:55:45,019 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:45,029 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\AC\AC.thconfig succeeded
+2025-06-16 08:55:45,040 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CJ.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:45,041 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CJ.th
+2025-06-16 08:55:45,041 - INFO - Parsing survey target:	CJ
+2025-06-16 08:55:45,050 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CJ
+2025-06-16 08:55:45,053 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ.thconfig
+2025-06-16 08:55:45,054 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ-tot.th
+2025-06-16 08:55:45,055 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\readme.md
+2025-06-16 08:55:45,055 - INFO - Compiling 2D XVI file:      	CJ
+2025-06-16 08:55:45,273 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Plan.xvi
+2025-06-16 08:55:45,274 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Plan.th2
+2025-06-16 08:55:45,275 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Extended.xvi
+2025-06-16 08:55:45,276 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CJ\Data\CJ-Extended.th2
+2025-06-16 08:55:45,279 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ-maps.th
+2025-06-16 08:55:45,283 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ.thconfig
+2025-06-16 08:55:45,462 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:45,470 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CJ\CJ.thconfig succeeded
+2025-06-16 08:55:45,479 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CK.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:45,480 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CK.th
+2025-06-16 08:55:45,481 - INFO - Parsing survey target:	CK
+2025-06-16 08:55:45,489 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CK
+2025-06-16 08:55:45,492 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK.thconfig
+2025-06-16 08:55:45,493 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK-tot.th
+2025-06-16 08:55:45,494 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\readme.md
+2025-06-16 08:55:45,494 - INFO - Compiling 2D XVI file:      	CK
+2025-06-16 08:55:45,707 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Plan.xvi
+2025-06-16 08:55:45,707 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Plan.th2
+2025-06-16 08:55:45,708 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Extended.xvi
+2025-06-16 08:55:45,710 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CK\Data\CK-Extended.th2
+2025-06-16 08:55:45,711 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK-maps.th
+2025-06-16 08:55:45,715 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK.thconfig
+2025-06-16 08:55:45,893 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:45,902 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CK\CK.thconfig succeeded
+2025-06-16 08:55:45,912 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CL.th created from ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:45,912 - INFO - Parsing survey entry file:	~\Tests\Fulfords\Data\FULFORD\Data\CL.th
+2025-06-16 08:55:45,913 - INFO - Parsing survey target:	CL
+2025-06-16 08:55:45,923 - INFO - The folder './template' has been copied to '~\Tests\Fulfords\Data\FULFORD\Data\CL
+2025-06-16 08:55:45,926 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL.thconfig
+2025-06-16 08:55:45,927 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL-tot.th
+2025-06-16 08:55:45,928 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\readme.md
+2025-06-16 08:55:45,929 - INFO - Compiling 2D XVI file:      	CL
+2025-06-16 08:55:46,142 - INFO - Parsing plan XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Plan.xvi
+2025-06-16 08:55:46,142 - INFO - Writing output to:	~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Plan.th2
+2025-06-16 08:55:46,144 - INFO - Parsing extended XVI file:	~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Extended.xvi
+2025-06-16 08:55:46,145 - INFO - Writing output to:		~\Tests\Fulfords\Data\FULFORD\Data\CL\Data\CL-Extended.th2
+2025-06-16 08:55:46,146 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL-maps.th
+2025-06-16 08:55:46,150 - INFO - Start therion compilation file : ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL.thconfig
+2025-06-16 08:55:46,331 - WARNING -  [Therion_Compile] C:\Program Files\Therion\therion.exe: warning -- data not georeferenced -- unable to export KML file
+2025-06-16 08:55:46,341 - INFO - Therion file : ~\Tests\Fulfords\Data\FULFORD\Data\CL\CL.thconfig succeeded
+2025-06-16 08:55:46,346 - INFO - Total 'equats' : 25 in ~\Tests\Fulfords\Data\FULFORD.DAT
+2025-06-16 08:55:46,352 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\FULFORD.thconfig
+2025-06-16 08:55:46,353 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\FULFORD-tot.th
+2025-06-16 08:55:46,354 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\FULFORD-maps.th
+2025-06-16 08:55:46,355 - INFO - Update template successfully: ~\Tests\Fulfords\Data\FULFORD\readme.md
+2025-06-16 08:55:46,357 - INFO - All files processed successfully in 18.38 secondes, without errors
