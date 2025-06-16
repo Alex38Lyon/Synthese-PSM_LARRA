@@ -1,0 +1,76 @@
+encoding  utf-8
+# Fichier thCongig poour créer un fichier lox de la en UTM30ED50
+
+
+# Copyright (C) ARSIP 2025 https://www.arsip.fr/
+# Auteur : Alexandre Pont <alexandre.pont***@***yahoo.fr>
+# Fichiers / Organisation dossiers, d'après Xavier Robert
+# This work is under the Creative Commons Attribution-NonCommercial-NoDerivatives License:
+#	<http://creativecommons.org/licenses/by-nc-nd/4.0/>
+
+# INTRO
+
+# le signe "#" en début de ligne signifie que la ligne est commentée. Elle ne
+# sera donc pas lue lors de la compilation.
+
+# Dans ce fichier on met les specifications generales, à savoir
+# dans quel fichier sont les donnees topo, l'aspect que l'on veut
+# donner aux topos imprimées (layout) et ce que l'on
+# veut comme résultat : map, ou atlas ou 3D ou donnees en format SQL
+
+# Alors, on peut fractionner ce fichier en trois parts:
+# - source, pour specifier les fichiers ou sont les données topo/dessin
+# - layout, pour specifier la composition du document à imprimer
+# - export: map, atlas, etc
+
+
+# 1-SOURCES
+# La ligne source spécifie le fichier ou sont les donnees topo
+# jb.th". (Au fichier "jb.th" il faudra avoir une ligne
+# "input "nomducavite.th2" pour specifier le fichier ou se trouvent
+# les donnees du dessin, comme ça, ce fichier thconfig appellera
+# "jb.th" et a leur tour, "jb.th" appellera
+# "jb-dessin.th2")
+# source Synthese-PSM_LARRA-tot.th
+
+# pour le MNT avec une résolution spaciale de 1" STRM10
+source DEM_SRTM30_UTM30_PSM.th
+
+# Add Coordinates
+#input Legendes/entrances_coordinates.th
+
+# Add config file
+
+# 2-LAYOUT
+# Ici, on peut specifier des choses comme les symboles à utiliser (UIS, etc)
+# ou imprimer des explications des symboles
+
+
+# 3-EXPORT
+
+# Export des xvi pour le dessin si besoin
+#export map -fmt xvi -layout xviexport -o Data/Complexe_Lonne_Peyret-Bourrugues-map.xvi
+#export map -proj extended -layout xviexport -fmt xvi -o Data/Complexe_Lonne_Peyret-Bourrugues-coupe.xvi
+
+
+# Export des fichiers pdf, plan et coupe.
+# ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
+# export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
+# export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Puits-Coupe.pdf
+
+
+# Export du fichier 3d pour Loch
+
+cs EPSG:23030  # UTTM30 ED50
+export model -enable all -o Surface_PSM_LARRA_UTM30ED50.lox
+
+# Export de la database sql
+# export des statistiques de l'ensemble de la cavité
+#    Attention, les points de départ et d'arrivée de chaque centreline correspondent
+#    au second point et à l'avant dernier point de la série.
+
+
+# Export des fichiers ESRI
+
+
+# Export des fichiers kml

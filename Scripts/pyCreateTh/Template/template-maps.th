@@ -1,0 +1,14 @@
+encoding utf-8
+{file_info}
+
+{Copyright}
+
+map MP-{fileName}-Plan-tot -title "{fileName}"
+{other_scraps_plan}
+endmap
+
+map MC-{fileName}-Extended-tot -title "{fileName}"
+{other_scraps_extended}	
+endmap
+
+

@@ -1,0 +1,31 @@
+therion 6.3.3 (2025-01-06)
+  - using Proj 9.4.1, compiled against 9.4.1
+initialization file: C:\Program Files\Therion/therion.ini
+reading ... done
+configuration file: Surface_PSM_LARRA.thconfig
+reading ... done
+reading source files ... done
+preprocessing database ... done
+output coordinate system: EPSG:23030
+meridian convergence (deg): -1.5117
+scanning centreline tree ... done
+searching for centerline loops ... done
+calculating station coordinates ... done
+processing survey data ... no data.
+calculating basic statistics ... done
+processing extended elevation ... done
+processing references ... done
+selecting export objects ... done
+writing Surface_PSM_LARRA_UTM30ED50.lox ...
+processing projection plan ... done
+ done
+writing xtherion file ... done
+compilation time: 1 sec
+
+############# CRS transformations chosen by PROJ ###############
+  Area of Use (AoU): (-0.902, 42.840) (-0.601, 43.050)
+  [UTM30 → LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
+  [UTM30 → EPSG:23030] AoU: [yes] transformation: [Inverse of UTM zone 30N + Inverse of ED50 to WGS 84 (41) + UTM zone 30N] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step inv proj=hgridshift grids=es_ign_SPED2ETV2.tif step proj=utm zone=30 ellps=intl] accuracy: [1.000 m]
+  [EPSG:4326 → EPSG:23030] AoU: [yes] transformation: [axis order change (2D) + Inverse of ED50 to WGS 84 (41) + UTM zone 30N] definition: [proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=hgridshift grids=es_ign_SPED2ETV2.tif step proj=utm zone=30 ellps=intl] accuracy: [1.000 m]
+  [EPSG:23030 → EPSG:4326] AoU: [yes] transformation: [Inverse of UTM zone 30N + ED50 to WGS 84 (41) + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=intl step proj=hgridshift grids=es_ign_SPED2ETV2.tif step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [1.000 m]
+########## end of CRS transformations chosen by PROJ ###########

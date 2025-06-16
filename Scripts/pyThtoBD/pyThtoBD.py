@@ -63,7 +63,7 @@ def hash_file(filepath, algo='sha256', chunk_size=8192):
         for chunk in iter(lambda: f.read(chunk_size), b''):
             hasher.update(chunk)
     return hasher.hexdigest()
-
+    
 
 #####################################################################################################################################
 #         Fonction pour importer un fichier SQL dans une base de données SQLite                                                     #

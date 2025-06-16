@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"australiangeodetic",
+			"australiangeodeticdatum",
+			"backclino",
+			"cavename",
+			"clarke",
+			"clino",
+			"datat",
+			"ecart",
+			"ENDC",
+			"endlayout",
+			"endscrap",
+			"etrs",
+			"european",
+			"geocentricdatumofaustralia",
+			"geocentricofaustralia",
+			"Makto",
+			"northamerican",
+			"northamericandatum",
+			"nouvelletriangulationfrançaise",
+			"thanksto",
+			"thconfig",
+			"therion",
+			"wpage",
+			"XTHERION"
+		]
+	}
+}

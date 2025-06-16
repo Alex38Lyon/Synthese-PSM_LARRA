@@ -1,0 +1,8 @@
+encoding utf-8
+{file_info}
+
+{Copyright}
+
+survey {fileName} -title "{fileName}"
+{totData}
+endsurvey
