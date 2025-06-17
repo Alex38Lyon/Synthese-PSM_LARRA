@@ -6,6 +6,7 @@ import subprocess
 import re
 import logging
 import threading
+import Lib.global_data as global_data
 
 log = logging.getLogger("Logger")
 
@@ -47,7 +48,7 @@ def safe_relpath(path):
         return valeur
     
     except ValueError:
-        max_depth = 7
+        max_depth = 6  # Profondeur maximale pour tronquer le chemin
         
         # Disques différents, afficher le chemin relatif partiel depuis la racine commune
         path_parts = abs_path.split(os.sep)
@@ -64,11 +65,12 @@ def safe_relpath(path):
                 result = os.path.join("~\\" , *parts[-max_depth:])
         
         return result
-                
 
+
+################################################################################################# 
+# Compilation Therion 'Template' (version avec blocage)                                         #
 #################################################################################################
-def compile_template(template, template_args, **kwargs):
-    global error_count
+def compile_templateOld(template, template_args, **kwargs):
     
     try :
         logfile = ""
@@ -94,13 +96,14 @@ def compile_template(template, template_args, **kwargs):
     
     except Exception as e:
         log.error(f"Therion template compilation error: {Colors.ENDC}{e}")
-        error_count += 1
+        global_data.error_count += 1
   
-        
+################################################################################################# 
+# Compilation Therion 'Template' (version sans blocage)                                         #
+# Compiler une configuration générée dynamiquement à partir d'un template texte.                #
 #################################################################################################
-def compile_template2(template, template_args, **kwargs):
-    global error_count
-    
+def compile_template(template, template_args, **kwargs):
+        
     logfile = ""
     tmpdir = None
     try:
@@ -125,7 +128,7 @@ def compile_template2(template, template_args, **kwargs):
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,           # Décode automatiquement en UTF-8 (avec fallback ci-dessous)
-            timeout=kwargs.get("timeout", 60),
+            timeout=kwargs.get("timeout", 30),
             errors="replace"     # Remplace caractères invalides (évite UnicodeDecodeError)
         )
 
@@ -138,8 +141,8 @@ def compile_template2(template, template_args, **kwargs):
 
         # Analyse du code retour
         if result.returncode != 0:
-            log.error(f"Therion compilation failed with return code {Colors.ENDC}{result.returncode} {Colors.ERROR}{result.stdout}")
-            error_count += 1
+            log.error(f"Therion compilation failed with return code: {Colors.ENDC}{result.returncode} {Colors.ERROR}{result.stdout}")
+            global_data.error_count += 1
           
         else:
             log.info(f"Therion compilation successful")
@@ -147,14 +150,14 @@ def compile_template2(template, template_args, **kwargs):
         return logfile, tmpdir
 
     except subprocess.TimeoutExpired:
-        log.error(f"Therion process timed out and was terminated")
-        error_count += 1
-        return "Therion timeout", tmpdir
+        log.error(f"Therion process timed out and was terminated {Colors.ENDC}{logfile}")
+        global_data.error_count += 1
+        return "Therion error", tmpdir
 
     except Exception as e:
         log.error(f"Therion template compilation error: {Colors.ENDC}{e}")
-        error_count += 1    
-        return str(e), tmpdir
+        global_data.error_count += 1    
+        return "Therion error", tmpdir
 
     finally:
         if kwargs.get("cleanup", True) and tmpdir:
@@ -164,9 +167,11 @@ def compile_template2(template, template_args, **kwargs):
                 log.warning(f"Could not delete temp directory: {Colors.ENDC}{cleanup_err}")
 
 
+################################################################################################# 
+# Compilation Therion (version avec blocage)                                                    #
+# Compiler directement un fichier .th déjà existant avec Therion.
 #################################################################################################
-def compile_file(filename, **kwargs):
-    global error_count
+def compile_fileOld(filename, **kwargs):
     
     try:
         tmpdir = os.path.dirname(filename)
@@ -200,25 +205,26 @@ def compile_file(filename, **kwargs):
         if process.returncode != 0:
             # Affichage des erreurs et de la sortie standard
             log.error(f"Error during Therion compilation, stderr : \n{Colors.ENDC}{process.stderr.decode()}")
-            error_count += 1
+            global_data.error_count += 1
         
         log.info(f"Therion file : {Colors.ENDC}{safe_relpath(filename)}{Colors.GREEN} succeeded")
         
     except Exception as e:
             log.error(f"Therion file {Colors.ENDC}{safe_relpath(filename, os.path.expanduser('~'))}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
-            error_count += 1
+            global_data.error_count += 1
            
         
+################################################################################################# 
+# Compilation Therion (version sans blocage)                                                    #
 #################################################################################################
-def compile_file2(filename, **kwargs):
-    global error_count
+def compile_file(filename, **kwargs):
     
     tmpdir = os.path.dirname(filename)
     log_file = join(tmpdir, "therion.log").replace("\\", "/")
     therion_path = kwargs.get("therion_path", "therion")
     timeout = kwargs.get("timeout", 60)  # seconds
 
-    log.info(f"Start therion compilation file : {Colors.WHITE}{filename}")
+    log.info(f"Start therion compilation file: {Colors.ENDC}{safe_relpath(filename)}")
 
     try:
         # Lancement du processus Therion
@@ -254,7 +260,7 @@ def compile_file2(filename, **kwargs):
         output_thread.join(timeout)
         if output_thread.is_alive():
             log.error(f"Therion compilation timed out after {Colors.ENDC}{timeout}{Colors.ERROR} seconds. Killing process...")
-            error_count += 1
+            global_data.error_count += 1
             process.kill()
             output_thread.join()
 
@@ -263,14 +269,14 @@ def compile_file2(filename, **kwargs):
         # Vérification du code de retour
         if process.returncode != 0:
             log.error(f"Therion returned error code {Colors.ENDC}{process.returncode}")
-            error_count += 1
+            global_data.error_count += 1
             
         else:
-            log.info(f"Therion file : {Colors.ENDC}{safe_relpath(filename)}{Colors.GREEN} compilation succeeded")
+            log.info(f"Therion file: {Colors.ENDC}{safe_relpath(filename)}{Colors.GREEN} compilation succeeded")
 
     except Exception as e:
-        log.error(f"Therion file {Colors.ENDC}{safe_relpath(filename)}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
-        error_count += 1
+        log.error(f"Therion file: {Colors.ENDC}{safe_relpath(filename)}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
+        global_data.error_count += 1
 
 
 #################################################################################################
