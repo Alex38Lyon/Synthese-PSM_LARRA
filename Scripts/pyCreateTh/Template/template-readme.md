@@ -6,7 +6,7 @@
 # Fix point list
 {fixPointList}
 
-# Survey list :
+# Survey / file list :
 {readMeList}
 
 

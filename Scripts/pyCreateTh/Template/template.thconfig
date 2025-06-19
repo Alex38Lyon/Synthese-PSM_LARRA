@@ -385,7 +385,7 @@ endlayout
 	# export model -fmt kml -o Outputs/{fileName}-model.kml -enable all
 	# export model -enable all -o Outputs/{fileName}-3D.kml
 	# export cave-list -location on -o Outputs/{fileName}-Cave-list.html
-	# export survey-list -location on -o Outputs/{fileName}-Surveys.html
+	export survey-list -location on -o Outputs/{fileName}-Surveys.html
 	# export database -fmt sql -o Outputs/{fileName}-database.sql
 	# export continuation-list -o Outputs/{fileName}-Continuations.html
 

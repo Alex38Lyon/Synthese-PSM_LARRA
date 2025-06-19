@@ -2,9 +2,9 @@
 """
 #############################################################################################
 #                                                                                       	#  
-#  Script pour convertir des données topographiques au format .th .mak ou .dat de compass   #
+# Script pour convertir des données topographiques des formats .th .mak ou .dat de compass  #
 #                           au format th et th2 de Therion                              	#
-#                     By Alexandre PONT (alexandre_pont@yahoo.fr)                         	#
+#                     by Alexandre PONT (alexandre_pont@yahoo.fr)                         	#
 #                                                                                          	#
 # Définir les différentes variables dans fichier config.ini                                 #
 #                                                                                           #
@@ -15,36 +15,22 @@
 
 Création Alex le 2025 06 09 :
     
-Version 2025 06 16 :    Création fonction createThFolders 
+Version 2025 06 16 :    Création fonction create_th_folders 
                         Ajout des fonctions pour mettre en log    
-                        Création de la fonction makToThFile
+                        Création de la fonction mak_to_th_file
                         
                         
 A venir :
     - gérer les visées orphelines dans une même survey
-    - gérer les updates des th2 files (th, dat, mak)
-    - changer le nom des surveys en un numéro de survey classé par date
-    - habillage des th2 files
-    - reprendre l'option shot lines dans les th2 files pour supprimer les splays
-    - tester les différentes options args.
-    - reprendre les options de la ligne de commande
+    - gérer les updates (th, dat, mak)
+    - créer fonction pour faire habillage des th2 files, les jointures...
+    - reprendre l'option shot lines dans les th2 files pour supprimer les splays.
+    - reprendre les options en ligne de commande, tester
     - ajouter les commentaires et les déclinaisons dans les th files
-    - organiser la fonction datToTh
-    - organiser la fonction makToTh  
-    - organiser la fonction createThFolders
-    - mettre en place barres de progression
-    - completer readme avec détail pour retrouver les fichiers
-        - liste et chemin des points fixes
-        - bilan des métrés
-        - bilan des erreurs
-        - 
-    - trouver une solution pour les team et les clubs manquants
+    - ajouter message pour les corrections non implantés
+    - trouver une solution pour les teams et les clubs manquants
     - gérer le cas ou il y a 2 SurveyTitle identiques
     - alléger les equates --> 1 fois dans le projet
-    - changer format des noms des fichiers dat (pas le nom de fichier !)
-
-
-
 
 
 """
@@ -53,51 +39,27 @@ Version ="2025.06.18"
 
 #################################################################################################
 #################################################################################################
-import os
+import os, re, unicodedata, argparse, shutil, sys, time
 from os.path import isfile, join, abspath, splitext
-import sys
-import re
 import pandas as pd
 pd.set_option('future.no_silent_downcasting', True)
-import unicodedata
-import argparse
-import shutil
 from datetime import datetime
-import configparser
-import tkinter as tk
-from tkinter import filedialog
 from collections import defaultdict
-from charset_normalizer import from_path
 from copy import deepcopy
+from alive_progress import alive_bar              # https://github.com/rsalmei/alive-progress	
+from contextlib import redirect_stdout
 
 from Lib.survey import SurveyLoader, NoSurveysFoundException
-from Lib.therion import compile_template, Colors, compile_file, safe_relpath, get_stats_from_log
-from Lib.logger_config import setup_logger
-import Lib.global_data as global_data
+from Lib.therion import compile_template, compile_file, get_stats_from_log
+from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_help, read_config, select_file_tk_window, release_log_file
+import Lib.global_data as globalData
+
+log = setup_logger(logfile="app.log", debug_log=True)
 
 #################################################################################################
-
-## [Survey_Data]  default values
-Author = "Created by pyCreateTh.py"
-Copyright = "# Copyright (C) pyCreateTh.py"
-Copyright_Short = "Licence (C) pyCreateTh.py"
-map_comment = "Created by pyCreateTh.py"
-cs = "UTM30"
-club = "Therion"
-thanksto = "Therion"
-datat = "https://therion.speleo.sk/"
-wpage = "https://therion.speleo.sk/"
-
-## [Application_data] default values
-template_path = "./Template"
-station_by_scrap = 20
-final_therion_exe = True
-therion_path = "C:/Therion/therion.exe"
-LINES = -1
-NAMES = -1
-
 configIni = "config.ini"       # Default config file name
 debug_log = False              # Mode debug des messages
+
 
 #################################################################################################
 # Renommage des tableau pdFrame de station                                                      #
@@ -116,6 +78,7 @@ class StationNameAccessor:
             .str.replace(' ', '_e_', regex=False)
             .str.replace('p', '_p_', regex=False)
         )
+
 
 #################################################################################################
 # Mise au format des noms                                                                       #
@@ -146,129 +109,13 @@ def sanitize_filename(th_name):
 
     # Convert to lowercase, then capitalize the first letter
     # th_name = th_name.lower().capitalize()
-    th_name = th_name.capitalize()
+    # th_name = th_name.capitalize()
     
     # Suppression des underscores en début et fin
     th_name = th_name.strip('_')
 
     return th_name or "default_filename"  # Avoid empty result
 
-#################################################################################################
-# Coloration des messages d'aide d'arg                                                          #
-#################################################################################################
-def colored_help(parser):
-    """
-    Affiche l'aide colorée pour les arguments de la ligne de commande.
-
-    Args:
-        parser (argparse.ArgumentParser): Le parseur d'arguments.
-    Returns:
-        None
-            
-    """
-    # Captures the help output
-    help_text = parser.format_help()
-    
-    # Coloration des différentes parties
-    colored_help_text = help_text.replace(
-        'usage:', f'{Colors.ERROR}usage:{Colors.ENDC}'
-    ).replace(
-        'options:', f'{Colors.GREEN}options:{Colors.ENDC}'
-    ).replace('positional arguments:', f'{Colors.BLUE}positional arguments:{Colors.ENDC}'
-    ).replace(', --help', f'{Colors.BLUE}, --help:{Colors.ENDC}'
-    ).replace('elp:', f'{Colors.BLUE}elp{Colors.ENDC}')
-
-    # Surligner les arguments
-    for action in parser._actions:
-        if action.option_strings:
-            # Colorer les options (--xyz)
-            for opt in action.option_strings:
-                colored_help_text = colored_help_text.replace(opt, f'{Colors.BLUE}{opt}{Colors.ENDC}').replace('--help', f'{Colors.BLUE}--help:{Colors.ENDC}')
-    
-    # Imprimer le texte coloré
-    print(colored_help_text)
-    sys.exit(1)
-
-#################################################################################################
-def read_config(config_file):
-    """
-    Lit le fichier de configuration et initialise les variables globales.
-
-    Args:
-        config_file (str): Le chemin vers le fichier de configuration.
-        
-    Returns:
-        None
-        
-    """
-    global Author
-    global Copyright
-    global Copyright_Short
-    global map_comment
-    global club
-    global thanksto
-    global datat
-    global wpage
-    global cs
-    global template_path
-    global station_by_scrap
-    global final_therion_exe
-    global therion_path
-    global LINES
-    global NAMES
-    
-
-    # Initialize the configparser to read .ini files
-    config = configparser.ConfigParser()
-    config.read(config_file, encoding="utf-8")
-
-    if 'Survey_Data' in config and 'Author' in config['Survey_Data']:
-        Author = config['Survey_Data']['Author']
-    
-    if 'Survey_Data' in config and 'Copyright1' in config['Survey_Data']:
-        Copyright = config['Survey_Data']['Copyright1'] + "\n" + config['Survey_Data']['Copyright2'] + "\n" + config['Survey_Data']['Copyright3'] + "\n"
-           
-    if 'Survey_Data' in config and 'Copyright_Short' in config['Survey_Data']:
-        Copyright_Short = config['Survey_Data']['Copyright_Short']        
-        
-    if 'Survey_Data' in config and 'map_comment' in config['Survey_Data']:
-        map_comment = config['Survey_Data']['map_comment']
-    
-    if 'Survey_Data' in config and 'club' in config['Survey_Data']:
-        club = config['Survey_Data']['club']
-    
-    if 'Survey_Data' in config and 'thanksto' in config['Survey_Data']:
-        thanksto = config['Survey_Data']['thanksto']
-    
-    if 'Survey_Data' in config and 'datat' in config['Survey_Data']:
-        datat = config['Survey_Data']['datat']
-        
-    if 'Survey_Data' in config and 'wpage' in config['Survey_Data']:
-        wpage = config['Survey_Data']['wpage']
-        
-    if 'Survey_Data' in config and 'cs' in config['Survey_Data']:
-        cs = config['Survey_Data']['cs']
-        
-    if 'Application_Data' in config and 'template_path' in config['Application_Data']:
-        template_path = config['Application_Data']['template_path']    
-        
-    if 'Application_Data' in config and 'station_by_scrap' in config['Application_Data']:
-        station_by_scrap = int(config['Application_Data']['station_by_scrap'])
-    
-    if 'Application_Data' in config and 'final_therion_exe' in config['Application_Data']:
-        final_therion_exe = bool(config['Application_Data']['final_therion_exe'])
-        
-    if 'Application_Data' in config and 'therion_path' in config['Application_Data']:
-        therion_path = config['Application_Data']['therion_path']
-    
-    if LINES == -1 :    
-        if 'Application_Data' in config and 'shot_lines_in_th2_files' in config['Application_Data']:
-            LINES = 0 if config['Application_Data']['shot_lines_in_th2_files'] == "False" else 1
-    
-    if NAMES == -1 :    
-        if 'Application_Data' in config and 'station_name_in_th2_files' in config['Application_Data']:
-            NAMES = 0 if config['Application_Data']['station_name_in_th2_files'] == "False" else 1
-        
 
 #################################################################################################
 def copy_template_if_not_exists(template_path, destination_path):
@@ -319,12 +166,13 @@ def copy_file_with_copyright(th_file, destination_path, copyright_text):
         log.debug(f"File '{Colors.ENDC}{safe_relpath(th_file)}{Colors.GREEN}' has been copied to '{Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN}' with the copyright header added.{Colors.ENDC}")
     else:
         log.error(f"The file .th does not exist {Colors.ENDC}{safe_relpath(th_file)}")
-        global_data.error_count += 1
+        globalData.error_count += 1
+   
         
 #################################################################################################
 # Remplir les template avec les variables vers output_path                                      #                                                             #    
 #################################################################################################
-def process_template(template_path, variables, output_path):
+def update_template_files(template_path, variables, output_path):
     """
     Process a Therion template file by replacing variables.
     
@@ -360,15 +208,16 @@ def process_template(template_path, variables, output_path):
     
     except FileNotFoundError:
         log.error(f"Template file {Colors.ENDC}{template_path}{Colors.ERROR} not found")
-        global_data.error_count += 1
+        globalData.error_count += 1
         
     except PermissionError:
         log.error(f"Insufficient permissions to write the file")
-        global_data.error_count += 1
+        globalData.error_count += 1
         
     except Exception as e:
-        log.error(f"An error occurred (process_template): {Colors.ENDC}{e}")
-        global_data.error_count += 1
+        log.error(f"An error occurred (update_template_files): {Colors.ENDC}{e}")
+        globalData.error_count += 1
+
 
 #################################################################################################
 def parse_therion_surveys(file_path):
@@ -402,18 +251,19 @@ def parse_therion_surveys(file_path):
     
     except FileNotFoundError:
         log.error(f"File {Colors.ENDC}{safe_relpath(file_path)}{Colors.ERROR} not found.{Colors.ENDC}")
-        global_data.error_count += 1
+        globalData.error_count += 1
         
     except PermissionError:
         log.error(f"Insufficient permissions to read {Colors.ENDC}{safe_relpath(file_path)}")
-        global_data.error_count += 1
+        globalData.error_count += 1
         
     except Exception as e:
         log.error(f"An error occurred (parse_therion_surveys): {Colors.ENDC}{e}{Colors.ERROR}, file: {Colors.ENDC}{safe_relpath(file_path)}")
-        global_data.error_count += 1
+        globalData.error_count += 1
         
     
     return survey_names
+
 
 #################################################################################################
 def str_to_bool(value):
@@ -429,34 +279,73 @@ def str_to_bool(value):
     else:
         raise argparse.ArgumentTypeError(f"{Colors.ERROR}Error: Invalid boolean value: {Colors.ENDC}{value}")
 
+
 #################################################################################################
-def select_file():
+def parse_xvi_file(th_name_xvi):
     """
-    Ouvre une boite de dialogue tkinter pour sélectionner un fichier.
+    Parse un fichier .xvi et extrait les stations et les lignes.
+
+    Args:
+        th_name_xvi (str): chemin complet du fichier .xvi à lire.
 
     Returns:
-        str: Le chemin complet du fichier sélectionné.
+        tuple:
+            - stations (dict): dictionnaire des stations indexées par "x.y".
+            - lines (list): liste des lignes [x1, y1, x2, y2, station1, station2].
+            - x_bounds (tuple): (x_min, x_max)
+            - y_bounds (tuple): (y_min, y_max)
+            - ecarts (tuple): (x_ecart, y_ecart)
     """
-    # Créer une instance de la fenêtre tkinter
-    root = tk.Tk()
-    
-    # Cacher la fenêtre principale
-    root.withdraw()
-    
-    # Afficher la boite de dialogue de sélection de fichier
-    file_path = filedialog.askopenfilename(
-        title="Select your file",
-        filetypes=[("Compatibles files", "*.th *.mak *.dat"), ("TH files", "*.th"), ("DAT files", "*.dat"), ("MAK files", "*.mak"),("All files", "*.*")]
-        )
-    
-    
-    return file_path  # Retourner le chemin complet du fichier sélectionné
+    stations = {}
+    lines = []
 
+    with open(join(th_name_xvi), "r", encoding="utf-8") as f:
+        xvi_content = f.read()
+        xvi_stations, xvi_shots = xvi_content.split("XVIshots")
+
+        # Extraction des stations
+        for line in xvi_stations.split("\n"):
+            match = re.search(r"{\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s([^@]+)(?:@([^\s}]*))?\s*}", line)
+            if match:
+                x, y, station_number, namespace = match.groups()
+                namespace_array = namespace.split(".") if namespace else []
+                station = station_number
+                if len(namespace_array) > 1:
+                    station = "{}@{}".format(station_number, ".".join(namespace_array[0:-1]))
+                stations[f"{x}.{y}"] = [x, y, station]
+
+        # Calcul des bornes x et y
+        x_values = [float(value[0]) for value in stations.values()]
+        y_values = [float(value[1]) for value in stations.values()]
+        x_min, x_max = min(x_values), max(x_values)
+        y_min, y_max = min(y_values), max(y_values)
+        x_ecart = x_max - x_min
+        y_ecart = y_max - y_min
+
+        # Extraction des lignes
+        for line in xvi_shots.split("\n"):
+            match = re.search(r"^\s*{\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*.*}", line)
+            if match:
+                x1, y1, x2, y2 = match.groups()
+                key1 = f"{x1}.{y1}"
+                key2 = f"{x2}.{y2}"
+                station1 = stations[key1][2] if key1 in stations else None
+                station2 = stations[key2][2] if key2 in stations else None
+                lines.append([x1, y1, x2, y2, station1, station2])
+
+    return stations, lines, x_min, x_max, y_min, y_max, x_ecart, y_ecart
 
 ################################################################################################# 
 # Création des dossiers à partir d'un th file                                                   #
 #################################################################################################   
-def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "th2", SCALE = "500", UPDATE = "", CONFIG_PATH = "") :  
+def create_th_folders(ENTRY_FILE, 
+                    PROJECTION = "All", 
+                    TARGET = "None", 
+                    FORMAT = "th2", 
+                    SCALE = "500", 
+                    UPDATE = "", 
+                    CONFIG_PATH = "",
+                    totReadMeError = "") :  
     """
     Création des dossiers et fichiers à partir d'un fichier .th
     
@@ -473,25 +362,12 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
         True or False
         
     """
-    global Author
-    global Copyright
-    global Copyright_Short
-    global map_comment
-    global club
-    global thanksto
-    global datat
-    global wpage
-    global cs
-    global template_path
-    global station_by_scrap
-    global final_therion_exe
-    global therion_path
-    global LINES
-    global NAMES
-    
+
+    threads = []
     TH_NAME = sanitize_filename(os.path.splitext(os.path.basename(ENTRY_FILE))[0])
     DEST_PATH = os.path.dirname(ENTRY_FILE) + "/" + TH_NAME
     ABS_PATH = os.path.dirname(ENTRY_FILE)
+    shortCurentFile = safe_relpath(ENTRY_FILE)
     
     log.debug(f"ENTRY_FILE: {ENTRY_FILE}") 
     log.debug(f"PROJECTION: {PROJECTION}") 
@@ -507,7 +383,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
         exit(1)
     
     if not os.path.isfile(ENTRY_FILE):
-        log.critical(f"The Therion file didn't exist: {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+        log.critical(f"The Therion file didn't exist: {Colors.ENDC}{shortCurentFile}")
         exit(1)
 
     if FORMAT not in ["th2", "plt"]:
@@ -515,7 +391,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
         exit(1)
 
     # Normalise name, namespace, key, file path
-    log.info(f"Parsing survey entry file: {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+    log.info(f"Parsing survey entry file: {Colors.ENDC}{shortCurentFile}")
 
     survey_list = parse_therion_surveys(ENTRY_FILE)
     # print(survey_list)
@@ -556,8 +432,8 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
     #################################################################################################
     if UPDATE == "": 
         log.debug(f"Copy template folder and adapte it")
-        copy_template_if_not_exists(template_path, DEST_PATH)
-        copy_file_with_copyright(ENTRY_FILE, DEST_PATH + "/Data", Copyright)
+        copy_template_if_not_exists(globalData.templatePath, DEST_PATH)
+        copy_file_with_copyright(ENTRY_FILE, DEST_PATH + "/Data", globalData.Copyright)
     
         
     #################################################################################################                   
@@ -581,7 +457,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
             "scale": SCALE,
         }
 
-    logfile, tmpdir = compile_template(global_data.thconfigTemplate, template_args, cleanup=False, therion_path=therion_path)
+    logfile, tmpdir, totReadMeError = compile_template(globalData.thconfigTemplate, template_args, totReadMeError, cleanup=False, therion_path=globalData.therionPath)
     
     shutil.rmtree(tmpdir)  
     
@@ -617,25 +493,25 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
         config_vars = {
             'fileName': TH_NAME,
             'caveName': TH_NAME.replace("_", " "),
-            'Author': Author,
-            'Copyright': Copyright,
+            'Author': globalData.Author,
+            'Copyright': globalData.Copyright,
             'Scale' : SCALE,
             'Target' : TARGET,
-            'mapComment' : map_comment,
-            'club' : club,
-            'thanksto' : thanksto.replace("_", r"\_"),
-            'datat' : datat.replace("_", r"\_"),
-            'wpage' : wpage.replace("_", r"\_"), 
-            'cs' : cs,
+            'mapComment' : globalData.mapComment,
+            'club' : globalData.club,
+            'thanksto' : globalData.thanksto.replace("_", r"\_"),
+            'datat' : globalData.datat.replace("_", r"\_"),
+            'wpage' : globalData.wpage.replace("_", r"\_"), 
+            'cs' : globalData.cs,
             'configPath' : CONFIG_PATH,
             'totData' : totdata,
             'other_scraps_plan' : "",
             'file_info' : f'# File generated by pyCreateTh.py (version {Version}) date: {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}',
         }
         
-        process_template(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  TH_NAME + '.thconfig')
-        process_template(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' +  TH_NAME + '-tot.th')
-        process_template(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/readme.md')   
+        update_template_files(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  TH_NAME + '.thconfig')
+        update_template_files(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' +  TH_NAME + '-tot.th')
+        update_template_files(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/' +  TH_NAME + '-readme.md')   
    
     #################################################################################################    
     # Parse the Plan XVI file                                                                       #
@@ -652,53 +528,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
         stations = {}
         lines = []
         
-        with open(join(th_name_xvi), "r", encoding="utf-8") as f:
-            xvi_content = f.read()
-            xvi_stations, xvi_shots = xvi_content.split("XVIshots")
-
-            # Extract all the stations
-            for line in xvi_stations.split("\n"):
-                match = re.search(r"{\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s([^@]+)(?:@([^\s}]*))?\s*}", line)
-                if match:
-                    x = match.groups()[0]
-                    y = match.groups()[1]
-                    station_number = match.groups()[2]
-                    namespace = match.groups()[3]
-                    namespace_array = namespace.split(".") if namespace else []
-                    station = station_number
-                    if len(namespace_array) > 1:
-                        station = "{}@{}".format(station_number, ".".join(namespace_array[0:-1]))
-                    stations["{}.{}".format(x, y)] = [x, y, station]
-
-            # Extraire les valeurs x et y à partir des listes dans stations
-            x_values = [float(value[0]) for value in stations.values()]
-            y_values = [float(value[1]) for value in stations.values()]
-
-            # Trouver les min et max de x
-            x_min = float(min(x_values))
-            x_max = float(max(x_values))
-
-            # Trouver les min et max de y
-            y_min = float(min(y_values))
-            y_max = float(max(y_values))
-
-            x_ecart = x_max - x_min
-            y_ecart = y_max - y_min
-
-            # Extract all the lines
-            for line in xvi_shots.split("\n"):
-                match = re.search(r"^\s*{\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*.*}", line )
-                if match:
-                    x1 = match.groups()[0]
-                    y1 = match.groups()[1]
-                    x2 = match.groups()[2]
-                    y2 = match.groups()[3]
-                    key1 = "{}.{}".format(x1, y1)
-                    key2 = "{}.{}".format(x2, y2)
-                    # Splays won't have stations
-                    station1 = stations[key1][2] if key1 in stations else None
-                    station2 = stations[key2][2] if key2 in stations else None
-                    lines.append([x1, y1, x2, y2, station1, station2])
+        stations, lines, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
         
         if UPDATE == "th2": 
             th2_name = DEST_PATH + "/" + TH_NAME
@@ -706,7 +536,7 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
             th2_name = DEST_PATH + "/Data/" + TH_NAME
         output_path = f'{th2_name}-Plan.{FORMAT}'
         
-        scrap_to_add = int(len(stations)/station_by_scrap)-1
+        scrap_to_add = int(len(stations)/globalData.stationByScrap)-1
 
         # log.debug(stations)
 
@@ -721,20 +551,20 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
             other_scraps_plan = f"\tSP-{TARGET}_01\n\tbreak\n"
             
             for line in lines:
-                th2_lines.append(global_data.th2Line.format(x1=line[0], y1=line[1], x2=line[2], y2=line[3]))
+                th2_lines.append(globalData.th2Line.format(x1=line[0], y1=line[1], x2=line[2], y2=line[3]))
                 coords1 = "{}.{}".format(line[0], line[1])
                 
                 if coords1 not in seen:
                     seen.add(coords1)
-                    th2_points.append(global_data.th2Point.format(x=line[0], y=line[1], station=line[4]))
-                    th2_names.append(global_data.th2Name.format(x=line[0], y=line[1], station=line[4]))
+                    th2_points.append(globalData.th2Point.format(x=line[0], y=line[1], station=line[4]))
+                    th2_names.append(globalData.th2Name.format(x=line[0], y=line[1], station=line[4]))
                 coords2 = "{}.{}".format(line[2], line[3])
                 
                 if "{}.{}".format(line[2], line[3]) not in seen:
                     seen.add(coords2)
                     if line[5] != None:
-                        th2_points.append(global_data.th2Point.format(x=line[2], y=line[3], station=line[5]))
-                        th2_names.append(global_data.th2Name.format(x=line[2], y=line[3], station=line[5]))
+                        th2_points.append(globalData.th2Point.format(x=line[2], y=line[3], station=line[5]))
+                        th2_names.append(globalData.th2Name.format(x=line[2], y=line[3], station=line[5]))
 
 
             if isfile(output_path):
@@ -745,17 +575,17 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
                 log.debug(f"Therion output path: {Colors.ENDC}{safe_relpath(output_path)}")
 
                 with open(str(output_path), "w+") as f:
-                    f.write(global_data.th2FileHeader)
-                    f.write(global_data.th2File.format(
+                    f.write(globalData.th2FileHeader)
+                    f.write(globalData.th2File.format(
                             name = TARGET,
-                            Copyright = Copyright,
-                            Copyright_Short = Copyright_Short,
+                            Copyright = globalData.Copyright,
+                            Copyright_Short = globalData.CopyrightShort,
                             points="\n".join(th2_points),
-                            lines="\n".join(th2_lines) if LINES else "",
-                            names="\n".join(th2_names) if NAMES else "",
+                            lines="\n".join(th2_lines) if globalData.linesInTh2 else "",
+                            names="\n".join(th2_names) if globalData.stationNamesInTh2 else "",
                             projection="plan",
                             projection_short="P",
-                            author=Author,
+                            author=globalData.Author,
                             year=datetime.now().year,
                             version = Version,
                             date=datetime.now().strftime("%Y.%m.%d-%H:%M:%S"),
@@ -773,13 +603,13 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
                     )
                     if scrap_to_add >= 1 :     
                         for i in range(scrap_to_add):
-                            f.write(global_data.th2Scrap.format(
+                            f.write(globalData.th2Scrap.format(
                                 name=TARGET,
                                 projection="plan",
                                 projection_short="P",
-                                author=Author,
+                                author=globalData.Author,
                                 year=datetime.now().year,
-                                Copyright_Short = Copyright_Short,
+                                Copyright_Short = globalData.CopyrightShort,
                                 num=f"{i+2:02}",                         
                                 )
                             )
@@ -801,54 +631,8 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
         stations = {}
         lines = []
         
-        with open(join(th_name_xvi), "r", encoding="utf-8") as f:
-            xvi_content = f.read()
-            xvi_stations, xvi_shots = xvi_content.split("XVIshots")
-
-            # Extract all the stations
-            for line in xvi_stations.split("\n"):
-                match = re.search(r"{\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s([^@]+)(?:@([^\s}]*))?\s*}", line)
-                if match:
-                    x = match.groups()[0]
-                    y = match.groups()[1]
-                    station_number = match.groups()[2]
-                    namespace = match.groups()[3]
-                    namespace_array = namespace.split(".") if namespace else []
-                    station = station_number
-                    if len(namespace_array) > 1:
-                        station = "{}@{}".format(station_number, ".".join(namespace_array[0:-1]))
-                    stations["{}.{}".format(x, y)] = [x, y, station]
-
-            # Extraire les valeurs x et y à partir des listes dans stations
-            x_values = [float(value[0]) for value in stations.values()]
-            y_values = [float(value[1]) for value in stations.values()]
-
-            # Trouver les min et max de x
-            x_min = float(min(x_values))
-            x_max = float(max(x_values))
-
-            # Trouver les min et max de y
-            y_min = float(min(y_values))
-            y_max = float(max(y_values))
-
-            x_ecart = x_max - x_min
-            y_ecart = y_max - y_min
-
-            # Extract all the lines
-            for line in xvi_shots.split("\n"):
-                match = re.search(r"^\s*{\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*.*}", line )
-                if match:
-                    x1 = match.groups()[0]
-                    y1 = match.groups()[1]
-                    x2 = match.groups()[2]
-                    y2 = match.groups()[3]
-                    key1 = "{}.{}".format(x1, y1)
-                    key2 = "{}.{}".format(x2, y2)
-                    # Splays won't have stations
-                    station1 = stations[key1][2] if key1 in stations else None
-                    station2 = stations[key2][2] if key2 in stations else None
-                    lines.append([x1, y1, x2, y2, station1, station2])
-        # shutil.rmtree(tmpdir)
+        stations, lines, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
+        
 
         if UPDATE == "th2":
             th2_name = DEST_PATH + "/" + TH_NAME
@@ -868,20 +652,20 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
             other_scraps_extended = f"\tSC-{TARGET}_01\n\tbreak\n"
             
             for line in lines:
-                th2_lines.append(global_data.th2Line.format(x1=line[0], y1=line[1], x2=line[2], y2=line[3]))
+                th2_lines.append(globalData.th2Line.format(x1=line[0], y1=line[1], x2=line[2], y2=line[3]))
                 coords1 = "{}.{}".format(line[0], line[1])
                 
                 if coords1 not in seen:
                     seen.add(coords1)
-                    th2_points.append(global_data.th2Point.format(x=line[0], y=line[1], station=line[4]))
-                    th2_names.append(global_data.th2Name.format(x=line[0], y=line[1], station=line[4]))
+                    th2_points.append(globalData.th2Point.format(x=line[0], y=line[1], station=line[4]))
+                    th2_names.append(globalData.th2Name.format(x=line[0], y=line[1], station=line[4]))
                 coords2 = "{}.{}".format(line[2], line[3])
                 
                 if "{}.{}".format(line[2], line[3]) not in seen:
                     seen.add(coords2)
                     if line[5] != None:
-                        th2_points.append(global_data.th2Point.format(x=line[2], y=line[3], station=line[5]))
-                        th2_names.append(global_data.th2Name.format(x=line[2], y=line[3], station=line[5]))
+                        th2_points.append(globalData.th2Point.format(x=line[2], y=line[3], station=line[5]))
+                        th2_names.append(globalData.th2Name.format(x=line[2], y=line[3], station=line[5]))
 
 
             if isfile(output_path):
@@ -890,17 +674,17 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
                 log.debug(f"Therion output path :\t{Colors.ENDC}{output_path}")
                     
                 with open(str(output_path), "w+") as f:
-                    f.write(global_data.th2FileHeader)
-                    f.write(global_data.th2File.format(
+                    f.write(globalData.th2FileHeader)
+                    f.write(globalData.th2File.format(
                             name = TARGET,
-                            Copyright = Copyright,
-                            Copyright_Short = Copyright_Short,
+                            Copyright = globalData.Copyright,
+                            Copyright_Short = globalData.CopyrightShort,
                             points="\n".join(th2_points),
-                            lines="\n".join(th2_lines) if LINES else "",
-                            names="\n".join(th2_names) if NAMES else "",
+                            lines="\n".join(th2_lines) if globalData.linesInTh2 else "",
+                            names="\n".join(th2_names) if globalData.stationNamesInTh2 else "",
                             projection="extended",
                             projection_short="C",
-                            author=Author,
+                            author=globalData.Author,
                             year=datetime.now().year,
                             version = Version,
                             date=datetime.now().strftime("%Y.%m.%d-%H:%M:%S"),
@@ -919,12 +703,12 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
                     if scrap_to_add >= 1 :     
                         for i in range(scrap_to_add):
                             # other_scraps_extended = other_scraps_extended + f"\tSC-{TARGET[0]}_{i+2:02}\n\tbreak\n"
-                            f.write(global_data.th2Scrap.format(
+                            f.write(globalData.th2Scrap.format(
                                 name=TARGET,
                                 projection="extended",
                                 projection_short="C",
-                                author=Author,
-                                Copyright_Short=Copyright_Short,
+                                author=globalData.Author,
+                                Copyright_Short=globalData.CopyrightShort,
                                 year=datetime.now().year,
                                 num=f"{i+2:02}",                         
                                 )
@@ -938,16 +722,16 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
         config_vars = {
                         'fileName': TH_NAME,
                         'caveName': TH_NAME.replace("_", " "),
-                        'Author': Author,
-                        'Copyright': Copyright,
+                        'Author': globalData.Author,
+                        'Copyright': globalData.Copyright,
                         'Scale' : SCALE,
                         'Target' : TARGET,
-                        'mapComment' : map_comment,
-                        'club' : club,
-                        'thanksto' : thanksto,
-                        'datat' : datat,
-                        'wpage' : wpage, 
-                        'cs' : cs,
+                        'mapComment' : globalData.mapComment,
+                        'club' : globalData.club,
+                        'thanksto' : globalData.thanksto,
+                        'datat' : globalData.datat,
+                        'wpage' : globalData.wpage, 
+                        'cs' : globalData.cs,
                         'configPath' : CONFIG_PATH,
                         'other_scraps_plan' : other_scraps_plan,
                         'other_scraps_extended' : other_scraps_extended,
@@ -955,25 +739,27 @@ def createThFolders(ENTRY_FILE, PROJECTION = "All", TARGET = "None", FORMAT = "t
                 }
                 
 
-        process_template(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  TH_NAME + '-maps.th')
+        update_template_files(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  TH_NAME + '-maps.th')
     
         
     #################################################################################################     
     # Final therion compilation                                                                     #
     #################################################################################################
     if UPDATE == "":   
-        if final_therion_exe == True:
+        if globalData.finalTherionExe == True:
             FILE = os.path.dirname(ENTRY_FILE) + "/" + TH_NAME + "/" + TH_NAME + ".thconfig"      
             # log.info(f"Final therion compilation: {Colors.ENDC}{safe_relpath(FILE)}")     
             if not flagErrorCompile :
-                compile_file(FILE, therion_path=therion_path) 
+                t = compile_file(FILE, therion_path=globalData.therionPath)
+                threads.append(t) 
     
-    return flagErrorCompile, stat
+    return flagErrorCompile, stat, totReadMeError, threads
+
 
 ################################################################################################# 
 # lecture d'un fichier .mak                                                                     #
 #################################################################################################    
-def makToThFile(ENTRY_FILE) :
+def mak_to_th_file(ENTRY_FILE) :
     """
     Convertit un fichier .mak en fichier .th.
 
@@ -984,7 +770,17 @@ def makToThFile(ENTRY_FILE) :
   
     """
     
+    # Liste des threads lancés
+    threads = []
+    
     _ConfigPath = "./../../"
+    shortCurentFile = safe_relpath(ENTRY_FILE)
+    
+    totReadMeList = ""
+    totReadMeError = ""
+    totReadMeFixPoint = ""
+    
+    
     
     datFiles = []
     patternDat = re.compile(r'^#.*?\.dat[,;]$', re.IGNORECASE)  # Motif insensible à la casse
@@ -1022,30 +818,31 @@ def makToThFile(ENTRY_FILE) :
                     Datums.add(Datum)     
                     
     except FileNotFoundError:
-        log.error(f"The mak file {ENTRY_FILE} dit not exist")
-        global_data.error_count += 1
+        log.error(f"The mak file {Colors.ENDC}{ENTRY_FILE}{Colors.ERROR} dit not exist")
+        globalData.error_count += 1
         
     except Exception as e:
         log.error(f"An error occurred (readMakFile): {Colors.ENDC}{e}")
-        global_data.error_count += 1
+        globalData.error_count += 1
         
     
     # Vérification des valeurs
     if len(Datums) > 1:
-        log.critical(f"Several different Datums found in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.CRITICAL}, case not handled! : {Colors.ENDC}{Datums}")
+        log.critical(f"Several different Datums found in {Colors.ENDC}{shortCurentFile}{Colors.CRITICAL}, case not handled! : {Colors.ENDC}{Datums}")
         exit(0)
     elif not Datums :
-        log.critical(f"no datum found in mak file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+        log.critical(f"no datum found in mak file : {Colors.ENDC}{shortCurentFile}")
         exit(0)
     elif not datFiles :
-        log.critical(f"No dat file found in mak file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+        log.critical(f"No dat file found in mak file : {Colors.ENDC}{shortCurentFile}")
         exit(0)
     elif not fixPoints :
-        log.critical(f"No fix points found in mak file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+        log.critical(f"No fix points found in mak file : {Colors.ENDC}{shortCurentFile}")
         exit(0)
 
     datum_lower = next(iter(Datums)).strip().lower().replace(" ","")
-    if datum_lower not in global_data.datumToEPSG:
+    
+    if datum_lower not in globalData.datumToEPSG:
         log.critical(f"Unknown Datum : {datum_lower}")
         exit(0)
     
@@ -1065,47 +862,77 @@ def makToThFile(ENTRY_FILE) :
         exit(0)
     
     # Construction du code EPSG
-    epsg_prefix = global_data.datumToEPSG[datum_lower]
+    epsg_prefix = globalData.datumToEPSG[datum_lower]
     epsg_code = f"{epsg_prefix}{zone_num}" if hemisphere == "N" else f"{epsg_prefix}{zone_num + 100}"
     
     # Génération du CRS QGIS (format WKT)
     crs_wkt = f'EPSG:{epsg_code}'
-
-    log.info(f"Reading mak file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.GREEN}, fixed station : {Colors.ENDC}{len(fixPoints)}{Colors.GREEN}, files {Colors.ENDC}{len(datFiles)}{Colors.GREEN}, UTM Zone : {Colors.ENDC}{UTM[0]}{Colors.GREEN}, Datum : {Colors.ENDC}{next(iter(Datums))}{Colors.GREEN}, SCR : {Colors.ENDC}{crs_wkt}")
-    # log.debug(datFiles)
-    # log.debug(fixPoints)
+    
+    
+    log.info(f"Reading mak file: {Colors.ENDC}{shortCurentFile}{Colors.GREEN}, fixed station: {Colors.ENDC}{len(fixPoints)}{Colors.GREEN}, files: {Colors.ENDC}{len(datFiles)}{Colors.GREEN}, UTM Zone: {Colors.ENDC}{UTM[0]}{Colors.GREEN}, Datum: {Colors.ENDC}{next(iter(Datums))}{Colors.GREEN}, SCR: {Colors.ENDC}{crs_wkt}")
+    totReadMeFixPoint = f"* Source mak file: {os.path.basename(ENTRY_FILE)}, fixed station: {len(fixPoints)}, files: {len(datFiles)}, UTM Zone: {UTM[0]}, Datum: {next(iter(Datums))}, SCR: {crs_wkt}\n" 
      
+    QtySections = 0
+    
+    for file in datFiles :       
+        ABS_file = os.path.dirname(abspath(args.survey_file)) + "\\"+ file
+        content, val = load_text_file_utf8(ABS_file, os.path.basename(ABS_file))
+        section = content.split('\x0c')
+        QtySections += len(section)
+
+      
     SurveyTitleMak =  sanitize_filename(os.path.basename(abspath(args.survey_file))[:-4])
         
     folderDest = os.path.dirname(abspath(args.survey_file)) + "/" + SurveyTitleMak
         
-    copy_template_if_not_exists(template_path,folderDest)
+    copy_template_if_not_exists(globalData.templatePath,folderDest)
+    
+    
+    ##############################################################################################     
+    # Boucle pour lire les dat                                                                   #
+    ##############################################################################################
+    
     
     stationList = pd.DataFrame(columns=['StationName', 'Survey_Name_01', 'Survey_Name_02'])
     totdata = f"\t## Liste inputs\n"
     totMapsPlan = ""
     totMapsExtended = ""
     
-    for file in datFiles :      
-        _file = os.path.dirname(abspath(args.survey_file)) + "\\"+ file
-        shutil.copy(_file, folderDest + "\\Data\\")
-        ABS_file = folderDest + "\\Data\\"+ file
-        Station, SurveyTitle = datToThFiles (ABS_file, fixPoints, crs_wkt, _ConfigPath)
+    
+    with alive_bar(QtySections, title=f"{Colors.GREEN}Surveys progress: {Colors.BLUE}",  length = 20, enrich_print=False) as bar:
         
-        totdata +=f"\tinput Data/{SurveyTitle}/{SurveyTitle}-tot.th\n" 
-        totMapsPlan += f"\tMP-{SurveyTitle}-Plan-tot@{SurveyTitle}\n\tbreak\n"
-        totMapsExtended += f"\tMC-{SurveyTitle}-Extended-tot@{SurveyTitle}\n\tbreak\n"
+        with redirect_stdout(sys.__stdout__):
+            for file in datFiles:
+                
+                bar.text(f"{Colors.INFO}file: {Colors.ENDC}{file}")
+                
+                _file = os.path.dirname(abspath(args.survey_file)) + "\\" + file
+                shutil.copy(_file, folderDest + "\\Data\\")
+                ABS_file = folderDest + "\\Data\\" + file
 
-        if not Station.empty:  # pour éviter d'ajouter des DataFrames vides
-            stationList = pd.concat([stationList, Station], ignore_index=True)
-            stationList.sort_values(by='Survey_Name_02', inplace=True, ignore_index=True)
+                totReadMeError += f"* file: {file}\n"
+                totReadMeList += f"file: {file}\n"
 
+                Station, SurveyTitle, totReadMeError, thread2 = dat_to_th_files(ABS_file, fixPoints, crs_wkt, _ConfigPath, totReadMeError, bar)
+                
+                threads += thread2
 
-        destination = os.path.join(folderDest, "Sources", os.path.basename(ABS_file))
-        if os.path.exists(destination):
-            os.remove(destination)
+                totdata += f"\tinput Data/{SurveyTitle}/{SurveyTitle}-tot.th\n"
+                totMapsPlan += f"\tMP-{SurveyTitle}-Plan-tot@{SurveyTitle}\n\tbreak\n"
+                totMapsExtended += f"\tMC-{SurveyTitle}-Extended-tot@{SurveyTitle}\n\tbreak\n"
 
-        shutil.move(ABS_file, destination)  
+                if not Station.empty:
+                    stationList = pd.concat([stationList, Station], ignore_index=True)
+                    stationList.sort_values(by='Survey_Name_02', inplace=True, ignore_index=True)
+
+                destination = os.path.join(folderDest, "Sources", os.path.basename(ABS_file))
+                if os.path.exists(destination):
+                    os.remove(destination)
+
+                shutil.move(ABS_file, destination)
+
+                bar() 
+    
     
     ################################################################################################# 
     # Gestion des equats 
@@ -1160,34 +987,47 @@ def makToThFile(ENTRY_FILE) :
     config_vars = {
                     'fileName': SurveyTitleMak,
                     'caveName': SurveyTitleMak.replace("_", " "),
-                    'Author': Author,
-                    'Copyright': Copyright,
+                    'Author': globalData.Author,
+                    'Copyright': globalData.Copyright,
                     'Scale' : args.scale,
                     'Target' : "TARGET",
-                    'mapComment' : map_comment,
-                    'club' : club,
-                    'thanksto' : thanksto,
-                    'datat' : datat,
-                    'wpage' : wpage, 
+                    'mapComment' : globalData.mapComment,
+                    'club' : globalData.club,
+                    'thanksto' : globalData.thanksto,
+                    'datat' : globalData.datat,
+                    'wpage' : globalData.wpage, 
                     'cs' : crs_wkt,
                     'configPath' : " ",
                     'totData' : totdata,
                     'other_scraps_plan' : totMapsPlan,
                     'other_scraps_extended' : totMapsExtended,
+                    'readMeList' : totReadMeList,
+                    'errorList' : totReadMeError,
+                    'fixPointList' : totReadMeFixPoint,
                     'file_info' : f"# File generated by pyCreateTh.py version {Version} date: {datetime.now().strftime("%Y.%m.%d-%H:%M:%S")}",
             }
 
     DEST_PATH = os.path.dirname(args.survey_file) + '/' +  SurveyTitleMak
 
-    process_template(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '.thconfig')
-    process_template(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitleMak + '-tot.th')
-    process_template(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '-maps.th')
-    process_template(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/readme.md')
+    update_template_files(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '.thconfig')
+    update_template_files(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitleMak + '-tot.th')
+    update_template_files(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '-maps.th')
+    update_template_files(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '-readme.md')
     
-    return 
+    #################################################################################################     
+    # Final therion compilation                                                                     #
+    #################################################################################################
+ 
+    if globalData.finalTherionExe == True:
+        FILE = DEST_PATH + '/' +  SurveyTitleMak + '.thconfig'      
+        t =  compile_file(FILE, therion_path=globalData.therionPath) 
+        threads.append(t)
+    
+    return SurveyTitleMak, threads
+
 
 #################################################################################################
-def station_List(data, list, fixPoints) :  
+def station_list(data, list, fixPoints) :  
     """
     Crée une liste de stations à partir des données fournies.
 
@@ -1220,8 +1060,9 @@ def station_List(data, list, fixPoints) :
     
     return list, dfDATA
 
+
 #################################################################################################
-def formated_Station_List(df, dataFormat, unit = "meter", ENTRY_FILE = None) :
+def formated_station_list(df, dataFormat, unit = "meter", shortCurentFile ="None") :
     """
     Formate la liste des stations selon le format spécifié.
 
@@ -1337,7 +1178,7 @@ def formated_Station_List(df, dataFormat, unit = "meter", ENTRY_FILE = None) :
             not_surface_row = [" "] * len(row)
             not_surface_row[0] = "flags not duplicate"
             new_rows.append(not_surface_row)
-            log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
 
         # Si la colonne 10 contient #|P#    exclude from plotting
         elif "#|P#" in col10:
@@ -1350,7 +1191,7 @@ def formated_Station_List(df, dataFormat, unit = "meter", ENTRY_FILE = None) :
             not_surface_row = [" "] * len(row)
             not_surface_row[0] = "# flags not exclude from plot no implemented"
             new_rows.append(not_surface_row)
-            log.warning(f"Flags exclude from plot #|P# not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            log.warning(f"Flags exclude from plot #|P# not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
 
         # Si la colonne 10 contient #|C#    exclude from closure
         elif "#|C#" in col10:
@@ -1363,7 +1204,7 @@ def formated_Station_List(df, dataFormat, unit = "meter", ENTRY_FILE = None) :
             not_surface_row = [" "] * len(row)
             not_surface_row[0] = "# flags not exclude from closure no implemented"
             new_rows.append(not_surface_row)
-            log.warning(f"Flags #|C# exclude from closure not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            log.warning(f"Flags #|C# exclude from closure not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
 
         # Si la colonne 10 contient #|PL#    exclude from plotting and Length
         elif "#|PL#" in col10 or "#|LP#" in col10:
@@ -1376,7 +1217,7 @@ def formated_Station_List(df, dataFormat, unit = "meter", ENTRY_FILE = None) :
             not_surface_row = [" "] * len(row)
             not_surface_row[0] = "flags not duplicate"
             new_rows.append(not_surface_row)
-            log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
 
         # Si la colonne 10 contient #|LC#    exclude from Length and Closure
         elif "#|LC#" in col10 or "#|CL#" in col10:
@@ -1389,7 +1230,7 @@ def formated_Station_List(df, dataFormat, unit = "meter", ENTRY_FILE = None) :
             not_surface_row = [" "] * len(row)
             not_surface_row[0] = "flags not duplicate"
             new_rows.append(not_surface_row)
-            log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+            log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
 
         # Si la colonne 10 contient #|PLC#    exclude from plotting, closure and length
         elif "#|PLC#" in col10:
@@ -1413,8 +1254,8 @@ def formated_Station_List(df, dataFormat, unit = "meter", ENTRY_FILE = None) :
             not_surface_row = [" "] * len(row)
             not_surface_row[0] = "# flags not unknown no implemented"
             new_rows.append(not_surface_row)
-            log.error(f"Flags unknown '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
-            global_data.error_count += 1
+            log.error(f"Flags unknown '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
+            globalData.error_count += 1
             
         else:
             new_rows.append(row.tolist())
@@ -1476,6 +1317,7 @@ def formated_Station_List(df, dataFormat, unit = "meter", ENTRY_FILE = None) :
         
     return "\n".join(output)
     
+    
 #################################################################################################          
 def find_duplicates_by_date_and_team(data):
     grouped = defaultdict(list)
@@ -1534,8 +1376,9 @@ def find_duplicates_by_date_and_team(data):
 
     return duplicates
 
+
 #################################################################################################    
-def pointsUniques(data, crs_wkt):
+def points_uniques(data, crs_wkt):
     # Création d'un DataFrame à partir des lignes de données
     rows = [line.split() for line in data['DATA']]
     dfDATA = pd.DataFrame(rows)
@@ -1559,6 +1402,7 @@ def pointsUniques(data, crs_wkt):
         uniques_col0 = uniques_col0[~uniques_col0.isin(crs_wkt)]
 
     return uniques_col0.reset_index(drop=True).tolist()
+    
      
 #################################################################################################     
 def merge_duplicate_surveys(data, duplicates, id_offset=10000):
@@ -1660,11 +1504,186 @@ def merge_duplicate_surveys(data, duplicates, id_offset=10000):
             merged_data.append(deepcopy(entry))
 
     return merged_data     
+     
         
+#################################################################################################        
+def dat_survey_format_extract(section_data, currentSurveyName, fichier, totReadMeError) :
+    
+    if section_data['FORMAT'] is None or len(section_data['FORMAT']) < 11 or len(section_data['FORMAT']) > 15 :
+        log.error(f"Error in format code {Colors.ENDC}{section_data['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{currentSurveyName}")
+        log.debug(f"Error in format code SURVEY_NAME {Colors.ENDC}{section_data['SURVEY_NAME']}")
+        log.debug(f"Error in format code SURVEY_DATE {Colors.ENDC}{section_data['SURVEY_DATE']}")
+        log.debug(f"SURVEY TITLE: {Colors.ENDC}{section_data['SURVEY_TITLE']}")
+        log.debug(f"COMMENT: {Colors.ENDC}{section_data['COMMENT']}")
+        log.debug(f"SURVEY TEAM: {Colors.ENDC}{section_data['SURVEY_TEAM']}")
+        log.debug(f"DECLINATION: {Colors.ENDC}{section_data['DECLINATION']}")
+        log.debug(f"FORMAT: {Colors.ENDC}{section_data['FORMAT']}")
+        log.debug(f"CORRECTIONS: {Colors.ENDC}{section_data['CORRECTIONS']}")
+        log.debug(f"DATA: {Colors.ENDC}{(section_data['DATA'])}")
+        log.debug(f"DATA Qté: {Colors.ENDC}{len(section_data['DATA'])}")
+        log.debug(f"STATION: {Colors.ENDC}{(section_data['STATION'])}")
+        log.debug(f"SOURCE: {Colors.ENDC}{section_data['SOURCE']}\n")
+        globalData.error_count += 1
+        totReadMeError += f"\tError in format code {section_data['FORMAT']} in {currentSurveyName}\n"
+    
+    def Dimension(string="") :
+        directions = {'U': " up", 'D': " down", 'R': " right", 'L': " left"}
+        if string in directions:
+            return directions[string]
+        else:
+            log.error(f"Error in format str {Colors.ENDC}{string}{Colors.ERROR} code {Colors.ENDC}{section_data['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{fichier}{Colors.ERROR} in {Colors.ENDC}{currentSurveyName}")
+            totReadMeError += f"\tError in format str {string} code {section_data['FORMAT']} in {fichier} in {currentSurveyName}\n"
+            globalData.error_count += 1
+            return ""
+             
+    def LRUD_association(string="") :
+        # In Therion the standard LRUD association is the shot and not the station
+        # LRUD Association: F=From Station, T=To Station
+        if  string == 'F' : return ""
+        elif  string == 'T' : return ""
+        else : 
+            log.error(f"Error in format str {Colors.ENDC}{string}{Colors.ERROR} code {Colors.ENDC}{section_data['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{fichier}{Colors.ERROR} in {Colors.ENDC}{currentSurveyName}")
+            totReadMeError += f"\tError in format str {string} code {section_data['FORMAT']} in {fichier} in {currentSurveyName}\n"
+            globalData.error_count += 1
+            return ""
+
+    def Backsight(string="") :           # Backsight: B=Redundant, N or empty=No Redundant Backsights.
+        if  string == 'B' : 
+            log.error(f"Backsight unit not yet implemented {Colors.ENDC}{section_data['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{currentSurveyName}")  
+            totReadMeError += f"\tBacksight unit not yet implemented {Colors.ENDC}{section_data['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{currentSurveyName}\n"
+            globalData.error_count += 1 
+            return ""
+        elif string == 'N' : return ""
+        else : 
+            log.error(f"Error in format str {Colors.ENDC}{string}{Colors.ERROR} code {Colors.ENDC}{section_data['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{fichier}{Colors.ERROR} in {Colors.ENDC}{currentSurveyName}")
+            totReadMeError += f"\tError in format str {string} code {section_data['FORMAT']} in {fichier} in {currentSurveyName}\n"
+            globalData.error_count += 1
+            return ""       
+
+    def ShotOrder(string="") :
+        if  string == 'L' : return " length"
+        elif  string == 'A' : return " compass"
+        elif  string == 'D' : 
+            if clino == 'depth feet' : return " depthchange"
+            else : return " clino"
+        elif  string == 'a' : return "  backcompass"
+        elif  string == 'd' : return "  backclino"
+        else : 
+            log.error(f"Error in format str {Colors.ENDC}{string}{Colors.ERROR} code {Colors.ENDC}{section_data['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{fichier}{Colors.ERROR} in {Colors.ENDC}{currentSurveyName}")
+            totReadMeError += f"\tError in format str {string} code {section_data['FORMAT']} in {fichier} in {currentSurveyName}\n"
+            globalData.error_count += 1
+            return ""
+
+    type_Data = "normal"
+    
+    ################################################ Section Units 0-3 ###############################################
+    if section_data['FORMAT'][0] == 'D' : compass = 'compass degree'
+    elif section_data['FORMAT'][0] == 'R' : compass = 'compass grads'
+    else : 
+        compass = 'Compass_error'
+        log.error(f"Compass bearing unit 'quads' not yet implemented in {Colors.ENDC}{currentSurveyName}")
+        globalData.error_count += 1
+        totReadMeError += f"\tCompass bearing unit 'quads' not yet implemented in survey {currentSurveyName}\n"
+    
+    if section_data['FORMAT'][1] == 'D' : length = 'length feet'
+    elif section_data['FORMAT'][1] == 'M' : length = 'length meter'
+    else : 
+        length = 'Length_error'
+        log.error(f"Length unit 'Feet and Inches' not yet implemented in {Colors.ENDC}{currentSurveyName}") 
+        globalData.error_count += 1
+        totReadMeError += f"\tLength unit 'Feet and Inches' not yet implemented in {currentSurveyName}\n"
+
+    
+    if section_data['FORMAT'][3] == 'D' : clino = 'clino degree'
+    elif section_data['FORMAT'][3] == 'R' : clino = 'clino grads'
+    # elif section_data['FORMAT'][3] == 'G' : clino = 'percent'   # %Grades à vérifier?  
+    # elif section_data['FORMAT'][3] == 'M' : clino = 'grads'     # Degrees and Minutes
+    elif section_data['FORMAT'][3] == 'W' : 
+        clino = 'clino degree'   # Depth Gauge
+        type_Data = "normal"   # Depth Gauge
+    else : 
+        clino = 'Inclination_error'
+        log.error(f"Inclination unit not yet implemented in {Colors.ENDC}{currentSurveyName}")   
+        globalData.error_count += 1
+        totReadMeError += f"\tInclination unit not yet implemented in {currentSurveyName}\n"
+        
+    ################################################ Section dimensions 4-7 ###############################################    
+    dataFormat = Dimension(section_data['FORMAT'][4])
+    dataFormat += Dimension(section_data['FORMAT'][5])
+    dataFormat += Dimension(section_data['FORMAT'][6])
+    dataFormat += Dimension(section_data['FORMAT'][7])    
+    
+    ################################################ Section Shot 8-11 ou 13 ###############################################
+    if len(section_data['FORMAT']) == 11 or len(section_data['FORMAT']) == 12 or len(section_data['FORMAT']) == 13:
+        if  len(section_data['FORMAT']) == 13 :   # UUUUDDDDSSSBL
+            dataFormat = LRUD_association(section_data['FORMAT'][12]) + dataFormat
+            dataFormat = Backsight(section_data['FORMAT'][11]) + dataFormat # UUUUDDDDSSSB 
+        elif  len(section_data['FORMAT']) == 12 :  dataFormat = Backsight(section_data['FORMAT'][11]) + dataFormat             
+        dataFormat = ShotOrder(section_data['FORMAT'][10]) + dataFormat
+        dataFormat = ShotOrder(section_data['FORMAT'][9]) + dataFormat
+        dataFormat = ShotOrder(section_data['FORMAT'][8]) + dataFormat
+
+    elif len(section_data['FORMAT']) == 15 :    #  UUUUDDDDSSSSSBL 
+        dataFormat = LRUD_association(section_data['FORMAT'][14]) + dataFormat
+        dataFormat = Backsight(section_data['FORMAT'][13]) + dataFormat             
+        dataFormat = ShotOrder(section_data['FORMAT'][11]) + dataFormat
+        dataFormat = ShotOrder(section_data['FORMAT'][9]) + dataFormat
+        dataFormat = ShotOrder(section_data['FORMAT'][8]) + dataFormat
+        
+    ################################################ Section Shot 8-11 ou 13 ###############################################
+    
+    
+    dataFormat = "data " + type_Data + " from to" + dataFormat + " # comment"
+    
+    return dataFormat, length, compass, clino, totReadMeError       
+        
+#################################################################################################     
+def load_text_file_utf8(filepath, short_filename):
+    encodings_to_try = [
+        'utf-8-sig',       # UTF-8 avec BOM
+        'utf-8',           # UTF-8 standard
+        'windows-1252',    # ANSI Windows Europe de l’Ouest
+        'iso-8859-15',     # ISO-8859-15 (latin9), remplace iso-8859-1 (latin1)
+        'iso-8859-1',
+    ]
+
+    for enc in encodings_to_try:
+        try:
+            with open(filepath, 'r', encoding=enc) as f:
+                content = f.read()
+            log.info(f"Source file: {Colors.ENDC}{short_filename}{Colors.GREEN}, encoding: {Colors.ENDC}{enc}{Colors.GREEN}, conversion to UTF-8")
+            message = f"* Source file: {short_filename}, encoding: {enc}, conversion to UTF-8\n"
+            return content, message
+        
+        except UnicodeDecodeError as e:
+            log.debug(f"Failed {Colors.ENDC}{enc}{Colors.DEBUG} for {Colors.ENDC}{short_filename}{Colors.DEBUG}: {Colors.ENDC}{e}")
+            continue
+        
+        except Exception as e:
+            log.critical(f"Unexpected error while reading {Colors.ENDC}{short_filename}{Colors.CRITICAL}: {e}")
+            exit(0)
+            return None, ""
+
+    # Dernier recours : lecture binaire + forçage
+    try:
+        with open(filepath, 'rb') as f:
+            raw = f.read()
+            content = raw.decode('windows-1252', errors='replace')
+        log.warning(f"Force-reading {Colors.ENDC}{short_filename}{Colors.WARNING} with character replacement (windows-1252)")
+        message = f"* Force-reading source file: {short_filename} with character replacement (windows-1252)\n"  
+        return content, message
+    
+    except Exception as e:
+        log.critical(f"Failed to read file {Colors.ENDC}{short_filename}{Colors.CRITICAL}: {Colors.ENDC}{e}")  
+        exit(0)
+        return None, ""
+
+
+   
 ################################################################################################# 
 # Création des dossiers Th à partir d'un dat                                                    #
 #################################################################################################  
-def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
+def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "", totReadMeError = "", bar=None) :
     """
     Convertit un fichier .dat en fichiers .th.
 
@@ -1678,57 +1697,18 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
         tuple: Un tuple contenant un DataFrame des stations et le nom du survey.
         
     """
-    global Author
-    global Copyright
-    global Copyright_Short
-    global map_comment
-    global club
-    global thanksto
-    global datat
-    global wpage
-    global cs
-    global template_path
-    global station_by_scrap
-    global final_therion_exe
-    global therion_path
-    global LINES
-    global NAMES
-
+    
     
     # Détecter la fin de section (FF CR LF qui correspond à \x0c\r\n)
     section_separator = '\x0c'
-    content = ""
+    shortCurentFile = os.path.basename(ENTRY_FILE)
+
     
     #################################################################################################     
     # 1 : Lecture du fichier dat                                                                    #
     ################################################################################################# 
-    try:
-        result = from_path(ENTRY_FILE)
-        best_guess = result.best()
         
-        if best_guess is None or best_guess.encoding is None:
-            log.critical(f"Unable to detect the file encoding {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
-            exit(0)
-            return None
-        
-        encoding_detected = best_guess.encoding.lower()
-        
-        with open(ENTRY_FILE, 'r', encoding=encoding_detected) as f:
-            content = f.read()
-        
-        if encoding_detected.lower() != 'utf-8':
-            log.info(f"File: {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.GREEN}, encodage : {Colors.ENDC}{encoding_detected}{Colors.GREEN} conversion utf-8")
-        else :
-            log.debug(f"File: {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.DEBUG}, encodage : {Colors.ENDC}{encoding_detected}")
-
-    except FileNotFoundError:
-        log.error(f"The dat file {Colors.ENDC}{safe_relpath(ENTRY_FILE)} {Colors.ERROR}did not exist")
-        global_data.error_count += 1
-        
-    except Exception as e:
-        log.error(f"An error occurred when reading dat file: {Colors.ENDC}{e}{Colors.ERROR}, file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
-        global_data.error_count += 1
-        
+    content, totReadMe = load_text_file_utf8(ENTRY_FILE, shortCurentFile)
     
     #################################################################################################     
     # Séparer les sections                                                                          #
@@ -1741,9 +1721,9 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
     totdata = f"\t## Liste inputs\n"
     totMapsPlan = ""
     totMapsExtended = ""
-    totReadMe = ""
-    totReadMeError = ""
+    totReadMeErrorDat = ""
     totReadMeFixPoint = f"cs {crs_wkt}\n"
+    threads = []
     
     # Tableau global pour stocker toutes les stations
     stationList = pd.DataFrame(columns=['StationName', 'Survey_Name_01', 'Survey_Name_02'])
@@ -1847,7 +1827,7 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
         
         # Ajouter les données de la section à la liste
         if len(section_data['DATA']) > 0 :
-            listStationSection, dfDATA = station_List(section_data, listStationSection, fixPoints)
+            listStationSection, dfDATA = station_list(section_data, listStationSection, fixPoints)
             section_data['STATION'] = listStationSection
             data.append(section_data)    
             unique_id += 1 
@@ -1857,11 +1837,11 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
             # Détecter les surveys avec plusieurs points de départ                                          #
             #################################################################################################    
   
-            points = pointsUniques(section_data, crs_wkt)
+            points = points_uniques(section_data, crs_wkt)
 
             if len(points) > 1 :
                 log.warning(f"Points {Colors.ENDC}{points}{Colors.WARNING} uniques dans la section {Colors.ENDC}{section_data['SURVEY_NAME']}")
-                # global_data.error_count += 1
+                # globalData.error_count += 1
                 
             else :
                 log.debug(f"Points {Colors.ENDC}{points}{Colors.DEBUG} uniques dans la section {section_data['SURVEY_NAME']}")
@@ -1870,12 +1850,17 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
     #################################################################################################
     # Grouper les sections ayant même date team et un point commun                                  #
     #################################################################################################
- 
+    val1 = len(data)
+    
     duplicates = find_duplicates_by_date_and_team(data)     
 
     data = merge_duplicate_surveys(data, duplicates)
     
-    log.info(f"Read dat file : {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.GREEN} with {Colors.ENDC}{len(data)}/{len(data)}{Colors.GREEN} survey")
+    val2 = val1 - len(data)
+    
+    bar(val2)
+    
+    log.info(f"Read dat file: {Colors.ENDC}{shortCurentFile}{Colors.GREEN} with {Colors.ENDC}{len(data)}/{len(data)}{Colors.GREEN} survey")
     
 
     #################################################################################################     
@@ -1892,7 +1877,7 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
 
     folderDest = os.path.dirname(ENTRY_FILE) + "\\" + SurveyTitle
     
-    copy_template_if_not_exists(template_path,folderDest)
+    copy_template_if_not_exists(globalData.templatePath,folderDest)
     
     if  args.survey_file[-3:].lower() != "dat" :
         _destination =  folderDest + "\\config.thc"
@@ -1909,15 +1894,18 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
     surveyCount = 1
     SurveyListEqui = [] 
     
-    totReadMe += f"* Source file: {os.path.basename(ENTRY_FILE)}\n"
+    # totReadMe += f"* Source file: {os.path.basename(ENTRY_FILE)}\n"
     
     for _line in data :    
-
-        # output_file = folderDest + "\\Data\\" + sanitize_filename(_line['SURVEY_NAME']) + ".th" 
-        output_file = f"{folderDest}\\Data\\Survey_{surveyCount:02d}.th"
+        
+        # currentSurveyName = f"{globalData.typeSurveyName}{surveyCount:02d}"
+        # currentSurveyName = f"{globalData.typeSurveyName}{surveyCount:02d}_{sanitize_filename(_line['SURVEY_NAME'])}"
+        currentSurveyName = f"{globalData.SurveyPrefixName}{surveyCount:02d}_{sanitize_filename(_line['SURVEY_DATE'])}"
+   
+        output_file = f"{folderDest}\\Data\\{currentSurveyName}.th"
         
         SurveyNameCount = {
-            'surveyCount' :f"Survey_{surveyCount:02d}", 
+            'surveyCount' :f"{currentSurveyName}", 
             'SURVEY_NAME': _line['SURVEY_NAME']
         }
 
@@ -1932,7 +1920,7 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
         # gestion des DATA                                                                              #
         #################################################################################################
     
-        stationList, dfDATA = station_List(_line, stationList, fixPoints)
+        stationList, dfDATA = station_list(_line, stationList, fixPoints)
 
         ################################################################################################# 
         # Recherche des points fixes (entrées)
@@ -1954,7 +1942,7 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
         if len(list_common_points) >= 1 :
             fixPoint += f"\t\tcs {crs_wkt}\n"             
             for point in list_common_points :
-                totReadMeFixPoint += f"\tFix point: {point[0]} [{point[2]:.3f} m, {point[3]:.3f} m, {point[4]:.3f} m], in Survey_{surveyCount:02d}\n"
+                totReadMeFixPoint += f"\tFix point: {point[0]} [{point[2]:.3f} m, {point[3]:.3f} m, {point[4]:.3f} m], in {currentSurveyName}\n"
                 if point[1] == 'm' :
                     fixPoint +=  f"\t\tfix {point[0]} {point[2]:.3f} {point[3]:.3f}	{point[4]:.3f}\n" 
                 elif point[1] == 'f' :
@@ -1964,133 +1952,15 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
         ################################################################################################# 
         # Gestion des formats
         ################################################################################################# 
-        if _line['FORMAT'] is None or len(_line['FORMAT']) < 11 or len(_line['FORMAT']) > 12 :
-            log.error(f"Error in format code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}Survey_{surveyCount:02d}")
-            log.debug(f"Error in format code SURVEY_NAME {Colors.ENDC}{_line['SURVEY_NAME']}")
-            log.debug(f"Error in format code SURVEY_DATE {Colors.ENDC}{_line['SURVEY_DATE']}")
-            log.debug(f"SURVEY TITLE: {Colors.ENDC}{_line['SURVEY_TITLE']}")
-            log.debug(f"COMMENT: {Colors.ENDC}{_line['COMMENT']}")
-            log.debug(f"SURVEY TEAM: {Colors.ENDC}{_line['SURVEY_TEAM']}")
-            log.debug(f"DECLINATION: {Colors.ENDC}{_line['DECLINATION']}")
-            log.debug(f"FORMAT: {Colors.ENDC}{_line['FORMAT']}")
-            log.debug(f"CORRECTIONS: {Colors.ENDC}{_line['CORRECTIONS']}")
-            log.debug(f"DATA: {Colors.ENDC}{(_line['DATA'])}")
-            log.debug(f"DATA Qté: {Colors.ENDC}{len(_line['DATA'])}")
-            log.debug(f"STATION: {Colors.ENDC}{(_line['STATION'])}")
-            log.debug(f"SOURCE: {Colors.ENDC}{_line['SOURCE']}\n")
-            global_data.error_count += 1
-            totReadMeError += f"\tError in format code {_line['FORMAT']} in Survey_{surveyCount:02d}\n"
         
-        dataFormat = ""
-        type_Data = "normal"
-        
-        if _line['FORMAT'][0] == 'D' : compass = 'compass degree'
-        elif _line['FORMAT'][0] == 'R' : compass = 'compass grads'
-        else : 
-            compass = 'Compass_error'
-            log.error(f"Compass bearing unit 'quads' not yet implemented in {Colors.ENDC}Survey_{surveyCount:02d}")
-            global_data.error_count += 1
-            totReadMeError += f"\tCompass bearing unit 'quads' not yet implemented in survey Survey_{surveyCount:02d}\n"
-        
-        if _line['FORMAT'][1] == 'D' : length = 'length feet'
-        elif _line['FORMAT'][1] == 'M' : length = 'length meter'
-        else : 
-            length = 'Length_error'
-            log.error(f"Length unit 'Feet and Inches' not yet implemented in {Colors.ENDC}Survey_{surveyCount:02d}") 
-            global_data.error_count += 1
-            totReadMeError += f"\tLength unit 'Feet and Inches' not yet implemented in Survey_{surveyCount:02d}\n"
-
-        
-        if _line['FORMAT'][3] == 'D' : clino = 'clino degree'
-        elif _line['FORMAT'][3] == 'R' : clino = 'clino grads'
-        # elif _line['FORMAT'][3] == 'G' : clino = 'percent'   # %Grades à vérifier?  
-        # elif _line['FORMAT'][3] == 'M' : clino = 'grads'     # Degrees and Minutes
-        elif _line['FORMAT'][3] == 'W' : 
-            clino = 'clino degree'   # Depth Gauge
-            type_Data = "normal"   # Depth Gauge
-        else : 
-            clino = 'Inclination_error'
-            log.error(f"Inclination unit not yet implemented in {Colors.ENDC}Survey_{surveyCount:02d}")   
-            global_data.error_count += 1
-            totReadMeError += f"\tInclination unit not yet implemented in Survey_{surveyCount:02d}\n"
-            
-
-        if  _line['FORMAT'][4] == 'U' : dataFormat = dataFormat + " up"
-        elif  _line['FORMAT'][4] == 'D' : dataFormat = dataFormat + " down"
-        elif  _line['FORMAT'][4] == 'R' : dataFormat = dataFormat + " right"
-        elif  _line['FORMAT'][4] == 'L' : dataFormat = dataFormat + " left"
-        else : 
-            log.error(f"Error in format str 4 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.ERROR} in {Colors.ENDC}Survey_{surveyCount:02d}")
-            global_data.error_count += 1
-            totReadMeError += f"\tError in format str 4 code {_line['FORMAT']} in {safe_relpath(ENTRY_FILE)} in Survey_{surveyCount:02d}\n"
-        
-        if  _line['FORMAT'][5] == 'U' : dataFormat = dataFormat + " up"
-        elif  _line['FORMAT'][5] == 'D' : dataFormat = dataFormat + " down"
-        elif  _line['FORMAT'][5] == 'R' : dataFormat = dataFormat + " right"
-        elif  _line['FORMAT'][5] == 'L' : dataFormat = dataFormat + " left"
-        else : 
-            log.error(f"Error in format str 5 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.ERROR} in {Colors.ENDC}Survey_{surveyCount:02d}")
-            totReadMeError += f"\tError in format str 5 code {_line['FORMAT']} in {safe_relpath(ENTRY_FILE)} in Survey_{surveyCount:02d}\n"
-            global_data.error_count += 1
-        
-        if  _line['FORMAT'][6] == 'U' : dataFormat = dataFormat + " up"
-        elif  _line['FORMAT'][6] == 'D' : dataFormat = dataFormat + " down"
-        elif  _line['FORMAT'][6] == 'R' : dataFormat = dataFormat + " right"
-        elif  _line['FORMAT'][6] == 'L' : dataFormat = dataFormat + " left"
-        else : 
-            log.error(f"Error in format str 6 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.ERROR} in {Colors.ENDC}Survey_{surveyCount:02d}")
-            totReadMeError += f"\tError in format str 6 code {_line['FORMAT']} in {safe_relpath(ENTRY_FILE)} in Survey_{surveyCount:02d}\n"
-            global_data.error_count += 1
-        
-        if  _line['FORMAT'][7] == 'U' : dataFormat = dataFormat + " up"
-        elif  _line['FORMAT'][7] == 'D' : dataFormat = dataFormat + " down"
-        elif  _line['FORMAT'][7] == 'R' : dataFormat = dataFormat + " right"
-        elif  _line['FORMAT'][7] == 'L' : dataFormat = dataFormat + " left"
-        else : 
-            log.error(f"Error in format str 7 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.ERROR} in {Colors.ENDC}Survey_{surveyCount:02d}")
-            totReadMeError += f"\tError in format str 7 code {_line['FORMAT']} in {safe_relpath(ENTRY_FILE)} in Survey_{surveyCount:02d}\n"
-            global_data.error_count += 1
-        
-        if  _line['FORMAT'][10] == 'L' : dataFormat =  " length" + dataFormat
-        elif  _line['FORMAT'][10] == 'A' : dataFormat = " compass" + dataFormat
-        elif  _line['FORMAT'][10] == 'D' : 
-            if clino == 'depth feet' : dataFormat = " depthchange" + dataFormat
-            else : dataFormat = " clino" + dataFormat
-        elif  _line['FORMAT'][10] == 'a' : dataFormat = "  backcompass" + dataFormat
-        elif  _line['FORMAT'][10] == 'd' : dataFormat = "  backclino" + dataFormat
-        else : 
-            log.error(f"Error in format str 10 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.ERROR} in {Colors.ENDC}Survey_{surveyCount:02d}")
-            totReadMeError += f"\tError in format str 10 code {_line['FORMAT']} in {safe_relpath(ENTRY_FILE)} in Survey_{surveyCount:02d}\n"
-            global_data.error_count += 1
-        
-        if  _line['FORMAT'][9] == 'L' : dataFormat =  " length" + dataFormat
-        elif  _line['FORMAT'][9] == 'A' : dataFormat = " compass" + dataFormat
-        elif  _line['FORMAT'][9] == 'D' : dataFormat = " clino" + dataFormat
-        elif  _line['FORMAT'][9] == 'a' : dataFormat = "  backcompass" + dataFormat
-        elif  _line['FORMAT'][9] == 'd' : dataFormat = "  backclino" + dataFormat
-        else : 
-            log.error(f"Error in format str 8 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.ERROR} in {Colors.ENDC}Survey_{surveyCount:02d}")
-            totReadMeError += f"\tError in format str 8 code {_line['FORMAT']} in {safe_relpath(ENTRY_FILE)} in Survey_{surveyCount:02d}\n"
-            global_data.error_count += 1
-        
-        if  _line['FORMAT'][8] == 'L' : dataFormat =  " length" + dataFormat
-        elif  _line['FORMAT'][8] == 'A' : dataFormat = " compass" + dataFormat
-        elif  _line['FORMAT'][8] == 'D' : dataFormat = " clino" + dataFormat
-        elif  _line['FORMAT'][8] == 'a' : dataFormat = "  backcompass" + dataFormat
-        elif  _line['FORMAT'][8] == 'd' : dataFormat = "  backclino" + dataFormat
-        else : 
-            log.error(f"Error in format str 8 code {Colors.ENDC}{_line['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}{Colors.ERROR} in {Colors.ENDC}Survey_{surveyCount:02d}")
-            totReadMeError += f"\tError in format str 8 code {_line['FORMAT']} in {safe_relpath(ENTRY_FILE)} in Survey_{surveyCount:02d}\n"
-            global_data.error_count += 1
-        
-        dataFormat = "data " + type_Data + " from to" + dataFormat + " # comment"
+        dataFormat, length, compass, clino, totReadMeErrorDat = dat_survey_format_extract(_line, currentSurveyName, shortCurentFile, totReadMeErrorDat)
         
         with open(str(output_file), "w+", encoding="utf-8") as f:
-            f.write(global_data.thFileDat.format(
+            f.write(globalData.thFileDat.format(
                     VERSION = Version,
                     DATE=datetime.now().strftime("%Y.%m.%d-%H:%M:%S"),
                     # SURVEY_NAME = sanitize_filename(_line['SURVEY_NAME']),  
-                    SURVEY_NAME = f"Survey_{surveyCount:02d}", 
+                    SURVEY_NAME = f"{currentSurveyName}", 
                     SURVEY_DATE = _line['SURVEY_DATE'], 
                     SURVEY_TEAM = _line['SURVEY_TEAM'], 
                     FORMAT = _line['FORMAT'], 
@@ -2099,7 +1969,7 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
                     CLINO = clino,    
                     DATA_FORMAT = dataFormat,
                     CORRECTIONS = _line['CORRECTIONS'], 
-                    DATA = formated_Station_List(dfDATA, dataFormat, length, ENTRY_FILE=ENTRY_FILE),
+                    DATA = formated_station_list(dfDATA, dataFormat, length, shortCurentFile),
                     COMMENT = sanitize_filename(_line['SURVEY_NAME'] + " " + _line['COMMENT']).replace('"', "'").replace('_', " "),
                     FIX_POINTS = fixPoint,
                     EXPLO_DATE = "????",
@@ -2108,7 +1978,7 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
                     )
             )
         
-        totdata +=f"\tinput Data/Survey_{surveyCount:02d}/Survey_{surveyCount:02d}-tot.th\n" 
+        totdata +=f"\tinput Data/{currentSurveyName}/{currentSurveyName}-tot.th\n" 
 
         log.info(f"Therion file : {Colors.ENDC}{safe_relpath(output_file)}{Colors.GREEN} created from {Colors.ENDC}{os.path.basename(ENTRY_FILE)}")
 
@@ -2118,24 +1988,33 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
         
         _Config_PATH = CONFIG_PATH + "../../"
         
-        StatCreateFolder, stat = createThFolders( ENTRY_FILE = output_file, SCALE = args.scale, UPDATE = args.update, CONFIG_PATH = _Config_PATH,) 
+        StatCreateFolder, stat, totReadMeErrorDat, thread2 = create_th_folders(
+            ENTRY_FILE = output_file, 
+            SCALE = args.scale, 
+            UPDATE = args.update, 
+            CONFIG_PATH = _Config_PATH, 
+            totReadMeError = totReadMeErrorDat)
+        threads += thread2 
      
         log.info(f"File: {Colors.ENDC}{os.path.basename(ENTRY_FILE)}.dat{Colors.INFO} compilation successful, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")   
-        totReadMe += f"\tSurvey_{surveyCount:02d} compilation successful length: {stat["length"]} m, depth: {stat["depth"]} m\n"
+        totReadMe += f"\t{currentSurveyName} compilation successful length: {stat["length"]} m, depth: {stat["depth"]} m\n"
          
         _destination = output_file[:-3] + "\\Sources"
         destination_path = os.path.join(_destination, os.path.basename(output_file))
         shutil.move(output_file, destination_path)      
         
-        _destination =  output_file[:-3] + "\\config.thc"
-        destination_path = os.path.join(_destination, os.path.basename(output_file))
-        # print(f"destination_path : {_destination}")
-        os.remove(_destination)
+        if args.survey_file[-3:].lower() != "dat" :
+            _destination =  output_file[:-3] + "\\config.thc"
+            destination_path = os.path.join(_destination, os.path.basename(output_file))
+            # print(f"destination_path : {_destination}")
+            os.remove(_destination)
         
         if not StatCreateFolder :
-            totMapsPlan += f"\tMP-Survey_{surveyCount:02d}-Plan-tot@Survey_{surveyCount:02d}\n\tbreak\n"
-            totMapsExtended += f"\tMC-Survey_{surveyCount:02d}-Extended-tot@Survey_{surveyCount:02d}\n\tbreak\n"
+            totMapsPlan += f"\tMP-{currentSurveyName}-Plan-tot@{currentSurveyName}\n\tbreak\n"
+            totMapsExtended += f"\tMC-{currentSurveyName}-Extended-tot@{currentSurveyName}\n\tbreak\n"
         surveyCount += 1
+        
+        bar()
 
 #################################################################################################     
 # 4 : Finalisation (remplissage des -tot.th et maps.th                                          #
@@ -2172,7 +2051,7 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
         tableau_equate = tableau_pivot[tableau_pivot['Survey_Name_2'].notna()]
 
 
-        log.info(f"Total 'equats' : {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{safe_relpath(ENTRY_FILE)}")
+        log.info(f"Total 'equats' : {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{shortCurentFile}")
         # print(tableau_equate)
         # print(f"fixePoints : {Colors.ENDC}{fixed_names}{Colors.INFO} in {Colors.ENDC}{ENTRY_FILE}")
         
@@ -2193,26 +2072,26 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
              
     totdata +=f"\n\t## Appel des maps\n\tinput {SurveyTitle}-maps.th\n"
     
-    if totReadMeError == "" : totReadMeError = "\tAny error, that's perfect !"
+    if totReadMeErrorDat == "" : totReadMeErrorDat += "\tAny error in this file, that's perfect !\n"
         
     config_vars = {
                     'fileName': SurveyTitle,
                     'caveName': SurveyTitle.replace("_", " "),
-                    'Author': Author,
-                    'Copyright': Copyright,
+                    'Author': globalData.Author,
+                    'Copyright': globalData.Copyright,
                     'Scale' : args.scale,
                     'Target' : "TARGET",
-                    'mapComment' : map_comment,
-                    'club' : club,
-                    'thanksto' : thanksto,
-                    'datat' : datat,
-                    'wpage' : wpage, 
+                    'mapComment' : globalData.mapComment,
+                    'club' : globalData.club,
+                    'thanksto' : globalData.thanksto,
+                    'datat' : globalData.datat,
+                    'wpage' : globalData.wpage, 
                     'cs' : crs_wkt,
                     'totData' : totdata,
                     'configPath' : CONFIG_PATH,
                     'other_scraps_plan' : totMapsPlan,
                     'readMeList' : totReadMe,
-                    'errorList' : totReadMeError,
+                    'errorList' : totReadMeErrorDat,
                     'fixPointList' : totReadMeFixPoint,
                     'other_scraps_extended' : totMapsExtended,
                     'file_info' : f"# File generated by pyCreateTh.py version {Version} date: {datetime.now().strftime("%Y.%m.%d-%H:%M:%S")}",
@@ -2220,23 +2099,48 @@ def datToThFiles (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "") :
 
     DEST_PATH = os.path.dirname(ENTRY_FILE) + '/' +  SurveyTitle
 
-    process_template(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitle + '.thconfig')
-    process_template(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitle + '-tot.th')
-    process_template(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  SurveyTitle + '-maps.th')
-    process_template(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/readme.md')
+    update_template_files(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitle + '.thconfig')
+    update_template_files(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitle + '-tot.th')
+    update_template_files(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  SurveyTitle + '-maps.th')
+    update_template_files(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH +'/' + SurveyTitle + '-readme.md')
+    
+    #################################################################################################     
+    # Final therion compilation                                                                     #
+    #################################################################################################
+ 
+    if globalData.finalTherionExe == True:
+        FILE = DEST_PATH + '/' +  SurveyTitle + '.thconfig'      
+        t = compile_file(FILE, therion_path=globalData.therionPath) 
+        threads.append(t)
         
     stationList["Survey_Name_02"] = SurveyTitle
 
+    totReadMeError += totReadMeErrorDat
     
-    return stationList, SurveyTitle
+    return stationList, SurveyTitle, totReadMeError, threads
 
-  
+
+#################################################################################################
+def wait_until_file_is_released(filepath, timeout=30):
+    start = time.time()
+    while True:
+        try:
+            with open(filepath, "rb"):
+                return True
+        except PermissionError:
+            if time.time() - start > timeout:
+                raise TimeoutError(f"Timeout: le fichier est toujours verrouillé après {timeout} secondes : {filepath}")
+            time.sleep(0.1)  # attend 100 ms
+
+
 #################################################################################################
 #  main function                                                                                #
 #################################################################################################
 if __name__ == u'__main__':	
     
     start_time  = datetime.now()
+    threads = []
+    fileTitle = ""
     
     #################################################################################################
     # Parse arguments                                                                               #
@@ -2266,7 +2170,7 @@ if __name__ == u'__main__':
     args = parser.parse_args()
     
     if args.survey_file == "":
-        args.survey_file = select_file()
+        args.survey_file = select_file_tk_window()
         # print(f"Selected file : {args.survey_file}")    
         
     output_log = splitext(abspath(args.survey_file))[0]+".log"    
@@ -2281,6 +2185,7 @@ if __name__ == u'__main__':
     if os.name == 'posix':  os.system('clear') # Linux, MacOS
     elif os.name == 'nt':  os.system('cls')# Windows
     else: print("\n" * 100)
+    
     
     _titre =[f'********************************************************************************************************************************************\033[0m', 
             f'* Conversion Th, Dat, Mak files to Therion files and folders',
@@ -2308,34 +2213,61 @@ if __name__ == u'__main__':
         exit(0)
     
     if args.survey_file[-2:].lower() == "th" :
-        createThFolders(
-            ENTRY_FILE = abspath(args.survey_file), 
-            TARGET = args.survey_name, 
-            PROJECTION= args.proj,
-            SCALE = args.scale, 
-            UPDATE = args.update,
-            CONFIG_PATH = "")
+        flagErrorCompile, stat, totReadMeError, thread2 = create_th_folders(
+                                                                ENTRY_FILE = abspath(args.survey_file), 
+                                                                TARGET = args.survey_name, 
+                                                                PROJECTION= args.proj,
+                                                                SCALE = args.scale, 
+                                                                UPDATE = args.update,
+                                                                CONFIG_PATH = "")
+        threads += thread2
+        fileTitle = sanitize_filename(os.path.basename(args.survey_file))[:-3]
         
     elif args.survey_file[-3:].lower() == "mak" :
-        makToThFile(abspath(args.survey_file))    
+        fileTitle, thread2 = mak_to_th_file(abspath(args.survey_file))    
+        threads += thread2
         
     elif args.survey_file[-3:].lower() == "dat" :
         _ConfigPath = "./"
-        datToThFiles (abspath(args.survey_file), fixPoints = [], crs_wkt = "", CONFIG_PATH = _ConfigPath)
+        
+        QtySections = 0
+         
+        ABS_file = abspath(args.survey_file)
+        
+        content, val = load_text_file_utf8(ABS_file, os.path.basename(ABS_file))
+        section = content.split('\x0c')
+        QtySections += len(section)
+
+        
+        
+        with alive_bar(QtySections, title=f"{Colors.GREEN}Surveys progress: {Colors.BLUE}",  length = 20, enrich_print=False) as bar:
+            with redirect_stdout(sys.__stdout__):
+                for i in range(1): 
+                    bar.text(f"{Colors.INFO}file: {Colors.ENDC}{os.path.basename(ABS_file)}")
+                    stationList, fileTitle, totReadMeError, thread2 = dat_to_th_files (ABS_file , fixPoints = [], crs_wkt = "", CONFIG_PATH = _ConfigPath, totReadMeError = "", bar = bar)
+                    threads += thread2
+                    bar()
         
     else :
         log.error(f"file {Colors.ENDC}{safe_relpath(args.survey_file)}{Colors.ERROR} not yet supported")
-        global_data.error_count += 1
+        globalData.error_count += 1
 
     duration = (datetime.now() - start_time).total_seconds()
     
-    if global_data.error_count == 0 :
-        
+    for t in threads:
+        t.join()
+
+    destination_path = os.path.dirname(output_log) + "\\" + fileTitle 
+    wait_until_file_is_released(output_log)
+    
+    if globalData.error_count == 0 :    
         log.info(f"All files processed successfully in {Colors.ENDC}{duration:.2f}{Colors.INFO} secondes, without errors")
     else :
-        log.error(f"There were {Colors.ENDC}{global_data.error_count}{Colors.ERROR} errors during {Colors.ENDC}{duration:.2f}{Colors.ERROR} secondes, check the log file {Colors.ENDC}{safe_relpath(output_log)}")
+        log.error(f"There were {Colors.ENDC}{globalData.error_count}{Colors.ERROR} errors during {Colors.ENDC}{duration:.2f}{Colors.ERROR} secondes, check the log file: {Colors.ENDC}{os.path.basename(output_log)}")
 
-
+    wait_until_file_is_released(output_log)
+    release_log_file(log)
+    shutil.move(output_log, destination_path)
     
         
     

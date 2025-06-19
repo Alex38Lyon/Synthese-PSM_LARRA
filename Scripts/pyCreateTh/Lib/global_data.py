@@ -7,8 +7,29 @@ global_data.py for pyCreateTh.py
 
 #################################################################################################
 
-
 error_count = 0                # Compteur d'erreurs
+
+## [Survey_Data]  default values
+Author = "Created by pyCreateTh.py"
+Copyright = "# global_data.Copyright (C) pyCreateTh.py"
+CopyrightShort = "Licence (C) pyCreateTh.py"
+mapComment = "Created by pyCreateTh.py"
+cs = "UTM30"
+club = "Therion"
+thanksto = "Therion"
+datat = "https://therion.speleo.sk/"
+wpage = "https://therion.speleo.sk/"
+
+## [Application_data] default values
+templatePath = "./Template"
+stationByScrap = 20
+finalTherion_exe = True
+therionPath = "C:/Therion/therion.exe"
+SurveyPrefixName = f"Survey_"
+linesInTh2 = -1
+stationNamesInTh2 = -1
+
+
 
 #################################################################################################
 thFileDat = """
