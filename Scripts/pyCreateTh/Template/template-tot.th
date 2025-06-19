@@ -3,6 +3,6 @@ encoding utf-8
 
 {Copyright}
 
-survey {fileName} -title "{fileName}"
+survey {fileName} -title "{caveName}"
 {totData}
 endsurvey

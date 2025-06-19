@@ -3,11 +3,11 @@ encoding utf-8
 
 {Copyright}
 
-map MP-{fileName}-Plan-tot -title "{fileName}"
+map MP-{fileName}-Plan-tot -title "{caveName}"
 {other_scraps_plan}
 endmap
 
-map MC-{fileName}-Extended-tot -title "{fileName}"
+map MC-{fileName}-Extended-tot -title "{caveName}"
 {other_scraps_extended}	
 endmap
 

@@ -20,8 +20,8 @@ searching for centerline loops ... done
 calculating station coordinates ... done
 processing survey data ... 
 ####################### cavern log file ########################
- 1> Survex 1.4.15
- 2> Copyright ¸ 1990-2024 Olly Betts
+ 1> Survex 1.4.17
+ 2> Copyright ¸ 1990-2025 Olly Betts
  3> 
  4> La topographie contient 574 stations, connect‚es par 573 vis‚es.
  5> Il y a 0 bouclages.
@@ -31,48 +31,12 @@ processing survey data ...
  9> Intervalle vertical = 238.38m (de 34 … 1644.00m jusqu'… 223 … 1405.62m)
 10> Intervalle Nord-Sud = 70.50m (de 34 … 4758093.00m jusqu'… 293 … 4758022.50m)
 11> Intervalle Est-Ouest = 60.84m (de 40 … 679299.28m jusqu'… 293 … 679238.44m)
-12>  425 1-noeuds.
-13>   79 2-noeuds.
-14>    9 3-noeuds.
-15>    1 4-noeud.
-16>    5 5-noeuds.
-17>   29 6-noeuds.
-18>    1 7-noeud.
-19>    1 9-noeud.
-20>    3 10-noeuds.
-21>    4 11-noeuds.
-22>    3 12-noeuds.
-23>    5 13-noeuds.
-24>    3 14-noeuds.
-25>    2 15-noeuds.
-26>    1 16-noeud.
-27>    1 17-noeud.
-28>    1 18-noeud.
-29>    1 19-noeud.
-30> 
+12> 
 ######################### transcription ########################
  4> 574 : .@Z510.Z510 -- 573 : 2024.23@Z510.Z510
  9> 34 : Z_510@Z510.Z510 -- 223 : .@Z510.Z510
 10> 34 : Z_510@Z510.Z510 -- 293 : .@Z510.Z510
 11> 40 : 8.2@Z510.Z510 -- 293 : .@Z510.Z510
-12> 425 : .@Z510.Z510
-13> 79 : 10.3@Z510.Z510
-14> 9 : 4.2@Z510.Z510
-15> 1 : 0@Z510.Z510
-16> 5 : 3.0@Z510.Z510
-17> 29 : 1.9@Z510.Z510
-18> 1 : 0@Z510.Z510
-19> 1 : 0@Z510.Z510
-20> 3 : 2.0@Z510.Z510
-21> 4 : 2.1@Z510.Z510
-22> 3 : 2.0@Z510.Z510
-23> 5 : 3.0@Z510.Z510
-24> 3 : 2.0@Z510.Z510
-25> 2 : 0d@Z510.Z510
-26> 1 : 0@Z510.Z510
-27> 1 : 0@Z510.Z510
-28> 1 : 0@Z510.Z510
-29> 1 : 0@Z510.Z510
 #################### end of cavern log file ####################
 done
 calculating basic statistics ... done
@@ -91,7 +55,7 @@ processing projection extended ... done
 average distortion: 0.02%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  8 MAY 2025 17:53
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  18 JUN 2025 10:31
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -113,7 +77,7 @@ writing Outputs/Z510-Surveys.kml ...
 C:\Program Files\Therion\therion.exe: warning -- geographical reference is not associated with table
 done
 writing xtherion file ... done
-compilation time: 1 sec
+compilation time: 0 sec
 
 
 ###################### scrap distortions #######################

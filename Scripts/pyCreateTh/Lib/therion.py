@@ -1,3 +1,9 @@
+"""
+#############################################################################################
+therion.py for pyCreateTh.py                                                           
+#############################################################################################
+"""
+
 import tempfile
 import shutil
 import os
@@ -48,7 +54,7 @@ def safe_relpath(path):
         return valeur
     
     except ValueError:
-        max_depth = 6  # Profondeur maximale pour tronquer le chemin
+        max_depth = 4  # Profondeur maximale pour tronquer le chemin
         
         # Disques différents, afficher le chemin relatif partiel depuis la racine commune
         path_parts = abs_path.split(os.sep)
@@ -103,7 +109,6 @@ def compile_templateOld(template, template_args, **kwargs):
 # Compiler une configuration générée dynamiquement à partir d'un template texte.                #
 #################################################################################################
 def compile_template(template, template_args, **kwargs):
-        
     logfile = ""
     tmpdir = None
     try:
@@ -117,7 +122,6 @@ def compile_template(template, template_args, **kwargs):
 
         therion_path = kwargs.get("therion_path", "therion")
 
-        # Écriture des fichiers config + log
         with open(config_file, "w", encoding="utf-8") as tmp:
             tmp.write(config)
             tmp.flush()
@@ -125,14 +129,15 @@ def compile_template(template, template_args, **kwargs):
         # Exécution de Therion
         result = subprocess.run(
             [therion_path, config_file, "-l", log_file],
+            stdin=subprocess.DEVNULL,  # Évite toute attente d'entrée clavier
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
-            text=True,           # Décode automatiquement en UTF-8 (avec fallback ci-dessous)
+            text=True,
             timeout=kwargs.get("timeout", 30),
-            errors="replace"     # Remplace caractères invalides (évite UnicodeDecodeError)
+            errors="replace"
         )
 
-        # Lecture du log (en mode tolérant)
+        # Lecture du fichier log
         try:
             with open(log_file, "r", encoding="cp1252", errors="replace") as f:
                 logfile = f.read()
@@ -140,23 +145,24 @@ def compile_template(template, template_args, **kwargs):
             log.warning(f"Could not read Therion log: {Colors.ENDC}{log_err}")
 
         # Analyse du code retour
-        if result.returncode != 0:
-            log.error(f"Therion compilation failed with return code: {Colors.ENDC}{result.returncode} {Colors.ERROR}{result.stdout}")
+        if result.returncode != 0 or "press any key" in result.stdout.lower():
+            log.error(f"Therion compilation failed with return code: {Colors.ENDC}{result.returncode}\n{Colors.WHITE}{result.stdout}")
             global_data.error_count += 1
-          
-        else:
-            log.info(f"Therion compilation successful")
+            return "Therion error", tmpdir
 
+        stat = get_stats_from_log(logfile)
+
+        log.info(f"Therion compilation successful, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")
         return logfile, tmpdir
 
     except subprocess.TimeoutExpired:
-        log.error(f"Therion process timed out and was terminated {Colors.ENDC}{logfile}")
+        log.error(f"Therion process timed out and was terminated : {Colors.ENDC}{logfile}")
         global_data.error_count += 1
         return "Therion error", tmpdir
 
     except Exception as e:
         log.error(f"Therion template compilation error: {Colors.ENDC}{e}")
-        global_data.error_count += 1    
+        global_data.error_count += 1
         return "Therion error", tmpdir
 
     finally:
@@ -166,54 +172,7 @@ def compile_template(template, template_args, **kwargs):
             except Exception as cleanup_err:
                 log.warning(f"Could not delete temp directory: {Colors.ENDC}{cleanup_err}")
 
-
-################################################################################################# 
-# Compilation Therion (version avec blocage)                                                    #
-# Compiler directement un fichier .th déjà existant avec Therion.
-#################################################################################################
-def compile_fileOld(filename, **kwargs):
-    
-    try:
-        tmpdir = os.path.dirname(filename)
-        log_file = join(tmpdir, "therion.log").replace("\\", "/")
-        therion_path = kwargs["therion_path"] if "therion_path" in kwargs else "therion"     
-        
-        process = subprocess.Popen(
-            [therion_path, filename, "-l", log_file],
-            cwd=tmpdir,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,  # fusion stdout + stderr
-            universal_newlines=True,   # décodage automatique en texte
-            bufsize=1                  # ligne par ligne
-        )
-        
-        log.info(f"Start therion compilation file : {Colors.ENDC}{safe_relpath(filename)}")
-        # Lecture en temps réel        
-        for line in process.stdout:
-            line = line.rstrip()
-            lower_line = line.lower()
-            if "error" in lower_line:
-                log.error(f" [Therion_Compile] {Colors.ENDC}{line}")
-            elif "warning" in lower_line:
-                log.warning(f" [Therion_Compile] {Colors.ENDC}{line}")
-            else:
-                log.debug(f" [Therion_Compile] {Colors.ENDC}{line}")
-
-        process.wait()
-        
-        # Si la commande échoue, result.returncode sera non nul
-        if process.returncode != 0:
-            # Affichage des erreurs et de la sortie standard
-            log.error(f"Error during Therion compilation, stderr : \n{Colors.ENDC}{process.stderr.decode()}")
-            global_data.error_count += 1
-        
-        log.info(f"Therion file : {Colors.ENDC}{safe_relpath(filename)}{Colors.GREEN} succeeded")
-        
-    except Exception as e:
-            log.error(f"Therion file {Colors.ENDC}{safe_relpath(filename, os.path.expanduser('~'))}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
-            global_data.error_count += 1
-           
-        
+             
 ################################################################################################# 
 # Compilation Therion (version sans blocage)                                                    #
 #################################################################################################
@@ -243,12 +202,14 @@ def compile_file(filename, **kwargs):
                 for line in proc.stdout:
                     line = line.rstrip()
                     lower_line = line.lower()
-                    if "error" in lower_line:
-                        log.error(f"[Therion_Compile] {Colors.ENDC}{line}")
+                    if "average loop error" in lower_line:
+                        log.warning(f"[Therion_Compile] {Colors.ENDC}{line}")
+                    elif "error" in lower_line:
+                        log.error(f"[Therion_Compile] {Colors.ENDC}{line}")    
                     elif "warning" in lower_line:
-                        log.warning(f" [Therion_Compile] {Colors.ENDC}{line}")
+                        log.warning(f"[Therion_Compile] {Colors.ENDC}{line}")
                     else:
-                        log.debug(f" [Therion_Compile] {Colors.ENDC}{line}")
+                        log.debug(f"[Therion_Compile] {Colors.ENDC}{line}")
             except Exception as e:
                 log.warning(f"Reading Therion output: {Colors.ENDC}{e}")
 
@@ -283,7 +244,7 @@ def compile_file(filename, **kwargs):
 def compile_file_th(filepath, **kwargs):
     template = """source {filepath}
         layout test
-        scale 1 500
+        scale 1 100
     endlayout
     """
     template_args = {"filepath": filepath}
@@ -295,8 +256,6 @@ def compile_file_th(filepath, **kwargs):
 lengthre = re.compile(r".*Longueur totale de la topographie = \s*(\S+)m")
 depthre = re.compile(r".*Longueur totale verticale =\s*(\S+)m")
 
-
-#################################################################################################
 def get_stats_from_log(log):
     lenmatch = lengthre.findall(log)
     depmatch = depthre.findall(log)
@@ -309,7 +268,6 @@ def get_stats_from_log(log):
 syscoord = re.compile(r".*output coordinate system: \s*(\S+)")
 
 
-#################################################################################################
 def get_syscoord_from_log(log):
     lenmatch = syscoord.findall(log)
 

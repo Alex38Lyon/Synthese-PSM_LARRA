@@ -1,8 +1,15 @@
+"""
+#############################################################################################
+logger_config.py for pyCreateTh.py                                                           
+#############################################################################################
+"""
 import logging
 import sys
 import re
 
+#################################################################################################
 # Couleurs ANSI par niveau de log
+#################################################################################################
 COLOR_CODES = {
     logging.DEBUG: "\033[94m",       # Bleu
     logging.INFO: "\033[92m",        # Vert
@@ -12,19 +19,25 @@ COLOR_CODES = {
 }
 RESET = "\033[0m"
 
+#################################################################################################
 # Supprime les codes ANSI (pour l'écriture dans les fichiers)
+#################################################################################################
 def strip_ansi_codes(text):
     ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
     return ansi_escape.sub('', text)
 
+#################################################################################################
 # Formatter pour la console avec couleurs
+#################################################################################################
 class ConsoleFormatter(logging.Formatter):
     def format(self, record):
         color = COLOR_CODES.get(record.levelno, "")
         message = super().format(record)
         return f"{color}{message}{RESET}"
 
+#################################################################################################
 # Formatter pour le fichier avec "!!!" sur les erreurs
+#################################################################################################
 class FileFormatter(logging.Formatter):
     def format(self, record):
         clean_msg = strip_ansi_codes(record.getMessage())
@@ -41,8 +54,11 @@ class FileFormatter(logging.Formatter):
             sinfo=record.stack_info
         )
         return super().format(record_copy)
-
+    
+    
+#################################################################################################
 # Fonction de configuration du logger
+#################################################################################################
 def setup_logger(logfile="app.log", debug_log=False):
     logger = logging.getLogger("Logger")
     logger.setLevel(logging.DEBUG)
