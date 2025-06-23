@@ -88,74 +88,11 @@ def compile_template(template, template_args, totReadMeError = "", **kwargs ):
 ################################################################################################# 
 # Compilation Therion (version sans blocage)                                                    #
 #################################################################################################
-def compile_fileOLd(filename, **kwargs):
-    tmpdir = os.path.dirname(filename)
-    log_file = join(tmpdir, "therion.log").replace("\\", "/")
-    therion_path = kwargs.get("therion_path", "therion")
-    timeout = kwargs.get("timeout", 60)  # seconds
-
-    log.info(f"Start therion compilation file: {Colors.ENDC}{safe_relpath(filename)}")
-
-    try:
-        # Lancement du processus Therion
-        process = subprocess.Popen(
-            [therion_path, filename, "-l", log_file],
-            cwd=tmpdir,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            universal_newlines=True,
-            bufsize=1
-        )
-
-        # Fonction de lecture en temps réel (dans un thread séparé)
-        def read_output(proc):
-            try:
-                for line in proc.stdout:
-                    line = line.rstrip()
-                    lower_line = line.lower()
-                    if "average loop error" in lower_line:
-                        log.warning(f"[Therion_Compile] {Colors.ENDC}{line}")
-                    elif "error" in lower_line:
-                        log.error(f"[Therion_Compile] {Colors.ENDC}{line}")    
-                    elif "warning" in lower_line:
-                        log.warning(f"[Therion_Compile] {Colors.ENDC}{line}")
-                    else:
-                        log.debug(f"[Therion_Compile] {Colors.ENDC}{line}")
-            except Exception as e:
-                log.warning(f"Reading Therion output: {Colors.ENDC}{e}")
-
-        # Démarrage du thread de lecture
-        output_thread = threading.Thread(target=read_output, args=(process,))
-        output_thread.start()
-
-        # Attente avec timeout
-        output_thread.join(timeout)
-        if output_thread.is_alive():
-            log.error(f"Therion compilation timed out after {Colors.ENDC}{timeout}{Colors.ERROR} seconds. Killing process...")
-            global_data.error_count += 1
-            process.kill()
-            output_thread.join()
-
-        process.wait()
-
-        # Vérification du code de retour
-        if process.returncode != 0:
-            log.error(f"Therion returned error code {Colors.ENDC}{process.returncode}")
-            global_data.error_count += 1
-            
-        else:
-            log.info(f"Therion file: {Colors.ENDC}{safe_relpath(filename)}{Colors.GREEN} compilation succeeded")
-
-    except Exception as e:
-        log.error(f"Therion file: {Colors.ENDC}{safe_relpath(filename)}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
-        global_data.error_count += 1
-
-
 def compile_file(filename, **kwargs):
     tmpdir = os.path.dirname(filename)
     log_file = join(tmpdir, "therion.log").replace("\\", "/")
     therion_path = kwargs.get("therion_path", "therion")
-    timeout = kwargs.get("timeout", 60)
+    timeout = kwargs.get("timeout", 240)
 
     log.info(f"Start therion compilation file: {Colors.ENDC}{safe_relpath(filename)}")
 
@@ -176,13 +113,13 @@ def compile_file(filename, **kwargs):
                         line = line.rstrip()
                         lower_line = line.lower()
                         if "average loop error" in lower_line:
-                            log.warning(f"[Therion_Compile] {Colors.ENDC}{line}")
+                            log.warning(f"[Therion Compile {os.path.basename(filename)[:-9]}] {Colors.ENDC}{line}")
                         elif "error" in lower_line:
-                            log.error(f"[Therion_Compile] {Colors.ENDC}{line}")    
+                            log.error(f"[Therion_Compile {os.path.basename(filename)[:-9]}] {Colors.ENDC}{line}")    
                         elif "warning" in lower_line:
-                            log.warning(f"[Therion_Compile] {Colors.ENDC}{line}")
+                            log.warning(f"[Therion Compile {os.path.basename(filename)[:-9]}] {Colors.ENDC}{line}")
                         else:
-                            log.debug(f"[Therion_Compile] {Colors.ENDC}{line}")
+                            log.debug(f"[Therion Compile {os.path.basename(filename)[:-9]}] {Colors.ENDC}{line}")
                 except Exception as e:
                     log.warning(f"Reading Therion output: {Colors.ENDC}{e}")
 
