@@ -28,6 +28,7 @@ therionPath = "C:/Therion/therion.exe"
 SurveyPrefixName = f"Survey_"
 linesInTh2 = -1
 stationNamesInTh2 = -1
+wallLineInTh2 = -1
 
 
 #################################################################################################
@@ -73,6 +74,7 @@ endsurvey
 {SOURCE}
 """
 
+
 #################################################################################################
 thconfigTemplate = """
 source "{th_file}"
@@ -87,12 +89,13 @@ export map -projection plan -o "{th_name}-Plan.xvi" -layout minimal -layout-debu
 export map -projection extended -o "{th_name}-Extended.xvi" -layout minimal -layout-debug station-names
 """
 
+
 #################################################################################################
 th2FileHeader = """encoding  utf-8"""
 
 th2File = """
 ##XTHERION## xth_me_area_adjust {X_Min} {Y_Min} {X_Max} {Y_Max}
-##XTHERION## xth_me_area_zoom_to 100
+##XTHERION## xth_me_area_zoom_to 25
 ##XTHERION## xth_me_image_insert {insert_XVI} 
 
 {Copyright}
@@ -103,24 +106,26 @@ th2File = """
 
 scrap S{projection_short}-{name}_01 -station-names "" "@{name}" -projection {projection} -author {year} "{author}" -copyright {year} "{Copyright_Short}"
     
-{points}
-    
-{names}
-    
+{names}    
 {lines}
+{walls}
+
+{points}
     
 endscrap
 """
 
-th2Point = """    point {x} {y} station -name {station}"""
-th2Name  = """    point {x} {y} station-name -align tr -scale xs -text {station}"""
+th2Point = """\tpoint {x} {y} station -name {station}"""
+th2Name  = """\tpoint {x} {y} station-name -align tr -scale xs -text {station}"""
 
 th2Line  = """
 line u:Shot_Survey
-     {x1} {y1}
-     {x2} {y2}     
+\t{x1} {y1}
+\t{x2} {y2}     
 endline
 """
+
+th2wall = """{list}"""
 
 th2Scrap = """
                         
@@ -128,6 +133,7 @@ scrap S{projection_short}-{name}_{num:02} -station-names "" "@{name}" -projectio
     
 endscrap
 """
+
 
 #################################################################################################
 datumToEPSG = {

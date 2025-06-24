@@ -199,12 +199,16 @@ def read_config(config_file):
     
     if global_data.linesInTh2 == -1 :    
         if 'Application_Data' in config and 'shot_lines_in_th2_files' in config['Application_Data']:
-            linesInTh2 = 0 if config['Application_Data']['shot_lines_in_th2_files'] == "False" else 1
+            global_data.linesInTh2 = 0 if config['Application_Data']['shot_lines_in_th2_files'] == "False" else 1
     
     if global_data.stationNamesInTh2 == -1 :    
         if 'Application_Data' in config and 'station_name_in_th2_files' in config['Application_Data']:
             global_data.stationNamesInTh2 = 0 if config['Application_Data']['station_name_in_th2_files'] == "False" else 1
-        
+    
+    if global_data.wallLineInTh2 == -1 :    
+        if 'Application_Data' in config and 'wall_lines_in_th2_files' in config['Application_Data']:
+            global_data.wallLineInTh2 = 0 if config['Application_Data']['wall_lines_in_th2_files'] == "False" else 1
+
 
 #################################################################################################
 # Supprime les codes ANSI (pour l'écriture dans les fichiers)

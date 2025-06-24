@@ -21,17 +21,14 @@ Version 2025 06 16 :    Création fonction create_th_folders
                         
                         
 En cours :
-    - gérer les updates (th, dat, mak)
-    - créer fonction pour faire habillage des th2 files, les jointures...
-    - reprendre l'option shot lines dans les th2 files pour supprimer les splays.
-    - créer l'option wall shot lines dans les th2 files.
-    - reprendre les options en ligne de commande, tester
+    - créer fonction wall shot  pour faire habillage des th2 files, les jointures...
+    - reprendre les options en ligne de commande, tester, documenter
     - trouver une solution pour les teams et les clubs manquants
     - tester la nouvelle version de DAT (CORRECTION2 et suivants)
     - comparer résultats Therion - Compass (Stat, kml, etc....)
     - intégrer .tro files d'après XRo
+    - ajouter codes pour lat/long
     
-
 
 """
 
@@ -41,6 +38,8 @@ Version ="2025.06.24"
 #################################################################################################
 import os, re, unicodedata, argparse, shutil, sys, time, math
 from os.path import isfile, join, abspath, splitext
+import numpy as np
+import networkx as nx
 import pandas as pd
 pd.set_option('future.no_silent_downcasting', True)
 from datetime import datetime
@@ -279,34 +278,60 @@ def str_to_bool(value):
         raise argparse.ArgumentTypeError(f"{Colors.ERROR}Error: Invalid boolean value: {Colors.ENDC}{value}")
 
 #################################################################################################
-def convert_to_line_polaire(lines):
-    line_polaire = []
-    
-    for line in lines:
-        try:
-            x1 = float(line[0])
-            y1 = float(line[1])
-            x2 = float(line[2])
-            y2 = float(line[3])
-            name1 = line[4]
-            name2 = line[5]
+def convert_to_line_polaire_df(df_lines):
+    """
+    Convertit un DataFrame de lignes cartésiennes (x1, y1, x2, y2, name1, name2)
+    en un DataFrame avec représentation polaire (x1, y1, azimut_deg, longueur, name1, name2).
+    """
+    try:
+        # Forcer la conversion des colonnes numériques
+        df_lines = df_lines.copy()  # évite de modifier l'original
+        cols_to_float = ["x1", "y1", "x2", "y2"]
+        for col in cols_to_float:
+            df_lines[col] = pd.to_numeric(df_lines[col], errors="coerce")
 
-            dx = x2 - x1
-            dy = y2 - y1
+        # Supprimer les lignes invalides (NaN après conversion)
+        df_lines = df_lines.dropna(subset=cols_to_float)
+        
+        
+        dx = df_lines["x2"] - df_lines["x1"]
+        dy = df_lines["y2"] - df_lines["y1"]
+        
+        # Calcul de la longueur et de l'azimut
+        length = np.hypot(dx, dy)
+        azimut = (np.degrees(np.arctan2(dy, dx))) % 360
 
-            # Longueur (distance)
-            length = math.hypot(dx, dy)
+        if "group_id" in df_lines.columns:
+            df_polaire = pd.DataFrame({
+                "x1": df_lines["x1"],
+                "y1": df_lines["y1"],
+                "x2": df_lines["x2"],
+                "y2": df_lines["y2"],
+                "azimut_deg": azimut,
+                "longueur": length,
+                "name1": df_lines["name1"],
+                "name2": df_lines["name2"],
+                "group_id": df_lines["group_id"],
+                "rank_in_group": df_lines["rank_in_group"],
+            })
+        else :    
+            df_polaire = pd.DataFrame({
+                "x1": df_lines["x1"],
+                "y1": df_lines["y1"],
+                "x2": df_lines["x2"],
+                "y2": df_lines["y2"],
+                "azimut_deg": azimut,
+                "longueur": length,
+                "name1": df_lines["name1"],
+                "name2": df_lines["name2"],
+            })
 
-            # Roth = azimut en degrés, 0° = Est, 90° = Nord
-            roth_rad = math.atan2(dy, dx)
-            roth_deg = (math.degrees(roth_rad)) % 360  # pour rester entre 0-360
+        return df_polaire
 
-            line_polaire.append([x1, y1, roth_deg, length, name1, name2])
-
-        except Exception as e:
-            print(f"Erreur sur la ligne {line} : {e}")
-
-    return line_polaire
+    except Exception as e:
+        log.error(f"Issue in polar conversion: {Colors.ENDC}{e}")
+        globalData.error_count += 1
+        return pd.DataFrame()
 
 
 #################################################################################################
@@ -327,6 +352,7 @@ def parse_xvi_file(th_name_xvi):
     """
     stations = {}
     lines = []
+    splays = []
 
     with open(join(th_name_xvi), "r", encoding="utf-8") as f:
         xvi_content = f.read()
@@ -341,7 +367,8 @@ def parse_xvi_file(th_name_xvi):
                 station = station_number
                 if len(namespace_array) > 1:
                     station = "{}@{}".format(station_number, ".".join(namespace_array[0:-1]))
-                stations[f"{x}.{y}"] = [x, y, station]
+                if station != "." and station != "-":
+                    stations[f"{x}.{y}"] = [x, y, station]
 
         # Calcul des bornes x et y
         x_values = [float(value[0]) for value in stations.values()]
@@ -360,82 +387,187 @@ def parse_xvi_file(th_name_xvi):
                 key2 = f"{x2}.{y2}"
                 station1 = stations[key1][2] if key1 in stations else None
                 station2 = stations[key2][2] if key2 in stations else None
-                lines.append([x1, y1, x2, y2, station1, station2])
+                if station1 != "." and station1 != "-" and station1 != None and station2 != "." and station2 != "-" and station2 != None:
+                    lines.append([x1, y1, x2, y2, station1, station2])
+                else :
+                    splays.append([x1, y1, x2, y2, station1, station2])
         
     
-    return stations, lines, x_min, x_max, y_min, y_max, x_ecart, y_ecart
+    return stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart
 
 #################################################################################################
-def wall_construction(stations, lines):
+def assign_groups_and_ranks(df_lines):
+    G = nx.Graph()
+    for _, row in df_lines.iterrows():
+        G.add_edge(row["name1"], row["name2"])
+
+    used_edges = set()
+    results = []
+    group_id = 0
+
+    def walk_path(u, prev=None):
+        path = []
+        current = u
+        while True:
+            neighbors = [n for n in G.neighbors(current) if n != prev]
+            if len(neighbors) != 1:  # fin de chemin : cul-de-sac ou embranchement
+                break
+            next_node = neighbors[0]
+            edge = tuple(sorted((current, next_node)))
+            if edge in used_edges:
+                break
+            used_edges.add(edge)
+            path.append(edge)
+            prev = current
+            current = next_node
+        return path
+
+    # Départ depuis toutes les feuilles ou nœuds d'ordre >2 (embranchements)
+    start_nodes = [n for n in G.nodes if G.degree(n) != 2]
+
+    for node in start_nodes:
+        for neighbor in G.neighbors(node):
+            edge = tuple(sorted((node, neighbor)))
+            if edge in used_edges:
+                continue
+            used_edges.add(edge)
+            path = [(node, neighbor)] + walk_path(neighbor, node)
+            for rank, (n1, n2) in enumerate(path):
+                match = df_lines[(df_lines["name1"] == n1) & (df_lines["name2"] == n2)]
+                if match.empty:
+                    match = df_lines[(df_lines["name1"] == n2) & (df_lines["name2"] == n1)]
+                if not match.empty:
+                    row = match.iloc[0].copy()
+                    row["group_id"] = group_id
+                    row["rank_in_group"] = rank
+                    results.append(row)
+            group_id += 1
+
+    return pd.DataFrame(results)
+
+
+#################################################################################################
+def wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_max):
+
+
+
+    df_lines = assign_groups_and_ranks(df_lines)
+   
+    # Conversion en polaire
+    df_lines_polaire = convert_to_line_polaire_df(df_lines)
+    df_splays_polaire = convert_to_line_polaire_df(df_splays)
     
-    station_names = {s[2] for s in stations.values()}
 
-    # Séparer lines en lignes valides et splays
-    splays = {}
-    filtered_lines = []
-    for i, line in enumerate(lines):
-        if line[4] in station_names and line[5] in station_names:
-            filtered_lines.append(line)
-        else:
-            splays[f"splay_{i}"] = line
 
-    # Conversion polaire
-    lines_polaire = convert_to_line_polaire(filtered_lines)
-    splays_polaire = convert_to_line_polaire(list(splays.values()))
+    # Index des lignes polaires par station name1
+    index_by_station = df_lines_polaire.set_index("name1")[["azimut_deg", "longueur"]]
 
-    # Index rapide des lignes polaires par nom de station (col. 4)
-    index_by_station = {
-        line[4]: idx for idx, line in enumerate(lines_polaire)
-    }
-
-    # Associer à chaque splay son index de ligne, et récupérer roth/length
-    splays_complet = []
-    for splay in splays_polaire:
-        station_name = splay[4]
-        idx = index_by_station.get(station_name)
-        if idx is not None:
-            roth_ref = lines_polaire[idx][2]
-            length_ref = lines_polaire[idx][3]
-        else:
-            roth_ref = length_ref = None
-        splays_complet.append(splay + [idx, roth_ref, length_ref])
-
-    # Ajouter sin(delta roth) * length_ref
-    for ligne in splays_complet:
-        roth_splay, roth_ref, length_ref = ligne[2], ligne[7], ligne[8]
-        if None not in (roth_splay, roth_ref, length_ref):
-            delta_rad = math.radians(roth_ref - roth_splay)
-            proj = math.sin(delta_rad) * length_ref
-        else:
-            proj = None
-        ligne.append(proj)
-
-    # Filtrer les extrêmes (min/max) par station (col. 4)
-    groupes = defaultdict(list)
-    for ligne in splays_complet:
-        station, proj = ligne[4], ligne[9]
-        if proj is not None:
-            groupes[station].append(ligne)
-
-    resultats = []
-    for station, lignes in groupes.items():
-        lignes_triees = sorted(lignes, key=lambda x: x[9])
-        resultats.append(lignes_triees[0])  # min
-        if lignes_triees[0] != lignes_triees[-1]:  # max ≠ min
-            resultats.append(lignes_triees[-1])  # max
+    # Jointure pour récupérer azimut_ref et longueur_ref
+    _df_splays_complet = df_splays_polaire.copy()
+    _df_splays_complet = _df_splays_complet.join(index_by_station, on="name1", rsuffix="_ref")
     
+    # Remplacer les valeurs manquantes par défaut : azimut_ref = 0, longueur_ref = 0
+    _df_splays_complet["azimut_deg_ref"] = _df_splays_complet["azimut_deg_ref"].fillna(0)
+    _df_splays_complet["longueur_ref"] = _df_splays_complet["longueur_ref"].fillna(0)
     
+    df_splays_complet = _df_splays_complet.merge(
+        df_lines[["name1", "group_id", "rank_in_group"]],
+        on="name1",
+        how="left"
+    )
+    
+    print(f"\n df_splays_complet: {len(df_splays_complet)}")   
+    print(df_splays_complet)
+    
+    missing_mask = df_splays_complet["group_id"].isna()
+    
+    for idx, row in df_splays_complet[missing_mask].iterrows():
+        name1 = row["name1"]
+        match = df_lines_polaire[df_lines_polaire["name2"] == name1]
+        if not match.empty:   
+            group_id = match["group_id"].values[0]
+            max_rank = df_lines_polaire[df_lines_polaire["group_id"] == group_id]["rank_in_group"].max()
+                    
+            df_splays_complet.at[idx, "azimut_deg_ref"] = match["azimut_deg"].values[0]
+            df_splays_complet.at[idx, "longueur_ref"] = match["longueur"].values[0]
+            df_splays_complet.at[idx, "group_id"] = group_id
+            df_splays_complet.at[idx, "rank_in_group"] = max_rank + 1
+
+
+    pd.set_option('display.max_rows', None)
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.width', None)
+    pd.set_option('display.max_colwidth', None)
+    
+    df_splays_complet = df_splays_complet.sort_values(by=["group_id", "rank_in_group"]).reset_index(drop=True)
+    print(f"\n df_splays_complet: {len(df_splays_complet)}")   
+    print(df_splays_complet)
+
+
+    # Calcul de la projection : sin(delta azimut) * longueur_ref
+    def calc_projection(row):
+        try:
+            delta = math.radians(row["azimut_deg_ref"] - row["azimut_deg"])
+            return math.sin(delta) * row["longueur"]
         
-    print(f"\nlines_polaires: {len(lines_polaire)}")   
-    print(f"{lines_polaire}")
-    print(f"\nsplays_polaire: {len(splays_complet)}")   
-    print(f"{splays_complet}")
-    print(f"\nresultats: {len(resultats)}")   
-    print(f"{resultats}")
-    exit(0)
-    
-    return resultats
+        except:
+            return None
 
+    df_splays_complet["proj"] = df_splays_complet.apply(calc_projection, axis=1)
+
+    # Filtrage des extrêmes min/max par station name1
+    df_valid_proj = df_splays_complet.dropna(subset=["proj"])
+    idx_min = df_valid_proj.groupby("name1")["proj"].idxmin()
+    idx_max = df_valid_proj.groupby("name1")["proj"].idxmax()
+
+    df_result01 = pd.concat([df_valid_proj.loc[idx_max]]).drop_duplicates()
+    df_result02 = pd.concat([df_valid_proj.loc[idx_min]]).drop_duplicates()
+    
+    df_result01["group_id"] = df_result01["group_id"].astype(int)
+    df_result01["rank_in_group"] = df_result01["rank_in_group"].astype(int)
+    df_sorted01 = df_result01.sort_values(by=["group_id", "rank_in_group"]).reset_index(drop=True)
+        
+    # Convertir les colonnes en entiers
+    df_result02["group_id"] = df_result02["group_id"].astype(int)
+    df_result02["rank_in_group"] = df_result02["rank_in_group"].astype(int)
+    df_sorted02 = df_result02.sort_values(by=["group_id", "rank_in_group"]).reset_index(drop=True)
+    
+    # Affichage de contrôle
+    print(f"\n df_sorted01: {len(df_sorted01)}")   
+    print(df_sorted01)
+    # print(f"\n df_sorted02: {len(df_sorted02)}")   
+    # print(df_sorted02)
+
+    th2_walls=[]
+    _list = ""
+    
+    for gid in sorted(df_sorted01["group_id"].unique()):
+        df_group = df_sorted01[df_sorted01["group_id"] == gid]
+    
+        _list += f"line wall\n" 
+
+        for line in df_group.itertuples(index=False):
+            _list += f"\t{line.x2} {line.y2}\n"
+            
+            if line.x2 > x_max: x_max = line.x2
+            if line.x2 < x_min: x_min = line.x2
+            if line.y2 > y_max: y_max = line.y2
+            if line.y2 < y_min: y_min = line.y2
+
+        _list += "endline\n\nline wall -reverse on\n"
+        
+        df_group = df_sorted02[df_sorted02["group_id"] == gid]    
+        for line in df_group.itertuples(index=False):
+            _list += f"\t{line.x2} {line.y2}\n"
+            if line.x2 > x_max: x_max = line.x2
+            if line.x2 < x_min: x_min = line.x2
+            if line.y2 > y_max: y_max = line.y2
+            if line.y2 < y_min: y_min = line.y2
+        _list += f"endline\n" 
+    
+    th2_walls.append(globalData.th2wall.format(list = _list))
+        
+    return th2_walls, x_min, x_max, y_min, y_max
 
 
 ################################################################################################# 
@@ -497,7 +629,6 @@ def create_th_folders(ENTRY_FILE,
     log.info(f"Parsing survey entry file: {Colors.ENDC}{shortCurentFile}")
 
     survey_list = parse_therion_surveys(ENTRY_FILE)
-    # print(survey_list)
     
     if TARGET == "None" :
         if len(survey_list) > 1 : 
@@ -517,7 +648,7 @@ def create_th_folders(ENTRY_FILE,
    
     if UPDATE == "th2": 
         log.info(f" Update th2 files {Colors.ENDC}")
-        log.info(f"\t{Colors.BLUE}survey_file :  {Colors.ENDC} {args.survey_file}")
+        log.info(f"\t{Colors.BLUE}survey_file :  {Colors.ENDC} {args.file}")
         log.info(f"\t{Colors.BLUE}ENTRY_FILE:    {Colors.ENDC} {ENTRY_FILE}") 
         log.info(f"\t{Colors.BLUE}PROJECTION:    {Colors.ENDC} {PROJECTION}") 
         log.info(f"\t{Colors.BLUE}TARGET:        {Colors.ENDC} {TARGET}") 
@@ -525,7 +656,7 @@ def create_th_folders(ENTRY_FILE,
         log.info(f"\t{Colors.BLUE}FORMAT:        {Colors.ENDC} {FORMAT}")     
         log.info(f"\t{Colors.BLUE}SCALE:         {Colors.ENDC} {SCALE}")
         log.info(f"\t{Colors.BLUE}TH_NAME:       {Colors.ENDC} {TH_NAME}")
-        DEST_PATH = os.path.dirname(args.survey_file)
+        DEST_PATH = os.path.dirname(args.file)
         log.info(f"\t{Colors.BLUE}DEST_PATH:     {Colors.ENDC} {DEST_PATH}")
         log.info(f"\t{Colors.BLUE}ABS_PATH:      {Colors.ENDC} {ABS_PATH}")
     
@@ -549,7 +680,7 @@ def create_th_folders(ENTRY_FILE,
             "th_file": DEST_PATH + "/" + TH_NAME + ".th",  
             "selector": survey.therion_id,
             "th_name": DEST_PATH + "/" + TH_NAME, 
-            "scale": SCALE,
+            "scale": int(int(SCALE)/10),
         }
 
     else :
@@ -557,7 +688,7 @@ def create_th_folders(ENTRY_FILE,
             "th_file": DEST_PATH + "/Data/" + TH_NAME + ".th",  
             "selector": survey.therion_id,
             "th_name": DEST_PATH + "/Data/" + TH_NAME, 
-            "scale": SCALE,
+            "scale": int(int(SCALE)/10),
         }
 
     logfile, tmpdir, totReadMeError = compile_template(globalData.thconfigTemplate, template_args, totReadMeError, cleanup=False, therion_path=globalData.therionPath)
@@ -622,9 +753,17 @@ def create_th_folders(ENTRY_FILE,
         stations = {}
         lines = []
         
-        stations, lines, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
+        stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
         
-        # wall wall_construction(stations, lines)
+        df_stations = pd.DataFrame.from_dict(stations, orient='index')
+        df_lines = pd.DataFrame(lines, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
+        df_splays = pd.DataFrame(splays, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
+        
+        th2_walls = []
+        
+        if globalData.wallLineInTh2 :
+            th2_walls,  x_min, x_max, y_min, y_max = wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_max)
+            
         
         if UPDATE == "th2": 
             th2_name = DEST_PATH + "/" + TH_NAME
@@ -645,7 +784,7 @@ def create_th_folders(ENTRY_FILE,
             th2_points = []
             th2_names = []
             other_scraps_plan = f"\tSP-{TARGET}_01\n\tbreak\n"
-            
+              
             for line in lines:
                 th2_lines.append(globalData.th2Line.format(x1=line[0], y1=line[1], x2=line[2], y2=line[3]))
                 coords1 = "{}.{}".format(line[0], line[1])
@@ -664,9 +803,9 @@ def create_th_folders(ENTRY_FILE,
 
 
             if isfile(output_path):
-                log.warning(f"{Colors.ENDC}{os.path.basename(output_path)}{Colors.WARNING} file already exists - nothing done")
+                log.warning(f"{Colors.ENDC}{os.path.basename(output_path)}{Colors.WARNING} file already exists - overwrite")
 
-            else :
+            if True :
                 # name = TARGET, 
                 log.debug(f"Therion output path: {Colors.ENDC}{safe_relpath(output_path)}")
 
@@ -678,6 +817,7 @@ def create_th_folders(ENTRY_FILE,
                             Copyright_Short = globalData.CopyrightShort,
                             points="\n".join(th2_points),
                             lines="\n".join(th2_lines) if globalData.linesInTh2 else "",
+                            walls="\n".join(th2_walls) if globalData.wallLineInTh2 else "",
                             names="\n".join(th2_names) if globalData.stationNamesInTh2 else "",
                             projection="plan",
                             projection_short="P",
@@ -727,8 +867,17 @@ def create_th_folders(ENTRY_FILE,
         stations = {}
         lines = []
         
-        stations, lines, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
+        stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
         
+        df_stations = pd.DataFrame.from_dict(stations, orient='index')
+        df_lines = pd.DataFrame(lines, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
+        df_splays = pd.DataFrame(splays, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
+        
+        th2_walls = []
+        
+        if globalData.wallLineInTh2 :
+            th2_walls, x_min, x_max, y_min, y_max, = wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_max)
+            
 
         if UPDATE == "th2":
             th2_name = DEST_PATH + "/" + TH_NAME
@@ -745,6 +894,7 @@ def create_th_folders(ENTRY_FILE,
             th2_lines = []
             th2_points = []
             th2_names = []
+            
             other_scraps_extended = f"\tSC-{TARGET}_01\n\tbreak\n"
             
             for line in lines:
@@ -765,8 +915,9 @@ def create_th_folders(ENTRY_FILE,
 
 
             if isfile(output_path):
-                log.warning(f"{Colors.ENDC}{os.path.basename(output_path)}{Colors.WARNING} file already exists - nothing done{Colors.ENDC}")
-            else :
+                log.warning(f"{Colors.ENDC}{os.path.basename(output_path)}{Colors.WARNING} file already exists - overwrite")
+            
+            if True :
                 log.debug(f"Therion output path :\t{Colors.ENDC}{output_path}")
                     
                 with open(str(output_path), "w+") as f:
@@ -777,6 +928,7 @@ def create_th_folders(ENTRY_FILE,
                             Copyright_Short = globalData.CopyrightShort,
                             points="\n".join(th2_points),
                             lines="\n".join(th2_lines) if globalData.linesInTh2 else "",
+                            walls="\n".join(th2_walls) if globalData.wallLineInTh2 else "",
                             names="\n".join(th2_names) if globalData.stationNamesInTh2 else "",
                             projection="extended",
                             projection_short="C",
@@ -971,15 +1123,15 @@ def mak_to_th_file(ENTRY_FILE) :
     QtySections = 0
     
     for file in datFiles :       
-        ABS_file = os.path.dirname(abspath(args.survey_file)) + "\\"+ file
+        ABS_file = os.path.dirname(abspath(args.file)) + "\\"+ file
         content, val = load_text_file_utf8(ABS_file, os.path.basename(ABS_file))
         section = content.split('\x0c')
         QtySections += len(section)
 
       
-    SurveyTitleMak =  sanitize_filename(os.path.basename(abspath(args.survey_file))[:-4])
+    SurveyTitleMak =  sanitize_filename(os.path.basename(abspath(args.file))[:-4])
         
-    folderDest = os.path.dirname(abspath(args.survey_file)) + "/" + SurveyTitleMak
+    folderDest = os.path.dirname(abspath(args.file)) + "/" + SurveyTitleMak
         
     copy_template_if_not_exists(globalData.templatePath,folderDest)
     
@@ -1013,7 +1165,7 @@ def mak_to_th_file(ENTRY_FILE) :
                 else :
                     bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{file[:-4]}")
                 
-                _file = os.path.dirname(abspath(args.survey_file)) + "\\" + file
+                _file = os.path.dirname(abspath(args.file)) + "\\" + file
                 shutil.copy(_file, folderDest + "\\Data\\")
                 ABS_file = folderDest + "\\Data\\" + file
 
@@ -1061,7 +1213,7 @@ def mak_to_th_file(ENTRY_FILE) :
     
     tableau_pivot.columns = [f'Survey_Name_{i}' for i in tableau_pivot.columns]
     
-    # print(f"tableau_pivot : {Colors.ENDC}{tableau_pivot}{Colors.INFO} in {Colors.ENDC}{args.survey_file}")
+    # print(f"tableau_pivot : {Colors.ENDC}{tableau_pivot}{Colors.INFO} in {Colors.ENDC}{args.file}")
     
     totdata +=f"\n\t## Equates list:\n"
     
@@ -1070,9 +1222,9 @@ def mak_to_th_file(ENTRY_FILE) :
         tableau_pivot = tableau_pivot.reset_index()
         tableau_equate = tableau_pivot[tableau_pivot['Survey_Name_2'].notna()]
 
-        log.info(f"Total des 'equates' in mak file: {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{safe_relpath(args.survey_file)}")
+        log.info(f"Total des 'equates' in mak file: {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{safe_relpath(args.file)}")
         # print(tableau_equate)
-        # print(f"fixPoints: {Colors.ENDC}{fixPoints}{Colors.INFO} in {Colors.ENDC}{args.survey_file}")
+        # print(f"fixPoints: {Colors.ENDC}{fixPoints}{Colors.INFO} in {Colors.ENDC}{args.file}")
         
         # Pour chaque ligne du tableau
         for _, row in tableau_equate.iterrows():
@@ -1088,7 +1240,7 @@ def mak_to_th_file(ENTRY_FILE) :
                         totdata +=f"\tequate {station}@{surveys[i]} {station}@{surveys[j]}\n"
                         # print(f"\tequate {station}@{surveys[i]} {station}@{surveys[j]}")
     else:
-        log.info(f"No 'equats' found in {Colors.ENDC}{args.survey_file}")
+        log.info(f"No 'equats' found in {Colors.ENDC}{args.file}")
             
     totdata +=f"\n\t## Maps list:\n\tinput {SurveyTitleMak}-maps.th\n"
         
@@ -1115,7 +1267,7 @@ def mak_to_th_file(ENTRY_FILE) :
                     'file_info' : f"# File generated by pyCreateTh.py version: {Version} date: {datetime.now().strftime("%Y.%m.%d-%H:%M:%S")}",
             }
 
-    DEST_PATH = os.path.dirname(args.survey_file) + '/' +  SurveyTitleMak
+    DEST_PATH = os.path.dirname(args.file) + '/' +  SurveyTitleMak
 
     update_template_files(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '.thconfig')
     update_template_files(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitleMak + '-tot.th')
@@ -1488,7 +1640,6 @@ def find_duplicates_by_date_and_team(data):
     return duplicates
 
 
-
 #################################################################################################    
 def points_uniques(data, crs_wkt):
     # Création d'un DataFrame à partir des lignes de données
@@ -1752,7 +1903,8 @@ def dat_survey_format_extract(section_data, currentSurveyName, fichier, totReadM
     
     return dataFormat, length, compass, clino, totReadMeError       
         
-#################################################################################################     
+#
+# ################################################################################################     
 def load_text_file_utf8(filepath, short_filename):
     encodings_to_try = [
         'utf-8-sig',       # UTF-8 avec BOM
@@ -1997,7 +2149,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     
     copy_template_if_not_exists(globalData.templatePath,folderDest)
     
-    if  args.survey_file[-3:].lower() != "dat" :
+    if  args.file[-3:].lower() != "dat" :
         _destination =  folderDest + "\\config.thc"
         # print(f"destination_path : {_destination}")
         os.remove(_destination)
@@ -2161,7 +2313,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         destination_path = os.path.join(_destination, os.path.basename(output_file))
         shutil.move(output_file, destination_path)      
         
-        if args.survey_file[-3:].lower() != "dat" :
+        if args.file[-3:].lower() != "dat" :
             _destination =  output_file[:-3] + "\\config.thc"
             destination_path = os.path.join(_destination, os.path.basename(output_file))
             # print(f"destination_path : {_destination}")
@@ -2306,7 +2458,7 @@ if __name__ == u'__main__':
         description=f"{Colors.HEADER}Create a skeleton folder and th, th2 files with scraps from *.mak, *.dat, *.th Therion files, version: {Colors.ENDC}{Version}\n",
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.print_help = colored_help.__get__(parser)
-    parser.add_argument("--survey_file", help="The survey file (*.th, *.mak, *.dat,) to perform e.g. './Therion_file.th'", default="")
+    parser.add_argument("--file", help="The survey file (*.th, *.mak, *.dat,) to perform e.g. './Therion_file.th'", default="")
     parser.add_argument("--survey_name", help="Scrap name (if different from 'survey_file' name)", default="None")
     parser.add_argument("--proj", choices=['All', 'Plan', 'Extended', 'None'], help="The scrap projection to produce", default="All")
     #parser.add_argument("--format", choices=['th2', 'plt'], help="Output format. Either th2 for producing skeleton for drawing or plt for visualizing in aven/loch", default="th2")
@@ -2326,11 +2478,11 @@ if __name__ == u'__main__':
         f"\t> python pyCreateTh.py\n\n")
     args = parser.parse_args()
     
-    if args.survey_file == "":
-        args.survey_file = select_file_tk_window()
-        # print(f"Selected file : {args.survey_file}")    
+    if args.file == "":
+        args.file = select_file_tk_window()
+        # print(f"Selected file : {args.file}")    
         
-    output_log = splitext(abspath(args.survey_file))[0]+".log"    
+    output_log = splitext(abspath(args.file))[0]+".log"    
     log = setup_logger(output_log, debug_log)
     
     # log.debug("Ceci est un message de debug")
@@ -2348,8 +2500,8 @@ if __name__ == u'__main__':
             f'* Conversion Th, Dat, Mak files to Therion files and folders',
             f'*       Script pyCreateTh by : {Colors.ENDC}alexandre.pont@yahoo.fr',
             f'*       Version : {Colors.ENDC}{Version}',
-            f'*       Input file : {Colors.ENDC}{safe_relpath(args.survey_file)}',           
-            f'*       Output file : {Colors.ENDC}{safe_relpath(splitext(abspath(args.survey_file))[0])}',
+            f'*       Input file : {Colors.ENDC}{safe_relpath(args.file)}',           
+            f'*       Output file : {Colors.ENDC}{safe_relpath(splitext(abspath(args.file))[0])}',
             f'*       Log file : {Colors.ENDC}{safe_relpath(output_log)}',
             f'*       ',
             f'*       ',
@@ -2372,43 +2524,43 @@ if __name__ == u'__main__':
     #################################################################################################
     # Fichier TH                                                                                    #
     ################################################################################################# 
-    if args.survey_file[-2:].lower() == "th" :
+    if args.file[-2:].lower() == "th" :
         flagErrorCompile, stat, totReadMeError, thread2 = create_th_folders(
-                                                                ENTRY_FILE = abspath(args.survey_file), 
+                                                                ENTRY_FILE = abspath(args.file), 
                                                                 TARGET = args.survey_name, 
                                                                 PROJECTION= args.proj,
                                                                 SCALE = args.scale, 
                                                                 UPDATE = args.update,
                                                                 CONFIG_PATH = "")
         threads += thread2
-        fileTitle = sanitize_filename(os.path.basename(args.survey_file))[:-3]
+        fileTitle = sanitize_filename(os.path.basename(args.file))[:-3]
         
         
     #################################################################################################
     # Fichier MAK                                                                                   #
     #################################################################################################    
-    elif args.survey_file[-3:].lower() == "mak" :
+    elif args.file[-3:].lower() == "mak" :
         
-        SurveyTitleMak =  sanitize_filename(os.path.basename(abspath(args.survey_file))[:-4])
-        DEST_PATH = os.path.dirname(args.survey_file) + '/' +  SurveyTitleMak
+        SurveyTitleMak =  sanitize_filename(os.path.basename(abspath(args.file))[:-4])
+        DEST_PATH = os.path.dirname(args.file) + '/' +  SurveyTitleMak
         
         if os.path.isdir(DEST_PATH):
             log.critical(f"The folder {Colors.ENDC}{SurveyTitleMak}{Colors.ERROR}{Colors.BOLD},  all ready exist : update mode is not possible for mak files")
             exit(0)
         
-        fileTitle, thread2 = mak_to_th_file(abspath(args.survey_file))    
+        fileTitle, thread2 = mak_to_th_file(abspath(args.file))    
         threads += thread2
         
         
     #################################################################################################
     # Fichier DAT                                                                                   #
     #################################################################################################    
-    elif args.survey_file[-3:].lower() == "dat" :
+    elif args.file[-3:].lower() == "dat" :
         _ConfigPath = "./"
         
         QtySections = 0
          
-        ABS_file = abspath(args.survey_file)
+        ABS_file = abspath(args.file)
         
         content, val = load_text_file_utf8(ABS_file, os.path.basename(ABS_file))
         section = content.split('\x0c')
@@ -2418,10 +2570,10 @@ if __name__ == u'__main__':
         
         if lines[0] !="" :
             SurveyTitleDat =  sanitize_filename(lines[0]) 
-            folderDest = os.path.dirname(args.survey_file) + "\\" + SurveyTitleDat
+            folderDest = os.path.dirname(args.file) + "\\" + SurveyTitleDat
         else :
-            SurveyTitleDat = sanitize_filename(os.path.basename(args.survey_file)[:-4])
-            folderDest = os.path.dirname(args.survey_file) + "\\" + SurveyTitleDat
+            SurveyTitleDat = sanitize_filename(os.path.basename(args.file)[:-4])
+            folderDest = os.path.dirname(args.file) + "\\" + SurveyTitleDat
 
         if os.path.isdir(folderDest):
                 log.critical(f"The folder {Colors.ENDC}{SurveyTitleDat}{Colors.ERROR}{Colors.BOLD},  all ready exist : update mode is not possible for mak files")
@@ -2448,7 +2600,7 @@ if __name__ == u'__main__':
                     bar()
         
     else :
-        log.error(f"file {Colors.ENDC}{safe_relpath(args.survey_file)}{Colors.ERROR} not yet supported")
+        log.error(f"file {Colors.ENDC}{safe_relpath(args.file)}{Colors.ERROR} not yet supported")
         globalData.error_count += 1
 
     duration = (datetime.now() - start_time).total_seconds()
@@ -2457,6 +2609,9 @@ if __name__ == u'__main__':
         t.join()
 
     destination_path = os.path.dirname(output_log) + "\\" + fileTitle 
+    file_name = os.path.basename(output_log)
+    destination_file = os.path.join(destination_path, file_name)
+    
     wait_until_file_is_released(output_log)
     
     if globalData.error_count == 0 :    
@@ -2466,6 +2621,12 @@ if __name__ == u'__main__':
 
     wait_until_file_is_released(output_log)
     release_log_file(log)
+    
+    
+    # Supprimer le fichier cible s’il existe déjà
+    if os.path.isfile(destination_file):
+        os.remove(destination_file)
+
     shutil.move(output_log, destination_path)
     
         
