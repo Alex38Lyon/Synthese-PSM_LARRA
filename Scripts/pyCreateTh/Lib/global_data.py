@@ -30,6 +30,20 @@ linesInTh2 = -1
 stationNamesInTh2 = -1
 
 
+#################################################################################################
+totfile = """\t## Survey file:
+\tinput Data/{TH_NAME}.th
+            
+\t## Plan file:
+\t{ERR}input Data/{TH_NAME}-Plan.th2
+            
+\t## Extended file:
+\t{ERR}input Data/{TH_NAME}-Extended.th2
+            
+\t## Maps file:
+\t{ERR}input {TH_NAME}-maps.th
+"""
+
 
 #################################################################################################
 thFileDat = """

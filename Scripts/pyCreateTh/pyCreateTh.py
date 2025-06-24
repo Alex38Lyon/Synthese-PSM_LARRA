@@ -21,28 +21,25 @@ Version 2025 06 16 :    Création fonction create_th_folders
                         
                         
 En cours :
-    - gérer les visées orphelines dans une même survey
     - gérer les updates (th, dat, mak)
     - créer fonction pour faire habillage des th2 files, les jointures...
     - reprendre l'option shot lines dans les th2 files pour supprimer les splays.
     - créer l'option wall shot lines dans les th2 files.
     - reprendre les options en ligne de commande, tester
     - trouver une solution pour les teams et les clubs manquants
-    - gérer le cas ou il y a 2 SurveyTitle identiques
     - tester la nouvelle version de DAT (CORRECTION2 et suivants)
-    - tester différents cas et versions de dat et mak
-    - pb de equate avec points non valides (non répétable ?)
-    - vérifier le fonctionnement de merge survey (les valeurs compilées et les critères de compilation... voir )
     - comparer résultats Therion - Compass (Stat, kml, etc....)
+    - intégrer .tro files d'après XRo
+    
 
 
 """
 
-Version ="2025.06.18"  
+Version ="2025.06.24"  
 
 #################################################################################################
 #################################################################################################
-import os, re, unicodedata, argparse, shutil, sys, time
+import os, re, unicodedata, argparse, shutil, sys, time, math
 from os.path import isfile, join, abspath, splitext
 import pandas as pd
 pd.set_option('future.no_silent_downcasting', True)
@@ -57,7 +54,6 @@ from Lib.therion import compile_template, compile_file, get_stats_from_log
 from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_help, read_config, select_file_tk_window, release_log_file
 import Lib.global_data as globalData
 
-log = setup_logger(logfile="app.log", debug_log=True)
 
 #################################################################################################
 configIni = "config.ini"       # Default config file name
@@ -282,6 +278,36 @@ def str_to_bool(value):
     else:
         raise argparse.ArgumentTypeError(f"{Colors.ERROR}Error: Invalid boolean value: {Colors.ENDC}{value}")
 
+#################################################################################################
+def convert_to_line_polaire(lines):
+    line_polaire = []
+    
+    for line in lines:
+        try:
+            x1 = float(line[0])
+            y1 = float(line[1])
+            x2 = float(line[2])
+            y2 = float(line[3])
+            name1 = line[4]
+            name2 = line[5]
+
+            dx = x2 - x1
+            dy = y2 - y1
+
+            # Longueur (distance)
+            length = math.hypot(dx, dy)
+
+            # Roth = azimut en degrés, 0° = Est, 90° = Nord
+            roth_rad = math.atan2(dy, dx)
+            roth_deg = (math.degrees(roth_rad)) % 360  # pour rester entre 0-360
+
+            line_polaire.append([x1, y1, roth_deg, length, name1, name2])
+
+        except Exception as e:
+            print(f"Erreur sur la ligne {line} : {e}")
+
+    return line_polaire
+
 
 #################################################################################################
 def parse_xvi_file(th_name_xvi):
@@ -335,8 +361,82 @@ def parse_xvi_file(th_name_xvi):
                 station1 = stations[key1][2] if key1 in stations else None
                 station2 = stations[key2][2] if key2 in stations else None
                 lines.append([x1, y1, x2, y2, station1, station2])
-
+        
+    
     return stations, lines, x_min, x_max, y_min, y_max, x_ecart, y_ecart
+
+#################################################################################################
+def wall_construction(stations, lines):
+    
+    station_names = {s[2] for s in stations.values()}
+
+    # Séparer lines en lignes valides et splays
+    splays = {}
+    filtered_lines = []
+    for i, line in enumerate(lines):
+        if line[4] in station_names and line[5] in station_names:
+            filtered_lines.append(line)
+        else:
+            splays[f"splay_{i}"] = line
+
+    # Conversion polaire
+    lines_polaire = convert_to_line_polaire(filtered_lines)
+    splays_polaire = convert_to_line_polaire(list(splays.values()))
+
+    # Index rapide des lignes polaires par nom de station (col. 4)
+    index_by_station = {
+        line[4]: idx for idx, line in enumerate(lines_polaire)
+    }
+
+    # Associer à chaque splay son index de ligne, et récupérer roth/length
+    splays_complet = []
+    for splay in splays_polaire:
+        station_name = splay[4]
+        idx = index_by_station.get(station_name)
+        if idx is not None:
+            roth_ref = lines_polaire[idx][2]
+            length_ref = lines_polaire[idx][3]
+        else:
+            roth_ref = length_ref = None
+        splays_complet.append(splay + [idx, roth_ref, length_ref])
+
+    # Ajouter sin(delta roth) * length_ref
+    for ligne in splays_complet:
+        roth_splay, roth_ref, length_ref = ligne[2], ligne[7], ligne[8]
+        if None not in (roth_splay, roth_ref, length_ref):
+            delta_rad = math.radians(roth_ref - roth_splay)
+            proj = math.sin(delta_rad) * length_ref
+        else:
+            proj = None
+        ligne.append(proj)
+
+    # Filtrer les extrêmes (min/max) par station (col. 4)
+    groupes = defaultdict(list)
+    for ligne in splays_complet:
+        station, proj = ligne[4], ligne[9]
+        if proj is not None:
+            groupes[station].append(ligne)
+
+    resultats = []
+    for station, lignes in groupes.items():
+        lignes_triees = sorted(lignes, key=lambda x: x[9])
+        resultats.append(lignes_triees[0])  # min
+        if lignes_triees[0] != lignes_triees[-1]:  # max ≠ min
+            resultats.append(lignes_triees[-1])  # max
+    
+    
+        
+    print(f"\nlines_polaires: {len(lines_polaire)}")   
+    print(f"{lines_polaire}")
+    print(f"\nsplays_polaire: {len(splays_complet)}")   
+    print(f"{splays_complet}")
+    print(f"\nresultats: {len(resultats)}")   
+    print(f"{resultats}")
+    exit(0)
+    
+    return resultats
+
+
 
 ################################################################################################# 
 # Création des dossiers à partir d'un th file                                                   #
@@ -478,19 +578,10 @@ def create_th_folders(ENTRY_FILE,
     #################################################################################################
     if UPDATE == "": 
         
-        ERR = "# " if flagErrorCompile else ""
-        
-        totdata = f"""\tinput Data/{TH_NAME}.th
-            
-\t## Pour le plan
-\t{ERR}input Data/{TH_NAME}-Plan.th2
-            
-\t## Pour la coupe développée
-\t{ERR}input Data/{TH_NAME}-Extended.th2
-            
-\t## Appel des maps
-\t{ERR}input {TH_NAME}-maps.th
-"""
+        totdata = globalData.totfile.format(
+            TH_NAME = TH_NAME,
+            ERR = "# " if flagErrorCompile else ""    
+        )
         
         # Adapte templates 
         config_vars = {
@@ -532,6 +623,8 @@ def create_th_folders(ENTRY_FILE,
         lines = []
         
         stations, lines, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
+        
+        # wall wall_construction(stations, lines)
         
         if UPDATE == "th2": 
             th2_name = DEST_PATH + "/" + TH_NAME
@@ -897,7 +990,7 @@ def mak_to_th_file(ENTRY_FILE) :
     
     
     stationList = pd.DataFrame(columns=['StationName', 'Survey_Name_01', 'Survey_Name_02'])
-    totdata = f"\t## Liste inputs\n"
+    totdata = f"\t## Input list:\n"
     totMapsPlan = ""
     totMapsExtended = ""
     
@@ -915,7 +1008,10 @@ def mak_to_th_file(ENTRY_FILE) :
         with redirect_stdout(sys.__stdout__):
             for file in datFiles:
                 
-                bar.text(f"{Colors.INFO}file: {Colors.ENDC}{file}")
+                if globalData.error_count > 0:
+                    bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{file[:-4]}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
+                else :
+                    bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{file[:-4]}")
                 
                 _file = os.path.dirname(abspath(args.survey_file)) + "\\" + file
                 shutil.copy(_file, folderDest + "\\Data\\")
@@ -933,8 +1029,9 @@ def mak_to_th_file(ENTRY_FILE) :
                 totMapsExtended += f"\tMC-{SurveyTitle}-Extended-tot@{SurveyTitle}\n\tbreak\n"
 
                 if not Station.empty:
-                    stationList = pd.concat([stationList, Station], ignore_index=True)
-                    stationList.sort_values(by='Survey_Name_02', inplace=True, ignore_index=True)
+                    __stationList = pd.concat([stationList, Station], ignore_index=True)
+                    __stationList.sort_values(by='Survey_Name_02', inplace=True, ignore_index=True)
+                    stationList = __stationList.copy()
 
                 destination = os.path.join(folderDest, "Sources", os.path.basename(ABS_file))
                 if os.path.exists(destination):
@@ -946,7 +1043,7 @@ def mak_to_th_file(ENTRY_FILE) :
     
     
     ################################################################################################# 
-    # Gestion des equats 
+    # Gestion des equates 
     #################################################################################################
         
     totdata +=f"\n" 
@@ -966,17 +1063,16 @@ def mak_to_th_file(ENTRY_FILE) :
     
     # print(f"tableau_pivot : {Colors.ENDC}{tableau_pivot}{Colors.INFO} in {Colors.ENDC}{args.survey_file}")
     
-    totdata +=f"\n\t## Liste equates\n"
+    totdata +=f"\n\t## Equates list:\n"
     
     if 'Survey_Name_2' in tableau_pivot.columns:
         # On réinitialise l'index pour avoir StationName comme colonne normale
         tableau_pivot = tableau_pivot.reset_index()
         tableau_equate = tableau_pivot[tableau_pivot['Survey_Name_2'].notna()]
 
-
-        log.info(f"Total des 'equats' : {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{safe_relpath(args.survey_file)}")
+        log.info(f"Total des 'equates' in mak file: {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{safe_relpath(args.survey_file)}")
         # print(tableau_equate)
-        # print(f"fixePoints : {Colors.ENDC}{fixed_names}{Colors.INFO} in {Colors.ENDC}{args.survey_file}")
+        # print(f"fixPoints: {Colors.ENDC}{fixPoints}{Colors.INFO} in {Colors.ENDC}{args.survey_file}")
         
         # Pour chaque ligne du tableau
         for _, row in tableau_equate.iterrows():
@@ -994,7 +1090,7 @@ def mak_to_th_file(ENTRY_FILE) :
     else:
         log.info(f"No 'equats' found in {Colors.ENDC}{args.survey_file}")
             
-    totdata +=f"\n\t## Appel des maps\n\tinput {SurveyTitleMak}-maps.th\n"
+    totdata +=f"\n\t## Maps list:\n\tinput {SurveyTitleMak}-maps.th\n"
         
     config_vars = {
                     'fileName': SurveyTitleMak,
@@ -1039,7 +1135,7 @@ def mak_to_th_file(ENTRY_FILE) :
 
 
 #################################################################################################
-def station_list(data, list, fixPoints) :  
+def station_list(data, list, fixPoints, currentSurveyName) :  
     """
     Crée une liste de stations à partir des données fournies.
 
@@ -1065,7 +1161,7 @@ def station_list(data, list, fixPoints) :
     
     new_entries = pd.DataFrame({
         'StationName': stations,
-        'Survey_Name_01': data['SURVEY_NAME']
+        'Survey_Name_01': currentSurveyName
     })
     
     list = pd.concat([list, new_entries], ignore_index=True)
@@ -1341,52 +1437,56 @@ def find_duplicates_by_date_and_team(data):
 
     duplicates = []
 
-    # Étape 2 : chercher les entrées ayant des stations communes
     for key, entries in grouped.items():
         if len(entries) < 2:
             continue
 
-        visited_pairs = set()
+        # Construire un mapping ID -> stations
+        id_to_entry = {entry['ID']: entry for entry in entries}
+        id_to_stations = {entry['ID']: set(entry['STATION'].iloc[:, 0]) for entry in entries}
 
-        for i in range(len(entries)):
-            id_i = entries[i]['ID']
-            stations_i = set(entries[i]['STATION'].iloc[:, 0])
+        # Construire les connexions directes (graphe implicite)
+        adjacency = defaultdict(set)
+        ids = list(id_to_entry.keys())
 
-            ids_group = [id_i]
-            common_stations = set()
+        for i in range(len(ids)):
+            for j in range(i + 1, len(ids)):
+                id_i, id_j = ids[i], ids[j]
+                if id_to_stations[id_i] & id_to_stations[id_j]:  # intersection non vide
+                    adjacency[id_i].add(id_j)
+                    adjacency[id_j].add(id_i)
 
-            for j in range(i+1, len(entries)):
-                pair = tuple(sorted((id_i, entries[j]['ID'])))
-                if pair in visited_pairs:
-                    continue
+        # Trouver les composantes connexes (DFS)
+        visited = set()
 
-                visited_pairs.add(pair)
-                stations_j = set(entries[j]['STATION'].iloc[:, 0])
-                intersection = stations_i & stations_j
+        def dfs(node, component):
+            visited.add(node)
+            component.append(node)
+            for neighbor in adjacency[node]:
+                if neighbor not in visited:
+                    dfs(neighbor, component)
 
-                if intersection:
-                    ids_group.append(entries[j]['ID'])
-                    common_stations.update(intersection)
+        for id_ in ids:
+            if id_ not in visited:
+                component = []
+                dfs(id_, component)
+                if len(component) > 1:
+                    # Calcul des stations communes (fusion de toutes)
+                    stations_union = set()
+                    for i in range(len(component)):
+                        for j in range(i + 1, len(component)):
+                            common = id_to_stations[component[i]] & id_to_stations[component[j]]
+                            stations_union.update(common)
 
-            if len(ids_group) > 1:
-                ids_group = sorted(set(ids_group))
-                common_stations = sorted(common_stations)
-                already_recorded = False
-
-                for d in duplicates:
-                    if set(d['IDS']) == set(ids_group):
-                        already_recorded = True
-                        break
-
-                if not already_recorded:
                     duplicates.append({
                         'SURVEY_DATE': key[0],
                         'SURVEY_TEAM': key[1],
-                        'IDS': ids_group,
-                        'COMMON_STATIONS': common_stations
+                        'IDS': sorted(component),
+                        'COMMON_STATIONS': sorted(stations_union)
                     })
 
     return duplicates
+
 
 
 #################################################################################################    
@@ -1694,7 +1794,6 @@ def load_text_file_utf8(filepath, short_filename):
         return None, ""
 
 
-   
 ################################################################################################# 
 # Création des dossiers Th à partir d'un dat                                                    #
 #################################################################################################  
@@ -1733,7 +1832,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     # Listes pour stocker les données
     data = []
     unique_id = 1
-    totdata = f"\t## Liste inputs\n"
+    totdata = f"\t## Input list:\n"
     totMapsPlan = ""
     totMapsExtended = ""
     totReadMeErrorDat = ""
@@ -1844,7 +1943,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         
         # Ajouter les données de la section à la liste
         if len(section_data['DATA']) > 0 :
-            listStationSection, dfDATA = station_list(section_data, listStationSection, fixPoints)
+            listStationSection, dfDATA = station_list(section_data, listStationSection, fixPoints, section_data['SURVEY_NAME'])
             section_data['STATION'] = listStationSection
             data.append(section_data)    
             unique_id += 1 
@@ -1911,7 +2010,6 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     #################################################################################################
 
     surveyCount = 1
-    SurveyListEqui = [] 
     
     # totReadMe += f"* Source file: {os.path.basename(ENTRY_FILE)}\n"
     
@@ -1963,14 +2061,13 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
             'SURVEY_NAME': _line['SURVEY_NAME']
         }
 
-        SurveyListEqui.append(SurveyNameCount)
         
     
         #################################################################################################     
         # gestion des DATA                                                                              #
         #################################################################################################
-    
-        stationList, dfDATA = station_list(_line, stationList, fixPoints)
+
+        stationList, dfDATA = station_list(_line, stationList, fixPoints, currentSurveyName)
 
         ################################################################################################# 
         # Recherche des points fixes (entrées)
@@ -2057,7 +2154,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
             totReadMeError = totReadMeErrorDat)
         threads += thread2 
      
-        log.info(f"File: {Colors.ENDC}{os.path.basename(ENTRY_FILE)}.dat{Colors.INFO} compilation successful, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")   
+        log.info(f"File: {Colors.ENDC}{currentSurveyName}{Colors.INFO},  compilation successful, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")   
         totReadMe += f"\t{currentSurveyName} compilation successful length: {stat["length"]} m, depth: {stat["depth"]} m\n"
          
         _destination = output_file[:-3] + "\\Sources"
@@ -2075,6 +2172,10 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
             totMapsExtended += f"\tMC-{currentSurveyName}-Extended-tot@{currentSurveyName}\n\tbreak\n"
         surveyCount += 1
         
+        if globalData.error_count > 0:
+            bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{os.path.basename(ENTRY_FILE)[:-4]}{Colors.INFO}, survey: {Colors.ENDC}{currentSurveyName}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
+        else :
+            bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{os.path.basename(ENTRY_FILE)[:-4]}{Colors.INFO}, survey: {Colors.ENDC}{currentSurveyName}")
         bar()
 
 #################################################################################################     
@@ -2082,37 +2183,33 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
 #################################################################################################
 
     ################################################################################################# 
-    # Gestion des equats 
+    # Gestion des equates 
     #################################################################################################
         
     totdata +=f"\n" 
-    
-    dfEqui = pd.DataFrame(SurveyListEqui)
-    stationList = stationList.merge(dfEqui, how='left', left_on='Survey_Name_01', right_on='SURVEY_NAME')
-    stationList['Survey_Name_01'] = stationList['surveyCount']
-    stationList.drop(columns=['SURVEY_NAME', 'surveyCount'], inplace=True)
-    
+     
     _stationList = stationList.copy()
     
     # On numérote les doublons de Survey_Name pour chaque StationName
     _stationList['Survey_Number'] = _stationList.groupby('StationName').cumcount() + 1
+    
+    # print(_stationList)
     
     # On pivote le tableau pour que chaque Survey_Name devienne une colonne
     tableau_pivot = _stationList.pivot(index='StationName', columns='Survey_Number', values='Survey_Name_01')
     
     tableau_pivot.columns = [f'Survey_Name_{i}' for i in tableau_pivot.columns]
     
-    # print(f"tableau_pivot : {Colors.ENDC}{tableau_pivot}{Colors.INFO} in {Colors.ENDC}{ENTRY_FILE}")
+    # print(f"tableau_pivot: {Colors.ENDC}{tableau_pivot}{Colors.INFO} in {Colors.ENDC}{ENTRY_FILE}")
     
-    totdata +=f"\n\t## Liste equates\n"
+    totdata +=f"\n\t## equates list:\n"
     
     if 'Survey_Name_2' in tableau_pivot.columns:
         # On réinitialise l'index pour avoir StationName comme colonne normale
         tableau_pivot = tableau_pivot.reset_index()
         tableau_equate = tableau_pivot[tableau_pivot['Survey_Name_2'].notna()]
 
-
-        log.info(f"Total 'equats' : {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{shortCurentFile}")
+        log.info(f"Total 'equates' founds: {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{shortCurentFile}")
         # print(tableau_equate)
         # print(f"fixePoints : {Colors.ENDC}{fixed_names}{Colors.INFO} in {Colors.ENDC}{ENTRY_FILE}")
         
@@ -2123,15 +2220,14 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
             # On récupère tous les Survey_Name non vides (NaN exclus)
             surveys = [row[col] for col in tableau_equate.columns if col.startswith('Survey_Name') and pd.notna(row[col])]
             
-            
             # Pour chaque paire unique (i < j), on écrit la ligne 'equate'
             for i in range(len(surveys)):
                 for j in range(i + 1, len(surveys)):
                     totdata +=f"\tequate {station}@{surveys[i]}.{surveys[i]} {station}@{surveys[j]}.{surveys[j]}\n"
     else:
-        log.info(f"No 'equats' found in {Colors.ENDC}{ENTRY_FILE}")
+        log.info(f"No 'equates' found in {Colors.ENDC}{ENTRY_FILE}")
              
-    totdata +=f"\n\t## Appel des maps\n\tinput {SurveyTitle}-maps.th\n"
+    totdata +=f"\n\t## Maps list:\n\tinput {SurveyTitle}-maps.th\n"
     
     if totReadMeErrorDat == "" : totReadMeErrorDat += "\tAny error in this file, that's perfect !\n"
         
@@ -2216,7 +2312,7 @@ if __name__ == u'__main__':
     #parser.add_argument("--format", choices=['th2', 'plt'], help="Output format. Either th2 for producing skeleton for drawing or plt for visualizing in aven/loch", default="th2")
     parser.add_argument("--output", default="./", help="Output folder path")
     # parser.add_argument("--therion-path", help="Path to therion binary", default="therion")
-    parser.add_argument("--scale", help="Scale for the exports", default="1000")
+    parser.add_argument("--scale", help="Scale for the exports", default="100")
     parser.add_argument("--lines", type=str_to_bool, help="Shot lines in th2 files", default=-1)
     parser.add_argument("--names", type=str_to_bool, help="Stations names in th2 files", default=-1)
     parser.add_argument("--update", help="Mode update, option th2", default="")
@@ -2331,10 +2427,22 @@ if __name__ == u'__main__':
                 log.critical(f"The folder {Colors.ENDC}{SurveyTitleDat}{Colors.ERROR}{Colors.BOLD},  all ready exist : update mode is not possible for mak files")
                 exit(0)
         
-        with alive_bar(QtySections, title=f"{Colors.GREEN}Surveys progress: {Colors.BLUE}",  length = 20, enrich_print=False) as bar:
+        with alive_bar(
+                QtySections, 
+                title=f"{Colors.GREEN}Surveys progress: {Colors.BLUE}",  
+                length = 20, 
+                enrich_print=False,
+                stats=True,  # Désactive les stats par défaut pour plus de lisibilité
+                elapsed=True,  # Optionnel : masque le temps écoulé
+                monitor=True,  # Optionnel : masque les métriques (ex: "eta")
+                bar="smooth"  # Style de la barre (autres options: "smooth", "classic", "blocks")
+                ) as bar:
             with redirect_stdout(sys.__stdout__):
                 for i in range(1): 
-                    bar.text(f"{Colors.INFO}file: {Colors.ENDC}{os.path.basename(ABS_file)}")
+                    if globalData.error_count > 0:
+                        bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{os.path.basename(ABS_file)[:-4]}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
+                    else :
+                        bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{os.path.basename(ABS_file)[:-4]}")
                     stationList, fileTitle, totReadMeError, thread2 = dat_to_th_files (ABS_file , fixPoints = [], crs_wkt = "", CONFIG_PATH = _ConfigPath, totReadMeError = "", bar = bar)
                     threads += thread2
                     bar()

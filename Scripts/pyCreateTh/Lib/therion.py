@@ -12,7 +12,6 @@ from Lib.general_fonctions import Colors, safe_relpath
 
 log = logging.getLogger("Logger")
 
-
 ################################################################################################# 
 # Compilation Therion 'Template' (version sans blocage)                                         #
 # Compiler une configuration générée dynamiquement à partir d'un template texte.                #
@@ -94,7 +93,7 @@ def compile_file(filename, **kwargs):
     therion_path = kwargs.get("therion_path", "therion")
     timeout = kwargs.get("timeout", 240)
 
-    log.info(f"Start therion compilation file: {Colors.ENDC}{safe_relpath(filename)}")
+    log.info(f"Start therion [Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.GREEN}], compilation file")
 
     def run():
         try:
@@ -113,22 +112,22 @@ def compile_file(filename, **kwargs):
                         line = line.rstrip()
                         lower_line = line.lower()
                         if "average loop error" in lower_line:
-                            log.warning(f"[Therion Compile {os.path.basename(filename)[:-9]}] {Colors.ENDC}{line}")
+                            log.warning(f"[Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}] {Colors.ENDC}{line}")
                         elif "error" in lower_line:
-                            log.error(f"[Therion_Compile {os.path.basename(filename)[:-9]}] {Colors.ENDC}{line}")    
+                            log.error(f"[Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.ERROR}] {Colors.ENDC}{line}")    
                         elif "warning" in lower_line:
-                            log.warning(f"[Therion Compile {os.path.basename(filename)[:-9]}] {Colors.ENDC}{line}")
+                            log.warning(f"[Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}] {Colors.ENDC}{line}")
                         else:
-                            log.debug(f"[Therion Compile {os.path.basename(filename)[:-9]}] {Colors.ENDC}{line}")
+                            log.debug(f"[Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.DEBUG}] {Colors.ENDC}{line}")
                 except Exception as e:
-                    log.warning(f"Reading Therion output: {Colors.ENDC}{e}")
+                    log.warning(f"Reading Therion [Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}], output: {Colors.ENDC}{e}")
 
             output_thread = threading.Thread(target=read_output, args=(process,))
             output_thread.start()
 
             output_thread.join(timeout)
             if output_thread.is_alive():
-                log.error(f"Therion compilation timed out after {Colors.ENDC}{timeout}{Colors.ERROR} seconds. Killing process...")
+                log.error(f"Therion compilation [Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.ERROR}], timed out after {Colors.ENDC}{timeout}{Colors.ERROR} seconds. Killing process...")
                 global_data.error_count += 1
                 process.kill()
 
@@ -136,20 +135,22 @@ def compile_file(filename, **kwargs):
             process.wait()
 
             if process.returncode != 0:
-                log.error(f"Therion returned error code {Colors.ENDC}{process.returncode}")
+                log.error(f"Therion [Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.ERROR}], returned error code {Colors.ENDC}{process.returncode}")
                 global_data.error_count += 1
             else:
-                log.info(f"Therion file: {Colors.ENDC}{safe_relpath(filename)}{Colors.GREEN} compilation succeeded")
+                # stat = get_stats_from_log(log_file)
+                log.info(f"Therion file: [Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.GREEN}], compilation succeeded")
 
         except Exception as e:
-            log.error(f"Therion file: {Colors.ENDC}{safe_relpath(filename)}{Colors.ERROR} compilation error: {Colors.ENDC}{e}")
+            log.error(f"Therion file: [Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.ERROR}], compilation error: {Colors.ENDC}{e}")
             global_data.error_count += 1
 
     # Lancer le thread principal pour cette compilation et le retourner
     thread = threading.Thread(target=run)
+    
     thread.start()
+    
     return thread
-
 
 
 #################################################################################################
@@ -170,10 +171,9 @@ lengthre = re.compile(r".*Longueur totale de la topographie = \s*(\S+)m")
 depthre = re.compile(r".*Longueur totale verticale =\s*(\S+)m")
 
 def get_stats_from_log(log):
-    
-    
     lenmatch = lengthre.findall(log)
     depmatch = depthre.findall(log)
+    
     if len(lenmatch) == 1 and len(depmatch) == 1:
         return {"length": lenmatch[0], "depth": depmatch[0]}
     return {"length": 0, "depth": 0}
@@ -181,7 +181,6 @@ def get_stats_from_log(log):
 
 #################################################################################################
 syscoord = re.compile(r".*output coordinate system: \s*(\S+)")
-
 
 def get_syscoord_from_log(log):
     lenmatch = syscoord.findall(log)

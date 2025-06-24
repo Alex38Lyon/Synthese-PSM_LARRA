@@ -275,7 +275,6 @@ def setup_logger(logfile="app.log", debug_log=False):
     return logger
 
 
-
 #################################################################################################
 def release_log_file(logger):
     handlers = logger.handlers[:]
