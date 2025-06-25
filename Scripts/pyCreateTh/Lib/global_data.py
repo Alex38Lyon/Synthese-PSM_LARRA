@@ -79,7 +79,7 @@ endsurvey
 thconfigTemplate = """
 source "{th_file}"
 layout minimal
-scale 1 {scale}
+scale 1 100
 endlayout
 
 select {selector}

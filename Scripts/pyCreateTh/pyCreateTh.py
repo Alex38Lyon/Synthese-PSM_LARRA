@@ -17,22 +17,27 @@ Création Alex le 2025 06 09 :
     
 Version 2025 06 16 :    Création fonction create_th_folders 
                         Ajout des fonctions pour mak et dat    
+                        
 
                         
                         
 En cours :
-    - créer fonction wall shot  pour faire habillage des th2 files, les jointures...
     - reprendre les options en ligne de commande, tester, documenter
     - trouver une solution pour les teams et les clubs manquants
     - tester la nouvelle version de DAT (CORRECTION2 et suivants)
     - comparer résultats Therion - Compass (Stat, kml, etc....)
     - intégrer .tro files d'après XRo
     - ajouter codes pour lat/long
+    - créer fonction wall shot  pour faire habillage des th2 files, les jointures...
+        - traiter les splays pour les LRUD
+        - traiter les series à 1 et 2 stations
+
+    
     
 
 """
 
-Version ="2025.06.24"  
+Version = "2025.06.25"  
 
 #################################################################################################
 #################################################################################################
@@ -299,7 +304,7 @@ def convert_to_line_polaire_df(df_lines):
         
         # Calcul de la longueur et de l'azimut
         length = np.hypot(dx, dy)
-        azimut = (np.degrees(np.arctan2(dy, dx))) % 360
+        azimut = (np.degrees(np.arctan2(dx, dy))) % 360
 
         if "group_id" in df_lines.columns:
             df_polaire = pd.DataFrame({
@@ -403,6 +408,7 @@ def assign_groups_and_ranks(df_lines):
 
     used_edges = set()
     results = []
+    equates = []  # Liste des (group_id, start_point, end_point)
     group_id = 0
 
     def walk_path(u, prev=None):
@@ -410,7 +416,7 @@ def assign_groups_and_ranks(df_lines):
         current = u
         while True:
             neighbors = [n for n in G.neighbors(current) if n != prev]
-            if len(neighbors) != 1:  # fin de chemin : cul-de-sac ou embranchement
+            if len(neighbors) != 1:
                 break
             next_node = neighbors[0]
             edge = tuple(sorted((current, next_node)))
@@ -422,7 +428,6 @@ def assign_groups_and_ranks(df_lines):
             current = next_node
         return path
 
-    # Départ depuis toutes les feuilles ou nœuds d'ordre >2 (embranchements)
     start_nodes = [n for n in G.nodes if G.degree(n) != 2]
 
     for node in start_nodes:
@@ -432,6 +437,7 @@ def assign_groups_and_ranks(df_lines):
                 continue
             used_edges.add(edge)
             path = [(node, neighbor)] + walk_path(neighbor, node)
+            
             for rank, (n1, n2) in enumerate(path):
                 match = df_lines[(df_lines["name1"] == n1) & (df_lines["name2"] == n2)]
                 if match.empty:
@@ -441,33 +447,153 @@ def assign_groups_and_ranks(df_lines):
                     row["group_id"] = group_id
                     row["rank_in_group"] = rank
                     results.append(row)
+                    if rank == 0:
+                        start_point = n1
+            end_point = path[-1][1] if path else start_point
+            equates.append((group_id, str(start_point), str(end_point)))
             group_id += 1
 
-    return pd.DataFrame(results)
+    # Création du DataFrame principal
+    df_result = pd.DataFrame(results)
+
+    # Création du DataFrame equates
+    df_equates = pd.DataFrame(equates, columns=["group_id", "start_point", "end_point"])
+    df_equates["group_id"] = df_equates["group_id"].astype(int)
+    df_equates["start_point"] = df_equates["start_point"].astype(str)
+    df_equates["end_point"] = df_equates["end_point"].astype(str)
+
+    # Ajout de la colonne max_rank
+    max_ranks = df_result.groupby("group_id")["rank_in_group"].max().reset_index()
+    max_ranks.rename(columns={"rank_in_group": "max_rank"}, inplace=True)
+    max_ranks["max_rank"] = max_ranks["max_rank"].astype(int)
+    df_equates = df_equates.merge(max_ranks, on="group_id", how="left")
+
+    # Ajout de la colonne start_group (raccord entre start_point <-> end_point d'un autre groupe)
+    end_to_group = df_equates[["end_point", "group_id"]].copy()
+    end_to_group.rename(columns={"end_point": "start_point", "group_id": "start_group"}, inplace=True)
+    end_to_group["start_point"] = end_to_group["start_point"].astype(str)
+    df_equates = df_equates.merge(end_to_group, on="start_point", how="left")
+
+    # Remplacer les NaN dans start_group par 0 (entier)
+    df_equates["start_group"] = df_equates["start_group"].fillna(0).astype(int)
+
+    return df_result, df_equates
+
+
+#################################################################################################
+def add_start_end_splays(df_splays_complet, df_equates):
+    df_splays_new = df_splays_complet.copy()
+    
+    # print(f"\n df_lines_polaire: {len(df_splays_new)}")   
+    # print(df_splays_new)
+
+    for _, row in df_equates.iterrows():
+        group_id = row["group_id"]
+        end_point = row["end_point"]
+        start_point = row["start_point"]
+        start_group = row["start_group"]
+
+        # Vérifie si le end_point est déjà dans les splays
+        mask = (df_splays_complet["name1"] == end_point) & (df_splays_complet["group_id"] == group_id)
+
+        if not mask.any():
+            # Trouver un splay existant du même groupe pour copier la structure
+            splay_example = df_splays_complet[df_splays_complet["name1"] == end_point].copy()
+            if not splay_example.empty:
+                splay_example["group_id"] = group_id
+                splay_example["rank_in_group"] = row["max_rank"] + 1
+                ref_row = df_splays_complet[
+                    (df_splays_complet["group_id"] == group_id) &
+                    (df_splays_complet["rank_in_group"] == row["max_rank"] - 1)
+                ]
+                if not ref_row.empty:
+                    splay_example["longueur_ref"] = ref_row.iloc[0]["longueur_ref"]
+                    splay_example["bissectrice"] = ref_row.iloc[0]["bissectrice"]
+                splay_example = splay_example.drop_duplicates()                    
+                df_splays_new = pd.concat([df_splays_new, splay_example], ignore_index=True)
+                # print(f"\n splay_example end add: {len(splay_example)}")   
+                # print(splay_example)
+                
+        # Vérifie si le end_point est déjà dans les splays
+        mask = (df_splays_complet["name1"] == start_point) & (df_splays_complet["group_id"] == start_group)
+        if not mask.any():
+            # Trouver un splay existant du même groupe pour copier la structure
+            splay_example = df_splays_complet[df_splays_complet["name1"] == start_point].copy()
+            if not splay_example.empty:
+                splay_example["group_id"] = group_id
+                splay_example["rank_in_group"] = 0
+                ref_row = df_splays_complet[
+                    (df_splays_complet["group_id"] == start_group) &
+                    (df_splays_complet["rank_in_group"] == 0)
+                ]
+                if not ref_row.empty:
+                    splay_example["longueur_ref"] = ref_row.iloc[0]["longueur_ref"]
+                    splay_example["bissectrice"] = ref_row.iloc[0]["bissectrice"]
+                splay_example = splay_example.drop_duplicates()                    
+                df_splays_new = pd.concat([df_splays_new, splay_example], ignore_index=True)
+                # print(f"\n splay_example start add : {len(splay_example)}")   
+                # print(splay_example)
+                
+            else:
+                # Aucun splay existant pour ce group_id : on ignore ou on crée un modèle vide
+                print(f"Aucun modèle de splay pour group_id {group_id} — point {end_point} ignoré.")
+    
+    
+    return df_splays_new
+
 
 
 #################################################################################################
 def wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_max):
 
+    th2_walls=[]
+    _list = ""
+    # pd.set_option('display.max_rows', None)
+    # pd.set_option('display.max_columns', None)
+    # pd.set_option('display.width', None)
+    # pd.set_option('display.max_colwidth', None)
+    
+    if len(df_lines) <= 2:
+        return th2_walls, 0, 0, 0, 0
 
 
-    df_lines = assign_groups_and_ranks(df_lines)
+    df_lines, df_equates = assign_groups_and_ranks(df_lines)
    
     # Conversion en polaire
     df_lines_polaire = convert_to_line_polaire_df(df_lines)
     df_splays_polaire = convert_to_line_polaire_df(df_splays)
     
+    df_temp = df_lines_polaire.copy()
+    df_temp['rank_in_group_prev'] = df_temp['rank_in_group'] + 1
 
+    # Fusionner pour récupérer l'azimut précédent
+    df_lines_polaire = df_lines_polaire.merge(
+        df_temp[['group_id', 'rank_in_group_prev', 'azimut_deg']],
+        left_on=['group_id', 'rank_in_group'],
+        right_on=['group_id', 'rank_in_group_prev'],
+        how='left',
+        suffixes=('', '_prev')
+    )
+
+    # Renommer et nettoyer
+    df_lines_polaire['azimut_prev_deg'] = df_lines_polaire['azimut_deg_prev']
+    df_lines_polaire = df_lines_polaire.drop(['rank_in_group_prev', 'azimut_deg_prev'], axis=1)
+    df_lines_polaire['azimut_prev_deg'] = df_lines_polaire['azimut_prev_deg'].fillna(df_lines_polaire['azimut_deg'])
+    df_lines_polaire['bissectrice'] = (df_lines_polaire['azimut_deg'] + df_lines_polaire['azimut_prev_deg']) / 2
+    
+    
+    # print(f"\n df_lines_polaire: {len(df_lines_polaire)} :\n{df_lines_polaire}")   
+    # print(f"\n df_equates: {len(df_equates)} :\n{df_equates}")   
 
     # Index des lignes polaires par station name1
-    index_by_station = df_lines_polaire.set_index("name1")[["azimut_deg", "longueur"]]
+    index_by_station = df_lines_polaire.set_index("name1")[["bissectrice", "longueur"]]
 
     # Jointure pour récupérer azimut_ref et longueur_ref
     _df_splays_complet = df_splays_polaire.copy()
     _df_splays_complet = _df_splays_complet.join(index_by_station, on="name1", rsuffix="_ref")
     
     # Remplacer les valeurs manquantes par défaut : azimut_ref = 0, longueur_ref = 0
-    _df_splays_complet["azimut_deg_ref"] = _df_splays_complet["azimut_deg_ref"].fillna(0)
+    _df_splays_complet["bissectrice"] = _df_splays_complet["bissectrice"].fillna(0)
     _df_splays_complet["longueur_ref"] = _df_splays_complet["longueur_ref"].fillna(0)
     
     df_splays_complet = _df_splays_complet.merge(
@@ -475,9 +601,6 @@ def wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_m
         on="name1",
         how="left"
     )
-    
-    print(f"\n df_splays_complet: {len(df_splays_complet)}")   
-    print(df_splays_complet)
     
     missing_mask = df_splays_complet["group_id"].isna()
     
@@ -488,61 +611,59 @@ def wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_m
             group_id = match["group_id"].values[0]
             max_rank = df_lines_polaire[df_lines_polaire["group_id"] == group_id]["rank_in_group"].max()
                     
-            df_splays_complet.at[idx, "azimut_deg_ref"] = match["azimut_deg"].values[0]
+            df_splays_complet.at[idx, "bissectrice"] = match["azimut_deg"].values[0]
             df_splays_complet.at[idx, "longueur_ref"] = match["longueur"].values[0]
             df_splays_complet.at[idx, "group_id"] = group_id
             df_splays_complet.at[idx, "rank_in_group"] = max_rank + 1
 
-
-    pd.set_option('display.max_rows', None)
-    pd.set_option('display.max_columns', None)
-    pd.set_option('display.width', None)
-    pd.set_option('display.max_colwidth', None)
+    df_splays_complet = add_start_end_splays(df_splays_complet, df_equates)
     
     df_splays_complet = df_splays_complet.sort_values(by=["group_id", "rank_in_group"]).reset_index(drop=True)
-    print(f"\n df_splays_complet: {len(df_splays_complet)}")   
-    print(df_splays_complet)
+    
+    df_splays_complet["delta_azimut"] = df_splays_complet["bissectrice"] - df_splays_complet["azimut_deg"]
 
 
     # Calcul de la projection : sin(delta azimut) * longueur_ref
     def calc_projection(row):
         try:
-            delta = math.radians(row["azimut_deg_ref"] - row["azimut_deg"])
+            delta = math.radians(row["bissectrice"] - row["azimut_deg"])
             return math.sin(delta) * row["longueur"]
         
         except:
             return None
 
     df_splays_complet["proj"] = df_splays_complet.apply(calc_projection, axis=1)
+    df_splays_complet["group_id"] = df_splays_complet["group_id"].astype(int)
+    df_splays_complet["rank_in_group"] = df_splays_complet["rank_in_group"].astype(int)
+    
+    # print(f"\n df_splays_complet: {len(df_splays_complet)} :\n{df_splays_complet}")   
 
     # Filtrage des extrêmes min/max par station name1
     df_valid_proj = df_splays_complet.dropna(subset=["proj"])
-    idx_min = df_valid_proj.groupby("name1")["proj"].idxmin()
-    idx_max = df_valid_proj.groupby("name1")["proj"].idxmax()
-
-    df_result01 = pd.concat([df_valid_proj.loc[idx_max]]).drop_duplicates()
-    df_result02 = pd.concat([df_valid_proj.loc[idx_min]]).drop_duplicates()
     
-    df_result01["group_id"] = df_result01["group_id"].astype(int)
-    df_result01["rank_in_group"] = df_result01["rank_in_group"].astype(int)
+    # print(f"\n df_splays_complet: {len(df_splays_complet)} :\n{df_splays_complet}")   
+   
+    idx_max = df_valid_proj.groupby(["group_id", "rank_in_group"])["proj"].idxmax()
+    df_result01 = df_valid_proj.loc[idx_max].reset_index(drop=True)   
+    # idx_max = df_valid_proj.groupby("name1")["proj"].idxmax()
+    df_result01 = pd.concat([df_valid_proj.loc[idx_max]]).drop_duplicates() 
     df_sorted01 = df_result01.sort_values(by=["group_id", "rank_in_group"]).reset_index(drop=True)
-        
-    # Convertir les colonnes en entiers
-    df_result02["group_id"] = df_result02["group_id"].astype(int)
-    df_result02["rank_in_group"] = df_result02["rank_in_group"].astype(int)
+    
+    idx_min = df_valid_proj.groupby(["group_id", "rank_in_group"])["proj"].idxmin()
+    df_result02 = df_valid_proj.loc[idx_min].reset_index(drop=True)  
+    # idx_min = df_valid_proj.groupby("name1")["proj"].idxmin()
+    df_result02 = pd.concat([df_valid_proj.loc[idx_min]]).drop_duplicates()    
     df_sorted02 = df_result02.sort_values(by=["group_id", "rank_in_group"]).reset_index(drop=True)
     
     # Affichage de contrôle
-    print(f"\n df_sorted01: {len(df_sorted01)}")   
-    print(df_sorted01)
-    # print(f"\n df_sorted02: {len(df_sorted02)}")   
-    # print(df_sorted02)
+    # print(f"\n df_sorted01: {len(df_sorted01)} :\n{df_sorted01}")   
+    # print(f"\n df_sorted02: {len(df_sorted02)} :\n{df_sorted02}")  
+    # print(f"\n idx_min: {len(idx_min)} :\n{idx_min}")    
 
-    th2_walls=[]
-    _list = ""
+
     
     for gid in sorted(df_sorted01["group_id"].unique()):
-        df_group = df_sorted01[df_sorted01["group_id"] == gid]
+        df_group = df_sorted02[df_sorted02["group_id"] == gid]
     
         _list += f"line wall\n" 
 
@@ -556,7 +677,7 @@ def wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_m
 
         _list += "endline\n\nline wall -reverse on\n"
         
-        df_group = df_sorted02[df_sorted02["group_id"] == gid]    
+        df_group = df_sorted01[df_sorted01["group_id"] == gid]    
         for line in df_group.itertuples(index=False):
             _list += f"\t{line.x2} {line.y2}\n"
             if line.x2 > x_max: x_max = line.x2
@@ -2464,7 +2585,7 @@ if __name__ == u'__main__':
     #parser.add_argument("--format", choices=['th2', 'plt'], help="Output format. Either th2 for producing skeleton for drawing or plt for visualizing in aven/loch", default="th2")
     parser.add_argument("--output", default="./", help="Output folder path")
     # parser.add_argument("--therion-path", help="Path to therion binary", default="therion")
-    parser.add_argument("--scale", help="Scale for the exports", default="100")
+    parser.add_argument("--scale", help="Scale for the exports", default="1000")
     parser.add_argument("--lines", type=str_to_bool, help="Shot lines in th2 files", default=-1)
     parser.add_argument("--names", type=str_to_bool, help="Stations names in th2 files", default=-1)
     parser.add_argument("--update", help="Mode update, option th2", default="")
