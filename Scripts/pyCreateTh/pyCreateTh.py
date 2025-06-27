@@ -17,27 +17,22 @@ Création Alex le 2025 06 09 :
     
 Version 2025 06 16 :    Création fonction create_th_folders 
                         Ajout des fonctions pour mak et dat    
-                        
-
-                        
-                        
+                                       
 En cours :
-    - reprendre les options en ligne de commande, tester, documenter
     - trouver une solution pour les teams et les clubs manquants
     - tester la nouvelle version de DAT (CORRECTION2 et suivants)
     - comparer résultats Therion - Compass (Stat, kml, etc....)
     - intégrer .tro files d'après XRo
     - ajouter codes pour lat/long
     - créer fonction wall shot  pour faire habillage des th2 files, les jointures...
-        - traiter les splays pour les LRUD
-        - traiter les series à 1 et 2 stations
-
-    
-    
+        - traiter les series avec 1 ou 2 stations
+        - fiabiliser !
+    - PB des cartouches et des échelles pour faire des pdf automatiquement
+    - gérer les différentes options --proj (All, Plan, ....) adapter
 
 """
 
-Version = "2025.06.25"  
+Version = "2025.06.26"  
 
 #################################################################################################
 #################################################################################################
@@ -382,21 +377,29 @@ def parse_xvi_file(th_name_xvi):
         y_min, y_max = min(y_values), max(y_values)
         x_ecart = x_max - x_min
         y_ecart = y_max - y_min
-
-        # Extraction des lignes
+                    
         for line in xvi_shots.split("\n"):
-            match = re.search(r"^\s*{\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s*.*}", line)
+            match = re.search(r"^\s*{\s*(-?\d+\.\d+)\s+(-?\d+\.\d+)\s+(-?\d+\.\d+)\s+(-?\d+\.\d+)(.*)}", line)
             if match:
-                x1, y1, x2, y2 = match.groups()
+                x1, y1, x2, y2, rest = match.groups()
                 key1 = f"{x1}.{y1}"
                 key2 = f"{x2}.{y2}"
                 station1 = stations[key1][2] if key1 in stations else None
                 station2 = stations[key2][2] if key2 in stations else None
-                if station1 != "." and station1 != "-" and station1 != None and station2 != "." and station2 != "-" and station2 != None:
+
+                # Ajout de la ligne principale si les stations sont valides
+                if station1 not in [".", "-", None] and station2 not in [".", "-", None]:
                     lines.append([x1, y1, x2, y2, station1, station2])
-                else :
+                else:
                     splays.append([x1, y1, x2, y2, station1, station2])
-        
+
+                # Vérifie s'il y a au moins 8 autres champs pour les splays
+                additional_coords = re.findall(r"-?\d+\.\d+", rest)
+                if len(additional_coords) >= 8:
+                        splays.append([x1, y1, additional_coords[0],  additional_coords[1], station1, "-"])
+                        # splays.append([x2, y2, additional_coords[2],  additional_coords[3], station2, "-"])
+                        # splays.append([x2, y2, additional_coords[4],  additional_coords[5], station2, "-"])
+                        splays.append([x1, y1, additional_coords[6],  additional_coords[7], station1, "-"])
     
     return stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart
 
@@ -483,9 +486,6 @@ def assign_groups_and_ranks(df_lines):
 #################################################################################################
 def add_start_end_splays(df_splays_complet, df_equates):
     df_splays_new = df_splays_complet.copy()
-    
-    # print(f"\n df_lines_polaire: {len(df_splays_new)}")   
-    # print(df_splays_new)
 
     for _, row in df_equates.iterrows():
         group_id = row["group_id"]
@@ -534,26 +534,61 @@ def add_start_end_splays(df_splays_complet, df_equates):
                 # print(f"\n splay_example start add : {len(splay_example)}")   
                 # print(splay_example)
                 
-            else:
+            # else:
                 # Aucun splay existant pour ce group_id : on ignore ou on crée un modèle vide
-                print(f"Aucun modèle de splay pour group_id {group_id} — point {end_point} ignoré.")
-    
-    
+                # print(f"Aucun modèle de splay pour group_id {group_id} — point {end_point} ignoré.")
+                
     return df_splays_new
 
 
 
-#################################################################################################
-def wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_max):
+def align_points(smoothX1, smoothY1, X, Y, smoothX2, smoothY2):
+    # Vecteurs d'origine vers smooth1 et smooth2
+    dx1, dy1 = smoothX1 - X, smoothY1 - Y
+    dx2, dy2 = smoothX2 - X, smoothY2 - Y
 
+    # Vecteur directeur initial entre smooth1 et smooth2
+    dir_x, dir_y = smoothX2 - smoothX1, smoothY2 - smoothY1
+
+    # Normalisation du vecteur directeur
+    length = math.hypot(dir_x, dir_y)
+    if length == 0:
+        raise ValueError("Les deux points smooth sont confondus, la direction est indéfinie.")
+
+    dir_x /= length
+    dir_y /= length
+
+    # Calcul des distances originales depuis le centre
+    dist1 = math.hypot(dx1, dy1)
+    dist2 = math.hypot(dx2, dy2)
+
+    # Recalcule des points alignés, en gardant les distances depuis le point central
+    _smoothX1 = X + dir_x * dist1 * globalData.kSmooth
+    _smoothY1 = Y + dir_y * dist1 * globalData.kSmooth
+
+    _smoothX2 = X - dir_x * dist2 * globalData.kSmooth
+    _smoothY2 = Y - dir_y * dist2 * globalData.kSmooth
+
+    return (_smoothX1, _smoothY1), (_smoothX2, _smoothY2)
+
+
+
+#################################################################################################
+def wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max):
+
+   
     th2_walls=[]
     _list = ""
+    
     # pd.set_option('display.max_rows', None)
     # pd.set_option('display.max_columns', None)
     # pd.set_option('display.width', None)
     # pd.set_option('display.max_colwidth', None)
+    # print(f"\n df_lines: {len(df_lines)} :\n{df_lines}")   
+    # print(f"\n df_splays: {len(df_splays)} :\n{df_splays}")   
+
     
-    if len(df_lines) <= 2:
+    if len(df_lines) <= 2 or len(df_splays) <= 2:
         return th2_walls, 0, 0, 0, 0
 
 
@@ -659,47 +694,196 @@ def wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_m
     # print(f"\n df_sorted01: {len(df_sorted01)} :\n{df_sorted01}")   
     # print(f"\n df_sorted02: {len(df_sorted02)} :\n{df_sorted02}")  
     # print(f"\n idx_min: {len(idx_min)} :\n{idx_min}")    
-
-
+    
+    smooth02 = []
+    smooth01 = []
     
     for gid in sorted(df_sorted01["group_id"].unique()):
         df_group = df_sorted02[df_sorted02["group_id"] == gid]
     
-        _list += f"line wall\n" 
-
+        # _list += f"line wall\n" 
+        _linex2 = 0.0   
+        _liney2 = 0.0
+         
         for line in df_group.itertuples(index=False):
-            _list += f"\t{line.x2} {line.y2}\n"
-            
+            X = line.x2 + (- line.x2 + _linex2) / 2      
+            Y = line.y2 + (- line.y2 + _liney2) / 2      
+            if _linex2 == 0.0  and _liney2 == 0.0:
+                row = {
+                    'smoothX1': None,
+                    'smoothY1': None,
+                    'smoothX2': None,
+                    'smoothY2': None,
+                    'X': line.x2,
+                    'Y': line.y2,
+                    'Jump': False,
+                }
+            else :
+                row = {
+                    'smoothX1': X,
+                    'smoothY1': Y,
+                    'smoothX2': X,
+                    'smoothY2': Y,
+                    'X': line.x2,
+                    'Y': line.y2,
+                    'Jump': False,
+                }
+                
+            _linex2 = line.x2   
+            _liney2 = line.y2
+            smooth02.append(row)
             if line.x2 > x_max: x_max = line.x2
             if line.x2 < x_min: x_min = line.x2
             if line.y2 > y_max: y_max = line.y2
             if line.y2 < y_min: y_min = line.y2
-
-        _list += "endline\n\nline wall -reverse on\n"
+        row = {
+            'smoothX1': None,
+            'smoothY1': None,
+            'smoothX2': None,
+            'smoothY2': None,
+            'X': None,
+            'Jump': True,
+        }
+        smooth02.append(row)
         
-        df_group = df_sorted01[df_sorted01["group_id"] == gid]    
+        _linex2 = 0.0   
+        _liney2 = 0.0
+        
+        df_group = df_sorted01[df_sorted01["group_id"] == gid]
+            
         for line in df_group.itertuples(index=False):
-            _list += f"\t{line.x2} {line.y2}\n"
+            X = line.x2 + (- line.x2 + _linex2) / 2      
+            Y = line.y2 + (- line.y2 + _liney2) / 2      
+            if _linex2 == 0.0  and _liney2 == 0.0:
+                row = {
+                    'smoothX1': None,
+                    'smoothY1': None,
+                    'smoothX2': None,
+                    'smoothY2': None,
+                    'X': line.x2,
+                    'Y': line.y2,
+                    'Jump': False,
+                }
+            else :
+                row = {
+                    'smoothX1': X,
+                    'smoothY1': Y,
+                    'smoothX2': X,
+                    'smoothY2': Y,
+                    'X': line.x2,
+                    'Y': line.y2,
+                    'Jump': False,
+                }
+                
+            _linex2 = line.x2   
+            _liney2 = line.y2
+            smooth01.append(row)
             if line.x2 > x_max: x_max = line.x2
             if line.x2 < x_min: x_min = line.x2
             if line.y2 > y_max: y_max = line.y2
             if line.y2 < y_min: y_min = line.y2
-        _list += f"endline\n" 
+        
+        row = {
+            'smoothX1': None,
+            'smoothY1': None,
+            'smoothX2': None,
+            'smoothY2': None,
+            'X': None,
+            'Jump': True,
+        }
+        smooth01.append(row)
+           
+    df_smooth01 = pd.DataFrame(smooth01)
+    df_smooth02 = pd.DataFrame(smooth02)
+    
+    # print(f"\n df_sorted01: {len(df_sorted01)} :\n{df_sorted01}")   
+    # print(f"\n df_smooth01: {len(df_smooth01)} :\n{df_smooth01}")  
+    
+    if len(df_smooth01) > 1:
+        _list = "line wall -reverse on\n"
+    
+        for i in range(len(df_smooth01) - 1):
+            row_current = df_smooth01.iloc[i]
+            row_next = df_smooth01.iloc[i + 1]
+            
+            if row_current['Jump'] == True :
+                _list +="\tsmooth off\nendline\n\nline wall -reverse on\n"
+                continue
+            if pd.isna(row_current[['smoothX2', 'smoothY2', 'X', 'Y']]).any() or pd.isna(row_next[['smoothX1', 'smoothY1']]).any():
+                _list += f"\t{row_current['X']} {row_current['Y']}\n"
+                continue
+
+            result = align_points( 
+                smoothX1=row_next['smoothX1'],
+                smoothY1=row_next['smoothY1'],
+                X=row_current['X'],
+                Y=row_current['Y'],
+                smoothX2=row_current['smoothX2'],
+                smoothY2=row_current['smoothY2']
+            )
+
+            if result:
+                (_sx1, _sy1), (_sx2, _sy2) = result
+                df_smooth01.at[i+1, 'smoothX1'] = _sx2
+                df_smooth01.at[i+1, 'smoothY1'] = _sy2
+                df_smooth01.at[i, 'smoothX2'] = _sx1
+                df_smooth01.at[i, 'smoothY2'] = _sy1
+            
+            _list += f"\t{row_current['smoothX1']:.2f} {row_current['smoothY1']:.2f} {row_current['smoothX2']:.2f} {row_current['smoothY2']:.2f} {row_current['X']} {row_current['Y']}\n"
+        
+        _list += "\tsmooth off\nendline\n\nline wall\n"
+            
+        
+        for i in range(len(df_smooth02) - 1):
+            row_current = df_smooth02.iloc[i]
+            row_next = df_smooth02.iloc[i + 1]
+
+            # Vérifie qu'aucune valeur utilisée n'est NaN
+            if row_current['Jump'] == True :
+                _list +="\tsmooth off\nendline\n\nline wall\n"
+                continue
+            if pd.isna(row_current[['smoothX2', 'smoothY2', 'X', 'Y']]).any() or pd.isna(row_next[['smoothX1', 'smoothY1']]).any():
+                _list += f"\t{row_current['X']} {row_current['Y']}\n"
+                continue
+
+            result = align_points( 
+                smoothX1=row_next['smoothX1'],
+                smoothY1=row_next['smoothY1'],
+                X=row_current['X'],
+                Y=row_current['Y'],
+                smoothX2=row_current['smoothX2'],
+                smoothY2=row_current['smoothY2']
+            )
+
+            if result:
+                (_sx1, _sy1), (_sx2, _sy2) = result
+                df_smooth02.at[i+1, 'smoothX1'] = _sx2
+                df_smooth02.at[i+1, 'smoothY1'] = _sy2
+                df_smooth02.at[i, 'smoothX2'] = _sx1
+                df_smooth02.at[i, 'smoothY2'] = _sy1
+            
+            _list += f"\t{row_current['smoothX1']:.2f} {row_current['smoothY1']:.2f} {row_current['smoothX2']:.2f} {row_current['smoothY2']:.2f} {row_current['X']} {row_current['Y']}\n"
+        
+        _list += "\tsmooth off\nendline\n"
     
     th2_walls.append(globalData.th2wall.format(list = _list))
         
     return th2_walls, x_min, x_max, y_min, y_max
 
 
+#################################################################################################
+
+
+
 ################################################################################################# 
 # Création des dossiers à partir d'un th file                                                   #
 #################################################################################################   
 def create_th_folders(ENTRY_FILE, 
-                    PROJECTION = "All", 
+                    PROJECTION = "all", 
                     TARGET = "None", 
                     FORMAT = "th2", 
                     SCALE = "500", 
-                    UPDATE = "", 
+                    UPDATE = False, 
                     CONFIG_PATH = "",
                     totReadMeError = "") :  
     """
@@ -711,7 +895,7 @@ def create_th_folders(ENTRY_FILE,
         TARGET (str): Le nom de la cible (scrap) si différent du nom du fichier d'entrée.
         FORMAT (str): Le format de sortie (th2 ou plt).
         SCALE (str): L'échelle pour les exports th2.
-        UPDATE (str): Le mode de mise à jour.
+        UPDATE (bool): Le mode de mise à jour.
         CONFIG_PATH (str): Le chemin vers le fichier de configuration.
         
     Returns:    
@@ -734,9 +918,9 @@ def create_th_folders(ENTRY_FILE,
     log.debug(f"DEST_PATH: {DEST_PATH}")
     log.debug(f"ABS_PATH: {ABS_PATH}")  
           
-    if PROJECTION.lower() != "plan" and PROJECTION.lower() != "extended" and PROJECTION.lower() != "all":
-        log.critical(f"Sorry, projection '{Colors.ENDC}{PROJECTION}{Colors.ERROR}' not yet implemented{Colors.ENDC}")
-        exit(1)
+    # if PROJECTION.lower() != "plan" and PROJECTION.lower() != "extended" and PROJECTION.lower() != "all":
+    #     log.critical(f"Sorry, projection '{Colors.ENDC}{PROJECTION}{Colors.ERROR}' not yet implemented{Colors.ENDC}")
+    #     # exit(1)
     
     if not os.path.isfile(ENTRY_FILE):
         log.critical(f"The Therion file didn't exist: {Colors.ENDC}{shortCurentFile}")
@@ -767,25 +951,25 @@ def create_th_folders(ENTRY_FILE,
         raise NoSurveysFoundException(f"No survey found with that selector")
     
    
-    if UPDATE == "th2": 
-        log.info(f" Update th2 files {Colors.ENDC}")
-        log.info(f"\t{Colors.BLUE}survey_file :  {Colors.ENDC} {args.file}")
-        log.info(f"\t{Colors.BLUE}ENTRY_FILE:    {Colors.ENDC} {ENTRY_FILE}") 
-        log.info(f"\t{Colors.BLUE}PROJECTION:    {Colors.ENDC} {PROJECTION}") 
-        log.info(f"\t{Colors.BLUE}TARGET:        {Colors.ENDC} {TARGET}") 
-        # log.info(f"\t{Colors.BLUE}OUTPUT:        {Colors.ENDC} {OUTPUT}") 
-        log.info(f"\t{Colors.BLUE}FORMAT:        {Colors.ENDC} {FORMAT}")     
-        log.info(f"\t{Colors.BLUE}SCALE:         {Colors.ENDC} {SCALE}")
-        log.info(f"\t{Colors.BLUE}TH_NAME:       {Colors.ENDC} {TH_NAME}")
+    if UPDATE : 
         DEST_PATH = os.path.dirname(args.file)
-        log.info(f"\t{Colors.BLUE}DEST_PATH:     {Colors.ENDC} {DEST_PATH}")
-        log.info(f"\t{Colors.BLUE}ABS_PATH:      {Colors.ENDC} {ABS_PATH}")
+        log.info(f"Update th2 files: {Colors.ENDC}{DEST_PATH}")
+        log.debug(f"\t{Colors.BLUE}survey_file :  {Colors.ENDC} {args.file}")
+        log.debug(f"\t{Colors.BLUE}ENTRY_FILE:    {Colors.ENDC} {ENTRY_FILE}") 
+        log.debug(f"\t{Colors.BLUE}PROJECTION:    {Colors.ENDC} {PROJECTION}") 
+        log.debug(f"\t{Colors.BLUE}TARGET:        {Colors.ENDC} {TARGET}") 
+        # log.info(f"\t{Colors.BLUE}OUTPUT:        {Colors.ENDC} {OUTPUT}") 
+        log.debug(f"\t{Colors.BLUE}FORMAT:        {Colors.ENDC} {FORMAT}")     
+        log.debug(f"\t{Colors.BLUE}SCALE:         {Colors.ENDC} {SCALE}")
+        log.debug(f"\t{Colors.BLUE}TH_NAME:       {Colors.ENDC} {TH_NAME}")
+        log.debug(f"\t{Colors.BLUE}DEST_PATH:     {Colors.ENDC} {DEST_PATH}")
+        log.debug(f"\t{Colors.BLUE}ABS_PATH:      {Colors.ENDC} {ABS_PATH}")
     
     
     #################################################################################################    
     # Copy template folders                                                                         #
     #################################################################################################
-    if UPDATE == "": 
+    if not UPDATE: 
         log.debug(f"Copy template folder and adapte it")
         copy_template_if_not_exists(globalData.templatePath, DEST_PATH)
         copy_file_with_copyright(ENTRY_FILE, DEST_PATH + "/Data", globalData.Copyright)
@@ -796,7 +980,7 @@ def create_th_folders(ENTRY_FILE,
     #################################################################################################      
     log.info(f"Compiling 2D XVI file: {Colors.ENDC}{TH_NAME}")
     
-    if UPDATE == "th2": 
+    if UPDATE: 
         template_args = {
             "th_file": DEST_PATH + "/" + TH_NAME + ".th",  
             "selector": survey.therion_id,
@@ -809,7 +993,7 @@ def create_th_folders(ENTRY_FILE,
             "th_file": DEST_PATH + "/Data/" + TH_NAME + ".th",  
             "selector": survey.therion_id,
             "th_name": DEST_PATH + "/Data/" + TH_NAME, 
-            "scale": int(int(SCALE)/10),
+            "XVIscale": globalData.XVIScale,
         }
 
     logfile, tmpdir, totReadMeError = compile_template(globalData.thconfigTemplate, template_args, totReadMeError, cleanup=False, therion_path=globalData.therionPath)
@@ -828,12 +1012,23 @@ def create_th_folders(ENTRY_FILE,
     #################################################################################################    
     # Update files                                                                                  #
     #################################################################################################
-    if UPDATE == "": 
+    if not UPDATE: 
+        
+        proj = args.proj.lower()
+        values = {
+            "none":     ("# ", "# ", "# "),
+            "plan":     ("",  "",  "# "),
+            "extended": ("",  "# ", ""),
+        }
+
+        maps, plan, extended = values.get(proj, ("", "", ""))
         
         totdata = globalData.totfile.format(
-            TH_NAME = TH_NAME,
-            ERR = "# " if flagErrorCompile else ""    
-        )
+            TH_NAME = TH_NAME, 
+            ERR = "# " if flagErrorCompile else "",
+            Plan = plan,
+            Extended = extended,
+            Maps = maps)
         
         # Adapte templates 
         config_vars = {
@@ -851,6 +1046,11 @@ def create_th_folders(ENTRY_FILE,
             'cs' : globalData.cs,
             'configPath' : CONFIG_PATH,
             'totData' : totdata,
+            'maps' : maps,
+            'plan': plan,
+            'XVIscale':globalData.XVIScale,
+            'extended': extended,
+            'XVIscale':globalData.XVIScale,
             'other_scraps_plan' : "",
             'file_info' : f'# File generated by pyCreateTh.py version: {Version} date: {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}',
         }
@@ -864,7 +1064,7 @@ def create_th_folders(ENTRY_FILE,
     #################################################################################################
     other_scraps_plan = ""
     if PROJECTION.lower() == "plan" or PROJECTION.lower() == "all" and not flagErrorCompile :
-        if UPDATE == "th2": 
+        if UPDATE: 
             th_name_xvi =  DEST_PATH + "/" + TH_NAME + "-Plan.xvi" 
         else :     
             th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Plan.xvi" 
@@ -876,20 +1076,40 @@ def create_th_folders(ENTRY_FILE,
         
         stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
         
-        df_stations = pd.DataFrame.from_dict(stations, orient='index')
+        # df_stations = pd.DataFrame.from_dict(stations, orient='index')
         df_lines = pd.DataFrame(lines, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
-        df_splays = pd.DataFrame(splays, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
+        df_splays = pd.DataFrame(splays, columns=["x1", "y1", "x2", "y2", "name1", "name2"]).drop_duplicates()
         
+        df_splays["is_zero_length"] = (df_splays["x1"] == df_splays["x2"]) & (df_splays["y1"] == df_splays["y2"])
+        
+
+        # Identifier les groupes avec au moins un splay non nul
+        non_zero_groups = df_splays.loc[~df_splays["is_zero_length"], ["name1", "name2"]]
+        non_zero_group_keys = set(tuple(x) for x in non_zero_groups.to_numpy())
+       
+        def keep_row2(row):
+            if not row["is_zero_length"]:
+                return True
+            return (row["name1"], row["name2"]) in non_zero_group_keys
+
+
+        df_splays = df_splays[df_splays.apply(keep_row2, axis=1)]
+
+        # Supprimer la colonne temporaire si elle existe
+        if "is_zero_length" in df_splays.columns:
+            df_splays = df_splays.drop(columns="is_zero_length")
+    
         th2_walls = []
         
         if globalData.wallLineInTh2 :
-            th2_walls,  x_min, x_max, y_min, y_max = wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_max)
+            th2_walls,  x_min, x_max, y_min, y_max = wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max)
             
         
-        if UPDATE == "th2": 
+        if UPDATE: 
             th2_name = DEST_PATH + "/" + TH_NAME
         else : 
             th2_name = DEST_PATH + "/Data/" + TH_NAME
+            
         output_path = f'{th2_name}-Plan.{FORMAT}'
         
         scrap_to_add = int(len(stations)/globalData.stationByScrap)-1
@@ -977,7 +1197,7 @@ def create_th_folders(ENTRY_FILE,
     #################################################################################################
     other_scraps_extended = ""
     if PROJECTION.lower() == "extended" or PROJECTION.lower() == "all" and not flagErrorCompile :
-        if UPDATE == "th2": 
+        if UPDATE: 
             th_name_xvi =  DEST_PATH + "/" + TH_NAME + "-Extended.xvi" 
         else :
             th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Extended.xvi" 
@@ -990,22 +1210,42 @@ def create_th_folders(ENTRY_FILE,
         
         stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
         
-        df_stations = pd.DataFrame.from_dict(stations, orient='index')
+        # df_stations = pd.DataFrame.from_dict(stations, orient='index')
         df_lines = pd.DataFrame(lines, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
-        df_splays = pd.DataFrame(splays, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
+        df_splays = pd.DataFrame(splays, columns=["x1", "y1", "x2", "y2", "name1", "name2"]).drop_duplicates()
+
+        df_splays["is_zero_length"] = (df_splays["x1"] == df_splays["x2"]) & (df_splays["y1"] == df_splays["y2"])
+
+        # Identifier les groupes avec au moins un splay non nul
+        non_zero_groups = df_splays.loc[~df_splays["is_zero_length"], ["name1", "name2"]]
+        non_zero_group_keys = set(tuple(x) for x in non_zero_groups.to_numpy())
+       
+        def keep_row(row):
+            if not row["is_zero_length"]:
+                return True
+            return (row["name1"], row["name2"]) in non_zero_group_keys
+
+        df_splays = df_splays[df_splays.apply(keep_row, axis=1)]
+
+        # Supprimer la colonne temporaire si elle existe
+        if "is_zero_length" in df_splays.columns:
+            df_splays = df_splays.drop(columns="is_zero_length")
         
         th2_walls = []
         
         if globalData.wallLineInTh2 :
-            th2_walls, x_min, x_max, y_min, y_max, = wall_construction(df_stations, df_lines, df_splays, x_min, x_max, y_min, y_max)
+            th2_walls, x_min, x_max, y_min, y_max, = wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max)
             
 
-        if UPDATE == "th2":
+        if UPDATE:
             th2_name = DEST_PATH + "/" + TH_NAME
         else :
             th2_name = DEST_PATH + "/Data/" + TH_NAME
+            
         output_path = f'{th2_name}-Extended.{FORMAT}'
 
+        scrap_to_add = int(len(stations)/globalData.stationByScrap)-1
+        
         log.info(f"Writing output to: {Colors.ENDC}{safe_relpath(output_path)}")
 
         # Write TH2
@@ -1087,7 +1327,8 @@ def create_th_folders(ENTRY_FILE,
     #################################################################################################     
     #  Update  -maps files                                                                            #
     #################################################################################################      
-    if UPDATE == "":                      
+    if not UPDATE:
+                              
         config_vars = {
                         'fileName': TH_NAME,
                         'caveName': TH_NAME.replace("_", " "),
@@ -1101,6 +1342,9 @@ def create_th_folders(ENTRY_FILE,
                         'datat' : globalData.datat,
                         'wpage' : globalData.wpage, 
                         'cs' : globalData.cs,
+                        'maps' : maps,
+                        'plan': plan,
+                        'extended': extended,
                         'configPath' : CONFIG_PATH,
                         'other_scraps_plan' : other_scraps_plan,
                         'other_scraps_extended' : other_scraps_extended,
@@ -1114,7 +1358,7 @@ def create_th_folders(ENTRY_FILE,
     #################################################################################################     
     # Final therion compilation                                                                     #
     #################################################################################################
-    if UPDATE == "":   
+    if not UPDATE:   
         if globalData.finalTherionExe == True:
             FILE = os.path.dirname(ENTRY_FILE) + "/" + TH_NAME + "/" + TH_NAME + ".thconfig"      
             # log.info(f"Final therion compilation: {Colors.ENDC}{safe_relpath(FILE)}")     
@@ -1267,6 +1511,14 @@ def mak_to_th_file(ENTRY_FILE) :
     totMapsPlan = ""
     totMapsExtended = ""
     
+    proj = args.proj.lower()
+    values = {
+        "none":     ("# ", "# ", "# "),
+        "plan":     ("",  "",  "# "),
+        "extended": ("",  "# ", ""),
+    }
+
+    maps, plan, extended = values.get(proj, ("", "", ""))
     
     with alive_bar(QtySections, 
                     title=f"{Colors.GREEN}Surveys progress: {Colors.BLUE}",
@@ -1298,8 +1550,8 @@ def mak_to_th_file(ENTRY_FILE) :
                 threads += thread2
 
                 totdata += f"\tinput Data/{SurveyTitle}/{SurveyTitle}-tot.th\n"
-                totMapsPlan += f"\tMP-{SurveyTitle}-Plan-tot@{SurveyTitle}\n\tbreak\n"
-                totMapsExtended += f"\tMC-{SurveyTitle}-Extended-tot@{SurveyTitle}\n\tbreak\n"
+                totMapsPlan += f"\t{plan}MP-{SurveyTitle}-Plan-tot@{SurveyTitle}\n\t{plan}break\n"
+                totMapsExtended += f"\t{extended}MC-{SurveyTitle}-Extended-tot@{SurveyTitle}\n\t{extended}break\n"
 
                 if not Station.empty:
                     __stationList = pd.concat([stationList, Station], ignore_index=True)
@@ -1363,7 +1615,7 @@ def mak_to_th_file(ENTRY_FILE) :
     else:
         log.info(f"No 'equats' found in {Colors.ENDC}{args.file}")
             
-    totdata +=f"\n\t## Maps list:\n\tinput {SurveyTitleMak}-maps.th\n"
+    totdata +=f"\n\t## Maps list:\n\t{maps}input {SurveyTitleMak}-maps.th\n"
         
     config_vars = {
                     'fileName': SurveyTitleMak,
@@ -1380,6 +1632,10 @@ def mak_to_th_file(ENTRY_FILE) :
                     'cs' : crs_wkt,
                     'configPath' : " ",
                     'totData' : totdata,
+                    'maps' : maps,
+                    'plan': plan,
+                    'extended': extended,
+                    'XVIscale':globalData.XVIScale,
                     'other_scraps_plan' : totMapsPlan,
                     'other_scraps_extended' : totMapsExtended,
                     'readMeList' : totReadMeList,
@@ -1705,7 +1961,7 @@ def find_duplicates_by_date_and_team(data):
 
     # Étape 1 : regroupement par (SURVEY_DATE, SURVEY_TEAM)
     for entry in data:
-        key = (entry['SURVEY_DATE'], entry['SURVEY_TEAM'])
+        key = (entry['SURVEY_DATE'], entry['SURVEY_TEAM'])    
         grouped[key].append(entry)
 
     duplicates = []
@@ -1759,6 +2015,71 @@ def find_duplicates_by_date_and_team(data):
                     })
 
     return duplicates
+
+
+def find_duplicates_by_date(data):
+    grouped = defaultdict(list)
+
+    # Étape 1 : regroupement uniquement par SURVEY_DATE
+    for entry in data:
+        key = entry['SURVEY_DATE']
+        grouped[key].append(entry)
+
+    duplicates = []
+
+    for survey_date, entries in grouped.items():
+        if len(entries) < 2:
+            continue
+
+        # Construire un mapping ID -> stations
+        id_to_entry = {entry['ID']: entry for entry in entries}
+        id_to_stations = {entry['ID']: set(entry['STATION'].iloc[:, 0]) for entry in entries}
+
+        # Construire les connexions directes (graphe implicite)
+        adjacency = defaultdict(set)
+        ids = list(id_to_entry.keys())
+
+        for i in range(len(ids)):
+            for j in range(i + 1, len(ids)):
+                id_i, id_j = ids[i], ids[j]
+                if id_to_stations[id_i] & id_to_stations[id_j]:  # intersection non vide
+                    adjacency[id_i].add(id_j)
+                    adjacency[id_j].add(id_i)
+
+        # Trouver les composantes connexes (DFS)
+        visited = set()
+
+        def dfs(node, component):
+            visited.add(node)
+            component.append(node)
+            for neighbor in adjacency[node]:
+                if neighbor not in visited:
+                    dfs(neighbor, component)
+
+        for id_ in ids:
+            if id_ not in visited:
+                component = []
+                dfs(id_, component)
+                if len(component) > 1:
+                    # Calcul des stations communes (fusion de toutes)
+                    stations_union = set()
+                    for i in range(len(component)):
+                        for j in range(i + 1, len(component)):
+                            common = id_to_stations[component[i]] & id_to_stations[component[j]]
+                            stations_union.update(common)
+
+                    # Utiliser le SURVEY_TEAM de la première occurrence
+                    first_entry = id_to_entry[component[0]]
+
+                    duplicates.append({
+                        'SURVEY_DATE': survey_date,
+                        'SURVEY_TEAM': first_entry['SURVEY_TEAM'],
+                        'IDS': sorted(component),
+                        'COMMON_STATIONS': sorted(stations_union)
+                    })
+
+    return duplicates
+
 
 
 #################################################################################################    
@@ -2186,7 +2507,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
                 # Séparer la date et le commentaire
                 date_parts = line.split(':', 1)[1].strip().split('COMMENT:', 1)
                 date = date_parts[0].strip()
-                jour, mois, annee = date.split()
+                mois, jour, annee = date.split()
                 date_convertie = f"{int(annee):04d} {int(mois):02d} {int(jour):02d}"
                 section_data['SURVEY_DATE'] = date_convertie
                 if section_data['SURVEY_DATE'] == None or section_data['SURVEY_DATE'] == '' :
@@ -2241,8 +2562,9 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     #################################################################################################
     val1 = len(data)
     
-    duplicates = find_duplicates_by_date_and_team(data)     
-
+    # duplicates = find_duplicates_by_date_and_team(data)     
+    duplicates = find_duplicates_by_date(data)     
+    
     data = merge_duplicate_surveys(data, duplicates)
     
     val2 = val1 - len(data)
@@ -2286,6 +2608,15 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     
     # totReadMe += f"* Source file: {os.path.basename(ENTRY_FILE)}\n"
     
+    proj = args.proj.lower()
+    values = {
+        "none":     ("# ", "# ", "# "),
+        "plan":     ("",  "",  "# "),
+        "extended": ("",  "# ", ""),
+    }
+
+    maps, plan, extended = values.get(proj, ("", "", ""))
+    
     for _line in data :    
         
         # currentSurveyName = f"{globalData.typeSurveyName}{surveyCount:02d}"
@@ -2319,7 +2650,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         
         if  _line['DISCOVERY'] != None :
             date = _line['DISCOVERY'].strip()
-            jour, mois, annee = date.split()
+            mois, jour, annee = date.split()
             discovery = f"{int(annee):04d} {int(mois):02d} {int(jour):02d}"
         else : 
             discovery = f"{_line['SURVEY_DATE']} # '????'"
@@ -2420,11 +2751,13 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         _Config_PATH = CONFIG_PATH + "../../"
         
         StatCreateFolder, stat, totReadMeErrorDat, thread2 = create_th_folders(
-            ENTRY_FILE = output_file, 
-            SCALE = args.scale, 
-            UPDATE = args.update, 
-            CONFIG_PATH = _Config_PATH, 
-            totReadMeError = totReadMeErrorDat)
+                                        ENTRY_FILE = output_file, 
+                                        PROJECTION = args.proj,
+                                        SCALE = args.scale, 
+                                        UPDATE = args.update, 
+                                        CONFIG_PATH = _Config_PATH, 
+                                        totReadMeError = totReadMeErrorDat
+                                        )
         threads += thread2 
      
         log.info(f"File: {Colors.ENDC}{currentSurveyName}{Colors.INFO},  compilation successful, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")   
@@ -2441,8 +2774,8 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
             os.remove(_destination)
         
         if not StatCreateFolder :
-            totMapsPlan += f"\tMP-{currentSurveyName}-Plan-tot@{currentSurveyName}\n\tbreak\n"
-            totMapsExtended += f"\tMC-{currentSurveyName}-Extended-tot@{currentSurveyName}\n\tbreak\n"
+            totMapsPlan += f"\t{plan}MP-{currentSurveyName}-Plan-tot@{currentSurveyName}\n\t{plan}break\n"
+            totMapsExtended += f"\t{extended}MC-{currentSurveyName}-Extended-tot@{currentSurveyName}\n\t{extended}break\n"
         surveyCount += 1
         
         if globalData.error_count > 0:
@@ -2460,6 +2793,9 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     #################################################################################################
         
     totdata +=f"\n" 
+
+        
+    
      
     _stationList = stationList.copy()
     
@@ -2500,7 +2836,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     else:
         log.info(f"No 'equates' found in {Colors.ENDC}{ENTRY_FILE}")
              
-    totdata +=f"\n\t## Maps list:\n\tinput {SurveyTitle}-maps.th\n"
+    totdata +=f"\n\t## Maps list:\n\t{maps}input {SurveyTitle}-maps.th\n"
     
     if totReadMeErrorDat == "" : totReadMeErrorDat += "\tAny error in this file, that's perfect !\n"
         
@@ -2518,6 +2854,10 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
                     'wpage' : globalData.wpage, 
                     'cs' : crs_wkt if crs_wkt != "" else globalData.cs,
                     'totData' : totdata,
+                    'maps' : maps,
+                    'plan': plan,
+                    'XVIscale':globalData.XVIScale,
+                    'extended': extended,
                     'configPath' : CONFIG_PATH,
                     'other_scraps_plan' : totMapsPlan,
                     'readMeList' : totReadMe,
@@ -2559,7 +2899,7 @@ def wait_until_file_is_released(filepath, timeout=30):
                 return True
         except PermissionError:
             if time.time() - start > timeout:
-                raise TimeoutError(f"Timeout: le fichier est toujours verrouillé après {timeout} secondes : {filepath}")
+                log.Error(f"Timeout: The file remains locked after {Colors.ENDC}{timeout}{Colors.ERROR} secondes: {Colors.ENDC}{filepath}")
             time.sleep(0.1)  # attend 100 ms
 
 
@@ -2576,25 +2916,26 @@ if __name__ == u'__main__':
     # Parse arguments                                                                               #
     #################################################################################################
     parser = argparse.ArgumentParser(
-        description=f"{Colors.HEADER}Create a skeleton folder and th, th2 files with scraps from *.mak, *.dat, *.th Therion files, version: {Colors.ENDC}{Version}\n",
+        description=f"{Colors.BLUE}Create a skeleton folder and th, th2 files with scraps from *.mak, *.dat, *.th Therion files, version: {Colors.ENDC}{Version}\n",
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.print_help = colored_help.__get__(parser)
-    parser.add_argument("--file", help="The survey file (*.th, *.mak, *.dat,) to perform e.g. './Therion_file.th'", default="")
-    parser.add_argument("--survey_name", help="Scrap name (if different from 'survey_file' name)", default="None")
-    parser.add_argument("--proj", choices=['All', 'Plan', 'Extended', 'None'], help="The scrap projection to produce", default="All")
+    parser.add_argument("--file", help="the file (*.th, *.mak, *.dat,) to perform e.g. './Therion_file.th'", default="")
+    # parser.add_argument("--survey_name", help="Scrap name (if different from 'survey_file' name)", default="None")
+    parser.add_argument("--proj", choices=['All', 'Plan', 'Extended', 'None'], help="the th2 files scrap projection to produce, default: All", default="All")
     #parser.add_argument("--format", choices=['th2', 'plt'], help="Output format. Either th2 for producing skeleton for drawing or plt for visualizing in aven/loch", default="th2")
-    parser.add_argument("--output", default="./", help="Output folder path")
+    # parser.add_argument("--output", default="./", help="Output folder path")
     # parser.add_argument("--therion-path", help="Path to therion binary", default="therion")
-    parser.add_argument("--scale", help="Scale for the exports", default="1000")
-    parser.add_argument("--lines", type=str_to_bool, help="Shot lines in th2 files", default=-1)
-    parser.add_argument("--names", type=str_to_bool, help="Stations names in th2 files", default=-1)
-    parser.add_argument("--update", help="Mode update, option th2", default="")
+    parser.add_argument("--scale", help="scale for the pdf layout exports, default value: 1000 (i.e. xvi files scale is 100)", default="1000")
+    # parser.add_argument("--lines", type=str_to_bool, help="Shot lines in th2 files", default=-1)
+    # parser.add_argument("--names", type=str_to_bool, help="Stations names in th2 files", default=-1)
+    # parser.add_argument("--update", help="Mode update, option th2", default="")
+    parser.add_argument("--update", help="th2 files update mode (only for th input files, no folders created)", action="store_true", default=False)
                         
     parser.epilog = (
-        f"{Colors.GREEN}Please, complete {Colors.BLUE}config.ini{Colors.GREEN} file for personal configuration{Colors.ENDC}\n"
-        f"{Colors.GREEN}If no argument :{Colors.BLUE} files selection windows\n{Colors.ENDC}\n"
+        f"{Colors.GREEN}Please, complete {Colors.BLUE}config.ini{Colors.GREEN} in {Colors.BLUE}FILE{Colors.GREEN} folder or in script folder for personal configuration{Colors.ENDC}\n"
+        f"{Colors.GREEN}If no argument: {Colors.BLUE} files selection by a windows\n{Colors.ENDC}\n"
         f"{Colors.BLUE}Examples:{Colors.ENDC}\n"
-        f"\t> python pyCreateTh.py ./Tests/Entree.th --survey_name Geophysicaya_01_entree --output ./test/  --scale 1000\n"
+        f"\t> python pyCreateTh.py ./Tests/Entree.th --scale 1000\n"
         f"\t> python pyCreateTh.py Entree.th\n"
         f"\t> python pyCreateTh.py\n\n")
     args = parser.parse_args()
@@ -2616,15 +2957,33 @@ if __name__ == u'__main__':
     elif os.name == 'nt':  os.system('cls')# Windows
     else: print("\n" * 100)
     
+    #################################################################################################
+    # Reading config.ini                                                                            #
+    #################################################################################################
+    try:
+        config_file =  os.path.dirname(args.file) + "\\" + configIni
+        if os.path.isfile(config_file):
+            read_config(config_file)
+        else :
+            config_file = configIni
+            read_config(configIni) 
+        
+    except ValueError as e:
+        log.critical(f"Reading {configIni} file error: {Colors.ENDC}{e}")
+        exit(0)
     
+    
+    #################################################################################################
+    # titre                                                                                         #
+    #################################################################################################
     _titre =[f'********************************************************************************************************************************************\033[0m', 
             f'* Conversion Th, Dat, Mak files to Therion files and folders',
             f'*       Script pyCreateTh by : {Colors.ENDC}alexandre.pont@yahoo.fr',
-            f'*       Version : {Colors.ENDC}{Version}',
-            f'*       Input file : {Colors.ENDC}{safe_relpath(args.file)}',           
-            f'*       Output file : {Colors.ENDC}{safe_relpath(splitext(abspath(args.file))[0])}',
-            f'*       Log file : {Colors.ENDC}{safe_relpath(output_log)}',
-            f'*       ',
+            f'*       Version :              {Colors.ENDC}{Version}',
+            f'*       Input file :           {Colors.ENDC}{safe_relpath(args.file)}',           
+            f'*       Output folder :        {Colors.ENDC}{safe_relpath(splitext(abspath(args.file))[0])}',
+            f'*       Log file :             {Colors.ENDC}{os.path.basename(output_log)}',
+            f'*       Config file:           {Colors.ENDC}{safe_relpath(config_file)}',
             f'*       ',
             f'*       ',
             f'********************************************************************************************************************************************\033[0m']     
@@ -2632,15 +2991,7 @@ if __name__ == u'__main__':
     for i in range(11): log.info(_titre[i])     
 
 
-    #################################################################################################
-    # Reading config.ini                                                                            #
-    #################################################################################################
-    try:
-        read_config(configIni) 
-        
-    except ValueError as e:
-        log.critical(f"Reading config.ini file error: {Colors.ENDC}{e}")
-        exit(0)
+
         
     #################################################################################################
     # Fichier TH                                                                                    #
@@ -2648,7 +2999,7 @@ if __name__ == u'__main__':
     if args.file[-2:].lower() == "th" :
         flagErrorCompile, stat, totReadMeError, thread2 = create_th_folders(
                                                                 ENTRY_FILE = abspath(args.file), 
-                                                                TARGET = args.survey_name, 
+                                                                TARGET = None, 
                                                                 PROJECTION= args.proj,
                                                                 SCALE = args.scale, 
                                                                 UPDATE = args.update,

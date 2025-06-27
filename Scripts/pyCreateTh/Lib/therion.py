@@ -112,13 +112,19 @@ def compile_file(filename, **kwargs):
                         line = line.rstrip()
                         lower_line = line.lower()
                         if "average loop error" in lower_line:
-                            log.warning(f"[Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}] {Colors.ENDC}{line}")
+                            None
+                            # log.warning(f"[Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}] {Colors.ENDC}{line}")
                         elif "error" in lower_line:
                             log.error(f"[Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.ERROR}] {Colors.ENDC}{line}")    
-                        elif "warning" in lower_line:
-                            log.warning(f"[Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}] {Colors.ENDC}{line}")
+                        elif "warning" in lower_line :
+                            if not any( msg in line for msg in [
+                                    "invalid scrap outline",
+                                    "average loop error",
+                                    "multiple scrap outer outlines not supported yet"
+                                    ]):             
+                                log.warning(f"[Therion compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}] {Colors.ENDC}{line}")
                         else:
-                            log.debug(f"[Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.DEBUG}] {Colors.ENDC}{line}")
+                            log.debug(f"[Therion compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.DEBUG}] {Colors.ENDC}{line}")
                 except Exception as e:
                     log.warning(f"Reading Therion [Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}], output: {Colors.ENDC}{e}")
 

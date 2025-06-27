@@ -26,23 +26,24 @@ stationByScrap = 20
 finalTherion_exe = True
 therionPath = "C:/Therion/therion.exe"
 SurveyPrefixName = f"Survey_"
-linesInTh2 = -1
-stationNamesInTh2 = -1
-wallLineInTh2 = -1
-
+linesInTh2 = True
+stationNamesInTh2 = True
+wallLineInTh2 = True
+kSmooth = 0.5
+XVIScale = 100
 
 #################################################################################################
 totfile = """\t## Survey file:
 \tinput Data/{TH_NAME}.th
             
 \t## Plan file:
-\t{ERR}input Data/{TH_NAME}-Plan.th2
+\t{ERR}{Plan}input Data/{TH_NAME}-Plan.th2
             
 \t## Extended file:
-\t{ERR}input Data/{TH_NAME}-Extended.th2
+\t{ERR}{Extended}input Data/{TH_NAME}-Extended.th2
             
 \t## Maps file:
-\t{ERR}input {TH_NAME}-maps.th
+\t{ERR}{Maps}input {TH_NAME}-maps.th
 """
 
 
@@ -79,7 +80,7 @@ endsurvey
 thconfigTemplate = """
 source "{th_file}"
 layout minimal
-scale 1 100
+scale 1 {XVIscale}
 endlayout
 
 select {selector}

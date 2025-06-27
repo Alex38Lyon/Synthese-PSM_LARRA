@@ -345,7 +345,7 @@ endlayout
 layout xviexport
 	# cs UTM32
 	## echelle à laquelle on veut dessiner la topo
-	scale 1 {Scale}
+	scale 1 {XVIscale}
 	# scale 1 1000
 	## taille de la grille
 	grid-size 2 2 2 m
