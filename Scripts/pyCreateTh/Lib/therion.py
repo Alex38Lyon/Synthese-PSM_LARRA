@@ -7,7 +7,7 @@ therion.py for pyCreateTh.py
 import tempfile, shutil, os, re, logging, threading, subprocess
 from os.path import join
 import Lib.global_data as global_data
-from Lib.general_fonctions import Colors, safe_relpath
+from Lib.general_fonctions import Colors
 
 
 log = logging.getLogger("Logger")

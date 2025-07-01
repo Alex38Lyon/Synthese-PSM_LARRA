@@ -2,7 +2,11 @@
 """
 #############################################################################################
 #                                                                                       	#  
-# Script pour convertir des données topographiques des formats .th .mak ou .dat de compass  #
+#              Script pour convertir des données topographiques des formats                 #
+#                          .th de Therion (brut, sans les dossiers)                         #
+#                               .mak ou .dat de compass                                     #
+#                                  .tro de visual topo                                      #
+#                                                                                           #   
 #                           au format th et th2 de Therion                              	#
 #                     by Alexandre PONT (alexandre_pont@yahoo.fr)                         	#
 #                                                                                          	#
@@ -13,30 +17,36 @@
 #                                                                                       	#  
 #############################################################################################
 
-Création Alex le 2025 06 09 :
-    
-Version 2025 06 16 :    Création fonction create_th_folders 
-                        Ajout des fonctions pour mak et dat    
-                                       
+Merci à :
+        - Tanguy Racine pour les scripts                        https://github.com/tr1813
+        - Xavier Robert pour les principes de base              https://github.com/robertxa
+        - Xavier Robert pour les scripts de conversion .tro     https://github.com/robertxa/pytherion
+        - Benoit Urruty                                         https://github.com/BenoitURRUTY
+        
+Sources documentaires : 
+        - Format des fichiers compass : https://fountainware.com/compass/Documents/FileFormats/FileFormats.htm
+
+
+Création Alex le 2025 06 09
+                                        
 En cours :
-    - trouver une solution pour les teams et les clubs manquants
-    - tester la nouvelle version de DAT (CORRECTION2 et suivants)
+    - trouver une solution pour les teams et les clubs
+    - tester la avec les dernières option de la  version de DAT (CORRECTION2 et suivants)
     - comparer résultats Therion - Compass (Stat, kml, etc....)
-    - intégrer .tro files d'après XRo
     - ajouter codes pour lat/long
     - créer fonction wall shot  pour faire habillage des th2 files, les jointures...
         - traiter les series avec 1 ou 2 stations
-        - fiabiliser !
     - PB des cartouches et des échelles pour faire des pdf automatiquement
-    - gérer les différentes options --proj (All, Plan, ....) adapter
+    - gérer les différentes options --proj (All, Plan, ....) 
+    - tester différentes version pour les fichiers .tro
 
 """
 
-Version = "2025.06.26"  
+Version = "2025.07.01"  
 
 #################################################################################################
 #################################################################################################
-import os, re, unicodedata, argparse, shutil, sys, time, math
+import os, re, argparse, shutil, sys, time, math
 from os.path import isfile, join, abspath, splitext
 import numpy as np
 import networkx as nx
@@ -50,8 +60,10 @@ from contextlib import redirect_stdout
 
 from Lib.survey import SurveyLoader, NoSurveysFoundException
 from Lib.therion import compile_template, compile_file, get_stats_from_log
-from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_help, read_config, select_file_tk_window, release_log_file
+from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_help
+from Lib.general_fonctions import read_config, select_file_tk_window, release_log_file, sanitize_filename
 import Lib.global_data as globalData
+from Lib.pytro2th.tro2th import convert_tro   #Version local modifiée
 
 
 #################################################################################################
@@ -79,50 +91,13 @@ class StationNameAccessor:
 
 
 #################################################################################################
-# Mise au format des noms                                                                       #
-#################################################################################################
-def sanitize_filename(th_name):
-    """
-    Cleans a string to make it compatible with filenames on Windows, Linux, and macOS.
-    Replaces special and accented characters with compatible characters.
-    Replaces parentheses with underscores and enforces proper casing.
-
-    Args:
-        th_name (str): The filename to clean.
-
-    Returns:
-        str: The cleaned and compatible string.
-        
-    """
-    # Unicode normalization to replace accented characters with their non-accented equivalents
-    th_name = unicodedata.normalize('NFKD', th_name).encode('ASCII', 'ignore').decode('ASCII')
-
-    # Replace parentheses with underscores
-    th_name = th_name.replace('(', '_').replace(')', '_')
-
-    # Replace illegal characters with an underscore
-    th_name = re.sub(r'[<>:"/\\|?*\']', '_', th_name)   # Illegal on Windows
-    th_name = re.sub(r'\s+', '_', th_name)             # Spaces to underscores
-    th_name = re.sub(r'[^a-zA-Z0-9._-]', '_', th_name) # Keep only allowed chars
-
-    # Convert to lowercase, then capitalize the first letter
-    # th_name = th_name.lower().capitalize()
-    # th_name = th_name.capitalize()
-    
-    # Suppression des underscores en début et fin
-    th_name = th_name.strip('_')
-
-    return th_name or "default_filename"  # Avoid empty result
-
-
-#################################################################################################
 def copy_template_if_not_exists(template_path, destination_path):
     # Check if the destination folder exists
     try:
         if not os.path.exists(destination_path):
             # If the destination folder does not exist, copy the template
             shutil.copytree(template_path, destination_path)  
-            log.info(f"The folder '{Colors.ENDC}{template_path}{Colors.GREEN}' has been copied to '{Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN}'")
+            log.info(f"The folder {Colors.ENDC}{template_path}{Colors.GREEN} has been copied to {Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN}")
         else:
             log.warning(f"The folder '{Colors.ENDC}{safe_relpath(destination_path)}{Colors.WARNING}' already exists. No files were copied.")
     except Exception as e:
@@ -154,14 +129,15 @@ def copy_file_with_copyright(th_file, destination_path, copyright_text):
         # Créer le dossier de destination s'il n'existe pas
         os.makedirs(destination_path, exist_ok=True)
         
+        _destFile = sanitize_filename(os.path.basename(th_file)[:-3]) + ".th"
         # Copier le fichier vers le dossier de destination
-        dest_file = os.path.join(destination_path, os.path.basename(th_file))
+        dest_file = os.path.join(destination_path, _destFile)
         shutil.copy(th_file, dest_file)
         
         # Ajouter le copyright dans l'en-tête si nécessaire
         add_copyright_header(dest_file, copyright_text)
         
-        log.debug(f"File '{Colors.ENDC}{safe_relpath(th_file)}{Colors.GREEN}' has been copied to '{Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN}' with the copyright header added.{Colors.ENDC}")
+        log.debug(f"File {Colors.ENDC}{safe_relpath(th_file)}{Colors.GREEN} has been copied to {Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN} with the copyright header added.{Colors.ENDC}")
     else:
         log.error(f"The file .th does not exist {Colors.ENDC}{safe_relpath(th_file)}")
         globalData.error_count += 1
@@ -218,7 +194,7 @@ def update_template_files(template_path, variables, output_path):
 
 
 #################################################################################################
-def parse_therion_surveys(file_path):
+def parse_therion_surveysOld(file_path):
     """
     Reads a Therion file and extracts survey names.
     
@@ -259,9 +235,52 @@ def parse_therion_surveys(file_path):
         log.error(f"An error occurred (parse_therion_surveys): {Colors.ENDC}{e}{Colors.ERROR}, file: {Colors.ENDC}{safe_relpath(file_path)}")
         globalData.error_count += 1
         
-    
     return survey_names
 
+def parse_therion_surveys(file_path):
+    """
+    Reads a Therion file and extracts survey names.
+    
+    Args:
+        file_path (str): Path to the Therion file to parse
+    
+    Returns:
+        list: List of survey names
+        
+    """
+        
+    survey_names = []
+    
+    try:
+        file, val, encodage = load_text_file_utf8(file_path, os.path.basename(file_path))       
+        # lines = file.readlines()
+        lines = file.splitlines()
+        # with open(filepath, 'r', encoding=enc) as f:
+        #         content = f.read()
+        
+        for line in lines:
+            # Look for lines starting with survey
+            line = line.strip()
+            if line.startswith('survey ') and ' -title ' in line:
+                # Split the line and extract the survey name
+                start_index = line.find('survey ') + len('survey ')
+                end_index = line.find(' -title ')               
+                survey_name = line[start_index:end_index].strip()
+                survey_names.append(survey_name)
+    
+    except FileNotFoundError:
+        log.error(f"File {Colors.ENDC}{safe_relpath(file_path)}{Colors.ERROR} not found.{Colors.ENDC}")
+        globalData.error_count += 1
+        
+    except PermissionError:
+        log.error(f"Insufficient permissions to read {Colors.ENDC}{safe_relpath(file_path)}")
+        globalData.error_count += 1
+        
+    except Exception as e:
+        log.error(f"An error occurred (parse_therion_surveys): {Colors.ENDC}{e}{Colors.ERROR}, file: {Colors.ENDC}{safe_relpath(file_path)}")
+        globalData.error_count += 1
+        
+    return survey_names
 
 #################################################################################################
 def str_to_bool(value):
@@ -1202,7 +1221,7 @@ def create_th_folders(ENTRY_FILE,
         else :
             th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Extended.xvi" 
 
-        log.info(f"Parsing extended XVI file:\t{Colors.ENDC}{safe_relpath(th_name_xvi)}")
+        log.info(f"Parsing extended XVI file: {Colors.ENDC}{safe_relpath(th_name_xvi)}")
 
         # Parse the Extended XVI file
         stations = {}
@@ -2360,9 +2379,9 @@ def load_text_file_utf8(filepath, short_filename):
         try:
             with open(filepath, 'r', encoding=enc) as f:
                 content = f.read()
-            log.info(f"Source file: {Colors.ENDC}{short_filename}{Colors.GREEN}, encoding: {Colors.ENDC}{enc}{Colors.GREEN}, conversion to UTF-8")
-            message = f"* Source file: {short_filename}, encoding: {enc}, conversion to UTF-8\n"
-            return content, message
+            log.info(f"Source file: {Colors.ENDC}{short_filename}{Colors.GREEN}, encoding: {Colors.ENDC}{enc}{Colors.GREEN}, conversion to {Colors.ENDC}utf-8")
+            message = f"* Source file: {short_filename}, encoding: {enc}, conversion to utf-8\n"
+            return content, message, enc
         
         except UnicodeDecodeError as e:
             log.debug(f"Failed {Colors.ENDC}{enc}{Colors.DEBUG} for {Colors.ENDC}{short_filename}{Colors.DEBUG}: {Colors.ENDC}{e}")
@@ -2371,7 +2390,7 @@ def load_text_file_utf8(filepath, short_filename):
         except Exception as e:
             log.critical(f"Unexpected error while reading {Colors.ENDC}{short_filename}{Colors.CRITICAL}: {e}")
             exit(0)
-            return None, ""
+            return None, "", None
 
     # Dernier recours : lecture binaire + forçage
     try:
@@ -2380,12 +2399,12 @@ def load_text_file_utf8(filepath, short_filename):
             content = raw.decode('windows-1252', errors='replace')
         log.warning(f"Force-reading {Colors.ENDC}{short_filename}{Colors.WARNING} with character replacement (windows-1252)")
         message = f"* Force-reading source file: {short_filename} with character replacement (windows-1252)\n"  
-        return content, message
+        return content, message, 'windows-1252'
     
     except Exception as e:
         log.critical(f"Failed to read file {Colors.ENDC}{short_filename}{Colors.CRITICAL}: {Colors.ENDC}{e}")  
         exit(0)
-        return None, ""
+        return None, "", None
 
 
 ################################################################################################# 
@@ -2416,7 +2435,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     # 1 : Lecture du fichier dat                                                                    #
     ################################################################################################# 
         
-    content, totReadMe = load_text_file_utf8(ENTRY_FILE, shortCurentFile)
+    content, totReadMe, enc = load_text_file_utf8(ENTRY_FILE, shortCurentFile)
     
     #################################################################################################     
     # Séparer les sections                                                                          #
@@ -2916,10 +2935,10 @@ if __name__ == u'__main__':
     # Parse arguments                                                                               #
     #################################################################################################
     parser = argparse.ArgumentParser(
-        description=f"{Colors.BLUE}Create a skeleton folder and th, th2 files with scraps from *.mak, *.dat, *.th Therion files, version: {Colors.ENDC}{Version}\n",
+        description=f"{Colors.BLUE}Create a skeleton folder and th, th2 files with scraps from  *.tro, *.mak, *.dat, *.th Therion files, version: {Colors.ENDC}{Version}\n",
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.print_help = colored_help.__get__(parser)
-    parser.add_argument("--file", help="the file (*.th, *.mak, *.dat,) to perform e.g. './Therion_file.th'", default="")
+    parser.add_argument("--file", help="the file (*.th, *.mak, *.dat, *.tro) to perform e.g. './Therion_file.th'", default="")
     # parser.add_argument("--survey_name", help="Scrap name (if different from 'survey_file' name)", default="None")
     parser.add_argument("--proj", choices=['All', 'Plan', 'Extended', 'None'], help="the th2 files scrap projection to produce, default: All", default="All")
     #parser.add_argument("--format", choices=['th2', 'plt'], help="Output format. Either th2 for producing skeleton for drawing or plt for visualizing in aven/loch", default="th2")
@@ -2977,7 +2996,7 @@ if __name__ == u'__main__':
     # titre                                                                                         #
     #################################################################################################
     _titre =[f'********************************************************************************************************************************************\033[0m', 
-            f'* Conversion Th, Dat, Mak files to Therion files and folders',
+            f'* Conversion Th, Dat, Mak, Tro, files to Therion files and folders',
             f'*       Script pyCreateTh by : {Colors.ENDC}alexandre.pont@yahoo.fr',
             f'*       Version :              {Colors.ENDC}{Version}',
             f'*       Input file :           {Colors.ENDC}{safe_relpath(args.file)}',           
@@ -2989,8 +3008,6 @@ if __name__ == u'__main__':
             f'********************************************************************************************************************************************\033[0m']     
 
     for i in range(11): log.info(_titre[i])     
-
-
 
         
     #################################################################################################
@@ -3034,7 +3051,7 @@ if __name__ == u'__main__':
          
         ABS_file = abspath(args.file)
         
-        content, val = load_text_file_utf8(ABS_file, os.path.basename(ABS_file))
+        content, val, enc = load_text_file_utf8(ABS_file, os.path.basename(ABS_file))
         section = content.split('\x0c')
         QtySections += len(section)
         
@@ -3071,11 +3088,61 @@ if __name__ == u'__main__':
                     threads += thread2
                     bar()
         
+    #################################################################################################
+    # Fichier TRO                                                                                   #
+    #################################################################################################    
+    elif args.file[-3:].lower() == "tro" :
+        
+        SrcFile = abspath(args.file)
+        DestFile = SrcFile[:-4] # + "Th"
+        
+        source_content, val, encodage = load_text_file_utf8(SrcFile, os.path.basename(SrcFile))
+        
+        fileTitle, coordinates, coordsyst, fle_th_fnme = convert_tro(
+                                    fle_tro_fnme = SrcFile, 
+                                    fle_tro_encoding= encodage, 
+                                    fle_th_fnme = DestFile, 
+                                    cavename = None, 
+                                    icomments = True, 
+                                    icoupe = False, 
+                                    istructure = False, 
+                                    thlang = None, 
+                                    Errorfiles = False
+                                    )
+        
+        # print(f"cavename: {fileTitle}")
+        # print(f"coordinates: {coordinates}")
+        # print(f"coordsyst: {coordsyst}")
+        # print(f"fle_th_fnme: {fle_th_fnme}")
+        
+        content, val, encodage = load_text_file_utf8(fle_th_fnme, os.path.basename(fle_th_fnme))
+        
+        if encodage != "utf-8":
+            with open(str(fle_th_fnme), "w+", encoding="utf-8") as f:
+                f.write(content)
+        
+        with open(fle_th_fnme, 'a', encoding='utf-8') as file:
+            file.write("\n\n")
+            for line in source_content.splitlines():
+                file.write(f"# {line}\n")        
+
+        
+        flagErrorCompile, stat, totReadMeError, thread2 = create_th_folders(
+                                                        ENTRY_FILE = fle_th_fnme, 
+                                                        TARGET = None, 
+                                                        PROJECTION= args.proj,
+                                                        SCALE = args.scale, 
+                                                        UPDATE = args.update,
+                                                        CONFIG_PATH = "")
+        threads += thread2
+        fileTitle = sanitize_filename(os.path.basename(fle_th_fnme)[:-3])
+        
+        if os.path.isfile(fle_th_fnme):
+            os.remove(fle_th_fnme)
+
     else :
         log.error(f"file {Colors.ENDC}{safe_relpath(args.file)}{Colors.ERROR} not yet supported")
         globalData.error_count += 1
-
-    duration = (datetime.now() - start_time).total_seconds()
     
     for t in threads:
         t.join()
@@ -3085,6 +3152,8 @@ if __name__ == u'__main__':
     destination_file = os.path.join(destination_path, file_name)
     
     wait_until_file_is_released(output_log)
+    
+    duration = (datetime.now() - start_time).total_seconds()
     
     if globalData.error_count == 0 :    
         log.info(f"All files processed successfully in {Colors.ENDC}{duration:.2f}{Colors.INFO} secondes, without errors")
@@ -3100,6 +3169,9 @@ if __name__ == u'__main__':
         os.remove(destination_file)
 
     shutil.move(output_log, destination_path)
+    
+    print(output_log)
+    print(destination_path)
     
         
     

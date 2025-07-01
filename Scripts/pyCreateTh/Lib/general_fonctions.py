@@ -3,10 +3,12 @@
 general_fonctions.py for pyCreateTh.py                                                           
 #############################################################################################
 """
-import os, logging, sys, re, configparser
+import os, logging, sys, re, configparser, unicodedata
 import Lib.global_data as global_data
 import tkinter as tk
 from tkinter import filedialog
+
+
 
 #################################################################################################
 # Couleurs ANSI par niveau de log
@@ -115,6 +117,43 @@ def colored_help(parser):
 
 
 #################################################################################################
+# Mise au format des noms                                                                       #
+#################################################################################################
+def sanitize_filename(th_name):
+    """
+    Cleans a string to make it compatible with filenames on Windows, Linux, and macOS.
+    Replaces special and accented characters with compatible characters.
+    Replaces parentheses with underscores and enforces proper casing.
+
+    Args:
+        th_name (str): The filename to clean.
+
+    Returns:
+        str: The cleaned and compatible string.
+        
+    """
+    # Unicode normalization to replace accented characters with their non-accented equivalents
+    th_name = unicodedata.normalize('NFKD', th_name).encode('ASCII', 'ignore').decode('ASCII')
+
+    # Replace parentheses with underscores
+    th_name = th_name.replace('(', '_').replace(')', '_')
+
+    # Replace illegal characters with an underscore
+    th_name = re.sub(r'[<>:"/\\|?*\']', '_', th_name)   # Illegal on Windows
+    th_name = re.sub(r'\s+', '_', th_name)             # Spaces to underscores
+    th_name = re.sub(r'[^a-zA-Z0-9._-]', '_', th_name) # Keep only allowed chars
+
+    # Convert to lowercase, then capitalize the first letter
+    # th_name = th_name.lower().capitalize()
+    # th_name = th_name.capitalize()
+    
+    # Suppression des underscores en début et fin
+    th_name = th_name.strip('_')
+
+    return th_name or "default_filename"  # Avoid empty result
+
+
+#################################################################################################
 def select_file_tk_window():
     """
     Ouvre une boite de dialogue tkinter pour sélectionner un fichier.
@@ -131,7 +170,13 @@ def select_file_tk_window():
     # Afficher la boite de dialogue de sélection de fichier
     file_path = filedialog.askopenfilename(
         title="Select your file",
-        filetypes=[("MAK files", "*.mak"), ("Compatibles files", "*.th *.mak *.dat"), ("TH files", "*.th"), ("DAT files", "*.dat"), ("All files", "*.*")]
+        filetypes=[ 
+                   ("Compatibles files", "*.th *.mak *.dat *.tro"), 
+                   ("MAK files", "*.mak"),
+                   ("TH files", "*.th"), 
+                   ("DAT files", "*.dat"), 
+                   ("TRO files", "*.tro"), 
+                   ("All files", "*.*")]
         )
     
     
