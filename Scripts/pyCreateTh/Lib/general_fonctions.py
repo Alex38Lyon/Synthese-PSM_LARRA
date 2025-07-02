@@ -249,7 +249,7 @@ def read_config(config_file):
         global_data.stationNamesInTh2 = bool(config['Application_Data']['station_name_in_th2_files']) 
         
     if 'Application_Data' in config and 'kSmooth' in config['Application_Data']:
-        global_data.therionPath = float(config['Application_Data']['kSmooth'])
+        global_data.kSmooth = float(config['Application_Data']['kSmooth'])
             
 
 

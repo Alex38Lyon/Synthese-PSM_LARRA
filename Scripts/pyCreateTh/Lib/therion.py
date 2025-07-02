@@ -22,6 +22,8 @@ def compile_template(template, template_args, totReadMeError = "", **kwargs ):
     try:
         tmpdir = tempfile.mkdtemp()
         config = template.format(**template_args, tmpdir=tmpdir.replace("\\", "/"))
+        
+        
 
         log.debug(f"{config}\n")
 

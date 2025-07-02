@@ -42,12 +42,13 @@ En cours :
 
 """
 
-Version = "2025.07.01"  
+Version = "2025.07.02"  
 
 #################################################################################################
 #################################################################################################
 import os, re, argparse, shutil, sys, time, math
 from os.path import isfile, join, abspath, splitext
+from pathlib import Path
 import numpy as np
 import networkx as nx
 import pandas as pd
@@ -423,7 +424,7 @@ def parse_xvi_file(th_name_xvi):
     return stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart
 
 #################################################################################################
-def assign_groups_and_ranks(df_lines):
+def assign_groups_and_ranks_Old(df_lines):
     G = nx.Graph()
     for _, row in df_lines.iterrows():
         G.add_edge(row["name1"], row["name2"])
@@ -483,6 +484,9 @@ def assign_groups_and_ranks(df_lines):
     df_equates["group_id"] = df_equates["group_id"].astype(int)
     df_equates["start_point"] = df_equates["start_point"].astype(str)
     df_equates["end_point"] = df_equates["end_point"].astype(str)
+    
+    print("df_result columns:", df_result.columns)
+    print("df_result empty:", df_result.empty)
 
     # Ajout de la colonne max_rank
     max_ranks = df_result.groupby("group_id")["rank_in_group"].max().reset_index()
@@ -497,6 +501,92 @@ def assign_groups_and_ranks(df_lines):
     df_equates = df_equates.merge(end_to_group, on="start_point", how="left")
 
     # Remplacer les NaN dans start_group par 0 (entier)
+    df_equates["start_group"] = df_equates["start_group"].fillna(0).astype(int)
+
+    return df_result, df_equates
+
+def assign_groups_and_ranks(df_lines):
+    G = nx.Graph()
+    for _, row in df_lines.iterrows():
+        G.add_edge(row["name1"], row["name2"])
+
+    used_edges = set()
+    results = []
+    equates = []  # Liste des (group_id, start_point, end_point)
+    group_id = 0
+
+    def walk_path(u, prev=None):
+        path = []
+        current = u
+        while True:
+            neighbors = [n for n in G.neighbors(current) if n != prev]
+            if len(neighbors) != 1:
+                break
+            next_node = neighbors[0]
+            edge = tuple(sorted((current, next_node)))
+            if edge in used_edges:
+                break
+            used_edges.add(edge)
+            path.append(edge)
+            prev = current
+            current = next_node
+        return path
+
+    # Noeuds ayant un degré différent de 2
+    start_nodes = [n for n in G.nodes if G.degree(n) != 2]
+
+    # Si tous les nœuds ont un degré 2 : cycle fermé
+    if not start_nodes:
+        start_nodes = [list(G.nodes)[0]]
+
+    for node in start_nodes:
+        for neighbor in G.neighbors(node):
+            edge = tuple(sorted((node, neighbor)))
+            if edge in used_edges:
+                continue
+            used_edges.add(edge)
+            path = [(node, neighbor)] + walk_path(neighbor, node)
+
+            for rank, (n1, n2) in enumerate(path):
+                match = df_lines[(df_lines["name1"] == n1) & (df_lines["name2"] == n2)]
+                if match.empty:
+                    match = df_lines[(df_lines["name1"] == n2) & (df_lines["name2"] == n1)]
+                if not match.empty:
+                    row = match.iloc[0].copy()
+                    row["group_id"] = group_id
+                    row["rank_in_group"] = rank
+                    results.append(row)
+                    if rank == 0:
+                        start_point = n1
+            end_point = path[-1][1] if path else start_point
+            equates.append((group_id, str(start_point), str(end_point)))
+            group_id += 1
+
+    # Création du DataFrame principal
+    df_result = pd.DataFrame(results)
+
+    # Création du DataFrame equates
+    df_equates = pd.DataFrame(equates, columns=["group_id", "start_point", "end_point"])
+    df_equates["group_id"] = df_equates["group_id"].astype(int)
+    df_equates["start_point"] = df_equates["start_point"].astype(str)
+    df_equates["end_point"] = df_equates["end_point"].astype(str)
+
+    # Ajout de la colonne max_rank (si possible)
+    if not df_result.empty and "group_id" in df_result.columns:
+        max_ranks = df_result.groupby("group_id")["rank_in_group"].max().reset_index()
+        max_ranks.rename(columns={"rank_in_group": "max_rank"}, inplace=True)
+        max_ranks["max_rank"] = max_ranks["max_rank"].astype(int)
+        df_equates = df_equates.merge(max_ranks, on="group_id", how="left")
+    else:
+        df_equates["max_rank"] = 0
+
+    # Ajout de la colonne start_group (raccord logique avec un autre groupe)
+    end_to_group = df_equates[["end_point", "group_id"]].copy()
+    end_to_group.rename(columns={"end_point": "start_point", "group_id": "start_group"}, inplace=True)
+    end_to_group["start_point"] = end_to_group["start_point"].astype(str)
+    df_equates = df_equates.merge(end_to_group, on="start_point", how="left")
+
+    # Remplacer les NaN dans start_group par 0
     df_equates["start_group"] = df_equates["start_group"].fillna(0).astype(int)
 
     return df_result, df_equates
@@ -560,7 +650,7 @@ def add_start_end_splays(df_splays_complet, df_equates):
     return df_splays_new
 
 
-
+#################################################################################################
 def align_points(smoothX1, smoothY1, X, Y, smoothX2, smoothY2):
     # Vecteurs d'origine vers smooth1 et smooth2
     dx1, dy1 = smoothX1 - X, smoothY1 - Y
@@ -591,7 +681,6 @@ def align_points(smoothX1, smoothY1, X, Y, smoothX2, smoothY2):
     return (_smoothX1, _smoothY1), (_smoothX2, _smoothY2)
 
 
-
 #################################################################################################
 def wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max):
 
@@ -609,7 +698,6 @@ def wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max):
     
     if len(df_lines) <= 2 or len(df_splays) <= 2:
         return th2_walls, 0, 0, 0, 0
-
 
     df_lines, df_equates = assign_groups_and_ranks(df_lines)
    
@@ -969,7 +1057,6 @@ def create_th_folders(ENTRY_FILE,
     if not survey:
         raise NoSurveysFoundException(f"No survey found with that selector")
     
-   
     if UPDATE : 
         DEST_PATH = os.path.dirname(args.file)
         log.info(f"Update th2 files: {Colors.ENDC}{DEST_PATH}")
@@ -983,7 +1070,6 @@ def create_th_folders(ENTRY_FILE,
         log.debug(f"\t{Colors.BLUE}TH_NAME:       {Colors.ENDC} {TH_NAME}")
         log.debug(f"\t{Colors.BLUE}DEST_PATH:     {Colors.ENDC} {DEST_PATH}")
         log.debug(f"\t{Colors.BLUE}ABS_PATH:      {Colors.ENDC} {ABS_PATH}")
-    
     
     #################################################################################################    
     # Copy template folders                                                                         #
@@ -1000,20 +1086,19 @@ def create_th_folders(ENTRY_FILE,
     log.info(f"Compiling 2D XVI file: {Colors.ENDC}{TH_NAME}")
     
     if UPDATE: 
-        template_args = {
-            "th_file": DEST_PATH + "/" + TH_NAME + ".th",  
-            "selector": survey.therion_id,
-            "th_name": DEST_PATH + "/" + TH_NAME, 
-            "scale": int(int(SCALE)/10),
-        }
+        thFile = Path(DEST_PATH + "\\" + TH_NAME + ".th")
+        thName = Path(DEST_PATH + "\\" + TH_NAME)
 
     else :
-        template_args = {
-            "th_file": DEST_PATH + "/Data/" + TH_NAME + ".th",  
+        thFile = Path(DEST_PATH + "\\Data\\" + TH_NAME + ".th")  
+        thName = Path(DEST_PATH + "\\Data\\" + TH_NAME) 
+
+    template_args = {
+            "th_file": thFile,  
             "selector": survey.therion_id,
-            "th_name": DEST_PATH + "/Data/" + TH_NAME, 
+            "th_name": thName, 
             "XVIscale": globalData.XVIScale,
-        }
+    }
 
     logfile, tmpdir, totReadMeError = compile_template(globalData.thconfigTemplate, template_args, totReadMeError, cleanup=False, therion_path=globalData.therionPath)
     
@@ -1026,8 +1111,7 @@ def create_th_folders(ENTRY_FILE,
     else : 
         flagErrorCompile = False
         stat = get_stats_from_log(logfile)
-     
-         
+        
     #################################################################################################    
     # Update files                                                                                  #
     #################################################################################################
@@ -1508,7 +1592,7 @@ def mak_to_th_file(ENTRY_FILE) :
     
     for file in datFiles :       
         ABS_file = os.path.dirname(abspath(args.file)) + "\\"+ file
-        content, val = load_text_file_utf8(ABS_file, os.path.basename(ABS_file))
+        content, val, encodage = load_text_file_utf8(ABS_file, os.path.basename(ABS_file))
         section = content.split('\x0c')
         QtySections += len(section)
 
@@ -1553,9 +1637,9 @@ def mak_to_th_file(ENTRY_FILE) :
             for file in datFiles:
                 
                 if globalData.error_count > 0:
-                    bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{file[:-4]}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
+                    bar.text(f"{Colors.INFO}file: {Colors.ENDC}{file[:-4]}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
                 else :
-                    bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{file[:-4]}")
+                    bar.text(f"{Colors.INFO}file: {Colors.ENDC}{file[:-4]}")
                 
                 _file = os.path.dirname(abspath(args.file)) + "\\" + file
                 shutil.copy(_file, folderDest + "\\Data\\")
@@ -2798,9 +2882,9 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         surveyCount += 1
         
         if globalData.error_count > 0:
-            bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{os.path.basename(ENTRY_FILE)[:-4]}{Colors.INFO}, survey: {Colors.ENDC}{currentSurveyName}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
+            bar.text(f"{Colors.INFO}file: {Colors.ENDC}{os.path.basename(ENTRY_FILE)[:-4]}{Colors.INFO}, survey: {Colors.ENDC}{currentSurveyName}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
         else :
-            bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{os.path.basename(ENTRY_FILE)[:-4]}{Colors.INFO}, survey: {Colors.ENDC}{currentSurveyName}")
+            bar.text(f"{Colors.INFO}file: {Colors.ENDC}{os.path.basename(ENTRY_FILE)[:-4]}{Colors.INFO}, survey: {Colors.ENDC}{currentSurveyName}")
         bar()
 
 #################################################################################################     
@@ -3081,9 +3165,9 @@ if __name__ == u'__main__':
             with redirect_stdout(sys.__stdout__):
                 for i in range(1): 
                     if globalData.error_count > 0:
-                        bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{os.path.basename(ABS_file)[:-4]}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
+                        bar.text(f"{Colors.INFO}file: {Colors.ENDC}{os.path.basename(ABS_file)[:-4]}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
                     else :
-                        bar.text(f"{Colors.INFO}, file: {Colors.ENDC}{os.path.basename(ABS_file)[:-4]}")
+                        bar.text(f"{Colors.INFO}file: {Colors.ENDC}{os.path.basename(ABS_file)[:-4]}")
                     stationList, fileTitle, totReadMeError, thread2 = dat_to_th_files (ABS_file , fixPoints = [], crs_wkt = "", CONFIG_PATH = _ConfigPath, totReadMeError = "", bar = bar)
                     threads += thread2
                     bar()
