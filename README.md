@@ -14,10 +14,9 @@ Ce travail est réalisé par les membres de l'ARSIP, collectif d'exploration du 
 
 <p align="center">
   <a href="http://arsip.fr/">
-    <img src="https://github.com/Alex38Lyon/Synthese-PSM_LARRA/blob/main/Logos/Logo-ARSIP-Synthese-Topo.jpg" alt="Logo ARSIP" width="200px">
+    <img src="https://github.com/Alex38Lyon/Synthese-PSM_LARRA/blob/18750f1230b7a92b2f528ac250fe979e51d9e3ce/Logos/Logo-ARSIP-Synthese-Topo.jpg" alt="Logo ARSIP" width="200px">
   </a>
 </p>
-
 
 Une convention a aussi été mise en place pour la gestion des points d'interrogation, avec la définition des différents champs :
 
