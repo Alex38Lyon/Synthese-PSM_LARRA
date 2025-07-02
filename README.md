@@ -52,7 +52,7 @@ L'ensemble de ces données est publié sous la licence libre Creative Commons CC
 
 ## Auteur de la base de données
 
-Alexandre PONT (<alexandre dot pont at yahoo dot fr>) pour le compte de l'ARSIP
+Alexandre Pont (alexandre dot pont at yahoo dot fr) pour le compte de l'ARSIP
 
 ## Contact
 
