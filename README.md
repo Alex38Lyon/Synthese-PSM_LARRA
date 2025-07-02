@@ -36,7 +36,7 @@ Une convention a aussi été mise en place pour la gestion des points d'interrog
 
 **Exemple** :  
 ```text
-point 3922.0 1660.0 continuation -attr code Q -attr Cavite "GL102" -attr reseau "Grand Chao" -text "Rivière à topographier" -attr CA "inconnu"
+point 3922.0 1660.0 continuation -attr Code Q -attr Cavite "GL102" -attr Reseau "Grand Chao" -text "Rivière à topographier" -attr CA "inconnu"
 ```
 
 ## Licence
