@@ -4,11 +4,10 @@ therion.py for pyCreateTh.py
 #############################################################################################
 """
 
-import tempfile, shutil, os, re, logging, threading, subprocess
+import tempfile, shutil, os, re, logging, threading, subprocess, time
 from os.path import join
 import Lib.global_data as global_data
 from Lib.general_fonctions import Colors
-
 
 log = logging.getLogger("Logger")
 
@@ -108,22 +107,26 @@ def compile_file(filename, **kwargs):
                 bufsize=1
             )
 
+            last_output_time = time.time()
+
             def read_output(proc):
+                nonlocal last_output_time
                 try:
-                    for line in proc.stdout:
+                    for line in iter(proc.stdout.readline, ''):
                         line = line.rstrip()
+                        last_output_time = time.time()  # ← reset du timer ici
                         lower_line = line.lower()
+
                         if "average loop error" in lower_line:
-                            None
-                            # log.warning(f"[Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}] {Colors.ENDC}{line}")
+                            continue
                         elif "error" in lower_line:
                             log.error(f"[Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.ERROR}] {Colors.ENDC}{line}")    
-                        elif "warning" in lower_line :
-                            if not any( msg in line for msg in [
+                        elif "warning" in lower_line:
+                            if not any(msg in line for msg in [
                                     "invalid scrap outline",
                                     "average loop error",
                                     "multiple scrap outer outlines not supported yet"
-                                    ]):             
+                                ]):
                                 log.warning(f"[Therion compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.WARNING}] {Colors.ENDC}{line}")
                         else:
                             log.debug(f"[Therion compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.DEBUG}] {Colors.ENDC}{line}")
@@ -133,20 +136,22 @@ def compile_file(filename, **kwargs):
             output_thread = threading.Thread(target=read_output, args=(process,))
             output_thread.start()
 
-            output_thread.join(timeout)
-            if output_thread.is_alive():
-                log.error(f"Therion compilation [Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.ERROR}], timed out after {Colors.ENDC}{timeout}{Colors.ERROR} seconds. Killing process...")
-                global_data.error_count += 1
-                process.kill()
+            # Boucle de surveillance du timeout
+            while output_thread.is_alive():
+                output_thread.join(timeout=1)
+                if time.time() - last_output_time > timeout:
+                    log.error(f"Therion compilation [Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.ERROR}], timed out after {Colors.ENDC}{timeout}{Colors.ERROR} seconds of inactivity. Killing process...")
+                    global_data.error_count += 1
+                    process.kill()
+                    break
 
-            output_thread.join()  # Toujours attendre proprement
+            output_thread.join()
             process.wait()
 
             if process.returncode != 0:
                 log.error(f"Therion [Therion_Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.ERROR}], returned error code {Colors.ENDC}{process.returncode}")
                 global_data.error_count += 1
             else:
-                # stat = get_stats_from_log(log_file)
                 log.info(f"Therion file: [Therion Compile {Colors.WHITE}{os.path.basename(filename)[:-9]}{Colors.GREEN}], compilation succeeded")
 
         except Exception as e:
@@ -155,11 +160,8 @@ def compile_file(filename, **kwargs):
 
     # Lancer le thread principal pour cette compilation et le retourner
     thread = threading.Thread(target=run)
-    
     thread.start()
-    
     return thread
-
 
 #################################################################################################
 def compile_file_th(filepath, **kwargs):

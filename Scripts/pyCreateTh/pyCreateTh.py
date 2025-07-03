@@ -30,14 +30,10 @@ Sources documentaires :
 Création Alex le 2025 06 09
                                         
 En cours :
-    - trouver une solution pour les teams et les clubs
     - tester la avec les dernières option de la  version de DAT (CORRECTION2 et suivants)
-    - comparer résultats Therion - Compass (Stat, kml, etc....)
-    - ajouter codes pour lat/long
-    - créer fonction wall shot  pour faire habillage des th2 files, les jointures...
+    - améliorer fonction wall shot pour faire habillage des th2 files, les jointures...
         - traiter les series avec 1 ou 2 stations
     - PB des cartouches et des échelles pour faire des pdf automatiquement
-    - gérer les différentes options --proj (All, Plan, ....) 
     - tester différentes version pour les fichiers .tro
 
 """
@@ -424,87 +420,6 @@ def parse_xvi_file(th_name_xvi):
     return stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart
 
 #################################################################################################
-def assign_groups_and_ranks_Old(df_lines):
-    G = nx.Graph()
-    for _, row in df_lines.iterrows():
-        G.add_edge(row["name1"], row["name2"])
-
-    used_edges = set()
-    results = []
-    equates = []  # Liste des (group_id, start_point, end_point)
-    group_id = 0
-
-    def walk_path(u, prev=None):
-        path = []
-        current = u
-        while True:
-            neighbors = [n for n in G.neighbors(current) if n != prev]
-            if len(neighbors) != 1:
-                break
-            next_node = neighbors[0]
-            edge = tuple(sorted((current, next_node)))
-            if edge in used_edges:
-                break
-            used_edges.add(edge)
-            path.append(edge)
-            prev = current
-            current = next_node
-        return path
-
-    start_nodes = [n for n in G.nodes if G.degree(n) != 2]
-
-    for node in start_nodes:
-        for neighbor in G.neighbors(node):
-            edge = tuple(sorted((node, neighbor)))
-            if edge in used_edges:
-                continue
-            used_edges.add(edge)
-            path = [(node, neighbor)] + walk_path(neighbor, node)
-            
-            for rank, (n1, n2) in enumerate(path):
-                match = df_lines[(df_lines["name1"] == n1) & (df_lines["name2"] == n2)]
-                if match.empty:
-                    match = df_lines[(df_lines["name1"] == n2) & (df_lines["name2"] == n1)]
-                if not match.empty:
-                    row = match.iloc[0].copy()
-                    row["group_id"] = group_id
-                    row["rank_in_group"] = rank
-                    results.append(row)
-                    if rank == 0:
-                        start_point = n1
-            end_point = path[-1][1] if path else start_point
-            equates.append((group_id, str(start_point), str(end_point)))
-            group_id += 1
-
-    # Création du DataFrame principal
-    df_result = pd.DataFrame(results)
-
-    # Création du DataFrame equates
-    df_equates = pd.DataFrame(equates, columns=["group_id", "start_point", "end_point"])
-    df_equates["group_id"] = df_equates["group_id"].astype(int)
-    df_equates["start_point"] = df_equates["start_point"].astype(str)
-    df_equates["end_point"] = df_equates["end_point"].astype(str)
-    
-    print("df_result columns:", df_result.columns)
-    print("df_result empty:", df_result.empty)
-
-    # Ajout de la colonne max_rank
-    max_ranks = df_result.groupby("group_id")["rank_in_group"].max().reset_index()
-    max_ranks.rename(columns={"rank_in_group": "max_rank"}, inplace=True)
-    max_ranks["max_rank"] = max_ranks["max_rank"].astype(int)
-    df_equates = df_equates.merge(max_ranks, on="group_id", how="left")
-
-    # Ajout de la colonne start_group (raccord entre start_point <-> end_point d'un autre groupe)
-    end_to_group = df_equates[["end_point", "group_id"]].copy()
-    end_to_group.rename(columns={"end_point": "start_point", "group_id": "start_group"}, inplace=True)
-    end_to_group["start_point"] = end_to_group["start_point"].astype(str)
-    df_equates = df_equates.merge(end_to_group, on="start_point", how="left")
-
-    # Remplacer les NaN dans start_group par 0 (entier)
-    df_equates["start_group"] = df_equates["start_group"].fillna(0).astype(int)
-
-    return df_result, df_equates
-
 def assign_groups_and_ranks(df_lines):
     G = nx.Graph()
     for _, row in df_lines.iterrows():
@@ -2318,7 +2233,7 @@ def merge_duplicate_surveys(data, duplicates, id_offset=10000):
      
         
 #################################################################################################        
-def dat_survey_format_extract(section_data, currentSurveyName, fichier, totReadMeError) :
+def dat_survey_format_extract(section_data, headerData, currentSurveyName, fichier, totReadMeError) :
     
     if section_data['FORMAT'] is None or len(section_data['FORMAT']) < 11 or len(section_data['FORMAT']) > 15 :
         log.error(f"Error in format code {Colors.ENDC}{section_data['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{currentSurveyName}")
@@ -2419,10 +2334,16 @@ def dat_survey_format_extract(section_data, currentSurveyName, fichier, totReadM
         totReadMeError += f"\tInclination unit not yet implemented in {currentSurveyName}\n"
         
     ################################################ Section dimensions 4-7 ###############################################    
-    dataFormat = Dimension(section_data['FORMAT'][4])
-    dataFormat += Dimension(section_data['FORMAT'][5])
-    dataFormat += Dimension(section_data['FORMAT'][6])
-    dataFormat += Dimension(section_data['FORMAT'][7])    
+    # dataFormat = Dimension(section_data['FORMAT'][4])
+    # dataFormat += Dimension(section_data['FORMAT'][5])
+    # dataFormat += Dimension(section_data['FORMAT'][6])
+    # dataFormat += Dimension(section_data['FORMAT'][7]) 
+       
+    dataFormat =  " " + headerData[5].lower()
+    dataFormat += " " + headerData[6].lower()
+    dataFormat += " " + headerData[7].lower()
+    dataFormat += " " + headerData[8].lower()   
+    
     
     ################################################ Section Shot 8-11 ou 13 ###############################################
     if len(section_data['FORMAT']) == 11 or len(section_data['FORMAT']) == 12 or len(section_data['FORMAT']) == 13:
@@ -2776,6 +2697,8 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
 
         stationList, dfDATA = station_list(_line, stationList, fixPoints, currentSurveyName)
 
+        headerData = dfDATA.iloc[0].tolist()
+              
         ################################################################################################# 
         # Recherche des points fixes (entrées)
         ################################################################################################# 
@@ -2801,13 +2724,14 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
                     fixPoint +=  f"\t\tfix {point[0]} {point[2]:.3f} {point[3]:.3f}	{point[4]:.3f}\n" 
                 elif point[1] == 'f' :
                    fixPoint += f"\t\tfix {point[0]} {point[2]*0.3048:.3f} {point[3]*0.3048:.3f} {point[4]*0.3048:.3f} # Conversion feet - meter\n"
+                fixPoint +=  f'\t\tstation	{point[0]} "{point[0]}" entrance\n' 
         
          
         ################################################################################################# 
         # Gestion des formats
         ################################################################################################# 
         
-        dataFormat, length, compass, clino, totReadMeErrorDat = dat_survey_format_extract(_line, currentSurveyName, shortCurentFile, totReadMeErrorDat)
+        dataFormat, length, compass, clino, totReadMeErrorDat = dat_survey_format_extract(_line, headerData, currentSurveyName, shortCurentFile, totReadMeErrorDat)
         
         if "grads" in compass:
             _compass = "grads" 
@@ -3023,15 +2947,8 @@ if __name__ == u'__main__':
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.print_help = colored_help.__get__(parser)
     parser.add_argument("--file", help="the file (*.th, *.mak, *.dat, *.tro) to perform e.g. './Therion_file.th'", default="")
-    # parser.add_argument("--survey_name", help="Scrap name (if different from 'survey_file' name)", default="None")
     parser.add_argument("--proj", choices=['All', 'Plan', 'Extended', 'None'], help="the th2 files scrap projection to produce, default: All", default="All")
-    #parser.add_argument("--format", choices=['th2', 'plt'], help="Output format. Either th2 for producing skeleton for drawing or plt for visualizing in aven/loch", default="th2")
-    # parser.add_argument("--output", default="./", help="Output folder path")
-    # parser.add_argument("--therion-path", help="Path to therion binary", default="therion")
     parser.add_argument("--scale", help="scale for the pdf layout exports, default value: 1000 (i.e. xvi files scale is 100)", default="1000")
-    # parser.add_argument("--lines", type=str_to_bool, help="Shot lines in th2 files", default=-1)
-    # parser.add_argument("--names", type=str_to_bool, help="Stations names in th2 files", default=-1)
-    # parser.add_argument("--update", help="Mode update, option th2", default="")
     parser.add_argument("--update", help="th2 files update mode (only for th input files, no folders created)", action="store_true", default=False)
                         
     parser.epilog = (
