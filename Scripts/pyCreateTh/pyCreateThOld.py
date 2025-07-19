@@ -38,7 +38,7 @@ En cours :
 
 """
 
-Version = "2025.07.04"  
+Version = "2025.07.02"  
 
 #################################################################################################
 #################################################################################################
@@ -58,14 +58,13 @@ from contextlib import redirect_stdout
 from Lib.survey import SurveyLoader, NoSurveysFoundException
 from Lib.therion import compile_template, compile_file, get_stats_from_log
 from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_help
-from Lib.general_fonctions import load_config, select_file_tk_window, release_log_file, sanitize_filename
-from Lib.general_fonctions import copy_template_if_not_exists, add_copyright_header, copy_file_with_copyright, update_template_files
+from Lib.general_fonctions import read_config, select_file_tk_window, release_log_file, sanitize_filename
 import Lib.global_data as globalData
 from Lib.pytro2th.tro2th import convert_tro   #Version local modifiée
 
 
-
 #################################################################################################
+configIni = "config.ini"       # Default config file name
 debug_log = False              # Mode debug des messages
 
 
@@ -89,15 +88,164 @@ class StationNameAccessor:
 
 
 #################################################################################################
-def parse_therion_surveys(file_path):
-    """Parse les enquêtes Therion à partir d'un fichier.
+def copy_template_if_not_exists(template_path, destination_path):
+    # Check if the destination folder exists
+    try:
+        if not os.path.exists(destination_path):
+            # If the destination folder does not exist, copy the template
+            shutil.copytree(template_path, destination_path)  
+            log.info(f"The folder {Colors.ENDC}{template_path}{Colors.GREEN} has been copied to {Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN}")
+        else:
+            log.warning(f"The folder '{Colors.ENDC}{safe_relpath(destination_path)}{Colors.WARNING}' already exists. No files were copied.")
+    except Exception as e:
+        log.critical(f"Copy template error: {Colors.ENDC}{e}")
+        exit(0)    
+  
+        
+#################################################################################################        
+def add_copyright_header(file_path, copyright_text):
+    # Lire le contenu du fichier
+    with open(file_path, 'r', encoding="utf-8") as file:
+        content = file.readlines()
+    
+    # Vérifier si le copyright est déjà présent
+    if not any("copyright" in line.lower() for line in content):
+        # Ajouter le copyright en en-tête
+        content.insert(0, f"{copyright_text}\n")
+        
+        # Réécrire le fichier avec le copyright ajouté
+        with open(file_path, 'w', encoding="utf-8") as file:
+            file.writelines(content)        
 
+        
+#################################################################################################
+def copy_file_with_copyright(th_file, destination_path, copyright_text):
+    
+    # Vérifier si le fichier existe
+    if os.path.exists(th_file):
+        # Créer le dossier de destination s'il n'existe pas
+        os.makedirs(destination_path, exist_ok=True)
+        
+        _destFile = sanitize_filename(os.path.basename(th_file)[:-3]) + ".th"
+        # Copier le fichier vers le dossier de destination
+        dest_file = os.path.join(destination_path, _destFile)
+        shutil.copy(th_file, dest_file)
+        
+        # Ajouter le copyright dans l'en-tête si nécessaire
+        add_copyright_header(dest_file, copyright_text)
+        
+        log.debug(f"File {Colors.ENDC}{safe_relpath(th_file)}{Colors.GREEN} has been copied to {Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN} with the copyright header added.{Colors.ENDC}")
+    else:
+        log.error(f"The file .th does not exist {Colors.ENDC}{safe_relpath(th_file)}")
+        globalData.error_count += 1
+   
+        
+#################################################################################################
+# Remplir les template avec les variables vers output_path                                      #                                                             #    
+#################################################################################################
+def update_template_files(template_path, variables, output_path):
+    """
+    Process a Therion template file by replacing variables.
+    
     Args:
-        file_path (str): Le chemin d'accès au fichier à analyser.
-
+        template_path (str): Path to the original template file
+        variables (dict): Dictionary of variables to replace
+        output_path (str): Path for the new configuration file
+        
     Returns:
-        list: Une liste des noms d'enquête trouvés dans le fichier.
-    """   
+        None
+        
+    """
+    
+    try:
+        # Read the content of the template file
+        with open(template_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+        
+        # Replace variables
+        for var, value in variables.items():
+            # Use regex to replace {variable} with its value
+            pattern = r'\{' + re.escape(var) + r'\}'
+            content = re.sub(pattern, str(value), content)
+        
+        # Write the new file
+        with open(output_path, 'w', encoding='utf-8') as file:
+            file.write(content)
+
+        log.info(f"Update template successfully: {Colors.ENDC}{safe_relpath(output_path)}")
+
+        # Delete the original template file
+        os.remove(template_path)
+    
+    except FileNotFoundError:
+        log.error(f"Template file {Colors.ENDC}{template_path}{Colors.ERROR} not found")
+        globalData.error_count += 1
+        
+    except PermissionError:
+        log.error(f"Insufficient permissions to write the file")
+        globalData.error_count += 1
+        
+    except Exception as e:
+        log.error(f"An error occurred (update_template_files): {Colors.ENDC}{e}")
+        globalData.error_count += 1
+
+
+#################################################################################################
+def parse_therion_surveysOld(file_path):
+    """
+    Reads a Therion file and extracts survey names.
+    
+    Args:
+        file_path (str): Path to the Therion file to parse
+    
+    Returns:
+        list: List of survey names
+        
+    """
+        
+    survey_names = []
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            # Read all lines from the file
+            lines = file.readlines()
+            
+            for line in lines:
+                # Look for lines starting with survey
+                line = line.strip()
+                if line.startswith('survey ') and ' -title ' in line:
+                    # Split the line and extract the survey name
+                    start_index = line.find('survey ') + len('survey ')
+                    end_index = line.find(' -title ')               
+                    survey_name = line[start_index:end_index].strip()
+                    survey_names.append(survey_name)
+    
+    except FileNotFoundError:
+        log.error(f"File {Colors.ENDC}{safe_relpath(file_path)}{Colors.ERROR} not found.{Colors.ENDC}")
+        globalData.error_count += 1
+        
+    except PermissionError:
+        log.error(f"Insufficient permissions to read {Colors.ENDC}{safe_relpath(file_path)}")
+        globalData.error_count += 1
+        
+    except Exception as e:
+        log.error(f"An error occurred (parse_therion_surveys): {Colors.ENDC}{e}{Colors.ERROR}, file: {Colors.ENDC}{safe_relpath(file_path)}")
+        globalData.error_count += 1
+        
+    return survey_names
+
+def parse_therion_surveys(file_path):
+    """
+    Reads a Therion file and extracts survey names.
+    
+    Args:
+        file_path (str): Path to the Therion file to parse
+    
+    Returns:
+        list: List of survey names
+        
+    """
+        
     survey_names = []
     
     try:
@@ -132,17 +280,25 @@ def parse_therion_surveys(file_path):
     return survey_names
 
 #################################################################################################
-def convert_to_line_polaire_df(df_lines):
-    """Convertit un DataFrame de lignes cartésiennes (x1, y1, x2, y2, name1, name2)
-    en un DataFrame avec représentation polaire (x1, y1, azimut_deg, longueur, name1, name2).
-
-    Args:
-        df_lines (pd.DataFrame): Le DataFrame contenant les lignes à convertir.
-
-    Returns:
-        pd.DataFrame: Un DataFrame avec les colonnes polaires.
+def str_to_bool(value):
     """
-    
+    Function to convert string to boolean
+    """
+    if isinstance(value, bool):
+        return value
+    if value.lower() in ('true', '1', 'yes', 'y'):
+        return True
+    elif value.lower() in ('false', '0', 'no', 'n'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError(f"{Colors.ERROR}Error: Invalid boolean value: {Colors.ENDC}{value}")
+
+#################################################################################################
+def convert_to_line_polaire_df(df_lines):
+    """
+    Convertit un DataFrame de lignes cartésiennes (x1, y1, x2, y2, name1, name2)
+    en un DataFrame avec représentation polaire (x1, y1, azimut_deg, longueur, name1, name2).
+    """
     try:
         # Forcer la conversion des colonnes numériques
         df_lines = df_lines.copy()  # évite de modifier l'original
@@ -193,27 +349,33 @@ def convert_to_line_polaire_df(df_lines):
         globalData.error_count += 1
         return pd.DataFrame()
 
+
 #################################################################################################
-def parse_xvi_file(thNameXvi):
-    """Parse un fichier .xvi et extrait les stations et les lignes.
+def parse_xvi_file(th_name_xvi):
+    """
+    Parse un fichier .xvi et extrait les stations et les lignes.
 
     Args:
-        thNameXvi (str): chemin complet du fichier .xvi à lire.
+        th_name_xvi (str): chemin complet du fichier .xvi à lire.
 
     Returns:
-        tuple: Un tuple contenant les stations, les lignes, et les bornes (x_min, x_max, y_min, y_max, x_ecart, y_ecart).
+        tuple:
+            - stations (dict): dictionnaire des stations indexées par "x.y".
+            - lines (list): liste des lignes [x1, y1, x2, y2, station1, station2].
+            - x_bounds (tuple): (x_min, x_max)
+            - y_bounds (tuple): (y_min, y_max)
+            - ecarts (tuple): (x_ecart, y_ecart)
     """
-
     stations = {}
     lines = []
     splays = []
 
-    with open(join(thNameXvi), "r", encoding="utf-8") as f:
+    with open(join(th_name_xvi), "r", encoding="utf-8") as f:
         xvi_content = f.read()
-        xviStations, xviShots = xvi_content.split("XVIshots")
+        xvi_stations, xvi_shots = xvi_content.split("XVIshots")
 
         # Extraction des stations
-        for line in xviStations.split("\n"):
+        for line in xvi_stations.split("\n"):
             match = re.search(r"{\s*(-?\d+\.\d+)\s*(-?\d+\.\d+)\s([^@]+)(?:@([^\s}]*))?\s*}", line)
             if match:
                 x, y, station_number, namespace = match.groups()
@@ -225,14 +387,14 @@ def parse_xvi_file(thNameXvi):
                     stations[f"{x}.{y}"] = [x, y, station]
 
         # Calcul des bornes x et y
-        xValues = [float(value[0]) for value in stations.values()]
-        yValues = [float(value[1]) for value in stations.values()]
-        x_min, x_max = min(xValues), max(xValues)
-        y_min, y_max = min(yValues), max(yValues)
+        x_values = [float(value[0]) for value in stations.values()]
+        y_values = [float(value[1]) for value in stations.values()]
+        x_min, x_max = min(x_values), max(x_values)
+        y_min, y_max = min(y_values), max(y_values)
         x_ecart = x_max - x_min
         y_ecart = y_max - y_min
                     
-        for line in xviShots.split("\n"):
+        for line in xvi_shots.split("\n"):
             match = re.search(r"^\s*{\s*(-?\d+\.\d+)\s+(-?\d+\.\d+)\s+(-?\d+\.\d+)\s+(-?\d+\.\d+)(.*)}", line)
             if match:
                 x1, y1, x2, y2, rest = match.groups()
@@ -259,15 +421,6 @@ def parse_xvi_file(thNameXvi):
 
 #################################################################################################
 def assign_groups_and_ranks(df_lines):
-    """Assigne des groupes et des rangs aux lignes du DataFrame.
-
-    Args:
-        df_lines (pd.DataFrame): Le DataFrame contenant les lignes à traiter.
-
-    Returns:
-        pd.DataFrame: Un DataFrame avec les colonnes "group_id" et "rank_in_group" ajoutées.
-    """
-
     G = nx.Graph()
     for _, row in df_lines.iterrows():
         G.add_edge(row["name1"], row["name2"])
@@ -356,16 +509,6 @@ def assign_groups_and_ranks(df_lines):
 
 #################################################################################################
 def add_start_end_splays(df_splays_complet, df_equates):
-    """Ajoute des splays de début et de fin au DataFrame des splays.
-
-    Args:
-        df_splays_complet (pd.DataFrame): Le DataFrame complet des splays.
-        df_equates (pd.DataFrame): Le DataFrame des équivalences.
-
-    Returns:
-        pd.DataFrame: Le DataFrame des splays mis à jour avec les nouveaux splays.
-    """
-
     df_splays_new = df_splays_complet.copy()
 
     for _, row in df_equates.iterrows():
@@ -424,23 +567,6 @@ def add_start_end_splays(df_splays_complet, df_equates):
 
 #################################################################################################
 def align_points(smoothX1, smoothY1, X, Y, smoothX2, smoothY2):
-    """Aligne les points en fonction de leur position l'un par rapport à l'autre.
-
-    Args:
-        smoothX1 (float): Coordonnée X du premier point lissé.
-        smoothY1 (float): Coordonnée Y du premier point lissé.
-        X (float): Coordonnée X du point central.
-        Y (float): Coordonnée Y du point central.
-        smoothX2 (float): Coordonnée X du deuxième point lissé.
-        smoothY2 (float): Coordonnée Y du deuxième point lissé.
-
-    Raises:
-        ValueError: Si les deux points lissés sont confondus.
-
-    Returns:
-        tuple: Les coordonnées des points lissés alignés.
-    """
-
     # Vecteurs d'origine vers smooth1 et smooth2
     dx1, dy1 = smoothX1 - X, smoothY1 - Y
     dx2, dy2 = smoothX2 - X, smoothY2 - Y
@@ -472,20 +598,8 @@ def align_points(smoothX1, smoothY1, X, Y, smoothX2, smoothY2):
 
 #################################################################################################
 def wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max):
-    """Construit les murs en utilisant les lignes et les splays fournis.
 
-    Args:
-        df_lines (pd.DataFrame): Le DataFrame des lignes.
-        df_splays (pd.DataFrame): Le DataFrame des splays.
-        x_min (float): La coordonnée X minimale.
-        x_max (float): La coordonnée X maximale.
-        y_min (float): La coordonnée Y minimale.
-        y_max (float): La coordonnée Y maximale.
-
-    Returns:
-        list: Une liste de murs construits.
-    """   
-
+   
     th2_walls=[]
     _list = ""
     
@@ -554,10 +668,10 @@ def wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max):
             group_id = match["group_id"].values[0]
             max_rank = df_lines_polaire[df_lines_polaire["group_id"] == group_id]["rank_in_group"].max()
                     
-            df_splays_complet.loc[idx, "bissectrice"] = match["azimut_deg"].values[0]
-            df_splays_complet.loc[idx, "longueur_ref"] = match["longueur"].values[0]
-            df_splays_complet.loc[idx, "group_id"] = group_id
-            df_splays_complet.loc[idx, "rank_in_group"] = max_rank + 1
+            df_splays_complet.at[idx, "bissectrice"] = match["azimut_deg"].values[0]
+            df_splays_complet.at[idx, "longueur_ref"] = match["longueur"].values[0]
+            df_splays_complet.at[idx, "group_id"] = group_id
+            df_splays_complet.at[idx, "rank_in_group"] = max_rank + 1
 
     df_splays_complet = add_start_end_splays(df_splays_complet, df_equates)
     
@@ -565,8 +679,17 @@ def wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max):
     
     df_splays_complet["delta_azimut"] = df_splays_complet["bissectrice"] - df_splays_complet["azimut_deg"]
 
-    df_splays_complet["proj"] = np.sin(np.radians(df_splays_complet["bissectrice"] - df_splays_complet["azimut_deg"])) * df_splays_complet["longueur"]
 
+    # Calcul de la projection : sin(delta azimut) * longueur_ref
+    def calc_projection(row):
+        try:
+            delta = math.radians(row["bissectrice"] - row["azimut_deg"])
+            return math.sin(delta) * row["longueur"]
+        
+        except:
+            return None
+
+    df_splays_complet["proj"] = df_splays_complet.apply(calc_projection, axis=1)
     df_splays_complet["group_id"] = df_splays_complet["group_id"].astype(int)
     df_splays_complet["rank_in_group"] = df_splays_complet["rank_in_group"].astype(int)
     
@@ -770,6 +893,10 @@ def wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max):
     return th2_walls, x_min, x_max, y_min, y_max
 
 
+#################################################################################################
+
+
+
 ################################################################################################# 
 # Création des dossiers à partir d'un th file                                                   #
 #################################################################################################   
@@ -781,24 +908,23 @@ def create_th_folders(ENTRY_FILE,
                     UPDATE = False, 
                     CONFIG_PATH = "",
                     totReadMeError = "") :  
-
-    """Création des dossiers et fichiers à partir d'un fichier .th
+    """
+    Création des dossiers et fichiers à partir d'un fichier .th
     
     Args:
-        ENTRY_FILE (str): Chemin du fichier Therion d'entrée.
-        PROJECTION (str): Type de projection à utiliser.
-        TARGET (str): Cible de la projection.
-        FORMAT (str): Format de sortie, par défaut "th2".
-        SCALE (str): Échelle à utiliser, par défaut "500".
-        UPDATE (bool): Indique si l'on met à jour les fichiers existants.
-        CONFIG_PATH (str): Chemin vers le fichier de configuration Therion.
-        totReadMeError (str): Message d'erreur pour le fichier README.
-    
-    Returns:
-        bool: True si la création des dossiers et fichiers a réussi, False sinon.
-
+        ENTRY_FILE (str): Le chemin vers le fichier .th d'entrée.
+        PROJECTION (str): Le type de projection (Plan, Extended, All).
+        TARGET (str): Le nom de la cible (scrap) si différent du nom du fichier d'entrée.
+        FORMAT (str): Le format de sortie (th2 ou plt).
+        SCALE (str): L'échelle pour les exports th2.
+        UPDATE (bool): Le mode de mise à jour.
+        CONFIG_PATH (str): Le chemin vers le fichier de configuration.
+        
+    Returns:    
+        True or False
+        
     """
-    
+
     threads = []
     TH_NAME = sanitize_filename(os.path.splitext(os.path.basename(ENTRY_FILE))[0])
     DEST_PATH = os.path.dirname(ENTRY_FILE) + "/" + TH_NAME
@@ -957,16 +1083,16 @@ def create_th_folders(ENTRY_FILE,
     other_scraps_plan = ""
     if PROJECTION.lower() == "plan" or PROJECTION.lower() == "all" and not flagErrorCompile :
         if UPDATE: 
-            thNameXvi =  DEST_PATH + "/" + TH_NAME + "-Plan.xvi" 
+            th_name_xvi =  DEST_PATH + "/" + TH_NAME + "-Plan.xvi" 
         else :     
-            thNameXvi =  DEST_PATH + "/Data/" + TH_NAME + "-Plan.xvi" 
+            th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Plan.xvi" 
 
-        log.info(f"Parsing Plan XVI file: {Colors.ENDC}{safe_relpath(thNameXvi)}")
+        log.info(f"Parsing Plan XVI file: {Colors.ENDC}{safe_relpath(th_name_xvi)}")
 
         stations = {}
         lines = []
         
-        stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(thNameXvi)
+        stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
         
         # df_stations = pd.DataFrame.from_dict(stations, orient='index')
         df_lines = pd.DataFrame(lines, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
@@ -978,8 +1104,14 @@ def create_th_folders(ENTRY_FILE,
         # Identifier les groupes avec au moins un splay non nul
         non_zero_groups = df_splays.loc[~df_splays["is_zero_length"], ["name1", "name2"]]
         non_zero_group_keys = set(tuple(x) for x in non_zero_groups.to_numpy())
-        
-        df_splays = df_splays[(~df_splays["is_zero_length"]) | df_splays[["name1", "name2"]].apply(tuple, axis=1).isin(non_zero_group_keys) ]
+       
+        def keep_row2(row):
+            if not row["is_zero_length"]:
+                return True
+            return (row["name1"], row["name2"]) in non_zero_group_keys
+
+
+        df_splays = df_splays[df_splays.apply(keep_row2, axis=1)]
 
         # Supprimer la colonne temporaire si elle existe
         if "is_zero_length" in df_splays.columns:
@@ -1061,7 +1193,7 @@ def create_th_folders(ENTRY_FILE,
                             insert_XVI = "{" + stations[next(iter(stations))][0] + "1 1.0} {" 
                                                 + stations[next(iter(stations))][1] + " "
                                                 + stations[next(iter(stations))][2] +"} "
-                                                + os.path.basename(thNameXvi) + " 0 {}",                         
+                                                + os.path.basename(th_name_xvi) + " 0 {}",                         
                             )
                     )
                     if scrap_to_add >= 1 :     
@@ -1084,17 +1216,17 @@ def create_th_folders(ENTRY_FILE,
     other_scraps_extended = ""
     if PROJECTION.lower() == "extended" or PROJECTION.lower() == "all" and not flagErrorCompile :
         if UPDATE: 
-            thNameXvi =  DEST_PATH + "/" + TH_NAME + "-Extended.xvi" 
+            th_name_xvi =  DEST_PATH + "/" + TH_NAME + "-Extended.xvi" 
         else :
-            thNameXvi =  DEST_PATH + "/Data/" + TH_NAME + "-Extended.xvi" 
+            th_name_xvi =  DEST_PATH + "/Data/" + TH_NAME + "-Extended.xvi" 
 
-        log.info(f"Parsing extended XVI file: {Colors.ENDC}{safe_relpath(thNameXvi)}")
+        log.info(f"Parsing extended XVI file: {Colors.ENDC}{safe_relpath(th_name_xvi)}")
 
         # Parse the Extended XVI file
         stations = {}
         lines = []
         
-        stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(thNameXvi)
+        stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart = parse_xvi_file(th_name_xvi)
         
         # df_stations = pd.DataFrame.from_dict(stations, orient='index')
         df_lines = pd.DataFrame(lines, columns=["x1", "y1", "x2", "y2", "name1", "name2"])
@@ -1105,9 +1237,13 @@ def create_th_folders(ENTRY_FILE,
         # Identifier les groupes avec au moins un splay non nul
         non_zero_groups = df_splays.loc[~df_splays["is_zero_length"], ["name1", "name2"]]
         non_zero_group_keys = set(tuple(x) for x in non_zero_groups.to_numpy())
-        
-        df_splays = df_splays[(~df_splays["is_zero_length"]) | df_splays[["name1", "name2"]].apply(tuple, axis=1).isin(non_zero_group_keys) ]
+       
+        def keep_row(row):
+            if not row["is_zero_length"]:
+                return True
+            return (row["name1"], row["name2"]) in non_zero_group_keys
 
+        df_splays = df_splays[df_splays.apply(keep_row, axis=1)]
 
         # Supprimer la colonne temporaire si elle existe
         if "is_zero_length" in df_splays.columns:
@@ -1188,7 +1324,7 @@ def create_th_folders(ENTRY_FILE,
                             insert_XVI = "{" + stations[next(iter(stations))][0] + "1 1.0} {" 
                                                 + stations[next(iter(stations))][1] + " "
                                                 + stations[next(iter(stations))][2] +"} "
-                                                + os.path.basename(thNameXvi) + " 0 {}",                         
+                                                + os.path.basename(th_name_xvi) + " 0 {}",                         
                         )
                     )
                     if scrap_to_add >= 1 :     
@@ -1255,16 +1391,16 @@ def create_th_folders(ENTRY_FILE,
 # lecture d'un fichier .mak                                                                     #
 #################################################################################################    
 def mak_to_th_file(ENTRY_FILE) :
-    """Convertit un fichier .mak en fichier .th.
+    """
+    Convertit un fichier .mak en fichier .th.
 
     Args:
         ENTRY_FILE (str): Le chemin vers le fichier .mak d'entrée.
-
-    Returns:
-        bool: True si la conversion a réussi, False sinon.
         
+    Returns:
+  
     """
-
+    
     # Liste des threads lancés
     threads = []
     
@@ -1547,19 +1683,17 @@ def mak_to_th_file(ENTRY_FILE) :
 
 #################################################################################################
 def station_list(data, list, fixPoints, currentSurveyName) :  
-    """Crée une liste de stations à partir des données fournies.
+    """
+    Crée une liste de stations à partir des données fournies.
 
     Args:
         data (DataFrame): Les données d'entrée contenant les informations sur les stations.
         list (DataFrame): La liste des stations existantes.
         fixPoints (list): Les points de fixation à considérer.
-        currentSurveyName (str): Le nom de l'enquête en cours.
 
     Returns:
         DataFrame: La liste mise à jour des stations.
-        
     """
-
     
     # Création d'un DataFrame à partir des données  
     rows1 = [line.split() for line in data['DATA']]
@@ -1584,21 +1718,21 @@ def station_list(data, list, fixPoints, currentSurveyName) :
 
 #################################################################################################
 def formated_station_list(df, dataFormat, unit = "meter", shortCurentFile ="None") :
-    """Formate une liste de stations à partir d'un DataFrame.
+    """
+    Formate la liste des stations selon le format spécifié.
+
     Args:
         df (DataFrame): Le DataFrame contenant les données des stations.
-        dataFormat (str): Le format des données à utiliser pour le traitement.
-        unit (str): L'unité de mesure à utiliser (par défaut "meter").
-        shortCurentFile (str): Le nom du fichier en cours de traitement (pour les logs).
-        
+        dataFormat (str): Le format de données souhaité.
+        unit (str, optional): L'unité de mesure (par défaut "meter").
+        ENTRY_FILE (str, optional): Le chemin du fichier d'entrée (par défaut None).
+
     Returns:
-        DataFrame: Le DataFrame formaté avec les colonnes appropriées.
+        DataFrame: Le DataFrame formaté.
     """
-       
     
     # Remplacer les None/NaN par des espaces
     df = df.fillna(" ")
-    
 
     # Conserver la première ligne (en-têtes) séparément
     header_row = df.iloc[0]
@@ -1841,15 +1975,6 @@ def formated_station_list(df, dataFormat, unit = "meter", shortCurentFile ="None
     
 #################################################################################################          
 def find_duplicates_by_date_and_team(data):
-    """Finds duplicates in the data based on SURVEY_DATE and SURVEY_TEAM.
-    
-    Args: 
-        data (list): A list of dictionaries containing survey data.   
-
-    Returns:
-        list: A list of dictionaries containing information about duplicates found.
-        
-    """
     grouped = defaultdict(list)
 
     # Étape 1 : regroupement par (SURVEY_DATE, SURVEY_TEAM)
@@ -1910,17 +2035,7 @@ def find_duplicates_by_date_and_team(data):
     return duplicates
 
 
-#################################################################################################
 def find_duplicates_by_date(data):
-    """Finds duplicates in the data based on SURVEY_DATE.
-
-    Args:
-        data (list): A list of dictionaries containing survey data.
-
-    Returns:
-        list: A list of dictionaries containing information about duplicates found.
-    """
-    
     grouped = defaultdict(list)
 
     # Étape 1 : regroupement uniquement par SURVEY_DATE
@@ -1984,19 +2099,9 @@ def find_duplicates_by_date(data):
     return duplicates
 
 
+
 #################################################################################################    
 def points_uniques(data, crs_wkt):
-    """Extrait les points uniques de la colonne 0 du DataFrame 'data' et les compare avec la colonne 1.
-    Exclut les points présents dans 'crs_wkt' si fourni.
-
-    Args:
-        data (DataFrame): Le DataFrame contenant les données.
-        crs_wkt (list, optional): Une liste de points à exclure.
-
-    Returns:
-        list: Une liste de points uniques.
-    """
-
     # Création d'un DataFrame à partir des lignes de données
     rows = [line.split() for line in data['DATA']]
     dfDATA = pd.DataFrame(rows)
@@ -2024,19 +2129,6 @@ def points_uniques(data, crs_wkt):
      
 #################################################################################################     
 def merge_duplicate_surveys(data, duplicates, id_offset=10000):
-    """Merges duplicate survey entries into a single entry.
-
-    Args:
-        data (list): A list of dictionaries containing survey data.
-        duplicates (list): A list of dictionaries containing information about duplicates found.
-        id_offset (int, optional): An offset to apply to the IDs of merged entries. Defaults to 10000.
-
-    Returns:
-        list: A list of merged survey entries.
-        
-    """
-    
-    
     id_to_entry = {entry['ID']: entry for entry in data}
     merged_data = []
     used_ids = set()
@@ -2141,20 +2233,7 @@ def merge_duplicate_surveys(data, duplicates, id_offset=10000):
      
         
 #################################################################################################        
-def dat_survey_format_extract(section_data, headerData, currentSurveyName, fichier, totReadMeError):
-    """Extracts and validates the format code from the section data.
-
-    Args:
-        section_data (dict): The section data containing survey information.
-        headerData (dict): The header data for the survey.
-        currentSurveyName (str): The name of the current survey.
-        fichier (str): The file being processed.
-        totReadMeError (str): A string to accumulate error messages.
-
-    Returns:
-        dataFormat (str), length (int), compass (str), clino (str), totReadMeError (str)
-
-    """
+def dat_survey_format_extract(section_data, headerData, currentSurveyName, fichier, totReadMeError) :
     
     if section_data['FORMAT'] is None or len(section_data['FORMAT']) < 11 or len(section_data['FORMAT']) > 15 :
         log.error(f"Error in format code {Colors.ENDC}{section_data['FORMAT']}{Colors.ERROR} in {Colors.ENDC}{currentSurveyName}")
@@ -2255,10 +2334,16 @@ def dat_survey_format_extract(section_data, headerData, currentSurveyName, fichi
         totReadMeError += f"\tInclination unit not yet implemented in {currentSurveyName}\n"
         
     ################################################ Section dimensions 4-7 ###############################################    
+    # dataFormat = Dimension(section_data['FORMAT'][4])
+    # dataFormat += Dimension(section_data['FORMAT'][5])
+    # dataFormat += Dimension(section_data['FORMAT'][6])
+    # dataFormat += Dimension(section_data['FORMAT'][7]) 
+       
     dataFormat =  " " + headerData[5].lower()
     dataFormat += " " + headerData[6].lower()
     dataFormat += " " + headerData[7].lower()
     dataFormat += " " + headerData[8].lower()   
+    
     
     ################################################ Section Shot 8-11 ou 13 ###############################################
     if len(section_data['FORMAT']) == 11 or len(section_data['FORMAT']) == 12 or len(section_data['FORMAT']) == 13:
@@ -2284,19 +2369,9 @@ def dat_survey_format_extract(section_data, headerData, currentSurveyName, fichi
     
     return dataFormat, length, compass, clino, totReadMeError       
         
-
-#################################################################################################     
+#
+# ################################################################################################     
 def load_text_file_utf8(filepath, short_filename):
-    """Loads a text file with various encodings and converts it to UTF-8.
-
-    Args:
-        filepath (str): The path to the file to be loaded.
-        short_filename (str): The name of the file (for logging purposes).
-
-    Returns:
-        tuple: A tuple containing the file content, a log message, and the encoding used.
-    """
-
     encodings_to_try = [
         'utf-8-sig',       # UTF-8 avec BOM
         'utf-8',           # UTF-8 standard
@@ -2844,17 +2919,6 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
 
 #################################################################################################
 def wait_until_file_is_released(filepath, timeout=30):
-    """Wait until a file is released (i.e., not locked by another process).
-
-    Args:
-        filepath (str): The path to the file to check.
-        timeout (int, optional): The maximum time to wait in seconds. Defaults to 30.
-
-    Returns:
-        bool: True if the file is released, False if the timeout is reached.
-        
-    """
-    
     start = time.time()
     while True:
         try:
@@ -2915,43 +2979,36 @@ if __name__ == u'__main__':
     
     #################################################################################################
     # Reading config.ini                                                                            #
-    #################################################################################################   
-    config_file = load_config(args)
+    #################################################################################################
+    try:
+        config_file =  os.path.dirname(args.file) + "\\" + configIni
+        if os.path.isfile(config_file):
+            read_config(config_file)
+        else :
+            config_file = configIni
+            read_config(configIni) 
+        
+    except ValueError as e:
+        log.critical(f"Reading {configIni} file error: {Colors.ENDC}{e}")
+        exit(0)
+    
     
     #################################################################################################
     # titre                                                                                         #
     #################################################################################################
-    titre_largeur = 150
-    bordure = "#" * titre_largeur + Colors.ENDC
-    ansi_escape = re.compile(r'\x1b\[[0-9;]*m')
+    _titre =[f'********************************************************************************************************************************************\033[0m', 
+            f'* Conversion Th, Dat, Mak, Tro, files to Therion files and folders',
+            f'*       Script pyCreateTh by : {Colors.ENDC}alexandre.pont@yahoo.fr',
+            f'*       Version :              {Colors.ENDC}{Version}',
+            f'*       Input file :           {Colors.ENDC}{safe_relpath(args.file)}',           
+            f'*       Output folder :        {Colors.ENDC}{safe_relpath(splitext(abspath(args.file))[0])}',
+            f'*       Log file :             {Colors.ENDC}{os.path.basename(output_log)}',
+            f'*       Config file:           {Colors.ENDC}{safe_relpath(config_file)}',
+            f'*       ',
+            f'*       ',
+            f'********************************************************************************************************************************************\033[0m']     
 
-    def pad_line(texte, center=False):
-        # Supprimer les séquences ANSI pour le calcul de longueur visuelle
-        visible_len = len(ansi_escape.sub('', texte))
-        espace_total = titre_largeur - visible_len - 2  # 2 pour les * à gauche et droite
-
-        if center:
-            left = espace_total // 2
-            right = espace_total - left
-            return f"#{' ' * left}{texte}{' ' * right}{Colors.ENDC}{Colors.INFO}#"
-        else:
-            return f"# {texte}{' ' * max(0, espace_total - 1)}{Colors.INFO}#"
-
-    _titre = [
-        bordure,
-        pad_line(f"{Colors.BOLD}{Colors.YELLOW}Conversion Th, Dat, Mak, Tro, files to Therion files and folders", center=True),
-        pad_line(f"Script pyCreateTh by : {Colors.BLUE}alexandre.pont@yahoo.fr"),
-        pad_line(f"Version :              {Colors.ENDC}{Version}"),
-        pad_line(f"Input file :           {Colors.ENDC}{safe_relpath(args.file)}"),
-        pad_line(f"Output folder :        {Colors.ENDC}{safe_relpath(splitext(abspath(args.file))[0])}"),
-        pad_line(f"Log file :             {Colors.ENDC}{os.path.basename(output_log)}"),
-        pad_line(f"Config file:           {Colors.ENDC}{safe_relpath(config_file)}"),
-        pad_line(""),
-        bordure
-    ]
-
-    for line in _titre:
-        log.info(line)
+    for i in range(11): log.info(_titre[i])     
 
         
     #################################################################################################
@@ -3054,6 +3111,11 @@ if __name__ == u'__main__':
                                     Errorfiles = False
                                     )
         
+        # print(f"cavename: {fileTitle}")
+        # print(f"coordinates: {coordinates}")
+        # print(f"coordsyst: {coordsyst}")
+        # print(f"fle_th_fnme: {fle_th_fnme}")
+        
         content, val, encodage = load_text_file_utf8(fle_th_fnme, os.path.basename(fle_th_fnme))
         
         if encodage != "utf-8":
@@ -3103,12 +3165,14 @@ if __name__ == u'__main__':
     release_log_file(log)
     
     
-    # Supprimer le fichier cible si il existe déjà
+    # Supprimer le fichier cible s’il existe déjà
     if os.path.isfile(destination_file):
         os.remove(destination_file)
 
     shutil.move(output_log, destination_path)
     
+    print(output_log)
+    print(destination_path)
     
         
     

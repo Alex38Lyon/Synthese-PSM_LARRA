@@ -3,12 +3,12 @@
 general_fonctions.py for pyCreateTh.py                                                           
 #############################################################################################
 """
-import os, logging, sys, re, configparser, unicodedata
+import os, logging, sys, re, configparser, unicodedata, shutil
 import Lib.global_data as global_data
 import tkinter as tk
 from tkinter import filedialog
 
-
+log = logging.getLogger("Logger")
 
 #################################################################################################
 # Couleurs ANSI par niveau de log
@@ -48,10 +48,6 @@ class Colors:
 
 #################################################################################################
 def safe_relpath(path):
-    """
-    Renvoie un chemin relatif si possible, sinon un chemin partiel à partir du dossier de référence.
-    """
-    
     abs_path = os.path.abspath(path)
     ref_path = os.path.abspath(os.getcwd())
     
@@ -119,38 +115,38 @@ def colored_help(parser):
 #################################################################################################
 # Mise au format des noms                                                                       #
 #################################################################################################
-def sanitize_filename(th_name):
+def sanitize_filename(thName):
     """
     Cleans a string to make it compatible with filenames on Windows, Linux, and macOS.
     Replaces special and accented characters with compatible characters.
     Replaces parentheses with underscores and enforces proper casing.
 
     Args:
-        th_name (str): The filename to clean.
+        thName (str): The filename to clean.
 
     Returns:
         str: The cleaned and compatible string.
         
     """
     # Unicode normalization to replace accented characters with their non-accented equivalents
-    th_name = unicodedata.normalize('NFKD', th_name).encode('ASCII', 'ignore').decode('ASCII')
+    thName = unicodedata.normalize('NFKD', thName).encode('ASCII', 'ignore').decode('ASCII')
 
     # Replace parentheses with underscores
-    th_name = th_name.replace('(', '_').replace(')', '_')
+    thName = thName.replace('(', '_').replace(')', '_')
 
     # Replace illegal characters with an underscore
-    th_name = re.sub(r'[<>:"/\\|?*\']', '_', th_name)   # Illegal on Windows
-    th_name = re.sub(r'\s+', '_', th_name)             # Spaces to underscores
-    th_name = re.sub(r'[^a-zA-Z0-9._-]', '_', th_name) # Keep only allowed chars
+    thName = re.sub(r'[<>:"/\\|?*\']', '_', thName)   # Illegal on Windows
+    thName = re.sub(r'\s+', '_', thName)             # Spaces to underscores
+    thName = re.sub(r'[^a-zA-Z0-9._-]', '_', thName) # Keep only allowed chars
 
     # Convert to lowercase, then capitalize the first letter
-    # th_name = th_name.lower().capitalize()
-    # th_name = th_name.capitalize()
+    # thName = thName.lower().capitalize()
+    # thName = thName.capitalize()
     
     # Suppression des underscores en début et fin
-    th_name = th_name.strip('_')
+    thName = thName.strip('_')
 
-    return th_name or "default_filename"  # Avoid empty result
+    return thName or "default_filename"  # Avoid empty result
 
 
 #################################################################################################
@@ -184,73 +180,71 @@ def select_file_tk_window():
 
 
 #################################################################################################
-def read_config(config_file):
+def load_config(args, configIni="config.ini"):
     """
-    Lit le fichier de configuration et initialise les variables globales.
+    Charge un fichier de configuration .ini et initialise les variables globales.
 
     Args:
-        config_file (str): Le chemin vers le fichier de configuration.
-        
-    Returns:
-        None
-        
+        args: Argument contenant le chemin du fichier principal.
+        configIni: Nom du fichier de configuration.
     """
+    try:
+        # Chemin potentiel du fichier config
+        config_file = os.path.join(os.path.dirname(args.file), configIni)
+        if not os.path.isfile(config_file):
+            config_file = configIni  # Fallback si fichier absent
 
-    # Initialize the configparser to read .ini files
-    config = configparser.ConfigParser()
-    config.read(config_file, encoding="utf-8")
+        config = configparser.ConfigParser()
+        config.read(config_file, encoding="utf-8")
 
-    if 'Survey_Data' in config and 'Author' in config['Survey_Data']:
-        global_data.Author = config['Survey_Data']['Author']
-    
-    if 'Survey_Data' in config and 'Copyright1' in config['Survey_Data']:
-        global_data.Copyright = config['Survey_Data']['Copyright1'] + "\n" + config['Survey_Data']['Copyright2'] + "\n" + config['Survey_Data']['Copyright3'] + "\n"
-           
-    if 'Survey_Data' in config and 'Copyright_Short' in config['Survey_Data']:
-        global_data.CopyrightShort = config['Survey_Data']['Copyright_Short']        
+        survey_keys = {
+            'Author': 'Author',
+            'Copyright1': None,
+            'Copyright2': None,
+            'Copyright3': None,
+            'Copyright_Short': 'CopyrightShort',
+            'map_comment': 'mapComment',
+            'club': 'club',
+            'thanksto': 'thanksto',
+            'datat': 'datat',
+            'wpage': 'wpage',
+            'cs': 'cs'
+        }
+
+        for key, attr in survey_keys.items():
+            if 'Survey_Data' in config and key in config['Survey_Data']:
+                if key.startswith('Copyright') and all(
+                    k in config['Survey_Data'] for k in ['Copyright1', 'Copyright2', 'Copyright3']
+                ):
+                    global_data.Copyright = "\n".join([
+                        config['Survey_Data']['Copyright1'],
+                        config['Survey_Data']['Copyright2'],
+                        config['Survey_Data']['Copyright3']
+                    ])
+                elif attr:
+                    setattr(global_data, attr, config['Survey_Data'][key])
+
+        app_keys = {
+            'template_path': 'templatePath',
+            'station_by_scrap': ('stationByScrap', int),
+            'final_therion_exe': ('finalTherionExe', lambda x: x.lower() == 'true'),
+            'therion_path': 'therionPath',
+            'survey_prefix_name': 'SurveyPrefixName',
+            'shot_lines_in_th2_files': ('linesInTh2', lambda x: x.lower() == 'true'),
+            'station_name_in_th2_files': ('stationNamesInTh2', lambda x: x.lower() == 'true'),
+            'kSmooth': ('kSmooth', float),
+        }
+
+        for key, value in app_keys.items():
+            if 'Application_Data' in config and key in config['Application_Data']:
+                attr, caster = (value, str) if isinstance(value, str) else value
+                setattr(global_data, attr, caster(config['Application_Data'][key]))
         
-    if 'Survey_Data' in config and 'map_comment' in config['Survey_Data']:
-        global_data.mapComment = config['Survey_Data']['map_comment']
-    
-    if 'Survey_Data' in config and 'club' in config['Survey_Data']:
-        global_data.club = config['Survey_Data']['club']
-    
-    if 'Survey_Data' in config and 'thanksto' in config['Survey_Data']:
-        global_data.thanksto = config['Survey_Data']['thanksto']
-    
-    if 'Survey_Data' in config and 'datat' in config['Survey_Data']:
-        global_data.datat = config['Survey_Data']['datat']
-        
-    if 'Survey_Data' in config and 'wpage' in config['Survey_Data']:
-        global_data.wpage = config['Survey_Data']['wpage']
-        
-    if 'Survey_Data' in config and 'cs' in config['Survey_Data']:
-        global_data.cs = config['Survey_Data']['cs']
-        
-    if 'Application_Data' in config and 'template_path' in config['Application_Data']:
-        global_data.templatePath = config['Application_Data']['template_path']    
-        
-    if 'Application_Data' in config and 'station_by_scrap' in config['Application_Data']:
-        global_data.stationByScrap = int(config['Application_Data']['station_by_scrap'])
-    
-    if 'Application_Data' in config and 'final_therion_exe' in config['Application_Data']:
-        global_data.finalTherionExe = bool(config['Application_Data']['final_therion_exe'])
-        
-    if 'Application_Data' in config and 'therion_path' in config['Application_Data']:
-        global_data.therionPath = config['Application_Data']['therion_path']
-        
-    if 'Application_Data' in config and 'therion_path' in config['Application_Data']:
-        global_data.SurveyPrefixName = config['Application_Data']['survey_prefix_name']
-     
-    if 'Application_Data' in config and 'shot_lines_in_th2_files' in config['Application_Data']:
-        global_data.linesInTh2 = bool(config['Application_Data']['shot_lines_in_th2_files'])
-        
-    if 'Application_Data' in config and 'station_name_in_th2_files' in config['Application_Data']:
-        global_data.stationNamesInTh2 = bool(config['Application_Data']['station_name_in_th2_files']) 
-        
-    if 'Application_Data' in config and 'kSmooth' in config['Application_Data']:
-        global_data.kSmooth = float(config['Application_Data']['kSmooth'])
-            
+        return config_file
+
+    except Exception as e:
+        log.critical(f"Reading {configIni} file error: {Colors.ENDC}{e}")
+        exit(0)
 
 
 #################################################################################################
@@ -300,10 +294,7 @@ def setup_logger(logfile="app.log", debug_log=False):
     logger.setLevel(logging.DEBUG)
     logger.handlers.clear()
     
-    
-    
     min_level = logging.DEBUG if debug_log else logging.INFO
-    
     
     # Console stderr handler — affichage à l'écran avec couleurs
     stderr_handler = logging.StreamHandler(sys.stderr)
@@ -329,3 +320,106 @@ def release_log_file(logger):
         if isinstance(handler, logging.FileHandler):
             handler.close()
             logger.removeHandler(handler)
+
+
+#################################################################################################
+def copy_template_if_not_exists(template_path, destination_path):
+    # Check if the destination folder exists
+    try:
+        if not os.path.exists(destination_path):
+            # If the destination folder does not exist, copy the template
+            shutil.copytree(template_path, destination_path)  
+            log.info(f"The folder {Colors.ENDC}{template_path}{Colors.GREEN} has been copied to {Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN}")
+        else:
+            log.warning(f"The folder '{Colors.ENDC}{safe_relpath(destination_path)}{Colors.WARNING}' already exists. No files were copied.")
+    except Exception as e:
+        log.critical(f"Copy template error: {Colors.ENDC}{e}")
+        exit(0)    
+  
+        
+#################################################################################################        
+def add_copyright_header(file_path, copyright_text):
+    # Lire le contenu du fichier
+    with open(file_path, 'r', encoding="utf-8") as file:
+        content = file.readlines()
+    
+    # Vérifier si le copyright est déjà présent
+    if not any("copyright" in line.lower() for line in content):
+        # Ajouter le copyright en en-tête
+        content.insert(0, f"{copyright_text}\n")
+        
+        # Réécrire le fichier avec le copyright ajouté
+        with open(file_path, 'w', encoding="utf-8") as file:
+            file.writelines(content)        
+
+        
+#################################################################################################
+def copy_file_with_copyright(th_file, destination_path, copyright_text):
+    # Vérifier si le fichier existe
+    if os.path.exists(th_file):
+        # Créer le dossier de destination s'il n'existe pas
+        os.makedirs(destination_path, exist_ok=True)
+        
+        _destFile = sanitize_filename(os.path.basename(th_file)[:-3]) + ".th"
+        # Copier le fichier vers le dossier de destination
+        dest_file = os.path.join(destination_path, _destFile)
+        shutil.copy(th_file, dest_file)
+        
+        # Ajouter le copyright dans l'en-tête si nécessaire
+        add_copyright_header(dest_file, copyright_text)
+        
+        log.debug(f"File {Colors.ENDC}{safe_relpath(th_file)}{Colors.GREEN} has been copied to {Colors.ENDC}{safe_relpath(destination_path)}{Colors.GREEN} with the copyright header added.{Colors.ENDC}")
+    else:
+        log.error(f"The file .th does not exist {Colors.ENDC}{safe_relpath(th_file)}")
+        global_Data.error_count += 1
+   
+        
+#################################################################################################
+# Remplir les template avec les variables vers output_path                                      #                                                             #    
+#################################################################################################
+def update_template_files(template_path, variables, output_path):
+    """
+    Process a Therion template file by replacing variables.
+    
+    Args:
+        template_path (str): Path to the original template file
+        variables (dict): Dictionary of variables to replace
+        output_path (str): Path for the new configuration file
+        
+    Returns:
+        None
+        
+    """
+    
+    try:
+        # Read the content of the template file
+        with open(template_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+        
+        # Replace variables
+        for var, value in variables.items():
+            # Use regex to replace {variable} with its value
+            pattern = r'\{' + re.escape(var) + r'\}'
+            content = re.sub(pattern, str(value), content)
+        
+        # Write the new file
+        with open(output_path, 'w', encoding='utf-8') as file:
+            file.write(content)
+
+        log.info(f"Update template successfully: {Colors.ENDC}{safe_relpath(output_path)}")
+
+        # Delete the original template file
+        os.remove(template_path)
+    
+    except FileNotFoundError:
+        log.error(f"Template file {Colors.ENDC}{template_path}{Colors.ERROR} not found")
+        global_Data.error_count += 1
+        
+    except PermissionError:
+        log.error(f"Insufficient permissions to write the file")
+        global_Data.error_count += 1
+        
+    except Exception as e:
+        log.error(f"An error occurred (update_template_files): {Colors.ENDC}{e}")
+        global_Data.error_count += 1
+
