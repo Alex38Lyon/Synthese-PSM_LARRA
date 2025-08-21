@@ -986,8 +986,8 @@ def create_th_folders(ENTRY_FILE,
             df_splays = df_splays.drop(columns="is_zero_length")
     
         th2_walls = []
-        
-        if globalData.wallLineInTh2 :
+
+        if globalData.wallLinesInTh2 :
             th2_walls,  x_min, x_max, y_min, y_max = wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max)
             
         
@@ -1044,7 +1044,7 @@ def create_th_folders(ENTRY_FILE,
                             Copyright_Short = globalData.CopyrightShort,
                             points="\n".join(th2_points),
                             lines="\n".join(th2_lines) if globalData.linesInTh2 else "",
-                            walls="\n".join(th2_walls) if globalData.wallLineInTh2 else "",
+                            walls="\n".join(th2_walls) if globalData.wallLinesInTh2 else "",
                             names="\n".join(th2_names) if globalData.stationNamesInTh2 else "",
                             projection="plan",
                             projection_short="P",
@@ -1115,7 +1115,7 @@ def create_th_folders(ENTRY_FILE,
         
         th2_walls = []
         
-        if globalData.wallLineInTh2 :
+        if globalData.wallLinesInTh2 :
             th2_walls, x_min, x_max, y_min, y_max, = wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max)
             
 
@@ -1171,7 +1171,7 @@ def create_th_folders(ENTRY_FILE,
                             Copyright_Short = globalData.CopyrightShort,
                             points="\n".join(th2_points),
                             lines="\n".join(th2_lines) if globalData.linesInTh2 else "",
-                            walls="\n".join(th2_walls) if globalData.wallLineInTh2 else "",
+                            walls="\n".join(th2_walls) if globalData.wallLinesInTh2 else "",
                             names="\n".join(th2_names) if globalData.stationNamesInTh2 else "",
                             projection="extended",
                             projection_short="C",
@@ -2917,7 +2917,7 @@ if __name__ == u'__main__':
     # Reading config.ini                                                                            #
     #################################################################################################   
     config_file = load_config(args)
-    
+
     #################################################################################################
     # titre                                                                                         #
     #################################################################################################

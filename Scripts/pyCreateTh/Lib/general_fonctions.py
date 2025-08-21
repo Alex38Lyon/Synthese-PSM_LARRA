@@ -199,10 +199,10 @@ def load_config(args, configIni="config.ini"):
 
         survey_keys = {
             'Author': 'Author',
-            'Copyright1': None,
-            'Copyright2': None,
-            'Copyright3': None,
-            'Copyright_Short': 'CopyrightShort',
+            'Copyright1': 'Copyright',
+            'Copyright2': 'Copyright',
+            'Copyright3': 'Copyright',
+            'Copyright_Short': None,
             'map_comment': 'mapComment',
             'club': 'club',
             'thanksto': 'thanksto',
@@ -221,6 +221,7 @@ def load_config(args, configIni="config.ini"):
                         config['Survey_Data']['Copyright2'],
                         config['Survey_Data']['Copyright3']
                     ])
+                    global_data.CopyrightShort = config['Survey_Data']['Copyright_Short']
                 elif attr:
                     setattr(global_data, attr, config['Survey_Data'][key])
 
@@ -232,7 +233,8 @@ def load_config(args, configIni="config.ini"):
             'survey_prefix_name': 'SurveyPrefixName',
             'shot_lines_in_th2_files': ('linesInTh2', lambda x: x.lower() == 'true'),
             'station_name_in_th2_files': ('stationNamesInTh2', lambda x: x.lower() == 'true'),
-            'kSmooth': ('kSmooth', float),
+            'wall_lines_in_th2_files': ('wallLinesInTh2', lambda x: x.lower() == 'true'),
+            'kSmooth': ('kSmooth', float)
         }
 
         for key, value in app_keys.items():
