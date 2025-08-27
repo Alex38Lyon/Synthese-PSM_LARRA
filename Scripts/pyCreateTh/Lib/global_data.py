@@ -12,7 +12,7 @@ error_count = 0                # Compteur d'erreurs
 ## [Survey_Data]  default values
 Author = "Created by pyCreateTh.py"
 Copyright = "# Copyright(C) pyCreateTh.py"
-CopyrightShort = "Licence(C) pyCreateTh.py"
+CopyrightShort = "License(C) pyCreateTh.py"
 mapComment = "Created by pyCreateTh.py"
 cs = "UTM30"
 club = "Therion"

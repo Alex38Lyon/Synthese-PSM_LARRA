@@ -311,7 +311,7 @@ def setup_logger(logfile="app.log", debug_log=False):
     file_formatter = FileFormatter("%(asctime)s - %(levelname)s - %(message)s")  # <-- Ta classe personnalisée
     file_handler.setFormatter(file_formatter)
     logger.addHandler(file_handler)
-
+    
     return logger
 
 

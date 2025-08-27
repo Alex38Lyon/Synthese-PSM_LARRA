@@ -53,7 +53,7 @@ def read_vtopo_header(lines):
 				
 		Author: Xavier Robert, Lima 2016/06/27
 		
-		Licence: CCby-nc
+		License: CCby-nc
 	"""
 	
 	# coord_dict: French Lambert system. To find number of your system, see extern/proj4/nad/epsg 
@@ -122,7 +122,7 @@ def read_settings(line):
 			          
 		Author: Xavier Robert, Lima 2016/06/27
 		
-		Licence: CCby-nc
+		License: CCby-nc
 	"""
 	# Question: Do we have to update the code in function of the vtopo version number?
 	param = line[6:].rstrip(u'\n\r').split(u' ')
@@ -173,7 +173,7 @@ def read_data(lines, settings, j, iline):
 				
 		Author: Xavier Robert, Lima 2016/06/27
 		
-		Licence: CCby-nc
+		License: CCby-nc
 	"""
 	
 	data = []
@@ -216,7 +216,7 @@ def convert_text(lines):
 			
 		Author: Xavier Robert, Lima 2016/06/27
 		
-		Licence: CCby-nc
+		License: CCby-nc
 	"""
 	dictcaract ={'\xe8' : u'è',
 	             '\xe0' : u'à',

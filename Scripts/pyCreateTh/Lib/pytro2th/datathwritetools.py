@@ -331,7 +331,7 @@ def write_thtot(file, cavename = u'cave', icomments = True, thlang = 'en'):
 	if icomments:
 		if thlang == u'fr':
 			file.write(u'# Copyright (C) %s Xavier Robert <xavier.robert***@***ird.fr>\n' %(str(datetime.datetime.now().year)))
-			file.write(u'# Ce travaille est sous la licence Creative Commons Attribution-ShareAlike-NonCommecial :\n')
+			file.write(u'# Ce travaille est sous la License Creative Commons Attribution-ShareAlike-NonCommecial :\n')
 			file.write(u'#	<http://creativecommons.org/licenses/by-nc-sa/4.0/>\n\n') 
 	elif thlang == u'en':
 			file.write(u'# Copyright (C) %s Xavier Robert <xavier.robert***@***ird.fr>\n' %(str(datetime.datetime.now().year)))
@@ -429,7 +429,7 @@ def write_thmaps(file, cavename = u'cave', icomments = True, thlang = 'en'):
 	if icomments:
 		if thlang == u'fr':
 			file.write(u'# Copyright (C) %s Xavier Robert <xavier.robert***@***ird.fr>\n' %(str(datetime.datetime.now().year)))
-			file.write(u'# Ce travail est sous la licence Creative Commons Attribution-ShareAlike-NonCommecial :\n')
+			file.write(u'# Ce travail est sous la License Creative Commons Attribution-ShareAlike-NonCommecial :\n')
 			file.write(u'#	<http://creativecommons.org/licenses/by-nc-sa/4.0/>\n\n') 
 	elif thlang == u'en':
 			file.write(u'# Copyright (C) %s Xavier Robert <xavier.robert***@***ird.fr>\n' %(str(datetime.datetime.now().year)))
@@ -498,7 +498,7 @@ def write_thcoords(file, cavename = u'cave', coordinates = None, coordsyst = Non
 	if icomments:
 		if thlang == u'fr':
 			file.write(u'# Copyright (C) %s Xavier Robert <xavier.robert***@***ird.fr>\n' %(str(datetime.datetime.now().year)))
-			file.write(u'# Ce travail est sous la licence Creative Commons Attribution-ShareAlike-NonCommecial :\n')
+			file.write(u'# Ce travail est sous la License Creative Commons Attribution-ShareAlike-NonCommecial :\n')
 			file.write(u'#	<http://creativecommons.org/licenses/by-nc-sa/4.0/>\n\n') 
 	elif thlang == u'en':
 			file.write(u'# Copyright (C) %s Xavier Robert <xavier.robert***@***ird.fr>\n' %(str(datetime.datetime.now().year)))

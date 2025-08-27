@@ -27,7 +27,7 @@ encoding  utf-8
 ###############################################################################################
 ## La ligne source spécifie le fichier ou sont les donnees topo
 ## jb.th". (Au fichier "jb.th" il faudra avoir une ligne
-## "input "nomducavite.th2" pour specifier le fichier ou se trouvent
+## "input "nomcavite.th2" pour spécifier le fichier ou se trouvent
 ## les donnees du dessin, comme ça, ce fichier thconfig appellera
 ## "jb.th" et a leur tour, "jb.th" appellera
 ## "jb-dessin.th2")
@@ -44,7 +44,9 @@ input {configPath}config.thc
 ## Ici, on peut specifier des choses comme les symboles à utiliser (UIS, etc)
 ## ou imprimer des explications des symboles
 
+###############################################################################################
 ## Début de la définition du layout "Layout-Plan"
+###############################################################################################
 layout layout-Plan
 	## Call the config settings (Layout config inside the config.thc file)
 	copy fonts_1000
@@ -158,24 +160,24 @@ layout layout-Plan
 	overlap 2 cm
 	
 	code tex-map
-		\legendwidth=15cm
-		\legendtextsize={\size[12]}
-		\legendtextheadersize={\size[28]} %%% Taille du titre
-		\legendtextsectionsize={\size[14]} %%% Taille du titre
-		%\legendtextcolor={\color[0 0 110]}      %# RGB values 0--100
+		\legendwidth=15cm                        %%% Largeur cartouche
+		\legendtextsize={\size[12]}              %%% Police principale
+		\legendtextheadersize={\size[28]}        %%% Taille du titre
+		\legendtextsectionsize={\size[14]}       %%% Taille des sous titres
+		%\legendtextcolor={\color[0 0 110]}      %%% RGB values 0--100
 		% Output map title as determined by Therion is stored in caveName, défini par la une Map.
 		% It will be empty if there are multiple maps selected for any one projection
 		% AND there are multiple source surveys identified in the thconfig file
 		% ie Therion can not infer a unique title from the input data given.
 		% This code allows you to define an output map title {caveName} if it happens to be empty
-		\edef\temp{\the\caveName}        % caveName from Therion
-		\edef\nostring{}                 % empty string
-		\ifx\temp\nostring               % test if caveName is empty
+		\edef\temp{\the\cavename}        %%% cavename from Therion
+		\edef\nostring{}                 %%% empty string
+		\ifx\temp\nostring               %%% test if cavename is empty
 		% if empty
-		reassign caveName to describe selected maps as a group
-		\else                            % if not empty keep the value set by therion, or assign an override caveName here
+		reassign cavename to describe selected maps as a group
+		\else                            %%% if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\caveName={{caveName}, Plan 1:{Scale}}     % Note Alex : Bug avec certains fichiers ?
+		\cavename={{caveName}, Plan 1:{Scale}}     %%% Note Alex : Bug avec certains fichiers ?
 		\newtoks\club \club={{club}}
 		%\newtoks\thanksto \thanksto={{thanksto}}
 		\newtoks\wpage \wpage={{wpage}}
@@ -185,9 +187,10 @@ layout layout-Plan
 	endcode
 	
 endlayout
-## fin de la définition du layout
 
+###############################################################################################
 ##debut de la definition du layout "layout-Extended"
+###############################################################################################
 layout layout-Extended
 	## Call the config settings (Layout config inside the config.thc file)
 	copy drawingconfig
@@ -300,24 +303,24 @@ layout layout-Extended
 	
 	## Modification du Titre de la topo
 	code tex-map
-		\legendwidth=15cm
-		\legendtextsize={\size[12]}
-		\legendtextheadersize={\size[28]} %%% Taille du titre
-		\legendtextsectionsize={\size[14]} %%% Taille du titre
-		%\legendtextcolor={\color[0 0 110]}      %# RGB values 0--100
+		\legendwidth=15cm                        %%% Largeur cartouche
+		\legendtextsize={\size[12]}              %%% Police principale
+		\legendtextheadersize={\size[28]}        %%% Taille du titre
+		\legendtextsectionsize={\size[14]}       %%% Taille des sous titres
+		%\legendtextcolor={\color[0 0 110]}      %%% RGB values 0--100
 		% Output map title as determined by Therion is stored in caveName, défini par la une Map.
 		% It will be empty if there are multiple maps selected for any one projection
 		% AND there are multiple source surveys identified in the thconfig file
 		% ie Therion can not infer a unique title from the input data given.
 		% This code allows you to define an output map title {caveName} if it happens to be empty
-		\edef\temp{\the\caveName}        % caveName from Therion
-		\edef\nostring{}                 % empty string
-		\ifx\temp\nostring               % test if caveName is empty
+		\edef\temp{\the\cavename}        %%% cavename from Therion
+		\edef\nostring{}                 %%% empty string
+		\ifx\temp\nostring               %%% test if cavename is empty
 		% if empty
-		reassign caveName to describe selected maps as a group
-		\else                            % if not empty keep the value set by therion, or assign an override caveName here
+		reassign cavename to describe selected maps as a group
+		\else                            %%% if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\caveName={{caveName}, Coupe développée 1:{Scale}}             % Note Alex : Bug avec certains fichiers ?
+		\cavename={{caveName}, Coupe développée 1:{Scale}}             %%% Note Alex : Bug avec certains fichiers ?
 		\newtoks\club \club={{club}}
 		%\newtoks\thanksto \thanksto={{thanksto}}
 		\newtoks\wpage \wpage={{wpage}}
@@ -327,9 +330,11 @@ layout layout-Extended
 	endcode
 	
 endlayout
-## Fin de la definition du Layout
 
+
+###############################################################################################
 ## Début de la définition du Layout "layout-kml"
+###############################################################################################
 layout layout-kml
 	## Définition du système de projection du plan
 	cs EPSG:2154
@@ -341,7 +346,9 @@ layout layout-kml
 	color map-fg [0 0 100]
 endlayout
 
+###############################################################################################
 ## Début de la définition du Layout "xviexport"
+###############################################################################################
 layout xviexport
 	# cs UTM32
 	## echelle à laquelle on veut dessiner la topo
@@ -358,29 +365,29 @@ endlayout
 # 3-EXPORT
 ###############################################################################################
 
-	## Export des xvi pour le dessin si besoin
+## Export des xvi pour le dessin si besoin
 	# export map -proj plan -layout xviexport -fmt xvi -o Data/{fileName}-Plan.xvi
 	# export map -proj extended -layout xviexport -fmt xvi -o Data/{fileName}-Extended.xvi
 
-	## Selection des Maps à exporter
+## Selection des Maps à exporter
 	# select MP-{fileName}-Plan-tot@{fileName}
 	# select MC-{fileName}-Extended-tot@{fileName}
 
-	## Export des fichiers pdf, plan et coupe.
-	## ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
+## Export des fichiers pdf, plan et coupe.
+## ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
 	# export map -projection plan     -fmt pdf -layout layout-Plan -o Outputs/{fileName}-Plan.pdf
 	# export map -projection extended -fmt pdf -layout layout-Extended -o Outputs/{fileName}-Extended.pdf
 
-	## Export du fichier 3d pour Loch
+## Export du fichier 3d pour Loch
 	export model -enable all -o Outputs/{fileName}.lox
 	# export model -enable all -o Outputs/{fileName}.kml
 	# export model -enable all -o Outputs/{fileName}.plt
 
-	## Export des fichiers ESRI
+## Export des fichiers ESRI
 	# export map -proj plan -fmt esri -o Outputs/{fileName}
 	# export model -fmt esri -o Outputs/SHP/therion -enc UTF-8
 
-	## Autres exports
+## Autres exports
 	# export map -proj plan -fmt kml -o Outputs/{fileName}.kml -layout layout-kml
 	# export model -fmt kml -o Outputs/{fileName}-model.kml -enable all
 	# export model -enable all -o Outputs/{fileName}-3D.kml

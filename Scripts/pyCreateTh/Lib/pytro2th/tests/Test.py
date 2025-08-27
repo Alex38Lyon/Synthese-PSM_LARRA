@@ -16,7 +16,7 @@ The different arguments are described.
 
 xavier.robert@ujf-grenoble.fr
 
-(c) licence CCby-nc : http://creativecommons.org/licenses/by-nc/3.0/ 2015
+(c) License CCby-nc : http://creativecommons.org/licenses/by-nc/3.0/ 2015
 
 """
 

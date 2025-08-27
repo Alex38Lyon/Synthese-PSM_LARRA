@@ -131,7 +131,7 @@ def writethconfig(pdata, icomments, icoupe, thlang, dictcave,
 	f2w.write(u'encoding utf-8 \n\n')
 	f2w.write(u'# File written by pytro2th (Xavier Robert)  \n')
 	f2w.write(u'# Copyright (C) %s Xavier Robert <xavier.robert***@***ird.fr> \n' %(str(datetime.datetime.now().year)))
-	f2w.write(u'# This work is under the licence Creatice Commonc CC-by-nc-sa v.4 \n\n')
+	f2w.write(u'# This work is under the License Creatice Commonc CC-by-nc-sa v.4 \n\n')
   
   
 	if icomments: 
@@ -561,7 +561,7 @@ def writethc(pdata, cavename = None, istructure = True):
 		
 		Author: Xavier Robert, Lima 2016/06/27
 		
-		Licence: CCby-nc
+		License: CCby-nc
 	"""
 	# Open the file
 	

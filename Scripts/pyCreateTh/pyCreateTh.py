@@ -38,7 +38,7 @@ En cours :
 
 """
 
-Version = "2025.07.04"  
+Version = "2025.08.27"  
 
 #################################################################################################
 #################################################################################################
@@ -2900,7 +2900,7 @@ if __name__ == u'__main__':
         args.file = select_file_tk_window()
         # print(f"Selected file : {args.file}")    
         
-    output_log = splitext(abspath(args.file))[0]+".log"    
+    output_log = splitext(abspath(args.file))[0] + ".log"        
     log = setup_logger(output_log, debug_log)
     
     # log.debug("Ceci est un message de debug")
@@ -3107,8 +3107,6 @@ if __name__ == u'__main__':
     if os.path.isfile(destination_file):
         os.remove(destination_file)
 
-    shutil.move(output_log, destination_path)
-    
-    
-        
-    
+    if not args.update :
+        shutil.move(output_log, destination_path)
+

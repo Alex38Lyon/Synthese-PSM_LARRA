@@ -152,7 +152,7 @@ def tro2th(fle_tro_fnme = None, fle_th_fnme = None,
 		
 		Author: Xavier Robert, Lima 2016/06/27
 		
-		Licence: CCby-nc
+		License: CCby-nc
 	"""
 	
 	if thlang in [u'fr', u'FR', u'Fr', u'fR']: thlang = u'fr'
@@ -388,7 +388,7 @@ def convert_tro(fle_tro_fnme, fle_tro_encoding=None, fle_th_fnme = None, cavenam
 		
 		Author: Xavier Robert, Lima 2016/06/27
 		
-		Licence: CCby-nc
+		License: CCby-nc
 	"""
 	
 	#from codecs import open
