@@ -53,6 +53,11 @@ L'ensemble de ces données est publié sous la licence libre Creative Commons CC
 
 Alexandre Pont (alexandre dot pont at yahoo dot fr) pour le compte de l'ARSIP
 
+## Accès
+
+L'accès à l'ensemble des données est réservé aux membres de l'ARSIP, contactez l'administrateur pour vous connecter
+
+
 ## Contact
 
 Pour plus d'informations, vous pouvez contacter l'ARSIP : [https://www.arsip.fr/contactez-nous](https://www.arsip.fr/contactez-nous)
