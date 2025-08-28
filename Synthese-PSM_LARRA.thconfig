@@ -195,10 +195,8 @@ layout my_layout
 
 	
 endlayout
-
-
-
 # Fin de la definition du Layout "normal"
+
 
 layout layout-kml
 	# Définition du système de projection du plan
@@ -218,11 +216,11 @@ endlayout
 #export map -proj extended -layout xviexport -fmt xvi -o Data/Complexe_Lonne_Peyret-Bourrugues-coupe.xvi
 
 
-select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
+# select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
 
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
-export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
+# export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
 # export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Puits-Coupe.pdf
 
 
@@ -242,8 +240,8 @@ export model -fmt esri -o Outputs/SHP/ -enc UTF-8
 export map -proj plan -fmt esri -o Outputs/SHP/therion -layout my_layout -enc ASCII
 
 # Export des fichiers kml
-export map -proj plan -fmt kml -o Outputs/Synthese-PSM_LARRA.kml -layout layout-kml
-export model -fmt kml -o Outputs/Synthese-PSM_LARRA-model.kml -enable all
-export model -enable all -o Outputs/Synthese-PSM_LARRA-3D.kml
+# export map -proj plan -fmt kml -o Outputs/Synthese-PSM_LARRA.kml -layout layout-kml
+# export model -fmt kml -o Outputs/Synthese-PSM_LARRA-model.kml -enable all
+# export model -enable all -o Outputs/Synthese-PSM_LARRA-3D.kml
  export cave-list -location on -o Outputs/Synthese-PSM_LARRA-Cave-list.html
  export survey-list -location on -o Outputs/Synthese-PSM_LARRA-Surveys.html

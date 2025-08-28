@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2025 03 26
+# Version ARSIP By Alex 2025 08 26
 ######################################################################################################################################
 
 
@@ -14,7 +14,7 @@ encoding  utf-8
 #     <http://creativecommons.org/licenses/by-nc-nd/4.0/>
 #
 # Written by: / Écrit par : Xavier Robert
-#
+# Modified by: / Modifié par : Alexandre Pont
 #
 ######################################################################################################################################
 #<en> File to set up specific settings for Therion drawing outputs
@@ -29,15 +29,15 @@ encoding  utf-8
 #<en> Lots of definition comes from (or are deeply inspired by) the excellent Therion Wiki
 #<fr> Beaucoup de définitions proviennent (ou sont fortement inspirées) de l'excellent Wiki Therion
 #         https://therion.speleo.sk/wiki/doku.php
-#	       https://therion.speleo.sk/wiki/tbe:wiki6
-#		    https://therion.speleo.sk/wiki/metapost
-#		    https://thomas-holder.de/projects/therion/
+#	     https://therion.speleo.sk/wiki/tbe:wiki6
+#		https://therion.speleo.sk/wiki/metapost
+#		https://thomas-holder.de/projects/therion/
 #
 #
 ##############
-#	- Translation English, Frensh and Spanich : en, fr, es 
+#	- Translation English, French and Spanish : en, fr, es 
 #
-
+#
 ############## layout definition:
 #	- layout langue-fr
 #	- layout langue-es
@@ -47,6 +47,8 @@ encoding  utf-8
 #	- layout scalebar_vert-Halama
 #	- layout scalebar_vert
 #	- layout headerl
+#	- layout headerl_LT
+#  - layout headerl_XXLT  # <en> Layout to change the header (plan projection with minimun info)
 #	- layout header_coupe_vert-to-place
 #	- layout header_coupe_vert-auto
 #	- layout header_coupe
@@ -67,6 +69,7 @@ encoding  utf-8
 #	- layout Survey_No_Scrap
 
 ############## Point, line and area in layout drawingconfig
+
 ############## Existing user points / nouvelles définitions de points :
 #		- nid/nest (u:nest)
 #		- gradient -->	geologic dip
@@ -100,13 +103,14 @@ encoding  utf-8
 #		- Deviation (u:deviation)
 #		- rock border 
 #		- Shot_Survey line (u:Shot_Survey)
-#  	- treetrunk line (u -subtype treetrunk  -clip off)
-#  	- bush line (u -subtype bush -attr bulgesize 1 -attr bulges 20 -clip off)
-#		- wall presumed
+#  		- treetrunk line (u -subtype treetrunk  -clip off)
+#  		- bush line (u -subtype bush -attr bulgesize 1 -attr bulges 20 -clip off)
 #		- chimeney
 #		- slope
 #		- flowstone
 #		- wall unsurveyed
+#		- wall debris (u:wall_debris)
+#		- wall presumed
 #		- survey cave
 
 ############## Existing user areas:
@@ -313,7 +317,7 @@ layout langue-fr
 		\newtoks\thguide \thguide={Guide(s)}
 		\newtoks\thdatat \thdatat={Données}
 		\newtoks\thdatabase \thdatabase={Base de données}
-		\newtoks\depthrangetitle \depthrangetitle={Depth range from }
+		\newtoks\depthrangetitle \depthrangetitle={Profondeurs depuis}
 		\newtoks\ththanksto \ththanksto{Remerciements}
 		\newtoks\thcoords \thcoords{Coordonnées}
 		\newtoks\explolengthtitle \explolengthtitle{Longueur explorée}
@@ -422,6 +426,7 @@ endlayout
 ######################################################################################################################################
 ######################################################################################################################################
 layout drawingconfig
+
 	#<en> Layout to draw the map and extended view.
 	#<fr> Layout pour dessiner les plans et les coupes développées.
 	
@@ -432,10 +437,9 @@ layout drawingconfig
 	#<en> Set the symology you want to use: UIS, ASF (Australie) CCNP (Etats Units), SKB (tchecoslovakia)
 	#<fr> Définit la banque de symboles que nous voulons utiliser :
 	#         UIS, ASF (Australie) CCNP (Etats Units) ou SKB (tchecoslovakia)
-	#symbol-set UIS
+	# symbol-set UIS
 	#<en> Change the type or colors of specific symbols:
 	#<fr> Changer le type ou la couleur de symboles spécifiques:
-	
 	
 	symbol-assign area sand AUT
 	symbol-assign area clay AUT
@@ -443,50 +447,48 @@ layout drawingconfig
 	symbol-assign point pillar AUT
 	symbol-assign point station:temporary SKBB
 	symbol-assign point entrance MY 
-	#symbol-assign point entrance UIS
-	
-	
+
 	symbol-color area clay [52 33 6]								# Color to verify
 	symbol-color area flowstone [100 60 20]
 	symbol-color area ice [0 0 100]
-	symbol-color area moonmilk [100 60 20]						# Change the color ?
-	symbol-color area mudcrack [52 33 6]						# Color to verify ; Maybe to darken
+	symbol-color area moonmilk [100 60 20]							# Change the color ?
+	symbol-color area mudcrack [52 33 6]							# Color to verify ; Maybe to darken
 	symbol-color area pillar [100 60 20]
 	symbol-color area pillar-with-curtains [100 60 20]
-	symbol-color area sand [67 49 1]							   # Color to verify
+	symbol-color area sand [67 49 1]							   	# Color to verify
 	symbol-color area snow [0 0 100]
 	symbol-color area stalactite [100 60 20]
 	symbol-color area stalactite-stalagmite [100 60 20]
 	symbol-color area stalagmite [100 60 20]
 	
-	symbol-color line contour [34 21 3]    						# Marron : (87, 56, 8)
-	symbol-color line ceiling-meander [34 21 3]    			# Marron : (87, 56, 8)
+	symbol-color line contour [34 21 3]    							# Marron : (87, 56, 8)
+	symbol-color line ceiling-meander [34 21 3]    					# Marron : (87, 56, 8)
 	symbol-color line flowstone [100 60 20]
-	symbol-color line floor-meander [34 21 3]    				# Marron : (87, 56, 8)
-	symbol-color line floor-step [34 21 3]    					# Marron : (87, 56, 8)
-	#symbol-color line map-connection [69 69 69]				# Gris acier (175, 175, 175)
+	symbol-color line floor-meander [34 21 3]    					# Marron : (87, 56, 8)
+	symbol-color line floor-step [34 21 3]    						# Marron : (87, 56, 8)
+	#symbol-color line map-connection [69 69 69]						# Gris acier (175, 175, 175)
 	symbol-color line rimstone-dam [100 60 20]
 	symbol-color line rimstone-pool [100 60 20]
-	symbol-color line rock-border [34 21 3]    				# Marron : (87, 56, 8)
-	symbol-color line rock-edge [34 21 3]   					# Marron : (87, 56, 8)
-	symbol-color line slope [34 21 3]    						# Marron : (87, 56, 8)
+	symbol-color line rock-border [34 21 3]    						# Marron : (87, 56, 8)
+	symbol-color line rock-edge [34 21 3]   						# Marron : (87, 56, 8)
+	symbol-color line slope [34 21 3]    							# Marron : (87, 56, 8)
 	symbol-color line rope [58 44 25]
-	symbol-color line survey [46 46 46]						# Gris foncé (117, 117, 117) / acier (175, 175, 175)
-	symbol-color line wall:clay [52 33 6]						# Color to verify
+	symbol-color line survey [46 46 46]							# Gris foncé (117, 117, 117) / acier (175, 175, 175)
+	symbol-color line wall:clay [52 33 6]							# Color to verify
 	symbol-color line wall:flowstone [0 0 0]
 	symbol-color line wall:ice [0 0 100]
-	#symbol-color line wall:moonmilk [100 60 20]				# Change the color ?
+	#symbol-color line wall:moonmilk [100 60 20]						# Change the color ?
 	symbol-color line water-flow [17 46 100]
 	symbol-color line water-flow:conjectural [17 46 100]
 	symbol-color line water-flow:intermittent [17 46 100]
-	
+
 	symbol-color point altitude [100 50 0]
 	symbol-color point aragonite [100 60 20]
-	symbol-color point blocks [34 21 3]    					# Marron : (87, 56, 8)
-	symbol-color point breakdown-choke [34 21 3]    		# Marron : (87, 56, 8)
+	symbol-color point blocks [34 21 3]    						     # Marron : (87, 56, 8)
+	symbol-color point breakdown-choke [34 21 3]    		   	          # Marron : (87, 56, 8)
 	symbol-color point cave-pearl [100 60 20]
-	symbol-color point clay [52 33 6]							# Color to verify
-	symbol-color point clay-choke [52 33 6]						# Color to verify
+	symbol-color point clay [52 33 6]								# Color to verify
+	symbol-color point clay-choke [52 33 6]							# Color to verify
 	symbol-color point curtain [100 60 20]
 	symbol-color point curtains [100 60 20]
 	symbol-color point disc-pillar [100 60 20]
@@ -504,9 +506,9 @@ layout drawingconfig
 	symbol-color point ice-pillar [0 0 100]
 	symbol-color point ice-stalactite [0 0 100]
 	symbol-color point ice-stalagmite [0 0 100]
-	symbol-color point moonmilk [100 60 20]					# Change the color ?
-	symbol-color point mud [52 33 6]							# Color to verify
-	symbol-color point mudcrack [52 33 6]						# Color to verify
+	symbol-color point moonmilk [100 60 20]					     	# Change the color ?
+	symbol-color point mud [52 33 6]								# Color to verify
+	symbol-color point mudcrack [52 33 6]							# Color to verify
 	symbol-color point pillar [100 60 20]
 	symbol-color point pillar-with-curtains [100 60 20]
 	symbol-color point pillars [100 60 20]
@@ -528,9 +530,9 @@ layout drawingconfig
 	symbol-color point stalagmite [100 60 20]
 	symbol-color point stalagmites [100 60 20]
 	symbol-color point station [54 7 60]
-	symbol-color point station-name [80 80 80]				# light grey
+	symbol-color point station-name [80 80 80]				   		  # light grey
 	symbol-color point vegetable-debris [13 47 6]
-	symbol-color point volcano [52 33 6]						# Color to verify
+	symbol-color point volcano [52 33 6]						     	# Color to verify
 	symbol-color point wall-altitude [100 50 0]
 	symbol-color point wall-calcite [100 60 20]
 	symbol-color point water [17 46 100]
@@ -542,7 +544,7 @@ layout drawingconfig
 
 	####### Metapost-changes ############
 	code metapost
-		
+
 		#fonts_setup( 12, 16, 32, 64, 96 );
 		
 		#<en> Modify length/depth statistics to print
@@ -552,6 +554,92 @@ layout drawingconfig
 		#	+ 150\thinspace{}m estimes}
 		#	\cavedepth{243\thinspace{}m}
 		#endcode
+
+
+		########################################################
+		#<en> Change the ligne wall:debris (from l_wall_debris_AUT)
+		#<fr> Changer le symbole ligne wall:debris (d'après l_wall_debris_AUT)
+		########################################################
+
+		def l_wall_debris (expr P) =
+			T := identity;
+			pickup PenC;
+			laenge := arclength P;
+			path block;
+			path old_block;
+
+			cur := 0;
+			t := arctime cur of P;
+
+			% === Première brique fixe ===
+			old_block := ((-.0u,-.0u)--(.25u,-.15u)--(.45u,0.01u)--(.2u,.25u)--(.05u,.15u)--cycle);
+			block_width := (xpart urcorner old_block - xpart ulcorner old_block);
+			old_block := old_block rotated angle(thdir(P,0)) shifted point t of P;
+			thclean old_block;
+
+			% --- Couleur aléatoire ---
+			AlphaFactor1 := 0.5 + uniformdeviate 0.4;
+
+			fill old_block withcolor (0.341117, 0.219607, 0.031372) withalpha AlphaFactor1;
+			draw old_block withpen PenC; % contour noir
+
+			cur := cur + 0.9 * block_width;
+			t := arctime cur of P;
+
+			% === Boucle de blocs aléatoires ===
+			forever:
+				block := punked (((-.25u,-.25u)--(0.25u,-.25u)--(0.50u,0.01u)--(0.25u,.25u)--(-.25u,.25u)--cycle)
+						randomized (u/4))
+						scaled (uniformdeviate(0.3)+.4)
+						rotated uniformdeviate(360);
+				block_width := (xpart urcorner block - xpart ulcorner block);
+				exitif cur > (laenge - 2.5*block_width/2);
+
+				forever:
+					exitif xpart ( (block rotated angle(-direction t of P) shifted point t of P) intersectiontimes old_block) < 0;
+					cur := cur + 0.01u;
+					t := arctime cur of P;
+					exitif cur > (laenge - 2.5*block_width/2);
+				endfor;
+
+				exitif cur > (laenge - 2.5*block_width/2);
+
+				old_block := block rotated angle(-direction t of P) shifted point t of P;
+				thclean old_block;
+
+				% --- Couleur aléatoire ---
+				AlphaFactor1 := 0.5 + uniformdeviate 0.4;
+				fill old_block withcolor (0.341117, 0.219607, 0.031372) withalpha AlphaFactor1;
+				draw old_block withpen PenC;
+
+				cur := cur + block_width/2;
+				t := arctime cur of P;
+			endfor;
+
+			% === Dernier bloc ajusté ===
+			t := arctime laenge - eps of P;
+			block := ((-.0u,-.0u)--(.25u,-.15u)--(.45u,0.01u)--(.2u,.25u)--(.1u,.15u)--cycle);
+			block_width := (xpart urcorner block - xpart ulcorner block);
+			scale_factor := 1.5*(laenge - cur)/block_width;
+
+			forever:
+				exitif scale_factor < 0;
+				exitif xpart ((block rotated angle(-direction t of P) scaled scale_factor shifted point t of P) intersectiontimes old_block) < 0;
+				scale_factor := scale_factor - 0.01;
+			endfor;
+
+			if scale_factor > 0:
+				path last_block;
+				last_block := block rotated angle(-direction t of P) scaled scale_factor shifted point t of P;
+				thclean last_block;
+
+				% --- Couleur aléatoire ---
+				AlphaFactor1 := 0.5 + uniformdeviate 0.4;
+				fill last_block withcolor (0.341117, 0.219607, 0.031372) withalpha AlphaFactor1;
+				draw last_block withpen PenC;
+			fi;
+		enddef;
+
 
 		########################################################
 		#<en> the tree/trunk and bush symbole from Tarquin 2019 
@@ -571,79 +659,79 @@ layout drawingconfig
 			l_u_treetrunk(((.65,.95) .. controls (.6,.8) and (.5,.7) .. (.45,.95)) inscale);
 		enddef;
 
-	  def l_u_bush (expr P)=
-		 begingroup;
-			save pathlength, bulges, bulgesper, bulgesize, newpoint, newdirection, bulgedpath, steps, pathfactor, slopefactor, extradirection, curincrement, samplepoint, sinefactor;
-			T:=identity;
-			pathlength:=arclength P;
-			if known ATTR_bulges:
-			  bulges:=max(ceiling(scantokens(ATTR_bulges)),1);
-			else:
-			  bulges:=10;
-			fi;
-			if known ATTR_bulgesper:
-			  if ATTR_bulgesper = "tenu":
-				 bulges:=ceiling(bulges*(pathlength/10u));
-			  fi;
-			fi;
-			if known ATTR_bulgesize:
-			  bulgesize:=scantokens(ATTR_bulgesize) * u;
-			else:
-			  bulgesize:=u;
-			fi;
-			pair newpoint;
-			pair newdirection;
-			path bulgedpath;
-			steps:=3; % number of samples per bulge
-			% precompute various numbers to avoid arithmetic overflows with large numbers of bulges
-			pathfactor:=pathlength/(steps*bulges);
-			slopefactor:=pathlength/(bulges*3.14159);
-			extradirection:=angle(slopefactor,-bulgesize*cosd(180));
-			curincrement:=0;
-			forever:
-			  samplepoint:=arctime (curincrement*pathfactor) of P;
-			  sinefactor:=180 * (curincrement mod steps) / steps;
-			  newpoint:=((point samplepoint of P) shifted (bulgesize * sind(sinefactor) * unitvector(thdir(P,samplepoint) rotated -90)));
-			  newdirection:=thdir(P,samplepoint) rotated angle(slopefactor,-bulgesize*cosd(sinefactor));
-			  % enable for debugging
-			  %thdraw (point samplepoint of P) withcolor (100,0,0) withpen PenC;
-			  %thdraw newpoint--(newpoint shifted (bulgesize*unitvector(newdirection))) withcolor (0,0,100) withpen PenC;
-			  if known bulgedpath:
-				 if ((curincrement mod steps) = 0):
-					% this is a corner where one bulge ends and another starts, two points are needed so that the direction vectors can control curves 
-					%thdraw newpoint--(newpoint shifted (bulgesize*unitvector(thdir(P,samplepoint) rotated extradirection))) withcolor (0,0,100) withpen PenC;
-					bulgedpath:=bulgedpath .. newpoint{thdir(P,samplepoint) rotated extradirection};
-					if curincrement <> steps * bulges:
-					  % don't add one in the final increment, since --cycle then has two identical point vectors
-					  bulgedpath:=bulgedpath -- newpoint{newdirection};
+		def l_u_bush (expr P)=
+			begingroup;
+				save pathlength, bulges, bulgesper, bulgesize, newpoint, newdirection, bulgedpath, steps, pathfactor, slopefactor, extradirection, curincrement, samplepoint, sinefactor;
+				T:=identity;
+				pathlength:=arclength P;
+				if known ATTR_bulges:
+				bulges:=max(ceiling(scantokens(ATTR_bulges)),1);
+				else:
+				bulges:=10;
+				fi;
+				if known ATTR_bulgesper:
+				if ATTR_bulgesper = "tenu":
+					bulges:=ceiling(bulges*(pathlength/10u));
+				fi;
+				fi;
+				if known ATTR_bulgesize:
+				bulgesize:=scantokens(ATTR_bulgesize) * u;
+				else:
+				bulgesize:=u;
+				fi;
+				pair newpoint;
+				pair newdirection;
+				path bulgedpath;
+				steps:=3; % number of samples per bulge
+				% precompute various numbers to avoid arithmetic overflows with large numbers of bulges
+				pathfactor:=pathlength/(steps*bulges);
+				slopefactor:=pathlength/(bulges*3.14159);
+				extradirection:=angle(slopefactor,-bulgesize*cosd(180));
+				curincrement:=0;
+				forever:
+				samplepoint:=arctime (curincrement*pathfactor) of P;
+				sinefactor:=180 * (curincrement mod steps) / steps;
+				newpoint:=((point samplepoint of P) shifted (bulgesize * sind(sinefactor) * unitvector(thdir(P,samplepoint) rotated -90)));
+				newdirection:=thdir(P,samplepoint) rotated angle(slopefactor,-bulgesize*cosd(sinefactor));
+				% enable for debugging
+				%thdraw (point samplepoint of P) withcolor (100,0,0) withpen PenC;
+				%thdraw newpoint--(newpoint shifted (bulgesize*unitvector(newdirection))) withcolor (0,0,100) withpen PenC;
+				if known bulgedpath:
+					if ((curincrement mod steps) = 0):
+						% this is a corner where one bulge ends and another starts, two points are needed so that the direction vectors can control curves 
+						%thdraw newpoint--(newpoint shifted (bulgesize*unitvector(thdir(P,samplepoint) rotated extradirection))) withcolor (0,0,100) withpen PenC;
+						bulgedpath:=bulgedpath .. newpoint{thdir(P,samplepoint) rotated extradirection};
+						if curincrement <> steps * bulges:
+						% don't add one in the final increment, since --cycle then has two identical point vectors
+						bulgedpath:=bulgedpath -- newpoint{newdirection};
+						fi;
+					else:
+						bulgedpath:=bulgedpath .. newpoint{newdirection};
 					fi;
-				 else:
-					bulgedpath:=bulgedpath .. newpoint{newdirection};
-				 fi;
-			  else:
-				 % first point in the path
-				 bulgedpath:=newpoint{newdirection};
-			  fi;
-			  exitif curincrement = steps * bulges;
-			  curincrement:=curincrement + 1;
-			endfor;
-			if cycle P:
-			  bulgedpath:=bulgedpath -- cycle;
-			fi;
-			thdraw bulgedpath withcolor green withpen PenC;
-		 endgroup;
-	  enddef;
-  
-	  initsymbol("l_u_bush");
-  
-	  def l_u_bush_legend =
-		 begingroup;
-			save ATTR_bulgesize;
-			string ATTR_bulgesize;
-			ATTR_bulgesize:=".2";
-			l_u_bush(((.6,.1)..controls (.8,.3) and (.9,.7)..(.5,.9)..controls (.1,.7) and (.2,.3)..(.4,.1)) inscale);
-		 endgroup;
-	  enddef;
+				else:
+					% first point in the path
+					bulgedpath:=newpoint{newdirection};
+				fi;
+				exitif curincrement = steps * bulges;
+				curincrement:=curincrement + 1;
+				endfor;
+				if cycle P:
+				bulgedpath:=bulgedpath -- cycle;
+				fi;
+				thdraw bulgedpath withcolor green withpen PenC;
+			endgroup;
+		enddef;
+	
+		initsymbol("l_u_bush");
+	
+		def l_u_bush_legend =
+			begingroup;
+				save ATTR_bulgesize;
+				string ATTR_bulgesize;
+				ATTR_bulgesize:=".2";
+				l_u_bush(((.6,.1)..controls (.8,.3) and (.9,.7)..(.5,.9)..controls (.1,.7) and (.2,.3)..(.4,.1)) inscale);
+			endgroup;
+		enddef;
 
 		########################################################
 		#<en> Change the entrance symbole 
@@ -1299,7 +1387,6 @@ layout drawingconfig
 		#     Cela fonctionne exactement comme les autres sections de ligne
 		#     mais vous devrez rajouter l'option -clip off:
 		########################################################
-		
 		def l_u_strata (expr P) =
 			T:=identity;
 			path Q; Q = punked P;
@@ -1362,7 +1449,6 @@ layout drawingconfig
 		#     Cela fonctionne exactement comme les autres sections de ligne
 		#     mais vous devrez rajouter l'option -clip off:
 		########################################################
-		
 		def l_u_fault (expr P) =
 			T:=identity;
 			path Q; Q = punked P;
@@ -1393,7 +1479,6 @@ layout drawingconfig
 		#     Cela fonctionne exactement comme les autres sections de ligne
 		#     mais vous devrez rajouter l'option -clip off:
 		########################################################
-		
 		def l_u_surf (expr P) =
 			T:=identity;
 			path Q; Q = punked P;
@@ -1440,7 +1525,6 @@ layout drawingconfig
 		#<en> Defines the gradient as geologic dip
 		#<fr> Définit le gradient comme pendage géologique
 		########################################################
-		
 		def p_gradient_XA (expr P,R,S,A) =
 			U:=(.15u, .4u);
 			T:=identity aligned A rotated R scaled S shifted P;
@@ -1500,7 +1584,6 @@ layout drawingconfig
 		#<en> Section of your layout define point u:bats symbol like this
 		#<fr> Pour définir le point chauve souris : u:bats
 		########################################################
-		
 		def p_u_bats(expr pos, theta, sc, al) =
 			T := identity shifted pos;
 			thfill (bat_path scaled 1.5) withcolor black;
@@ -1510,7 +1593,6 @@ layout drawingconfig
 		#<en> similarly the line u:bat symbol
 		#<fr> Idem pour la ligne
 		########################################################
-		
 		def l_u_bats(expr P) =
 			T:=identity;
 			cas := 0;
@@ -1529,7 +1611,6 @@ layout drawingconfig
 		#<en> and finally the area u:bat symbol (pattern in this case)
 		#<fr> Et pour l'aire
 		########################################################
-		
 		% bat pattern
 		beginpattern(pattern_bat);
 			fill bat_path withcolor black;
@@ -1583,7 +1664,6 @@ layout drawingconfig
 		#<en> Definition of a shell limestone symbol
 		#<fr> Définition du point coquille fossile
 		########################################################
-		
 		def p_u_shell (expr pos,theta,sc,al)=
 			T:=identity shifted pos;
 			pickup PenB;
@@ -1605,7 +1685,6 @@ layout drawingconfig
 		#<en> Define Danger symbol
 		#<fr> Définition du point Danger
 		########################################################
-		
 		def p_u_danger (expr P,R,S,A)=
 			T:=identity aligned A rotated R scaled S shifted P;
 			thfill (0,-u)--(u,0)--(0,u)--(0,.9u)--(.9u,0)--(0,-.9u)--cycle;
@@ -1621,7 +1700,6 @@ layout drawingconfig
 		#<en> Define dive line (u:ariane) in thin red
 		#<fr> Définition de la ligne file d'Ariane en rouge fin
 		########################################################
-		
 		def l_u_ariane (expr Path) =
 			T:=identity;
 			pickup PenD;
@@ -1632,7 +1710,6 @@ layout drawingconfig
 		#<en> Definition of plankwalk
 		#<fr> Définition d'une ligne de main courante
 		########################################################
-		
 		def l_u_plankwalk  (expr P) = T:=identity;
 			# by Dave Clucas
 			cas := 0;
@@ -1655,7 +1732,6 @@ layout drawingconfig
 		#<en> Definition of a line rail
 		#<fr> Définition d'une ligne rail
 		########################################################
-		
 		def l_u_rail (expr P) =
 			# by Andrew Aktinson
 			T:=identity;
@@ -1685,7 +1761,6 @@ layout drawingconfig
 		#<en> Change fig Flowstone, increase the number of arcs
 		#<fr> Modifier le symbole flowstone en augmentant le nombr d'arc
 		########################################################
-		
 		def l_flowstone (expr p) =
 			#draw p withpen PenC withcolor (0.0, 0.5, 1.0);
 			T:=identity;
@@ -1709,7 +1784,6 @@ layout drawingconfig
 		#<en> Point that represent a bird nest
 		#<fr> Point pour représenter un nid d'oiseau
 		########################################################
-		
 		def p_u_nid (expr pos,theta,sc,al)=
 			U:=(.4u,.2u);
 			T:=identity aligned al rotated theta scaled sc shifted pos;
@@ -1722,7 +1796,6 @@ layout drawingconfig
 		#<en> Artificial anchor point (From a post by Evaristo Quiroga)
 		#<fr> Point ancrage artificiel (From a post by Evaristo Quiroga)
 		########################################################
-		
 		def p_u_anchor_artificial(expr pos,theta,sc,al) =
 			T:=identity shifted pos;
 			thdraw origin withpen pencircle scaled 0.25u withcolor (0.58, 0.44, 0.25);
@@ -1734,7 +1807,6 @@ layout drawingconfig
 		#<en> Natural anchor point (From a post by Evaristo Quiroga)
 		#<fr> Point ancrage naturel (From a post by Evaristo Quiroga)
 		########################################################
-		
 		def p_u_anchor_natural(expr pos,theta,sc,al) =
 			U:=(.2u,.2u);
 			T:=identity aligned al rotated theta scaled sc shifted pos;
@@ -1746,7 +1818,6 @@ layout drawingconfig
 		#<en> Deviation line (by Tarquin 2019)
 		#<fr> Ligne pour dessiner une déviation (D'après Tarquin 2019)
 		########################################################
-		
 		def l_u_deviation (expr P) =
 			begingroup;
 				save ellipse;
@@ -1771,7 +1842,6 @@ layout drawingconfig
 		#<fr> Point pour dessiner un spéléo qui grimpe ou escalade (D'après Juraj Halama, 2020)
 		#	  Le point correspond au centre du spéléo au niveau du harnais, qui doit donc être sur la corde
 		########################################################
-		
 		picture u_man_c_pic;
 		
 		u_man_c_pic := image (
@@ -1793,7 +1863,6 @@ layout drawingconfig
 		#<en> The scale on the map and in the legend is matching just for 1:500...
 		#<fr> L'échelle sur la carte et sur la légende correspond au 1:500...
 		########################################################
-		
 		def p_u_man_c_legend =
 			draw u_man_c_pic scaled (u / 175cm) shifted ((.5, .5) inscale);
 		enddef;
@@ -1804,7 +1873,6 @@ layout drawingconfig
 		#<fr> Point pour dessiner un spéléo marchant (D'après Juraj Halama, 2020)
 		#	  Utiliser l'option "-align top" pour un alignement correct quand le point est au sol
 		########################################################
-		
 		picture u_man_w_pic;
 		
 		u_man_w_pic := image (
@@ -1826,8 +1894,7 @@ layout drawingconfig
 		########################################################
 		#<en> The scale on the map and in the legend is matching just for 1:500...
 		#<fr> L'échelle sur la carte et sur la légende correspond au 1:500...
-		########################################################
-		
+		########################################################	
 		def p_u_man_w_legend =
 			draw u_man_w_pic scaled (u / 175cm) shifted ((.5, .5) inscale);
 		enddef;
@@ -1836,7 +1903,6 @@ layout drawingconfig
 		#<en> Plan view symbol point (by Juraj Halama, 2020)
 		#<fr> Point dessinant un symbole de "vue en plan" (D'après Juraj Halama, 2020)
 		########################################################
-		
 		def p_u_symbol_plan (expr pos,theta,sc,al) =
 			U := (-3.25u, 3.25u);
 			T := identity aligned al rotated theta scaled sc shifted pos;
@@ -1853,8 +1919,7 @@ layout drawingconfig
 		########################################################
 		#<en> Extended view symbol point (by Juraj Halama, 2020)
 		#<fr> Point dessinant un symbole de "vue en coupe développée" (D'après Juraj Halama, 2020)
-		########################################################
-		
+		########################################################	
 		def p_u_symbol_extend (expr pos,theta,sc,al) =
 			U := (-2.5u, 2.5u);
 			T := identity aligned al rotated theta scaled sc shifted pos;
@@ -1877,8 +1942,7 @@ layout drawingconfig
 		########################################################
 		#<en> Change rope line color
 		#<fr> Changer la couleur de la ligne rope (corde)
-		########################################################
-		
+		########################################################		
 		#symbol-colour line rope [58 44 25]
 		
 		########################################################
@@ -1886,8 +1950,7 @@ layout drawingconfig
 		#     You will probably need to adapt the color to match the color of your galeries
 		#<fr> Aire pour matérialiser le départ d'une galerie
 		#     A adapter en fonction de la couleur de vos galeries
-		########################################################
-		
+		########################################################		
 		def a_u_galerie(expr P) =
 			T:=identity;
 			## jaune chamois (208, 192, 122)
@@ -1912,11 +1975,10 @@ layout drawingconfig
 		#<fr> Rendre les parois non topographiées plus légères et en pointillés
 		#Bruce Mutton 2010.06.20 for Therion 5.3.9
 		########################################################
-		
 		def l_wall_unsurveyed (expr P) =
 			T:=identity;
-			pickup PenC;
-			thdraw P dashed evenly scaled (0.5*optical_zoom);
+			pickup PenA;
+			thdraw P dashed evenly scaled (0.35*optical_zoom);
 		enddef;
 	
 		########################################################
@@ -1924,7 +1986,6 @@ layout drawingconfig
 		#<fr> Pour modifier la couleur du squelette en fonction du type de visées
 		#     (splays, normal, duplicates, approximate...)
 		########################################################
-		
 		def l_survey_cave (expr P) =
 			% always draws full centreline, rather than short stubs like default cave centrelines
 			T:=identity;
@@ -1948,8 +2009,6 @@ layout drawingconfig
 	
 	endcode
 	
-	# Endcode for all the definition
-
 
 	code tex-map
 		\newtoks\thversiontitleB \thversiontitleB={Therion }
@@ -2168,7 +2227,6 @@ layout headerl
 	#<en> This one affects maps only
 	#<fr> Ceci ne touche que les maps (plans)
 	code tex-map
-		
 		\def\loadpicture	#1{\pdfximage{#1}\pdfrefximage\pdflastximage}
 		\legendcontent={%
 			\hsize=\legendwidth
@@ -2232,10 +2290,12 @@ layout headerl
 				\edef\tmp{\the\exploteam} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\explotitle: \ss\the\exploteam\quad\si\the\explodate\par}
 				\fi
+
 # %print surveyors names
 				\edef\tmp{\the\topoteam} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\topotitle: \ss\the\topoteam\quad\si\the\topodate\par}
 				\fi
+
 # %%print the guides
 				\edef\tmp{\the\guide} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thguide: \ss\the\guide\par}
@@ -2300,6 +2360,302 @@ layout headerl
 	
 endlayout
 		
+######################################################################################################################################
+layout headerl_LT
+	#<en> Layout to change the header (plan projection)
+	#     This code is experimental redefinition of map header and based on the work of
+	#     Bruce Mutton           Therion 5.3.15 make use of new variables
+	#<fr> Layout pour modifier le cartouche (header) de la projection en plan
+	#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
+	#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
+	
+	# header without surveyors names
+	
+	copy scalebar_horiz
+	
+	#<en> This one affects maps only
+	#<fr> Ceci ne touche que les maps (plans)
+	code tex-map
+		\def\loadpicture	#1{\pdfximage{#1}\pdfrefximage\pdflastximage}
+		\legendcontent={%
+			\hsize=\legendwidth
+			\color[0 0 0]\the\legendtextcolor
+			\ifnortharrow\vbox to 0pt{\line{\hfil\northarrow}\vss}\fi
+# %print cave map name
+			\edef\tmp{\the\cavename} \ifx\tmp\empty \else
+				{\the\legendtextheadersize\the\cavename}\vskip0.5cm
+			\fi
+# %print comment
+			{\rightskip=0pt plus 3em\parskip=3bp
+			\edef\tmp{\the\comment} \ifx\tmp\empty \else
+				{\the\legendtextsize\the\comment} \par\medskip\vskip1cm
+			\fi}
+# %print scalebar
+			\ifscalebar\scalebar\vskip1cm\fi
+				%print entrances coordinates (Lat-Long/WGS84) if defined
+				\edef\tmp{\the\ECoordinates} \ifx\tmp\empty \else
+				{\the\legendtextsize\si\the\thcoords \the\ECoordinates\par}
+				\vskip0.5cm
+			\fi
+			
+# % start bruces addition
+# %    CS
+			\edef\tmp{\the\outcsname} \ifx\tmp\empty \else
+			%{\the\legendtextsize\si\the\thproj: \ss\the\outcsname\par}
+			%\fi
+			%\edef\tmp{\the\northdir} \ifx\tmp\empty \else
+			%{\the\legendtextsize\ss\the\northdir north }
+			%\fi
+			%\edef\tmp{\the\magdecl} \ifx\tmp\empty \else
+			%{\the\legendtextsize\ss\the\magdecl { deg.} \par}
+			%\fi
+			\vskip0.5cm
+# % end bruces addition
+#%print comment
+			{
+				#\rightskip=0pt plus 3em\parskip=3bp
+				#\edef\tmp{\the\comment} \ifx\tmp\empty \else
+				#	{\the\legendtextsize\the\comment} \par\medskip
+				#\fi
+# %print cavelength and depth
+				\everypar{\hangindent=2em\hangafter=1}
+					\edef\tmp{\the\cavelength} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\cavelengthtitle: \ss\the\cavelength\par}
+				\fi
+				\edef\tmp{\the\cavedepth} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\cavedepthtitle: \ss\the\cavedepth\par}
+				\fi
+# % start bruces addition
+## %      altitude
+				#\edef\tmp{\the\cavemaxz} \ifx\tmp\empty \else
+					#	{\the\legendtextsize\si\the\depthrangetitle \ss\the\cavemaxz m to}
+				#\fi
+				#\edef\tmp{\the\caveminz} \ifx\tmp\empty \else
+				#	{\the\legendtextsize\ss\the\caveminz m \par} %above mean sea level
+				#\fi
+# % end bruces addition
+				
+# %print explorers names
+				\edef\tmp{\the\exploteam} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\explotitle: \ss\the\exploteam\quad\si\the\explodate\par}
+				\fi
+
+# %print surveyors names
+				# \edef\tmp{\the\topoteam} \ifx\tmp\empty \else
+				# 	{\the\legendtextsize\si\the\topotitle: \ss\the\topoteam\quad\si\the\topodate\par}
+				# \fi
+
+# %%print the guides
+				\edef\tmp{\the\guide} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thguide: \ss\the\guide\par}
+				\fi
+# %print cartographers names
+				\edef\tmp{\the\cartoteam} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\cartotitle: \ss\the\cartoteam\quad\si\the\cartodate\par}
+				\fi
+
+# %print the club
+				\edef\tmp{\the\club} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thclub: \ss\the\club\par}
+				\fi
+# %%print the expedition
+				\edef\tmp{\the\expe} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thexpe: \ss\the\expe\par}
+				\fi
+# %%print the web page
+				\edef\tmp{\the\wpage} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thwpage: \ss\the\wpage\par}
+				\fi
+# %%print the survey's data web page
+				\edef\tmp{\the\datat} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thdatat: \ss\the\datat\par}
+				\fi
+# %%print the survey's database web page
+				\edef\tmp{\the\database} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thdatabase: \ss\the\database\par}
+				\fi				
+# % start bruces addition (compilation version and date modified to use built-in 5.3.15 variables)
+				\edef\tmp{\the\thversion} \ifx\tmp\empty \else  %only write version and date if version is not emplty
+					{\the\legendtextsize\si\the\thversiontitleA: \ss\the\thversiontitleB \ss\the\thversion}
+					% \fi
+					% \edef\tmp{\the\currentdate} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\datetitle \ss\the\currentdate\par}
+				\fi
+# % end bruces addition
+# %print copyrights
+				\edef\tmp{\the\copyrights} \ifx\tmp\empty \else
+					{\the\legendtextsize\ss\the\copyrights\par}
+				\fi
+				\edef\tmp{\the\thanksto} \ifx\tmp\empty \else
+					\bigskip
+					{\the\legendtextsize\si\the\ththanksto: \ss\the\thanksto\par}
+					%\def\ththankstotitle{Nos remerciements : }
+					%{\everypar{\hangindent=7.2em\hangafter=1}
+					%\size[\thsizem]\si\ththankstotitle \ss\ththanksto\par}
+				\fi
+			}
+# %print synthesys name !!!  !!! with newtoks\synth \synth={Synth Name} in the thconfig
+			\vskip0.3cm
+			\edef\tmp{\the\synth} \ifx\tmp\empty \else
+				{\the\legendtextsize\si\the\thsynth: \ss\the\synth\par}
+			\fi
+			\formattedlegend
+			\color[0 0 0]
+		}
+# % Add Logos
+		#\legendbox{50}{60}{NW}{\loadpicture{Logos/Logo_FFS_small.jpg}}
+		
+	endcode
+	
+endlayout
+
+
+		
+######################################################################################################################################
+layout headerl_XXLT
+	#<en> Layout to change the header (plan projection with minimun info)
+
+	#<fr> Layout pour modifier le cartouche (header) de la projection en plan avec le minimund info
+
+
+	copy scalebar_horiz
+	
+	#<en> This one affects maps only
+	#<fr> Ceci ne touche que les maps (plans)
+	code tex-map
+		\def\loadpicture	#1{\pdfximage{#1}\pdfrefximage\pdflastximage}
+		\legendcontent={%
+			\hsize=\legendwidth
+			\color[0 0 0]\the\legendtextcolor
+			\ifnortharrow\vbox to 0pt{\line{\hfil\northarrow}\vss}\fi
+# %print cave map name
+			\edef\tmp{\the\cavename} \ifx\tmp\empty \else
+				{\the\legendtextheadersize\the\cavename}\vskip0.5cm
+			\fi
+# %print comment
+			{\rightskip=0pt plus 3em\parskip=3bp
+			\edef\tmp{\the\comment} \ifx\tmp\empty \else
+				{\the\legendtextsize\the\comment} \par\medskip\vskip1cm
+			\fi}
+# %print scalebar
+			\ifscalebar\scalebar\vskip1cm\fi
+				%print entrances coordinates (Lat-Long/WGS84) if defined
+				\edef\tmp{\the\ECoordinates} \ifx\tmp\empty \else
+				{\the\legendtextsize\si\the\thcoords \the\ECoordinates\par}
+				\vskip0.5cm
+			\fi
+			
+# % start bruces addition
+# %    CS
+			\edef\tmp{\the\outcsname} \ifx\tmp\empty \else
+			%{\the\legendtextsize\si\the\thproj: \ss\the\outcsname\par}
+			%\fi
+			%\edef\tmp{\the\northdir} \ifx\tmp\empty \else
+			%{\the\legendtextsize\ss\the\northdir north }
+			%\fi
+			%\edef\tmp{\the\magdecl} \ifx\tmp\empty \else
+			%{\the\legendtextsize\ss\the\magdecl { deg.} \par}
+			%\fi
+			\vskip0.5cm
+# % end bruces addition
+#%print comment
+			{
+				#\rightskip=0pt plus 3em\parskip=3bp
+				#\edef\tmp{\the\comment} \ifx\tmp\empty \else
+				#	{\the\legendtextsize\the\comment} \par\medskip
+				#\fi
+# %print cavelength and depth
+				# \everypar{\hangindent=2em\hangafter=1}
+					# \edef\tmp{\the\cavelength} \ifx\tmp\empty \else
+					# {\the\legendtextsize\si\the\cavelengthtitle: \ss\the\cavelength\par}
+				# \fi
+				# \edef\tmp{\the\cavedepth} \ifx\tmp\empty \else
+					# {\the\legendtextsize\si\the\cavedepthtitle: \ss\the\cavedepth\par}
+				# \fi
+# % start bruces addition
+## %      altitude
+				#\edef\tmp{\the\cavemaxz} \ifx\tmp\empty \else
+					#	{\the\legendtextsize\si\the\depthrangetitle \ss\the\cavemaxz m to}
+				#\fi
+				#\edef\tmp{\the\caveminz} \ifx\tmp\empty \else
+				#	{\the\legendtextsize\ss\the\caveminz m \par} %above mean sea level
+				#\fi
+# % end bruces addition
+				
+# %print explorers names
+				# \edef\tmp{\the\exploteam} \ifx\tmp\empty \else
+					# {\the\legendtextsize\si\the\explotitle: \ss\the\exploteam\quad\si\the\explodate\par}
+				# \fi
+
+# %print surveyors names
+				# \edef\tmp{\the\topoteam} \ifx\tmp\empty \else
+				# 	{\the\legendtextsize\si\the\topotitle: \ss\the\topoteam\quad\si\the\topodate\par}
+				# \fi
+
+# %%print the guides
+				\edef\tmp{\the\guide} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thguide: \ss\the\guide\par}
+				\fi
+# %print cartographers names
+				# \edef\tmp{\the\cartoteam} \ifx\tmp\empty \else
+					# {\the\legendtextsize\si\the\cartotitle: \ss\the\cartoteam\quad\si\the\cartodate\par}
+				# \fi
+
+# %print the club
+				\edef\tmp{\the\club} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thclub: \ss\the\club\par}
+				\fi
+# %%print the expedition
+				\edef\tmp{\the\expe} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thexpe: \ss\the\expe\par}
+				\fi
+# %%print the web page
+				\edef\tmp{\the\wpage} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thwpage: \ss\the\wpage\par}
+				\fi
+# %%print the survey's data web page
+				\edef\tmp{\the\datat} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thdatat: \ss\the\datat\par}
+				\fi
+# %%print the survey's database web page
+				\edef\tmp{\the\database} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\thdatabase: \ss\the\database\par}
+				\fi				
+# % start bruces addition (compilation version and date modified to use built-in 5.3.15 variables)
+				# \edef\tmp{\the\thversion} \ifx\tmp\empty \else  %only write version and date if version is not emplty
+					# {\the\legendtextsize\si\the\thversiontitleA: \ss\the\thversiontitleB \ss\the\thversion}
+					# % \fi
+					# % \edef\tmp{\the\currentdate} \ifx\tmp\empty \else
+					# {\the\legendtextsize\si\the\datetitle \ss\the\currentdate\par}
+				# \fi
+# % end bruces addition
+# %print copyrights
+				\edef\tmp{\the\copyrights} \ifx\tmp\empty \else
+					{\the\legendtextsize\ss\the\copyrights\par}
+				\fi
+				\edef\tmp{\the\thanksto} \ifx\tmp\empty \else
+					\bigskip
+					{\the\legendtextsize\si\the\ththanksto: \ss\the\thanksto\par}
+					%\def\ththankstotitle{Nos remerciements : }
+					%{\everypar{\hangindent=7.2em\hangafter=1}
+					%\size[\thsizem]\si\ththankstotitle \ss\ththanksto\par}
+				\fi
+			}
+# %print synthesys name !!!  !!! with newtoks\synth \synth={Synth Name} in the thconfig
+			\vskip0.3cm
+			\edef\tmp{\the\synth} \ifx\tmp\empty \else
+				{\the\legendtextsize\si\the\thsynth: \ss\the\synth\par}
+			\fi
+			\formattedlegend
+			\color[0 0 0]
+		}
+# % Add Logos
+		#\legendbox{50}{60}{NW}{\loadpicture{Logos/Logo_FFS_small.jpg}}
+		
+	endcode
+	
+endlayout
+
 		
 ######################################################################################################################################
 layout header_coupe_vert-to-place
@@ -3390,7 +3746,7 @@ layout fonts_2000
 	
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
-		fonts_setup(5, 7, 10, 14, 16);
+		fonts_setup(6, 8, 12, 16, 18);
 	endcode
 	
 endlayout
