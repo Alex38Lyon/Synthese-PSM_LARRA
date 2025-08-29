@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2025 08 26
+# Version ARSIP By Alex 2025 08 28
 ######################################################################################################################################
 
 
@@ -443,6 +443,7 @@ layout drawingconfig
 	
 	symbol-assign area sand AUT
 	symbol-assign area clay AUT
+	symbol-assign area pebbles AUT
 	symbol-assign point camp UIS
 	symbol-assign point pillar AUT
 	symbol-assign point station:temporary SKBB

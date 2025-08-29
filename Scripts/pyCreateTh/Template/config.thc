@@ -1,16 +1,16 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2025 08 26
+# Version ARSIP By Alex 2025 08 28
 ######################################################################################################################################
 
 
 
 ######################################################################################################################################
-# License
+# Licence
 ######################################################################################################################################
 #
 #<en> Released under a Creative Commons Attribution-ShareAlike-NonCommercial License:
-#<fr> Publié sous la License Creative Commons Attribution-ShareAlike-NonCommercial:
+#<fr> Publié sous la licence Creative Commons Attribution-ShareAlike-NonCommercial:
 #     <http://creativecommons.org/licenses/by-nc-nd/4.0/>
 #
 # Written by: / Écrit par : Xavier Robert
@@ -443,6 +443,7 @@ layout drawingconfig
 	
 	symbol-assign area sand AUT
 	symbol-assign area clay AUT
+	symbol-assign area pebbles AUT
 	symbol-assign point camp UIS
 	symbol-assign point pillar AUT
 	symbol-assign point station:temporary SKBB
@@ -2099,7 +2100,7 @@ endlayout
 layout scalebar_vert-Halama
 	
 	#<en> Layout to define a vertical Scale bar (see Therion Wiki - Juraj Halama)
-	#	  distributed under the GNU General Public License
+	#	  distributed under the GNU General Public Licence
 	#	  You need to place it with in your thconfig file:
 	#		code tex-map
 	#			\def\maplayout{
@@ -2107,7 +2108,7 @@ layout scalebar_vert-Halama
 	#			{\scalebar}}
 	#		endcode
 	#<fr> Layout pour définir une barre d'échelle verticale (voir le wiki Therion - Jural Halama)
-	#	  distribué sous la License GNU General Public License
+	#	  distribué sous la licence GNU General Public Licence
 	#	  Il faut l'appeler dans le fichier de configuration thconfig avec le bloc:
 	#		code tex-map
 	#			\def\maplayout{
