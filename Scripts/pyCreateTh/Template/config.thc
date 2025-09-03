@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2025 08 28
+# Version ARSIP By Alex 2025 09 03
 ######################################################################################################################################
 
 
@@ -30,7 +30,7 @@ encoding  utf-8
 #<fr> Beaucoup de définitions proviennent (ou sont fortement inspirées) de l'excellent Wiki Therion
 #         https://therion.speleo.sk/wiki/doku.php
 #	     https://therion.speleo.sk/wiki/tbe:wiki6
-#		https://therion.speleo.sk/wiki/metapost
+#	     https://therion.speleo.sk/wiki/metapost
 #		https://thomas-holder.de/projects/therion/
 #
 #
@@ -48,7 +48,7 @@ encoding  utf-8
 #	- layout scalebar_vert
 #	- layout headerl
 #	- layout headerl_LT
-#  - layout headerl_XXLT  # <en> Layout to change the header (plan projection with minimun info)
+#    - layout headerl_XXLT  # <en> Layout to change the header (plan projection with minimum info)
 #	- layout header_coupe_vert-to-place
 #	- layout header_coupe_vert-auto
 #	- layout header_coupe
@@ -76,10 +76,10 @@ encoding  utf-8
 #		- danger (u:danger)
 #		- chauves-souris/bats (u:bats)
 #		- stalactite boss (u:boss)
-#		- Shell/coquille fossile (u:shell)
-#		- Walking Caver/Spéléo qui marche (u:man_w)
-# 		- Climbing caver/Spéléo qui grimpe (u:man_c)
-#		- Plan view symbol/symbole de vue en plan (u:symbol_plan)
+#		- shell/coquille fossile (u:shell)
+#		- walking Caver/Spéléo qui marche (u:man_w)
+# 		- climbing caver/Spéléo qui grimpe (u:man_c)
+#		- plan view symbol/symbole de vue en plan (u:symbol_plan)
 #		- extended view symbol/symbole de vue en coupe développée (u:symbol_extend)
 #  	- entrance 
 #		- blocks 
@@ -98,11 +98,11 @@ encoding  utf-8
 #		- chauves-souris/bats (u:bats)
 #		- rail (u:rail)
 #		- plan walk/ (u:planwalk)
-#		- Surface (u:surf  -clip off)
-#		- Dive line/fil d'Ariane (u:ariane)
-#		- Deviation (u:deviation)
+#		- surface (u:surf  -clip off)
+#		- dive line/fil d'Ariane (u:ariane)
+#		- deviation (u:deviation)
 #		- rock border 
-#		- Shot_Survey line (u:Shot_Survey)
+#		- shot_Survey line (u:Shot_Survey)
 #  		- treetrunk line (u -subtype treetrunk  -clip off)
 #  		- bush line (u -subtype bush -attr bulgesize 1 -attr bulges 20 -clip off)
 #		- chimeney
@@ -121,7 +121,8 @@ encoding  utf-8
 #		- feuilles/tree-leaves (u:feuilles)
 #		- Tunnel initiation/Départ de galerie (u:galerie)
 #  	- blocks
-#		- sands
+#		- clay
+#     - sand
 #		- pebbles
 #		- sump
 #		- water
@@ -297,10 +298,12 @@ text es "line u:bush" "arbusto"
 #     If you add a new field, you need to edit the layout(s) headerl and/or header_coupe
 #<fr> Vous pouvez ajouter de nouveaux champs, en suivant les exemples dans les layouts suivant.
 #     Si vous rajouter un nouveau champ, vous devrez éditer le(s) layout(s) headerl et/ou header_coupe
+######################################################################################################################################
 
 ######################################################################################################################################
+# Définit la langue française
+######################################################################################################################################
 layout langue-fr
-	# Définit la langue française
 	language fr
 	
 	code tex-map
@@ -338,8 +341,9 @@ layout langue-fr
 endlayout
 
 ######################################################################################################################################
+# Definición del idioma español
+######################################################################################################################################
 layout langue-es
-	# Definición del idioma español
 	language es
 	
 	code tex-map
@@ -380,8 +384,9 @@ layout langue-es
 endlayout
 
 ######################################################################################################################################
+# Set the language english
+######################################################################################################################################
 layout langue-en
-	# Set the language english
 	language en
 	
 	code tex-map
@@ -421,14 +426,15 @@ endlayout
 
 ###<en> End of the layouts languages
 ###<fr> Fin des layouts languages
-#______________________________
+######################################################################################################################################
 
 ######################################################################################################################################
+#<en> Main layout to draw the map and extended view.
+#<fr> Layout principal pour dessiner les plans et les coupes développées.
 ######################################################################################################################################
 layout drawingconfig
 
-	#<en> Layout to draw the map and extended view.
-	#<fr> Layout pour dessiner les plans et les coupes développées.
+
 	
 	#<en> pdf-Author
 	#<fr> Auteur du pdf
@@ -444,6 +450,7 @@ layout drawingconfig
 	symbol-assign area sand AUT
 	symbol-assign area clay AUT
 	symbol-assign area pebbles AUT
+	
 	symbol-assign point camp UIS
 	symbol-assign point pillar AUT
 	symbol-assign point station:temporary SKBB
@@ -885,24 +892,84 @@ layout drawingconfig
 		enddef;
 		
 		########################################################
-		#<en> To change sand aspects
-		#<fr> Pour modifier les aspects du sable dans l'aire associée
+		#<en> To change sand AUT aspects
+		#<fr> Pour modifier les aspects du sable AUT dans l'aire associée
 		########################################################
-		def a_sands (expr p) =
-			T:=identity;
-			pickup PenC;
-			path q; q = bbox p;
-			picture tmp_pic;
-			tmp_pic := image(
-			for i = xpart llcorner q step 0.1u until xpart urcorner q:
-			for j = ypart llcorner q step 0.1u until ypart urcorner q:
-			draw origin shifted ((i,j) randomized 0.1u) withpen PenC;
-			endfor;
-			endfor;
-			);
-			#clip tmp_pic to p;
-			draw tmp_pic;
+		
+		# def a_sand_AUT (expr p) =
+			# T:=identity;
+			# pickup PenC;
+			# path q; q = bbox p;
+			# picture tmp_pic;
+			# tmp_pic := image(
+			# for i = xpart llcorner q step 0.01u until xpart urcorner q:
+			# for j = ypart llcorner q step 0.01u until ypart urcorner q:
+			# draw origin shifted ((i,j) randomized 0.01u) withpen PenC;
+			# endfor;
+			# endfor;
+			# );
+			# %# clip tmp_pic to p;
+			# draw tmp_pic;
+		# enddef;
+				
+		beginpattern(pattern_sand_AUT);
+			 pickup PenC;
+			 p:= origin -- (0.01u,0.01u);
+			 for i=0.0u step 0.2u until 2.4u:
+				  for j=0.0u step 0.2u until 2.4u:
+						draw p rotated uniformdeviate(360)
+							  shifted ((i,j) randomized 0.09u);
+				  endfor;
+			 endfor;
+			 if BaseScale<=2.5:
+				  my_step:=2.4u;
+			 else:
+				  my_step:=2.6u;
+			 fi;
+			 patternstep(my_step,my_step);
+		endpattern;
+
+		def a_sand_AUT (expr Path) =
+			 T:=identity;
+			 % Fond beige clair (20 % « sable »)
+			 thfill Path withcolor (0.95,0.9,0.75) withalpha 0.2;
+			 thfill Path withpattern pattern_sand_AUT ;
 		enddef;
+		
+		########################################################
+		#<en> To change clay AUT aspects
+		#<fr> Pour modifier les aspects du sable argile AUT dans l'aire associée
+		########################################################
+		
+		beginpattern(pattern_clay_AUT);
+			 pickup PenC;
+	
+			 p := origin -- (0.15u,0.15u);
+
+			 % Boucles avec densité réduite de 30%
+			 for i=0.0u step 0.40u until 2.4u:
+				  for j=0.0u step 0.40u until 2.4u:
+						draw p rotated -45
+							  shifted ((i,j) randomized 0.4u);
+				  endfor;
+			 endfor;
+
+			 if BaseScale<=2.5:
+				  my_step := 2.4u;
+			 else:
+				  my_step := 2.6u;
+			 fi;
+			 patternstep(my_step,my_step);
+		endpattern;
+
+		
+		def a_clay_AUT (expr Path) =
+			 T:=identity;
+			 % Fond beige clair (20 % « sable »)
+			 thfill Path withcolor (0.49, 0.20, 0.00) withalpha 0.2;
+			 thfill Path withpattern pattern_clay_AUT ;
+		enddef;
+		
 		
 		########################################################
 		#<en> To change pebbles aspects
@@ -2009,21 +2076,18 @@ layout drawingconfig
 		enddef;
 	
 	endcode
-	
 
 	code tex-map
 		\newtoks\thversiontitleB \thversiontitleB={Therion }
 	endcode
-
 endlayout
 
+
 ######################################################################################################################################
-	#<en> Layout to define a horizontal Scale bar
-	#<fr> Layout pour définir une barre d'échelle horizontale
+#<en> Layout to define a horizontal Scale bar
+#<fr> Layout pour définir une barre d'échelle horizontale
 ######################################################################################################################################
-layout scalebar_horiz
-	
-	
+layout scalebar_horiz	
 	code metapost
 		#<en> Change Scale bar type
 		#<fr> Pour modifier la barre d'échelle
@@ -2088,34 +2152,29 @@ layout scalebar_horiz
 				label.bot(thTEX(decimal (l) & "\thinspace" & txt),(tmpl,-tmph));
 				# label.top(thTEX("Echelle 1 : " & decimal round(Scale*100)),(0,0));
 			endgroup;
-		
 		enddef;
-
 	endcode
-	
 endlayout
 
 ######################################################################################################################################
+#<en> Layout to define a vertical Scale bar (see Therion Wiki - Juraj Halama)
+#	  distributed under the GNU General Public Licence
+#	  You need to place it with in your thconfig file:
+#		code tex-map
+#			\def\maplayout{
+#			\legendbox{102.5}{100.4}{NW}
+#			{\scalebar}}
+#		endcode
+#<fr> Layout pour définir une barre d'échelle verticale (voir le wiki Therion - Jural Halama)
+#	  distribué sous la licence GNU General Public Licence
+#	  Il faut l'appeler dans le fichier de configuration thconfig avec le bloc:
+#		code tex-map
+#			\def\maplayout{
+#			\legendbox{102.5}{100.4}{NW}
+#			{\scalebar}}
+#		endcode
 ######################################################################################################################################
 layout scalebar_vert-Halama
-	
-	#<en> Layout to define a vertical Scale bar (see Therion Wiki - Juraj Halama)
-	#	  distributed under the GNU General Public Licence
-	#	  You need to place it with in your thconfig file:
-	#		code tex-map
-	#			\def\maplayout{
-	#			\legendbox{102.5}{100.4}{NW}
-	#			{\scalebar}}
-	#		endcode
-	#<fr> Layout pour définir une barre d'échelle verticale (voir le wiki Therion - Jural Halama)
-	#	  distribué sous la licence GNU General Public Licence
-	#	  Il faut l'appeler dans le fichier de configuration thconfig avec le bloc:
-	#		code tex-map
-	#			\def\maplayout{
-	#			\legendbox{102.5}{100.4}{NW}
-	#			{\scalebar}}
-	#		endcode
-	
 	code metapost
 		def s_scalebar (expr l, units, txt) =
 			begingroup
@@ -2164,15 +2223,14 @@ layout scalebar_vert-Halama
 			endgroup
 		enddef;
 	endcode
-	
 endlayout
 
+
+######################################################################################################################################
+#<en> Layout to define a vertical Scale bar
+#<fr> Layout pour définir une barre d'échelle verticale
 ######################################################################################################################################
 layout scalebar_vert
-	
-	#<en> Layout to define a vertical Scale bar
-	#<fr> Layout pour définir une barre d'échelle verticale
-	
 	code metapost
 		#<en> Change Scale bar type
 		#<fr> Pour modifier la barre d'échelle
@@ -2208,20 +2266,19 @@ layout scalebar_vert
 				%label.bot(thTEX(decimal (l) & "\thinspace" & txt),(tmpl,-tmph)) rotated 90;
 			endgroup;
 		enddef;
-
 	endcode
-
 endlayout
 		
-		
+######################################################################################################################################
+#<en> Layout to change the header (plan projection)
+#     This code is experimental redefinition of map header and based on the work of
+#     Bruce Mutton           Therion 5.3.15 make use of new variables
+#<fr> Layout pour modifier le cartouche (header) de la projection en plan
+#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
+#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables		
 ######################################################################################################################################
 layout headerl
-	#<en> Layout to change the header (plan projection)
-	#     This code is experimental redefinition of map header and based on the work of
-	#     Bruce Mutton           Therion 5.3.15 make use of new variables
-	#<fr> Layout pour modifier le cartouche (header) de la projection en plan
-	#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
-	#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
+
 	
 	copy scalebar_horiz
 	
@@ -2360,17 +2417,19 @@ layout headerl
 	endcode
 	
 endlayout
-		
+
+######################################################################################################################################
+#<en> Layout to change the header (plan projection)
+#     This code is experimental redefinition of map header and based on the work of
+#     Bruce Mutton           Therion 5.3.15 make use of new variables
+#<fr> Layout pour modifier le cartouche (header) de la projection en plan
+#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
+#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
+
+# header without surveyors names		
 ######################################################################################################################################
 layout headerl_LT
-	#<en> Layout to change the header (plan projection)
-	#     This code is experimental redefinition of map header and based on the work of
-	#     Bruce Mutton           Therion 5.3.15 make use of new variables
-	#<fr> Layout pour modifier le cartouche (header) de la projection en plan
-	#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
-	#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
-	
-	# header without surveyors names
+
 	
 	copy scalebar_horiz
 	
@@ -2510,15 +2569,11 @@ layout headerl_LT
 	
 endlayout
 
-
-		
+######################################################################################################################################
+#<en> Layout to change the header (plan projection with minimun info)
+#<fr> Layout pour modifier le cartouche (header) de la projection en plan avec le minimun info		
 ######################################################################################################################################
 layout headerl_XXLT
-	#<en> Layout to change the header (plan projection with minimun info)
-
-	#<fr> Layout pour modifier le cartouche (header) de la projection en plan avec le minimund info
-
-
 	copy scalebar_horiz
 	
 	#<en> This one affects maps only
@@ -2657,36 +2712,34 @@ layout headerl_XXLT
 	
 endlayout
 
-		
+######################################################################################################################################
+#<en> Layout to change the header (extended elevation)
+#     This code is experimental redefinition of map header
+#     Bruce Mutton           Therion 5.3.15 make use of new variables
+#	  Xavier Robert (2020/04/27)
+#     Header specifically for extended elevation maps with a vertical scale bar
+#     that needs to be manually located inside your layout (in the thconfig file)
+#     with the code :
+#       	code tex-map
+#          		\def\maplayout{
+#				\legendbox{0}{-1}{NW}{\the\legendcontent}	% add legend content
+#				\legendbox{0}{87.5}{NW}{\hsize=1.5 cm\centerline\scalebar}	% add scalebar where you want it
+#				}
+#			endcode
+#<fr> Layout pour modifier le cartouche (header) de la projection en coupe développée
+#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
+#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
+#	  Xavier Robert (2020/04/27)
+#     Header développé spécialement pour les coupes étendues et projetées, avec l'échelle
+#     verticale qu'il faut localiser grâce au code :
+#       	code tex-map
+#          		\def\maplayout{
+#				\legendbox{0}{-1}{NW}{\the\legendcontent}	% Ajout du contenu de la légende
+#				\legendbox{0}{87.5}{NW}{\hsize=1.5 cm\centerline\scalebar}	% Ajout de l'échelle où nous la voulons
+#				}
+#			endcode		
 ######################################################################################################################################
 layout header_coupe_vert-to-place
-	#<en> Layout to change the header (extended elevation)
-	#     This code is experimental redefinition of map header
-	#     Bruce Mutton           Therion 5.3.15 make use of new variables
-	#	  Xavier Robert (2020/04/27)
-	#     Header specifically for extended elevation maps with a vertical scale bar
-	#     that needs to be manually located inside your layout (in the thconfig file)
-	#     with the code :
-	#       	code tex-map
-	#          		\def\maplayout{
-	#				\legendbox{0}{-1}{NW}{\the\legendcontent}	% add legend content
-	#				\legendbox{0}{87.5}{NW}{\hsize=1.5 cm\centerline\scalebar}	% add scalebar where you want it
-	#				}
-	#			endcode
-	#<fr> Layout pour modifier le cartouche (header) de la projection en coupe développée
-	#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
-	#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
-	#	  Xavier Robert (2020/04/27)
-	#     Header développé spécialement pour les coupes étendues et projetées, avec l'échelle
-	#     verticale qu'il faut localiser grâce au code :
-	#       	code tex-map
-	#          		\def\maplayout{
-	#				\legendbox{0}{-1}{NW}{\the\legendcontent}	% Ajout du contenu de la légende
-	#				\legendbox{0}{87.5}{NW}{\hsize=1.5 cm\centerline\scalebar}	% Ajout de l'échelle où nous la voulons
-	#				}
-	#			endcode
-	
-	
 	copy scalebar_vert			# Xavier robert
 	#copy scalebar_vert-Halama	# Juraj Halama
 	
@@ -2786,23 +2839,24 @@ layout header_coupe_vert-to-place
 	endcode
 
 endlayout
-		
+
 
 ######################################################################################################################################
+#<en> Layout to change the header (extended elevation)
+#     This code is experimental redefinition of map header
+#     Bruce Mutton           Therion 5.3.15 make use of new variables
+#	  Xavier Robert (2020/04/27)
+#     Header specifically for extended elevation maps with a vertical scale bar
+#     located at the right of the header.
+#<fr> Layout pour modifier le cartouche (header) de la projection en coupe développée
+#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
+#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
+#	  Xavier Robert (2020/04/27)
+#     Header développé spécialement pour les coupes étendues et projetées, avec l'échelle
+#     verticale et localisée à la droite du header.
+######################################################################################################################################
 layout header_coupe_vert-auto
-	#<en> Layout to change the header (extended elevation)
-	#     This code is experimental redefinition of map header
-	#     Bruce Mutton           Therion 5.3.15 make use of new variables
-	#	  Xavier Robert (2020/04/27)
-	#     Header specifically for extended elevation maps with a vertical scale bar
-	#     located at the right of the header.
-	#<fr> Layout pour modifier le cartouche (header) de la projection en coupe développée
-	#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
-	#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
-	#	  Xavier Robert (2020/04/27)
-	#     Header développé spécialement pour les coupes étendues et projetées, avec l'échelle
-	#     verticale et localisée à la droite du header.
-	
+
 	copy scalebar_vert
 	
 	#<en> This one affects maps only (extended view)
@@ -2901,7 +2955,14 @@ layout header_coupe_vert-auto
 		}
 	endcode
 endlayout
-		
+
+######################################################################################################################################
+#<en> Layout to change the header (extended elevation)
+#     This code is experimental redefinition of map header
+#     Bruce Mutton           Therion 5.3.15 make use of new variables
+#<fr> Layout pour modifier le cartouche (header) de la projection en coupe développée
+#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
+#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
 ######################################################################################################################################
 layout header_coupe
 	#<en> Layout to change the header (extended elevation)
@@ -3013,13 +3074,14 @@ endlayout
 		
 
 ######################################################################################################################################
+#<en> Layout to change the header for sketch (plan projection)
+#     This code is experimental redefinition of map header and based on the work of
+#     Bruce Mutton           Therion 5.3.15 make use of new variables
+#<fr> Layout pour modifier le cartouche (header) de la projection en plan
+#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
+#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
+######################################################################################################################################
 layout header-plan-schema
-	#<en> Layout to change the header for sketch (plan projection)
-	#     This code is experimental redefinition of map header and based on the work of
-	#     Bruce Mutton           Therion 5.3.15 make use of new variables
-	#<fr> Layout pour modifier le cartouche (header) de la projection en plan
-	#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
-	#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
 	
 	copy scalebar_horiz
 	
@@ -3110,16 +3172,16 @@ layout header-plan-schema
 
 endlayout
 
-
+######################################################################################################################################
+#<en> Layout to change the header for sketch (extended elevation)
+#     This code is experimental redefinition of map header
+#     Bruce Mutton           Therion 5.3.15 make use of new variables
+#<fr> Layout pour modifier le cartouche (header) de la projection en coupe développée
+#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
+#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
 ######################################################################################################################################
 layout header_coupe-schema
-	#<en> Layout to change the header for sketch (extended elevation)
-	#     This code is experimental redefinition of map header
-	#     Bruce Mutton           Therion 5.3.15 make use of new variables
-	#<fr> Layout pour modifier le cartouche (header) de la projection en coupe développée
-	#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
-	#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
-	
+
 	copy scalebar_horiz
 	
 	#<en> This one affects maps only (extended view)
@@ -3211,16 +3273,15 @@ layout header_coupe-schema
 
 endlayout
 
-		
+######################################################################################################################################
+#<en> Layout to change the header (plan projection)
+#     This code is experimental redefinition of map header and based on the work of
+#     Bruce Mutton           Therion 5.3.15 make use of new variables
+#<fr> Layout pour modifier le cartouche (header) de la projection en plan
+#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
+#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables		
 ######################################################################################################################################
 layout headeratlas
-	#<en> Layout to change the header (plan projection)
-	#     This code is experimental redefinition of map header and based on the work of
-	#     Bruce Mutton           Therion 5.3.15 make use of new variables
-	#<fr> Layout pour modifier le cartouche (header) de la projection en plan
-	#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
-	#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
-	
 	copy scalebar_horiz
 	
 	#<en> This one affects maps only
@@ -3347,32 +3408,30 @@ layout headeratlas
 		}
 		
 	endcode
-
 endlayout
-		
 
 ######################################################################################################################################
+#<en> If you want to draw a frame around the map
+#<fr> Si vous voulez un cadre autour de votre topographie
+######################################################################################################################################
 layout layoutmapborder
-	#<en> If you want to draw a frame around the map
-	#<fr> Si vous voulez un cadre autour de votre topographie
 	code tex-map
 		\framethickness=0.5mm
 	endcode
-
 endlayout
 
 ######################################################################################################################################		
 #<en> CODE TO CUSTOMISE ATLAS OUTPUT
 #<fr> CODE POUR CUSTOMISER L'ATLAS
-######################################################################################################################################
-layout LayoutAtlasNorthArrow2
+
 #<en> This code is a redefinition of the default atlas definition
 #     that includes both north arrow & scale bar beside the navigation pane
 #     from Bruce Mutton (2019/08)
 #<fr> Ce code est une redéfinition de la définition par défaut de l'Altlas
 #     Cela inclus à la fois la flèche du nord et la barre d'échelle du panneau de navigation.
 #     from Bruce Mutton (2019/08)
-
+######################################################################################################################################
+layout LayoutAtlasNorthArrow2
 	code tex-atlas
 		\def\dopage{%
 		\vbox{\centerline{\framed{\mapbox}}
@@ -3416,18 +3475,19 @@ layout LayoutAtlasNorthArrow2
 	endcode
 	
 endlayout 
-			
+
+######################################################################################################################################
+#<en> Layout for the set of the Atlas North Arrow to override
+#     the north arrow definition of the layout drawingconfig
+#     and use a smaller North arrow to avoid overlaps with the scale bar
+#     For that, it should be call first in the layout Altas of the .thconfig file.
+#<fr> Layout pour définir le set up de l'Atlas North Arrow.
+#     pour effacer la définition de la flèche du nord du layout drawingconfig
+#     et éviter la superposition de la flèche avec la barre d'échelle.
+#     Pour cela, il convient de placer l'appel à ce Layout avant tous les autres layouts
+#     dans le layout Atlas du .thconfig			
 ######################################################################################################################################			
 layout LayoutAtlasNorthArrow
-	#<en> Layout for the set of the Atlas North Arrow to override
-	#     the north arrow definition of the layout drawingconfig
-	#     and use a smaller North arrow to avoid overlaps with the scale bar
-	#     For that, it should be call first in the layout Altas of the .thconfig file.
-	#<fr> Layout pour définir le set up de l'Atlas North Arrow.
-	#     pour effacer la définition de la flèche du nord du layout drawingconfig
-	#     et éviter la superposition de la flèche avec la barre d'échelle.
-	#     Pour cela, il convient de placer l'appel à ce Layout avant tous les autres layouts
-	#     dans le layout Atlas du .thconfig
 	code metapost
 		def s_northarrow (expr rot) =
 			begingroup
@@ -3445,15 +3505,14 @@ layout LayoutAtlasNorthArrow
 				label.rt(thTEX("mg") scaled 1.6, (.6cm,-1.6cm)) transformed T;
 			endgroup;
 		enddef;
-	endcode
-	
+	endcode	
 endlayout 
-			
+
 ######################################################################################################################################
-layout AtlasSetUp
-	#<en> Layout for the set of the Atlas
-	#<fr> Layout pour définir le set up de l'Atlas
-	
+#<en> Layout for the set of the Atlas
+#<fr> Layout pour définir le set up de l'Atlas
+######################################################################################################################################
+layout AtlasSetUp	
 	#<en> "size" are the dimensions of the square/rectangle which will be
 	#     occupied by part of the survey corresponding to each smal inset.
 	#     15 x 20, is good to print with an A4-paper.
@@ -3497,16 +3556,14 @@ layout AtlasSetUp
 		\insertmaps
 		\formattedlegend
 	endcode
-		
 endlayout
 				
-				
+######################################################################################################################################
+#<en> If you want to write all the texts that go with continuations marks
+#<fr> Si vous voulez écrire sur la carte le texte qui est donnée dans chaque définition
+#     de point d'interrogation de continuation				
 ######################################################################################################################################
 layout layoutcontinuation
-	#<en> If you want to write all the texts that go with continuations marks
-	#<fr> Si vous voulez écrire sur la carte le texte qui est donnée dans chaque définition
-	#     de point d'interrogation de continuation
-	
 	code metapost
 		def p_continuation(expr pos,theta,sc,al) =
 			% draw default continuation symbol
@@ -3522,15 +3579,13 @@ layout layoutcontinuation
 			fi;
 		enddef;
 	endcode
-	
 endlayout
-				
-				
+
+######################################################################################################################################				
+#<en> New Northarrow definition
+#<fr> Nouvelle définition de la flèche du nord				
 ######################################################################################################################################
 layout northarrowMG
-	#<en> New Northarrow definition
-	#<fr> Nouvelle définition de la flèche du nord
-	
 	code metapost
 		# If you want to get both, magnetic and geographic north,
 		# with \cartodate ?
@@ -3597,19 +3652,15 @@ layout northarrowMG
 			);
 			thdraw tmp_pic scaled valscal rotatedaround(origin, -rot);
 		enddef;
-
 	endcode
-
 endlayout 
-				
-				
+
 #######################################################################################################################################
-layout test
-		#<en> A test layout to test you new symbols, configurations,... ;-)
-		#<fr> Un layout de test pour tester vos nouveaux symboles, configurations,... ;-)
-		
-	code metapost
-			
+#<en> A test layout to test you new symbols, configurations,... ;-)
+#<fr> Un layout de test pour tester vos nouveaux symboles, configurations,... ;-)	
+#######################################################################################################################################
+layout test		
+	code metapost	
 			def p_u_prof (expr P,R,S,A)=
 				T:=identity aligned A rotated R scaled S shifted P;
 				pickup PenD;
@@ -3669,22 +3720,20 @@ layout test
 			enddef;
 				
 	endcode
-			
 endlayout
 					
-					
+
+######################################################################################################################################
+#<en> Change the altitude definition
+#     This label requires to specify the position of text relative to point with
+#     help of -align in the options box.
+#<fr> Changer la définition du point altitude
+#     Ce label nécessite la position spécifique de l'étiquette de texte de façon relative
+#     au point avec l'aide de l'option -align.
+#ex: -align bottom-right/top-left/top-right/bottom-left/top/bottom/left/right...
 ######################################################################################################################################
 layout depth
-	
 	code metapost
-		#<en> Change the altitude definition
-		#     This label requires to specify the position of text relative to point with
-		#     help of -align in the options box.
-		#<fr> Changer la définition du point altitude
-		#     Ce label nécessite la position spécifique de l'étiquette de texte de façon relative
-		#      au point avec l'aide de l'option -align.
-		#ex: -align bottom-right/top-left/top-right/bottom-left/top/bottom/left/right...
-		
 		#def p_altitude_depth (expr pos) =
 		def p_u_prof (expr pos) =
 			T:=identity shifted pos;
@@ -3694,106 +3743,70 @@ layout depth
 			p:=fullcircle scaled .2u;
 			thclean p; thdraw p;
 		enddef;
-		# vardef p_label@#(expr txt,pos,rot,mode) =
-		# 	if mode=1:
-		# 		thdrawoptions(withcolor .8red + .4blue);
-		# 		p_u_prof(pos);
-		# 		#%% append "m" to label
-		# 		picture txtm;
-		# 		txtm:=image(
-		# 			draw txt;
-		# 			interim labeloffset:=0;
-		# 			label.urt(btex \thaltitude { m} etex, lrcorner txt);
-		# 			#label.urt(btex \thheight m etex, lrcorner txt);
-		# 		);
-		# 		#%% give extra offset in case of l/r/t/b alignment
-		# 		pair ctmp;
-		# 		ctmp:=center thelabel@#("x", (0,0));
-		# 		if (xpart ctmp * ypart ctmp)=0:
-		# 			interim labeloffset:=(.4u);
-		# 		else: % diagonal alignment
-		# 			interim labeloffset:=(.2u);
-		# 		fi;
-		# 		#% draw label
-		# 		lab:=thelabel@#(txtm, pos);
-		# 		draw lab _thop_; % use color
-		# 		thdrawoptions();
-		# 		bboxmargin:=0.8bp;
-		# 		write_circ_bbox((bbox lab) smoothed 2);
-		# 	else:
-		# 		if mode=7: interim labeloffset:=(u/8) fi;
-		# 		lab:=thelabel@#(txt, pos);
-		# 		if mode>1: pickup PenD fi;
-		# 		if mode=2: process_uplabel;
-		# 		elseif mode=3: process_downlabel;
-		# 		elseif mode=4: process_updownlabel;
-		# 		elseif mode=5: process_circledlabel;
-		# 		elseif mode=6: process_boxedlabel;
-		# 		elseif mode=7: process_label(pos,rot);  % station name
-		# 		elseif mode=8: process_filledlabel(pos, rot);
-		# 		else: process_label(pos,rot); fi;
-		# 	fi;
-		# enddef;
-	endcode
-	
-	#symbol-color point altitude_depth [100 100 100]
-	
+
+	endcode	
 endlayout
 
+######################################################################################################################################
+#<en> If you want to change font size 
+#<fr> Si vous voulez changer la police 
+#<en> fonts for 1/2000 scale drawing
+#<fr> fonts pour dessin à 1/2000 
 ######################################################################################################################################
 layout fonts_2000
-	#<en> If you want to change font size 
-	#<fr> Si vous voulez changer la police 
-	
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
-		fonts_setup(6, 8, 12, 16, 18);
-	endcode
-	
+		# Old: (6, 8, 12, 16, 18)
+		fonts_setup(5, 8, 12, 20, 34);
+	endcode	
 endlayout
-
 
 ######################################################################################################################################
-layout fonts_1000
-	#<en> If you want to change font size 
-	#<fr> Si vous voulez changer la police 
-	
+#<en> If you want to change font size 
+#<fr> Si vous voulez changer la police 
+#<en> fonts for 1/1000 scale drawing
+#<fr> fonts pour dessin à 1/1000
+######################################################################################################################################
+layout fonts_1000		
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
-		fonts_setup(10, 14, 20, 28, 32);
+		# Old: (10, 14, 20, 28, 32)
+		# Old: (8, 12, 20, 28, 34)
+		fonts_setup(8, 12, 20, 32, 52);
 	endcode
-	
 endlayout
 
+######################################################################################################################################
+#<en> If you want to change font size 
+#<fr> Si vous voulez changer la police 
+#<en> fonts for 1/500 scale drawing
+#<fr> fonts pour dessin à 1/500 
 ######################################################################################################################################
 layout fonts_500
-	#<en> If you want to change font size 
-	#<fr> Si vous voulez changer la police 
-	
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
-		fonts_setup(6, 10, 12, 14, 18);
+		# Old: (6, 10, 12, 14, 18)
+		fonts_setup(12, 20, 32, 52, 84);
 	endcode
-	
 endlayout
 
 ######################################################################################################################################
+#<en> If you want to change the survey ligne definition  
+#<fr> Si vous voulez la définition de la ligne survey
+######################################################################################################################################
 layout Survey_No_Scrap
-
 	code metapost
 	  def l_survey_cave_MY(expr P) =
 		 if ATTR__scrap_centerline:
 			l_survey_cave_SKBB(P);
 		 else:
-			draw P withcolor black;
+			draw P withcolor (0.6, 0.6, 0.6); % gris
 		 fi;
 	  enddef;
 	  initsymbol("l_survey_cave_MY");
 	endcode
 	
 	symbol-assign line survey:cave MY
-	#symbol-color line cave_MY [100 60 20]
-	#symbol-color line rock-edge [34 21 3]   					# Marron : (87, 56, 8)
 	
 endlayout
 
