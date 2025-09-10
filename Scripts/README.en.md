@@ -19,12 +19,12 @@ Result: (.dat) and (.mak) files are created in the same folder
 Note: Stations are named using the order number from the Therion database, not the numbers from the (.th) files  
 
 
-pyCreate_th2
+pyCreateTh
 ------------
 
 Script to automate the creation of folders and files for a .th file
 
-Usage: python pyCreate_th2.py  
+Usage: python pyCreateTh.py  (pyCreateTh.py --help)
 
 How to use:  
 	- Define the different variables in the config.ini file  
@@ -32,6 +32,7 @@ How to use:
 	- Generate the required files: th, th2, -tot.th  
 	- Create scraps with topo stations  
 
+Input : Therion files .th (raw, without folders), .mak or .dat Compass files, .tro from VisualTopo 
 
 pyThStat
 --------

@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2025 09 03
+# Version ARSIP By Alex 2025 09 10
 ######################################################################################################################################
 
 
@@ -83,6 +83,7 @@ encoding  utf-8
 #		- extended view symbol/symbole de vue en coupe développée (u:symbol_extend)
 #  	- entrance 
 #		- blocks 
+#     - pebbles
 #		- block user (u:block)
 #		- altitude
 #		- label
@@ -767,8 +768,8 @@ layout drawingconfig
 		enddef;
 		
 		########################################################
-		#<en> Change the block symbole 
-		#<fr> Changer le symbole de block
+		#<en> Change the point block symbole 
+		#<fr> Changer le symbole de point block
 		########################################################
 		def p_blocks (expr pos,theta,sc,al)=
 			base_symbolsize :=0.30u; %Factor*u; Factor=size of the blocks
@@ -787,6 +788,33 @@ layout drawingconfig
 			thdraw (.5symbolsize,-.25symbolsize)--(1.0symbolsize,.5symbolsize)--(0.0symbolsize,1.5symbolsize)--(-0.5symbolsize,.5symbolsize)--cycle  withcolor (0.341117, 0.219607, 0.031372);
 			thfill (.0symbolsize,.0symbolsize)--(.0symbolsize,.5symbolsize)--(-1.5symbolsize,.5symbolsize)--(-1.5symbolsize,-0.5symbolsize)--(-0.5symbolsize,-0.5symbolsize)--cycle withcolor (0.341117, 0.219607, 0.031372) withalpha AlphaFactor3;
 			thdraw (.0symbolsize,.0symbolsize)--(.0symbolsize,.5symbolsize)--(-1.5symbolsize,.5symbolsize)--(-1.5symbolsize,-0.5symbolsize)--(-0.5symbolsize,-0.5symbolsize)--cycle  withcolor (0.341117, 0.219607, 0.031372);
+		enddef;
+		
+		########################################################
+		#<en> Change the point pebble symbole 
+		#<fr> Changer le symbole de point galets
+		########################################################
+		def p_pebbles (expr pos,theta,sc,al)=
+			 U:=(.45u,.35u);
+			 
+			 random_theta := uniformdeviate 360;
+			 Alpha_Factor1 := 0.4 + uniformdeviate 0.5;
+			 Alpha_Factor2 := 0.4 + uniformdeviate 0.5;
+			 Alpha_Factor3 := 0.4 + uniformdeviate 0.5;
+			 Alpha_Factor4 := 0.4 + uniformdeviate 0.5;
+			 
+			 T:=identity aligned al rotated random_theta scaled sc shifted pos;
+			 pickup PenC;
+			 p:=superellipse((.25u,0),(0,.15u),(-.25u,0),(0,.-.15u),.75);
+			 
+			 thdraw p rotated -20 shifted (-	.2,.2u);
+			 thfill p rotated -20 shifted (-.2,.2u) withcolor (0.341117, 0.219607, 0.031372) withalpha Alpha_Factor1;
+			 thdraw p rotated -37 shifted (.2u,-.2u);
+			 thfill p rotated -37 shifted (.2u,-.2u) withcolor (0.341117, 0.219607, 0.031372) withalpha Alpha_Factor2;
+			 thdraw p rotated -62 shifted (-.2u,-.2u);
+			 thfill p rotated -62 shifted (-.2u,-.2u) withcolor (0.341117, 0.219607, 0.031372) withalpha Alpha_Factor3;
+			 thdraw p rotated -15 shifted (.2u,.2u);
+			 thfill p rotated -15 shifted (.2u,.2u) withcolor (0.341117, 0.219607, 0.031372) withalpha Alpha_Factor4;
 		enddef;
 
 		########################################################

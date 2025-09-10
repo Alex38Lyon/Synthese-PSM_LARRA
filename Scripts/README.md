@@ -22,18 +22,20 @@ Résultat : fichiers (.dat) et (.mak) dans le même dossier
 Attention : Les stations sont nommées avec le numéro d'ordre de la BD Therion et pas les numéros des fichiers (.th)
 
 	
-pyCreate_th2
+pyCreateTh
 ------------
 
 Script pour automatiser la création des dossiers et fichiers pour un fichier .th
 
-Usage : python pyCreate_th2.py
+Usage : python pyCreateTh.py  (pyCreateTh.py --help)
 
 Utilisation :
 	- Définir les différentes variables dans fichier config.ini   
 	- Création des dossiers nécessaires d'après dossier 'template'
 	- Création des fichiers nécessaires : th, th2, -tot.th
 	- Création des scraps avec les stations topo
+	
+En entrée : fichiers au format .th de Therion (brut, sans les dossiers), .mak ou .dat de Compass, .tro de VisualTopo 
 
 
 pyThStat
