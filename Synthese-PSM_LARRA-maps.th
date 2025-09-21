@@ -260,8 +260,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-LAK015-Perte_des_Feuilles-Plan-tot@LAK015-Perte_des_Feuilles
 	# break
-	# MP-Complexe_PSM_GdP-Plan-tot@Complexe_PSM_GdP
-	# break
+	MP-Complexe_PSM_GdP-Plan-tot@Complexe_PSM_GdP
+	break
 	# MP-L5-Plan-tot@L5
 	# break
 	# MP-AN455-Plan-tot@AN455

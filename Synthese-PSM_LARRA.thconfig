@@ -78,7 +78,7 @@ layout my_layout
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 1600
+	base-scale 1 2000
 	
 	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
@@ -216,11 +216,11 @@ endlayout
 #export map -proj extended -layout xviexport -fmt xvi -o Data/Complexe_Lonne_Peyret-Bourrugues-coupe.xvi
 
 
-# select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
+select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
 
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
-# export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
+export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
 # export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Puits-Coupe.pdf
 
 
