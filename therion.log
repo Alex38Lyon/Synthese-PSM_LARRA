@@ -94,22 +94,22 @@ processing survey data ...
 ####################### cavern log file ########################
  1> Survex 1.4.17
  2> Copyright ¸ 1990-2025 Olly Betts
- 3> C:\Users\alexa\AppData\Local\Temp\th22712\data.svx:1191:6: warning: Station already fixed at the same coordinates
+ 3> C:\Users\alexa\AppData\Local\Temp\th18148\data.svx:1191:6: warning: Station already fixed at the same coordinates
  4>  *fix 1122 680916.000000 4757614.000000 1719.000000
  5>       ^~~~
- 6> C:\Users\alexa\AppData\Local\Temp\th22712\data.svx:1190: info: Previously fixed or equated here
- 7> C:\Users\alexa\AppData\Local\Temp\th22712\data.svx:9996:6: warning: Station already fixed at the same coordinates
+ 6> C:\Users\alexa\AppData\Local\Temp\th18148\data.svx:1190: info: Previously fixed or equated here
+ 7> C:\Users\alexa\AppData\Local\Temp\th18148\data.svx:9996:6: warning: Station already fixed at the same coordinates
  8>  *fix 9182 684221.000000 4757518.000000 2095.800000
  9>       ^~~~
-10> C:\Users\alexa\AppData\Local\Temp\th22712\data.svx:9995: info: Previously fixed or equated here
-11> C:\Users\alexa\AppData\Local\Temp\th22712\data.svx:11952:6: warning: Station already fixed at the same coordinates
+10> C:\Users\alexa\AppData\Local\Temp\th18148\data.svx:9995: info: Previously fixed or equated here
+11> C:\Users\alexa\AppData\Local\Temp\th18148\data.svx:11952:6: warning: Station already fixed at the same coordinates
 12>  *fix 11156 684221.000000 4757518.000000 2095.800000
 13>       ^~~~~
-14> C:\Users\alexa\AppData\Local\Temp\th22712\data.svx:11951: info: Previously fixed or equated here
-15> C:\Users\alexa\AppData\Local\Temp\th22712\data.svx:17381:6: warning: Station already fixed at the same coordinates
+14> C:\Users\alexa\AppData\Local\Temp\th18148\data.svx:11951: info: Previously fixed or equated here
+15> C:\Users\alexa\AppData\Local\Temp\th18148\data.svx:17381:6: warning: Station already fixed at the same coordinates
 16>  *fix 16378 683605.000000 4757525.000000 2045.000000
 17>       ^~~~~
-18> C:\Users\alexa\AppData\Local\Temp\th22712\data.svx:17380: info: Previously fixed or equated here
+18> C:\Users\alexa\AppData\Local\Temp\th18148\data.svx:17380: info: Previously fixed or equated here
 19> 
 20> Survey contains 61524 survey stations, joined by 61797 legs.
 21> There are 445 loops.
@@ -124,25 +124,25 @@ processing survey data ...
 30> There were 4 warning(s).
 31> 
 ######################### transcription ########################
- 3> 22712 : LAR_d_554/0@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+ 3> 18148 : LAR_d_141/15@Explo_44_1993_11_13.Explo_44_1993_11_13.Complexe_Arrestelia.Synthese-PSM_LARRA
  3> input:1191 -- Data/AN026/Data/Explo_01_2006_11_04/Data/Explo_01_2006_11_04.th [17]
  4> 1122 : AN26@Explo_01_2006_11_04.Explo_01_2006_11_04.AN026.Synthese-PSM_LARRA
- 6> 22712 : LAR_d_554/0@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+ 6> 18148 : LAR_d_141/15@Explo_44_1993_11_13.Explo_44_1993_11_13.Complexe_Arrestelia.Synthese-PSM_LARRA
  6> input:1190 -- Data/AN026/Data/Explo_01_2006_11_04/Data/Explo_01_2006_11_04.th [15]
- 7> 22712 : LAR_d_554/0@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+ 7> 18148 : LAR_d_141/15@Explo_44_1993_11_13.Explo_44_1993_11_13.Complexe_Arrestelia.Synthese-PSM_LARRA
  7> input:9996 -- Data/Complexe_Anialarra/Data/Explo_56_2003_08_02/Data/Explo_56_2003_08_02.th [17]
  8> 9182 : AN548@Explo_56_2003_08_02.Explo_56_2003_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
-10> 22712 : LAR_d_554/0@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+10> 18148 : LAR_d_141/15@Explo_44_1993_11_13.Explo_44_1993_11_13.Complexe_Arrestelia.Synthese-PSM_LARRA
 10> input:9995 -- Data/Complexe_Anialarra/Data/Explo_56_2003_08_02/Data/Explo_56_2003_08_02.th [15]
-11> 22712 : LAR_d_554/0@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+11> 18148 : LAR_d_141/15@Explo_44_1993_11_13.Explo_44_1993_11_13.Complexe_Arrestelia.Synthese-PSM_LARRA
 11> input:11952 -- Data/Complexe_Anialarra/Data/Explo_132_2009_07_09/Data/Explo_132_2009_07_09.th [17]
 12> 11156 : AN548@Explo_132_2009_07_09.Explo_132_2009_07_09.Complexe_Anialarra.Synthese-PSM_LARRA
-14> 22712 : LAR_d_554/0@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+14> 18148 : LAR_d_141/15@Explo_44_1993_11_13.Explo_44_1993_11_13.Complexe_Arrestelia.Synthese-PSM_LARRA
 14> input:11951 -- Data/Complexe_Anialarra/Data/Explo_132_2009_07_09/Data/Explo_132_2009_07_09.th [15]
-15> 22712 : LAR_d_554/0@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+15> 18148 : LAR_d_141/15@Explo_44_1993_11_13.Explo_44_1993_11_13.Complexe_Arrestelia.Synthese-PSM_LARRA
 15> input:17381 -- Data/Complexe_Anialarra/Data/Explo_401_2023_09_17/Data/Explo_401_2023_09_17.th [17]
 16> 16378 : AN3@Explo_401_2023_09_17.Explo_401_2023_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
-18> 22712 : LAR_d_554/0@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+18> 18148 : LAR_d_141/15@Explo_44_1993_11_13.Explo_44_1993_11_13.Complexe_Arrestelia.Synthese-PSM_LARRA
 18> input:17380 -- Data/Complexe_Anialarra/Data/Explo_401_2023_09_17/Data/Explo_401_2023_09_17.th [15]
 20> 61524 : 27@Z510_Fond.Z510_Fond.Z510.Synthese-PSM_LARRA
 21> 445 : AN8_d_649@Explo_03_1992_08_01.Explo_03_1992_08_01.AN008.Synthese-PSM_LARRA
@@ -632,7 +632,7 @@ S  1.5e+03 SP-Explo_02_2009_08_01_01@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.S
 writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  21 SEP 2025 10:11
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 OCT 2025 22:34
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -965,7 +965,7 @@ plo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA] [934] [935] [936]
 [1027] [1028] [1029] [1030] [1031] [1032] )
  
 Here is how much of MetaPost's memory you used:
- 614181 strings using 15114329 characters
+ 614179 strings using 15114103 characters
  15225792 bytes of node memory
  1811 symbolic tokens
  11i,82n,18p,617b,5f stack positions out of 16i,98n,20p,760b,6f
@@ -976,7 +976,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  21 SEP 2025 10:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  2 OCT 2025 22:35
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -992,7 +992,7 @@ go-ARSIP-Synthese-Topographique_XL.png>) (./th_pages.tex)
 Here is how much of TeX's memory you used:
  2619 strings out of 95671
  32535 string characters out of 1192323
- 1110191 words of memory out of 2526234
+ 1110218 words of memory out of 2526261
  4012 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
@@ -1001,7 +1001,7 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 46207866 bytes).
+Output written on data.pdf (1 page, 46209180 bytes).
 PDF statistics:
  5181 PDF objects out of 6186 (max. 8388607)
  2580 compressed objects within 26 object streams
@@ -1085,7 +1085,7 @@ processing projection extended ... done
 average distortion: 16.64%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  21 SEP 2025 10:17
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  2 OCT 2025 22:41
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1111,7 +1111,7 @@ writing Outputs/SHP/ ... done
 writing Outputs/SHP/therion ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.html ... done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
-compilation time: 422 sec
+compilation time: 440 sec
 
 
 ######################### loop errors ##########################

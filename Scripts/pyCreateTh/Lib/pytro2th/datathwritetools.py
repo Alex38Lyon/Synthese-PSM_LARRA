@@ -169,10 +169,10 @@ def writecenterlineheader(file, entrance, settings, comments, data, coordsyst, c
 				           u' copy in the corresponding centerline the next 2 lines: \n')
 		if coordsyst != None:
 			file.write(u'\t\tcs %s \n' 
-		               u'\t\tfix %s %s %s %s \n\n' % (coordsyst, entrance, coordinates[0], coordinates[0], coordinates[0])) 
-		else:
+		               u'\t\tfix %s %s %s %s \n\n' % (coordsyst, entrance, coordinates[0], coordinates[1], coordinates[2]))   # [Correction Alex 2025 11 10]
+		else: 
 			file.write(u'\t\t#cs %s \n' 
-		               u'\t\t#fix %s %s %s %s \n\n' % (coordsyst, entrance, coordinates[0], coordinates[0], coordinates[0])) 
+		               u'\t\t#fix %s %s %s %s \n\n' % (coordsyst, entrance, coordinates[0], coordinates[1], coordinates[2])) # [Correction Alex 2025 11 10]
 	typem = u'Deca'
 	if u'Topof' not in settings:
 		settings [1:1]= u' '
@@ -262,10 +262,16 @@ def writedata(file, settings, data, dataold):
 				# remove the '*', and replace them with the right data !
 				if i == 0: elems[k] = dataold[len(dataold)-1][k+1]
 				else: elems[k] = data[i-1][k+1]
+    
 		if 	elems[0] == elems[1]: elems[1] = elems[1] + u'd'
+  
 		for k in range (dictl[settings[0]]-4, dictl[settings[0]]):
 			# Check that LRUD != '*'; If yes, change them to 0
 			if elems[k] == u'*': elems[k] = u'0'
+   			
+			# Si le premier caractère est '-', on le remplace par '+' [Ajout Alex 2025 11 10]
+			elif elems[k].startswith(u'-'):
+				elems[k] = u'+' + elems[k][1:]
 		
 		# Check if option 'E'
 		if u'E' in elems:
