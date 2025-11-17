@@ -63,7 +63,7 @@ layout my_layout
 	#copy Coords_Header_CDa
 	# Call the config settings (Layout config inside the config.thc file)
 	copy Survey_No_Scrap
-	copy fonts_2000
+	copy fonts_1000
 	copy drawingconfig
 	copy headerl
 	copy langue-fr
@@ -78,7 +78,7 @@ layout my_layout
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 2000
+	base-scale 1 1000
 	
 	# Maintenant on va mettre une ligne "scale" pour specifier l'échelle pour imprimer la topo.
 	# La combination entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
@@ -191,7 +191,7 @@ layout my_layout
 		\framethickness=0.5mm
 	endcode
 
-	map-image 4 77 nw ./Logos/Logo-ARSIP-Synthese-Topographique_XL.png
+	map-image 4 72 nw ./Logos/Logo-ARSIP-Synthese-Topographique_XL.png
 
 	
 endlayout
@@ -240,8 +240,8 @@ export model -fmt esri -o Outputs/SHP/ -enc UTF-8
 export map -proj plan -fmt esri -o Outputs/SHP/therion -layout my_layout -enc ASCII
 
 # Export des fichiers kml
-# export map -proj plan -fmt kml -o Outputs/Synthese-PSM_LARRA.kml -layout layout-kml
-# export model -fmt kml -o Outputs/Synthese-PSM_LARRA-model.kml -enable all
-# export model -enable all -o Outputs/Synthese-PSM_LARRA-3D.kml
+ export map -proj plan -fmt kml -o Outputs/Synthese-PSM_LARRA.kml -layout layout-kml
+ export model -fmt kml -o Outputs/Synthese-PSM_LARRA-model.kml -enable all
+ export model -enable all -o Outputs/Synthese-PSM_LARRA-3D.kml
  export cave-list -location on -o Outputs/Synthese-PSM_LARRA-Cave-list.html
  export survey-list -location on -o Outputs/Synthese-PSM_LARRA-Surveys.html

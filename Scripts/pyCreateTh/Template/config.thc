@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2025 09 10
+# Version ARSIP By Alex 2025 11 17
 ######################################################################################################################################
 
 
@@ -123,8 +123,9 @@ encoding  utf-8
 #		- Tunnel initiation/Départ de galerie (u:galerie)
 #  	- blocks
 #		- clay
+#     - mudcrack
 #     - sand
-#		- pebbles
+#		- pebbles                
 #		- sump
 #		- water
 
@@ -450,7 +451,10 @@ layout drawingconfig
 	
 	symbol-assign area sand AUT
 	symbol-assign area clay AUT
+	symbol-assign area mudcrack SBE
 	symbol-assign area pebbles AUT
+	
+	# symbol-assign line wall:blocks AUT
 	
 	symbol-assign point camp UIS
 	symbol-assign point pillar AUT
@@ -566,10 +570,114 @@ layout drawingconfig
 
 
 		########################################################
+		#<en> Change the ligne wall:blocks (from l_wall_blocks_AUT)
+		#<fr> Changer le symbole ligne wall:blocks (d'après l_wall_debris_AUT)
+		########################################################
+		def l_wall_blocks (expr P) =
+
+		  T:=identity;
+		  pickup PenB;
+		  laenge := arclength P;
+
+		  path block;
+		  path old_block;
+
+		  cur := 0;
+		  t:= arctime cur of P;
+
+		  % ---------- premier bloc ----------
+		  %old_block := ( (.7u,-.35u)--(.85u,0.01u)--(.4u,.5u)--(.1u,.3u)--(-.0u,-.0u) );
+		  old_block :=( (.8u,-.35u)--(.85u,0.01u)--(.6u,.4u)--(.1u,.1u)--(-.0u,-.3u) );
+		  block_width := (xpart urcorner old_block - xpart ulcorner old_block);
+		  old_block := old_block rotated angle( thdir(P,0) ) shifted point t of P;
+
+		  % couleur + alpha
+		  AlphaFactor1 := 0.5 + uniformdeviate 0.4;
+		  thclean (old_block--cycle);
+		  thfill (old_block--cycle)
+			 withcolor (0.341117, 0.219607, 0.031372)
+			 withalpha AlphaFactor1;
+		  thdraw old_block;
+
+		  cur := cur + block_width/2;
+		  t:= arctime cur of P;
+
+		  forever:
+			  % ---------- bloc intermédiaire ----------
+			  block := punked ( ( (.8u,-.35u)--(.85u,0.01u)--(.6u,.4u)--(.1u,.1u)--(-.0u,-.3u) )
+						  randomized (0.3u) )
+						  scaled (uniformdeviate(0.3)+.65)
+						  rotated (uniformdeviate(45)-15);
+
+			  % largeur du bloc
+			  block_width := (xpart urcorner block - xpart ulcorner block);
+
+			  exitif cur > (laenge- 3.5*block_width/2);
+
+			  % trouver une position sans intersection avec old_block
+			  forever:
+				  exitif xpart ( ((block--cycle)
+										rotated angle(direction t of P)
+										shifted point t of P)
+									  intersectiontimes old_block) < 0;
+				  cur := cur + 0.01u;
+				  t := arctime cur of P;
+				  exitif cur > (laenge- 3.5*block_width/2);
+			  endfor;
+			  exitif cur > (laenge- 3.5*block_width/2);
+
+			  old_block := block rotated angle(direction t of P) shifted point t of P;
+
+			  % couleur + alpha pour chaque bloc
+			  AlphaFactor1 := 0.5 + uniformdeviate 0.4;
+			  thclean (old_block--cycle);
+			  thfill (old_block--cycle)
+				 withcolor (0.341117, 0.219607, 0.031372)
+				 withalpha AlphaFactor1;
+			  thdraw old_block;
+
+			  cur := cur + block_width/2;
+			  t := arctime cur of P;
+		  endfor;
+
+		  % ---------- dernier bloc ----------
+		  t := arctime laenge-eps of P;
+		  block := ( (-.15u,-.35u)--(.0u,.0u)--(-.45u,.5u)--(-.75u,.3u)--(-.85u,-.0u) );
+		  block_width := (xpart urcorner block - xpart ulcorner block);
+
+		  % mise à l'échelle pour remplir le trou restant
+		  scale_factor := (laenge-cur)/block_width;
+		  forever:
+			 exitif scale_factor < 0;
+			 exitif xpart ( (block rotated angle(direction t of P)
+								  scaled scale_factor
+								  shifted point t of P)
+								 intersectiontimes old_block) < 0;
+			 scale_factor := scale_factor - 0.001;
+		  endfor;
+
+		  if scale_factor > 0:
+			 AlphaFactor1 := 0.5 + uniformdeviate 0.4;
+			 % on construit le chemin final une fois, pour thclean + thfill + thdraw
+			 path last_block;
+			 last_block := block rotated angle(direction t of P)
+										scaled scale_factor
+										shifted point t of P;
+
+			 thclean (last_block--cycle);
+			 thfill (last_block--cycle)
+				withcolor (0.341117, 0.219607, 0.031372)
+				withalpha AlphaFactor1;
+			 thdraw last_block;
+		  fi;
+
+		enddef;
+
+		
+		########################################################
 		#<en> Change the ligne wall:debris (from l_wall_debris_AUT)
 		#<fr> Changer le symbole ligne wall:debris (d'après l_wall_debris_AUT)
 		########################################################
-
 		def l_wall_debris (expr P) =
 			T := identity;
 			pickup PenC;
@@ -964,9 +1072,23 @@ layout drawingconfig
 			 thfill Path withpattern pattern_sand_AUT ;
 		enddef;
 		
+		
+		########################################################
+		#<en> To change mudcrack SBE aspects
+		#<fr> Pour modifier les aspects de l' mudcrack SBE dans l'aire associée
+		########################################################
+		
+		def a_mudcrack_SBE (expr Path) =
+			 T:=identity;
+			 % Fond beige clair (20 % « sable »)
+			 thfill Path withcolor (0.49, 0.20, 0.00) withalpha 0.2;
+			 thfill Path withpattern pattern_mudcrack_SBE ;
+		enddef;
+		
+		
 		########################################################
 		#<en> To change clay AUT aspects
-		#<fr> Pour modifier les aspects du sable argile AUT dans l'aire associée
+		#<fr> Pour modifier les aspects de l' argile AUT dans l'aire associée
 		########################################################
 		
 		beginpattern(pattern_clay_AUT);
