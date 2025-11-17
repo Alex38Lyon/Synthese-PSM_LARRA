@@ -94,22 +94,22 @@ processing survey data ...
 ####################### cavern log file ########################
  1> Survex 1.4.17
  2> Copyright ¸ 1990-2025 Olly Betts
- 3> C:\Users\alexa\AppData\Local\Temp\th22720\data.svx:1191:6: warning: Station already fixed at the same coordinates
+ 3> C:\Users\alexa\AppData\Local\Temp\th7104\data.svx:1191:6: warning: Station already fixed at the same coordinates
  4>  *fix 1122 680916.000000 4757614.000000 1719.000000
  5>       ^~~~
- 6> C:\Users\alexa\AppData\Local\Temp\th22720\data.svx:1190: info: Previously fixed or equated here
- 7> C:\Users\alexa\AppData\Local\Temp\th22720\data.svx:9996:6: warning: Station already fixed at the same coordinates
+ 6> C:\Users\alexa\AppData\Local\Temp\th7104\data.svx:1190: info: Previously fixed or equated here
+ 7> C:\Users\alexa\AppData\Local\Temp\th7104\data.svx:9996:6: warning: Station already fixed at the same coordinates
  8>  *fix 9182 684221.000000 4757518.000000 2095.800000
  9>       ^~~~
-10> C:\Users\alexa\AppData\Local\Temp\th22720\data.svx:9995: info: Previously fixed or equated here
-11> C:\Users\alexa\AppData\Local\Temp\th22720\data.svx:11952:6: warning: Station already fixed at the same coordinates
+10> C:\Users\alexa\AppData\Local\Temp\th7104\data.svx:9995: info: Previously fixed or equated here
+11> C:\Users\alexa\AppData\Local\Temp\th7104\data.svx:11952:6: warning: Station already fixed at the same coordinates
 12>  *fix 11156 684221.000000 4757518.000000 2095.800000
 13>       ^~~~~
-14> C:\Users\alexa\AppData\Local\Temp\th22720\data.svx:11951: info: Previously fixed or equated here
-15> C:\Users\alexa\AppData\Local\Temp\th22720\data.svx:17381:6: warning: Station already fixed at the same coordinates
+14> C:\Users\alexa\AppData\Local\Temp\th7104\data.svx:11951: info: Previously fixed or equated here
+15> C:\Users\alexa\AppData\Local\Temp\th7104\data.svx:17381:6: warning: Station already fixed at the same coordinates
 16>  *fix 16378 683605.000000 4757525.000000 2045.000000
 17>       ^~~~~
-18> C:\Users\alexa\AppData\Local\Temp\th22720\data.svx:17380: info: Previously fixed or equated here
+18> C:\Users\alexa\AppData\Local\Temp\th7104\data.svx:17380: info: Previously fixed or equated here
 19> 
 20> Survey contains 62725 survey stations, joined by 62980 legs.
 21> There are 427 loops.
@@ -124,25 +124,25 @@ processing survey data ...
 30> There were 4 warning(s).
 31> 
 ######################### transcription ########################
- 3> 22720 : LAR_d_555/2@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+ 3> 7104 : C214_d_56@Explo_01_2013_10_09.Explo_01_2013_10_09.C214-Niebla.Synthese-PSM_LARRA
  3> input:1191 -- Data/AN026/Data/Explo_01_2006_11_04/Data/Explo_01_2006_11_04.th [17]
  4> 1122 : AN26@Explo_01_2006_11_04.Explo_01_2006_11_04.AN026.Synthese-PSM_LARRA
- 6> 22720 : LAR_d_555/2@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+ 6> 7104 : C214_d_56@Explo_01_2013_10_09.Explo_01_2013_10_09.C214-Niebla.Synthese-PSM_LARRA
  6> input:1190 -- Data/AN026/Data/Explo_01_2006_11_04/Data/Explo_01_2006_11_04.th [15]
- 7> 22720 : LAR_d_555/2@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+ 7> 7104 : C214_d_56@Explo_01_2013_10_09.Explo_01_2013_10_09.C214-Niebla.Synthese-PSM_LARRA
  7> input:9996 -- Data/Complexe_Anialarra/Data/Explo_56_2003_08_02/Data/Explo_56_2003_08_02.th [17]
  8> 9182 : AN548@Explo_56_2003_08_02.Explo_56_2003_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
-10> 22720 : LAR_d_555/2@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+10> 7104 : C214_d_56@Explo_01_2013_10_09.Explo_01_2013_10_09.C214-Niebla.Synthese-PSM_LARRA
 10> input:9995 -- Data/Complexe_Anialarra/Data/Explo_56_2003_08_02/Data/Explo_56_2003_08_02.th [15]
-11> 22720 : LAR_d_555/2@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+11> 7104 : C214_d_56@Explo_01_2013_10_09.Explo_01_2013_10_09.C214-Niebla.Synthese-PSM_LARRA
 11> input:11952 -- Data/Complexe_Anialarra/Data/Explo_132_2009_07_09/Data/Explo_132_2009_07_09.th [17]
 12> 11156 : AN548@Explo_132_2009_07_09.Explo_132_2009_07_09.Complexe_Anialarra.Synthese-PSM_LARRA
-14> 22720 : LAR_d_555/2@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+14> 7104 : C214_d_56@Explo_01_2013_10_09.Explo_01_2013_10_09.C214-Niebla.Synthese-PSM_LARRA
 14> input:11951 -- Data/Complexe_Anialarra/Data/Explo_132_2009_07_09/Data/Explo_132_2009_07_09.th [15]
-15> 22720 : LAR_d_555/2@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+15> 7104 : C214_d_56@Explo_01_2013_10_09.Explo_01_2013_10_09.C214-Niebla.Synthese-PSM_LARRA
 15> input:17381 -- Data/Complexe_Anialarra/Data/Explo_401_2023_09_17/Data/Explo_401_2023_09_17.th [17]
 16> 16378 : AN3@Explo_401_2023_09_17.Explo_401_2023_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
-18> 22720 : LAR_d_555/2@Explo_213_2001_08_08.Explo_213_2001_08_08.Complexe_Arrestelia.Synthese-PSM_LARRA
+18> 7104 : C214_d_56@Explo_01_2013_10_09.Explo_01_2013_10_09.C214-Niebla.Synthese-PSM_LARRA
 18> input:17380 -- Data/Complexe_Anialarra/Data/Explo_401_2023_09_17/Data/Explo_401_2023_09_17.th [15]
 20> 62725 : 27@Z510_Fond.Z510_Fond.Z510.Synthese-PSM_LARRA
 21> 427 : AN8_d_631@Explo_03_1992_08_01.Explo_03_1992_08_01.AN008.Synthese-PSM_LARRA
@@ -344,6 +344,14 @@ M  1.5e+03 MP-Tobozo_2131-Plan-tot@Tobozo_2131.Tobozo.Synthese-PSM_LARRA (Tobozo
 S  1.5e+03 SP-Tobozo_2131_01@Tobozo_2131.Tobozo.Synthese-PSM_LARRA ()
 M  1.5e+03 MP-Tobozo_231-Plan-tot@Tobozo_231.Tobozo.Synthese-PSM_LARRA (Tobozo_231)
 S  1.5e+03 SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA ()
+M    2e+03 MP-Explo_02_1984_08_06-Plan-tot@Explo_02_1984_08_06.M414.Synthese-PSM_LARRA (Explo 02 1984 08 06)
+S    2e+03 SP-Explo_02_1984_08_06_01@Explo_02_1984_08_06.M414.Synthese-PSM_LARRA ()
+M  1.9e+03 MP-Explo_03_1984_08_10-Plan-tot@Explo_03_1984_08_10.M414.Synthese-PSM_LARRA (Explo 03 1984 08 10)
+S  1.9e+03 SP-Explo_03_1984_08_10_01@Explo_03_1984_08_10.M414.Synthese-PSM_LARRA ()
+M  1.9e+03 MP-Explo_04_1987_08_10-Plan-tot@Explo_04_1987_08_10.M414.Synthese-PSM_LARRA (Explo 04 1987 08 10)
+S  1.9e+03 SP-Explo_04_1987_08_10_01@Explo_04_1987_08_10.M414.Synthese-PSM_LARRA ()
+M  1.8e+03 MP-Explo_01_1984_07_01-Plan-tot@Explo_01_1984_07_01.M414.Synthese-PSM_LARRA (Explo 01 1984 07 01)
+S  1.8e+03 SP-Explo_01_1984_07_01_01@Explo_01_1984_07_01.M414.Synthese-PSM_LARRA ()
 M  1.7e+03 MP-Explo_07_2022_08_09A-Plan-tot@Explo_07_2022_08_09A.L5.Synthese-PSM_LARRA (Explo 07 2022 08 09A)
 S  1.7e+03 SP-Explo_07_2022_08_09A_02@Explo_07_2022_08_09A.L5.Synthese-PSM_LARRA ()
 S  1.7e+03 SP-Explo_07_2022_08_09A_01@Explo_07_2022_08_09A.L5.Synthese-PSM_LARRA ()
@@ -661,7 +669,7 @@ S  1.5e+03 SP-Explo_02_2009_08_01_01@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.S
 writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  17 NOV 2025 16:36
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  17 NOV 2025 18:00
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -798,163 +806,164 @@ Tobozo.Synthese-PSM_LARRA] [427] [428] [429] [430] [431] [432] [433] [434]
 [435] [436]
 [Warning: text scaled down to fit the path in scrap SP-Tobozo_213_01@Tobozo_213
 .Tobozo.Synthese-PSM_LARRA] [437] [438] [439] [440] [441] [442] [443] [444]
-[445] [446] [447] [448] [449] [450] [451] [452]
+[445] [446] [447] [448] [449] [450] [451] [452] [453] [454] [455] [456] [457]
+[458] [459] [460] [461] [462] [463] [464] [465]
 [Warning: text scaled down to fit the path in scrap SP-Explo_07_2022_08_09B_01@
-Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA] [453] [454]
+Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA] [466] [467]
 [Warning: scrap outline intersects itself in scrap SP-Explo_09_2023_08_07_01@Ex
-plo_09_2023_08_07.L5.Synthese-PSM_LARRA] [455] [456] [457] [458] [459] [460]
-[461] [462] [463] [464] [465] [466] [467] [468] [469] [470] [471] [472] [473]
+plo_09_2023_08_07.L5.Synthese-PSM_LARRA] [468] [469] [470] [471] [472] [473]
 [474] [475] [476] [477] [478] [479] [480] [481] [482] [483] [484] [485] [486]
 [487] [488] [489] [490] [491] [492] [493] [494] [495] [496] [497] [498] [499]
-[500] [501] [502] [503] [504] [505] [506]
+[500] [501] [502] [503] [504] [505] [506] [507] [508] [509] [510] [511] [512]
+[513] [514] [515] [516] [517] [518] [519]
 [Warning: scrap outline intersects itself in scrap SP-Explo_02_1984_07_31_01@Ex
-plo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [507]
-[508] [509] [510] [511] [512] [513] [514] [515] [516] [517] [518] [519] [520]
+plo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [520]
 [521] [522] [523] [524] [525] [526] [527] [528] [529] [530] [531] [532] [533]
-[534] [535] [536]
+[534] [535] [536] [537] [538] [539] [540] [541] [542] [543] [544] [545] [546]
+[547] [548] [549]
 [Warning: scrap outline intersects itself in scrap SP-Explo_10_1989_08_02_01@Ex
-plo_10_1989_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [537]
-[538] [539] [540] [541] [542] [543] [544]
+plo_10_1989_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [550]
+[551] [552] [553] [554] [555] [556] [557]
 [Warning: scrap outline intersects itself in scrap SP-Explo_13_1990_07_30_01@Ex
 plo_13_1990_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA]
 [Warning: scrap outline intersects itself in scrap SP-Explo_13_1990_07_30_01@Ex
-plo_13_1990_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [545]
-[546] [547] [548] [549] [550]
+plo_13_1990_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [558]
+[559] [560] [561] [562] [563]
 [Warning: text scaled down to fit the path in scrap SP-Explo_14_1990_08_01_01@E
-xplo_14_1990_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [551]
-[552] [553] [554] [555] [556] [557] [558] [559] [560] [561] [562] [563]
+xplo_14_1990_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [564]
+[565] [566] [567] [568] [569] [570] [571] [572] [573] [574] [575] [576]
 [Warning: scrap outline intersects itself in scrap SP-Explo_18_1995_08_04_01@Ex
-plo_18_1995_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [564]
-[565] [566] [567] [568] [569] [570] [571]
+plo_18_1995_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [577]
+[578] [579] [580] [581] [582] [583] [584]
 [Warning: scrap outline intersects itself in scrap SP-Explo_20_1995_08_27_01@Ex
 plo_20_1995_08_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA]
 [Warning: scrap outline intersects itself in scrap SP-Explo_20_1995_08_27_01@Ex
-plo_20_1995_08_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [572]
-[573] [574] [575] [576] [577] [578] [579] [580] [581] [582] [583] [584] [585]
+plo_20_1995_08_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [585]
 [586] [587] [588] [589] [590] [591] [592] [593] [594] [595] [596] [597] [598]
 [599] [600] [601] [602] [603] [604] [605] [606] [607] [608] [609] [610] [611]
 [612] [613] [614] [615] [616] [617] [618] [619] [620] [621] [622] [623] [624]
-[625] [626] [627] [628] [629] [630] [631] [632] [633] [634] [635]
+[625] [626] [627] [628] [629] [630] [631] [632] [633] [634] [635] [636] [637]
+[638] [639] [640] [641] [642] [643] [644] [645] [646] [647] [648]
 [Warning: scrap outline intersects itself in scrap SP-Explo_28_1996_08_01_03@Ex
-plo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [636]
-[637] [638] [639] [640] [641] [642] [643] [644] [645] [646] [647]
+plo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [649]
+[650] [651] [652] [653] [654] [655] [656] [657] [658] [659] [660]
 [Warning: scrap outline intersects itself in scrap SS-Explo_28_1996_08_01_01@Ex
-plo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [648]
-[649] [650] [651] [652] [653] [654] [655] [656] [657] [658] [659] [660] [661]
+plo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [661]
 [662] [663] [664] [665] [666] [667] [668] [669] [670] [671] [672] [673] [674]
-[675] [676] [677] [678] [679] [680] [681] [682] [683] [684] [685] [686]
+[675] [676] [677] [678] [679] [680] [681] [682] [683] [684] [685] [686] [687]
+[688] [689] [690] [691] [692] [693] [694] [695] [696] [697] [698] [699]
 [Warning: scrap outline intersects itself in scrap SP-Explo_40_1997_07_27_01@Ex
 plo_40_1997_07_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA]
 [Warning: scrap outline intersects itself in scrap SP-Explo_40_1997_07_27_01@Ex
-plo_40_1997_07_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [687]
-[688] [689] [690] [691] [692] [693] [694]
+plo_40_1997_07_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [700]
+[701] [702] [703] [704] [705] [706] [707]
 [Warning: scrap outline intersects itself in scrap SP-Explo_42_1997_07_31_01@Ex
-plo_42_1997_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [695]
-[696] [697] [698] [699] [700] [701]
+plo_42_1997_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [708]
+[709] [710] [711] [712] [713] [714]
 [Warning: scrap outline intersects itself in scrap SP-Explo_45_1997_08_06_01@Ex
-plo_45_1997_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [702]
-[703] [704] [705] [706] [707] [708]
+plo_45_1997_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [715]
+[716] [717] [718] [719] [720] [721]
 [Warning: scrap outline intersects itself in scrap SP-Explo_47_1997_08_09_01@Ex
-plo_47_1997_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [709]
-[710] [711] [712] [713] [714] [715] [716]
+plo_47_1997_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [722]
+[723] [724] [725] [726] [727] [728] [729]
 [Warning: scrap outline intersects itself in scrap SP-Explo_49_1998_08_03_01@Ex
-plo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [717]
-[718] [719] [720] [721] [722] [723] [724]
+plo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [730]
+[731] [732] [733] [734] [735] [736] [737]
 [Warning: scrap outline intersects itself in scrap SP-Explo_50_1998_08_05_01@Ex
-plo_50_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [725]
-[726] [727] [728] [729] [730] [731] [732] [733] [734] [735] [736] [737] [738]
+plo_50_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [738]
 [739] [740] [741] [742] [743] [744] [745] [746] [747] [748] [749] [750] [751]
-[752]
+[752] [753] [754] [755] [756] [757] [758] [759] [760] [761] [762] [763] [764]
+[765]
 [Warning: scrap outline intersects itself in scrap SP-Explo_67_1999_09_01_02@Ex
-plo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [753]
-[754] [755] [756] [757] [758] [759] [760] [761] [762] [763] [764] [765] [766]
+plo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [766]
 [767] [768] [769] [770] [771] [772] [773] [774] [775] [776] [777] [778] [779]
 [780] [781] [782] [783] [784] [785] [786] [787] [788] [789] [790] [791] [792]
 [793] [794] [795] [796] [797] [798] [799] [800] [801] [802] [803] [804] [805]
-[806] [807] [808] [809] [810]
+[806] [807] [808] [809] [810] [811] [812] [813] [814] [815] [816] [817] [818]
+[819] [820] [821] [822] [823]
 [Warning: scrap outline intersects itself in scrap SP-Explo_70_2000_07_25_01@Ex
-plo_70_2000_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [811]
-[812] [813] [814]
+plo_70_2000_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [824]
+[825] [826] [827]
 [Warning: scrap outline intersects itself in scrap SP-Explo_71_2000_07_29_02@Ex
-plo_71_2000_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [815]
-[816] [817] [818] [819] [820] [821]
+plo_71_2000_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [828]
+[829] [830] [831] [832] [833] [834]
 [Warning: scrap outline intersects itself in scrap SP-Explo_87_2001_07_26_01@Ex
-plo_87_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [822]
-[823] [824]
+plo_87_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [835]
+[836] [837]
 [Warning: scrap outline intersects itself in scrap SP-Explo_75_2000_08_28_01@Ex
-plo_75_2000_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [825]
-[826] [827] [828] [829] [830] [831] [832] [833] [834] [835] [836] [837] [838]
+plo_75_2000_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [838]
 [839] [840] [841] [842] [843] [844] [845] [846] [847] [848] [849] [850] [851]
-[852] [853] [854] [855]
+[852] [853] [854] [855] [856] [857] [858] [859] [860] [861] [862] [863] [864]
+[865] [866] [867] [868]
 [Warning: scrap outline intersects itself in scrap SP-Explo_91_2001_07_26_01@Ex
-plo_91_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [856]
-[857] [858] [859] [860] [861] [862]
+plo_91_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [869]
+[870] [871] [872] [873] [874] [875]
 [Warning: scrap outline intersects itself in scrap SP-Explo_95_2001_08_28_01@Ex
-plo_95_2001_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [863]
-[864] [865] [866] [867] [868] [869] [870] [871]
+plo_95_2001_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [876]
+[877] [878] [879] [880] [881] [882] [883] [884]
 [Warning: scrap outline intersects itself in scrap SP-Explo_101_2002_09_04_01@E
-xplo_101_2002_09_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [872]
-[873] [874] [875] [876] [877] [878] [879] [880] [881] [882] [883] [884] [885]
+xplo_101_2002_09_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA] [885]
 [886] [887] [888] [889] [890] [891] [892] [893] [894] [895] [896] [897] [898]
-[899] [900] [901] [902]
+[899] [900] [901] [902] [903] [904] [905] [906] [907] [908] [909] [910] [911]
+[912] [913] [914] [915]
 [Warning: scrap outline intersects itself in scrap SP-Explo_14_1982_08_09_01@Ex
-plo_14_1982_08_09.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [903] [904]
-[905] [906] [907] [908] [909] [910] [911] [912] [913] [914] [915] [916] [917]
+plo_14_1982_08_09.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [916] [917]
+[918] [919] [920] [921] [922] [923] [924] [925] [926] [927] [928] [929] [930]
 [Warning: scrap outline intersects itself in scrap SP-Explo_18_1982_08_18_01@Ex
-plo_18_1982_08_18.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [918] [919]
-[920] [921]
+plo_18_1982_08_18.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [931] [932]
+[933] [934]
 [Warning: scrap outline intersects itself in scrap SP-Explo_19_1982_08_18_01@Ex
-plo_19_1982_08_18.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [922] [923]
-[924] [925] [926] [927] [928] [929] [930] [931]
+plo_19_1982_08_18.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [935] [936]
+[937] [938] [939] [940] [941] [942] [943] [944]
 [Warning: scrap outline intersects itself in scrap SP-Explo_28_1983_08_11_01@Ex
 plo_28_1983_08_11.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA]
 [Warning: scrap outline intersects itself in scrap SP-Explo_28_1983_08_11_01@Ex
-plo_28_1983_08_11.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [932] [933]
-[934] [935] [936] [937] [938] [939] [940] [941] [942]
+plo_28_1983_08_11.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [945] [946]
+[947] [948] [949] [950] [951] [952] [953] [954] [955]
 [Warning: scrap outline intersects itself in scrap SP-Explo_31_1983_08_17_01@Ex
-plo_31_1983_08_17.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [943] [944]
-[945] [946]
+plo_31_1983_08_17.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [956] [957]
+[958] [959]
 [Warning: scrap outline intersects itself in scrap SP-Explo_39_1984_08_07_01@Ex
-plo_39_1984_08_07.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [947] [948]
-[949] [950]
+plo_39_1984_08_07.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [960] [961]
+[962] [963]
 [Warning: scrap outline intersects itself in scrap SP-Explo_40_1984_08_08_01@Ex
-plo_40_1984_08_08.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [951] [952]
-[953] [954]
+plo_40_1984_08_08.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [964] [965]
+[966] [967]
 [Warning: scrap outline intersects itself in scrap SP-Explo_41_2005_08_01_01@Ex
-plo_41_2005_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [955] [956]
-[957] [958] [959] [960] [961] [962]
+plo_41_2005_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [968] [969]
+[970] [971] [972] [973] [974] [975]
 [Warning: scrap outline intersects itself in scrap SP-Explo_42_2006_08_01_01@Ex
-plo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [963] [964]
-[965] [966] [967] [968] [969] [970] [971] [972] [973] [974] [975] [976] [977]
+plo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA] [976] [977]
 [978] [979] [980] [981] [982] [983] [984] [985] [986] [987] [988] [989] [990]
-[991]
+[991] [992] [993] [994] [995] [996] [997] [998] [999] [1000] [1001] [1002]
+[1003] [1004]
 [Warning: scrap outline intersects itself in scrap SP-Explo_01_2007_08_01_03@Ex
-plo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA] [992] [993] [994]
-[995] [996] [997] [998] [999] [1000] [1001] [1002] [1003] [1004] [1005]
-(./mptextmp.mp) [1006] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
-(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [1007] [1008] [1009] [1010]
-[1011] [1012] [1013] [1014] [1015] [1016] [1017] [1018] [1019] [1020] [1021]
-[1022] [1023] [1024] [1025] [1026] [1027] [1028] [1029] [1030] [1031] [1032]
-[1033] [1034] [1035] [1036] [1037] [1038] [1039] [1040] [1041] [1042] [1043]
-[1044] [1045] [1046] [1047] [1048] [1049] [1050] [1051] [1052] [1053] [1054]
-[1055] [1056] [1057] [1058] [1059] [1060] [1061] [1062] [1063] [1064] [1065]
-[1066] [1067] [1068] [1069] [1070] [1071] [1072] [1073] [1074] [1075] [1076]
-[1077] [1078] [1079] [1080] [1081] [1082] [1083] [1084] [1085] [1086] [1087]
-[1088] [1089] [1090] [1091] [1092] [1093] [1094] [1095] [1096] )
+plo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA] [1005] [1006] [1007
+] [1008] [1009] [1010] [1011] [1012] [1013] [1014] [1015] [1016] [1017] [1018]
+(./mptextmp.mp) [1019] (./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp)
+(./mptextmp.mp) (./mptextmp.mp) (./mptextmp.mp) [1020] [1021] [1022] [1023]
+[1024] [1025] [1026] [1027] [1028] [1029] [1030] [1031] [1032] [1033] [1034]
+[1035] [1036] [1037] [1038] [1039] [1040] [1041] [1042] [1043] [1044] [1045]
+[1046] [1047] [1048] [1049] [1050] [1051] [1052] [1053] [1054] [1055] [1056]
+[1057] [1058] [1059] [1060] [1061] [1062] [1063] [1064] [1065] [1066] [1067]
+[1068] [1069] [1070] [1071] [1072] [1073] [1074] [1075] [1076] [1077] [1078]
+[1079] [1080] [1081] [1082] [1083] [1084] [1085] [1086] [1087] [1088] [1089]
+[1090] [1091] [1092] [1093] [1094] [1095] [1096] [1097] [1098] [1099] [1100]
+[1101] [1102] [1103] [1104] [1105] [1106] [1107] [1108] [1109] )
  
 Here is how much of MetaPost's memory you used:
- 651853 strings using 16022386 characters
- 17826864 bytes of node memory
+ 653833 strings using 16073270 characters
+ 17834496 bytes of node memory
  1811 symbolic tokens
  11i,82n,18p,617b,5f stack positions out of 16i,98n,20p,760b,6f
-1113 output files written: data-patt.1 .. data.1096
+1126 output files written: data-patt.1 .. data.1109
 
 
 #################### end of metapost log file ####################
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  17 NOV 2025 16:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  17 NOV 2025 18:01
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -968,10 +977,10 @@ go-ARSIP-Synthese-Topographique_XL.png>) (./th_pages.tex)
  [1] )
 (\end occurred when \ifx on line 12 was incomplete) 
 Here is how much of TeX's memory you used:
- 2764 strings out of 95671
- 34310 string characters out of 1192323
- 1184177 words of memory out of 2596220
- 4157 multiletter control sequences out of 15000+50000
+ 2797 strings out of 95671
+ 34728 string characters out of 1192323
+ 1187294 words of memory out of 2598337
+ 4190 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
  14i,6n,9p,769b,80s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -979,12 +988,12 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 51511407 bytes).
+Output written on data.pdf (1 page, 52146842 bytes).
 PDF statistics:
- 5504 PDF objects out of 6186 (max. 8388607)
- 2740 compressed objects within 28 object streams
+ 5578 PDF objects out of 6186 (max. 8388607)
+ 2777 compressed objects within 28 object streams
  0 named destinations out of 1000 (max. 500000)
- 16356 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 16578 words of extra memory for PDF output out of 17280 (max. 10000000)
 
 
 ##################### end of pdftex log file #####################
@@ -1053,17 +1062,17 @@ C:\Program Files\Therion\therion.exe: warning -- SP-Explo_24_2021_04_03_01@Explo
 C:\Program Files\Therion\therion.exe: warning -- SP-Explo_27_2022_11_11_01@Explo_27_2022_11_11.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA -- invalid scrap outline
 .C:\Program Files\Therion\therion.exe: warning -- SP-Explo_28_2022_12_03_01@Explo_28_2022_12_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA -- invalid scrap outline
 .C:\Program Files\Therion\therion.exe: warning -- SP-Explo_29_2022_12_03_01@Explo_29_2022_12_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA -- invalid scrap outline
-........................................................... done
+............................................................... done
 writing Outputs/Synthese-PSM_LARRA.kml ... done
 writing Outputs/database_Synthese-PSM_LARRA.sql ... 
 processing projection elevation ... done
 average distortion: 0.47%
 
 processing projection extended ... done
-average distortion: 16.22%
+average distortion: 16.07%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  17 NOV 2025 16:43
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  17 NOV 2025 18:08
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1092,7 +1101,7 @@ writing Outputs/Synthese-PSM_LARRA-model.kml ... done
 writing Outputs/Synthese-PSM_LARRA-3D.kml ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.html ... done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
-compilation time: 501 sec
+compilation time: 519 sec
 
 
 ######################### loop errors ##########################
@@ -1641,9 +1650,9 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ###################### scrap distortions #######################
  PROJECTION: plan
  AVERAGE  MAXIMAL  SCRAP
+   0.57%   1e+02%  SP-B3_Aval_01B@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.47%   1e+02%  SP-Explo_71_2000_07_29_01@Explo_71_2000_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.33%   1e+02%  SP-Explo_13_2015_01_30_01@Explo_13_2015_01_30.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.57%   1e+02%  SP-B3_Aval_01B@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
      10%      97%  SP-L5_02@Explo_13_2025_08_10.L5.Synthese-PSM_LARRA
     3.1%      95%  SP-Explo_08_1981_08_02_01@Explo_08_1981_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     0.2%      91%  SP-B3_Aval_01@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
@@ -1679,6 +1688,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
     7.6%      59%  SP-Explo_05_1985_07_31_01@Explo_05_1985_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.61%      59%  SP-Explo_47_1997_08_09_01@Explo_47_1997_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.59%      58%  SP-Explo_90_2001_07_26_01@Explo_90_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.83%      58%  SP-Explo_04_1987_08_10_01@Explo_04_1987_08_10.M414.Synthese-PSM_LARRA
     1.9%      58%  SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.14%      57%  SP-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     3.7%      56%  SP-Explo_25_1996_07_23_01@Explo_25_1996_07_23.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
@@ -1710,10 +1720,12 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.21%      43%  SP-Explo_75_2000_08_28_01@Explo_75_2000_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.3%      42%  SP-Explo_01_2007_08_01_07@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.11%      42%  SP-Explo_62_1999_08_02_01@Explo_62_1999_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    1.2%      41%  SP-Explo_02_1984_08_06_01@Explo_02_1984_08_06.M414.Synthese-PSM_LARRA
     3.3%      41%  SP-Explo_32_1996_08_08_01@Explo_32_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.39%      40%  SP-Explo_28_1996_08_01_03@Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.24%      40%  SP-Explo_15_1994_08_28_01@Explo_15_1994_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.18%      40%  SP-Tobozo_2131_01@Tobozo_2131.Tobozo.Synthese-PSM_LARRA
+    1.7%      39%  SP-Explo_03_1984_08_10_01@Explo_03_1984_08_10.M414.Synthese-PSM_LARRA
   0.018%      39%  SP-Tobozo_10_01@Tobozo_10.Tobozo.Synthese-PSM_LARRA
    0.42%      38%  SP-Explo_17_1995_08_03_01@Explo_17_1995_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.48%      38%  SP-Explo_15_2025_08_13_01@Explo_15_2025_08_13.L5.Synthese-PSM_LARRA
@@ -1949,6 +1961,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
   0.067%    0.55%  BB26_meandre_1_b@BB26.Synthese-PSM_LARRA
  0.0078%    0.53%  SP-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
   0.025%    0.51%  SP-Explo_27_1983_08_06_01@Explo_27_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.053%    0.49%  SP-Explo_01_1984_07_01_01@Explo_01_1984_07_01.M414.Synthese-PSM_LARRA
   0.077%    0.49%  SP-Z510_02B@Z510_Entree.Z510.Synthese-PSM_LARRA
    0.07%    0.46%  SP-Explo_21_1983_01_01_01@Explo_21_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.013%    0.45%  SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
@@ -2007,87 +2020,87 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
  2.9e-11%  8.6e-11%  SP-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
   9e-14%  6.7e-13%  SP-AP7_Entree_04@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
  1.9e-13%  3.9e-13%  SP-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_09_1985_08_09_02@Explo_09_1985_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_14_1982_08_09_02@Explo_14_1982_08_09.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_16_1982_08_14_03@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_05@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1977_01_01_02@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_83_2000_08_31_01@Explo_83_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_79_2000_08_30_01@Explo_79_2000_08_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_16_1982_08_14_04@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_04@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_03@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_82_2000_08_31_01@Explo_82_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_02@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_11_1982_08_02_03@Explo_11_1982_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Tobozo_23_01@Tobozo_23.Tobozo.Synthese-PSM_LARRA
+      0%       0%  scrap165@Tobozo_21.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SP-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SP-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1977_01_01_03@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-AP7_Aval_15@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_13_1982_08_06_02@Explo_13_1982_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SP-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SP-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_06_1979_05_01_02@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_06_1979_05_01_03@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_32_1983_10_23_03@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SP-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_06_1979_05_01_02@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_05_1979_01_01_07@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_32_1983_10_23_04@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_33_1983_10_23_01@Explo_33_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_05@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1977_01_01_02@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1977_01_01_03@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_12_1982_08_05_02@Explo_12_1982_08_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_06@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  scrap339@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_42_2006_08_01_04@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_09_1985_08_09_02@Explo_09_1985_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_1987_08_01_02@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_1987_08_01_03@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1984_08_06_04@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1984_08_06_03@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1984_08_06_02@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_1984_07_31_03@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_1984_07_31_02@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_2012_08_01_03@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_2012_08_01_02@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_1977_07_01_02@Explo_01_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2011_08_01_05@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2011_08_01_04@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2011_08_01_03@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2011_08_01_02@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  scrap51@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_2009_08_01_04@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_2009_08_01_03@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_2009_08_01_02@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2007_08_01_13@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2007_08_01_12@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_20_2019_02_21_02@Explo_20_2019_02_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_22_1983_01_01_01@Explo_22_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_72_2000_07_30_01@Explo_72_2000_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_08_2023_08_07_01@Explo_08_2023_08_07.L5.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_07_2022_08_09B_02@Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_26_1983_08_06_02@Explo_26_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_58_1999_07_31_04@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_56_1998_08_06_01@Explo_56_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_26_1983_08_06_02@Explo_26_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_51_1998_08_05_01@Explo_51_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_02@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_03@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_04@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_49_1998_08_03_02@Explo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_45_1997_08_06_02@Explo_45_1997_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_06@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_29_1983_08_12_02@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_29_1983_08_12_03@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_29_1983_08_12_04@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Tobozo_23_01@Tobozo_23.Tobozo.Synthese-PSM_LARRA
-      0%       0%  scrap165@Tobozo_21.Tobozo.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_32_1983_10_23_02@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2011_08_01_04@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2007_08_01_12@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_20_2019_02_21_02@Explo_20_2019_02_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2007_08_01_13@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_2009_08_01_02@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_2009_08_01_03@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_2009_08_01_04@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_83_2000_08_31_01@Explo_83_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2011_08_01_02@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2011_08_01_03@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_12_1982_08_05_02@Explo_12_1982_08_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_13_1982_08_06_02@Explo_13_1982_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_82_2000_08_31_01@Explo_82_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2011_08_01_05@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_14_1982_08_09_02@Explo_14_1982_08_09.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_2012_08_01_02@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_2012_08_01_03@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_1977_07_01_02@Explo_01_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_16_1982_08_14_04@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_79_2000_08_30_01@Explo_79_2000_08_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_1987_08_01_02@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_51_1998_08_05_01@Explo_51_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_49_1998_08_03_02@Explo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_45_1997_08_06_02@Explo_45_1997_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_32_1983_10_23_02@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_32_1983_10_23_03@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_32_1983_10_23_04@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_33_1983_10_23_01@Explo_33_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_13_1990_07_30_02@Explo_13_1990_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_10_1989_08_02_02@Explo_10_1989_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_16_1982_08_14_03@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1984_08_06_04@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_42_2006_08_01_03@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_42_2006_08_01_04@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_08_2023_08_07_01@Explo_08_2023_08_07.L5.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_07_2022_08_09B_02@Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1984_08_06_03@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_22_1983_01_01_01@Explo_22_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_1987_08_01_03@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1984_08_06_02@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_72_2000_07_30_01@Explo_72_2000_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_1984_07_31_03@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_1984_07_31_02@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_11_1982_08_02_03@Explo_11_1982_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  scrap51@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  scrap339@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
 ################### end of scrap distortions ###################
 
 
@@ -2105,19 +2118,19 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ###################### scrap distortions #######################
  PROJECTION: extended
  AVERAGE  MAXIMAL  SCRAP
-     70%   1e+02%  SC-Explo_76_2000_08_29_01@Explo_76_2000_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-     30%   1e+02%  SC-Explo_03_1977_01_01_01@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-     81%   1e+02%  SC-Explo_14_2025_08_13_01@Explo_14_2025_08_13.L5.Synthese-PSM_LARRA
-     40%   1e+02%  SC-Explo_29_1996_08_02_01@Explo_29_1996_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-     58%   1e+02%  SC-Explo_18_1982_08_18_01@Explo_18_1982_08_18.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-     38%   1e+02%  SC-Explo_86_2001_07_25_01@Explo_86_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-     72%   1e+02%  SC-Explo_71_2000_07_29_01@Explo_71_2000_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-     76%   1e+02%  SC-Explo_70_2000_07_25_01@Explo_70_2000_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-     79%   1e+02%  SC-Explo_05_1979_01_01_01@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-     39%   1e+02%  SC-Explo_67_1999_09_01_01@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-     49%   1e+02%  SC-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-    6.9%   1e+02%  SC-Explo_08_1981_08_02_01@Explo_08_1981_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
      10%   1e+02%  SC-Explo_58_1999_07_31_01@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+     49%   1e+02%  SC-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+     58%   1e+02%  SC-Explo_18_1982_08_18_01@Explo_18_1982_08_18.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    6.9%   1e+02%  SC-Explo_08_1981_08_02_01@Explo_08_1981_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+     79%   1e+02%  SC-Explo_05_1979_01_01_01@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+     30%   1e+02%  SC-Explo_03_1977_01_01_01@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+     38%   1e+02%  SC-Explo_86_2001_07_25_01@Explo_86_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+     39%   1e+02%  SC-Explo_67_1999_09_01_01@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+     76%   1e+02%  SC-Explo_70_2000_07_25_01@Explo_70_2000_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+     81%   1e+02%  SC-Explo_14_2025_08_13_01@Explo_14_2025_08_13.L5.Synthese-PSM_LARRA
+     72%   1e+02%  SC-Explo_71_2000_07_29_01@Explo_71_2000_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+     70%   1e+02%  SC-Explo_76_2000_08_29_01@Explo_76_2000_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+     40%   1e+02%  SC-Explo_29_1996_08_02_01@Explo_29_1996_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     5.2%   1e+02%  SC-Explo_80_2000_08_31_01@Explo_80_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
      21%   1e+02%  SC-Explo_01_2007_08_01_01@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
      53%   1e+02%  SC-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
@@ -2189,6 +2202,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
      48%      94%  SC-Explo_09_2013_06_21_01@Explo_09_2013_06_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
      23%      94%  SC-Explo_24_2021_04_03_01@Explo_24_2021_04_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
      38%      93%  SC-Explo_07_2022_08_09A_01@Explo_07_2022_08_09A.L5.Synthese-PSM_LARRA
+    9.2%      93%  SC-Explo_03_1984_08_10_01@Explo_03_1984_08_10.M414.Synthese-PSM_LARRA
    0.44%      93%  SC-Explo_34_1996_08_08_01@Explo_34_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     6.6%      93%  SC-Explo_39_1997_07_26_01@Explo_39_1997_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
      54%      93%  SC-Explo_01_2010_08_01_01@Explo_01_2010_08_01.C50_Affluent_du_grand_canyon.Complexe_PSM_GdP.Synthese-PSM_LARRA
@@ -2278,6 +2292,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
     2.1%     2.2%  SC-Tobozo_31_01@Tobozo_31.Tobozo.Synthese-PSM_LARRA
    0.16%     1.7%  SC-Explo_89_2001_07_26_01@Explo_89_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.041%     1.7%  SC-Explo_02_2019_01_08_01@Explo_02_2019_01_08.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.13%     1.6%  SC-Explo_04_1987_08_10_01@Explo_04_1987_08_10.M414.Synthese-PSM_LARRA
  0.0063%     1.5%  SC-Explo_10_2020_10_01_01@Explo_10_2020_10_01.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.12%     1.5%  SC-Tobozo_9_01@Tobozo_9.Tobozo.Synthese-PSM_LARRA
   0.018%     1.3%  SC-Explo_04_2019_06_03_01@Explo_04_2019_06_03.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
@@ -2352,7 +2367,9 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
  0.00053%   0.011%  SC-Z510_03@Z510_Entree.Z510.Synthese-PSM_LARRA
  0.0012%   0.011%  SC-Explo_16_2025_08_15_01@Explo_16_2025_08_15.L5.Synthese-PSM_LARRA
  0.0014%  0.0092%  SC-Explo_25_1996_07_23_01@Explo_25_1996_07_23.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+ 0.00034%   0.009%  SC-Explo_02_1984_08_06_01@Explo_02_1984_08_06.M414.Synthese-PSM_LARRA
  0.0012%  0.0087%  SC-Tobozo_2_01@Tobozo_2.Tobozo.Synthese-PSM_LARRA
+ 0.00024%  0.0086%  SC-Explo_01_1984_07_01_01@Explo_01_1984_07_01.M414.Synthese-PSM_LARRA
  0.0011%  0.0083%  SC-Explo_15_2025_08_13_01@Explo_15_2025_08_13.L5.Synthese-PSM_LARRA
  6.4e-05%  0.0042%  SC-Explo_14_2015_03_30_01@Explo_14_2015_03_30.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
  0.0016%  0.0041%  SC-Tobozo_212_01@Tobozo_212.Tobozo.Synthese-PSM_LARRA
@@ -2365,134 +2382,134 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
  0.0002%  0.0016%  SC-Explo_27_1983_08_06_01@Explo_27_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
  5.9e-06%  0.0011%  SC-Tobozo_1_02@Tobozo_1.Tobozo.Synthese-PSM_LARRA
  0.0001%  0.0011%  SC-Explo_01_2021_04_12_01@Explo_01_2021_04_12.Complexe_PSM_GdP_Autres_Entrees.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_20_2019_02_21_02@Explo_20_2019_02_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_05_1979_01_01_06@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_05_1979_01_01_05@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-GL4_Amonts_03@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Tobozo_3_04@Tobozo_3.Tobozo.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_01_1977_07_01_02@Explo_01_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Tobozo_211_02@Tobozo_211.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_13_2025_08_10_02@Explo_13_2025_08_10.L5.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Tobozo_3_04@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SC-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-Tobozo_3_03@Tobozo_3.Tobozo.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Tobozo_211_02@Tobozo_211.Tobozo.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_05_1979_01_01_03@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Tobozo_3_02@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_15@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_13_2025_08_10_02@Explo_13_2025_08_10.L5.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_05_1979_01_01_07@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Tobozo_3_02@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_07_2022_08_09B_02@Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_08_2023_08_07_01@Explo_08_2023_08_07.L5.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_08_2023_08_07_01@Explo_08_2023_08_07.L5.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_07_2022_08_09B_02@Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_20_2019_02_21_02@Explo_20_2019_02_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_32_1983_10_23_04@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_29_1983_08_12_02@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_29_1983_08_12_03@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_29_1983_08_12_04@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_29_1983_08_12_05@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_58_1999_07_31_02@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_56_1998_08_06_01@Explo_56_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_51_1998_08_05_01@Explo_51_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_32_1983_10_23_02@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_32_1983_10_23_03@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_26_1983_08_06_02@Explo_26_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_33_1983_10_23_01@Explo_33_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_49_1998_08_03_02@Explo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_45_1997_08_06_02@Explo_45_1997_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_28_1996_08_01_02@Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_42_2006_08_01_02@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_42_2006_08_01_03@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_42_2006_08_01_04@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_21_1995_08_29_02@Explo_21_1995_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_16_1982_08_14_02@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_05_1979_01_01_04@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_05_1979_01_01_02@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_11_1982_08_02_02@Explo_11_1982_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  SC-Explo_11_1982_08_02_03@Explo_11_1982_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_03_1977_01_01_03@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_12_1982_08_05_02@Explo_12_1982_08_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_03_1977_01_01_02@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_13_1982_08_06_02@Explo_13_1982_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_14_1982_08_09_02@Explo_14_1982_08_09.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_02_1987_08_01_02@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_16_1982_08_14_03@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_16_1982_08_14_04@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_83_2000_08_31_01@Explo_83_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_82_2000_08_31_01@Explo_82_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_22_1983_01_01_01@Explo_22_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_79_2000_08_30_01@Explo_79_2000_08_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_72_2000_07_30_01@Explo_72_2000_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_67_1999_09_01_02@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_02_1984_07_31_03@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_03_1984_08_06_04@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_01_2011_08_01_02@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_01_2011_08_01_03@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_01_2011_08_01_04@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_01_2011_08_01_05@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_03_1984_08_06_03@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_02_2012_08_01_02@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_02_2012_08_01_03@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_03_1984_08_06_02@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_02_2009_08_01_04@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_02_1984_07_31_02@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_05_1979_01_01_02@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_05_1979_01_01_03@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_05_1979_01_01_04@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_05_1979_01_01_05@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_05_1979_01_01_06@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_05_1979_01_01_07@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_06_1979_05_01_02@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_06_1979_05_01_03@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_06_1979_05_01_02@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_01_1977_07_01_02@Explo_01_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_01_2007_08_01_06@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_02_1987_08_01_03@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_02_1987_08_01_04@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_11_1982_08_02_02@Explo_11_1982_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_03_1977_01_01_03@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_12_1982_08_05_02@Explo_12_1982_08_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_13_1982_08_06_02@Explo_13_1982_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_14_1982_08_09_02@Explo_14_1982_08_09.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_16_1982_08_14_02@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_16_1982_08_14_03@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_16_1982_08_14_04@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_22_1983_01_01_01@Explo_22_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_26_1983_08_06_02@Explo_26_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_29_1983_08_12_02@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_83_2000_08_31_01@Explo_83_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_56_1998_08_06_01@Explo_56_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_51_1998_08_05_01@Explo_51_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_49_1998_08_03_02@Explo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_45_1997_08_06_02@Explo_45_1997_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_67_1999_09_01_02@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_72_2000_07_30_01@Explo_72_2000_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_28_1996_08_01_02@Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_79_2000_08_30_01@Explo_79_2000_08_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_21_1995_08_29_02@Explo_21_1995_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_82_2000_08_31_01@Explo_82_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_29_1983_08_12_03@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_13_1990_07_30_02@Explo_13_1990_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_10_1989_08_02_02@Explo_10_1989_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_09_1985_08_09_02@Explo_09_1985_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_03_1984_08_06_04@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_03_1984_08_06_03@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_03_1984_08_06_02@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_02_1984_07_31_03@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_02_1984_07_31_02@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_03_1977_01_01_02@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_02_2009_08_01_02@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_01_2007_08_01_02@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_01_2007_08_01_03@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_01_2007_08_01_04@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_01_2007_08_01_05@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_01_2007_08_01_06@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_01_2007_08_01_07@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_01_2007_08_01_08@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_01_2007_08_01_09@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_01_2007_08_01_10@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_01_2007_08_01_11@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_09_1985_08_09_02@Explo_09_1985_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SC-Explo_02_2009_08_01_02@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_58_1999_07_31_02@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SC-Explo_02_2009_08_01_03@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_02_2009_08_01_04@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_01_2011_08_01_02@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_01_2011_08_01_03@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_01_2011_08_01_04@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_01_2011_08_01_05@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_02_2012_08_01_02@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_02_2012_08_01_03@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_29_1983_08_12_04@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_29_1983_08_12_05@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_32_1983_10_23_02@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_32_1983_10_23_03@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_32_1983_10_23_04@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_33_1983_10_23_01@Explo_33_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_42_2006_08_01_02@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_42_2006_08_01_03@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_42_2006_08_01_04@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_03@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_02_1987_08_01_02@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_02_1987_08_01_03@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SC-Explo_02_1987_08_01_04@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
 ################### end of scrap distortions ###################
 
 ############# CRS transformations chosen by PROJ ###############
