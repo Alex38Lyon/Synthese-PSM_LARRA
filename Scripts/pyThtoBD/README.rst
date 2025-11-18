@@ -1,25 +1,29 @@
 ****************************************************************************
-Export db Therion  <--> db KARSTEAU
+Script d'export db Therion  <--> db KARSTEAU
 ***************************************************************************
+
+!!! En cours de développement !!!
 
 Créer manuellement dans chaque dossier d'une cavité à exporter un fichier export_bd.ini
      - vide au début
-     - après exécution du script contient l'ID Therion de la cavité à exporter 
+     - après exécution du script contient l'ID Therion de la cavité à exporter (dans Export_bd.bd base CAVITE)
 
 Résultats dans le dossier /Outputs/Export_bd de la db Therion :
-	- Export_bd.log	: log de l'export
-	- Export_bd.bd		: base de données de transfert
-	- Export_bd.xlxs	: fichier excel pour l'export vers Karsteau
-	- Export_bd.zip	: archive brute des données Therion
+	- Export_bd.log	   : log de l'export
+	- Export_bd.bd		   : base de données de transfert KARSTEAU <-> THERION
+	- Export_bd.xlxs	   : fichier excel pour l'export vers Karsteau 
+	- Export_bd.zip	   : archive brute des données Therion
 	- Export_bd_data.zip : archive des documents à exporter vers Karsteau
 	
-Commande : python pyToBD.py --help
+Commande : python pyThtoBD.py --help             !!! Aide, liste des commandes     
+			  python pyThtoBD.py --folder ./Test/   !!! export de la base Therion de ./Test/
+			  python pyThtoBD.py                    !!! sélection du dossier Therion à exporter via une fenêtre tkinter  
 
 ==============================
 Table des données exportées :
 ==============================
 
-Cavité (la liste est générée automatiquement en recherchant dans les dossiers les fichiers export_bd.ini copiés manuellement)
+Table des cavités (la liste est générée automatiquement en recherchant dans les dossiers les fichiers export_bd.ini copiés manuellement)
 -----------------------------------------------------------------------------------------------------------
 CAVITE_ID                : Clé interne de la cavité (unique, entier, génération par le script) 	
 CAVITE_NAME              : Nom de la cavité (via la valeur -title de la survey du fichier _tot.th du dossier contenant la cavité)
@@ -34,8 +38,13 @@ CAVITE_KEY_KARSTEAU      : Retour Karsteau, clé unique d'identification de la c
 CAVITE_HASH_SQL_FILE     : Hash du fichier sql de la cavité pour gérer les modifications
 CAVITE_DATE_UPDATE       : Date de mise à jour de la cavité (date d'execution du script)
 
+CAVITE_NATURE            : à voir !!! Pas dispo dans Therion  
+CAVITE_AUTEUR_SPELEO_M   : à voir !!! Pas dispo dans Therion
+CAVITE_DATE_SPELEO_M     : à voir, ajouter  date du calcul Therion 
+CAVITE_CODE_HYDRO        : à voir !!! Pas dispo dans Therion
+CAVITE_SYS_HYDRO         : à voir !!! Pas dispo dans Therion
 
-Entrées (la liste des entrées est générée après l'exécution du thconfig de la cavité via le fichier sql généré) 
+Table des entrées (la liste des entrées est générée après l'exécution du thconfig de la cavité via le fichier sql généré) 
 ---------------------------------------------------------------------------------------------------------------
 ENT_ID                   : Clé interne de l'entrée (unique, entier, génération par le script) 	
 ENT_ID_CAVITE            : Clé interne de la cavité associée (génération par le script)
@@ -52,17 +61,24 @@ ENT_COORD_Y              : Coordonnée Y de l'entrée (via le fichier .sql de la
 ENT_COORD_Z              : Coordonnée Z de l'entrée (via le fichier .sql de la cavité) 
 ENT_UNIT_COORD           : Unité des coordonnées (m/km), toujours 'm'  
 ENT_SYS_COORD            : Système de coordonnée, (exemple UTM31, via le fichier .log de la cavité) 
-ENT_ZONE_COORD           : Zone de Coordonnée  !!! A voir comment remplir  
+ENT_ZONE_COORD           : Zone de coordonnée  !!! A voir comment remplir  
 ENT_METHODE_COORD        : Méthode d'obtention de la coordonnée  !!! Pas dispo dans Therion
 ENT_SOURCE_COORD         : Source de la coordonnée  (toujours 'Topo Therion)  !!! Pas dispo dans Therion
-ENT_DATE_COORD           : Date de la coordonnée  !!! A voir comment remplir   !!! Pas dispo dans Therion
-ENT_ACCES_LIBRE          : Accès à la donnée dans Karsteau, par défaut 'N' (accès aves mdp)  
+ENT_DATE_COORD           : Date de la coordonnée  !!! A voir comment remplir !!! Pas dispo dans Therion
+ENT_ACCES_LIBRE          : Accès à la donnée dans Karsteau, par défaut 'N' (accès avec mot de passe)  
 ENT_PATH                 : Interne au script pour identifier l'entrée, chemin vers la station de l'entrée (exemple : 00@Cap_Coutun)   
 ENT_KEY_KARSTEAU         : Retour Karsteau, clé unique d'identification de l'entrée
 ENT_DATE_UPDATE          : Date de mise à jour de l'entrée (date d'exécution du script)
 
+ENT_CODE_SECTEUR         : Code secteur, à voir !!! Pas dispo dans Therion  
+ENT_NOM_SECTEUR          : Nom du secteur, à voir !!! Pas dispo dans Therion  
+ENT_CODE_ZONE            : Code zone, à voir !!! Pas dispo dans Therion  
+ENT_NOM_ZONE             : Nom du zone, à voir !!! Pas dispo dans Therion  
+ENT_PAYS                 : Nom du pays, a générer automatiquement car pas dispo dans Therion  
+ENT_NOM_COMMUNE          : Nom de la commune, a générer automatiquement car pas dispo dans Therion  
+ENT_CODE_COMMUNE         : Code INSEE de la commune, a générer automatiquement car pas dispo dans Therion  
 
-Documents (Dans le dossier Outputs de la cavité, type pdf, kml et zip des données Therion)
+Table des documents (Dans le dossier Outputs de la cavité, type pdf, kml et zip des données Therion)
 -----------------------------------------------------------------------------------------------------------
 DOCUMENT_x_ID            : Clé interne du document (unique, entier, génération par le script) 	
 DOCUMENT_x_AUTEUR        : Auteur du document (via exif du pdf, à voir pour les autres types)	

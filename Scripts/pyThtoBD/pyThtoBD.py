@@ -1,24 +1,47 @@
 # -*- coding: utf-8 -*-
 
+'''
 ########################################################################################################################################
 #                                                        	                                                                           #  
-#                                Script exporter une base de donnée therion vers un BD type Karsteau                                   #
+#                              Script pour exporter une base de donnée Therion vers un BD type Karsteau                                #
 #                                                                                                                                      #                                           
-#                                         By Alexandre PONT  alexandre.pont@yahoo.fr                                                   # 
+#                                      By Alexandre PONT  alexandre (point) pont (AT) yahoo (point) fr                                 # 
 #                                                                                                                                      #
-# Commande : python pyThtoBD.py --help                                                                                                 #
+# Commande : python pyThtoBD.py --help             !!! Aide, liste des commandes                                                       #
+#			 python pyThtoBD.py --folder ./Test/   !!! export de la base Therion de ./Test/                                            #
+#            python pyThtoBD.py                    !!! sélection du dossier Therion à exporter via une fenêtre tkinter                 # 
 #                                                                                                                                      #  
 # Utilisation:                                                                                                                         #
 #   1 : Placer des fichiers vides "Export_bd.ini" dans chacun des dossiers des cavités à exporter                                      #
-#   2 : Lancer python pyThtoBD.py, sélectionner le dossier therion à exporter                                                          # 
+#   2 : Lancer python pyThtoBD.py, sélectionner le dossier Therion à exporter                                                          # 
 #   3 : Résultats pour Karsteau dans le dossier /Outputs/Export_bd/                                                                    #    
 #   4 : (A venir - Importer le résultat de l'importation dans Karsteau )                                                               #   
 #                                                                                                                                      #   
 #                                                                                                                                      #   
 ########################################################################################################################################
+'''
 
 '''
 To do list :
+    - Mettre les dates au format DD/MM/AAAA dans excel
+    - Supprimer les caractères spéciaux dans les noms de cavités
+    - Ajouter et remplir  dans les entrées
+            ENT_CODE_SECTEUR         : Code secteur, à voir !!! Pas dispo dans Therion  
+            ENT_NOM_SECTEUR          : Nom du secteur, à voir !!! Pas dispo dans Therion  
+            ENT_CODE_ZONE            : Code zone, à voir !!! Pas dispo dans Therion  
+            ENT_NOM_ZONE             : Nom du zone, à voir !!! Pas dispo dans Therion  
+            ENT_PAYS                 : Nom du pays, a générer automatiquement car pas dispo dans Therion  
+            ENT_NOM_COMMUNE          : Nom de la commune, a générer automatiquement car pas dispo dans Therion  
+            ENT_CODE_COMMUNE         : Code INSEE de la commune, a générer automatiquement car pas dispo dans Therion
+    - Remplir Document_xxx_TEXT
+    - Remplir dans les cavité la spéléométrie, l'auteur...
+        CAVITE_NATURE            : à voir !!! Pas dispo dans Therion  
+        CAVITE_AUTEUR_SPELEO_M   : à voir !!! Pas dispo dans Therion
+        CAVITE_DATE_SPELEO_M     : à voir, ajouter  date du calcul Therion 
+        CAVITE_CODE_HYDRO        : à voir !!! Pas dispo dans Therion
+        CAVITE_SYS_HYDRO         : à voir !!! Pas dispo dans Therion
+    - Mettre en place un fichier de valeurs par défaut par projet
+    - Vérifier pour ne pas faire de doublon d'export à chaque exécution du script (ne pas exporter si pas de changement)
     - Fonction pour importer les clés Karsteau
     - Refaire une fonction de calcul de développement/profondeur depuis fichier sql
 
@@ -1345,7 +1368,7 @@ if __name__ == '__main__':
          log.warning(f"""Nbre de point(s) fixe trouvé(s) : {Colors.MAGENTA}{warning_fix}{Colors.YELLOW}, vérifier : une entrée doit avoir l'attribut type {Colors.MAGENTA}station 0 "Entrée XXXX" entrance{Colors.YELLOW} lors de sa déclaration""") 
     
     if error_count > 0 :
-         log.error(f"""Nbre d'erreur(s)  trouvé(s) : {Colors.MAGENTA}{error_count}{Colors.YELLOW}, à vérifier""")
+         log.error(f"""Nbre d'erreur(s) trouvé(s) : {Colors.MAGENTA}{error_count}{Colors.YELLOW}, à vérifier""")
     else :         
         log.info("Fin normale de l'execution du script, aucune d'erreur trouvée, fichier d'excel d'export disponible, parfait !")
 
