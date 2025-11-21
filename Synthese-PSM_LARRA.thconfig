@@ -98,7 +98,7 @@ layout my_layout
 	
 	# Une ligne pour specifier que la grille est 1000x1000x1000 m
 	# (Trois dimensions, oui, ça sert pour la coupe aussi)
-	grid-size 500 500 500 m
+	grid-size 100 100 100 m
 	
 	# la topo est transparente (on peut voir les galeries en dessous)
 	# C'est on par défaut, donc, pas vraiment besoin de specifier
