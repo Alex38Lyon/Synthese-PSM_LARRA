@@ -9,15 +9,15 @@ Créer manuellement dans chaque dossier d'une cavité à exporter un fichier exp
      - après exécution du script contient l'ID Therion de la cavité à exporter (dans Export_bd.bd base CAVITE)
 
 Résultats dans le dossier /Outputs/Export_bd de la db Therion :
-	- Export_bd.log	   : log de l'export
+	- Export_bd.log	       : log de l'export
 	- Export_bd.bd		   : base de données de transfert KARSTEAU <-> THERION
 	- Export_bd.xlxs	   : fichier excel pour l'export vers Karsteau 
-	- Export_bd.zip	   : archive brute des données Therion
-	- Export_bd_data.zip : archive des documents à exporter vers Karsteau
+	- Export_bd.zip	       : archive brute des données Therion
+	- Export_bd_data.zip   : archive des documents à exporter vers Karsteau
 	
 Commande : python pyThtoBD.py --help             !!! Aide, liste des commandes     
-			  python pyThtoBD.py --folder ./Test/   !!! export de la base Therion de ./Test/
-			  python pyThtoBD.py                    !!! sélection du dossier Therion à exporter via une fenêtre tkinter  
+		   python pyThtoBD.py --folder ./Test/   !!! export de la base Therion de ./Test/
+		   python pyThtoBD.py                    !!! sélection du dossier Therion à exporter via une fenêtre tkinter  
 
 ==============================
 Table des données exportées :
