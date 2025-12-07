@@ -48,7 +48,7 @@ encoding  utf-8
 #	- layout scalebar_vert
 #	- layout headerl
 #	- layout headerl_LT
-#    - layout headerl_XXLT  # <en> Layout to change the header (plan projection with minimum info)
+#  - layout headerl_XXLT  # <en> Layout to change the header (plan projection with minimum info)
 #	- layout header_coupe_vert-to-place
 #	- layout header_coupe_vert-auto
 #	- layout header_coupe
