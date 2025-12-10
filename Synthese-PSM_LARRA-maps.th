@@ -7,13 +7,13 @@ encoding utf-8
 
 
 map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de la Pierre Saint Martin-PSM"
-	MP-Complexe_Lonne_Peyret-Bourrugues-Plan-tot@Complexe_Lonne_Peyret-Bourrugues
-	break
-	MP-Z510-plan-tot@Z510
+	plan_BB09@BB09
 	break
 	plan_BB26@BB26
 	break
-	MP-Tobozo-Plan-tot@Tobozo
+	plan_BB27@BB27
+	break
+
 	# MP-Grotte_de_Alhais-Plan-tot@Grotte_de_Alhais
 	# break
 	# MP-Arphidia-Plan-tot@Arphidia
@@ -34,6 +34,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-C110-Plan-tot@C110
 	# break
+	MP-C299-Gouffre_belle_gueule-Plan-tot@C299-Gouffre_belle_gueule
+	break
 	# MP-Grotte_de_la_Cascade-Plan-tot@Grotte_de_la_Cascade
 	# break
 	# MP-Chipi_Josetteko_Leze-Plan-tot@Chipi_Josetteko_Leze
@@ -55,6 +57,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# MP-M405-Plan-tot@M405
 	# break
 	MP-M414-Plan-tot@M414
+	break
+	plan_oueils@Oueils
 	break
 	# MP-UKxxx-Marmitou-Plan-tot@UKxxx-Marmitou
 	# break
@@ -262,8 +266,10 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break	
 	MP-L5-Plan-tot@L5  #[0 130 m] above  # above # below
 	break
+	MP-Complexe_Lonne_Peyret-Bourrugues-Plan-tot@Complexe_Lonne_Peyret-Bourrugues
+	break	
 	MP-Complexe_PSM_GdP-Plan-tot@Complexe_PSM_GdP
-	break
+	break	
 	# MP-AN455-Plan-tot@AN455
 	# break
 	# MP-AN465B-Plan-tot@AN465B
@@ -287,7 +293,11 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# MP-AN594-Verdad-Plan-tot@AN594-Verdad
 	# break
 	# MP-Complexe_Anialarra-Plan-tot@Complexe_Anialarra
-	# break
+	# break	
+	MP-Z510-plan-tot@Z510	
+	break
+	MP-Tobozo-Plan-tot@Tobozo
+	break
 endmap
 
 

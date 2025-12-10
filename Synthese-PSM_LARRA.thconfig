@@ -44,18 +44,6 @@ input config.thc
 # Ici, on peut specifier des choses comme les symboles à utiliser (UIS, etc)
 # ou imprimer des explications des symboles
 
-# Debut de la definition du Layout "xviexport"
-layout xviexport
-	#cs UTM32
-	# echelle à laquelle on veut dessiner la topo
-	scale 1 100
-	#scale 1 1000
-	# taille de la grille
-	grid-size 2 2 2 m
-	# mettre la grille en arrière plan
-	grid bottom
-endlayout
-# fin de la définition du layout "xviexport"
 
 #debut de la definition du layout "my_layout"
 layout my_layout
@@ -159,13 +147,19 @@ layout my_layout
 	symbol-hide line survey
 	
 	# symbol-hide group water
-	# symbol-hide group speleothems
-	# symbol-hide group text
-	# symbol-hide line label
-
-	# symbol-hide point label
-	# symbol-hide point label
-	# symbol-hide point height	
+	symbol-hide group speleothems
+	# symbol-hide group text	
+	symbol-hide line label
+	# symbol-hide line label:xs
+	# symbol-hide line label:s
+	# symbol-hide line label:m
+	symbol-hide point label
+	# symbol-hide point label:xs
+	# symbol-hide point label:s
+	# symbol-hide point label:m
+	# symbol-hide point label:l
+	# symbol-hide point label:xl
+	symbol-hide point height	
 
 	# symbol-hide point dig
 	# symbol-hide point camp
@@ -176,7 +170,6 @@ layout my_layout
 	# symbol-hide point narrow-end
 	# symbol-hide point flowstone-choke
 	# symbol-hide point breakdown-choke
-	# symbol-hide point clay-choke
 	# symbol-hide point clay-choke
 	# symbol-hide point bones
 	# symbol-hide point bat
@@ -235,10 +228,21 @@ layout my_layout
 
 	map-image 4 72 nw ./Logos/Logo-ARSIP-Synthese-Topographique_XL.png
 
-	
 endlayout
 # Fin de la definition du Layout "normal"
 
+# Debut de la definition du Layout "xviexport"
+layout xviexport
+	#cs UTM32
+	# echelle à laquelle on veut dessiner la topo
+	scale 1 100
+	#scale 1 1000
+	# taille de la grille
+	grid-size 2 2 2 m
+	# mettre la grille en arrière plan
+	grid bottom
+endlayout
+# fin de la définition du layout "xviexport"
 
 layout layout-kml
 	# Définition du système de projection du plan

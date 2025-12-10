@@ -76,7 +76,9 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/AP333/AP333-tot.th
 	input Data/AP337/AP337-tot.th
 	input Data/Arphidia/Arphidia-tot.th
+	input Data/BB09/BB09-tot.th
 	input Data/BB26/BB26-tot.th
+	input Data/BB27/BB27-tot.th
 	input Data/BB50/BB50-tot.th
 	input Data/BG063-Gouffre_de_la_comete/BG063-Gouffre_de_la_comete-tot.th
 	input Data/BL118/BL118-tot.th
@@ -88,6 +90,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/C214-Niebla/C214-Niebla-tot.th
 	input Data/C230/C230-tot.th
 	input Data/C243-Los_Cairns/C243-Los_Cairns-tot.th
+	input Data/C299-Gouffre_belle_gueule/C299-Gouffre_belle_gueule-tot.th
 	input Data/CUCC4/CUCC4-tot.th
 	input Data/CUCC5/CUCC5-tot.th
 	input Data/Cathedrale_de_Pyrene/Cathedrale_de_Pyrene-tot.th
@@ -122,6 +125,9 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/M400/M400-tot.th
 	input Data/M405/M405-tot.th
 	input Data/M414/M414-tot.th
+	input Data/Oueils/Oueils-tot.th
+	input Data/SC60/SC60-tot.th
+	input Data/SC223/SC223-tot.th
 	input Data/Sima_1748/Sima_1748-tot.th
 	input Data/Trou_Martin/Trou_Martin-tot.th
 	input Data/Trou_du_Mouton/Trou_du_Mouton-tot.th
