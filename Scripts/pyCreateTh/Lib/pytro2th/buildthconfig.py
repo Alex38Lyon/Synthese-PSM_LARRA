@@ -5,6 +5,8 @@
 # Copyright (c) 2020 Xavier Robert <xavier.robert@ird.fr>
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+# Modifié Alex 2026 01 04 -> print remplacés par log.xxx
+
 
 """
 	Script to build Therion files
@@ -34,6 +36,12 @@ from __future__ import  division
 
 # Import modules
 import sys, os, datetime
+
+import os, logging, sys
+from Lib.general_fonctions import Colors
+import Lib.global_data as global_data
+
+log = logging.getLogger("Logger")
 
 ########################
 
@@ -258,7 +266,7 @@ def writethconfig(pdata, icomments, icoupe, thlang, dictcave,
 	
 	f2w.closed
 	
-	print(u'\tFile ' + pdata + u' written...')
+	log.info(u'\tFile ' + pdata + u' written...')
 	
 	return
 
@@ -1072,7 +1080,7 @@ def writethc(pdata, cavename = None, istructure = True):
 	# close the config.thc file
 	f1w.closed
 	
-	print(u'\tFile ' + pdata + u' written...')
+	log.info(u'\tFile ' + pdata + u' written...')
 	
 	return
 
@@ -1102,10 +1110,10 @@ def checkfiles(pdata, Errorfiles = True):
 			raise NameError(u'ERROR : File {FileNa} does exist'.format(FileNa=str(pdata)))
 			#sys.exit('ERROR : File {FileNa} does exist'.format(FileNa=str(pdata)))
 		else:
-			print(u'WARNING: I have erased file %s' % pdata)
+			log.warning(f"I have erased the file {Colors.ENDC}{pdata}")
 
 
-#######
+#######}
 if __name__ == "__main__":
 
 	# build dictionnaries
@@ -1130,12 +1138,12 @@ if __name__ == "__main__":
 		if not Errfiles :
 			checkfiles(thcpath + thcfnme)
 		else:
-			print(u'WARNING: I will erase previous ' + thcpath + thcfnme + u' files !')
+			log.warning(f"I will erase previous {Colors.ENDC}{thcpath} {thcfnme}{Colors.WARNING} files !")
 	else:
 		if not Errfiles :
 			checkfiles(thcfnme)
 		else:
-			print(u'WARNING: I will erase previous ' + thcfnme + u' files !')
+			log.warning(f"I will erase previous {Colors.ENDC}{thcfnme}{Colors.WARNING} files !")
 	
 	if thconfigfnme[-9:] != u'.thconfig':
 		thconfigfnme = thconfigfnme + u'.thconfig'
@@ -1145,12 +1153,12 @@ if __name__ == "__main__":
 		if not Errfiles:
 			checkfiles(thconfigpath + thconfigfnme)
 		else:
-			print(u'WARNING: I will erase previous ' + thconfigpath + thconfigfnme + u' files !')
+			log.warning(f"I will erase previous {Colors.ENDC}{thconfigpath} {thconfigfnme}{Colors.WARNING} files !")
 	else:
 		if not Errfiles :
 			checkfiles(thconfigfnme)	
 		else:
-			print(u'WARNING: I will erase previous ' + thconfigfnme + u' files !')
+			log.warning(f"I will erase previous {Colors.ENDC}{thconfigfnme}{Colors.WARNING} files !")
 	
 	# build thc file
 	if thcfile :

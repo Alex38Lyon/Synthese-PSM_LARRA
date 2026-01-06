@@ -28,7 +28,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/AN211/AN211-tot.th
 	input Data/AN324/AN324-tot.th
 	input Data/AN325/AN325-tot.th
-	input Data/AN326/AN326-tot.th
+	input Data/AN326-Sima_del_Liron/AN326-Sima_del_Liron-tot.th
 	input Data/AN453/AN453-tot.th
 	input Data/AN455/AN455-tot.th
 	input Data/AN456-Banco/AN456-Banco-tot.th

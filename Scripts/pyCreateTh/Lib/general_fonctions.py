@@ -4,7 +4,9 @@ general_fonctions.py for pyCreateTh.py
 #############################################################################################
 """
 import os, logging, sys, re, configparser, unicodedata, shutil
-import Lib.global_data as global_data
+from pathlib import Path
+import Lib.global_data as global_Data
+
 import tkinter as tk
 from tkinter import filedialog
 
@@ -45,34 +47,56 @@ class Colors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-
 #################################################################################################
-def safe_relpath(path):
-    abs_path = os.path.abspath(path)
-    ref_path = os.path.abspath(os.getcwd())
-    
-    try:
-        valeur = "~\\" +  os.path.relpath(path, ref_path)
-        return valeur
-    
-    except ValueError:
-        max_depth = 4  # Profondeur maximale pour tronquer le chemin
-        
-        # Disques différents, afficher le chemin relatif partiel depuis la racine commune
-        path_parts = abs_path.split(os.sep)
-        ref_parts = ref_path.split(os.sep)
-        while path_parts and ref_parts and path_parts[0] == ref_parts[0]:
-            path_parts.pop(0)
-            ref_parts.pop(0)
-        result = os.path.join(*path_parts) if path_parts else os.path.basename(path)
+# fonction pour réduire l'affichage des chemins long                                            #
+#################################################################################################
+def safe_relpath( path, base_dir=None, max_depth=4, max_name_len=50, prefix="~" ):
+    """
+    Retourne un chemin lisible et sûr pour affichage (logs / UI).
 
-        # Si max_depth est défini, tronque le chemin
-        if max_depth is not None:
-            parts = result.split(os.sep)
-            if len(parts) > max_depth:
-                result = os.path.join("~\\" , *parts[-max_depth:])
-        
-        return result
+    - Compatible Windows / Linux / macOS
+    - Tronque la profondeur du chemin
+    - Tronque le nom de fichier si trop long
+    - Ne lève jamais d'exception
+    """
+
+    try:
+        path = Path(path).expanduser().resolve()
+    except Exception:
+        return str(path)
+
+    try:
+        base = Path(base_dir).expanduser().resolve() if base_dir else Path.cwd().resolve()
+    except Exception:
+        base = None
+
+    # 1️⃣ Nom du fichier (ou dossier) — tronqué si nécessaire
+    name = path.name
+    if len(name) > max_name_len:
+        stem = path.stem[: max_name_len - 6]
+        name = f"{stem}...{path.suffix}"
+
+    # 2️⃣ Tentative de chemin relatif
+    try:
+        if base:
+            rel = path.relative_to(base)
+            parts = list(rel.parts)
+        else:
+            raise ValueError
+    except Exception:
+        parts = list(path.parts)
+
+    # 3️⃣ Limitation de profondeur
+    if max_depth is not None and len(parts) > max_depth:
+        parts = parts[-max_depth:]
+        parts.insert(0, prefix)
+
+    # 4️⃣ Remplacement du nom si tronqué
+    if parts:
+        parts[-1] = name
+
+    # 5️⃣ Construction finale portable
+    return os.path.join(*parts)
 
 
 #################################################################################################
@@ -216,19 +240,20 @@ def load_config(args, configIni="config.ini"):
                 if key.startswith('Copyright') and all(
                     k in config['Survey_Data'] for k in ['Copyright1', 'Copyright2', 'Copyright3']
                 ):
-                    global_data.Copyright = "\n".join([
+                    global_Data.Copyright = "\n".join([
                         config['Survey_Data']['Copyright1'],
                         config['Survey_Data']['Copyright2'],
                         config['Survey_Data']['Copyright3']
                     ])
-                    global_data.CopyrightShort = config['Survey_Data']['Copyright_Short']
+                    global_Data.CopyrightShort = config['Survey_Data']['Copyright_Short']
                 elif attr:
-                    setattr(global_data, attr, config['Survey_Data'][key])
+                    setattr(global_Data, attr, config['Survey_Data'][key])
 
         app_keys = {
             'template_path': 'templatePath',
             'station_by_scrap': ('stationByScrap', int),
             'final_therion_exe': ('finalTherionExe', lambda x: x.lower() == 'true'),
+            'parse_tro_files_by_explo': ('parse_tro_files_by_explo', lambda x: x.lower() == 'true'),
             'therion_path': 'therionPath',
             'survey_prefix_name': 'SurveyPrefixName',
             'shot_lines_in_th2_files': ('linesInTh2', lambda x: x.lower() == 'true'),
@@ -240,7 +265,7 @@ def load_config(args, configIni="config.ini"):
         for key, value in app_keys.items():
             if 'Application_Data' in config and key in config['Application_Data']:
                 attr, caster = (value, str) if isinstance(value, str) else value
-                setattr(global_data, attr, caster(config['Application_Data'][key]))
+                setattr(global_Data, attr, caster(config['Application_Data'][key]))
         
         return config_file
 
@@ -422,6 +447,6 @@ def update_template_files(template_path, variables, output_path):
         global_Data.error_count += 1
         
     except Exception as e:
-        log.error(f"An error occurred (update_template_files): {Colors.ENDC}{e}")
+        log.error(f"An error occurred (update_template_files : {Colors.ENDC}{os.path.basename(template_path)}{Colors.ERROR}) : {Colors.ENDC}{e}")
         global_Data.error_count += 1
 

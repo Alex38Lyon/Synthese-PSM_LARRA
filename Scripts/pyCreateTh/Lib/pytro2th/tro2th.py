@@ -5,6 +5,7 @@
 # Copyright (c) 2020 Xavier Robert <xavier.robert@ird.fr>
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Modifié Alex 2025 07 01
+# Modifié Alex 2026 01 04 -> print remplacés par log.xxx
 
 """
 	!---------------------------------------------------------!
@@ -54,7 +55,8 @@ from .vtopotools import *
 from .datathwritetools import *
 from .buildthconfig import *
 
-from Lib.general_fonctions import Colors
+import os, logging, sys
+from Lib.general_fonctions import Colors, safe_relpath
 import Lib.global_data as global_data
 
 log = logging.getLogger("Logger")
@@ -159,12 +161,12 @@ def tro2th(fle_tro_fnme = None, fle_th_fnme = None,
 	elif thlang in [u'en',u'EN', u'En', u'eN']: thlang = u'en'
 	else: raise NameError(u'ERROR: Language %s not implemented\n'
 	                      u'       Use "en" instead' % thlang )
-	print(u'____________________________________________________________\n\n\t\tTRO 2 THERION\n____________________________________________________________\n')
+	log.info(u'____________________________________________________________\n\n\t\tTRO 2 THERION\n____________________________________________________________\n')
 	if thlang == u'fr':
-		print(u'\nEcrit par Xavier Robert, Groupe spéléo Vulcain - Lyon, France\n')
+		log.info(u'\nÉcrit par Xavier Robert, Groupe spéléo Vulcain - Lyon, France\n')
 	elif thlang == u'en':
-		print(u'\nWritten by Xavier Robert, Groupe spéléo Vulcain - Lyon, France\n')
-	print(u'____________________________________________________________\n\n')
+		log.info(u'\nWritten by Xavier Robert, Groupe spéléo Vulcain - Lyon, France\n')
+	log.info(u'____________________________________________________________\n\n')
 	
 	coordsyst = None
 	coordinates = None
@@ -178,20 +180,20 @@ def tro2th(fle_tro_fnme = None, fle_th_fnme = None,
 		
 		if fle_th_fnme is None:
 			# convert tro file to th file
-			print('1')
-			cavename, coordinates, coordsyst, fle_th_fnme = convert_tro(fle_tro_fnme, fle_tro_encoding=fle_tro_encoding,
+			log.info('1')
+			entrance, cavename, coordinates, coordsyst, fle_th_fnme = convert_tro(fle_tro_fnme, fle_tro_encoding=fle_tro_encoding,
 			                                              icomments = icomments, icoupe = icoupe, istructure = istructure, 
 			                                              thlang = thlang, Errorfiles = Errorfiles)
 		else:
-			print(2)
-			cavename, coordinates, coordsyst, fle_th_fnme = convert_tro(fle_tro_fnme, fle_th_fnme, cavename,
+			log.info(2)
+			entrance, cavename, coordinates, coordsyst, fle_th_fnme = convert_tro(fle_tro_fnme, fle_th_fnme, cavename,
 			                                               icomments = icomments, icoupe = icoupe, istructure = istructure,
 			                                               thlang = thlang, Errorfiles = Errorfiles)
-		if thlang == u'fr': print(u'\tFichier Therion %s construit à partir des données %s' %(fle_th_fnme, fle_tro_fnme))
-		elif thlang == u'en': print(u'\tFile %s built from %s' %(fle_th_fnme, fle_tro_fnme))
+		if thlang == u'fr': log.info(u'\tFichier Therion %s construit à partir des données %s' %(fle_th_fnme, fle_tro_fnme))
+		elif thlang == u'en': log.info(u'\tFile %s built from %s' %(fle_th_fnme, fle_tro_fnme))
 	else:
-		if thlang == u'fr': print(u'\tPas de fichier .tro en entrée, pas de fichier de données .th créé...')
-		elif thlang == u'en': print(u'\tNo .tro File input, no .th data file created...')
+		if thlang == u'fr': log.info(u'\tPas de fichier .tro en entrée, pas de fichier de données .th créé...')
+		elif thlang == u'en': log.info(u'\tNo .tro File input, no .th data file created...')
 		# Build here the new structure:
 		if istructure: build_structure(u'cave', Errorfiles = True)
 
@@ -255,22 +257,22 @@ def tro2th(fle_tro_fnme = None, fle_th_fnme = None,
 		f3w = open(cavename.replace(u' ', u'_') + '/' + cavename.replace(u' ', u'_') + '-tot.th', 'w')
 		write_thtot(f3w, cavename,  icomments, thlang)
 		f3w.closed
-		print(u'\tFile ' + cavename.replace(u' ', u'_') + u'/' + cavename.replace(u' ', u'_') + u'-tot.th written...\n')	
+		log.info(u'\tFile ' + cavename.replace(u' ', u'_') + u'/' + cavename.replace(u' ', u'_') + u'-tot.th written...\n')	
 
 		# build cavename-maps.th file
 		f4w = open(cavename.replace(u' ', u'_') + u'/' + cavename.replace(u' ', u'_') + '-maps.th', 'w')
 		write_thmaps(f4w, cavename, icomments, thlang)
 		f4w.closed
-		print(u'\tFile ' + cavename.replace(u' ', u'_') + u'/' + cavename.replace(u' ', u'_') + u'-maps.th written...\n\n')
+		log.info(u'\tFile ' + cavename.replace(u' ', u'_') + u'/' + cavename.replace(u' ', u'_') + u'-maps.th written...\n\n')
 
 		# build Legends/entrances-coordinates.th file
 		f5w = open(cavename.replace(u' ', u'_') + '/Legends/entrances_coordinates.th', 'w')
 		write_thcoords(f5w, cavename, coordinates, coordsyst, icomments, thlang)
 		f5w.closed
-		print(u'\tFile ' + cavename.replace(u' ', u'_') + u'/Legends/entrances_coordinates.th written...\n\n')
+		log.info(u'\tFile ' + cavename.replace(u' ', u'_') + u'/Legends/entrances_coordinates.th written...\n\n')
 
-	print(u'____________________________________________________________')
-	print(u'')
+	log.info(u'____________________________________________________________')
+	log.info(u'')
 	
 	return
 
@@ -311,7 +313,7 @@ def build_structure(cavename, Errorfiles = True):
 			# Stop
 			raise NameError(u'ERROR : Folder {FileNa} does exist'.format(FileNa=str(cavename.replace(u' ', u'_'))))
 		else:
-			print(u'WARNING: I have erased folder %s' % cavename.replace(u' ', u'_')) 
+			log.warning(f"I have erased the folder {Colors.ENDC}{cavename.replace(u' ', u'_')}") 
 			if not os.path.exists(cavename.replace(u' ', u'_') + u'/Data'): os.mkdir(cavename.replace(u' ', u'_') + u'/Data')
 			if not os.path.exists(cavename.replace(u' ', u'_') + u'/Legends'): os.mkdir(cavename.replace(u' ', u'_') + u'/Legends')
 			if not os.path.exists(cavename.replace(u' ', u'_') + u'/Outputs'): 
@@ -350,7 +352,7 @@ def mkfle_output_txt(cavename):
 	f1w.write(u'Folder where Therion outputs are exported \n\n')
 	# close the cavename/Outputs/outputs.txt file
 	f1w.closed
-	print(u'\tFile ' + cavename.replace(u' ', u'_') + u'/Outputs/outputs.txt written...')
+	log.info(u'\tFile ' + cavename.replace(u' ', u'_') + u'/Outputs/outputs.txt written...')
 	
 	return
 
@@ -381,6 +383,7 @@ def convert_tro(fle_tro_fnme, fle_tro_encoding=None, fle_th_fnme = None, cavenam
 			cavename      : Name of the cave from the .tro file
 			coordinates   : Coordinates of the entrance
 			coordsyst     : Coordinates system used by the .tro file
+			entrance      : Entrance station
 			
 		USAGE:
 			cavename, coordsyst = convert_tro(fle_tro_fnme, [fle_th_fnme = fle_th_fnme, cavename = cavename, Errorfiles = Errorfiles])
@@ -399,8 +402,8 @@ def convert_tro(fle_tro_fnme, fle_tro_encoding=None, fle_th_fnme = None, cavenam
 	#alt=0.
 	
 	# open the .tro survey	
-	if thlang == u'fr': log.info(f"Travail sur le fichier VisualTopo: {Colors.ENDC}{fle_tro_fnme}")
-	elif thlang == u'en':log.info(f"Processing VisualTopo file: {Colors.ENDC}{fle_tro_fnme}")
+	log.info(f"Processing VisualTopo file: {Colors.ENDC}{safe_relpath(fle_tro_fnme)}")
+ 
 	# print(' ')
 	fle_tro = open(fle_tro_fnme, 'r', encoding=fle_tro_encoding)
 	# read the .tro file
@@ -429,13 +432,13 @@ def convert_tro(fle_tro_fnme, fle_tro_encoding=None, fle_th_fnme = None, cavenam
 	# read the header
 	coordinates = None
 	cavename, coordinates, coordsyst, club, entrance, versionfle = read_vtopo_header(lines)
-	
+ 
 	if cavename is None or cavename == '' or cavename == ' ':
 		cavename = u'cave'
 	
 	if fle_th_fnme is None:
 		fle_th_fnme = cavename.replace(u' ', u'_') + u'.th'
-		print (fle_th_fnme)
+		log.info (fle_th_fnme)
 	if fle_th_fnme[-3:] != u'.th':
 		fle_th_fnme = fle_th_fnme + u'.th'	
 	
@@ -449,6 +452,7 @@ def convert_tro(fle_tro_fnme, fle_tro_encoding=None, fle_th_fnme = None, cavenam
 	# open the .th file
 	if istructure: fle_th = open (cavename.replace(u' ', u'_') + '/Data/' + fle_th_fnme, 'w')
 	else: fle_th = open (fle_th_fnme, 'w')
+     
 	# write the .th header
 	writeheader_th(fle_th, cavename, entrance)
 	
@@ -488,7 +492,7 @@ def convert_tro(fle_tro_fnme, fle_tro_encoding=None, fle_th_fnme = None, cavenam
 	if thlang == u'fr': log.info(f"Fichier Therion {Colors.ENDC}{fle_th_fnme}{Colors.INFO} écrit !")
 	elif thlang == u'en': log.info(f"Therion file {Colors.ENDC}{fle_th_fnme}{Colors.INFO} written!")
 	
-	return cavename, coordinates, coordsyst, fle_th_fnme
+	return entrance, cavename, coordinates, coordsyst, fle_th_fnme
 
 
 #################################################################################################

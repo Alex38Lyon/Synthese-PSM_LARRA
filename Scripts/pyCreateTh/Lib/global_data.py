@@ -31,6 +31,18 @@ stationNamesInTh2 = True
 wallLinesInTh2 = True
 kSmooth = 0.5
 XVIScale = 100
+parse_tro_files_by_explo = True
+
+
+#################################################################################################
+THERION_KEYWORDS = {
+    "centerline", "end  centerline",
+    "date", "units", "flags", "team",
+    "calibrate", "data", "declination",
+    "fix", "station", "equate",
+    "cs", "extend", "infer",
+    "instrument", "grade", "clino", "compass", "length", "reverse", "topofil", "duplicate", "not",
+}
 
 #################################################################################################
 totfile = """\t## Survey file:

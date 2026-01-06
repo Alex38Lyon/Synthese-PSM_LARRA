@@ -23,8 +23,6 @@ def compile_template(template, template_args, totReadMeError = "", **kwargs ):
         tmpdir = tempfile.mkdtemp()
         config = template.format(**template_args, tmpdir=tmpdir.replace("\\", "/"))
         
-        
-
         log.debug(f"{config}\n")
 
         config_file = join(tmpdir, "config.thconfig")
@@ -51,13 +49,15 @@ def compile_template(template, template_args, totReadMeError = "", **kwargs ):
         try:
             with open(log_file, "r", encoding="cp1252", errors="replace") as f:
                 logfile = f.read()
+                
         except Exception as log_err:
             log.warning(f"Could not read Therion log: {Colors.ENDC}{log_err}")
 
         # Analyse du code retour
         if result.returncode != 0 or "press any key" in result.stdout.lower():
-            log.error(f"Therion compilation failed with return code: {Colors.ENDC}{result.returncode}\n{Colors.WHITE}{result.stdout}")
-            totReadMeError += f"\tTherion compilation failed with return code: {result.returncode}\n"
+            selector_value = template_args['selector']
+            log.error(f"Therion compilation {Colors.ENDC}{selector_value}{Colors.ERROR}, failed with return code: {Colors.ENDC}{result.returncode}\n{Colors.WHITE}{result.stdout}")
+            totReadMeError += f"\tTherion compilation {selector_value}, failed with return code: {result.returncode}\n"
             global_data.error_count += 1
             return "Therion error", tmpdir, totReadMeError
 
@@ -178,16 +178,24 @@ def compile_file_th(filepath, **kwargs):
 
 #################################################################################################
 # Attention fonctionne pour la version therion en français ! à voir pour les autres langues
-lengthre = re.compile(r".*Longueur totale de la topographie = \s*(\S+)m")
-depthre = re.compile(r".*Longueur totale verticale =\s*(\S+)m")
+fr_lengthre = re.compile(r".*Longueur totale de la topographie = \s*(\S+)m")
+fr_depthre = re.compile(r".*Longueur totale verticale =\s*(\S+)m")
+
+en_lengthre = re.compile(r".*Total length of survey legs = \s*(\S+)m")
+en_depthre = re.compile(r".*Total vertical length of survey legs =\s*(\S+)m")
 
 def get_stats_from_log(log):
-    lenmatch = lengthre.findall(log)
-    depmatch = depthre.findall(log)
+    lenmatch = fr_lengthre.findall(log)
+    depmatch = fr_depthre.findall(log)
+    
+    if len(lenmatch) == 0 and len(depmatch) == 0: 
+        lenmatch = en_lengthre.findall(log)
+        depmatch = en_depthre.findall(log)
     
     if len(lenmatch) == 1 and len(depmatch) == 1:
         return {"length": lenmatch[0], "depth": depmatch[0]}
-    return {"length": 0, "depth": 0}
+    
+    return {"length": 0.0, "depth": 0.0}
 
 
 #################################################################################################
@@ -198,4 +206,5 @@ def get_syscoord_from_log(log):
 
     if len(lenmatch) == 1:
         return {"syscoord": lenmatch[0]}
+    
     return {"syscoord": 0}

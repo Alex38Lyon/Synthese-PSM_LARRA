@@ -30,15 +30,15 @@ Sources documentaires :
 Création Alex le 2025 06 09
                                         
 En cours :
-    - tester la avec les dernières option de la  version de DAT (CORRECTION2 et suivants)
+    - découper les fichier tro et th comme les fichiers dat/mark...
+    - tester avec les dernières option de la version de DAT (CORRECTION2 et suivants)
     - améliorer fonction wall shot pour faire habillage des th2 files, les jointures...
         - traiter les series avec 1 ou 2 stations
     - PB des cartouches et des échelles pour faire des pdf automatiquement
-    - tester différentes version pour les fichiers .tro
 
 """
 
-Version = "2025.11.10"  
+Version = "2026.01.06"  
 
 #################################################################################################
 #################################################################################################
@@ -62,7 +62,6 @@ from Lib.general_fonctions import load_config, select_file_tk_window, release_lo
 from Lib.general_fonctions import copy_template_if_not_exists, add_copyright_header, copy_file_with_copyright, update_template_files
 import Lib.global_data as globalData
 from Lib.pytro2th.tro2th import convert_tro   #Version local modifiée
-
 
 
 #################################################################################################
@@ -89,14 +88,154 @@ class StationNameAccessor:
 
 
 #################################################################################################
+def parse_therion_centerline(file_data):
+    """Découpe des centerline Therion et extrait :
+       - DATA   : lignes de tirs
+       - date   : date du levé
+       - type   : liste des stations
+       - lines  : bloc complet
+    """
+    centerline_list = []
+
+    try:
+        lines = file_data.splitlines()
+
+        current_block = []
+        current_data = []
+        current_date = None
+        current_stations = set()
+        in_centerline = False
+
+        for line in lines:
+            stripped = line.strip()
+            low = stripped.lower()
+
+            # Début centerline
+            if low.startswith("centerline"):
+                in_centerline = True
+                current_block = [line]
+                current_data = []
+                current_date = None
+                current_stations = set()
+                continue
+
+            if not in_centerline:
+                continue
+
+            current_block.append(line)
+
+            # Commentaire ou vide
+            if not stripped or stripped.startswith("#"):
+                continue
+
+            # Date
+            m = re.match(r"^[ \t]*date\s+(.+)$", line, re.IGNORECASE)
+            if m:
+                current_date = m.group(1).strip()
+                continue
+
+            parts = stripped.split()
+
+            # Ligne DATA (tir)
+            if len(parts) >= 2 and parts[0].lower() not in globalData.THERION_KEYWORDS:
+                current_data.append(line)
+
+                for p in parts[:2]:
+                    if (
+                        p.lower() not in globalData.THERION_KEYWORDS
+                        and not re.match(r"^[0-9.+-]+$", p)
+                    ):
+                        current_stations.add(p)
+
+            # Fin centerline
+            if low.startswith("endcenterline"):
+                centerline_list.append({
+                    "lines": current_block,
+                    "DATA": current_data,    
+                    "date": current_date,
+                    "type": sorted(current_stations)
+                })
+
+                in_centerline = False
+                current_block = []
+                current_data = []
+                current_date = None
+                current_stations = set()
+
+    except Exception as e:
+        log.error(f"An error occurred (parse_therion_centerline): {Colors.ENDC}{e}")
+        globalData.error_count += 1
+
+    return centerline_list
+
+
+#################################################################################################
+def regroupe_date(centerline_list):
+    """Regroupe les centerlines par date et concatène les champs.
+
+    Args:
+        centerline_list (list): liste de dicts contenant :
+            - lines (list)
+            - DATA  (list)
+            - date  (str|None)
+            - type  (list)
+
+    Returns:
+        list: liste de dicts regroupés par date
+    """
+    grouped = {}
+
+    try:
+        for idx, cl in enumerate(centerline_list):
+
+            # Sécurité : cl doit être un dict
+            if not isinstance(cl, dict):
+                log.warning(f"regroupe_date: entrée ignorée (index {idx}, type invalide)")
+                continue
+
+            date = cl.get("date")
+
+            if date not in grouped:
+                grouped[date] = {
+                    "date": date,
+                    "lines": [],
+                    "DATA": [],
+                    "type": set()
+                }
+
+            # Concaténations sécurisées
+            if isinstance(cl.get("lines"), list):
+                grouped[date]["lines"].extend(cl["lines"])
+
+            if isinstance(cl.get("DATA"), list):
+                grouped[date]["DATA"].extend(cl["DATA"])
+
+            if isinstance(cl.get("type"), (list, set)):
+                grouped[date]["type"].update(cl["type"])
+
+        # Finalisation (conversion set → list)
+        result = []
+        for g in grouped.values():
+            g["type"] = sorted(g["type"])
+            result.append(g)
+
+        return result
+
+    except Exception as e:
+        log.error(f"An error occurred (regroupe_date): {Colors.ENDC}{e}")
+        globalData.error_count += 1
+        return []
+
+
+#################################################################################################
 def parse_therion_surveys(file_path):
-    """Parse les enquêtes Therion à partir d'un fichier.
+    """Découpe des surveys à partir d'un fichier Therion.
 
     Args:
         file_path (str): Le chemin d'accès au fichier à analyser.
 
     Returns:
-        list: Une liste des noms d'enquête trouvés dans le fichier.
+        list: Une liste des noms des surveys trouvés dans le fichier.
     """   
     survey_names = []
     
@@ -130,6 +269,7 @@ def parse_therion_surveys(file_path):
         globalData.error_count += 1
         
     return survey_names
+
 
 #################################################################################################
 def convert_to_line_polaire_df(df_lines):
@@ -192,6 +332,7 @@ def convert_to_line_polaire_df(df_lines):
         log.error(f"Issue in polar conversion: {Colors.ENDC}{e}")
         globalData.error_count += 1
         return pd.DataFrame()
+
 
 #################################################################################################
 def parse_xvi_file(thNameXvi):
@@ -256,6 +397,7 @@ def parse_xvi_file(thNameXvi):
                         splays.append([x1, y1, additional_coords[6],  additional_coords[7], station1, "-"])
     
     return stations, lines, splays, x_min, x_max, y_min, y_max, x_ecart, y_ecart
+
 
 #################################################################################################
 def assign_groups_and_ranks(df_lines):
@@ -771,7 +913,7 @@ def wall_construction_smoothed(df_lines, df_splays, x_min, x_max, y_min, y_max):
 
 
 ################################################################################################# 
-# Création des dossiers à partir d'un th file                                                   #
+# Création des fichiers et dossiers à partir d'un th file                                       #
 #################################################################################################   
 def create_th_folders(ENTRY_FILE, 
                     PROJECTION = "all", 
@@ -800,6 +942,7 @@ def create_th_folders(ENTRY_FILE,
     """
     
     threads = []
+    totReadMe = ""
     TH_NAME = sanitize_filename(os.path.splitext(os.path.basename(ENTRY_FILE))[0])
     DEST_PATH = os.path.dirname(ENTRY_FILE) + "/" + TH_NAME
     ABS_PATH = os.path.dirname(ENTRY_FILE)
@@ -827,7 +970,7 @@ def create_th_folders(ENTRY_FILE,
         exit(1)
 
     # Normalise name, namespace, key, file path
-    log.info(f"Parsing survey entry file: {Colors.ENDC}{shortCurentFile}")
+    log.info(f"Parsing therion survey entry file: {Colors.ENDC}{shortCurentFile}")
 
     survey_list = parse_therion_surveys(ENTRY_FILE)
     
@@ -838,7 +981,7 @@ def create_th_folders(ENTRY_FILE,
     
     TARGET = survey_list[0]
     
-    log.info(f"Parsing survey target: {Colors.ENDC}{TARGET}")        
+    log.info(f"Parsing therion survey target: {Colors.ENDC}{TARGET}")        
     
     loader = SurveyLoader(ENTRY_FILE)
     survey = loader.get_survey_by_id(survey_list[0])
@@ -893,13 +1036,21 @@ def create_th_folders(ENTRY_FILE,
     
     shutil.rmtree(tmpdir)  
     
+    if totReadMeError == "" : totReadMeError += "\tNo errors found in this file, perfect!\n"
+    
     if logfile == "Therion error":
         # log.error(f"Therion error in: {Colors.ENDC}{TH_NAME}")   
         flagErrorCompile = True
         stat = {"length": 0, "depth": 0}
+        log.info(f"File: {Colors.ENDC}{os.path.basename(thFile)}{Colors.INFO}, compilation error, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")   
+        totReadMe = f"\t{os.path.basename(thFile)} compilation error length: {stat["length"]} m, depth: {stat["depth"]} m\n"
+    
     else : 
         flagErrorCompile = False
         stat = get_stats_from_log(logfile)
+        log.info(f"File: {Colors.ENDC}{os.path.basename(thFile)}{Colors.INFO}, compilation successful, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")   
+        totReadMe = f"\t{os.path.basename(thFile)} compilation successful length: {stat["length"]} m, depth: {stat["depth"]} m\n"
+         
         
     #################################################################################################    
     # Update files                                                                                  #
@@ -920,7 +1071,7 @@ def create_th_folders(ENTRY_FILE,
             ERR = "# " if flagErrorCompile else "",
             Plan = plan,
             Extended = extended,
-            Maps = maps)
+            Maps = maps)        
         
         # Adapte templates 
         config_vars = {
@@ -940,9 +1091,12 @@ def create_th_folders(ENTRY_FILE,
             'totData' : totdata,
             'maps' : maps,
             'plan': plan,
-            'XVIscale':globalData.XVIScale,
-            'extended': extended,
-            'XVIscale':globalData.XVIScale,
+            'XVIscale' : globalData.XVIScale,
+            'extended' : extended,
+            'XVIscale' : globalData.XVIScale,
+            'readMeList': str(totReadMe),
+            'errorList' : str(totReadMeError),
+            'fixPointList' : str(" "),
             'other_scraps_plan' : "",
             'file_info' : f'# File generated by pyCreateTh.py version: {Version} date: {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}',
         }
@@ -1364,8 +1518,8 @@ def mak_to_th_file(ENTRY_FILE) :
     crs_wkt = f'EPSG:{epsg_code}'
     
     
-    log.info(f"Reading mak file: {Colors.ENDC}{shortCurentFile}{Colors.GREEN}, fixed station: {Colors.ENDC}{len(fixPoints)}{Colors.GREEN}, files: {Colors.ENDC}{len(datFiles)}{Colors.GREEN}, UTM Zone: {Colors.ENDC}{UTM[0]}{Colors.GREEN}, Datum: {Colors.ENDC}{next(iter(Datums))}{Colors.GREEN}, SCR: {Colors.ENDC}{crs_wkt}")
-    totReadMeFixPoint = f"* Source mak file: {os.path.basename(ENTRY_FILE)}, fixed station: {len(fixPoints)}, files: {len(datFiles)}, UTM Zone: {UTM[0]}, Datum: {next(iter(Datums))}, SCR: {crs_wkt}\n" 
+    log.info(f"Reading mak file: {Colors.ENDC}{shortCurentFile}{Colors.GREEN}, fixed station: {Colors.ENDC}{len(fixPoints)}{Colors.GREEN}, files : {Colors.ENDC}{len(datFiles)}{Colors.GREEN}, UTM Zone : {Colors.ENDC}{UTM[0]}{Colors.GREEN}, Datum : {Colors.ENDC}{next(iter(Datums))}{Colors.GREEN}, SCR : {Colors.ENDC}{crs_wkt}")
+    totReadMeFixPoint = f"\t* Source mak file : {os.path.basename(ENTRY_FILE)}, fixed station: {len(fixPoints)}, files : {len(datFiles)}, UTM Zone : {UTM[0]}, Datum : {next(iter(Datums))}, SCR : {crs_wkt}\n" 
      
     QtySections = 0
     
@@ -1424,8 +1578,8 @@ def mak_to_th_file(ENTRY_FILE) :
                 shutil.copy(_file, folderDest + "\\Data\\")
                 ABS_file = folderDest + "\\Data\\" + file
 
-                totReadMeError += f"* file: {file}\n"
-                totReadMeList += f"file: {file}\n"
+                totReadMeError += f"\t* file: {file}\n"
+                totReadMeList += f"\tfile: {file}\n"
 
                 Station, SurveyTitle, totReadMeError, thread2 = dat_to_th_files(ABS_file, fixPoints, crs_wkt, _ConfigPath, totReadMeError, bar)
                 
@@ -1477,7 +1631,7 @@ def mak_to_th_file(ENTRY_FILE) :
         tableau_pivot = tableau_pivot.reset_index()
         tableau_equate = tableau_pivot[tableau_pivot['Survey_Name_2'].notna()]
 
-        log.info(f"Total des 'equates' in mak file: {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{safe_relpath(args.file)}")
+        log.info(f"Total des '{Colors.ENDC}equates{Colors.INFO}' in mak file: {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{safe_relpath(args.file)}")
         # print(tableau_equate)
         # print(f"fixPoints: {Colors.ENDC}{fixPoints}{Colors.INFO} in {Colors.ENDC}{args.file}")
         
@@ -1531,7 +1685,6 @@ def mak_to_th_file(ENTRY_FILE) :
     update_template_files(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '.thconfig')
     update_template_files(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitleMak + '-tot.th')
     update_template_files(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '-maps.th')
-    update_template_files(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH + '/' +  SurveyTitleMak + '-readme.md')
     
     #################################################################################################     
     # Final therion compilation                                                                     #
@@ -1541,13 +1694,36 @@ def mak_to_th_file(ENTRY_FILE) :
         FILE = DEST_PATH + '/' +  SurveyTitleMak + '.thconfig'      
         t =  compile_file(FILE, therion_path=globalData.therionPath) 
         threads.append(t)
+        
+        for thread in threads:  # Attendre que tous les threads se terminent
+            thread.join()
+            
+        logfile = (DEST_PATH + '/therion.log').replace("\\", "/")   
+        
+        with open(logfile, 'r') as f:
+            content = f.read()
+            # print(content)
+        
+        stat = get_stats_from_log(content)
+        
+        if stat["length"] != 0.0 and stat["depth"] != 0.0 :
+            totReadMeList += f"\tFinal compilation successful length: {stat["length"]} m, depth: {stat["depth"]} m\n"
+            log.info(f"Final compilation successful length: {Colors.ENDC}{stat["length"]}{Colors.INFO} m, depth: {Colors.ENDC}{stat["depth"]}{Colors.INFO} m")
+        else :
+            totReadMeList += f"\tFinal compilation error, check log file\n"
+            log.error(f"Final compilation error, check log file")
+                    
+    config_vars['readMeList'] = totReadMeList
+
+    update_template_files(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH +'/' + SurveyTitle + '-readme.md')
+    
     
     return SurveyTitleMak, threads
 
 
 #################################################################################################
-def station_list(data, list, fixPoints, currentSurveyName) :  
-    """Crée une liste de stations à partir des données fournies.
+def station_list_dat(data, list, fixPoints, currentSurveyName) :  
+    """Crée une liste de stations à partir des données fournies issues d'un fichier dat.
 
     Args:
         data (DataFrame): Les données d'entrée contenant les informations sur les stations.
@@ -1578,6 +1754,48 @@ def station_list(data, list, fixPoints, currentSurveyName) :
     })
     
     list = pd.concat([list, new_entries], ignore_index=True)
+    
+    return list, dfDATA
+
+
+#################################################################################################
+def station_list_th(data, list, fixPoints, currentSurveyName) :  
+    """Crée une liste de stations à partir des données fournies  issues d'un fichier tro.
+
+    Args:
+        data (DataFrame): Les données d'entrée contenant les informations sur les stations.
+        list (DataFrame): La liste des stations existantes.
+        fixPoints (list): Les points de fixation à considérer.
+        currentSurveyName (str): Le nom de l'enquête en cours.
+
+    Returns:
+        DataFrame: La liste mise à jour des stations.
+        
+    """
+    
+    # Création d'un DataFrame à partir des données  
+    rows1 = [line.split() for line in data['DATA']]
+    dfDATA = pd.DataFrame(rows1)
+    
+    # stations = pd.concat([dfDATA.iloc[1:, 0], dfDATA.iloc[1:, 1]]).drop_duplicates().str.replace('[', '%').str.replace(']', '%%').str.replace('@', '_._')
+    # stations = pd.concat([dfDATA.iloc[1:, 0], dfDATA.iloc[1:, 1]]).drop_duplicates().stationName() 
+    # stations = pd.concat([dfDATA.iloc[:, 0], dfDATA.iloc[:, 1]]).drop_duplicates().reset_index(drop=True)
+    
+    stations = pd.concat([dfDATA.iloc[:, 0], dfDATA.iloc[:, 1]]).dropna().astype(str).loc[lambda s: ~s.isin(["-", "*"])].drop_duplicates().reset_index(drop=True)
+    
+    # print(stations)
+    
+    fixed_names = {point[0] for point in fixPoints}
+    stations = stations[~stations.isin(fixed_names)]
+    
+    new_entries = pd.DataFrame({
+        'StationName': stations,
+        'Survey_Name_01': currentSurveyName
+    })
+    
+    list = pd.concat([list, new_entries], ignore_index=True)
+    
+    # print(new_entries)
     
     return list, dfDATA
 
@@ -2309,9 +2527,9 @@ def load_text_file_utf8(filepath, short_filename):
         try:
             with open(filepath, 'r', encoding=enc) as f:
                 content = f.read()
-            log.info(f"Source file: {Colors.ENDC}{short_filename}{Colors.GREEN}, encoding: {Colors.ENDC}{enc}{Colors.GREEN}, conversion to {Colors.ENDC}utf-8")
-            message = f"* Source file: {short_filename}, encoding: {enc}, conversion to utf-8\n"
-            return content, message, enc
+            log.info(f"Open source file: {Colors.ENDC}{short_filename}{Colors.GREEN}, with encoding: {Colors.ENDC}{enc}{Colors.GREEN} and conversion to {Colors.ENDC}utf-8")
+            message_log = f"* Source file: {short_filename}, encoding: {enc}, conversion to utf-8\n"
+            return content, message_log, enc
         
         except UnicodeDecodeError as e:
             log.debug(f"Failed {Colors.ENDC}{enc}{Colors.DEBUG} for {Colors.ENDC}{short_filename}{Colors.DEBUG}: {Colors.ENDC}{e}")
@@ -2337,12 +2555,251 @@ def load_text_file_utf8(filepath, short_filename):
         return None, "", None
 
 
+
 ################################################################################################# 
-# Création des dossiers Th à partir d'un dat                                                    #
+# Convertit un fichier .tro en fichiers .th                                                     #
+#################################################################################################  
+def tro_to_th_files(ENTRY_FILE, centerlines = [], entrance = "", fileTitle = "", coordinates = [], coordsyst = "", fle_th_fnme = "", CONFIG_PATH = "", totReadMeError = "", bar=None) :
+    """
+    Convertit un fichier .tro en fichiers .th
+
+    Args:
+        ENTRY_FILE (str): Le chemin vers le fichier .dat d'entrée.
+        fixPoints (list, optional): Liste des points de fixation. Defaults to [].
+        crs_wkt (str, optional): Le système de référence spatiale en WKT. Defaults to "".
+        CONFIG_PATH (str, optional): Le chemin vers le fichier de configuration. Defaults to "".
+    
+    Returns:
+        tuple: Un tuple contenant un DataFrame des stations et le nom du survey.
+        
+    """    
+
+    #################################################################################################     
+    # 1 : Initialisations                                                                           #
+    ################################################################################################# 
+    data = []
+    unique_id = 1
+    totdata = f"\t## Input list:\n"
+    totMapsPlan = ""
+    totMapsExtended = ""
+    totReadMeErrorDat = ""
+    maps = ""
+    plan = ""
+    extended = ""
+    totReadMe = ""
+    surveyCount = 0    
+    totReadMeFixPoint = f"\tcs {coordsyst}\n"
+    totReadMeFixPoint += f"\tFix point: {entrance} [{coordinates[0]} km, {coordinates[1]} km, {coordinates[2]} m]\n"
+    listStationSection = pd.DataFrame(columns=['StationName', 'Survey_Name'])
+    threads = []    
+    fixPoints = []
+    fixPoints.append([entrance, " ", coordinates[0], coordinates[1], coordinates[2]])
+    
+    log.debug(f"{Colors.INFO}------------------------------------------------------------------------------------------------------------------{Colors.ENDC}")
+    
+    SurveyTitle = sanitize_filename(os.path.basename(ENTRY_FILE)[:-4])
+    folderDest =  os.path.dirname(ENTRY_FILE) + "\\" + SurveyTitle
+    
+    copy_template_if_not_exists(globalData.templatePath,folderDest)
+    
+    #################################################################################################     
+    # 2 : Boucle pour convertir les centerlines                                                     #
+    #################################################################################################
+    
+    for i, cl in enumerate( sorted(centerlines, key=lambda x: (x['date'] is None, x['date'])), start=1 ):
+    
+        currentSurveyName = f"{globalData.SurveyPrefixName}{i:02d}_{sanitize_filename(cl['date'])}"
+        fileName = folderDest + "\\Data\\" + currentSurveyName + ".th"
+    
+        log.debug(f"{Colors.INFO}Centerline # {Colors.ENDC}{i}")
+        log.debug(f"{Colors.INFO}Date : {Colors.ENDC}{cl['date']}")
+        log.debug(f"{Colors.INFO}Stations: {Colors.ENDC}{cl['DATA']}")
+        log.debug(f"{Colors.INFO}Lignes :{Colors.ENDC}")
+        
+        add_lines = "\nencoding utf-8\n" 
+        add_lines+= f"# File generated by pyCreateTh.py version: {Version} date: {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}\n"
+        add_lines+= f'\nsurvey {globalData.SurveyPrefixName}{i:02d}_{sanitize_filename(cl['date'])} -title "{fileTitle} Explo num {i:02d}"'
+        
+        cl['lines'] = [add_lines] + cl['lines'] + ["endsurvey"]
+        
+        with open(str(fileName), "w+", encoding="utf-8") as f:
+            for line in cl['lines']:
+                log.debug(line)
+                f.write(f"{line}\n")
+                
+            f.write(f"\n\n#############################################################################################")
+            f.write(f"\n# Originals data file : {args.file}")
+            if globalData.error_count == 0 :   
+                f.write(f"\n# Conversion with pyCreateTh version {Version}, the {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}, without error")
+            else :
+                f.write(f"\n# Conversion with pyCreateTh version {Version}, the {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}, with {globalData.error_count} error(s)")
+
+            f.write(f"\n#############################################################################################\n\n")
+            for line in source_content.splitlines():
+                f.write(f"# {line}\n")  
+            
+            log.debug(f"{Colors.INFO}------------------------------------------------------------------------------------------------------------------{Colors.ENDC}")
+
+        # Ajouter les données de la section à la liste
+        if len(cl['DATA']) > 0 :
+            listStationSection, dfDATA = station_list_th(cl, listStationSection, fixPoints, currentSurveyName)
+            # print(f"Explo {i}, dfDATA : {dfDATA}")
+            # print(listStationSection)
+            
+        StatCreateFolder, stat, totReadMeErrorDat, thread2 = create_th_folders(fileName, TARGET = None, 
+                                                            PROJECTION= args.proj, SCALE = args.scale, 
+                                                            UPDATE = args.update, CONFIG_PATH = "", 
+                                                            totReadMeError = totReadMeErrorDat)
+        threads += thread2
+        
+        log.info(f"File: {Colors.ENDC}{currentSurveyName}{Colors.INFO},  compilation successful, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")   
+        totReadMe += f"\t{currentSurveyName} compilation successful length: {stat["length"]} m, depth: {stat["depth"]} m\n"
+         
+        if not StatCreateFolder :
+            totMapsPlan += f"\t{plan}MP-{currentSurveyName}-Plan-tot@{currentSurveyName}\n\t{plan}break\n"
+            totMapsExtended += f"\t{extended}MC-{currentSurveyName}-Extended-tot@{currentSurveyName}\n\t{extended}break\n"
+        surveyCount += 1
+        
+        
+        totdata +=f"\tinput Data/{currentSurveyName}/{currentSurveyName}-tot.th\n" 
+        
+        _destination = fileName[:-3] + "\\Sources"
+        destination_path = os.path.join(_destination, os.path.basename(fileName))
+        shutil.move(fileName, destination_path)
+        
+        bar(1)     
+        
+    # pd.set_option("display.max_rows", None)
+    # pd.set_option("display.max_columns", None)
+    # pd.set_option("display.width", None)
+        
+    # print(f"{Colors.DEBUG}listStationSection : {Colors.ENDC}{listStationSection}")
+    
+    ################################################################################################# 
+    # Gestion des equates 
+    #################################################################################################
+        
+    totdata +=f"\n" 
+
+    _stationList = listStationSection.copy()
+    
+    # On numérote les doublons de Survey_Name pour chaque StationName
+    _stationList['Survey_Number'] = _stationList.groupby('StationName').cumcount() + 1
+    
+    # print(f"{Colors.DEBUG}_stationList : {Colors.ENDC}{_stationList}")
+    
+    # On pivote le tableau pour que chaque Survey_Name devienne une colonne
+    tableau_pivot = _stationList.pivot(index='StationName', columns='Survey_Number', values='Survey_Name_01')
+    
+    tableau_pivot.columns = [f'Survey_Name_{i}' for i in tableau_pivot.columns]
+    
+    # print(f"{Colors.DEBUG}tableau_pivot : {Colors.ENDC}{tableau_pivot}{Colors.DEBUG} in {Colors.ENDC}{currentSurveyName}")
+    
+    totdata +=f"\n\t## equates list:\n"
+    
+    if 'Survey_Name_2' in tableau_pivot.columns:
+        # On réinitialise l'index pour avoir StationName comme colonne normale
+        tableau_pivot = tableau_pivot.reset_index()
+        tableau_equate = tableau_pivot[tableau_pivot['Survey_Name_2'].notna()]
+
+        log.info(f"Total 'equates' founds: {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{currentSurveyName}")
+        
+        # print(f"{Colors.DEBUG}tableau_equate : {Colors.ENDC}{tableau_equate}")
+        # print(f"{Colors.DEBUG}fixePoints : {Colors.ENDC}{fixPoints}{Colors.DEBUG} in {Colors.ENDC}{currentSurveyName}")
+        
+        # Pour chaque ligne du tableau
+        for _, row in tableau_equate.iterrows():
+            station = row['StationName']
+            
+            # On récupère tous les Survey_Name non vides (NaN exclus)
+            surveys = [row[col] for col in tableau_equate.columns if col.startswith('Survey_Name') and pd.notna(row[col])]
+            
+            # Pour chaque paire unique (i < j), on écrit la ligne 'equate'
+            for i in range(len(surveys)):
+                for j in range(i + 1, len(surveys)):
+                    totdata +=f"\tequate {station}@{surveys[i]}.{surveys[i]} {station}@{surveys[j]}.{surveys[j]}\n"
+    else:
+        log.info(f"No 'equates' found in {Colors.ENDC}{currentSurveyName}")
+        
+    totdata +=f"\n\t## Maps list:\n\t{maps}input {SurveyTitle}-maps.th\n"
+    
+    if totReadMeErrorDat == "" : totReadMeErrorDat += "\tThis file has no errors, perfect!\n"
+        
+    config_vars = {
+                    'fileName': SurveyTitle,
+                    'caveName': SurveyTitle.replace("_", " "),
+                    'Author': globalData.Author,
+                    'Copyright': globalData.Copyright,
+                    'Scale' : args.scale,
+                    'Target' : "TARGET",
+                    'mapComment' : globalData.mapComment,
+                    'club' : globalData.club,
+                    'thanksto' : globalData.thanksto,
+                    'datat' : globalData.datat,
+                    'wpage' : globalData.wpage, 
+                    'cs' : coordsyst if coordsyst != "" else globalData.cs,
+                    'totData' : totdata,
+                    'maps' :maps,
+                    'plan': plan,
+                    'XVIscale': globalData.XVIScale,
+                    'extended': extended,
+                    'configPath' : "",
+                    'other_scraps_plan' : totMapsPlan,
+                    'readMeList' : totReadMe,
+                    'errorList' : totReadMeErrorDat,
+                    'fixPointList' : totReadMeFixPoint,
+                    'other_scraps_extended' : totMapsExtended,
+                    'file_info' : f"# File generated by pyCreateTh.py version: {Version} date: {datetime.now().strftime("%Y.%m.%d-%H:%M:%S")}",
+            }
+
+    DEST_PATH = os.path.dirname(ENTRY_FILE) + '/' +  SurveyTitle
+
+    update_template_files(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitle + '.thconfig')
+    update_template_files(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitle + '-tot.th')
+    update_template_files(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  SurveyTitle + '-maps.th')
+   
+    
+    #################################################################################################     
+    # Final therion compilation                                                                     #
+    #################################################################################################
+
+    if globalData.finalTherionExe == True:
+        FILE = DEST_PATH + '/' +  SurveyTitle + '.thconfig'      
+        t = compile_file(FILE, therion_path=globalData.therionPath) 
+        threads.append(t)
+        
+        for thread in threads:  # Attendre que tous les threads se terminent
+            thread.join()
+            
+        logfile = (DEST_PATH + '/therion.log').replace("\\", "/")   
+        
+        with open(logfile, 'r') as f:
+            content = f.read()
+            # print(content)
+        
+        stat = get_stats_from_log(content)
+        
+        if stat["length"] != 0.0 and stat["depth"] != 0.0 :
+            totReadMe += f"\tFinal compilation successful length: {stat["length"]} m, depth: {stat["depth"]} m\n"
+            log.info(f"Final compilation successful length: {Colors.ENDC}{stat["length"]}{Colors.INFO} m, depth: {Colors.ENDC}{stat["depth"]}{Colors.INFO} m")
+        else :
+            totReadMe += f"\tFinal compilation error, check log file\n"
+            log.error(f"Final compilation error, check log file")
+                    
+    config_vars['readMeList'] = totReadMe
+
+    update_template_files(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH +'/' + SurveyTitle + '-readme.md')
+    
+    return _stationList, SurveyTitle, totReadMeError, threads
+        
+    
+
+################################################################################################# 
+# Convertit un fichier .dat en fichiers .th                                                     #
 #################################################################################################  
 def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "", totReadMeError = "", bar=None) :
     """
-    Convertit un fichier .dat en fichiers .th.
+    Convertit un fichier .dat en fichiers .th
 
     Args:
         ENTRY_FILE (str): Le chemin vers le fichier .dat d'entrée.
@@ -2486,7 +2943,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         
         # Ajouter les données de la section à la liste
         if len(section_data['DATA']) > 0 :
-            listStationSection, dfDATA = station_list(section_data, listStationSection, fixPoints, section_data['SURVEY_NAME'])
+            listStationSection, dfDATA = station_list_dat(section_data, listStationSection, fixPoints, section_data['SURVEY_NAME'])
             section_data['STATION'] = listStationSection
             data.append(section_data)    
             unique_id += 1 
@@ -2615,12 +3072,11 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         }
 
         
-    
         #################################################################################################     
         # gestion des DATA                                                                              #
         #################################################################################################
 
-        stationList, dfDATA = station_list(_line, stationList, fixPoints, currentSurveyName)
+        stationList, dfDATA = station_list_dat(_line, stationList, fixPoints, currentSurveyName)
 
         headerData = dfDATA.iloc[0].tolist()
               
@@ -2746,9 +3202,6 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         
     totdata +=f"\n" 
 
-        
-    
-     
     _stationList = stationList.copy()
     
     # On numérote les doublons de Survey_Name pour chaque StationName
@@ -2770,7 +3223,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         tableau_pivot = tableau_pivot.reset_index()
         tableau_equate = tableau_pivot[tableau_pivot['Survey_Name_2'].notna()]
 
-        log.info(f"Total 'equates' founds: {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{shortCurentFile}")
+        log.info(f"Total '{Colors.ENDC}equates{Colors.INFO}' founds : {Colors.ENDC}{len(tableau_equate)}{Colors.INFO} in {Colors.ENDC}{shortCurentFile}")
         # print(tableau_equate)
         # print(f"fixePoints : {Colors.ENDC}{fixed_names}{Colors.INFO} in {Colors.ENDC}{ENTRY_FILE}")
         
@@ -2786,11 +3239,11 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
                 for j in range(i + 1, len(surveys)):
                     totdata +=f"\tequate {station}@{surveys[i]}.{surveys[i]} {station}@{surveys[j]}.{surveys[j]}\n"
     else:
-        log.info(f"No 'equates' found in {Colors.ENDC}{ENTRY_FILE}")
+        log.info(f"No '{Colors.ENDC}equates{Colors.INFO}' found in {Colors.ENDC}{ENTRY_FILE}")
              
     totdata +=f"\n\t## Maps list:\n\t{maps}input {SurveyTitle}-maps.th\n"
     
-    if totReadMeErrorDat == "" : totReadMeErrorDat += "\tAny error in this file, that's perfect !\n"
+    if totReadMeErrorDat == "" : totReadMeErrorDat += "\tNo errors in the file, that's excellent !\n"
         
     config_vars = {
                     'fileName': SurveyTitle,
@@ -2824,17 +3277,38 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     update_template_files(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitle + '.thconfig')
     update_template_files(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitle + '-tot.th')
     update_template_files(DEST_PATH + '/template-maps.th', config_vars, DEST_PATH + '/' +  SurveyTitle + '-maps.th')
-    update_template_files(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH +'/' + SurveyTitle + '-readme.md')
     
     #################################################################################################     
     # Final therion compilation                                                                     #
     #################################################################################################
  
-    if globalData.finalTherionExe == True:
+    if globalData.finalTherionExe == True :
         FILE = DEST_PATH + '/' +  SurveyTitle + '.thconfig'      
         t = compile_file(FILE, therion_path=globalData.therionPath) 
         threads.append(t)
         
+        for thread in threads:  # Attendre que tous les threads se terminent
+            thread.join()
+            
+        logfile = (DEST_PATH + '/therion.log').replace("\\", "/")   
+        
+        with open(logfile, 'r') as f:
+            content = f.read()
+            # print(content)
+        
+        stat = get_stats_from_log(content)
+        
+        if stat["length"] != 0.0 and stat["depth"] != 0.0 :
+            totReadMe += f"\tFinal compilation successful length: {stat["length"]} m, depth: {stat["depth"]} m\n"
+            log.info(f"Final compilation successful length: {Colors.ENDC}{stat["length"]}{Colors.INFO} m, depth: {Colors.ENDC}{stat["depth"]}{Colors.INFO} m")
+        else :
+            totReadMe += f"\tFinal compilation error, check log file\n"
+            log.error(f"Final compilation error, check log file")
+                    
+    config_vars['readMeList'] = totReadMe
+
+    update_template_files(DEST_PATH + '/template-readme.md', config_vars, DEST_PATH +'/' + SurveyTitle + '-readme.md')
+    
     stationList["Survey_Name_02"] = SurveyTitle
 
     totReadMeError += totReadMeErrorDat
@@ -2860,6 +3334,7 @@ def wait_until_file_is_released(filepath, timeout=30):
         try:
             with open(filepath, "rb"):
                 return True
+            
         except PermissionError:
             if time.time() - start > timeout:
                 log.Error(f"Timeout: The file remains locked after {Colors.ENDC}{timeout}{Colors.ERROR} secondes: {Colors.ENDC}{filepath}")
@@ -2874,6 +3349,7 @@ if __name__ == u'__main__':
     start_time  = datetime.now()
     threads = []
     fileTitle = ""
+    _fileTitle = ""
     
     #################################################################################################
     # Parse arguments                                                                               #
@@ -2921,7 +3397,7 @@ if __name__ == u'__main__':
     #################################################################################################
     # titre                                                                                         #
     #################################################################################################
-    titre_largeur = 150
+    titre_largeur = 160
     bordure = "#" * titre_largeur + Colors.ENDC
     ansi_escape = re.compile(r'\x1b\[[0-9;]*m')
 
@@ -3012,15 +3488,11 @@ if __name__ == u'__main__':
                 log.critical(f"The folder {Colors.ENDC}{SurveyTitleDat}{Colors.ERROR}{Colors.BOLD},  all ready exist : update mode is not possible for mak files")
                 exit(0)
         
-        with alive_bar(
-                QtySections, 
-                title=f"{Colors.GREEN}Surveys progress: {Colors.BLUE}",  
-                length = 20, 
-                enrich_print=False,
+        with alive_bar( QtySections, title=f"{Colors.GREEN}Dat to Th conversion progress: {Colors.BLUE}", length = 20, enrich_print=False,
                 stats=True,  # Désactive les stats par défaut pour plus de lisibilité
                 elapsed=True,  # Optionnel : masque le temps écoulé
                 monitor=True,  # Optionnel : masque les métriques (ex: "eta")
-                bar="smooth"  # Style de la barre (autres options: "smooth", "classic", "blocks")
+                bar="smooth"  # Style de la barre (autres options: "smooth", "classic", "blocks") 
                 ) as bar:
             with redirect_stdout(sys.__stdout__):
                 for i in range(1): 
@@ -3038,47 +3510,84 @@ if __name__ == u'__main__':
     elif args.file[-3:].lower() == "tro" :
         
         SrcFile = abspath(args.file)
-        DestFile = SrcFile[:-4] # + "Th"
+        DestFile = SrcFile[:-4] + ".th"
         
         source_content, val, encodage = load_text_file_utf8(SrcFile, os.path.basename(SrcFile))
         
-        fileTitle, coordinates, coordsyst, fle_th_fnme = convert_tro(
-                                    fle_tro_fnme = SrcFile, 
-                                    fle_tro_encoding= encodage, 
-                                    fle_th_fnme = DestFile, 
-                                    cavename = None, 
-                                    icomments = True, 
-                                    icoupe = False, 
-                                    istructure = False, 
-                                    thlang = None, 
-                                    Errorfiles = False
-                                    )
+        entrance, fileTitle, coordinates, coordsyst, fle_th_fnme = convert_tro( fle_tro_fnme = SrcFile, fle_tro_encoding= encodage, 
+                                    fle_th_fnme = DestFile, cavename = None, icomments = True, icoupe = False, istructure = False, 
+                                    thlang = None, Errorfiles = False )
+        
+        if coordsyst == None :
+            log.critical(f"The VisualTopo file {Colors.ENDC}{SrcFile}{Colors.ERROR}{Colors.BOLD}, have no coordinate system define. Correct it and try again")
+            exit(0)
         
         content, val, encodage = load_text_file_utf8(fle_th_fnme, os.path.basename(fle_th_fnme))
         
-        if encodage != "utf-8":
-            with open(str(fle_th_fnme), "w+", encoding="utf-8") as f:
-                f.write(content)
-        
-        with open(fle_th_fnme, 'a', encoding='utf-8') as file:
-            file.write("\n\n")
-            for line in source_content.splitlines():
-                file.write(f"# {line}\n")        
+        if globalData.parse_tro_files_by_explo :
+            
+            _centerlines = parse_therion_centerline(content)
+            centerlines = regroupe_date(_centerlines)
+            
+             
+            with alive_bar( len(centerlines) + 1 , title=f"{Colors.GREEN}Tro to Th conversion progress: {Colors.BLUE}", length = 20, enrich_print=False,
+                    stats=True,  # Désactive les stats par défaut pour plus de lisibilité
+                    elapsed=True,  # Optionnel : masque le temps écoulé
+                    monitor=True,  # Optionnel : masque les métriques (ex: "eta")
+                    bar="smooth"  # Style de la barre (autres options: "smooth", "classic", "blocks") 
+                    ) as bar:
+                
+                with redirect_stdout(sys.__stdout__):
+                    for i in range(1): 
+                        if globalData.error_count > 0:
+                            bar.text(f"{Colors.INFO}file: {Colors.ENDC}{os.path.basename(SrcFile)}{Colors.ERROR}, error: {Colors.ENDC}{globalData.error_count}")
+                        
+                        else :
+                            bar.text(f"{Colors.INFO}file: {Colors.ENDC}{os.path.basename(SrcFile)}")
+                        
+                        stationList, fileTitle, totReadMeError, thread2 = tro_to_th_files (ENTRY_FILE = SrcFile , 
+                                                                                           centerlines = centerlines,
+                                                                                           entrance = entrance, 
+                                                                                           fileTitle = fileTitle, 
+                                                                                           coordinates = coordinates, 
+                                                                                           coordsyst = coordsyst, 
+                                                                                           fle_th_fnme = fle_th_fnme, 
+                                                                                           CONFIG_PATH = "", 
+                                                                                           totReadMeError = "", 
+                                                                                           bar = bar)
+                        threads += thread2
+                        bar()            
+                
+        else :
+            if encodage != "utf-8":
+                with open(str(fle_th_fnme), "w+", encoding="utf-8") as f:
+                    f.write(content)
+            
+            with open(fle_th_fnme, 'a', encoding='utf-8') as file:        # Données originales en commentaire dans le fichier th        
+                file.write(f"\n\n#############################################################################################")
+                file.write(f"\n# Originals data file : {args.file}")
+                if globalData.error_count == 0 :   
+                    file.write(f"\n# Conversion with pyCreateTh version {Version}, the {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}, without error")
+                else :
+                    file.write(f"\n# Conversion with pyCreateTh version {Version}, the {datetime.now().strftime("%Y.%m.%d %H:%M:%S")}, with {globalData.error_count} error(s)")
 
-        
-        flagErrorCompile, stat, totReadMeError, thread2 = create_th_folders(
-                                                        ENTRY_FILE = fle_th_fnme, 
-                                                        TARGET = None, 
-                                                        PROJECTION= args.proj,
-                                                        SCALE = args.scale, 
-                                                        UPDATE = args.update,
-                                                        CONFIG_PATH = "")
-        threads += thread2
-        fileTitle = sanitize_filename(os.path.basename(fle_th_fnme)[:-3])
+                file.write(f"\n#############################################################################################\n\n")
+                for line in source_content.splitlines():
+                    file.write(f"# {line}\n")        
+                    
+            flagErrorCompile, stat, totReadMeError, thread2 = create_th_folders( ENTRY_FILE = fle_th_fnme, TARGET = None, PROJECTION= args.proj,
+                                                            SCALE = args.scale, UPDATE = args.update, CONFIG_PATH = "")
+            
+            threads += thread2
+            fileTitle = sanitize_filename(os.path.basename(fle_th_fnme)[:-3])
         
         if os.path.isfile(fle_th_fnme):
             os.remove(fle_th_fnme)
-
+             
+            
+    #################################################################################################
+    # Autres types                                                                                  #
+    #################################################################################################    
     else :
         log.error(f"file {Colors.ENDC}{safe_relpath(args.file)}{Colors.ERROR} not yet supported")
         globalData.error_count += 1
@@ -3095,13 +3604,13 @@ if __name__ == u'__main__':
     duration = (datetime.now() - start_time).total_seconds()
     
     if globalData.error_count == 0 :    
-        log.info(f"All files processed successfully in {Colors.ENDC}{duration:.2f}{Colors.INFO} secondes, without errors")
+        log.info(f"All files processed successfully in {Colors.ENDC}{duration:.2f}{Colors.INFO} secondes, without error")
     else :
         log.error(f"There were {Colors.ENDC}{globalData.error_count}{Colors.ERROR} errors during {Colors.ENDC}{duration:.2f}{Colors.ERROR} secondes, check the log file: {Colors.ENDC}{os.path.basename(output_log)}")
 
     wait_until_file_is_released(output_log)
-    release_log_file(log)
     
+    release_log_file(log)
     
     # Supprimer le fichier cible si il existe déjà
     if os.path.isfile(destination_file):
@@ -3109,4 +3618,7 @@ if __name__ == u'__main__':
 
     if not args.update :
         shutil.move(output_log, destination_path)
+        
+    if os.path.exists(fileTitle):
+        os.remove(fileTitle)
 
