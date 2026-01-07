@@ -182,7 +182,7 @@ fr_lengthre = re.compile(r".*Longueur totale de la topographie = \s*(\S+)m")
 fr_depthre = re.compile(r".*Longueur totale verticale =\s*(\S+)m")
 
 en_lengthre = re.compile(r".*Total length of survey legs = \s*(\S+)m")
-en_depthre = re.compile(r".*Total vertical length of survey legs =\s*(\S+)m")
+en_depthre = re.compile(r".*Vertical range =\s*(\S+)m")
 
 def get_stats_from_log(log):
     lenmatch = fr_lengthre.findall(log)

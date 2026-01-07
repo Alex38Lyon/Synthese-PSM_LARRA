@@ -1,7 +1,11 @@
 """
 #############################################################################################
-general_fonctions.py for pyCreateTh.py                                                           
+#                                                                                           #
+#                      general_fonctions.py for pyCreateTh.py                               #
+#                                                                                           #                           
 #############################################################################################
+
+Alex 2025 06 09
 """
 import os, logging, sys, re, configparser, unicodedata, shutil
 from pathlib import Path
@@ -191,11 +195,12 @@ def select_file_tk_window():
     file_path = filedialog.askopenfilename(
         title="Select your file",
         filetypes=[ 
-                   ("Compatibles files", "*.th *.mak *.dat *.tro"), 
+                   ("Compatibles files", "*.th *.mak *.dat *.tro *.trox"), 
                    ("MAK files", "*.mak"),
                    ("TH files", "*.th"), 
                    ("DAT files", "*.dat"), 
                    ("TRO files", "*.tro"), 
+                   ("TROX files", "*.trox"), 
                    ("All files", "*.*")]
         )
     
@@ -449,4 +454,56 @@ def update_template_files(template_path, variables, output_path):
     except Exception as e:
         log.error(f"An error occurred (update_template_files : {Colors.ENDC}{os.path.basename(template_path)}{Colors.ERROR}) : {Colors.ENDC}{e}")
         global_Data.error_count += 1
+
+
+#################################################################################################     
+def load_text_file_utf8(filepath, short_filename):
+    """Loads a text file with various encodings and converts it to UTF-8.
+
+    Args:
+        filepath (str): The path to the file to be loaded.
+        short_filename (str): The name of the file (for logging purposes).
+
+    Returns:
+        tuple: A tuple containing the file content, a log message, and the encoding used.
+    """
+
+    encodings_to_try = [
+        'utf-8-sig',       # UTF-8 avec BOM
+        'utf-8',           # UTF-8 standard
+        'windows-1252',    # ANSI Windows Europe de l’Ouest
+        'iso-8859-15',     # ISO-8859-15 (latin9), remplace iso-8859-1 (latin1)
+        'iso-8859-1',
+    ]
+
+    for enc in encodings_to_try:
+        try:
+            with open(filepath, 'r', encoding=enc) as f:
+                content = f.read()
+            log.info(f"Open source file: {Colors.ENDC}{short_filename}{Colors.GREEN}, with encoding: {Colors.ENDC}{enc}{Colors.GREEN} and conversion to {Colors.ENDC}utf-8")
+            message_log = f"* Source file: {short_filename}, encoding: {enc}, conversion to utf-8\n"
+            return content, message_log, enc
+        
+        except UnicodeDecodeError as e:
+            log.debug(f"Failed {Colors.ENDC}{enc}{Colors.DEBUG} for {Colors.ENDC}{short_filename}{Colors.DEBUG}: {Colors.ENDC}{e}")
+            continue
+        
+        except Exception as e:
+            log.critical(f"Unexpected error while reading {Colors.ENDC}{short_filename}{Colors.CRITICAL}: {e}")
+            exit(0)
+            return None, "", None
+
+    # Dernier recours : lecture binaire + forçage
+    try:
+        with open(filepath, 'rb') as f:
+            raw = f.read()
+            content = raw.decode('windows-1252', errors='replace')
+        log.warning(f"Force-reading {Colors.ENDC}{short_filename}{Colors.WARNING} with character replacement (windows-1252)")
+        message = f"* Force-reading source file: {short_filename} with character replacement (windows-1252)\n"  
+        return content, message, 'windows-1252'
+    
+    except Exception as e:
+        log.critical(f"Failed to read file {Colors.ENDC}{short_filename}{Colors.CRITICAL}: {Colors.ENDC}{e}")  
+        exit(0)
+        return None, "", None
 
