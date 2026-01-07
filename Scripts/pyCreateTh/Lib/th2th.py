@@ -16,6 +16,7 @@
 
   
 	TODOS : -....
+ 
 """
 
 #################################################################################################
@@ -29,18 +30,15 @@ import pandas as pd
 pd.set_option('future.no_silent_downcasting', True)
 from datetime import datetime
 from collections import defaultdict
-from copy import deepcopy
-from alive_progress import alive_bar              # https://github.com/rsalmei/alive-progress	
 from contextlib import redirect_stdout
 
 from Lib.survey import SurveyLoader, NoSurveysFoundException
 from Lib.therion import compile_template, compile_file, get_stats_from_log
-from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_help
-from Lib.general_fonctions import load_config, select_file_tk_window, release_log_file, sanitize_filename
-from Lib.general_fonctions import copy_template_if_not_exists, add_copyright_header, copy_file_with_copyright, update_template_files, load_text_file_utf8
+from Lib.general_fonctions import Colors, safe_relpath
+from Lib.general_fonctions import sanitize_filename
+from Lib.general_fonctions import copy_template_if_not_exists, copy_file_with_copyright, update_template_files, load_text_file_utf8
 import Lib.global_data as globalData
-from Lib.pytro2th.tro2th import convert_tro   #Version local modifiée
-from Lib.trox2th import analyse_xml_balises
+
 
 log = logging.getLogger("Logger")
 

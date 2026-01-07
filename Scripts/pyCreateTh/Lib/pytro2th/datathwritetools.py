@@ -190,12 +190,21 @@ def writecenterlineheader(file, entrance, settings, comments, data, coordsyst, c
 			elif thlang == u'en':
 				file.write(u'\t\t# If date is used, comment the ligne "declination", '
 				           u'the date will be use to compute it\n')
-	file.write(u'\t\tdeclination %s %s \n'% (str(settings[5]), angleU[settings[2]]))
-	# file.write(u'\t\t\tteam "G.S. Vulcain" \n')
+	if str(settings[9]) == "":
+		file.write(u'\t\tdeclination %s %s \n'% (str(settings[5]), angleU[settings[2]]))
+	else :
+		file.write(u'\t\t# declination %s %s \n'% (str(settings[5]), angleU[settings[2]]))
+
+ # file.write(u'\t\t\tteam "G.S. Vulcain" \n')
 	file.write(u'\t\t# team "%s" \n' % club)
-	file.write(u'\t\t#explo-date %s\n'% str(settings[9]))
+	file.write(u'\t\t# explo-date %s\n'% str(settings[9]))
 	# file.write(u'\t\t\texplo-team "G.S. Vulcain" \n')
-	file.write(u'\t\t# explo-team "%s" \n' % club)
+	if club.count(' ') >= 2:
+		_club = club.replace(' ', '/', 1)
+	else :
+		_club = club
+	file.write(u'\t\texplo-team "%s" \n' % _club)
+ 
 	if icomments:
 		if thlang == u'en': file.write(u'\t\t# (to be completed, add many lines as you need) \n')
 		elif thlang == u'fr': file.write(u'\t\t# (peut être complété en ajoutant le nombre de lignes nécessaires) \n')

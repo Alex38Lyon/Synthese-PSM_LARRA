@@ -1,7 +1,9 @@
 """
-#############################################################################################
+!#############################################################################################!
+
 global_data.py for pyCreateTh.py                                                           
-#############################################################################################
+
+!#############################################################################################!
 """
 
 Version = "2026.01.07" 
@@ -37,12 +39,31 @@ parse_tro_files_by_explo = True
 
 #################################################################################################
 THERION_KEYWORDS = {
-    "centerline", "end  centerline",
-    "date", "units", "flags", "team",
-    "calibrate", "data", "declination",
-    "fix", "station", "equate",
-    "cs", "extend", "infer",
-    "instrument", "grade", "clino", "compass", "length", "reverse", "topofil", "duplicate", "not",
+    "centerline", 
+    "endcenterline",
+    "date", 
+    "units", 
+    "flags", 
+    "team",
+    "calibrate", 
+    "data", 
+    "declination",
+    "fix", 
+    "station", 
+    "equate",
+    "cs", 
+    "extend", 
+    "infer", 
+    "explo-team",
+    "instrument", 
+    "grade", 
+    "clino", 
+    "compass", 
+    "length", 
+    "reverse", 
+    "topofil", 
+    "duplicate", 
+    "not",
 }
 
 #################################################################################################
@@ -153,7 +174,8 @@ endscrap
 #################################################################################################
 datumToEPSG = {
      # Datums globaux
-     "wgs84": "326",   # UTM Nord (WGS84) - EPSG:326XX
+     "wgs84": "326",    # UTM Nord (WGS84) - EPSG:326XX
+     "wgs1984": "326",  # UTM Nord (WGS84) - EPSG:326XX
      "etrs89": "258",   # UTM Nord (ETRS89) - Europe
      
      # Datums européens

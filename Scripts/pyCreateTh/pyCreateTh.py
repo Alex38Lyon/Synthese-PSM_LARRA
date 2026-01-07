@@ -1,6 +1,6 @@
 
 """
-#############################################################################################
+!############################################################################################
 #                                                                                       	#  
 #              Script pour convertir des données topographiques des formats                 #
 #                          .th de Therion (brut, sans les dossiers)                         #
@@ -15,7 +15,7 @@
 # Usage : python pyCreateTh.py                                                              #
 #         Commandes : pyCreateTh.py --help                                                  #
 #                                                                                       	#  
-#############################################################################################
+!############################################################################################
 
 Merci à :
         - Tanguy Racine pour les scripts                        https://github.com/tr1813
@@ -32,13 +32,12 @@ Création Alex le 2025 06 09
 En cours :
     - Exports Tro :
         - Pas possible de gérer les fichiers tro avec plusieurs entrées / points fixes car pas sauvegardé dans le format tro
-        - gérer les déclinaison si une date est présente et si une coordonnées
         - gérer pour ne pas avoir de copie de config.ini
-        - gérer "# explo-team"
+        - modifier les coordonnées de km vers m
     - Exports TroX
         - A créer pour avoir notamment les réseaux à plusieurs entrées 
     - Exports DAT/MARK
-        - gérer Flags '# #|LP#' not implemented in therion
+        - Attention les  Flags '#|L#' posent problèmes (A voir convertisseur PdB vers compass...)
     - tester avec les dernières option de la version de DAT (CORRECTION2 et suivants)
     - améliorer fonction wall shot pour faire habillage des th2 files, les jointures...
         - traiter les series avec 1 ou 2 stations
@@ -714,14 +713,15 @@ def formated_station_list(df, dataFormat, unit = "meter", shortCurentFile ="None
         # Si la colonne 10 contient #|L#    Exclude from Length
         if "#|L#" in col10:
             surface_row = [" "] * len(row)
-            surface_row[0] = "flags surface"
+            surface_row[0] = "flags duplicate"
             new_rows.append(surface_row)
 
             new_rows.append(row.tolist())
 
             not_surface_row = [" "] * len(row)
-            not_surface_row[0] = "flags not surface"
+            not_surface_row[0] = "flags not duplicate"
             new_rows.append(not_surface_row)
+            log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
         
         # Si la colonne 10 contient #|S#    type Spay (habillages)     
         elif "#|S#" in col10:        
@@ -730,6 +730,8 @@ def formated_station_list(df, dataFormat, unit = "meter", shortCurentFile ="None
             new_rows.append(surface_row)
 
             new_rows.append(row.tolist())
+            
+            row[1] = "-"
 
             not_surface_row = [" "] * len(row)
             not_surface_row[0] = "flags not splay"
@@ -774,18 +776,20 @@ def formated_station_list(df, dataFormat, unit = "meter", shortCurentFile ="None
             new_rows.append(not_surface_row)
             log.warning(f"Flags #|C# exclude from closure not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
 
-        # Si la colonne 10 contient #|PL#    exclude from plotting and Length i.e splay
+        # Si la colonne 10 contient #|PL#    exclude from plotting and Length ( i.e  converti en splay)
         elif "#|PL#" in col10 or "#|LP#" in col10:
             surface_row = [" "] * len(row)
-            surface_row[0] = "flags duplicate"
+            surface_row[0] = "flags splay"
             new_rows.append(surface_row)
 
             new_rows.append(row.tolist())
+            
+            row[1] = "-"
 
             not_surface_row = [" "] * len(row)
-            not_surface_row[0] = "flags not duplicate"
+            not_surface_row[0] = "flags not splay"
             new_rows.append(not_surface_row)
-            log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
+            # log.warning(f"Flags '{Colors.ENDC}{col10}{Colors.WARNING}' not implemented in therion, line {Colors.ENDC}{idx+1}{Colors.WARNING} in {Colors.ENDC}{shortCurentFile}")
 
         # Si la colonne 10 contient #|LC#    exclude from Length and Closure
         elif "#|LC#" in col10 or "#|CL#" in col10:
@@ -1543,6 +1547,10 @@ def tro_to_th_files(ENTRY_FILE, centerlines = [],
             }
 
     DEST_PATH = os.path.dirname(ENTRY_FILE) + '/' +  SurveyTitle
+       
+    # from pprint import pprint
+
+    # pprint(config_vars, width=120, depth=2)
 
     update_template_files(DEST_PATH + '/template.thconfig', config_vars, DEST_PATH + '/' +  SurveyTitle + '.thconfig')
     update_template_files(DEST_PATH + '/template-tot.th', config_vars, DEST_PATH + '/' + SurveyTitle + '-tot.th')
@@ -1715,7 +1723,10 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
                 line.strip()
             elif NextLineSurveyTeam == True : 
                 NextLineSurveyTeam = False
-                section_data['SURVEY_TEAM'] = line.strip()
+                val = line.strip()
+                if val.count(' ') >= 2:
+                    val = val.replace(' ', '/', 1)
+                section_data['SURVEY_TEAM'] = val
             elif line.startswith('DECLINATION:'):         
                 for champ, pattern in regex_patterns.items():
                     match = re.search(pattern, line)
