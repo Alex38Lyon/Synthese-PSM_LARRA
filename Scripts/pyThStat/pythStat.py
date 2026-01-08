@@ -24,7 +24,8 @@ from tkinter import filedialog
 from alive_progress import alive_bar              # https://github.com/rsalmei/alive-progress	
 from datetime import datetime
 
-Version ="2025.02.07"  
+Version ="2026.01.09"  
+
 
 """#####################################################################################################################################
 #                              Fonction pour importer un fichier SQL dans une base de données SQLite                                   #
@@ -1280,11 +1281,25 @@ def calcul_stats(output_file):
     global _largeurColTete
     
     try:
-        print(f"\033[1;32mPhase 5: Écriture des statistiques dans \033[0m{safe_relpath(output_file)}")    
+        print(f"\033[1;32mPhase 5: Écriture des statistiques dans fichier \033[0m{safe_relpath(output_file)}")    
        # Enregistrement des résultats dans un fichier texte
-        output_file_ligne =[]
+        output_file_ligne_md = []
+        output_file_ligne_csv = []
             
-        for i in range(9): output_file_ligne.append(titre[i].ljust(120)+"*\n")  
+        for i in range(9): 
+            output_file_ligne_csv.append(titre[i].ljust(120)+"*\n")  
+            
+        output_file_ligne_md.extend([
+            f"--------------\n",
+            f"- **Script :** {titre[1].strip()}\n",
+            f"- **Version :** `{titre[2].strip()}`\n",
+            f"- **Fichier source :** `{titre[3].strip()}`\n",
+            f"- **Dossier destination :** `{titre[4].strip()}`\n",
+            f"- **Date :** `{titre[5].strip()}`\n",
+            f"- **Durée du calcul :** `{titre[6].strip()}`\n",
+            f"--------------\n",
+        ])
+
         
         sql_query1 = ("""
                 Select 
@@ -1299,14 +1314,15 @@ def calcul_stats(output_file):
         results = cursor.fetchall()            
         vide ="-".ljust(_largeurCol)
                                                                                                                                                                                                         
-        # output_file_ligne.append(f"Développement total centerline:\t{"{:.2f}".format(results[0][0]).ljust(_largeurCol)}\t{"{:.2f}".format(results[0][1]).ljust(_largeurCol)}\t{vide}\t{vide}\t{vide}\tdev.(m), dupl.(m)\n")
-            #print('Développement total: ' + formatted_row + 'm')
-        # output_file_ligne.append(f"**Développement total centerline:**\t%s\t%s\t%s\t%s\t%s\tDev.(m), Dupl.(m), Surf.(m)\n" %(str("{:.2f}".format(results[0][0]).ljust(_largeurCol)), 
-        #                                                                                                     str("{:.2f}".format(results[0][1]).ljust(_largeurCol)),
-        #                                                                                                     str("{:.2f}".format(results[0][2]).ljust(_largeurCol)),
-        #                                                                                                     str(vide), str(vide)))    
+        output_file_ligne_csv.append(
+                f"**Développement total centerline:**\t%s\t%s\t%s\t%s\t%s\tDev.(m), Dupl.(m), Surf.(m)\n" 
+                %(str("{:.2f}".format(results[0][0]).ljust(_largeurCol)), 
+                str("{:.2f}".format(results[0][1]).ljust(_largeurCol)),
+                str("{:.2f}".format(results[0][2]).ljust(_largeurCol)),
+                str(vide), 
+                str(vide)))    
 
-        output_file_ligne.append(
+        output_file_ligne_md.append(
                     f"**Développement total des centerlines (m):**  "
                     f"**, Développement:** {results[0][0]:.2f} "
                     f"**, Dupliqué:** {results[0][1]:.2f} "
@@ -1318,30 +1334,51 @@ def calcul_stats(output_file):
         compteur = int(_compteur[0][0])
         
         if compteur > 0 : # type: ignore
-            output_file_ligne.append(f"!!Attention, {compteur} station(s) non comptabilisée(s) et raccordée(s)\n")
-        
+            output_file_ligne_md.append(f"!!Attention, {compteur} station(s) non comptabilisée(s) et raccordée(s)\n\n")
+            output_file_ligne_csv.append(f"Attention, {compteur} station(s) non comptabilisée(s) et raccordée(s)\n\n")
         
         results=sql_bilan_reseaux()
+        
         if results[0][0] != None :# type: ignore
-            output_file_ligne.append(f"\n--------------\n")
-            output_file_ligne.append("**Développement total par réseaux**\n")
+            output_file_ligne_md.append(f"--------------\n")
+            output_file_ligne_md.append("**Développement total par réseaux**\n")
+            output_file_ligne_csv.append("Développement total par réseaux\n")
             for row in results: # type: ignore
-                # formatted_row = '\t'.join(map(str, row))
-                # output_file_ligne.append('\t' + formatted_row + '\n')
+                formatted_row = '\t'.join(map(str, row))
+                output_file_ligne_csv.append('\t' + formatted_row + '\n')
+                
                 formatted_row = '| ' + ' | '.join(map(str, row)) + ' |'
-                output_file_ligne.append(formatted_row + '\n')
+                output_file_ligne_md.append(formatted_row + '\n')
                 #print('Développement total: ' + formatted_row + 'm') 
         
         results=sql_bilan_annee()
         if results[0][0] != None :# type: ignore
-            output_file_ligne.append(f"\n--------------\n")
-            output_file_ligne.append("**Développement total topographié par année(s)**\n") 
+            output_file_ligne_md.append(f"\n--------------\n")
+            output_file_ligne_md.append("**Développement total topographié par année(s)**\n") 
+            output_file_ligne_csv.append("\nDéveloppement total topographié par année(s)**\n") 
             for row in results: # type: ignore
-                if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :
-                    # Formatage pour Markdown avec alignement simple
+                if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :                
+                    formatted_row = '\t'.join(map(str, row))
+                    output_file_ligne_csv.append('\t' + formatted_row + '\n')
+                    
                     formatted_row = '| ' + ' | '.join(map(str, row)) + ' |'
-                    output_file_ligne.append(formatted_row + '\n')
+                    output_file_ligne_md.append(formatted_row + '\n')
                     #print('Développement total: ' + formatted_row + 'm') 
+                    
+            def format_markdown_row(row_data):
+                return '| ' + ' | '.join(f"{str(item):>10}" for item in row_data) + ' |'
+                    
+            output_file_ligne_md.append("\n**Développement total topographié par année(s)**\n") 
+            headers = ["Année", "Dev.(m)", "Cumul (m)", "Dupl.(m)", "Cumul (m)", "Surf.(m)", "Cumul (m)"]
+
+            output_file_ligne_md.append("| " + " | ".join(headers) + " |\n")
+            output_file_ligne_md.append("|" + "|".join(["---"] * len(headers)) + "|\n")
+
+            for row in results[1:]:  # type: ignore
+                if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :                
+                    formatted_row = [str(v) for v in row]
+                    output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
+
                 
         Rose(output_file_name_rose)        
         
@@ -1351,7 +1388,7 @@ def calcul_stats(output_file):
         findetraitement = datetime.now()
 
         duree = findetraitement - maintenant        
-        jours, secondes = divmod(duree.seconds, 86400)  # 86400 secondes dans une journée
+        jours, secondes = divmod(duree.seconds, 86400)    # 86400 secondes dans une journée
         heures, secondes = divmod(secondes, 3600)         # 3600 secondes dans une heure
         minutes, secondes = divmod(secondes, 60)          # 60 secondes dans une minute
         if duree.seconds > 3600: 
@@ -1362,17 +1399,24 @@ def calcul_stats(output_file):
             duree_formatee = "{:02}(s)".format(secondes)
             
         if error_count == 0:   
-                output_file_ligne[7] = "*       Durée calcul: " + duree_formatee + " sans erreur"
-                output_file_ligne[7] = output_file_ligne[7].ljust(120)+"*\n"
+                output_file_ligne_csv[7] = "*       Durée calcul: " + duree_formatee + " sans erreur"
+                output_file_ligne_md[7] = "- **Durée calcul : ** `" + duree_formatee + " sans erreur `\n"
+                output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(120)+"*\n"
+                        
         else :
-                output_file_ligne[7] = "*       !!!Durée calcul: " + duree_formatee + " avec erreur(s): " + str(error_count) + "!!!"
-                output_file_ligne[7] = output_file_ligne[7].ljust(120)+"*\n"
+                output_file_ligne_csv[7] = "*       Durée calcul: " + duree_formatee + " avec erreur(s): " + str(error_count)
+                output_file_ligne_md[7] = "- **Durée calcul : ** `" + duree_formatee + "!! avec erreur(s):`" + str(error_count) + "`\n"
+                output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(120)+"*\n"
         
-        with open(output_file, 'w',  encoding='utf-8') as file:
-            file.writelines(output_file_ligne)
+        with open(output_file + ".md", 'w',  encoding='utf-8') as file:
+            file.writelines(output_file_ligne_md)
+            
+        with open(output_file + ".csv", 'w',  encoding='utf-8') as file:
+            file.writelines(output_file_ligne_csv)
 
         if error_count == 0 :
             print(f"\033[1;32mPhase 6: Fin de traitement en \033[0m" + duree_formatee + f"\033[1;32m, résultats enregistrés dans \033[0m{safe_relpath(output_file)}") 
+        
         else :
             print(f"\033[1;32mPhase 6: Fin de traitement en \033[0m" + duree_formatee 
                 + f",\033[91m avec \033[0m{error_count}\033[91m erreur(s), \033[1;32mrésultats enregistrés dans \033[0m{safe_relpath(output_file)}")  
@@ -1380,21 +1424,37 @@ def calcul_stats(output_file):
     except sqlite3.Error as e:
         print(f"\033[91mErreur lors de l'exécution des requêtes calcul_stats:\033[0m {e}")
         error_count  += 1
-        output_file_ligne.append(f"Erreur lors de l'exécution des requêtes calcul_stats: {e}\n")
-        with open(output_file, 'w',  encoding='utf-8') as file:
-            file.writelines(output_file_ligne)
+        output_file_ligne_md.append(f"!!! Erreur lors de l'exécution des requêtes calcul_stats: {e}\n")
+        output_file_ligne_csv.append(f"Erreur lors de l'exécution des requêtes calcul_stats: {e}\n")
+        
+        with open(output_file + ".md", 'w',  encoding='utf-8') as file:
+            file.writelines(output_file_ligne_md)
+            
+        with open(output_file + ".csv", 'w',  encoding='utf-8') as file:
+            file.writelines(output_file_ligne_csv)
+            
+        return
         
     except FileNotFoundError:
         print(f"\033[91mErreur d'ouverture du fichier: \033[0m{safe_relpath(output_file)} ")
         error_count  += 1
+        
+        return
     
     except Exception as e:
         print(f"\033[91mErreur lors de l'exécution de calcul_stats:\033[0m {e}")
         error_count  += 1
-        output_file_ligne.append(f"Erreur lors de l'exécution de calcul_stats: {e}\n")
-        with open(output_file, 'w',  encoding='utf-8') as file:
-            file.writelines(output_file_ligne)
-       
+        output_file_ligne_md.append(f"!! Erreur lors de l'exécution de calcul_stats: {e}\n")
+        output_file_ligne_csv.append(f"Erreur lors de l'exécution de calcul_stats: {e}\n")
+        
+        with open(output_file + ".md", 'w',  encoding='utf-8') as file:
+            file.writelines(output_file_ligne_md)
+            
+        with open(output_file + ".csv", 'w',  encoding='utf-8') as file:
+            file.writelines(output_file_ligne_csv)
+        
+        return
+        
     return
 
 #####################################################################################################################################
@@ -1445,7 +1505,7 @@ def sql_liste_entree():
             error_count  += 1 
             print(f"\t \033[91mAttention aucune entrée ou point fix comptabilisé\033[0m")
         else :
-            print(f"\t Table des STATION, entrée et fix nbre: {len(result_ent)}")
+            print(f"\t \033[32mTable des STATION, entrée et fix nbre: \033[0m{len(result_ent)}")
         
         return result_ent
     
@@ -2273,6 +2333,70 @@ def sql_bilan_reseaux():
     
     return
 
+
+#####################################################################################################################################
+#            Optimisation, création des indexes                                                                                     #
+#####################################################################################################################################
+def sql_optimisation():
+    """
+    Création des index d’optimisation pour les requêtes de synthèse Therion.
+    Compatible SQLite / PostgreSQL / MySQL.
+
+    Parameters
+    ----------
+    cursor : DB cursor
+        Curseur SQL actif
+    verbose : bool
+        Affiche les index créés
+    """ 
+    global error_count 
+    
+    try:
+        
+        indexes = [
+            # SERIE
+            ("idx_serie_reseau", """
+                CREATE INDEX IF NOT EXISTS idx_serie_reseau
+                ON SERIE (RESEAU_ID)
+            """),
+
+            ("idx_serie_station", """
+                CREATE INDEX IF NOT EXISTS idx_serie_station
+                ON SERIE (STATION_ENT_ID)
+            """),
+
+            ("idx_serie_reseau_station", """
+                CREATE INDEX IF NOT EXISTS idx_serie_reseau_station
+                ON SERIE (RESEAU_ID, STATION_ENT_ID)
+            """),
+
+            # STATION
+            ("idx_station_survey", """
+                CREATE INDEX IF NOT EXISTS idx_station_survey
+                ON STATION (SURVEY_ID)
+            """),
+
+            # SURVEY
+            ("idx_survey_parent", """
+                CREATE INDEX IF NOT EXISTS idx_survey_parent
+                ON SURVEY (PARENT_ID)
+            """),
+        ]
+
+        for name, sql in indexes:
+                cursor.execute(sql)
+             
+             
+        return             
+    
+    except Exception as e:
+        print(f"\033[91mErreur lors de l'exécution de la requête (sql_optimisation):\033[0m {e}")
+        error_count  += 1
+        return 
+    
+    
+    return
+
 #####################################################################################################################################
 #            # Clé de tri                                                                                                           #
 #####################################################################################################################################        
@@ -2716,8 +2840,9 @@ if __name__ == '__main__':
     
     maintenant = datetime.now()
     
-    parser = argparse.ArgumentParser(description=f"Calcul des statistiques par entrées d'une BD Therion", 
-                                     formatter_class=argparse.RawTextHelpFormatter)
+    parser = argparse.ArgumentParser(
+        description=f"Calcul des statistiques par entrées d'une BD Therion", 
+        formatter_class=argparse.RawTextHelpFormatter)
     parser.print_help = colored_help.__get__(parser)
     parser.add_argument(
         '--option',
@@ -2732,7 +2857,6 @@ if __name__ == '__main__':
     parser.add_argument("--file", help="Chemin vers le fichier SQL d'entrée (pas de d'option : fenêtre de choix)")
     parser.epilog = (f"Commande therion (fichier .thconfig) : export database -o Outputs/database.sql")
    
-
     # Analyser les arguments de ligne de commande
     args = parser.parse_args()
 
@@ -2771,7 +2895,7 @@ if __name__ == '__main__':
     
     if not os.path.exists(outputfolder): os.makedirs(outputfolder)
             
-    output_file_name = outputfolder + input_file[:-4]+"_stats.md"
+    output_file_name = outputfolder + input_file[:-4]+"_stats"
     output_file_name_rose = outputfolder + input_file[:-4]+"_rose.pdf"
     output_file_name_histo = outputfolder + input_file[:-4]+"_histo.pdf"
     output_file_name_year = outputfolder + input_file[:-4]+"_year"
@@ -2799,6 +2923,8 @@ if __name__ == '__main__':
         cursor = conn.cursor()
         
         construction_tables()
+        
+        sql_optimisation()
         
         calcul_stats(output_file_name)
 

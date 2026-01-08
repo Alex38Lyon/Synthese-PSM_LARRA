@@ -1,13 +1,13 @@
-*******************************************************************************************
-* Calcul des statistiques par entrées d'une BD Therion                                    *
-*       Script pythStat par alexandre.pont@yahoo.fr                                       *
-*       Version : 2025.02.07                                                              *
-*       Fichier source : D:/08 GitHub/Synthese-PSM_LARRA/Outputs/database_Synthese-PSM_LARRA.sql*
-*       Dossier destination : D:/08 GitHub/Synthese-PSM_LARRA/Outputs/stat_database_Synthese-PSM_LARRA_2026-01-08/*
-*       Date : 2026-01-08 15:30:41                                                        *
-*       Durée calcul: 01:04:39(s) avec erreur(s): 1                                       *
-*******************************************************************************************
-Développement total centerline:	340754.54 	13027.78  	10574.75  	-         	-         	Dev.(m), Dupl.(m), Surf.(m)
+*************************************************************************************************************************
+* Calcul des statistiques par entrées d'une BD Therion                                                                  *
+*       Script pythStat par alexandre.pont@yahoo.fr                                                                     *
+*       Version : 2026.01.09                                                                                            *
+*       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql                                   *
+*       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\stat_database_Synthese-PSM_LARRA_2026-01-08                  *
+*       Date : 2026-01-08 22:56:57                                                                                      *
+*       Durée calcul: 02(m)23(s) sans erreur                                                                            *
+*************************************************************************************************************************
+**Développement total centerline:**	340754.54 	13027.78  	10574.75  	-         	-         	Dev.(m), Dupl.(m), Surf.(m)
 Attention, 82 station(s) non comptabilisée(s) et raccordée(s)
 
 Développement total par réseaux
@@ -179,34 +179,11 @@ Développement total par réseaux
 	UT683_4758                                                      	1         	0.00      	0.00      	0.00      	20.00     	2         	LT346_80  	2000.00   	LT346_80  	2000.00
 	Entrée(s) sans topographie                                      	8         	0.00      	537.00    	0.00      	0.00      	0         	LT345_79  	1500.0    	SC_3      	2037.00
 
-Développement total topographié par année(s)
+Développement total topographié par année(s)**
 	Année     	Dev.(m)   	Cumul (m) 	Dupl.(m)  	Cumul (m) 	Surf.(m)  	Cumul (m)
 	1950      	1724.74   	1724.74   	0.00      	0.00      	0.00      	0.00
-	1951      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1952      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1953      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1954      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1955      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1956      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1957      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1958      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1959      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1960      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1961      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1962      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1963      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1964      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1965      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1966      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1967      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1968      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1969      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
-	1970      	0.00      	1724.74   	0.00      	0.00      	0.00      	0.00
 	1971      	2627.02   	4351.76   	116.43    	116.43    	0.00      	0.00
-	1972      	0.00      	4351.76   	0.00      	116.43    	0.00      	0.00
-	1973      	0.00      	4351.76   	0.00      	116.43    	0.00      	0.00
 	1974      	575.30    	4927.06   	0.00      	116.43    	0.00      	0.00
-	1975      	0.00      	4927.06   	0.00      	116.43    	0.00      	0.00
 	1976      	606.16    	5533.22   	0.00      	116.43    	0.00      	0.00
 	1977      	1411.32   	6944.54   	0.00      	116.43    	0.00      	0.00
 	1978      	2081.24   	9025.78   	0.00      	116.43    	0.00      	0.00
