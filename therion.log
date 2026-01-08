@@ -11,7 +11,7 @@ meridian convergence (deg): -1.528
 geomag declinations (deg):
   1950.1.1  -8.266
   1951.1.1  -8.149
-  1952.1.1  -8.032
+  1952.1.1  -8.033
   1953.1.1  -7.916
   1954.1.1  -7.8
   1955.1.1  -7.684
@@ -36,7 +36,7 @@ geomag declinations (deg):
   1974.1.1  -5.784
   1975.1.1  -5.681
   1976.1.1  -5.528
-  1977.1.1  -5.376
+  1977.1.1  -5.377
   1978.1.1  -5.225
   1979.1.1  -5.074
   1980.1.1  -4.923
@@ -56,12 +56,12 @@ geomag declinations (deg):
   1994.1.1  -3.107
   1995.1.1  -2.99
   1996.1.1  -2.85
-  1997.1.1  -2.71
+  1997.1.1  -2.711
   1998.1.1  -2.571
   1999.1.1  -2.431
   2000.1.1  -2.292
   2001.1.1  -2.167
-  2002.1.1  -2.042
+  2002.1.1  -2.043
   2003.1.1  -1.918
   2004.1.1  -1.793
   2005.1.1  -1.669
@@ -70,60 +70,48 @@ geomag declinations (deg):
   2008.1.1  -1.299
   2009.1.1  -1.176
   2010.1.1  -1.053
-  2011.1.1  -0.9151
-  2012.1.1  -0.7777
-  2013.1.1  -0.6405
+  2011.1.1  -0.9152
+  2012.1.1  -0.7778
+  2013.1.1  -0.6406
   2014.1.1  -0.5036
-  2015.1.1  -0.3668
-  2016.1.1  -0.2118
-  2017.1.1  -0.05697
-  2018.1.1  0.09757
-  2019.1.1  0.2518
-  2020.1.1  0.4058
+  2015.1.1  -0.3669
+  2016.1.1  -0.2119
+  2017.1.1  -0.05706
+  2018.1.1  0.09748
+  2019.1.1  0.2517
+  2020.1.1  0.4057
   2021.1.1  0.5497
-  2022.1.1  0.6935
-  2023.1.1  0.8371
-  2024.1.1  0.9805
+  2022.1.1  0.6934
+  2023.1.1  0.837
+  2024.1.1  0.9804
   2025.1.1  1.124
   2026.1.1  1.259
 scanning centreline tree ... done
 searching for centerline loops ... done
 calculating station coordinates ... done
-average loop error: 2.73%
+average loop error: 2.70%
 processing survey data ... 
 ####################### cavern log file ########################
  1> Survex 1.4.17
  2> Copyright � 1990-2025 Olly Betts
- 3> C:\Users\alexa\AppData\Local\Temp\th26724\data.svx:1191:6: warning: Station already fixed at the same coordinates
- 4>  *fix 1122 680916.000000 4757614.000000 1719.000000
- 5>       ^~~~
- 6> C:\Users\alexa\AppData\Local\Temp\th26724\data.svx:1190: info: Previously fixed or equated here
- 7> 
- 8> Survey contains 67389 survey stations, joined by 67542 legs.
- 9> There are 332 loops.
-10> Survey has 179 connected components.
-11> Total length of survey legs = 340754.57m (340748.12m adjusted)
-12> Total plan length of survey legs = 280988.16m
-13> Total vertical length of survey legs = 119620.58m
-14> Vertical range = 2016.00m (from 2967 at 2334.00m to 56098 at 318.00m)
-15> North-South range = 11764.77m (from 56627 at 4764161.67m to 8233 at 4752396.89m)
-16> East-West range = 14034.39m (from 56634 at 688141.76m to 53023 at 674107.37m)
-17> 
-18> There were 1 warning(s).
-19> 
+ 3> 
+ 4> Survey contains 67390 survey stations, joined by 67540 legs.
+ 5> There are 329 loops.
+ 6> Survey has 179 connected components.
+ 7> Total length of survey legs = 340754.57m (340760.23m adjusted)
+ 8> Total plan length of survey legs = 280988.16m
+ 9> Total vertical length of survey legs = 119620.58m
+10> Vertical range = 2016.00m (from 2967 at 2334.00m to 56099 at 318.00m)
+11> North-South range = 11764.77m (from 56628 at 4764161.67m to 8234 at 4752396.89m)
+12> East-West range = 14034.39m (from 56635 at 688141.76m to 53024 at 674107.37m)
+13> 
 ######################### transcription ########################
- 3> 26724 : RI122@Explo_45_2018_08_09.Explo_45_2018_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
- 3> input:1191 -- Data/AN026/Data/Explo_01_2006_11_04/Data/Explo_01_2006_11_04.th [17]
- 4> 1122 : AN26@Explo_01_2006_11_04.Explo_01_2006_11_04.AN026.Synthese-PSM_LARRA
- 6> 26724 : RI122@Explo_45_2018_08_09.Explo_45_2018_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
- 6> input:1190 -- Data/AN026/Data/Explo_01_2006_11_04/Data/Explo_01_2006_11_04.th [15]
- 8> 67389 : 27@Z510_Fond.Z510_Fond.Z510.Synthese-PSM_LARRA
- 9> 332 : AN8_d_455@Explo_03_1992_08_01.Explo_03_1992_08_01.AN008.Synthese-PSM_LARRA
-10> 179 : MD13@Explo_01_2007_10_04.Explo_01_2007_10_04.AN001.Synthese-PSM_LARRA
-14> 2967 : AN634@Explo_01_2004_08_14.Explo_01_2004_08_14.AN634.Synthese-PSM_LARRA -- 56098 : ILLA13B@Explo_01_2009_08_01.Explo_01_2009_08_01.Laminako_Ziloa_Illamina.Synthese-PSM_LARRA
-15> 56627 : 11@oueils.Oueils.Synthese-PSM_LARRA -- 8233 : _d_PY_f_2@Explo_01_2015_08_01.Explo_01_2015_08_01.Cathedrale_de_Pyrene.Synthese-PSM_LARRA
-16> 56634 : c1@oueils.Oueils.Synthese-PSM_LARRA -- 53023 : LAC_d_MS21@Explo_17_2016_05_02.Explo_17_2016_05_02.Grotte_aux_lacs.Synthese-PSM_LARRA
-18> 1 : LT345_79@Explo_01_2009_09_12.Explo_01_2009_09_12.00-Ref_Square.Synthese-PSM_LARRA
+ 4> 67390 : 27@Z510_Fond.Z510_Fond.Z510.Synthese-PSM_LARRA
+ 5> 329 : AN8_d_452@Explo_03_1992_08_01.Explo_03_1992_08_01.AN008.Synthese-PSM_LARRA
+ 6> 179 : MD13@Explo_01_2007_10_04.Explo_01_2007_10_04.AN001.Synthese-PSM_LARRA
+10> 2967 : AN634@Explo_01_2004_08_14.Explo_01_2004_08_14.AN634.Synthese-PSM_LARRA -- 56099 : ILLA13B@Explo_01_2009_08_01.Explo_01_2009_08_01.Laminako_Ziloa_Illamina.Synthese-PSM_LARRA
+11> 56628 : 11@oueils.Oueils.Synthese-PSM_LARRA -- 8234 : _d_PY_f_2@Explo_01_2015_08_01.Explo_01_2015_08_01.Cathedrale_de_Pyrene.Synthese-PSM_LARRA
+12> 56635 : c1@oueils.Oueils.Synthese-PSM_LARRA -- 53024 : LAC_d_MS21@Explo_17_2016_05_02.Explo_17_2016_05_02.Grotte_aux_lacs.Synthese-PSM_LARRA
 #################### end of cavern log file ####################
 done
 calculating basic statistics ... done
@@ -654,7 +642,7 @@ S  1.5e+03 SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA ()
 writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  7 JAN 2026 21:10
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  8 JAN 2026 15:18
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -678,12 +666,10 @@ AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [133]
 [134] [135] [136] [137] [138] [139] [140] [141] [142] [143] [144]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Entree_01@AP7_Entree.
 AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [145]
-[146] [147] [148] [149] [150] [151] [152] [153] [154] [155] [156] [157]
-[Warning: scrap outline intersects itself in scrap SP-AP7_Aval_06@AP7_Aval.AP7_
-Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [158] [159]
-[160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170] [171] [172]
-[173] [174] [175] [176] [177] [178] [179] [180] [181] [182] [183] [184] [185]
-[186] [187] [188] [189] [190] [191]
+[146] [147] [148] [149] [150] [151] [152] [153] [154] [155] [156] [157] [158]
+[159] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170] [171]
+[172] [173] [174] [175] [176] [177] [178] [179] [180] [181] [182] [183] [184]
+[185] [186] [187] [188] [189] [190] [191]
 [Warning: scrap outline intersects itself in scrap SP-AP7_Amonts_10@AP7_Amonts.
 AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA] [192]
 [193] [194]
@@ -880,8 +866,8 @@ Tobozo.Synthese-PSM_LARRA] [948] [949] [950] [951] [952] [953] [954] [955]
 [1034] )
  
 Here is how much of MetaPost's memory you used:
- 339976 strings using 7998648 characters
- 16114232 bytes of node memory
+ 339929 strings using 7997796 characters
+ 16112616 bytes of node memory
  1798 symbolic tokens
  11i,82n,18p,546b,5f stack positions out of 16i,98n,21p,608b,6f
 1051 output files written: data-patt.1 .. data.1034
@@ -891,7 +877,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  7 JAN 2026 21:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  8 JAN 2026 15:18
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -907,7 +893,7 @@ go-ARSIP-Synthese-Topographique_XL.png>) (./th_pages.tex)
 Here is how much of TeX's memory you used:
  2758 strings out of 95671
  34490 string characters out of 1192323
- 185298 words of memory out of 1638341
+ 185172 words of memory out of 1638215
  4151 multiletter control sequences out of 15000+50000
  21229 words of font info for 66 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
@@ -916,7 +902,7 @@ Here is how much of TeX's memory you used:
 xmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10.
 pfb><c:/Program Files/Therion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Th
 erion/texmf/fonts/type1/csssi10.pfb>
-Output written on data.pdf (1 page, 9383686 bytes).
+Output written on data.pdf (1 page, 9401174 bytes).
 PDF statistics:
  5525 PDF objects out of 6186 (max. 8388607)
  2751 compressed objects within 28 object streams
@@ -1004,7 +990,7 @@ processing projection elevation ... done
 average distortion: 0.55%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  7 JAN 2026 21:19
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  8 JAN 2026 15:26
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1021,7 +1007,7 @@ writing Outputs/Synthese-PSM_LARRA-model.kml ... done
 writing Outputs/Synthese-PSM_LARRA-3D.kml ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.html ... done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
-compilation time: 577 sec
+compilation time: 497 sec
 
 
 ######################### loop errors ##########################
@@ -1035,7 +1021,6 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
     96%    8.3m    8.6m   2   -5.8m   -5.9m   -0.0m [LAR_d_83/0@Explo_187_2001_01_27.Explo_187_2001_01_27.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_83/1 - LAR_d_83/0]
     94%    8.6m    9.2m   2   -4.0m   -6.8m   -3.5m [LAR_d_431/0@Explo_142_1998_12_28.Explo_142_1998_12_28.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_431/1 - LAR_d_431/0]
     93%   32.5m   34.9m   4   29.8m   -6.6m   11.1m [LAR_d_235/0@Explo_206_2001_08_01.Explo_206_2001_08_01.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_235/3 - LAR_d_235/2 - LAR_d_235/1 - LAR_d_235/0]
-    93%   11.6m   12.6m   2    5.3m    5.2m   -9.0m [_d_C230_f_51@Explo_04_2024_02_03.Explo_04_2024_02_03.C230.Synthese-PSM_LARRA - _d_C230_f_51.1 = _d_C230_f_51.1@Explo_02_2013_06_01.Explo_02_2013_06_01.C230.Synthese-PSM_LARRA - _d_C230_f_51 = _d_C230_f_51@Explo_04_2024_02_03.Explo_04_2024_02_03.C230.Synthese-PSM_LARRA]
     92%  109.4m  119.4m   9   88.0m  -64.8m   -5.7m [LAR_d_126/0@Explo_17_1992_09_12.Explo_17_1992_09_12.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_126/8 - LAR_d_126/7 - LAR_d_126/6 - LAR_d_126/5 - LAR_d_126/4 - LAR_d_126/3 - LAR_d_126/2 - LAR_d_126/1 - LAR_d_126/0]
     91%    9.8m   10.8m   3    9.2m   -2.3m    2.6m [LAR_d_375/0@Explo_217_2001_12_27.Explo_217_2001_12_27.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_375/2 - LAR_d_375/1 - LAR_d_375/0]
     89%   42.6m   48.1m   3   25.7m   11.1m   32.2m [LAR_d_78/0@Explo_122_1997_11_10.Explo_122_1997_11_10.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_78/2 - LAR_d_78/1 - LAR_d_78/0]
@@ -1051,7 +1036,6 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
     78%   15.0m   19.2m   4  -11.3m   -9.8m    0.4m [LAR_d_89/0@Explo_188_2001_01_27.Explo_188_2001_01_27.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_89/3 - LAR_d_89/2 - LAR_d_89/1 - LAR_d_89/0]
     78%   30.1m   38.7m   4  -28.4m   10.0m   -1.9m [LAR_d_234/0@Explo_205_2001_08_01.Explo_205_2001_08_01.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_234/3 - LAR_d_234/2 - LAR_d_234/1 - LAR_d_234/0]
     76%  135.4m  177.2m  12  114.6m  -72.0m    1.5m [LAR_d_336/0@Explo_70_1995_01_28.Explo_70_1995_01_28.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_336/11 - LAR_d_336/10 - LAR_d_336/9 - LAR_d_336/8 - LAR_d_336/7 - LAR_d_336/6 - LAR_d_336/5 - LAR_d_336/4 - LAR_d_336/3 - LAR_d_336/2 - LAR_d_336/1 - LAR_d_336/0]
-    75%    6.6m    8.7m   2    6.4m    1.2m    0.6m [CUCC5_d_5@Explo_01_2014_08_09.Explo_01_2014_08_09.CUCC5.Synthese-PSM_LARRA - CUCC5_d_5A - CUCC5_d_5]
     75%  119.9m  160.9m  17   62.6m  -92.0m   44.6m [LAR_d_143/0@Explo_197_2001_07_01.Explo_197_2001_07_01.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_143/16 - LAR_d_143/15 - LAR_d_143/14 - LAR_d_143/13 - LAR_d_143/12 - LAR_d_143/11 - LAR_d_143/10 - LAR_d_143/9 - LAR_d_143/8 - LAR_d_143/7 - LAR_d_143/6 - LAR_d_143/5 - LAR_d_143/4 - LAR_d_143/3 - LAR_d_143/2 - LAR_d_143/1 - LAR_d_143/0]
     73%  142.6m  194.1m  14 -123.7m   66.0m  -26.1m [LAR_d_339/0@Explo_97_1997_03_02.Explo_97_1997_03_02.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_339/13 - LAR_d_339/12 - LAR_d_339/11 - LAR_d_339/10 - LAR_d_339/9 - LAR_d_339/8 - LAR_d_339/7 - LAR_d_339/6 - LAR_d_339/5 - LAR_d_339/4 - LAR_d_339/3 - LAR_d_339/2 - LAR_d_339/1 - LAR_d_339/0]
     71%   31.5m   44.7m   4   31.5m    1.0m   -1.3m [LAR_d_55/0@Explo_74_1995_08_01.Explo_74_1995_08_01.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_55/3 - LAR_d_55/2 - LAR_d_55/1 - LAR_d_55/0]
@@ -1065,7 +1049,6 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
     43%    7.9m   18.7m   3   -2.5m    6.1m   -4.5m [LAR_d_44/0@Explo_171_1999_11_01.Explo_171_1999_11_01.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_44/2 - LAR_d_44/1 - LAR_d_44/0]
     40%   57.0m  141.9m   6    5.2m  -38.3m   41.8m [LAR_d_285/0@Explo_34_1993_06_26.Explo_34_1993_06_26.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_285/5 - LAR_d_285/4 - LAR_d_285/3 - LAR_d_285/2 - LAR_d_285/1 - LAR_d_285/0]
     38%    6.3m   16.5m   2   -4.6m   -0.8m    4.1m [LAC_d_M16@Explo_10_2014_09_22.Explo_10_2014_09_22.Grotte_aux_lacs.Synthese-PSM_LARRA - LAC_d_M16.1 = LAC_d_M16.1@Explo_08_2014_07_18.Explo_08_2014_07_18.Grotte_aux_lacs.Synthese-PSM_LARRA - LAC_d_M16 = LAC_d_M16@Explo_10_2014_09_22.Explo_10_2014_09_22.Grotte_aux_lacs.Synthese-PSM_LARRA]
-    36%    8.0m   22.1m   3    5.5m    5.6m   -1.6m [DD0@Explo_23_2020_10_13.Explo_23_2020_10_13.Complexe_Ours-Veau.Synthese-PSM_LARRA - DD1b = DD1b@Explo_24_2022_08_10.Explo_24_2022_08_10.Complexe_Ours-Veau.Synthese-PSM_LARRA - DD1a = DD1a@Explo_23_2020_10_13.Explo_23_2020_10_13.Complexe_Ours-Veau.Synthese-PSM_LARRA - DD0]
     29%   14.4m   49.1m   5   -6.4m   11.3m    6.2m [LAR_d_364/0@Explo_146_1998_12_29.Explo_146_1998_12_29.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_364/4 - LAR_d_364/3 - LAR_d_364/2 - LAR_d_364/1 - LAR_d_364/0]
     29%   42.9m  150.5m  19  -41.5m   10.2m   -4.1m [LAR_d_34/0@Explo_77_1995_12_27.Explo_77_1995_12_27.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_34/18 - LAR_d_34/17 - LAR_d_34/16 - LAR_d_34/15 - LAR_d_34/14 - LAR_d_34/13 - LAR_d_34/12 - LAR_d_34/11 - LAR_d_34/10 - LAR_d_34/9 - LAR_d_34/8 - LAR_d_34/7 - LAR_d_34/6 - LAR_d_34/5 - LAR_d_34/4 - LAR_d_34/3 - LAR_d_34/2 - LAR_d_34/1 - LAR_d_34/0]
     25%   12.3m   49.8m   7   12.0m    1.7m   -2.2m [LAR_d_122/0@Explo_202_2001_08_01.Explo_202_2001_08_01.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_122/6 - LAR_d_122/5 - LAR_d_122/4 - LAR_d_122/3 - LAR_d_122/2 - LAR_d_122/1 - LAR_d_122/0]
@@ -1113,7 +1096,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    3.8%    7.0m  181.9m  24   -5.6m   -2.9m   -3.0m [M31_d_73/0@Explo_05_1979_01_01.Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA - M31_d_78/22 - M31_d_78/21 - M31_d_78/20 - M31_d_78/19 - M31_d_78/18 - M31_d_78/17 - M31_d_78/16 - M31_d_78/15 - M31_d_78/14 - M31_d_78/13 - M31_d_78/12 - M31_d_78/11 - M31_d_78/10 - M31_d_78/9 - M31_d_78/8 - M31_d_78/7 - M31_d_78/6 - M31_d_78/5 - M31_d_78/4 - M31_d_78/3 - M31_d_78/2 - M31_d_78/1 - M31_d_78/0 - M31_d_73/0]
    3.8%   10.8m  283.5m  14  -10.7m    0.3m   -0.5m [LAR_d_48/3@Explo_04_1992_05_08.Explo_04_1992_05_08.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_48/16 - LAR_d_48/15 - LAR_d_48/14 - LAR_d_48/13 - LAR_d_48/12 - LAR_d_48/11 - LAR_d_48/10 - LAR_d_48/9 - LAR_d_48/8 - LAR_d_48/7 - LAR_d_48/6 - LAR_d_48/5 - LAR_d_48/4 - LAR_d_48/3]
    3.7%    1.6m   42.3m  12   -0.8m   -0.2m    1.3m [A60_145@Explo_74_2022_07_24.Explo_74_2022_07_24.Complexe_BU56_Ilamina.Synthese-PSM_LARRA - A60_141B - A60_140B - A60_139B - A60_138B - A60_138 = A60_138@Explo_68_2021_08_08.Explo_68_2021_08_08.Complexe_BU56_Ilamina.Synthese-PSM_LARRA - A60_139 - A60_140 - A60_141 - A60_142 - A60_143 - A60_144 - A60_145 = A60_145@Explo_74_2022_07_24.Explo_74_2022_07_24.Complexe_BU56_Ilamina.Synthese-PSM_LARRA]
-   3.7%    4.5m  120.9m  25   -3.5m    2.4m   -1.5m [AN211@Explo_03_2016_09_18.Explo_03_2016_09_18.AN211.Synthese-PSM_LARRA - HB20 - HB19 - HB17 - HB16 - HB15 - HB14 - HB13 - HB12 - HB8 - HB7 - HB6 - HB5 - HB4 - HB3 - HB2 - HB1 - GV8 = GV8@Explo_01_2016_09_15.Explo_01_2016_09_15.AN596-Antartica.Synthese-PSM_LARRA - GV7 - GV6 - GV5 - GV4 - GV3 - GV2 - GV1 - AN596]
+   3.7%    4.4m  120.9m  25   -3.5m    2.4m   -1.5m [AN211@Explo_03_2016_09_18.Explo_03_2016_09_18.AN211.Synthese-PSM_LARRA - HB20 - HB19 - HB17 - HB16 - HB15 - HB14 - HB13 - HB12 - HB8 - HB7 - HB6 - HB5 - HB4 - HB3 - HB2 - HB1 - GV8 = GV8@Explo_01_2016_09_15.Explo_01_2016_09_15.AN596-Antartica.Synthese-PSM_LARRA - GV7 - GV6 - GV5 - GV4 - GV3 - GV2 - GV1 - AN596]
    3.7%    6.6m  179.0m  18   -6.5m    0.4m    0.1m [LAR_d_56/3@Explo_96_1997_01_18.Explo_96_1997_01_18.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_56/2 - LAR_d_56/1 - LAR_d_56/0 - LAR_d_11/11 = LAR_d_11/11@Explo_04_1992_05_08.Explo_04_1992_05_08.Complexe_Arrestelia.Synthese-PSM_LARRA - LAR_d_11/10 - LAR_d_14/0 - LAR_d_14/1 - LAR_d_14/2 - LAR_d_14/3 - LAR_d_14/4 - LAR_d_14/5 - LAR_d_14/6 - LAR_d_14/7 - LAR_d_14/8 - LAR_d_14/9 - LAR_d_13/1 - LAR_d_13/0 - LAR_d_56/3 = LAR_d_56/3@Explo_96_1997_01_18.Explo_96_1997_01_18.Complexe_Arrestelia.Synthese-PSM_LARRA]
    3.5%    1.5m   41.6m   7    0.1m   -0.1m   -1.5m [BOU_d_4/4@Explo_03_1997_09_17.Explo_03_1997_09_17.LAKxxx-Bouquetins.Synthese-PSM_LARRA - BOU_d_5/0 - BOU_d_5/1 - BOU_d_5/2 - BOU_d_5/3 - BOU_d_4/6 - BOU_d_4/5 - BOU_d_4/4]
    3.5%    5.0m  144.1m   9    1.8m    3.4m   -3.2m [GDP1021/60@Explo_68_1999_09_01.Explo_68_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA - GDP248/4 - GDP248/3 - GDP248/2 - GDP248/1 - GDP248/0 - GDP1021/63 = GDP1021/63@Explo_28_1996_08_01.Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA - GDP1021/62 - GDP1021/61 - GDP1021/60 = GDP1021/60@Explo_68_1999_09_01.Explo_68_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA]
@@ -1391,10 +1374,10 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ###################### scrap distortions #######################
  PROJECTION: plan
  AVERAGE  MAXIMAL  SCRAP
-    1.6%   1e+02%  SP-Explo_01_2007_08_01_03@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.42%   1e+02%  SP-Explo_98_2006_08_15_01@Explo_98_2006_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.57%   1e+02%  SP-B3_Aval_01B@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     8.6%   1e+02%  BB27_salle@BB27.Synthese-PSM_LARRA
-   0.56%   1e+02%  SP-B3_Aval_01B@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.42%   1e+02%  SP-Explo_98_2006_08_15_01@Explo_98_2006_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
+    1.6%   1e+02%  SP-Explo_01_2007_08_01_03@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
      10%      97%  SP-L5_02@Explo_13_2025_08_10.L5.Synthese-PSM_LARRA
     3.1%      95%  SP-Explo_08_1981_08_02_01@Explo_08_1981_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     0.2%      91%  SP-B3_Aval_01@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
@@ -1402,13 +1385,12 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
     8.2%      87%  SP-Explo_64_1999_08_04_01@Explo_64_1999_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.46%      87%  SP-Explo_92_2001_07_28_01@Explo_92_2001_07_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     3.3%      87%  SP-Explo_46_1997_08_09_01@Explo_46_1997_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.057%      86%  SP-Explo_69_1999_09_01_01@Explo_69_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.056%      86%  SP-Explo_69_1999_09_01_01@Explo_69_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.2%      83%  SP-Explo_29_1996_08_02_01@Explo_29_1996_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     3.6%      78%  SP-Explo_94_2001_08_04_01@Explo_94_2001_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       4%      78%  SP-Explo_403_2024_08_09_01@Explo_403_2024_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
    0.43%      78%  SP-Explo_01_2007_08_01_01@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.5%      77%  SP-Explo_01_2007_08_01_04@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    1.8%      76%  SP-Explo_01_2007_08_01_10@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.5%      75%  SP-Explo_139_2009_08_06_01@Explo_139_2009_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
     2.9%      74%  SP-GL04_Puits_Fond_02@GL04_Puits_Fond.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.16%      74%  SP-AP7_Aval_01@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
@@ -1416,63 +1398,64 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
     5.7%      72%  SP-Explo_61_1999_08_01_01@Explo_61_1999_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.32%      72%  SP-Explo_30_1996_08_06_01@Explo_30_1996_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.2%      70%  SP-Explo_58_1999_07_31_03@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    1.8%      70%  SP-Explo_01_2007_08_01_10@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.2%      70%  SP-Explo_143_2009_08_12_01@Explo_143_2009_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
    0.88%      68%  SP-Explo_03_1984_08_06_01@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    1.7%      68%  SP-Explo_67_1999_09_01_01@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.9%      67%  SP-Explo_01_2011_08_01_01@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
     3.4%      66%  SP-AP7_Amonts_02@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    1.6%      66%  SP-Explo_67_1999_09_01_01@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.53%      66%  SP-Explo_01_2009_08_01_01@Explo_01_2009_08_01.Complexe_Ours-Veau.Synthese-PSM_LARRA
    0.56%      66%  SP-Explo_45_1997_08_06_01@Explo_45_1997_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.35%      64%  SP-Explo_04_1987_08_10_01@Explo_04_1987_08_10.M414.Synthese-PSM_LARRA
+   0.34%      64%  SP-Explo_04_1987_08_10_01@Explo_04_1987_08_10.M414.Synthese-PSM_LARRA
     1.3%      63%  SP-Explo_80_2000_08_31_02@Explo_80_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.83%      63%  SP-Explo_05_1979_01_01_01@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.82%      63%  SP-Explo_05_1979_01_01_01@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.5%      63%  SP-Explo_257_2013_09_22_01@Explo_257_2013_09_22.Complexe_Anialarra.Synthese-PSM_LARRA
     4.1%      62%  SP-B3_Entree_01B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     3.7%      62%  SP-Explo_66_1999_08_11_02@Explo_66_1999_08_11.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    0.2%      60%  SP-Tobozo_213_01@Tobozo_213.Tobozo.Synthese-PSM_LARRA
     1.7%      60%  SP-Explo_19_1995_08_05_01@Explo_19_1995_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.58%      60%  SP-Explo_31_1996_08_08_01@Explo_31_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    0.2%      60%  SP-Tobozo_213_01@Tobozo_213.Tobozo.Synthese-PSM_LARRA
+   0.58%      59%  SP-Explo_31_1996_08_08_01@Explo_31_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.3%      59%  SP-GL102_Amont_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.61%      59%  SP-Explo_47_1997_08_09_01@Explo_47_1997_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     7.6%      59%  SP-Explo_05_1985_07_31_01@Explo_05_1985_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.61%      59%  SP-Explo_47_1997_08_09_01@Explo_47_1997_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     0.6%      58%  SP-Explo_90_2001_07_26_01@Explo_90_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.9%      58%  SP-AP7_Amonts_01@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.14%      57%  SP-AP7_Aval_05@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     3.7%      56%  SP-Explo_25_1996_07_23_01@Explo_25_1996_07_23.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.041%      55%  SP-Explo_13_1990_07_30_01@Explo_13_1990_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.35%      55%  SP-Explo_04_1984_08_18_01@Explo_04_1984_08_18.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    2.9%      55%  SP-Explo_58_1999_07_31_01@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    0.5%      55%  SP-Explo_25_1996_07_23_02@Explo_25_1996_07_23.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.13%      55%  SP-Explo_18_1982_08_18_01@Explo_18_1982_08_18.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.45%      55%  SP-Explo_25_1996_07_23_02@Explo_25_1996_07_23.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    2.9%      55%  SP-Explo_58_1999_07_31_01@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     3.6%      55%  SP-Explo_57_1999_07_29_01@Explo_57_1999_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.29%      54%  SP-Explo_40_1997_07_27_01@Explo_40_1997_07_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.28%      54%  SP-Explo_40_1997_07_27_01@Explo_40_1997_07_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     4.9%      53%  SP-Explo_101_2006_08_18_01@Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA
    0.28%      53%  SP-Explo_76_2000_08_29_01@Explo_76_2000_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.2%      51%  SP-GL04_Puits_Entree_01@GL04_Puits_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
   0.071%      51%  SP-Explo_02_1984_07_31_01@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.014%      50%  SP-Explo_07_2022_08_09B_01@Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA
+   0.48%      50%  SP-Explo_71_2000_07_29_01@Explo_71_2000_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.41%      50%  SP-Explo_02_2009_08_01_01@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.18%      50%  SP-Explo_28_1983_08_11_02@Explo_28_1983_08_11.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     5.9%      49%  SP-Explo_373_2019_08_02_01@Explo_373_2019_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
     4.3%      49%  SP-Explo_146_2009_08_17_01@Explo_146_2009_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
   0.043%      48%  SP-Explo_14_1982_08_09_01@Explo_14_1982_08_09.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.99%      48%  SP-GL102_Aval_01D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.16%      47%  SP-Explo_54_1998_08_06_02@Explo_54_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.55%      47%  SP-Explo_29_1996_08_02_02@Explo_29_1996_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.16%      47%  SP-Explo_54_1998_08_06_02@Explo_54_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.16%      47%  SP-B3_Entree_01@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     1.4%      46%  SP-Explo_06_2014_08_01_01@Explo_06_2014_08_01.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
     2.8%      45%  SP-Explo_65_1999_08_04_01@Explo_65_1999_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.7%      44%  SP-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.041%      44%  SP-Tobozo_7_01@Tobozo_7.Tobozo.Synthese-PSM_LARRA
    0.74%      44%  SP-GL4_Amonts_02@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.042%      44%  SP-Tobozo_7_01@Tobozo_7.Tobozo.Synthese-PSM_LARRA
     1.6%      44%  SP-GL102_Riviere_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
   0.048%      43%  SP-Tobozo_9_01@Tobozo_9.Tobozo.Synthese-PSM_LARRA
    0.82%      43%  SP-Explo_66_1999_08_11_03@Explo_66_1999_08_11.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.21%      43%  SP-Explo_75_2000_08_28_01@Explo_75_2000_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    0.2%      43%  SP-Explo_75_2000_08_28_01@Explo_75_2000_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.9%      43%  SP-Explo_191_2011_09_19_01@Explo_191_2011_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
   0.075%      43%  SP-AP7_Amonts_10@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     1.3%      42%  SP-Explo_01_2007_08_01_07@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.13%      42%  SP-Explo_62_1999_08_02_01@Explo_62_1999_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.11%      42%  SP-Explo_62_1999_08_02_01@Explo_62_1999_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     3.3%      41%  SP-Explo_32_1996_08_08_01@Explo_32_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       1%      41%  SP-Explo_02_1984_08_06_01@Explo_02_1984_08_06.M414.Synthese-PSM_LARRA
    0.39%      40%  SP-Explo_28_1996_08_01_03@Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
@@ -1484,73 +1467,69 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.42%      38%  SP-Explo_17_1995_08_03_01@Explo_17_1995_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.72%      38%  SP-Explo_81_2000_08_31_01@Explo_81_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.44%      37%  SP-Explo_15_2025_08_13_01@Explo_15_2025_08_13.L5.Synthese-PSM_LARRA
-   0.16%      37%  SP-Explo_62_2003_08_10_01@Explo_62_2003_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.44%      37%  SP-Explo_55_1998_08_06_01@Explo_55_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.42%      37%  SP-Explo_55_1998_08_06_01@Explo_55_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.5%      37%  SP-Explo_43_2011_08_04_01@Explo_43_2011_08_04.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.21%      37%  SP-AP7_Amonts_11@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-    1.9%      36%  SP-Explo_28_1996_08_01_04@Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    1.9%      37%  SP-Explo_28_1996_08_01_04@Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     4.4%      36%  SP-Explo_189_2011_09_18_01@Explo_189_2011_09_18.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.59%      36%  SP-Explo_07_1985_08_04_01@Explo_07_1985_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.58%      36%  SP-Explo_07_1985_08_04_01@Explo_07_1985_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
      11%      35%  SP-Explo_192_2011_09_22_01@Explo_192_2011_09_22.Complexe_Anialarra.Synthese-PSM_LARRA
-    2.1%      35%  SP-Explo_06_1985_08_02_01@Explo_06_1985_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.1%      35%  SP-Explo_13_1982_08_06_01@Explo_13_1982_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    2.1%      35%  SP-Explo_06_1985_08_02_01@Explo_06_1985_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.2%      35%  SP-GL102_Entree_02B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.086%      35%  SP-Explo_17_1982_08_14_01@Explo_17_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.92%      35%  SP-Explo_24_1996_07_23_01@Explo_24_1996_07_23.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.09%      35%  SP-Explo_17_1982_08_14_01@Explo_17_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.93%      34%  SP-Explo_24_1996_07_23_01@Explo_24_1996_07_23.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.15%      34%  SP-Explo_20_1995_08_27_01@Explo_20_1995_08_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    3.4%      34%  SP-Explo_22_1996_07_22_01@Explo_22_1996_07_22.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.18%      34%  SP-Explo_38_1997_07_25_01@Explo_38_1997_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     3.9%      34%  SP-Explo_52_1998_08_05_01@Explo_52_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.34%      34%  SP-Explo_12_1989_08_10_01@Explo_12_1989_08_10.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.17%      33%  SP-Explo_38_1997_07_25_01@Explo_38_1997_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    3.4%      34%  SP-Explo_22_1996_07_22_01@Explo_22_1996_07_22.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.26%      33%  SP-Explo_87_2001_07_26_01@Explo_87_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       1%      33%  SP-Explo_01_1983_08_18_01@Explo_01_1983_08_18.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.08%      33%  SP-Explo_15_1982_08_10_01@Explo_15_1982_08_10.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     3.2%      33%  SP-Explo_11_1982_08_02_02@Explo_11_1982_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.083%      33%  SP-Explo_15_1982_08_10_01@Explo_15_1982_08_10.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.21%      32%  SP-Explo_48_1997_08_09_01@Explo_48_1997_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.74%      32%  SP-GL102_Amont_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.82%      32%  SP-Explo_28_1996_08_01_02@Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.16%      32%  SP-GL4_Amonts_06@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.95%      31%  SP-Explo_14_2025_08_13_01@Explo_14_2025_08_13.L5.Synthese-PSM_LARRA
    0.12%      31%  SP-Explo_10_1989_08_02_01@Explo_10_1989_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.81%      31%  SP-Explo_28_1996_08_01_02@Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.1%      31%  SP-Explo_328_2017_08_09_01@Explo_328_2017_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.52%      31%  SP-Explo_50_1998_08_05_01@Explo_50_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.7%      31%  SP-Explo_27_1996_07_27_02@Explo_27_1996_07_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.52%      31%  SP-Explo_50_1998_08_05_01@Explo_50_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.8%      30%  SP-GL102_Entree_02A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     1.1%      30%  SP-Explo_37_2001_10_08_01@Explo_37_2001_10_08.Complexe_Anialarra.Synthese-PSM_LARRA
    0.48%      30%  SP-Explo_362_2018_09_19_01@Explo_362_2018_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
    0.26%      30%  SP-Explo_163_2010_08_04_01@Explo_163_2010_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
-    1.2%      30%  SP-Explo_95_2006_08_11_01@Explo_95_2006_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
     3.7%      30%  SP-Explo_157_2009_10_03_01@Explo_157_2009_10_03.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.44%      30%  SP-Explo_71_2000_07_29_01@Explo_71_2000_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.41%      30%  SP-Explo_159_2010_08_02_01@Explo_159_2010_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
     5.4%      29%  SP-GL102_Entree_02D@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.055%      29%  SP-Explo_34_1996_08_08_01@Explo_34_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.057%      29%  SP-Explo_34_1996_08_08_01@Explo_34_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       5%      29%  SP-L5_03@Explo_13_2025_08_10.L5.Synthese-PSM_LARRA
-  0.023%      29%  SP-Explo_02_2008_09_09_01@Explo_02_2008_09_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.024%      29%  SP-Explo_02_2008_09_09_01@Explo_02_2008_09_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.13%      28%  SP-Explo_76_2005_08_05_01@Explo_76_2005_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.041%      28%  SP-Explo_49_1998_08_03_01@Explo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.04%      28%  SP-Explo_49_1998_08_03_01@Explo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     8.8%      28%  SP-Explo_102_2006_09_09_01@Explo_102_2006_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.41%      28%  SP-Explo_315_2016_08_06_01@Explo_315_2016_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
     1.3%      28%  SP-Explo_337_2017_09_21_01@Explo_337_2017_09_21.Complexe_Anialarra.Synthese-PSM_LARRA
    0.15%      28%  SP-Explo_12_1982_08_05_01@Explo_12_1982_08_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.6%      27%  SP-Explo_68_2004_08_12_01@Explo_68_2004_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
     1.5%      27%  SP-Explo_320_2016_09_23_01@Explo_320_2016_09_23.Complexe_Anialarra.Synthese-PSM_LARRA
    0.17%      27%  SP-Explo_16_2025_08_15_01@Explo_16_2025_08_15.L5.Synthese-PSM_LARRA
-   0.32%      27%  SP-Explo_25_1983_08_04_01@Explo_25_1983_08_04.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
       1%      27%  SP-Explo_26_1996_07_24_01@Explo_26_1996_07_24.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.32%      27%  SP-Explo_25_1983_08_04_01@Explo_25_1983_08_04.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.39%      26%  SP-Explo_58_1999_07_31_02@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.6%      26%  BB26_meandre_1_a-Detail@BB26.Synthese-PSM_LARRA
-  0.019%      26%  SP-Tobozo_8_01@Tobozo_8.Tobozo.Synthese-PSM_LARRA
+    1.5%      26%  SP-Explo_67_1999_09_01_02@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.016%      26%  SP-Tobozo_8_01@Tobozo_8.Tobozo.Synthese-PSM_LARRA
     0.1%      25%  SP-B3_Amonts_01@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.57%      24%  SP-Explo_100_2002_08_03_01@Explo_100_2002_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.55%      24%  SP-Explo_100_2002_08_03_01@Explo_100_2002_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.9%      24%  SP-Explo_61_2021_07_17_01@Explo_61_2021_07_17.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.027%      24%  SP-Tobozo_24_01@Tobozo_24.Tobozo.Synthese-PSM_LARRA
    0.92%      24%  SP-Explo_36_1996_08_09_01@Explo_36_1996_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.018%      24%  SP-Tobozo_24_01@Tobozo_24.Tobozo.Synthese-PSM_LARRA
    0.18%      24%  SP-Explo_42_2006_08_01_01@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.9%      24%  SP-Explo_10_1981_10_17_01@Explo_10_1981_10_17.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.1%      24%  SP-Explo_70_2000_07_25_01@Explo_70_2000_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.054%      23%  SP-Explo_14_1990_08_01_01@Explo_14_1990_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    1.5%      23%  SP-Explo_67_1999_09_01_02@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      3%      23%  SP-Explo_24_1983_08_03_01@Explo_24_1983_08_03.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.053%      23%  SP-Explo_14_1990_08_01_01@Explo_14_1990_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.7%      23%  SP-Explo_23_1983_08_01_01@Explo_23_1983_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.4%      23%  SP-Explo_91_2001_07_26_01@Explo_91_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.8%      23%  SP-Explo_43_1997_08_01_01@Explo_43_1997_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
@@ -1560,23 +1539,25 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.37%      22%  SP-Explo_01_1984_07_01_01@Explo_01_1984_07_01.M414.Synthese-PSM_LARRA
     1.2%      22%  SP-Explo_183_2011_08_16_01@Explo_183_2011_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
    0.96%      22%  SP-Explo_78_2005_08_12_01@Explo_78_2005_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+    1.8%      22%  SP-Explo_339_2018_08_01_01@Explo_339_2018_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
     2.8%      22%  SP-Explo_26_2001_08_06_01@Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
   0.066%      22%  SP-L5_01@Explo_13_2025_08_10.L5.Synthese-PSM_LARRA
    0.18%      22%  SP-Tobozo_21_01@Tobozo_21.Tobozo.Synthese-PSM_LARRA
    0.11%      22%  SP-Tobozo_31_01@Tobozo_31.Tobozo.Synthese-PSM_LARRA
+      3%      22%  SP-Explo_24_1983_08_03_01@Explo_24_1983_08_03.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.29%      21%  SP-Tobozo_5_01@Tobozo_5.Tobozo.Synthese-PSM_LARRA
     1.7%      21%  BB26_meandre_1_a@BB26.Synthese-PSM_LARRA
-    2.6%      21%  SP-Explo_171_2010_09_19_01@Explo_171_2010_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.03%      21%  SP-Tobozo_3_03@Tobozo_3.Tobozo.Synthese-PSM_LARRA
-   0.15%      21%  SP-Explo_278_2014_09_01_01@Explo_278_2014_09_01.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.83%      21%  SP-Explo_33_1996_08_08_01@Explo_33_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    1.4%      21%  SP-Explo_96_2001_08_29_01@Explo_96_2001_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.029%      21%  SP-Tobozo_3_03@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+   0.14%      21%  SP-Explo_278_2014_09_01_01@Explo_278_2014_09_01.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.82%      21%  SP-Explo_33_1996_08_08_01@Explo_33_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    1.5%      21%  SP-Explo_96_2001_08_29_01@Explo_96_2001_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.9%      21%  SP-Explo_01_1999_07_25_01@Explo_01_1999_07_25.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.035%      21%  SP-Explo_28_1983_08_11_01@Explo_28_1983_08_11.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.038%      21%  SP-Explo_28_1983_08_11_01@Explo_28_1983_08_11.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.11%      21%  SP-Tobozo_211_01@Tobozo_211.Tobozo.Synthese-PSM_LARRA
-  0.079%      21%  SP-Explo_27_1996_07_27_01@Explo_27_1996_07_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.064%      20%  SP-Explo_09_1985_08_09_01@Explo_09_1985_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.078%      21%  SP-Explo_27_1996_07_27_01@Explo_27_1996_07_27.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.014%      21%  SP-Explo_07_2022_08_09B_01@Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA
       2%      20%  SP-Explo_29_2001_08_16_01@Explo_29_2001_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.064%      20%  SP-Explo_09_1985_08_09_01@Explo_09_1985_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.22%      20%  SP-Explo_18_1995_08_04_01@Explo_18_1995_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.74%      20%  SP-GL102_Entree_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.88%      20%  SP-Explo_28_1996_08_01_01@Explo_28_1996_08_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
@@ -1584,832 +1565,834 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
     0.2%      20%  SP-L5_01@Explo_11_2025_08_06.L5.Synthese-PSM_LARRA
     1.8%      20%  SP-Explo_35_1983_10_29_01@Explo_35_1983_10_29.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.2%      20%  SP-Explo_112_2007_10_04_01@Explo_112_2007_10_04.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.97%      20%  SP-Explo_88_2001_07_26_01@Explo_88_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.96%      20%  SP-Explo_88_2001_07_26_01@Explo_88_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.071%      20%  SP-Explo_07_2022_08_09A_02@Explo_07_2022_08_09A.L5.Synthese-PSM_LARRA
-    1.7%      20%  SP-Explo_339_2018_08_01_01@Explo_339_2018_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
     1.9%      19%  SP-Explo_06_1999_08_03_01@Explo_06_1999_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+    2.6%      19%  SP-Explo_171_2010_09_19_01@Explo_171_2010_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
     1.6%      19%  SP-Explo_36_2001_08_23_01@Explo_36_2001_08_23.Complexe_Anialarra.Synthese-PSM_LARRA
     2.3%      19%  SP-Explo_82_2005_08_17_01@Explo_82_2005_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
    0.14%      18%  SP-Tobozo_3_04@Tobozo_3.Tobozo.Synthese-PSM_LARRA
   0.013%      18%  SP-Explo_03_1977_01_01_01@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.075%      17%  SP-Explo_31_1983_08_17_01@Explo_31_1983_08_17.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.073%      17%  SP-Explo_31_1983_08_17_01@Explo_31_1983_08_17.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.034%      17%  SP-Tobozo_3_01@Tobozo_3.Tobozo.Synthese-PSM_LARRA
     2.5%      17%  SP-Explo_32_2001_08_19_01@Explo_32_2001_08_19.Complexe_Anialarra.Synthese-PSM_LARRA
    0.62%      17%  SP-Explo_42_2006_08_01_02@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.16%      17%  SP-Explo_11_1982_08_02_01@Explo_11_1982_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.22%      17%  SP-Explo_50_1998_08_05_02@Explo_50_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.21%      17%  SP-Tobozo_22_01@Tobozo_22.Tobozo.Synthese-PSM_LARRA
-   0.18%      17%  SP-Tobozo_4_01@Tobozo_4.Tobozo.Synthese-PSM_LARRA
+   0.21%      17%  SP-Explo_50_1998_08_05_02@Explo_50_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.7%      17%  SP-Explo_71_2000_07_29_02@Explo_71_2000_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.18%      17%  SP-Tobozo_4_01@Tobozo_4.Tobozo.Synthese-PSM_LARRA
     3.6%      17%  SP-Explo_318_2016_09_16_01@Explo_318_2016_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.23%      17%  SP-Tobozo_22_01@Tobozo_22.Tobozo.Synthese-PSM_LARRA
     1.6%      17%  SP-Explo_280_2014_09_14_01@Explo_280_2014_09_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.079%      17%  SP-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.04%      16%  SP-Explo_39_1997_07_26_01@Explo_39_1997_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.083%      17%  SP-AP7_Aval_10@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.042%      17%  SP-Explo_39_1997_07_26_01@Explo_39_1997_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.1%      16%  SP-Explo_09_1981_08_02_01@Explo_09_1981_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    0.6%      16%  SP-Explo_21_1995_08_29_05@Explo_21_1995_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     0.1%      16%  SP-Explo_74_2000_08_04_01@Explo_74_2000_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    1.2%      16%  SP-Explo_67_1999_09_01_03@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.61%      16%  SP-Explo_21_1995_08_29_05@Explo_21_1995_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     0.2%      16%  SP-Tobozo_6_01@Tobozo_6.Tobozo.Synthese-PSM_LARRA
-  0.059%      16%  SP-Explo_30_1983_08_14_01@Explo_30_1983_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    1.2%      16%  SP-Explo_67_1999_09_01_03@Explo_67_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.06%      16%  SP-Explo_30_1983_08_14_01@Explo_30_1983_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.28%      16%  SP-Z510_04@Z510_Entree.Z510.Synthese-PSM_LARRA
-   0.27%      15%  SP-Explo_85_2001_07_25_02@Explo_85_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.26%      15%  SP-Explo_85_2001_07_25_02@Explo_85_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.59%      15%  SP-Explo_84_2005_09_26_01@Explo_84_2005_09_26.Complexe_Anialarra.Synthese-PSM_LARRA
       2%      15%  SP-Explo_295_2015_08_07_01@Explo_295_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.17%      15%  SP-Explo_29_1983_08_12_01@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.5%      15%  SP-Explo_91_2006_08_07_01@Explo_91_2006_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.17%      14%  SP-Explo_29_1983_08_12_01@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.83%      14%  SP-Explo_23_1996_07_22_01@Explo_23_1996_07_22.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.8%      14%  SP-Explo_121_2008_08_13_01@Explo_121_2008_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.82%      14%  SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA
-  0.018%      14%  SP-Explo_20_2019_02_21_01@Explo_20_2019_02_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.012%      14%  SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.092%      13%  SP-Tobozo_41_01@Tobozo_41.Tobozo.Synthese-PSM_LARRA
-    0.6%      13%  SP-Explo_100_2006_08_16_01@Explo_100_2006_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+    0.8%      13%  SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA
   0.042%      13%  SP-Explo_39_1984_08_07_01@Explo_39_1984_08_07.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.58%      13%  SP-Explo_02_2012_08_01_01@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.091%      13%  SP-Tobozo_41_01@Tobozo_41.Tobozo.Synthese-PSM_LARRA
+    0.6%      13%  SP-Explo_100_2006_08_16_01@Explo_100_2006_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
     1.1%      13%  SP-Explo_52_2002_08_18_01@Explo_52_2002_08_18.Complexe_Anialarra.Synthese-PSM_LARRA
     1.9%      13%  SP-Explo_60_2021_07_10_01@Explo_60_2021_07_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.042%      13%  SP-Explo_12_2014_03_08_01@Explo_12_2014_03_08.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.017%      13%  SP-Explo_20_2019_02_21_01@Explo_20_2019_02_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.25%      13%  SP-Explo_51_2019_08_06_01@Explo_51_2019_08_06.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.061%      13%  SP-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.06%      13%  SP-AP7_Aval_03@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.046%      13%  SP-Explo_12_2014_03_08_01@Explo_12_2014_03_08.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.25%      13%  SP-Z510_04-Detail@Z510_Entree.Z510.Synthese-PSM_LARRA
     1.4%      13%  SP-Explo_21_1995_08_29_03@Explo_21_1995_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.24%      13%  SP-Z510_04-Detail@Z510_Entree.Z510.Synthese-PSM_LARRA
   0.053%      13%  SP-Tobozo_42_01@Tobozo_42.Tobozo.Synthese-PSM_LARRA
-  0.088%      13%  SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.14%      13%  SP-Explo_12_2025_08_07_01@Explo_12_2025_08_07.L5.Synthese-PSM_LARRA
-   0.59%      12%  SP-Explo_02_2012_08_01_01@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.055%      12%  SP-Explo_12_2021_08_10_01@Explo_12_2021_08_10.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.084%      13%  SP-GL4_Amonts_08@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.44%      12%  SP-Explo_81_2005_08_16_01@Explo_81_2005_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.05%      12%  SP-Explo_40_1984_08_08_01@Explo_40_1984_08_08.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.051%      12%  SP-Explo_40_1984_08_08_01@Explo_40_1984_08_08.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.4%      12%  SP-Explo_338_2017_10_25_01@Explo_338_2017_10_25.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.046%      12%  SP-Explo_12_2021_08_10_01@Explo_12_2021_08_10.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
     2.6%      12%  SP-Explo_156_2009_09_29_01@Explo_156_2009_09_29.Complexe_Anialarra.Synthese-PSM_LARRA
    0.36%      12%  SP-Explo_355_2018_09_11_01@Explo_355_2018_09_11.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.038%      12%  SP-Explo_07_2020_08_10_01@Explo_07_2020_08_10.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    1.3%      12%  SP-Explo_53_1998_08_05_01@Explo_53_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.037%      12%  SP-Explo_07_2020_08_10_01@Explo_07_2020_08_10.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    1.2%      12%  SP-Explo_53_1998_08_05_01@Explo_53_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.75%      12%  SP-Explo_82_2023_07_23_01@Explo_82_2023_07_23.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.64%      11%  SP-GL102_Amont_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     1.4%      11%  SP-Explo_77_2000_08_29_01@Explo_77_2000_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.67%      11%  SP-Explo_99_2002_08_03_01@Explo_99_2002_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    1.5%      11%  SP-Explo_89_2001_07_26_01@Explo_89_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.8%      11%  SP-Explo_372_2019_08_01_01@Explo_372_2019_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
     1.8%      11%  SP-Explo_187_2011_09_11_01@Explo_187_2011_09_11.Complexe_Anialarra.Synthese-PSM_LARRA
     0.2%      11%  SP-Explo_03_2012_09_20_01@Explo_03_2012_09_20.AN594-Verdad.Synthese-PSM_LARRA
-  0.035%      11%  SP-Explo_10_2020_10_01_01@Explo_10_2020_10_01.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.22%      10%  SP-Explo_54_1998_08_06_01@Explo_54_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.037%      11%  SP-Explo_10_2020_10_01_01@Explo_10_2020_10_01.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.23%      10%  SP-Explo_54_1998_08_06_01@Explo_54_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.084%      10%  SP-Explo_01_2017_05_20_01@Explo_01_2017_05_20.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    1.6%      10%  SP-Explo_89_2001_07_26_01@Explo_89_2001_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.67%      10%  SP-Explo_99_2002_08_03_01@Explo_99_2002_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.03%      10%  SP-Explo_08_2020_08_13_01@Explo_08_2020_08_13.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.43%      10%  SP-Explo_181_2011_08_11_01@Explo_181_2011_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.78%      10%  SP-Explo_386_2020_09_23_01@Explo_386_2020_09_23.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.77%      10%  SP-Explo_386_2020_09_23_01@Explo_386_2020_09_23.Complexe_Anialarra.Synthese-PSM_LARRA
     1.3%      10%  SP-GL04_Puits_Fond_01@GL04_Puits_Fond.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     1.9%     9.9%  BB009_plan_1@BB09.Synthese-PSM_LARRA
-   0.19%     9.7%  SP-Explo_93_2006_08_10_01@Explo_93_2006_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
    0.26%     9.5%  SP-Explo_66_1999_08_11_01@Explo_66_1999_08_11.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     4.1%     9.5%  SP-Explo_390_2021_08_13_01@Explo_390_2021_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
    0.56%     9.5%  SP-Explo_130_2008_09_19_01@Explo_130_2008_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.42%     9.4%  SP-Explo_389_2021_08_12_01@Explo_389_2021_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.41%     9.4%  SP-Explo_389_2021_08_12_01@Explo_389_2021_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
    0.26%     9.4%  SP-Explo_361_2018_09_17_01@Explo_361_2018_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
    0.27%     9.2%  SP-Explo_310_2015_10_26_01@Explo_310_2015_10_26.Complexe_Anialarra.Synthese-PSM_LARRA
    0.22%     9.2%  SP-Z510_02@Z510_Entree.Z510.Synthese-PSM_LARRA
-  0.031%     9.1%  SP-Explo_08_2020_08_13_01@Explo_08_2020_08_13.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.086%       9%  SP-Explo_75_2005_08_05_01@Explo_75_2005_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.023%     8.8%  SP-Explo_41_1997_07_29_01@Explo_41_1997_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.022%     8.8%  SP-Explo_02_1977_07_01_01@Explo_02_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.37%     8.4%  SP-Explo_07_2022_08_09A_01@Explo_07_2022_08_09A.L5.Synthese-PSM_LARRA
+   0.09%       9%  SP-Explo_75_2005_08_05_01@Explo_75_2005_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.022%       9%  SP-Explo_02_1977_07_01_01@Explo_02_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.08%     8.9%  SP-Explo_93_2001_08_04_01@Explo_93_2001_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.021%     8.8%  SP-Explo_41_1997_07_29_01@Explo_41_1997_07_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       1%     8.4%  SP-Explo_21_1995_08_29_01@Explo_21_1995_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.027%     8.4%  SP-Explo_127_2008_09_16_01@Explo_127_2008_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.37%     8.3%  SP-Explo_07_2022_08_09A_01@Explo_07_2022_08_09A.L5.Synthese-PSM_LARRA
    0.22%     8.2%  SP-Tobozo_2_01@Tobozo_2.Tobozo.Synthese-PSM_LARRA
   0.049%       8%  SP-AP7_Entree_01@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     1.2%     7.9%  BB26_p12_entree@BB26.Synthese-PSM_LARRA
-  0.025%     7.9%  SP-B3_Aval_01D@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.15%     7.8%  SP-Explo_326_2017_08_03_01@Explo_326_2017_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.024%     7.9%  SP-B3_Aval_01D@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.16%     7.7%  SP-Explo_326_2017_08_03_01@Explo_326_2017_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
    0.81%     7.7%  SP-Explo_145_2009_08_13_01@Explo_145_2009_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
    0.35%     7.6%  SP-Explo_184_2011_08_18_01@Explo_184_2011_08_18.Complexe_Anialarra.Synthese-PSM_LARRA
       2%     7.6%  BB26_p12_entree-Detail@BB26.Synthese-PSM_LARRA
-  0.077%     7.5%  SP-Explo_101_2002_09_04_01@Explo_101_2002_09_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.39%     7.4%  SP-Explo_315_2016_08_06_01@Explo_315_2016_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.16%     7.3%  SP-Explo_35_2017_08_02_01@Explo_35_2017_08_02.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.064%     7.5%  SP-Explo_101_2002_09_04_01@Explo_101_2002_09_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.3%     7.3%  SP-Explo_67_2021_08_07_01@Explo_67_2021_08_07.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.16%     7.2%  SP-Explo_35_2017_08_02_01@Explo_35_2017_08_02.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.14%     7.2%  SP-SC_60_01@SC60.Synthese-PSM_LARRA
+  0.012%     7.2%  SP-AP7_Amonts_05@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    1.1%     7.2%  SP-Explo_321_2016_09_26_01@Explo_321_2016_09_26.Complexe_Anialarra.Synthese-PSM_LARRA
     1.7%     7.1%  SP-Explo_208_2012_08_10_01@Explo_208_2012_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
-    1.1%     7.1%  SP-Explo_321_2016_09_26_01@Explo_321_2016_09_26.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.046%       7%  SP-Explo_19_1982_08_18_01@Explo_19_1982_08_18.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.47%       7%  SP-Explo_334_2017_09_15_01@Explo_334_2017_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.044%     6.9%  SP-Explo_19_1982_08_18_01@Explo_19_1982_08_18.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.095%     6.9%  SP-SC_223_01@SC223.Synthese-PSM_LARRA
-  0.039%     6.8%  SP-Explo_309_2015_09_25_01@Explo_309_2015_09_25.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.051%     6.8%  SP-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.03%     6.7%  SP-Explo_95_2001_08_28_01@Explo_95_2001_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.11%     6.5%  SP-Explo_01_2007_08_01_09@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.043%     6.8%  SP-Explo_309_2015_09_25_01@Explo_309_2015_09_25.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.029%     6.7%  SP-Explo_95_2001_08_28_01@Explo_95_2001_08_28.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.26%     6.5%  SP-Explo_292_2015_08_07_01@Explo_292_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
     0.7%     6.5%  SP-Explo_68_2021_08_08_01@Explo_68_2021_08_08.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-   0.08%     6.1%  SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.11%     6.5%  SP-Explo_01_2007_08_01_09@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.052%     6.4%  SP-AP7_Aval_04@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.079%     6.1%  SP-AP7_Aval_02@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     0.6%       6%  SP-Explo_27_2001_08_14_01@Explo_27_2001_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.073%       6%  SP-Explo_55_2020_07_28_01@Explo_55_2020_07_28.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.44%       6%  SP-Explo_01_2007_08_01_06@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    0.1%     5.9%  SP-Explo_284_2014_10_31_01@Explo_284_2014_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
     0.9%     5.9%  SP-Explo_114_2007_10_05_01@Explo_114_2007_10_05.Complexe_Anialarra.Synthese-PSM_LARRA
    0.11%     5.8%  SP-AP7_Aval_09@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
     1.3%     5.8%  SP-Explo_194_2012_07_30_01@Explo_194_2012_07_30.Complexe_Anialarra.Synthese-PSM_LARRA
    0.15%     5.7%  SP-Explo_172_2010_09_20_01@Explo_172_2010_09_20.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.02%     5.7%  SP-Explo_22_2021_02_20_01@Explo_22_2021_02_20.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.023%     5.7%  SP-Explo_22_2021_02_20_01@Explo_22_2021_02_20.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.3%     5.7%  SP-Explo_63_2003_08_11_01@Explo_63_2003_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.84%     5.6%  SP-Explo_83_2023_07_24_01@Explo_83_2023_07_24.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-   0.56%     5.5%  SP-Explo_179_2011_08_10_01@Explo_179_2011_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.85%     5.6%  SP-Explo_83_2023_07_24_01@Explo_83_2023_07_24.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.21%     5.6%  SP-Explo_351_2018_08_16_01@Explo_351_2018_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
    0.42%     5.5%  SP-Explo_35_2001_08_23_01@Explo_35_2001_08_23.Complexe_Anialarra.Synthese-PSM_LARRA
    0.32%     5.4%  SP-Explo_05_1999_08_01_01@Explo_05_1999_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.02%     5.3%  SP-Explo_01_2010_08_01_01@Explo_01_2010_08_01.C50_Affluent_du_grand_canyon.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.024%     5.2%  SP-Explo_30_2022_12_04_01@Explo_30_2022_12_04.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.087%     5.2%  SP-Explo_264_2014_08_08_01@Explo_264_2014_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+    0.7%     5.3%  SP-Explo_313_2016_08_05_01@Explo_313_2016_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.026%     5.2%  SP-Explo_30_2022_12_04_01@Explo_30_2022_12_04.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.18%     5.1%  SP-Explo_35_1996_08_08_01@Explo_35_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.021%     5.1%  SP-Explo_01_2010_08_01_01@Explo_01_2010_08_01.C50_Affluent_du_grand_canyon.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.057%     5.1%  SP-Explo_04_1987_08_04_01@Explo_04_1987_08_04.L5.Synthese-PSM_LARRA
-   0.84%     5.1%  SP-Explo_133_2009_08_05_01@Explo_133_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.82%     5.1%  SP-Explo_133_2009_08_05_01@Explo_133_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
    0.41%       5%  SP-Explo_07_1999_08_09_01@Explo_07_1999_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.062%       5%  SP-Explo_67_2004_08_12_01@Explo_67_2004_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.17%       5%  SP-Explo_45_2018_08_09_01@Explo_45_2018_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
   0.095%       5%  SP-Explo_06_2025_08_10_01@Explo_06_2025_08_10.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-  0.028%     4.9%  SP-Explo_345_2018_08_09_01@Explo_345_2018_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.46%     4.9%  SP-Explo_21_1995_08_29_02@Explo_21_1995_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.18%     4.9%  SP-Explo_335_2017_09_19_01@Explo_335_2017_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.66%     4.9%  SP-Explo_349_2018_08_13_01@Explo_349_2018_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
    0.59%     4.9%  SP-Explo_359_2018_09_16_01@Explo_359_2018_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.68%     4.9%  SP-Explo_349_2018_08_13_01@Explo_349_2018_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
    0.57%     4.9%  SP-Explo_279_2014_09_13_01@Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
   0.075%     4.9%  SP-C299_Gouffre_belle_gueule_01@C299-Gouffre_belle_gueule.Synthese-PSM_LARRA
-  0.067%     4.8%  SP-Explo_03_2012_08_01_01@Explo_03_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.17%     4.9%  SP-Explo_45_2018_08_09_01@Explo_45_2018_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
     0.1%     4.8%  SP-Explo_04_2024_08_15_01@Explo_04_2024_08_15.AN514-Venus.Synthese-PSM_LARRA
-   0.19%     4.7%  SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.19%     4.7%  SP-Explo_42_1997_07_31_01@Explo_42_1997_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+    0.2%     4.8%  SP-Explo_42_1997_07_31_01@Explo_42_1997_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     0.2%     4.7%  SP-Explo_32_1983_10_23_01@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.21%     4.6%  SP-Explo_233_2012_09_28_01@Explo_233_2012_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.44%     4.5%  SP-Explo_57_2020_08_04_01@Explo_57_2020_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.056%     4.4%  SP-Explo_27_2022_11_11_01@Explo_27_2022_11_11.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.48%     4.3%  SP-Explo_327_2017_08_04_01@Explo_327_2017_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.46%     4.5%  SP-Explo_21_1995_08_29_02@Explo_21_1995_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.43%     4.5%  SP-Explo_57_2020_08_04_01@Explo_57_2020_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.16%     4.4%  SP-AP7_Amonts_08@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.062%     4.4%  SP-Explo_27_2022_11_11_01@Explo_27_2022_11_11.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.033%     4.4%  SP-Explo_87_2005_09_28_01@Explo_87_2005_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.54%     4.3%  SP-Explo_327_2017_08_04_01@Explo_327_2017_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.045%     4.3%  SP-Explo_134_2009_08_05_01@Explo_134_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
    0.97%     4.3%  SP-Explo_281_2014_09_17_01@Explo_281_2014_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
    0.34%     4.2%  SP-Explo_41_2002_08_12_01@Explo_41_2002_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.021%     4.2%  SP-B3_Aval_01A@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.25%     4.2%  SP-Explo_26_1983_08_06_01@Explo_26_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.015%     4.2%  SP-Explo_96_2024_08_12_01@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
   0.041%     4.2%  SP-Explo_21_1995_08_29_04@Explo_21_1995_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.034%     4.2%  SP-Explo_346_2018_08_09_01@Explo_346_2018_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.016%     4.2%  SP-Explo_96_2024_08_12_01@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.088%     4.1%  SP-Explo_264_2014_08_08_01@Explo_264_2014_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.021%     4.1%  SP-B3_Aval_01A@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.49%     4.1%  SP-Explo_48_2019_07_31_01@Explo_48_2019_07_31.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.51%       4%  SP-Explo_179_2011_08_10_01@Explo_179_2011_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
     0.6%       4%  SP-Explo_154_2009_09_27_01@Explo_154_2009_09_27.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.49%       4%  SP-Explo_48_2019_07_31_01@Explo_48_2019_07_31.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.019%     3.9%  SP-B3_Aval_02E@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.29%     3.8%  SP-Explo_97_2006_08_15_01@Explo_97_2006_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
       1%     3.8%  SP-GL4_Amonts_04@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.51%     3.8%  SP-Explo_343_2018_08_05_01@Explo_343_2018_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
   0.095%     3.8%  SP-Explo_16_1982_08_14_02@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.31%     3.7%  BB27_entree@BB27.Synthese-PSM_LARRA
+  0.018%     3.7%  SP-B3_Aval_02E@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.23%     3.7%  SP-Explo_350_2018_08_13_01@Explo_350_2018_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
    0.27%     3.7%  SP-Explo_354_2018_09_10_01@Explo_354_2018_09_10.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.08%     3.6%  SP-Z510_Fond_01-Detail@Z510_Fond.Z510.Synthese-PSM_LARRA
-  0.076%     3.6%  SP-Z510_Fond_01@Z510_Fond.Z510.Synthese-PSM_LARRA
-   0.54%     3.6%  SP-Explo_248_2013_08_13_01@Explo_248_2013_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.53%     3.6%  SP-Explo_248_2013_08_13_01@Explo_248_2013_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
    0.47%     3.5%  SP-Explo_332_2017_09_13_01@Explo_332_2017_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.02%     3.5%  SP-Explo_01_1977_07_01_01@Explo_01_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.099%     3.5%  SP-Explo_10_2013_07_29_01@Explo_10_2013_07_29.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.16%     3.4%  SP-Explo_347_2018_08_12_01@Explo_347_2018_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.043%     3.4%  SP-Explo_20_1983_01_01_01@Explo_20_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.048%     3.5%  SP-Explo_20_1983_01_01_01@Explo_20_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.023%     3.5%  SP-Explo_01_1977_07_01_01@Explo_01_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.21%     3.3%  SP-Explo_02_2024_06_21_01@Explo_02_2024_06_21.AN326-Sima_del_Liron.Synthese-PSM_LARRA
    0.25%     3.3%  SP-Explo_01_2024_08_05_01@Explo_01_2024_08_05.AN058-Trou_du_Chien.Synthese-PSM_LARRA
    0.36%     3.3%  SP-Explo_47_2002_08_15_01@Explo_47_2002_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.25%     3.2%  SP-Explo_99_2025_07_25_01@Explo_99_2025_07_25.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.26%     3.2%  SP-Explo_99_2025_07_25_01@Explo_99_2025_07_25.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
     0.9%     3.2%  SP-Explo_51_2002_08_16_01@Explo_51_2002_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.21%     3.1%  SP-Explo_07_2013_08_12_01@Explo_07_2013_08_12.AN594-Verdad.Synthese-PSM_LARRA
     1.8%     3.1%  SP-Explo_28_2001_08_15_01@Explo_28_2001_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
    0.99%     3.1%  SP-Explo_344_2018_08_08_01@Explo_344_2018_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.038%     3.1%  SP-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.31%       3%  SP-Explo_341_2018_08_04_01@Explo_341_2018_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
    0.83%       3%  SP-Explo_360_2018_09_16_01@Explo_360_2018_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.051%       3%  SP-Explo_103_2025_08_10_01@Explo_103_2025_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-   0.08%       3%  SP-Explo_28_2022_12_03_01@Explo_28_2022_12_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.083%       3%  SP-Explo_28_2022_12_03_01@Explo_28_2022_12_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.039%     2.9%  SP-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.26%     2.9%  SP-Explo_25_2016_07_31_01@Explo_25_2016_07_31.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-   0.15%     2.9%  SP-Explo_351_2018_08_16_01@Explo_351_2018_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.015%     2.9%  SP-Explo_255_2013_08_20_01@Explo_255_2013_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.31%     2.9%  SP-Explo_101_2025_08_05_01@Explo_101_2025_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.014%     2.9%  SP-Explo_255_2013_08_20_01@Explo_255_2013_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
   0.099%     2.8%  SP-Explo_402_2024_08_08_01@Explo_402_2024_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.083%     2.8%  SP-Explo_18_2022_05_21_01@Explo_18_2022_05_21.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.08%     2.8%  SP-Explo_11_1989_08_09_01@Explo_11_1989_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.085%     2.8%  SP-Explo_18_2022_05_21_01@Explo_18_2022_05_21.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.31%     2.8%  SP-Explo_138_2009_08_06_01@Explo_138_2009_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.32%     2.8%  SP-Explo_101_2025_08_05_01@Explo_101_2025_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.68%     2.8%  BB26_puits_p12@BB26.Synthese-PSM_LARRA
-  0.086%     2.8%  SP-Explo_03_2009_08_05_01@Explo_03_2009_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.042%     2.7%  SP-Explo_14_2000_08_08_01@Explo_14_2000_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.02%     2.7%  SP-Explo_128_2008_09_16_01@Explo_128_2008_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.053%     2.7%  SP-Explo_67_2004_08_12_01@Explo_67_2004_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
    0.11%     2.7%  SP-Z510_01@Z510_Entree.Z510.Synthese-PSM_LARRA
    0.15%     2.7%  SP-Explo_12_2023_09_11_01@Explo_12_2023_09_11.AN594-Verdad.Synthese-PSM_LARRA
+   0.27%     2.7%  SP-Explo_98_2024_08_15_01@Explo_98_2024_08_15.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.12%     2.7%  SP-Explo_398_2021_09_21_01@Explo_398_2021_09_21.Complexe_Anialarra.Synthese-PSM_LARRA
    0.18%     2.7%  SP-Explo_317_2016_09_16_01@Explo_317_2016_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.13%     2.7%  SP-Explo_398_2021_09_21_01@Explo_398_2021_09_21.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.051%     2.7%  SP-Explo_103_2025_08_10_01@Explo_103_2025_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
       1%     2.6%  SP-Explo_80_2005_08_16_01@Explo_80_2005_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.074%     2.6%  SP-Z510_Fond_01@Z510_Fond.Z510.Synthese-PSM_LARRA
     0.2%     2.6%  SP-Explo_250_2013_08_13_01@Explo_250_2013_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.38%     2.6%  SP-Explo_107_2006_11_01_01@Explo_107_2006_11_01.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.37%     2.6%  SP-Explo_107_2006_11_01_01@Explo_107_2006_11_01.Complexe_Anialarra.Synthese-PSM_LARRA
    0.13%     2.5%  SP-Explo_30_2016_08_05_01@Explo_30_2016_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.27%     2.5%  SP-Explo_96_2006_08_11_01@Explo_96_2006_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.11%     2.5%  SP-Explo_05_1983_04_10_01@Explo_05_1983_04_10.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.077%     2.5%  SP-Explo_05_1983_04_10_01@Explo_05_1983_04_10.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.15%     2.5%  SP-Explo_137_2009_08_06_01@Explo_137_2009_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.026%     2.5%  SP-Explo_345_2018_08_09_01@Explo_345_2018_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
    0.23%     2.5%  BB26_salle_entree@BB26.Synthese-PSM_LARRA
    0.12%     2.5%  SP-Explo_01_2007_08_01_02@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.15%     2.5%  SP-Explo_137_2009_08_06_01@Explo_137_2009_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
-    0.5%     2.5%  SP-Explo_20_2000_08_14_01@Explo_20_2000_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.084%     2.5%  SP-Explo_395_2021_09_16_01@Explo_395_2021_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
    0.66%     2.5%  BB26_puits_p12-Detail@BB26.Synthese-PSM_LARRA
   0.092%     2.5%  SP-Z510_01B@Z510_Entree.Z510.Synthese-PSM_LARRA
-  0.059%     2.5%  SP-Explo_17_2022_01_15_01@Explo_17_2022_01_15.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.096%     2.5%  SP-Explo_296_2015_08_08_01@Explo_296_2015_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.057%     2.5%  SP-Explo_17_2022_01_15_01@Explo_17_2022_01_15.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.49%     2.4%  SP-Explo_01_2023_08_09_01@Explo_01_2023_08_09.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-  0.048%     2.4%  SP-Explo_26_2021_09_28_01@Explo_26_2021_09_28.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.075%     2.4%  SP-Explo_37_2017_08_05_01@Explo_37_2017_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.49%     2.4%  SP-Explo_20_2000_08_14_01@Explo_20_2000_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.076%     2.4%  SP-Explo_37_2017_08_05_01@Explo_37_2017_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.31%     2.4%  SP-Explo_348_2018_08_12_01@Explo_348_2018_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
     0.5%     2.4%  SP-Explo_151_2009_09_26_01@Explo_151_2009_09_26.Complexe_Anialarra.Synthese-PSM_LARRA
    0.58%     2.4%  SP-Explo_34_2001_08_21_01@Explo_34_2001_08_21.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.11%     2.3%  SP-Explo_02_2024_08_15_01@Explo_02_2024_08_15.AN058-Trou_du_Chien.Synthese-PSM_LARRA
    0.22%     2.3%  SP-Explo_24_2016_07_29_01@Explo_24_2016_07_29.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.034%     2.3%  SP-Explo_35_2023_08_11_01@Explo_35_2023_08_11.Complexe_Ours-Veau.Synthese-PSM_LARRA
+   0.11%     2.3%  SP-Explo_02_2024_08_15_01@Explo_02_2024_08_15.AN058-Trou_du_Chien.Synthese-PSM_LARRA
+  0.035%     2.3%  SP-Explo_35_2023_08_11_01@Explo_35_2023_08_11.Complexe_Ours-Veau.Synthese-PSM_LARRA
    0.19%     2.3%  SP-Explo_03_2024_08_16_01@Explo_03_2024_08_16.AN058-Trou_du_Chien.Synthese-PSM_LARRA
-  0.062%     2.3%  SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.083%     2.2%  SP-Explo_11_2021_08_05_01@Explo_11_2021_08_05.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.06%     2.3%  SP-AP7_Amonts_12@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.072%     2.2%  SP-Explo_11_2021_08_05_01@Explo_11_2021_08_05.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.2%     2.2%  SP-Explo_188_2011_09_15_01@Explo_188_2011_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.097%     2.2%  SP-Explo_57_2003_08_03_01@Explo_57_2003_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.098%     2.2%  SP-Explo_57_2003_08_03_01@Explo_57_2003_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
    0.22%     2.2%  SP-Explo_242_2013_08_02_01@Explo_242_2013_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
    0.18%     2.2%  SP-Explo_223_2012_08_16_01@Explo_223_2012_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
     0.3%     2.2%  SP-Explo_177_2011_08_02_01@Explo_177_2011_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.037%     2.2%  SP-Explo_03_2019_01_19_01@Explo_03_2019_01_19.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.04%     2.2%  SP-Explo_03_2019_01_19_01@Explo_03_2019_01_19.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
     1.5%     2.1%  SP-Explo_393_2021_09_14_01@Explo_393_2021_09_14.Complexe_Anialarra.Synthese-PSM_LARRA
    0.23%     2.1%  BB26_meandre_1_c@BB26.Synthese-PSM_LARRA
+  0.065%     2.1%  SP-Explo_03_2012_08_01_01@Explo_03_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.065%     2.1%  BB26_salle_P30@BB26.Synthese-PSM_LARRA
-   0.15%     2.1%  SP-Tobozo_1_02@Tobozo_1.Tobozo.Synthese-PSM_LARRA
-  0.055%     2.1%  SP-Explo_24_2021_04_03_01@Explo_24_2021_04_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.096%     2.1%  SP-Explo_296_2015_08_08_01@Explo_296_2015_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.12%     2.1%  SP-Tobozo_1_02@Tobozo_1.Tobozo.Synthese-PSM_LARRA
+  0.016%     2.1%  SP-Explo_400_2023_08_16_01@Explo_400_2023_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+    0.1%     2.1%  SP-Explo_13_2015_01_30_01@Explo_13_2015_01_30.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.058%       2%  SP-Z510_06@Z510_Entree.Z510.Synthese-PSM_LARRA
    0.29%       2%  SP-Explo_37_1984_05_05_01@Explo_37_1984_05_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.35%       2%  SP-Explo_304_2015_08_20_01@Explo_304_2015_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
    0.19%       2%  SP-Explo_11_2022_08_24_01@Explo_11_2022_08_24.AN594-Verdad.Synthese-PSM_LARRA
-  0.072%     1.9%  SP-Explo_395_2021_09_16_01@Explo_395_2021_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
    0.36%     1.9%  SP-Explo_80_2000_08_31_01@Explo_80_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
     0.1%     1.9%  BB26_salle_P30-Detail@BB26.Synthese-PSM_LARRA
-   0.07%     1.9%  SP-Explo_36_1983_10_29_01@Explo_36_1983_10_29.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.13%     1.9%  SP-Z510_03@Z510_Entree.Z510.Synthese-PSM_LARRA
-   0.14%     1.8%  SP-Explo_324_2016_09_30_01@Explo_324_2016_09_30.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.025%     1.8%  SP-Explo_27_2022_10_24_01@Explo_27_2022_10_24.Complexe_Ours-Veau.Synthese-PSM_LARRA
+   0.24%     1.9%  SP-Explo_38_2017_08_06_01@Explo_38_2017_08_06.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.057%     1.8%  SP-Explo_24_2021_04_03_01@Explo_24_2021_04_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.13%     1.8%  SP-Explo_324_2016_09_30_01@Explo_324_2016_09_30.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.024%     1.8%  SP-Explo_27_2022_10_24_01@Explo_27_2022_10_24.Complexe_Ours-Veau.Synthese-PSM_LARRA
   0.014%     1.8%  SP-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.37%     1.8%  SP-Explo_300_2015_08_14_01@Explo_300_2015_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
   0.069%     1.8%  SP-Explo_397_2021_09_18_01@Explo_397_2021_09_18.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.37%     1.8%  SP-Explo_22_2000_08_17_01@Explo_22_2000_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.018%     1.8%  SP-Explo_128_2008_09_16_01@Explo_128_2008_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
    0.53%     1.8%  SP-Explo_289_2015_08_07_01@Explo_289_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.37%     1.8%  SP-Explo_22_2000_08_17_01@Explo_22_2000_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
    0.39%     1.8%  SP-Explo_147_2009_08_18_01@Explo_147_2009_08_18.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.051%     1.8%  SP-Explo_93_2001_08_04_01@Explo_93_2001_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.28%     1.7%  SP-Explo_216_2012_08_14_01@Explo_216_2012_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.046%     1.7%  SP-Explo_169_2010_08_17_01@Explo_169_2010_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.038%     1.7%  SP-Explo_169_2010_08_17_01@Explo_169_2010_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
    0.25%     1.7%  BB26_meandre_1_c-Detail@BB26.Synthese-PSM_LARRA
    0.11%     1.7%  SP-Explo_05_2025_08_05_01@Explo_05_2025_08_05.AN514-Venus.Synthese-PSM_LARRA
   0.058%     1.7%  SP-Z510_06-Detail@Z510_Entree.Z510.Synthese-PSM_LARRA
     0.2%     1.7%  SP-Explo_30_2001_08_17_01@Explo_30_2001_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.026%     1.7%  SP-Explo_34_1983_10_29_01@Explo_34_1983_10_29.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.12%     1.7%  SP-Explo_64_2021_08_04_01@Explo_64_2021_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.035%     1.7%  SP-Explo_34_1983_10_29_01@Explo_34_1983_10_29.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.13%     1.7%  SP-Explo_11_1989_08_09_01@Explo_11_1989_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.069%     1.6%  SP-Explo_03_2009_08_05_01@Explo_03_2009_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
    0.13%     1.6%  SP-Explo_149_2009_08_20_01@Explo_149_2009_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.14%     1.6%  SP-Explo_16_2021_10_23_01@Explo_16_2021_10_23.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.02%     1.6%  SP-Explo_91_2024_08_05_01@Explo_91_2024_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
     0.1%     1.6%  SP-Explo_249_2013_08_13_01@Explo_249_2013_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.12%     1.6%  SP-Explo_64_2021_08_04_01@Explo_64_2021_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.12%     1.6%  SP-Explo_16_2021_10_23_01@Explo_16_2021_10_23.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.033%     1.6%  SP-Explo_394_2021_09_16_01@Explo_394_2021_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
    0.24%     1.6%  SP-Explo_58_2003_08_03_01@Explo_58_2003_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.083%     1.6%  SP-Explo_94_2006_08_11_01@Explo_94_2006_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.082%     1.6%  SP-Explo_94_2006_08_11_01@Explo_94_2006_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
    0.18%     1.6%  SP-Explo_384_2019_09_17_01@Explo_384_2019_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.019%     1.6%  SP-Explo_197_2012_08_03_01@Explo_197_2012_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.036%     1.6%  SP-Tobozo_1_01@Tobozo_1.Tobozo.Synthese-PSM_LARRA
+   0.02%     1.6%  SP-Explo_197_2012_08_03_01@Explo_197_2012_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.079%     1.6%  SP-Explo_71_2004_08_15_01@Explo_71_2004_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
   0.039%     1.6%  SP-Explo_65_2004_08_08_01@Explo_65_2004_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.067%     1.6%  SP-Explo_71_2004_08_15_01@Explo_71_2004_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
    0.15%     1.6%  SP-Explo_14_2024_08_08_01@Explo_14_2024_08_08.AN594-Verdad.Synthese-PSM_LARRA
   0.088%     1.6%  SP-Explo_367_2018_09_20_01@Explo_367_2018_09_20.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.012%     1.6%  SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.013%     1.6%  SP-AP7_Aval_06@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
   0.031%     1.6%  SP-Explo_252_2013_08_18_01@Explo_252_2013_08_18.Complexe_Anialarra.Synthese-PSM_LARRA
    0.17%     1.5%  BB26_meandre_entree-Detail@BB26.Synthese-PSM_LARRA
-   0.37%     1.5%  SP-Explo_300_2015_08_14_01@Explo_300_2015_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+    0.2%     1.5%  SP-Explo_285_2014_10_31_01@Explo_285_2014_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
    0.53%     1.5%  SP-Explo_38_2002_08_08_01@Explo_38_2002_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
    0.13%     1.5%  SP-Explo_340_2018_08_03_01@Explo_340_2018_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
    0.16%     1.5%  SP-Explo_273_2014_08_15_01@Explo_273_2014_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
    0.49%     1.5%  SP-Explo_56_2003_08_02_01@Explo_56_2003_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
    0.17%     1.5%  BB26_affluent-Detail@BB26.Synthese-PSM_LARRA
-   0.12%     1.5%  SP-Explo_209_2012_08_10_01@Explo_209_2012_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
   0.094%     1.4%  SP-Z510_03-Detail@Z510_Entree.Z510.Synthese-PSM_LARRA
+   0.13%     1.4%  SP-Explo_64_2004_08_06_01@Explo_64_2004_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.02%     1.4%  SP-Explo_219_2012_08_15_01@Explo_219_2012_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
    0.25%     1.4%  SP-Explo_254_2013_08_20_01@Explo_254_2013_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
   0.092%     1.4%  SP-Z510_02-Detail@Z510_Entree.Z510.Synthese-PSM_LARRA
-  0.019%     1.4%  SP-Explo_219_2012_08_15_01@Explo_219_2012_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.055%     1.4%  SP-Explo_08_2013_06_14_01@Explo_08_2013_06_14.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.15%     1.4%  SP-Explo_253_2013_08_20_01@Explo_253_2013_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.29%     1.4%  SP-Explo_85_2005_09_27_01@Explo_85_2005_09_27.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.037%     1.4%  SP-Explo_14_2000_08_08_01@Explo_14_2000_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.051%     1.4%  SP-Explo_08_2013_06_14_01@Explo_08_2013_06_14.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.048%     1.4%  SP-Explo_265_2014_08_10_01@Explo_265_2014_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
    0.18%     1.4%  SP-Explo_333_2017_09_14_01@Explo_333_2017_09_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.036%     1.4%  SP-Tobozo_1_01@Tobozo_1.Tobozo.Synthese-PSM_LARRA
- 0.0066%     1.4%  SP-Explo_106_2006_11_01_01@Explo_106_2006_11_01.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0067%     1.4%  SP-Explo_106_2006_11_01_01@Explo_106_2006_11_01.Complexe_Anialarra.Synthese-PSM_LARRA
     0.1%     1.4%  SP-Explo_377_2019_08_13_01@Explo_377_2019_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.13%     1.4%  SP-Explo_64_2004_08_06_01@Explo_64_2004_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.11%     1.4%  SP-Explo_323_2016_09_28_01@Explo_323_2016_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.073%     1.4%  SP-Explo_36_1983_10_29_01@Explo_36_1983_10_29.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.017%     1.4%  SP-Explo_380_2019_09_09_01@Explo_380_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
    0.15%     1.4%  SP-Explo_277_2014_08_20_01@Explo_277_2014_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.11%     1.4%  SP-Explo_13_2015_01_30_01@Explo_13_2015_01_30.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.051%     1.4%  SP-Explo_88_2006_08_02_01@Explo_88_2006_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.12%     1.4%  SP-Explo_383_2019_09_14_01@Explo_383_2019_09_14.Complexe_Anialarra.Synthese-PSM_LARRA
   0.025%     1.3%  SP-Explo_99_2006_08_15_01@Explo_99_2006_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
-    0.5%     1.3%  SP-Explo_34_2016_08_10_01@Explo_34_2016_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-   0.04%     1.3%  SP-Explo_31_2023_08_01_01@Explo_31_2023_08_01.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.033%     1.3%  SP-Explo_134_2009_08_05_01@Explo_134_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.11%     1.3%  SP-Explo_282_2014_09_23_01@Explo_282_2014_09_23.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.039%     1.3%  SP-Explo_31_2023_08_01_01@Explo_31_2023_08_01.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.063%     1.3%  SP-Explo_136_2009_08_05_01@Explo_136_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
    0.12%     1.3%  BB26_meandre_entree@BB26.Synthese-PSM_LARRA
    0.17%     1.3%  SP-Explo_129_2008_09_16_01@Explo_129_2008_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.041%     1.3%  SP-Explo_259_2013_09_29_01@Explo_259_2013_09_29.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.099%     1.3%  SP-Explo_80_2022_08_09_01@Explo_80_2022_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.089%     1.3%  SP-Explo_167_2010_08_16_01@Explo_167_2010_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.13%     1.3%  SP-Explo_382_2019_09_13_01@Explo_382_2019_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.017%     1.3%  SP-Explo_380_2019_09_09_01@Explo_380_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.016%     1.3%  SP-Explo_142_2009_08_12_01@Explo_142_2009_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.023%     1.3%  SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+    0.1%     1.3%  SP-Explo_80_2022_08_09_01@Explo_80_2022_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.032%     1.3%  SP-Explo_259_2013_09_29_01@Explo_259_2013_09_29.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.28%     1.3%  SP-Explo_85_2005_09_27_01@Explo_85_2005_09_27.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.49%     1.3%  SP-Explo_34_2016_08_10_01@Explo_34_2016_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.021%     1.3%  SP-AP7_Amonts_03@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.18%     1.3%  SP-Explo_11_2025_10_04_01@Explo_11_2025_10_04.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-   0.24%     1.3%  SP-Explo_38_2017_08_06_01@Explo_38_2017_08_06.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.14%     1.3%  SP-Explo_392_2021_09_14_01@Explo_392_2021_09_14.Complexe_Anialarra.Synthese-PSM_LARRA
    0.35%     1.3%  SP-Explo_23_2000_08_17_01@Explo_23_2000_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.11%     1.2%  SP-Z510_05@Z510_Entree.Z510.Synthese-PSM_LARRA
-  0.083%     1.2%  SP-Explo_119_2008_08_12_01@Explo_119_2008_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.091%     1.2%  SP-Z510_05@Z510_Entree.Z510.Synthese-PSM_LARRA
+  0.073%     1.2%  SP-Z510_Fond_01-Detail@Z510_Fond.Z510.Synthese-PSM_LARRA
    0.14%     1.2%  SP-Explo_15_2025_08_13_02@Explo_15_2025_08_13.L5.Synthese-PSM_LARRA
    0.14%     1.2%  SP-Explo_86_2005_09_27_01@Explo_86_2005_09_27.Complexe_Anialarra.Synthese-PSM_LARRA
    0.27%     1.2%  SP-Explo_46_2002_08_15_01@Explo_46_2002_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.083%     1.2%  SP-Explo_15_2024_08_16_01@Explo_15_2024_08_16.AN594-Verdad.Synthese-PSM_LARRA
+  0.017%     1.2%  SP-Explo_106_2025_08_13_01@Explo_106_2025_08_13.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.16%     1.2%  SP-Explo_08_1999_08_10_01@Explo_08_1999_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.096%     1.2%  SP-Explo_15_2024_08_16_01@Explo_15_2024_08_16.AN594-Verdad.Synthese-PSM_LARRA
+  0.032%     1.2%  SP-Explo_346_2018_08_09_01@Explo_346_2018_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
    0.23%     1.2%  SP-Explo_85_2001_07_25_01@Explo_85_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.084%     1.2%  SP-Explo_325_2017_08_03_01@Explo_325_2017_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.013%     1.2%  SP-Explo_144_2009_08_13_01@Explo_144_2009_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.098%     1.2%  SP-Explo_323_2016_09_28_01@Explo_323_2016_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.11%     1.2%  SP-Explo_268_2014_08_12_01@Explo_268_2014_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
   0.026%     1.2%  SP-Explo_401_2023_09_17_01@Explo_401_2023_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.078%     1.2%  SP-Explo_268_2014_08_12_01@Explo_268_2014_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.012%     1.2%  SP-Explo_144_2009_08_13_01@Explo_144_2009_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
    0.13%     1.2%  SP-Explo_287_2015_08_03_01@Explo_287_2015_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
    0.12%     1.1%  SP-Explo_174_2010_09_22_01@Explo_174_2010_09_22.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.075%     1.1%  SP-Explo_388_2021_08_09_01@Explo_388_2021_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.078%     1.1%  SP-Explo_224_2012_08_16_01@Explo_224_2012_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.12%     1.1%  SP-Explo_07_2013_08_12_01@Explo_07_2013_08_12.AN594-Verdad.Synthese-PSM_LARRA
-  0.047%     1.1%  SP-Explo_236_2012_10_31_01@Explo_236_2012_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.082%     1.1%  SP-Explo_388_2021_08_09_01@Explo_388_2021_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.058%     1.1%  SP-Explo_10_2013_07_29_01@Explo_10_2013_07_29.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.15%     1.1%  SP-Explo_09_2025_10_04_01@Explo_09_2025_10_04.AN326-Sima_del_Liron.Synthese-PSM_LARRA
+    0.1%     1.1%  SP-Explo_209_2012_08_10_01@Explo_209_2012_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.08%     1.1%  SP-Explo_286_2015_08_03_01@Explo_286_2015_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
    0.11%     1.1%  SP-Explo_08_2013_08_17_01@Explo_08_2013_08_17.AN594-Verdad.Synthese-PSM_LARRA
-  0.019%     1.1%  SP-Explo_106_2025_08_13_01@Explo_106_2025_08_13.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.35%     1.1%  SP-Explo_48_2002_08_15_01@Explo_48_2002_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.079%     1.1%  SP-Explo_53_2002_08_19_01@Explo_53_2002_08_19.Complexe_Anialarra.Synthese-PSM_LARRA
+    0.2%     1.1%  SP-Explo_168_2010_08_17_01@Explo_168_2010_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.078%     1.1%  SP-Explo_53_2002_08_19_01@Explo_53_2002_08_19.Complexe_Anialarra.Synthese-PSM_LARRA
   0.017%     1.1%  SP-B3_Amonts_02@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-    0.2%     1.1%  SP-Explo_84_2001_07_25_02@Explo_84_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.038%     1.1%  SP-Explo_110_2007_08_12_01@Explo_110_2007_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.043%     1.1%  SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.088%     1.1%  SP-Explo_02_2019_01_08_01@Explo_02_2019_01_08.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.28%     1.1%  SP-Explo_90_2006_08_02_01@Explo_90_2006_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.21%     1.1%  SP-Explo_84_2001_07_25_02@Explo_84_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.04%     1.1%  SP-Explo_110_2007_08_12_01@Explo_110_2007_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.09%     1.1%  SP-Explo_02_2019_01_08_01@Explo_02_2019_01_08.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.04%     1.1%  SP-GL102_Riviere_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.077%     1.1%  SP-Explo_167_2010_08_16_01@Explo_167_2010_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
     0.1%     1.1%  BB26_affluent@BB26.Synthese-PSM_LARRA
    0.11%     1.1%  SP-Explo_148_2009_08_20_01@Explo_148_2009_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.06%       1%  SP-Explo_283_2014_10_28_01@Explo_283_2014_10_28.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.051%       1%  SP-Explo_283_2014_10_28_01@Explo_283_2014_10_28.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.14%       1%  SP-Explo_240_2013_07_30_01@Explo_240_2013_07_30.Complexe_Anialarra.Synthese-PSM_LARRA
    0.17%       1%  BB26_meandre_2_a@BB26.Synthese-PSM_LARRA
-   0.17%       1%  SP-Explo_240_2013_07_30_01@Explo_240_2013_07_30.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.22%       1%  SP-Explo_307_2015_09_13_01@Explo_307_2015_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.016%       1%  SP-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.039%       1%  SP-Explo_10_2023_08_07_01@Explo_10_2023_08_07.L5.Synthese-PSM_LARRA
+   0.38%       1%  SP-Explo_182_2011_08_12_01@Explo_182_2011_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.024%       1%  SP-Explo_306_2015_09_13_01@Explo_306_2015_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
   0.031%    0.99%  SP-Explo_09_2023_08_07_01@Explo_09_2023_08_07.L5.Synthese-PSM_LARRA
-  0.033%    0.99%  SP-Explo_109_2007_08_03_01@Explo_109_2007_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
    0.28%    0.99%  SP-Explo_225_2012_09_17_01@Explo_225_2012_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.086%    0.97%  SP-Explo_286_2015_08_03_01@Explo_286_2015_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.28%    0.97%  SP-Explo_03_2024_08_15_01@Explo_03_2024_08_15.AN326-Sima_del_Liron.Synthese-PSM_LARRA
    0.42%    0.97%  SP-Explo_04_1999_08_01_01@Explo_04_1999_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.28%    0.97%  SP-Explo_03_2024_08_15_01@Explo_03_2024_08_15.AN326-Sima_del_Liron.Synthese-PSM_LARRA
     0.1%    0.97%  SP-Explo_10_2022_08_21_01@Explo_10_2022_08_21.AN594-Verdad.Synthese-PSM_LARRA
-  0.025%    0.96%  SP-Explo_44_2002_08_13_01@Explo_44_2002_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
-    0.3%    0.96%  SP-Explo_366_2018_09_20_01@Explo_366_2018_09_20.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.065%    0.96%  SP-Explo_79_2005_08_16_01@Explo_79_2005_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.027%    0.96%  SP-Explo_44_2002_08_13_01@Explo_44_2002_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.27%    0.96%  SP-Explo_90_2006_08_02_01@Explo_90_2006_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.13%    0.95%  SP-Explo_95_2006_08_11_01@Explo_95_2006_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
   0.089%    0.95%  SP-Explo_374_2019_08_02_01@Explo_374_2019_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.16%    0.95%  SP-Explo_221_2012_08_16_01@Explo_221_2012_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.064%    0.94%  SP-Explo_330_2017_08_12_01@Explo_330_2017_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.057%    0.95%  SP-Explo_79_2005_08_16_01@Explo_79_2005_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.069%    0.94%  SP-Explo_330_2017_08_12_01@Explo_330_2017_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
   0.031%    0.94%  SP-Explo_331_2017_09_13_01@Explo_331_2017_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
   0.053%    0.94%  SP-Explo_319_2016_09_16_01@Explo_319_2016_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.067%    0.92%  SP-Explo_66_2021_08_06_01@Explo_66_2021_08_06.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.086%    0.93%  SP-Explo_62_2003_08_10_01@Explo_62_2003_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.016%    0.92%  SP-Explo_29_2022_12_03_01@Explo_29_2022_12_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.064%    0.92%  SP-Explo_66_2021_08_06_01@Explo_66_2021_08_06.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+   0.13%    0.92%  SP-Explo_84_2001_07_25_01@Explo_84_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.21%    0.91%  SP-Explo_363_2018_09_19_01@Explo_363_2018_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.041%    0.91%  SP-Explo_10_2023_08_07_01@Explo_10_2023_08_07.L5.Synthese-PSM_LARRA
+   0.26%    0.91%  SP-Explo_366_2018_09_20_01@Explo_366_2018_09_20.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.018%    0.91%  SP-Explo_91_2024_08_05_01@Explo_91_2024_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
   0.029%    0.91%  SP-Explo_07_2010_07_29_01@Explo_07_2010_07_29.Complexe_Ours-Veau.Synthese-PSM_LARRA
    0.16%    0.91%  SP-Explo_49_2002_08_15_01@Explo_49_2002_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
   0.027%    0.91%  SP-Explo_199_2012_08_03_01@Explo_199_2012_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.015%     0.9%  SP-Explo_29_2022_12_03_01@Explo_29_2022_12_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
- 0.0088%     0.9%  SP-Explo_71_2021_08_11_01@Explo_71_2021_08_11.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-   0.13%    0.89%  SP-Tobozo_1_03@Tobozo_1.Tobozo.Synthese-PSM_LARRA
-   0.11%    0.87%  SP-Explo_392_2021_09_14_01@Explo_392_2021_09_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.044%    0.86%  SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.11%    0.86%  SP-Explo_399_2022_08_07_01@Explo_399_2022_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.032%    0.85%  SP-Explo_222_2012_08_16_01@Explo_222_2012_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.079%    0.83%  SP-Explo_03_1977_07_01_01@Explo_03_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.059%    0.83%  SP-Explo_77_2005_08_11_01@Explo_77_2005_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.15%    0.91%  SP-Explo_221_2012_08_16_01@Explo_221_2012_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.11%    0.88%  SP-Explo_207_2012_08_08_01@Explo_207_2012_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.12%    0.88%  SP-Explo_399_2022_08_07_01@Explo_399_2022_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.033%    0.86%  SP-Explo_06_2009_07_01_01@Explo_06_2009_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.045%    0.86%  SP-AP7_Entree_02@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.028%    0.85%  SP-Explo_222_2012_08_16_01@Explo_222_2012_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.015%    0.84%  SP-Explo_142_2009_08_12_01@Explo_142_2009_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+    0.1%    0.84%  SP-Tobozo_1_03@Tobozo_1.Tobozo.Synthese-PSM_LARRA
    0.22%    0.83%  SP-Explo_31_2016_08_06_01@Explo_31_2016_08_06.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.059%    0.82%  SP-Explo_77_2005_08_11_01@Explo_77_2005_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.023%    0.82%  SP-Explo_229_2012_09_25_01@Explo_229_2012_09_25.Complexe_Anialarra.Synthese-PSM_LARRA
    0.17%    0.82%  SP-Explo_202_2012_08_04_01@Explo_202_2012_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.032%    0.82%  SP-Explo_100_2025_08_04_01@Explo_100_2025_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-   0.12%     0.8%  SP-Explo_01_2007_08_01_08@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.04%     0.8%  SP-Explo_228_2012_09_22_01@Explo_228_2012_09_22.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.03%     0.8%  SP-Explo_152_2009_09_27_01@Explo_152_2009_09_27.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.016%    0.81%  SP-GL4_Amonts_05@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.058%     0.8%  SP-Explo_03_1977_07_01_01@Explo_03_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.037%     0.8%  SP-Explo_235_2012_10_29_01@Explo_235_2012_10_29.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.03%    0.79%  SP-Explo_152_2009_09_27_01@Explo_152_2009_09_27.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.025%    0.79%  SP-Explo_13_2014_08_09_01@Explo_13_2014_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.09%    0.79%  SP-Explo_371_2019_07_31_01@Explo_371_2019_07_31.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.024%    0.79%  SP-Explo_13_2014_08_09_01@Explo_13_2014_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.066%    0.79%  SP-Explo_136_2009_08_05_01@Explo_136_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.03%    0.78%  SP-B3_Entree_05B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.01%    0.78%  SP-Explo_18_2016_05_04_01@Explo_18_2016_05_04.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.11%    0.79%  SP-Explo_01_2007_08_01_08@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.094%    0.78%  SP-Explo_282_2014_09_23_01@Explo_282_2014_09_23.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.033%    0.78%  SP-Explo_109_2007_08_03_01@Explo_109_2007_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
    0.21%    0.77%  SP-Explo_07_1979_06_01_01@Explo_07_1979_06_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    0.1%    0.77%  SP-Explo_288_2015_08_06_01@Explo_288_2015_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.024%    0.76%  SP-Explo_135_2009_08_05_01@Explo_135_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.13%    0.76%  SP-Explo_267_2014_08_12_01@Explo_267_2014_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.21%    0.77%  SP-Explo_307_2015_09_13_01@Explo_307_2015_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.011%    0.76%  SP-Explo_18_2016_05_04_01@Explo_18_2016_05_04.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.027%    0.76%  SP-Explo_04_2013_08_08_01@Explo_04_2013_08_08.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.077%    0.76%  SP-Explo_325_2017_08_03_01@Explo_325_2017_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.086%    0.76%  SP-Explo_288_2015_08_06_01@Explo_288_2015_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
    0.11%    0.74%  SP-Explo_09_2015_08_17_01@Explo_09_2015_08_17.AN594-Verdad.Synthese-PSM_LARRA
    0.14%    0.74%  SP-Explo_10_2025_10_04_01@Explo_10_2025_10_04.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-  0.016%    0.74%  SP-Explo_06_1979_05_01_01@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.088%    0.74%  SP-Explo_29_2016_08_04_01@Explo_29_2016_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.015%    0.74%  SP-Explo_06_1979_05_01_01@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.019%    0.74%  SP-Explo_210_2012_08_10_01@Explo_210_2012_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
   0.018%    0.73%  SP-AP7_Amonts_07@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.046%    0.72%  SP-Explo_01_2007_08_01_05@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.11%    0.72%  SP-Explo_161_2010_08_03_01@Explo_161_2010_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.34%    0.71%  SP-Explo_68_1999_09_01_01@Explo_68_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.046%    0.72%  SP-Explo_01_2007_08_01_05@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.039%    0.71%  SP-Explo_160_2010_08_02_01@Explo_160_2010_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.34%    0.71%  SP-Explo_68_1999_09_01_01@Explo_68_1999_09_01.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.11%    0.71%  SP-Explo_233_2012_09_28_01@Explo_233_2012_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
   0.033%    0.71%  SP-AP7_Amonts_04@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.022%    0.71%  SP-Explo_37_2023_09_27_01@Explo_37_2023_09_27.Complexe_Ours-Veau.Synthese-PSM_LARRA
    0.11%    0.71%  SP-Z510_05-Detail@Z510_Entree.Z510.Synthese-PSM_LARRA
-  0.043%    0.71%  SP-Explo_265_2014_08_10_01@Explo_265_2014_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.035%    0.71%  SP-Explo_03_2010_08_01_01@Explo_03_2010_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.037%     0.7%  SP-Explo_198_2012_08_03_01@Explo_198_2012_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.028%    0.69%  SP-Explo_11_2013_11_10_01@Explo_11_2013_11_10.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.06%    0.71%  SP-Explo_284_2014_10_31_01@Explo_284_2014_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.051%    0.71%  SP-Explo_302_2015_08_17_01@Explo_302_2015_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.032%     0.7%  SP-Explo_03_2010_08_01_01@Explo_03_2010_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.036%     0.7%  SP-Explo_198_2012_08_03_01@Explo_198_2012_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
   0.048%    0.69%  SP-Explo_92_2006_08_07_01@Explo_92_2006_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.098%    0.69%  SP-Explo_03_1999_07_26_01@Explo_03_1999_07_26.Complexe_Anialarra.Synthese-PSM_LARRA
   0.016%    0.68%  SP-Explo_125_2008_09_15_01@Explo_125_2008_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.033%    0.68%  SP-Explo_394_2021_09_16_01@Explo_394_2021_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.069%    0.68%  SP-Explo_08_2025_09_28_01@Explo_08_2025_09_28.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-  0.028%    0.67%  SP-Explo_229_2012_09_25_01@Explo_229_2012_09_25.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.043%    0.68%  SP-Explo_17_2016_04_16_01@Explo_17_2016_04_16.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.085%    0.67%  SP-Explo_352_2018_09_09_01@Explo_352_2018_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.13%    0.67%  SP-Explo_84_2001_07_25_01@Explo_84_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.11%    0.67%  SP-Explo_75_2022_08_01_01@Explo_75_2022_08_01.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+    0.1%    0.66%  SP-Explo_70_2004_08_15_01@Explo_70_2004_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
    0.14%    0.66%  SP-Explo_385_2020_09_14_01@Explo_385_2020_09_14.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.0055%    0.66%  SP-Explo_01_2013_08_05_01@Explo_01_2013_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+ 0.0054%    0.66%  SP-Explo_01_2013_08_05_01@Explo_01_2013_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.17%    0.65%  SP-Explo_04_2012_09_22_01@Explo_04_2012_09_22.AN594-Verdad.Synthese-PSM_LARRA
-  0.042%    0.65%  SP-Explo_302_2015_08_17_01@Explo_302_2015_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.14%    0.65%  SP-Explo_207_2012_08_08_01@Explo_207_2012_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
    0.12%    0.65%  SP-Explo_13_2000_08_06_01@Explo_13_2000_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.069%    0.65%  SP-Explo_08_2025_09_28_01@Explo_08_2025_09_28.AN326-Sima_del_Liron.Synthese-PSM_LARRA
   0.071%    0.65%  SP-Explo_193_2011_10_23_01@Explo_193_2011_10_23.Complexe_Anialarra.Synthese-PSM_LARRA
   0.014%    0.65%  SP-Explo_245_2013_08_06_01@Explo_245_2013_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
    0.11%    0.64%  SP-Explo_73_2004_08_17_01@Explo_73_2004_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.0087%    0.64%  SP-Explo_01_1983_08_01_01@Explo_01_1983_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.061%    0.64%  SP-Explo_59_2003_08_05_01@Explo_59_2003_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.021%    0.64%  SP-Explo_290_2015_08_07_01@Explo_290_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.19%    0.64%  SP-Explo_313_2016_08_05_01@Explo_313_2016_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.025%    0.63%  SP-Explo_266_2014_08_11_01@Explo_266_2014_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.11%    0.63%  SP-Explo_155_2009_09_28_01@Explo_155_2009_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.022%    0.62%  SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.076%    0.62%  SP-Explo_63_2021_08_01_01@Explo_63_2021_08_01.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+ 0.0077%    0.64%  SP-Explo_01_1983_08_01_01@Explo_01_1983_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.21%    0.64%  SP-Explo_263_2014_08_03_01@Explo_263_2014_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.063%    0.64%  SP-Explo_59_2003_08_05_01@Explo_59_2003_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.02%    0.64%  SP-Explo_135_2009_08_05_01@Explo_135_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.027%    0.63%  SP-Explo_266_2014_08_11_01@Explo_266_2014_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.022%    0.63%  SP-Explo_53_2019_08_09_01@Explo_53_2019_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.021%    0.62%  SP-AP7_Amonts_09@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.034%    0.62%  SP-Explo_100_2025_08_04_01@Explo_100_2025_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.082%    0.62%  SP-Explo_63_2021_08_01_01@Explo_63_2021_08_01.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
   0.013%    0.62%  SP-Explo_195_2012_08_02_01@Explo_195_2012_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
    0.23%    0.62%  SP-Explo_04_2024_09_28_01@Explo_04_2024_09_28.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-  0.014%    0.61%  SP-Explo_120_2008_08_12_01@Explo_120_2008_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.019%     0.6%  SP-Explo_40_2024_06_17_01@Explo_40_2024_06_17.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.015%    0.61%  SP-Explo_120_2008_08_12_01@Explo_120_2008_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.04%    0.61%  SP-Explo_236_2012_10_31_01@Explo_236_2012_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.098%     0.6%  SP-Explo_262_2014_08_01_01@Explo_262_2014_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.02%     0.6%  SP-Explo_40_2024_06_17_01@Explo_40_2024_06_17.Complexe_Ours-Veau.Synthese-PSM_LARRA
   0.072%     0.6%  SP-Explo_275_2014_08_17_01@Explo_275_2014_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.09%    0.59%  SP-Explo_21_1983_01_01_01@Explo_21_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-    0.1%    0.59%  SP-Explo_270_2014_08_12_01@Explo_270_2014_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.042%    0.59%  SP-Explo_140_2009_08_09_01@Explo_140_2009_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.12%    0.59%  SP-Explo_383_2019_09_14_01@Explo_383_2019_09_14.Complexe_Anialarra.Synthese-PSM_LARRA
    0.11%    0.59%  SP-Explo_02_2009_09_26_01@Explo_02_2009_09_26.AN514-Venus.Synthese-PSM_LARRA
-  0.045%    0.59%  SP-Explo_55_2020_07_28_01@Explo_55_2020_07_28.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.031%    0.59%  SP-Explo_08_2014_08_03_01@Explo_08_2014_08_03.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
   0.037%    0.59%  SP-Explo_215_2012_08_14_01@Explo_215_2012_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.023%    0.59%  SP-Explo_247_2013_08_08_01@Explo_247_2013_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.038%    0.59%  SP-Explo_244_2013_08_05_01@Explo_244_2013_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.16%    0.58%  SP-Explo_263_2014_08_03_01@Explo_263_2014_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.022%    0.59%  SP-Explo_247_2013_08_08_01@Explo_247_2013_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
   0.075%    0.58%  SP-Tobozo_1_04@Tobozo_1.Tobozo.Synthese-PSM_LARRA
-  0.024%    0.58%  SP-Explo_306_2015_09_13_01@Explo_306_2015_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.092%    0.58%  SP-Explo_270_2014_08_12_01@Explo_270_2014_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
   0.023%    0.57%  BB27_doline@BB27.Synthese-PSM_LARRA
-  0.014%    0.55%  SP-Explo_400_2023_08_16_01@Explo_400_2023_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.014%    0.55%  SP-Explo_21_2020_07_29_01@Explo_21_2020_07_29.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.014%    0.57%  SP-Explo_127_2008_09_16_01@Explo_127_2008_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.023%    0.57%  SP-Explo_11_2013_11_10_01@Explo_11_2013_11_10.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.098%    0.57%  SP-Explo_155_2009_09_28_01@Explo_155_2009_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.079%    0.56%  SP-Explo_09_2014_08_04_01@Explo_09_2014_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.081%    0.56%  SP-Explo_267_2014_08_12_01@Explo_267_2014_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.085%    0.55%  SP-Explo_29_2016_08_04_01@Explo_29_2016_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.013%    0.55%  SP-Explo_21_2020_07_29_01@Explo_21_2020_07_29.Complexe_Ours-Veau.Synthese-PSM_LARRA
     0.1%    0.55%  SP-Explo_180_2011_08_10_01@Explo_180_2011_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.084%    0.55%  SP-Explo_322_2016_09_26_01@Explo_322_2016_09_26.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.031%    0.55%  SP-Explo_34_2023_08_09_01@Explo_34_2023_08_09.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.031%    0.55%  SP-Explo_08_2014_08_03_01@Explo_08_2014_08_03.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
   0.078%    0.54%  SP-Z510_02B@Z510_Entree.Z510.Synthese-PSM_LARRA
-  0.021%    0.54%  SP-Explo_37_2023_09_27_01@Explo_37_2023_09_27.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.051%    0.54%  SP-Explo_16_2000_08_10_01@Explo_16_2000_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.0076%    0.53%  SP-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.07%    0.53%  SP-Explo_03_1999_07_26_01@Explo_03_1999_07_26.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.041%    0.54%  SP-Explo_381_2019_09_09_01@Explo_381_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.019%    0.54%  SP-Explo_290_2015_08_07_01@Explo_290_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
   0.077%    0.53%  SP-Z510_02B-Detail@Z510_Entree.Z510.Synthese-PSM_LARRA
-  0.077%    0.53%  SP-Explo_166_2010_08_16_01@Explo_166_2010_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.018%    0.53%  SP-Explo_06_2009_07_01_01@Explo_06_2009_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+ 0.0094%    0.53%  SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.15%    0.52%  SP-Explo_04_1987_08_04_03@Explo_04_1987_08_04.L5.Synthese-PSM_LARRA
    0.09%    0.52%  SP-Explo_368_2018_09_20_01@Explo_368_2018_09_20.Complexe_Anialarra.Synthese-PSM_LARRA
   0.071%    0.52%  BB26_meandre_1_b@BB26.Synthese-PSM_LARRA
   0.073%    0.52%  SP-Explo_42_2002_08_12_01@Explo_42_2002_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.078%    0.51%  SP-Explo_09_2014_08_04_01@Explo_09_2014_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
- 0.0093%    0.51%  SP-B3_Amonts_04@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.053%     0.5%  SP-Explo_178_2011_08_09_01@Explo_178_2011_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.25%     0.5%  SP-Explo_182_2011_08_12_01@Explo_182_2011_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.06%     0.5%  SP-Explo_19_2018_07_01_01@Explo_19_2018_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.038%     0.5%  SP-Explo_226_2012_09_17_01@Explo_226_2012_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0056%    0.51%  SP-Tobozo_211_02@Tobozo_211.Tobozo.Synthese-PSM_LARRA
+   0.07%     0.5%  SP-Explo_29_2022_10_28_01@Explo_29_2022_10_28.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.037%     0.5%  SP-Explo_226_2012_09_17_01@Explo_226_2012_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
   0.008%     0.5%  SP-GL4_Amonts_07@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.053%     0.5%  SP-Explo_10_2012_08_05_01@Explo_10_2012_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
+   0.14%     0.5%  SP-Explo_217_2012_08_14_01@Explo_217_2012_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
     0.1%    0.49%  SP-Explo_256_2013_09_13_01@Explo_256_2013_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.029%    0.49%  SP-Explo_203_2012_08_05_01@Explo_203_2012_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.087%    0.49%  SP-Explo_08_2011_07_24_01@Explo_08_2011_07_24.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.049%    0.49%  SP-Explo_14_2021_09_28_01@Explo_14_2021_09_28.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.09%    0.49%  SP-Explo_262_2014_08_01_01@Explo_262_2014_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.027%    0.49%  SP-Explo_165_2010_08_15_01@Explo_165_2010_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.059%    0.49%  SP-Explo_16_2000_08_10_01@Explo_16_2000_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.051%    0.48%  SP-Explo_10_2012_08_05_01@Explo_10_2012_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
    0.24%    0.48%  SP-Explo_33_2001_08_21_01@Explo_33_2001_08_21.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.042%    0.48%  SP-Explo_05_2013_08_09_01@Explo_05_2013_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.092%    0.48%  SP-Explo_21_1983_01_01_01@Explo_21_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.043%    0.48%  SP-Explo_196_2012_08_02_01@Explo_196_2012_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
   0.045%    0.48%  SP-Explo_271_2014_08_13_01@Explo_271_2014_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.0008%    0.47%  SP-Explo_02_1987_08_01_01@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.038%    0.48%  SP-Explo_05_2013_08_09_01@Explo_05_2013_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+ 0.0017%    0.47%  SP-Explo_02_1987_08_01_01@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
    0.19%    0.47%  SP-Explo_336_2017_09_20_01@Explo_336_2017_09_20.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.025%    0.47%  SP-Explo_41_2024_08_05_01@Explo_41_2024_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
+   0.12%    0.47%  SP-Explo_13_2023_09_17_01@Explo_13_2023_09_17.AN594-Verdad.Synthese-PSM_LARRA
+  0.037%    0.47%  SP-Explo_244_2013_08_05_01@Explo_244_2013_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
    0.11%    0.47%  SP-Explo_251_2013_08_13_01@Explo_251_2013_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.12%    0.47%  SP-Explo_294_2015_08_07_01@Explo_294_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.046%    0.47%  SP-Explo_234_2012_09_28_01@Explo_234_2012_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.021%    0.46%  SP-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.022%    0.46%  SP-Explo_50_2002_08_16_01@Explo_50_2002_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.029%    0.46%  SP-Explo_46_2025_08_05_01@Explo_46_2025_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.015%    0.47%  SP-Explo_05_2010_07_27_01@Explo_05_2010_07_27.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.053%    0.46%  SP-Explo_234_2012_09_28_01@Explo_234_2012_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.023%    0.46%  SP-Explo_50_2002_08_16_01@Explo_50_2002_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.017%    0.46%  SP-Explo_260_2013_10_03_01@Explo_260_2013_10_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.031%    0.46%  SP-Explo_20_2017_11_02_01@Explo_20_2017_11_02.Complexe_Ours-Veau.Synthese-PSM_LARRA
   0.089%    0.46%  SP-Explo_365_2018_09_20_01@Explo_365_2018_09_20.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.034%    0.45%  SP-Explo_06_2010_07_28_01@Explo_06_2010_07_28.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.011%    0.45%  SP-Explo_01_1976_06_01_01@Explo_01_1976_06_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.013%    0.45%  SP-Explo_118_2008_08_12_01@Explo_118_2008_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.011%    0.45%  SP-Explo_126_2008_09_15_01@Explo_126_2008_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.093%    0.44%  SP-Explo_70_2004_08_15_01@Explo_70_2004_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.037%    0.44%  SP-Explo_16_2016_03_02_01@Explo_16_2016_03_02.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.052%    0.44%  SP-Explo_241_2013_08_01_01@Explo_241_2013_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.047%    0.44%  SP-Explo_212_2012_08_10_01@Explo_212_2012_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.037%    0.43%  SP-Explo_19_2022_12_03_01@Explo_19_2022_12_03.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.035%    0.46%  SP-Explo_06_2010_07_28_01@Explo_06_2010_07_28.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.047%    0.45%  SP-Explo_224_2012_08_16_01@Explo_224_2012_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0089%    0.45%  SP-Explo_71_2021_08_11_01@Explo_71_2021_08_11.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.039%    0.45%  SP-Explo_228_2012_09_22_01@Explo_228_2012_09_22.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.062%    0.45%  SP-Explo_378_2019_08_14_01@Explo_378_2019_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.081%    0.44%  SP-Explo_19_2018_07_01_01@Explo_19_2018_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.081%    0.44%  SP-Explo_347_2018_08_12_01@Explo_347_2018_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.052%    0.44%  SP-Explo_297_2015_08_11_01@Explo_297_2015_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.043%    0.44%  SP-Explo_178_2011_08_09_01@Explo_178_2011_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.057%    0.43%  SP-Explo_237_2012_10_31_01@Explo_237_2012_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
   0.036%    0.43%  SP-Explo_03_2024_08_15_01@Explo_03_2024_08_15.AN514-Venus.Synthese-PSM_LARRA
    0.11%    0.43%  SP-Explo_276_2014_08_17_01@Explo_276_2014_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.058%    0.42%  SP-Explo_162_2010_08_04_01@Explo_162_2010_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
   0.028%    0.42%  oueils_plan_1@Oueils.Synthese-PSM_LARRA
-  0.059%    0.42%  SP-Explo_162_2010_08_04_01@Explo_162_2010_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
   0.017%    0.42%  SP-Explo_52_2019_08_07_01@Explo_52_2019_08_07.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.076%    0.42%  SP-Explo_08_1985_08_04_01@Explo_08_1985_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.15%    0.41%  SP-Explo_98_2024_08_15_01@Explo_98_2024_08_15.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.068%    0.41%  SP-Explo_29_2022_10_28_01@Explo_29_2022_10_28.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.088%    0.41%  SP-Explo_299_2015_08_12_01@Explo_299_2015_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.024%    0.42%  SP-Explo_203_2012_08_05_01@Explo_203_2012_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.085%    0.41%  SP-Explo_299_2015_08_12_01@Explo_299_2015_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
    0.11%    0.41%  SP-Explo_07_2025_08_12_01@Explo_07_2025_08_12.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-  0.077%     0.4%  SP-Explo_60_2003_08_06_01@Explo_60_2003_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.014%     0.4%  SP-Explo_38_1984_05_05_01@Explo_38_1984_05_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.095%     0.4%  SP-Explo_285_2014_10_31_01@Explo_285_2014_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.0057%     0.4%  SP-Tobozo_211_02@Tobozo_211.Tobozo.Synthese-PSM_LARRA
-  0.007%     0.4%  SP-Explo_213_2012_08_13_01@Explo_213_2012_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.091%    0.41%  SP-Explo_391_2021_08_14_01@Explo_391_2021_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.11%     0.4%  SP-Explo_396_2021_09_16_01@Explo_396_2021_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.11%     0.4%  SP-Explo_370_2018_11_01_01@Explo_370_2018_11_01.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.031%     0.4%  SP-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.076%     0.4%  SP-Explo_44_2018_08_07_01@Explo_44_2018_08_07.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+ 0.0071%     0.4%  SP-Explo_213_2012_08_13_01@Explo_213_2012_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
   0.097%     0.4%  SP-Explo_170_2010_09_19_01@Explo_170_2010_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.028%    0.39%  SP-Explo_308_2015_09_13_01@Explo_308_2015_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.049%    0.39%  SP-Explo_237_2012_10_31_01@Explo_237_2012_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.026%    0.39%  SP-Explo_61_2003_08_07_01@Explo_61_2003_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.049%    0.39%  SP-Explo_297_2015_08_11_01@Explo_297_2015_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.12%    0.38%  SP-Explo_13_2023_09_17_01@Explo_13_2023_09_17.AN594-Verdad.Synthese-PSM_LARRA
+  0.075%     0.4%  SP-Explo_60_2003_08_06_01@Explo_60_2003_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.034%     0.4%  SP-Explo_26_2021_09_28_01@Explo_26_2021_09_28.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.025%    0.39%  SP-Explo_61_2003_08_07_01@Explo_61_2003_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.041%    0.38%  SP-Explo_66_2004_08_08_01@Explo_66_2004_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.082%    0.38%  SP-Explo_04_1977_07_01_01@Explo_04_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.034%    0.38%  SP-Explo_23_2021_04_03_01@Explo_23_2021_04_03.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.078%    0.38%  SP-Explo_44_2018_08_07_01@Explo_44_2018_08_07.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.012%    0.37%  SP-Explo_123_2008_08_21_01@Explo_123_2008_08_21.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.12%    0.37%  SP-Explo_370_2018_11_01_01@Explo_370_2018_11_01.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.057%    0.37%  SP-Explo_200_2012_08_03_01@Explo_200_2012_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.027%    0.38%  SP-Explo_39_2002_08_08_01@Explo_39_2002_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.011%    0.37%  SP-Explo_123_2008_08_21_01@Explo_123_2008_08_21.Complexe_Anialarra.Synthese-PSM_LARRA
   0.071%    0.37%  SP-Z510_01B-Detail@Z510_Entree.Z510.Synthese-PSM_LARRA
+  0.021%    0.37%  SP-Explo_27_1983_08_06_01@Explo_27_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.087%    0.37%  SP-Z510_01-Detail@Z510_Entree.Z510.Synthese-PSM_LARRA
-  0.017%    0.37%  SP-Explo_40_2002_08_10_01@Explo_40_2002_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.12%    0.37%  SP-Explo_217_2012_08_14_01@Explo_217_2012_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.076%    0.37%  SP-Explo_04_1977_07_01_01@Explo_04_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-   0.06%    0.37%  SP-Explo_97_2001_08_29_01@Explo_97_2001_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.036%    0.36%  SP-Explo_17_2000_08_10_01@Explo_17_2000_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.052%    0.37%  SP-Explo_14_2021_09_28_01@Explo_14_2021_09_28.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.018%    0.37%  SP-Explo_40_2002_08_10_01@Explo_40_2002_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.049%    0.37%  SP-Explo_200_2012_08_03_01@Explo_200_2012_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
   0.045%    0.36%  BB26_sup_P30@BB26.Synthese-PSM_LARRA
+  0.011%    0.36%  SP-Tobozo_3_02@Tobozo_3.Tobozo.Synthese-PSM_LARRA
   0.011%    0.36%  SP-Explo_33_2023_08_08_01@Explo_33_2023_08_08.Complexe_Ours-Veau.Synthese-PSM_LARRA
    0.11%    0.36%  SP-Explo_02_2012_09_17_01@Explo_02_2012_09_17.AN594-Verdad.Synthese-PSM_LARRA
-  0.016%    0.36%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-   0.11%    0.36%  SP-Explo_322_2016_09_26_01@Explo_322_2016_09_26.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.041%    0.36%  SP-Explo_235_2012_10_29_01@Explo_235_2012_10_29.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.024%    0.36%  SP-Explo_27_1983_08_06_01@Explo_27_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.013%    0.35%  SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.077%    0.35%  SP-Explo_104_2006_10_31_01@Explo_104_2006_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0064%    0.36%  SP-GL4_Amonts_01@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.088%    0.36%  SP-Explo_382_2019_09_13_01@Explo_382_2019_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.012%    0.35%  SP-B3_Amonts_03@B3_Amonts.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.04%    0.35%  SP-Explo_241_2013_08_01_01@Explo_241_2013_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.073%    0.35%  SP-Explo_08_2011_07_24_01@Explo_08_2011_07_24.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.026%    0.35%  SP-Explo_41_2024_08_05_01@Explo_41_2024_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
+ 0.0064%    0.35%  SP-Explo_206_2012_08_08_01@Explo_206_2012_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.076%    0.35%  SP-Explo_104_2006_10_31_01@Explo_104_2006_10_31.Complexe_Anialarra.Synthese-PSM_LARRA
   0.075%    0.34%  SP-Explo_05_2012_09_24_01@Explo_05_2012_09_24.AN594-Verdad.Synthese-PSM_LARRA
   0.097%    0.34%  SP-Explo_376_2019_08_13_01@Explo_376_2019_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.0081%    0.34%  SP-Explo_115_2008_08_01_01@Explo_115_2008_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.025%    0.34%  SP-Explo_04_2013_08_08_01@Explo_04_2013_08_08.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.024%    0.34%  SP-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
   0.059%    0.34%  SP-Explo_16_1994_08_30_01@Explo_16_1994_08_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.021%    0.34%  SP-Explo_111_2007_08_14_01@Explo_111_2007_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.028%    0.33%  SP-Explo_204_2012_08_06_01@Explo_204_2012_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.078%    0.33%  SP-Explo_396_2021_09_16_01@Explo_396_2021_09_16.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.022%    0.34%  SP-Explo_111_2007_08_14_01@Explo_111_2007_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.011%    0.34%  SP-Explo_126_2008_09_15_01@Explo_126_2008_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.034%    0.34%  SP-Explo_159_2010_08_02_01@Explo_159_2010_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.03%    0.33%  SP-Explo_204_2012_08_06_01@Explo_204_2012_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.067%    0.33%  SP-Explo_166_2010_08_16_01@Explo_166_2010_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
   0.047%    0.33%  SP-Explo_291_2015_08_07_01@Explo_291_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
   0.088%    0.33%  SP-Explo_15_2021_10_09_01@Explo_15_2021_10_09.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.018%    0.33%  SP-AP7_Aval_08@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
   0.068%    0.32%  SP-Explo_150_2009_08_21_01@Explo_150_2009_08_21.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.032%    0.32%  SP-Explo_19_2022_12_03_01@Explo_19_2022_12_03.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.038%    0.32%  SP-Explo_04_2019_06_03_01@Explo_04_2019_06_03.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.061%    0.32%  BB26_meandre_1_b-Detail@BB26.Synthese-PSM_LARRA
-  0.015%    0.32%  SP-Explo_05_2010_07_27_01@Explo_05_2010_07_27.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.023%    0.32%  SP-Explo_87_2005_09_28_01@Explo_87_2005_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.012%    0.31%  SP-Tobozo_3_02@Tobozo_3.Tobozo.Synthese-PSM_LARRA
+  0.016%    0.32%  SP-B3_Entree_03@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.06%    0.32%  SP-Explo_141_2009_08_09_01@Explo_141_2009_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.018%    0.32%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.14%    0.31%  SP-Explo_176_2010_10_26_01@Explo_176_2010_10_26.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.11%     0.3%  SP-Explo_168_2010_08_17_01@Explo_168_2010_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.033%     0.3%  SP-Explo_381_2019_09_09_01@Explo_381_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
    0.05%     0.3%  SP-Explo_12_2014_08_08_01@Explo_12_2014_08_08.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-   0.03%     0.3%  SP-Explo_39_2002_08_08_01@Explo_39_2002_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
    0.01%     0.3%  SP-Explo_15_2000_08_09_01@Explo_15_2000_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
-    0.1%     0.3%  SP-Explo_391_2021_08_14_01@Explo_391_2021_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.044%     0.3%  SP-Explo_305_2015_09_13_01@Explo_305_2015_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.014%     0.3%  SP-Explo_118_2008_08_12_01@Explo_118_2008_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
    0.12%     0.3%  SP-Explo_12_2025_10_04_01@Explo_12_2025_10_04.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-  0.076%     0.3%  SP-Explo_04_2009_08_06_01@Explo_04_2009_08_06.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.099%     0.3%  SP-Explo_369_2018_09_28_01@Explo_369_2018_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.027%     0.3%  SP-Explo_17_2016_04_16_01@Explo_17_2016_04_16.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.043%    0.29%  SP-Explo_378_2019_08_14_01@Explo_378_2019_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.012%     0.3%  SP-Explo_38_1984_05_05_01@Explo_38_1984_05_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.028%    0.29%  SP-Explo_117_2008_08_11_01@Explo_117_2008_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.0067%    0.29%  SP-Explo_206_2012_08_08_01@Explo_206_2012_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
     0.1%    0.29%  SP-Explo_09_1999_08_13_01@Explo_09_1999_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.013%    0.29%  SP-Explo_10_2000_08_04_01@Explo_10_2000_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.028%    0.29%  SP-Explo_55_2003_07_31_01@Explo_55_2003_07_31.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.031%    0.29%  SP-Explo_34_2023_08_09_01@Explo_34_2023_08_09.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.045%    0.29%  SP-Explo_19_2017_08_02_01@Explo_19_2017_08_02.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.065%    0.28%  SP-Explo_218_2012_08_14_01@Explo_218_2012_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.036%    0.28%  SP-Explo_238_2013_07_30_01@Explo_238_2013_07_30.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.012%    0.29%  SP-Explo_10_2000_08_04_01@Explo_10_2000_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.025%    0.29%  SP-Explo_55_2003_07_31_01@Explo_55_2003_07_31.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0068%    0.29%  SP-B3_Aval_01C@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.05%    0.29%  SP-Explo_08_1985_08_04_01@Explo_08_1985_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.024%    0.29%  SP-B3_Entree_05B@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.047%    0.29%  SP-Explo_19_2017_08_02_01@Explo_19_2017_08_02.Complexe_Ours-Veau.Synthese-PSM_LARRA
+   0.11%    0.29%  SP-Explo_329_2017_08_11_01@Explo_329_2017_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.046%    0.28%  SP-Explo_212_2012_08_10_01@Explo_212_2012_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.083%    0.28%  SP-Explo_06_2020_08_04_01@Explo_06_2020_08_04.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
+ 0.0078%    0.28%  SP-Explo_115_2008_08_01_01@Explo_115_2008_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.035%    0.28%  SP-Explo_232_2012_09_28_01@Explo_232_2012_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.027%    0.27%  SP-Explo_238_2013_07_30_01@Explo_238_2013_07_30.Complexe_Anialarra.Synthese-PSM_LARRA
   0.025%    0.27%  SP-Explo_01_2007_08_01_11@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.017%    0.27%  SP-Explo_09_2013_06_21_01@Explo_09_2013_06_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.049%    0.27%  SP-Explo_214_2012_08_14_01@Explo_214_2012_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.042%    0.27%  SP-Explo_196_2012_08_02_01@Explo_196_2012_08_02.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.019%    0.27%  SP-Explo_83_2005_09_26_01@Explo_83_2005_09_26.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.13%    0.27%  SP-Explo_36_2017_08_03_01@Explo_36_2017_08_03.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.068%    0.27%  SP-Explo_218_2012_08_14_01@Explo_218_2012_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
   0.075%    0.27%  SP-Explo_153_2009_09_27_01@Explo_153_2009_09_27.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.068%    0.27%  SP-Explo_06_2020_08_04_01@Explo_06_2020_08_04.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.048%    0.26%  SP-Explo_269_2014_08_12_01@Explo_269_2014_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.04%    0.25%  SP-Explo_232_2012_09_28_01@Explo_232_2012_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.02%    0.27%  SP-Explo_83_2005_09_26_01@Explo_83_2005_09_26.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.012%    0.27%  SP-GL102_Aval_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.042%    0.26%  SP-Explo_305_2015_09_13_01@Explo_305_2015_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.13%    0.26%  SP-Explo_36_2017_08_03_01@Explo_36_2017_08_03.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.015%    0.26%  SP-Explo_261_2013_10_03_01@Explo_261_2013_10_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.043%    0.26%  SP-Explo_269_2014_08_12_01@Explo_269_2014_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.088%    0.25%  SP-Explo_369_2018_09_28_01@Explo_369_2018_09_28.Complexe_Anialarra.Synthese-PSM_LARRA
   0.082%    0.25%  SP-Explo_175_2010_09_23_01@Explo_175_2010_09_23.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.0067%    0.25%  SP-Explo_78_2000_08_30_01@Explo_78_2000_08_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.014%    0.25%  SP-GL102_Aval_01B@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.036%    0.25%  SP-Explo_25_2021_08_02_01@Explo_25_2021_08_02.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.073%    0.25%  SP-Explo_23_2016_07_28_01@Explo_23_2016_07_28.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.091%    0.24%  SP-Explo_21_2015_08_10_01@Explo_21_2015_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.045%    0.24%  SP-Explo_66_2004_08_08_01@Explo_66_2004_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.062%    0.24%  SP-Explo_15_2015_07_29_01@Explo_15_2015_07_29.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+ 0.0062%    0.25%  SP-Explo_78_2000_08_30_01@Explo_78_2000_08_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.029%    0.25%  SP-Explo_211_2012_08_10_01@Explo_211_2012_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.061%    0.24%  SP-Explo_23_2016_07_28_01@Explo_23_2016_07_28.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.041%    0.24%  SP-Explo_25_2021_08_02_01@Explo_25_2021_08_02.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.026%    0.24%  SP-Explo_46_2025_08_05_01@Explo_46_2025_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.039%    0.24%  SP-Explo_140_2009_08_09_01@Explo_140_2009_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
   0.048%    0.24%  SP-GL102_Aval_01E@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
- 0.0069%    0.24%  SP-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.061%    0.24%  SP-Explo_119_2008_08_12_01@Explo_119_2008_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.018%    0.24%  SP-Explo_63_1999_08_03_01@Explo_63_1999_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.068%    0.24%  SP-Explo_15_2015_07_29_01@Explo_15_2015_07_29.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
   0.039%    0.23%  SP-GL4_Amonts_03@GL04_Amonts.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.028%    0.23%  SP-AP7_Entree_03@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
   0.083%    0.23%  SP-Explo_190_2011_09_18_01@Explo_190_2011_09_18.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.028%    0.22%  SP-Explo_18_2016_07_01_01@Explo_18_2016_07_01.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.024%    0.22%  SP-Explo_04_1978_05_01_01@Explo_04_1978_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.026%    0.22%  SP-Explo_211_2012_08_10_01@Explo_211_2012_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.018%    0.21%  SP-Explo_07_2013_06_06_01@Explo_07_2013_06_06.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.065%    0.23%  SP-Explo_294_2015_08_07_01@Explo_294_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.023%    0.22%  SP-Explo_04_1978_05_01_01@Explo_04_1978_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.11%    0.22%  SP-Explo_44_1997_08_04_01@Explo_44_1997_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.015%    0.22%  SP-Explo_298_2015_08_12_01@Explo_298_2015_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.023%    0.21%  SP-Explo_116_2008_08_11_01@Explo_116_2008_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.027%    0.21%  SP-Explo_18_2016_07_01_01@Explo_18_2016_07_01.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.037%    0.21%  SP-Explo_379_2019_09_09_01@Explo_379_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.023%    0.21%  SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.017%    0.21%  SP-Explo_07_2013_06_06_01@Explo_07_2013_06_06.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.024%    0.21%  SP-Explo_84_2023_07_30_01@Explo_84_2023_07_30.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.018%    0.21%  SP-Explo_14_2013_08_05_01@Explo_14_2013_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
   0.054%    0.21%  SP-Explo_74_2004_08_17_01@Explo_74_2004_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
   0.026%     0.2%  SP-Explo_113_2007_10_05_01@Explo_113_2007_10_05.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.035%     0.2%  SP-Explo_116_2008_08_11_01@Explo_116_2008_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.014%     0.2%  SP-Explo_298_2015_08_12_01@Explo_298_2015_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.006%     0.2%  SP-B3_Aval_01C@B3_Aval.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+   0.14%     0.2%  SP-Explo_311_2015_10_27_01@Explo_311_2015_10_27.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.019%     0.2%  SP-Explo_14_2013_08_05_01@Explo_14_2013_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.016%     0.2%  SP-Explo_86_2001_07_25_01@Explo_86_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.021%     0.2%  SP-Explo_308_2015_09_13_01@Explo_308_2015_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
   0.034%     0.2%  SP-Explo_49_2025_08_08_01@Explo_49_2025_08_08.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.039%     0.2%  SP-Explo_141_2009_08_09_01@Explo_141_2009_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
   0.016%     0.2%  SP-Explo_81_2023_07_22_01@Explo_81_2023_07_22.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.04%    0.19%  SP-B3_Entree_05@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.019%    0.19%  SP-Explo_02_1976_06_01_01@Explo_02_1976_06_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.027%    0.19%  SP-Explo_353_2018_09_09_01@Explo_353_2018_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.14%    0.19%  SP-Explo_311_2015_10_27_01@Explo_311_2015_10_27.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.013%    0.19%  SP-Explo_12_2000_08_06_01@Explo_12_2000_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.092%    0.19%  SP-Explo_329_2017_08_11_01@Explo_329_2017_08_11.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.029%    0.18%  SP-Explo_164_2010_08_04_01@Explo_164_2010_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.014%    0.18%  SP-Explo_210_2012_08_10_01@Explo_210_2012_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.028%    0.17%  SP-Explo_20_2017_11_02_01@Explo_20_2017_11_02.Complexe_Ours-Veau.Synthese-PSM_LARRA
-  0.067%    0.16%  SP-Explo_243_2013_08_05_01@Explo_243_2013_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.029%    0.19%  SP-Explo_353_2018_09_09_01@Explo_353_2018_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.021%    0.18%  SP-Explo_17_2000_08_10_01@Explo_17_2000_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.027%    0.18%  SP-Explo_164_2010_08_04_01@Explo_164_2010_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.068%    0.18%  SP-Explo_21_2015_08_10_01@Explo_21_2015_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.018%    0.18%  SP-Explo_02_1976_06_01_01@Explo_02_1976_06_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.015%    0.17%  SP-Explo_93_2006_08_10_01@Explo_93_2006_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.017%    0.17%  SP-Explo_21_2021_01_29_01@Explo_21_2021_01_29.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.062%    0.16%  SP-Explo_342_2018_08_04_01@Explo_342_2018_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.023%    0.16%  SP-Explo_165_2010_08_15_01@Explo_165_2010_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
   0.059%    0.16%  SP-Explo_131_2008_09_19_01@Explo_131_2008_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
   0.082%    0.16%  SP-Explo_231_2012_09_25_01@Explo_231_2012_09_25.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.014%    0.16%  SP-Explo_53_2019_08_09_01@Explo_53_2019_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.015%    0.15%  SP-Explo_21_2021_01_29_01@Explo_21_2021_01_29.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.015%    0.15%  SP-Explo_09_2013_06_21_01@Explo_09_2013_06_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.015%    0.15%  SP-AP7_Amonts_06@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
- 0.0062%    0.15%  SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.015%    0.15%  SP-Explo_260_2013_10_03_01@Explo_260_2013_10_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.018%    0.16%  SP-Explo_19_2000_08_14_01@Explo_19_2000_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0081%    0.15%  SP-GL102_Aval_01C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.025%    0.15%  SP-Explo_26_2016_08_01_01@Explo_26_2016_08_01.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
   0.015%    0.15%  SP-Explo_15_2013_08_08_01@Explo_15_2013_08_08.Complexe_Ours-Veau.Synthese-PSM_LARRA
+  0.015%    0.14%  SP-Explo_205_2012_08_07_01@Explo_205_2012_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.054%    0.14%  SP-Explo_04_2009_08_06_01@Explo_04_2009_08_06.Complexe_Ours-Veau.Synthese-PSM_LARRA
   0.018%    0.14%  SP-Explo_04_1987_08_04_02@Explo_04_1987_08_04.L5.Synthese-PSM_LARRA
   0.062%    0.14%  SP-Explo_404_2025_07_28_01@Explo_404_2025_07_28.Complexe_Anialarra.Synthese-PSM_LARRA
   0.067%    0.14%  SP-Explo_37_1996_08_09_01@Explo_37_1996_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.016%    0.14%  SP-Explo_205_2012_08_07_01@Explo_205_2012_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
   0.061%    0.14%  BB26_sup_P30-Detail@BB26.Synthese-PSM_LARRA
-  0.026%    0.14%  SP-Explo_26_2016_08_01_01@Explo_26_2016_08_01.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.013%    0.13%  SP-Explo_261_2013_10_03_01@Explo_261_2013_10_03.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.05%    0.13%  SP-Explo_18_2000_08_14_01@Explo_18_2000_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.078%    0.13%  SP-Explo_220_2012_08_15_01@Explo_220_2012_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0077%    0.13%  SP-AP7_Aval_07@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
  0.0085%    0.13%  SP-Explo_358_2018_09_15_01@Explo_358_2018_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.015%    0.12%  SP-Explo_86_2001_07_25_01@Explo_86_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.023%    0.11%  SP-Explo_59_1999_07_31_01@Explo_59_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.055%    0.11%  SP-Explo_44_1997_08_04_01@Explo_44_1997_08_04.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.018%    0.11%  SP-Explo_12_2012_08_08_01@Explo_12_2012_08_08.Complexe_Ours-Veau.Synthese-PSM_LARRA
- 0.0076%    0.11%  SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.018%    0.11%  SP-Explo_19_2000_08_14_01@Explo_19_2000_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+   0.01%    0.12%  SP-Explo_01_1976_06_01_01@Explo_01_1976_06_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.007%    0.12%  SP-GL102_Entree_02C@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+  0.016%    0.12%  SP-Explo_97_2001_08_29_01@Explo_97_2001_08_29.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.057%    0.11%  SP-Explo_18_2000_08_14_01@Explo_18_2000_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.031%    0.11%  SP-Explo_16_2016_03_02_01@Explo_16_2016_03_02.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.022%    0.11%  SP-Explo_12_2012_08_08_01@Explo_12_2012_08_08.Complexe_Ours-Veau.Synthese-PSM_LARRA
   0.035%    0.11%  SP-Explo_72_2004_08_17_01@Explo_72_2004_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.026%    0.11%  SP-Explo_60_1999_07_31_01@Explo_60_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.059%     0.1%  SP-Explo_70_2021_08_10_01@Explo_70_2021_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.029%     0.1%  SP-Explo_43_2018_08_04_01@Explo_43_2018_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.017%     0.1%  SP-Explo_230_2012_09_25_01@Explo_230_2012_09_25.Complexe_Anialarra.Synthese-PSM_LARRA
-   0.02%   0.098%  SP-Explo_86_2001_07_25_02@Explo_86_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
- 0.0026%   0.096%  SP-Explo_14_2015_03_30_01@Explo_14_2015_03_30.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.012%   0.093%  SP-Explo_01_1981_08_10_01@Explo_01_1981_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-  0.013%   0.092%  SP-Explo_25_2000_08_20_01@Explo_25_2000_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.026%    0.11%  SP-Explo_59_1999_07_31_01@Explo_59_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.034%     0.1%  SP-Explo_243_2013_08_05_01@Explo_243_2013_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.018%     0.1%  SP-Explo_230_2012_09_25_01@Explo_230_2012_09_25.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.031%   0.099%  SP-Explo_43_2018_08_04_01@Explo_43_2018_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+ 0.0099%   0.098%  SP-Explo_12_2000_08_06_01@Explo_12_2000_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.014%   0.093%  SP-Explo_25_2000_08_20_01@Explo_25_2000_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.011%   0.092%  SP-Explo_01_1981_08_10_01@Explo_01_1981_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
   0.032%    0.08%  SP-Explo_13_2025_10_04_01@Explo_13_2025_10_04.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-  0.028%   0.068%  SP-Explo_293_2015_08_07_01@Explo_293_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.022%   0.059%  SP-Explo_379_2019_09_09_01@Explo_379_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.045%   0.076%  SP-Explo_70_2021_08_10_01@Explo_70_2021_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+  0.029%   0.071%  SP-Explo_293_2015_08_07_01@Explo_293_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.014%    0.07%  SP-Explo_124_2008_09_15_01@Explo_124_2008_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0095%   0.062%  SP-Explo_86_2001_07_25_02@Explo_86_2001_07_25.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.014%   0.058%  SP-Tobozo_212_01@Tobozo_212.Tobozo.Synthese-PSM_LARRA
-  0.012%   0.056%  SP-Explo_124_2008_09_15_01@Explo_124_2008_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.012%    0.05%  SP-Explo_63_1999_08_03_01@Explo_63_1999_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.029%   0.055%  SP-Explo_220_2012_08_15_01@Explo_220_2012_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
   0.015%   0.047%  SP-Explo_31_2001_08_17_01@Explo_31_2001_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
  0.0043%   0.046%  SP-Explo_73_2000_07_30_01@Explo_73_2000_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+ 0.0028%   0.046%  SP-Explo_14_2015_03_30_01@Explo_14_2015_03_30.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.018%   0.044%  SP-Explo_122_2008_08_17_01@Explo_122_2008_08_17.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.017%   0.043%  SP-Explo_60_1999_07_31_01@Explo_60_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
  0.0067%   0.032%  oueils_plan_2@Oueils.Synthese-PSM_LARRA
  0.00059%   0.023%  BB26_meandre_2_a-Detail@BB26.Synthese-PSM_LARRA
   0.002%   0.021%  SP-Explo_01_2012_09_15_01@Explo_01_2012_09_15.AN594-Verdad.Synthese-PSM_LARRA
   0.003%  0.0058%  SP-Explo_158_2009_10_10_01@Explo_158_2009_10_10.Complexe_Anialarra.Synthese-PSM_LARRA
  3.5e-12%  5.5e-12%  SP-GL80_Entree_01@GL80.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+ 5.5e-13%  2.5e-12%  SP-AP7_Entree_04@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
  5.3e-13%  2.3e-12%  SP-AP7_Amonts_13@AP7_Amonts.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
- 2.4e-13%  1.6e-12%  SP-AP7_Entree_04@AP7_Entree.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_96_2024_08_12_05@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_123_2008_08_21_02@Explo_123_2008_08_21.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_96_2024_08_12_04@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_09_1985_08_09_02@Explo_09_1985_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_10_1989_08_02_02@Explo_10_1989_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1984_08_06_04@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_106_2025_08_13_03@Explo_106_2025_08_13.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_106_2025_08_13_02@Explo_106_2025_08_13.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_73_2021_08_22_01@Explo_73_2021_08_22.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_07_2022_08_09B_02@Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_1984_07_31_02@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_1984_07_31_03@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1984_08_06_02@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1984_08_06_03@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_08_2023_08_07_01@Explo_08_2023_08_07.L5.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_103_2025_08_10_02@Explo_103_2025_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_72_2021_08_21_01@Explo_72_2021_08_21.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2013_08_05_02@Explo_01_2013_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_37_2017_08_05_02@Explo_37_2017_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Tobozo_23_01@Tobozo_23.Tobozo.Synthese-PSM_LARRA
+      0%       0%  BB26_salle_entree-Detail@BB26.Synthese-PSM_LARRA
       0%       0%  SP-Explo_96_2024_08_12_03@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_387_2021_08_03_02@Explo_387_2021_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
       0%       0%  SP-Explo_96_2024_08_12_02@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_144_2009_08_13_02@Explo_144_2009_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_142_2009_08_12_02@Explo_142_2009_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_91_2024_08_05_02@Explo_91_2024_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_185_2011_08_18_01@Explo_185_2011_08_18.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_79_2000_08_30_01@Explo_79_2000_08_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_400_2023_08_16_02@Explo_400_2023_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_403_2024_08_09_02@Explo_403_2024_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  scrap165@Tobozo_21.Tobozo.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2013_08_05_03@Explo_01_2013_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2013_08_05_04@Explo_01_2013_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_91_2024_08_05_02@Explo_91_2024_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_13_2014_08_09_02@Explo_13_2014_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_2025_06_19_01@Explo_05_2025_06_19.AN326-Sima_del_Liron.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_30_2016_08_05_02@Explo_30_2016_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_37_2017_08_05_03@Explo_37_2017_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2021_04_12_01@Explo_01_2021_04_12.Complexe_PSM_GdP_Autres_Entrees.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-SC_60_02@SC60.Synthese-PSM_LARRA
       0%       0%  SP-SC_60_03@SC60.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_96_2024_08_12_06@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_403_2024_08_09_02@Explo_403_2024_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_387_2021_08_03_02@Explo_387_2021_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_103_2025_08_10_02@Explo_103_2025_08_10.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_106_2025_08_13_02@Explo_106_2025_08_13.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_106_2025_08_13_03@Explo_106_2025_08_13.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_144_2009_08_13_03@Explo_144_2009_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_2008_09_09_02@Explo_02_2008_09_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_45_1997_08_06_02@Explo_45_1997_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_08_2023_08_07_01@Explo_08_2023_08_07.L5.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_07_2022_08_09B_02@Explo_07_2022_08_09B.L5.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_380_2019_09_09_03@Explo_380_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_380_2019_09_09_02@Explo_380_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_04@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_62_2021_07_24_01@Explo_62_2021_07_24.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  scrap165@Tobozo_21.Tobozo.Synthese-PSM_LARRA
-      0%       0%  SP-Tobozo_23_01@Tobozo_23.Tobozo.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_58_1999_07_31_04@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_37_2017_08_05_02@Explo_37_2017_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_37_2017_08_05_03@Explo_37_2017_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_38_2017_08_06_02@Explo_38_2017_08_06.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_52_2019_08_07_02@Explo_52_2019_08_07.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_83_2000_08_31_01@Explo_83_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_13_2014_08_09_02@Explo_13_2014_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_52_2019_08_07_03@Explo_52_2019_08_07.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_82_2000_08_31_01@Explo_82_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_56_1998_08_06_01@Explo_56_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_51_1998_08_05_01@Explo_51_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_126_2008_09_15_02@Explo_126_2008_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
       0%       0%  SP-SC_60_04@SC60.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2013_08_05_04@Explo_01_2013_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_72_2021_08_21_01@Explo_72_2021_08_21.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_73_2021_08_22_01@Explo_73_2021_08_22.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_49_1998_08_03_02@Explo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2013_08_05_03@Explo_01_2013_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2013_08_05_02@Explo_01_2013_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  BB26_salle_entree-Detail@BB26.Synthese-PSM_LARRA
-      0%       0%  SP-SC_60_08@SC60.Synthese-PSM_LARRA
-      0%       0%  SP-SC_60_07@SC60.Synthese-PSM_LARRA
-      0%       0%  SP-SC_60_06@SC60.Synthese-PSM_LARRA
       0%       0%  SP-SC_60_05@SC60.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_30_2016_08_05_02@Explo_30_2016_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_2025_06_19_01@Explo_05_2025_06_19.AN326-Sima_del_Liron.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2007_08_01_13@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_26_1983_08_06_02@Explo_26_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-SC_60_06@SC60.Synthese-PSM_LARRA
+      0%       0%  SP-SC_60_07@SC60.Synthese-PSM_LARRA
+      0%       0%  SP-SC_60_08@SC60.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_21_2000_08_14_01@Explo_21_2000_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
       0%       0%  SP-NL31_Entree_01@NL31_Squelettes.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_13_1990_07_30_02@Explo_13_1990_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_96_2024_08_12_06@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
       0%       0%  scrap51@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
       0%       0%  scrap339@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_96_2024_08_12_05@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_380_2019_09_09_02@Explo_380_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_96_2024_08_12_04@Explo_96_2024_08_12.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_380_2019_09_09_03@Explo_380_2019_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_197_2012_08_03_02@Explo_197_2012_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_29_1983_08_12_04@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_52_2019_08_07_02@Explo_52_2019_08_07.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_144_2009_08_13_03@Explo_144_2009_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_144_2009_08_13_02@Explo_144_2009_08_13.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_32_1983_10_23_02@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_32_1983_10_23_03@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_32_1983_10_23_04@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_33_1983_10_23_01@Explo_33_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_52_2019_08_07_03@Explo_52_2019_08_07.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_142_2009_08_12_02@Explo_142_2009_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_29_1983_08_12_03@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_206_2012_08_08_02@Explo_206_2012_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_126_2008_09_15_02@Explo_126_2008_09_15.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_42_2006_08_01_03@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_42_2006_08_01_04@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_1987_08_01_02@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_1987_08_01_03@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_123_2008_08_21_02@Explo_123_2008_08_21.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_06@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_13_1982_08_06_02@Explo_13_1982_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_11_1982_08_02_03@Explo_11_1982_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_14_1982_08_09_02@Explo_14_1982_08_09.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_185_2011_08_18_01@Explo_185_2011_08_18.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_06_1979_05_01_03@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_16_1982_08_14_03@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_16_1982_08_14_04@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_06_1979_05_01_02@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_07@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_83_2000_08_31_01@Explo_83_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_22_1983_01_01_01@Explo_22_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_05@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_04@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_03@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_26_1983_08_06_02@Explo_26_1983_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_05_1979_01_01_02@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1977_01_01_03@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_03_1977_01_01_02@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_29_1983_08_12_02@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_245_2013_08_06_02@Explo_245_2013_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_51_1998_08_05_01@Explo_51_1998_08_05.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_49_1998_08_03_02@Explo_49_1998_08_03.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_255_2013_08_20_02@Explo_255_2013_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
       0%       0%  SP-Explo_255_2013_08_20_03@Explo_255_2013_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_22_1983_01_01_01@Explo_22_1983_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_45_1997_08_06_02@Explo_45_1997_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_1977_07_01_02@Explo_01_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_15@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_274_2014_08_15_01@Explo_274_2014_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_56_1998_08_06_01@Explo_56_1998_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_12_1982_08_05_02@Explo_12_1982_08_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_02_2008_09_09_02@Explo_02_2008_09_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_20_2019_02_21_02@Explo_20_2019_02_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_13_1990_07_30_02@Explo_13_1990_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_82_2000_08_31_01@Explo_82_2000_08_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_79_2000_08_30_01@Explo_79_2000_08_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_118_2008_08_12_02@Explo_118_2008_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_72_2000_07_30_01@Explo_72_2000_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_01_2007_08_01_12@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_10_1989_08_02_02@Explo_10_1989_08_02.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_01_2007_08_01_13@Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_02_2009_08_01_02@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_02_2009_08_01_03@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_02_2009_08_01_04@Explo_02_2009_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_38_2017_08_06_02@Explo_38_2017_08_06.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
       0%       0%  SP-Explo_01_2011_08_01_02@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_01_2011_08_01_03@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_01_2011_08_01_04@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_01_2011_08_01_05@Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_72_2000_07_30_01@Explo_72_2000_07_30.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_02_2012_08_01_02@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_32_1983_10_23_02@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_33_1983_10_23_01@Explo_33_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1984_08_06_04@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1984_08_06_03@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1984_08_06_02@Explo_03_1984_08_06.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_245_2013_08_06_02@Explo_245_2013_08_06.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_1984_07_31_03@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_1984_07_31_02@Explo_02_1984_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_32_1983_10_23_03@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_2021_04_12_01@Explo_01_2021_04_12.Complexe_PSM_GdP_Autres_Entrees.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-Explo_02_2012_08_01_03@Explo_02_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_42_2006_08_01_03@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_42_2006_08_01_04@Explo_42_2006_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_29_1983_08_12_04@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_29_1983_08_12_03@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_29_1983_08_12_02@Explo_29_1983_08_12.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_1987_08_01_02@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_02_1987_08_01_03@Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_09_1985_08_09_02@Explo_09_1985_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_62_2021_07_24_01@Explo_62_2021_07_24.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
+      0%       0%  SP-Explo_58_1999_07_31_04@Explo_58_1999_07_31.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
       0%       0%  SP-AP7_Aval_14@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_19@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_18@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_07@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_17@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_16@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_15@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_20_2019_02_21_02@Explo_20_2019_02_21.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_06@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_05@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_20@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_13@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_32_1983_10_23_04@Explo_32_1983_10_23.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_12@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_11@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_03@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_05_1979_01_01_02@Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_197_2012_08_03_02@Explo_197_2012_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1977_01_01_03@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP260_Entree_01@AP260.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_16_1982_08_14_04@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_16_1982_08_14_03@Explo_16_1982_08_14.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_206_2012_08_08_02@Explo_206_2012_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_14_1982_08_09_02@Explo_14_1982_08_09.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_13_1982_08_06_02@Explo_13_1982_08_06.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-GL04_Entree_01@GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_274_2014_08_15_01@Explo_274_2014_08_15.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_12_1982_08_05_02@Explo_12_1982_08_05.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_11_1982_08_02_03@Explo_11_1982_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_03_1977_01_01_02@Explo_03_1977_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_118_2008_08_12_02@Explo_118_2008_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_01_1977_07_01_02@Explo_01_1977_07_01.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_21_2000_08_14_01@Explo_21_2000_08_14.Complexe_Anialarra.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_06_1979_05_01_03@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_23@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-Explo_06_1979_05_01_02@Explo_06_1979_05_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_22@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-      0%       0%  SP-AP7_Aval_21@AP7_Aval.AP7_Arres_Planeres.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
 ################### end of scrap distortions ###################
 
 
@@ -2601,7 +2584,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
      33%      93%  SC-Explo_254_2013_08_20_01@Explo_254_2013_08_20.Complexe_Anialarra.Synthese-PSM_LARRA
      16%      93%  SC-Explo_30_2016_08_05_01@Explo_30_2016_08_05.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
     9.2%      93%  SC-Explo_03_1984_08_10_01@Explo_03_1984_08_10.M414.Synthese-PSM_LARRA
-   0.45%      93%  SC-Explo_34_1996_08_08_01@Explo_34_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
+   0.44%      93%  SC-Explo_34_1996_08_08_01@Explo_34_1996_08_08.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
      15%      93%  SC-Explo_332_2017_09_13_01@Explo_332_2017_09_13.Complexe_Anialarra.Synthese-PSM_LARRA
     6.6%      93%  SC-Explo_39_1997_07_26_01@Explo_39_1997_07_26.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
      54%      93%  SC-Explo_01_2010_08_01_01@Explo_01_2010_08_01.C50_Affluent_du_grand_canyon.Complexe_PSM_GdP.Synthese-PSM_LARRA
@@ -2973,19 +2956,19 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.15%    0.42%  SC-Explo_04_1999_08_01_01@Explo_04_1999_08_01.Complexe_Anialarra.Synthese-PSM_LARRA
     0.3%    0.41%  SC-Explo_80_2005_08_16_01@Explo_80_2005_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
  0.0052%    0.41%  SC-B3_Entree_02@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
-  0.044%    0.41%  SC-Explo_36_1996_08_09_01@Explo_36_1996_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
-  0.015%     0.4%  SC-Explo_03_2012_08_01_01@Explo_03_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
+  0.049%    0.39%  SC-Explo_36_1996_08_09_01@Explo_36_1996_08_09.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA
  0.0093%    0.39%  SC-Explo_46_2025_08_05_01@Explo_46_2025_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
   0.042%    0.39%  SC-Explo_326_2017_08_03_01@Explo_326_2017_08_03.Complexe_Anialarra.Synthese-PSM_LARRA
   0.016%    0.39%  SC-Explo_06_2025_08_10_01@Explo_06_2025_08_10.AN326-Sima_del_Liron.Synthese-PSM_LARRA
   0.013%    0.38%  SC-Explo_291_2015_08_07_01@Explo_291_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
   0.043%    0.37%  SC-Explo_13_2023_09_17_01@Explo_13_2023_09_17.AN594-Verdad.Synthese-PSM_LARRA
    0.25%    0.36%  SC-Explo_55_2003_07_31_01@Explo_55_2003_07_31.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.0063%    0.36%  SC-Explo_290_2015_08_07_01@Explo_290_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0068%    0.36%  SC-Explo_290_2015_08_07_01@Explo_290_2015_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
  0.0006%    0.36%  SC-Explo_21_2021_01_29_01@Explo_21_2021_01_29.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.024%    0.35%  SC-GL102_Entree_01A@Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.15%    0.35%  SC-Explo_120_2008_08_12_01@Explo_120_2008_08_12.Complexe_Anialarra.Synthese-PSM_LARRA
   0.071%    0.34%  SC-Explo_366_2018_09_20_01@Explo_366_2018_09_20.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.015%    0.34%  SC-Explo_03_2012_08_01_01@Explo_03_2012_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.015%    0.34%  SC-Explo_80_2022_08_09_01@Explo_80_2022_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
    0.33%    0.34%  SC-Explo_231_2012_09_25_01@Explo_231_2012_09_25.Complexe_Anialarra.Synthese-PSM_LARRA
   0.015%    0.33%  SC-Explo_264_2014_08_08_01@Explo_264_2014_08_08.Complexe_Anialarra.Synthese-PSM_LARRA
@@ -3008,7 +2991,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
  0.0025%    0.26%  SC-B3_Entree_04@B3_Entree.B3-Bourrugues.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA
    0.18%    0.26%  SC-Explo_09_1981_08_02_01@Explo_09_1981_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.016%    0.26%  SC-Explo_12_2025_08_07_01@Explo_12_2025_08_07.L5.Synthese-PSM_LARRA
-  0.041%    0.26%  SC-Explo_157_2009_10_03_01@Explo_157_2009_10_03.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.043%    0.25%  SC-Explo_157_2009_10_03_01@Explo_157_2009_10_03.Complexe_Anialarra.Synthese-PSM_LARRA
   0.012%    0.25%  SC-Explo_223_2012_08_16_01@Explo_223_2012_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
   0.013%    0.25%  SC-Explo_81_2005_08_16_01@Explo_81_2005_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
   0.014%    0.25%  SC-Explo_92_2006_08_07_01@Explo_92_2006_08_07.Complexe_Anialarra.Synthese-PSM_LARRA
@@ -3061,8 +3044,8 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
    0.12%    0.13%  SC-Explo_17_2000_08_10_01@Explo_17_2000_08_10.Complexe_Anialarra.Synthese-PSM_LARRA
  0.0079%    0.12%  SC-Explo_383_2019_09_14_01@Explo_383_2019_09_14.Complexe_Anialarra.Synthese-PSM_LARRA
   0.032%    0.12%  SC-Explo_371_2019_07_31_01@Explo_371_2019_07_31.Complexe_Anialarra.Synthese-PSM_LARRA
+  0.058%    0.12%  SC-Explo_134_2009_08_05_01@Explo_134_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
  0.0027%    0.12%  SC-Explo_83_2005_09_26_01@Explo_83_2005_09_26.Complexe_Anialarra.Synthese-PSM_LARRA
-  0.059%    0.12%  SC-Explo_134_2009_08_05_01@Explo_134_2009_08_05.Complexe_Anialarra.Synthese-PSM_LARRA
   0.004%    0.12%  SC-Explo_10_2012_08_05_01@Explo_10_2012_08_05.Complexe_Ours-Veau.Synthese-PSM_LARRA
   0.003%    0.11%  SC-Explo_15_1982_08_10_01@Explo_15_1982_08_10.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
   0.035%    0.11%  SC-Explo_166_2010_08_16_01@Explo_166_2010_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
@@ -3087,6 +3070,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
  0.00094%   0.062%  SC-Explo_10_2000_08_04_01@Explo_10_2000_08_04.Complexe_Anialarra.Synthese-PSM_LARRA
  0.0031%   0.061%  SC-Explo_04_2012_09_22_01@Explo_04_2012_09_22.AN594-Verdad.Synthese-PSM_LARRA
  0.0043%    0.06%  SC-Explo_147_2009_08_18_01@Explo_147_2009_08_18.Complexe_Anialarra.Synthese-PSM_LARRA
+ 0.0013%   0.056%  SC-Explo_140_2009_08_09_01@Explo_140_2009_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
   0.016%   0.054%  SC-Explo_225_2012_09_17_01@Explo_225_2012_09_17.Complexe_Anialarra.Synthese-PSM_LARRA
   0.011%   0.054%  SC-Explo_131_2008_09_19_01@Explo_131_2008_09_19.Complexe_Anialarra.Synthese-PSM_LARRA
  0.00054%   0.054%  SC-Explo_01_1976_06_01_01@Explo_01_1976_06_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA
@@ -3138,7 +3122,6 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
  0.0012%  0.0073%  SC-Explo_09_2015_08_17_01@Explo_09_2015_08_17.AN594-Verdad.Synthese-PSM_LARRA
  0.0014%  0.0073%  SC-Explo_352_2018_09_09_01@Explo_352_2018_09_09.Complexe_Anialarra.Synthese-PSM_LARRA
  0.00074%  0.0065%  SC-Explo_351_2018_08_16_01@Explo_351_2018_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
- 0.00052%  0.0065%  SC-Explo_140_2009_08_09_01@Explo_140_2009_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
  0.00087%  0.0062%  SC-Explo_397_2021_09_18_01@Explo_397_2021_09_18.Complexe_Anialarra.Synthese-PSM_LARRA
  0.00051%  0.0061%  SC-Explo_02_2024_08_15_01@Explo_02_2024_08_15.AN058-Trou_du_Chien.Synthese-PSM_LARRA
  0.0017%  0.0059%  SC-Explo_02_2012_09_17_01@Explo_02_2012_09_17.AN594-Verdad.Synthese-PSM_LARRA
@@ -3373,7 +3356,7 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
 ################### end of scrap distortions ###################
 
 ############# CRS transformations chosen by PROJ ###############
-  Area of Use (AoU): (-0.852, 42.900) (-0.694, 43.005)
+  Area of Use (AoU): (-0.902, 42.840) (-0.601, 43.050)
   [UTM30 → LAT-LONG] AoU: [no] transformation: [Inverse of UTM zone 30N + axis order change (2D)] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg] accuracy: [0.000 m]
   [UTM30 → EPSG:23030] AoU: [yes] transformation: [Inverse of UTM zone 30N + Inverse of ED50 to WGS 84 (41) + UTM zone 30N] definition: [proj=pipeline step inv proj=utm zone=30 ellps=WGS84 step inv proj=hgridshift grids=es_ign_SPED2ETV2.tif step proj=utm zone=30 ellps=intl] accuracy: [1.000 m]
   [EPSG:4326 → EPSG:23030] AoU: [yes] transformation: [axis order change (2D) + Inverse of ED50 to WGS 84 (41) + UTM zone 30N] definition: [proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=hgridshift grids=es_ign_SPED2ETV2.tif step proj=utm zone=30 ellps=intl] accuracy: [1.000 m]

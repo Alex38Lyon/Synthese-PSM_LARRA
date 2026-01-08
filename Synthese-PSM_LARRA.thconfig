@@ -32,7 +32,7 @@ encoding  utf-8
 source Synthese-PSM_LARRA-tot.th
 
 # pour le MNT avec une résolution spaciale de 1" STRM10
-# source SIG/DEM_SRTM30_UTM30_PSM.th
+source SIG/DEM_SRTM30_UTM30_PSM.th
 
 # Add Coordinates
 #input Legendes/entrances_coordinates.th
