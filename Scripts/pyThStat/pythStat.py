@@ -1291,12 +1291,13 @@ def calcul_stats(output_file):
             
         output_file_ligne_md.extend([
             f"--------------\n",
-            f"- **Script :** {titre[1].strip()}\n",
-            f"- **Version :** `{titre[2].strip()}`\n",
-            f"- **Fichier source :** `{titre[3].strip()}`\n",
-            f"- **Dossier destination :** `{titre[4].strip()}`\n",
-            f"- **Date :** `{titre[5].strip()}`\n",
-            f"- **Durée du calcul :** `{titre[6].strip()}`\n",
+             f"# {titre[1].strip()[2:]}\n",
+            f"- ** {titre[2].strip()[2:]}**\n",
+            f"- ** {titre[3].strip()[2:]}**\n",
+            f"- ** {titre[4].strip()[2:]}**\n",
+            f"- ** {titre[5].strip()[2:]}**\n",
+            f"- ** {titre[6].strip()[2:]}**\n",
+            f"- ** {titre[7].strip()[2:]}**\n",
             f"--------------\n",
         ])
 
@@ -1324,9 +1325,9 @@ def calcul_stats(output_file):
 
         output_file_ligne_md.append(
                     f"**Développement total des centerlines (m):**  "
-                    f"**, Développement:** {results[0][0]:.2f} "
-                    f"**, Dupliqué:** {results[0][1]:.2f} "
-                    f"**, Surface:** {results[0][2]:.2f}\n"
+                    f", Développement: '{results[0][0]:.2f}'"
+                    f", Dupliqué: '{results[0][1]:.2f}'"
+                    f", Surface: '{results[0][2]:.2f}'\n"
                 )
 
         cursor.execute("SELECT COUNT(*) AS nbre FROM JONCTION WHERE STATION_TYPE IS NULL")
@@ -1339,35 +1340,40 @@ def calcul_stats(output_file):
         
         results=sql_bilan_reseaux()
         
+        def format_markdown_row(row_data):
+            return '| ' + ' | '.join(f"{str(item):>10}" for item in row_data) + ' |'
+        
         if results[0][0] != None :# type: ignore
-            output_file_ligne_md.append(f"--------------\n")
-            output_file_ligne_md.append("**Développement total par réseaux**\n")
             output_file_ligne_csv.append("Développement total par réseaux\n")
             for row in results: # type: ignore
                 formatted_row = '\t'.join(map(str, row))
                 output_file_ligne_csv.append('\t' + formatted_row + '\n')
                 
-                formatted_row = '| ' + ' | '.join(map(str, row)) + ' |'
-                output_file_ligne_md.append(formatted_row + '\n')
                 #print('Développement total: ' + formatted_row + 'm') 
+                
+            output_file_ligne_md.append(f"--------------\n")
+            output_file_ligne_md.append("**Développement total par réseaux**\n")    
+            
+            headers = ["Entrée(s)", "Nbre", "Dev.(m)", "Prof.(m)", "Dupl.(m)", "Surf.(m)", "Visées", "ID Sta.", "Alt. min(m)", "ID Sta.", "Alt. max(m)"]
+            output_file_ligne_md.append("| " + " | ".join(headers) + " |\n")
+            output_file_ligne_md.append("|" + "|".join(["------"] * len(headers)) + "|\n")
+            
+            for row in results[1:]:  # type: ignore              
+                formatted_row = [str(v) for v in row]
+                output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
+
         
         results=sql_bilan_annee()
+        
         if results[0][0] != None :# type: ignore
-            output_file_ligne_md.append(f"\n--------------\n")
-            output_file_ligne_md.append("**Développement total topographié par année(s)**\n") 
             output_file_ligne_csv.append("\nDéveloppement total topographié par année(s)**\n") 
             for row in results: # type: ignore
                 if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :                
                     formatted_row = '\t'.join(map(str, row))
                     output_file_ligne_csv.append('\t' + formatted_row + '\n')
-                    
-                    formatted_row = '| ' + ' | '.join(map(str, row)) + ' |'
-                    output_file_ligne_md.append(formatted_row + '\n')
                     #print('Développement total: ' + formatted_row + 'm') 
                     
-            def format_markdown_row(row_data):
-                return '| ' + ' | '.join(f"{str(item):>10}" for item in row_data) + ' |'
-                    
+            output_file_ligne_md.append(f"\n--------------\n")        
             output_file_ligne_md.append("\n**Développement total topographié par année(s)**\n") 
             headers = ["Année", "Dev.(m)", "Cumul (m)", "Dupl.(m)", "Cumul (m)", "Surf.(m)", "Cumul (m)"]
 
@@ -1400,12 +1406,12 @@ def calcul_stats(output_file):
             
         if error_count == 0:   
                 output_file_ligne_csv[7] = "*       Durée calcul: " + duree_formatee + " sans erreur"
-                output_file_ligne_md[7] = "- **Durée calcul : ** `" + duree_formatee + " sans erreur `\n"
+                output_file_ligne_md[7] = "- **       Durée calcul : " + duree_formatee + " sans erreur**\n"
                 output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(120)+"*\n"
                         
         else :
                 output_file_ligne_csv[7] = "*       Durée calcul: " + duree_formatee + " avec erreur(s): " + str(error_count)
-                output_file_ligne_md[7] = "- **Durée calcul : ** `" + duree_formatee + "!! avec erreur(s):`" + str(error_count) + "`\n"
+                output_file_ligne_md[7] = "- **       Durée calcul : ** " + duree_formatee + "!! avec erreur(s): " + str(error_count) + "**\n"
                 output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(120)+"*\n"
         
         with open(output_file + ".md", 'w',  encoding='utf-8') as file:
