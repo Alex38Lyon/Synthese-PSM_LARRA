@@ -1334,7 +1334,7 @@ def calcul_stats(output_file):
         
         results=sql_bilan_annee()
         if results[0][0] != None :# type: ignore
-            output_file_ligne.append(f"\n--------------")
+            output_file_ligne.append(f"\n--------------\n")
             output_file_ligne.append("**Développement total topographié par année(s)**\n") 
             for row in results: # type: ignore
                 if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :
