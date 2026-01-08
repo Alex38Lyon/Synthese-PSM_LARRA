@@ -54,7 +54,7 @@ class Colors:
 #################################################################################################
 # fonction pour réduire l'affichage des chemins long                                            #
 #################################################################################################
-def safe_relpath( path, base_dir=None, max_depth=4, max_name_len=50, prefix="~" ):
+def safe_relpath(path, base_dir=None, max_depth=4, max_name_len=50, prefix="~"):
     """
     Retourne un chemin lisible et sûr pour affichage (logs / UI).
 
@@ -64,6 +64,7 @@ def safe_relpath( path, base_dir=None, max_depth=4, max_name_len=50, prefix="~" 
     - Ne lève jamais d'exception
     """
 
+    # ── 1. Résolution du chemin ──────────────────────────────────────────────
     try:
         path = Path(path).expanduser().resolve()
     except Exception:
@@ -74,13 +75,13 @@ def safe_relpath( path, base_dir=None, max_depth=4, max_name_len=50, prefix="~" 
     except Exception:
         base = None
 
-    # 1️⃣ Nom du fichier (ou dossier) — tronqué si nécessaire
-    name = path.name
+    # ── 2. Nom du fichier / dossier (tronqué) ─────────────────────────────────
+    name = path.name or str(path)
     if len(name) > max_name_len:
-        stem = path.stem[: max_name_len - 6]
+        stem = path.stem[: max(1, max_name_len - 6)]
         name = f"{stem}...{path.suffix}"
 
-    # 2️⃣ Tentative de chemin relatif
+    # ── 3. Construction des parties ──────────────────────────────────────────
     try:
         if base:
             rel = path.relative_to(base)
@@ -90,17 +91,25 @@ def safe_relpath( path, base_dir=None, max_depth=4, max_name_len=50, prefix="~" 
     except Exception:
         parts = list(path.parts)
 
-    # 3️⃣ Limitation de profondeur
-    if max_depth is not None and len(parts) > max_depth:
+    # ── 4. Cas path == base  → "." ────────────────────────────────────────────
+    if not parts:
+        parts = ["."]
+
+    # ── 5. Limitation de profondeur ──────────────────────────────────────────
+    if isinstance(max_depth, int) and max_depth > 0 and len(parts) > max_depth:
         parts = parts[-max_depth:]
         parts.insert(0, prefix)
 
-    # 4️⃣ Remplacement du nom si tronqué
-    if parts:
+    # ── 6. Remplacement du nom final ──────────────────────────────────────────
+    if parts and parts[-1] not in (".", os.sep):
         parts[-1] = name
 
-    # 5️⃣ Construction finale portable
-    return os.path.join(*parts)
+    # ── 7. Construction finale sûre ──────────────────────────────────────────
+    try:
+        return os.path.join(*parts)
+    except Exception:
+        return name
+
 
 
 #################################################################################################

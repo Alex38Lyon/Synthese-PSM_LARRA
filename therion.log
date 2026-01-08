@@ -94,10 +94,10 @@ processing survey data ...
 ####################### cavern log file ########################
  1> Survex 1.4.17
  2> Copyright ¸ 1990-2025 Olly Betts
- 3> C:\Users\alexa\AppData\Local\Temp\th20128\data.svx:1191:6: warning: Station already fixed at the same coordinates
+ 3> C:\Users\alexa\AppData\Local\Temp\th26724\data.svx:1191:6: warning: Station already fixed at the same coordinates
  4>  *fix 1122 680916.000000 4757614.000000 1719.000000
  5>       ^~~~
- 6> C:\Users\alexa\AppData\Local\Temp\th20128\data.svx:1190: info: Previously fixed or equated here
+ 6> C:\Users\alexa\AppData\Local\Temp\th26724\data.svx:1190: info: Previously fixed or equated here
  7> 
  8> Survey contains 67389 survey stations, joined by 67542 legs.
  9> There are 332 loops.
@@ -112,10 +112,10 @@ processing survey data ...
 18> There were 1 warning(s).
 19> 
 ######################### transcription ########################
- 3> 20128 : LAR_d_436/20@Explo_82_1996_06_30.Explo_82_1996_06_30.Complexe_Arrestelia.Synthese-PSM_LARRA
+ 3> 26724 : RI122@Explo_45_2018_08_09.Explo_45_2018_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
  3> input:1191 -- Data/AN026/Data/Explo_01_2006_11_04/Data/Explo_01_2006_11_04.th [17]
  4> 1122 : AN26@Explo_01_2006_11_04.Explo_01_2006_11_04.AN026.Synthese-PSM_LARRA
- 6> 20128 : LAR_d_436/20@Explo_82_1996_06_30.Explo_82_1996_06_30.Complexe_Arrestelia.Synthese-PSM_LARRA
+ 6> 26724 : RI122@Explo_45_2018_08_09.Explo_45_2018_08_09.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
  6> input:1190 -- Data/AN026/Data/Explo_01_2006_11_04/Data/Explo_01_2006_11_04.th [15]
  8> 67389 : 27@Z510_Fond.Z510_Fond.Z510.Synthese-PSM_LARRA
  9> 332 : AN8_d_455@Explo_03_1992_08_01.Explo_03_1992_08_01.AN008.Synthese-PSM_LARRA
@@ -654,7 +654,7 @@ S  1.5e+03 SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA ()
 writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  7 JAN 2026 20:54
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  7 JAN 2026 21:10
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -891,7 +891,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  7 JAN 2026 20:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  7 JAN 2026 21:10
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -1004,7 +1004,7 @@ processing projection elevation ... done
 average distortion: 0.55%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  7 JAN 2026 21:02
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  7 JAN 2026 21:19
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1021,7 +1021,7 @@ writing Outputs/Synthese-PSM_LARRA-model.kml ... done
 writing Outputs/Synthese-PSM_LARRA-3D.kml ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.html ... done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
-compilation time: 565 sec
+compilation time: 577 sec
 
 
 ######################### loop errors ##########################

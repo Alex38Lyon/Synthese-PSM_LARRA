@@ -12,8 +12,8 @@
 #                                                                                          	#
 # Définir les différentes variables dans fichier config.ini                                 #
 #                                                                                           #
-# Usage : python pyCreateTh.py                                                              #
-#         Commandes : pyCreateTh.py --help                                                  #
+#               Usage : python pyCreateTh.py                                                #
+#           Commandes : pyCreateTh.py --help                                                #
 #                                                                                       	#  
 !############################################################################################
 
@@ -31,9 +31,9 @@ Création Alex le 2025 06 09
                                         
 En cours :
     - Exports Tro :
-        - Pas possible de gérer les fichiers tro avec plusieurs entrées / points fixes car pas sauvegardé dans le format tro
+        - pas possible de gérer les fichiers tro avec plusieurs entrées / points fixes car pas sauvegardé dans le format tro
         - gérer pour ne pas avoir de copie de config.ini
-        - modifier les coordonnées de km vers m
+        - modifier les coordonnées de km vers m, ajouter les points fixes dans read-me
     - Exports TroX
         - A créer pour avoir notamment les réseaux à plusieurs entrées 
     - Exports DAT/MARK
@@ -346,7 +346,6 @@ def mak_to_th_file(ENTRY_FILE) :
     # Génération du CRS QGIS (format WKT)
     crs_wkt = f'EPSG:{epsg_code}'
     
-    
     log.info(f"Reading mak file: {Colors.ENDC}{shortCurentFile}{Colors.GREEN}, fixed station: {Colors.ENDC}{len(fixPoints)}{Colors.GREEN}, files : {Colors.ENDC}{len(datFiles)}{Colors.GREEN}, UTM Zone : {Colors.ENDC}{UTM[0]}{Colors.GREEN}, Datum : {Colors.ENDC}{next(iter(Datums))}{Colors.GREEN}, SCR : {Colors.ENDC}{crs_wkt}")
     totReadMeFixPoint = f"\t* Source mak file : {os.path.basename(ENTRY_FILE)}, fixed station: {len(fixPoints)}, files : {len(datFiles)}, UTM Zone : {UTM[0]}, Datum : {next(iter(Datums))}, SCR : {crs_wkt}\n" 
      
@@ -551,7 +550,7 @@ def mak_to_th_file(ENTRY_FILE) :
 
 
 #################################################################################################
-def station_list_dat(data, list, fixPoints, currentSurveyName) :  
+def station_list_dat(data, list, list_fixed,fixPoints, currentSurveyName) :  
     """Crée une liste de stations à partir des données fournies issues d'un fichier dat.
 
     Args:
@@ -573,22 +572,31 @@ def station_list_dat(data, list, fixPoints, currentSurveyName) :
     # stations = pd.concat([dfDATA.iloc[1:, 0], dfDATA.iloc[1:, 1]]).drop_duplicates().str.replace('[', '%').str.replace(']', '%%').str.replace('@', '_._')
     
     stations = pd.concat([dfDATA.iloc[1:, 0], dfDATA.iloc[1:, 1]]).drop_duplicates().stationName() 
+    stationsFixed = pd.concat([dfDATA.iloc[1:, 0], dfDATA.iloc[1:, 1]]).drop_duplicates().stationName() 
     
+
     fixed_names = {point[0] for point in fixPoints}
     stations = stations[~stations.isin(fixed_names)]
+    stations_fixed = stationsFixed[stationsFixed.isin(fixed_names)]
     
     new_entries = pd.DataFrame({
         'StationName': stations,
         'Survey_Name_01': currentSurveyName
     })
     
-    list = pd.concat([list, new_entries], ignore_index=True)
+    new_fixed = pd.DataFrame({
+        'Station_Fix': stations_fixed,
+        'Survey_Name': currentSurveyName
+    })
     
-    return list, dfDATA
+    list = pd.concat([list, new_entries], ignore_index=True)
+    list_fixed = pd.concat([list_fixed, new_fixed], ignore_index=True)
+    
+    return list_fixed, list, dfDATA
 
 
 #################################################################################################
-def station_list_th(data, list, fixPoints, currentSurveyName) :  
+def station_list_th(data, list, list_fixed, fixPoints, currentSurveyName) :  
     """Crée une liste de stations à partir des données fournies  issues d'un fichier tro.
 
     Args:
@@ -611,22 +619,30 @@ def station_list_th(data, list, fixPoints, currentSurveyName) :
     # stations = pd.concat([dfDATA.iloc[:, 0], dfDATA.iloc[:, 1]]).drop_duplicates().reset_index(drop=True)
     
     stations = pd.concat([dfDATA.iloc[:, 0], dfDATA.iloc[:, 1]]).dropna().astype(str).loc[lambda s: ~s.isin(["-", "*"])].drop_duplicates().reset_index(drop=True)
+    stationsFixed = pd.concat([dfDATA.iloc[:, 0], dfDATA.iloc[:, 1]]).dropna().astype(str).loc[lambda s: ~s.isin(["-", "*"])].drop_duplicates().reset_index(drop=True)
     
     # print(stations)
     
     fixed_names = {point[0] for point in fixPoints}
     stations = stations[~stations.isin(fixed_names)]
+    stations_fixed = stationsFixed[stationsFixed.isin(fixed_names)]
     
     new_entries = pd.DataFrame({
         'StationName': stations,
         'Survey_Name_01': currentSurveyName
     })
     
+    new_fixed = pd.DataFrame({
+        'Station_Fix': stations_fixed,
+        'Survey_Name': currentSurveyName
+    })
+    
     list = pd.concat([list, new_entries], ignore_index=True)
+    list_fixed = pd.concat([list_fixed, new_fixed], ignore_index=True)
     
     # print(new_entries)
     
-    return list, dfDATA
+    return list_fixed, list, dfDATA
 
 
 #################################################################################################
@@ -1377,8 +1393,9 @@ def tro_to_th_files(ENTRY_FILE, centerlines = [],
     totReadMe = ""
     surveyCount = 0    
     totReadMeFixPoint = f"\tcs {coordsyst}\n"
-    totReadMeFixPoint += f"\tFix point: {entrance} [{coordinates[0]} km, {coordinates[1]} km, {coordinates[2]} m]\n"
+    totReadMeFixPoint += f"\tFix point, station : {entrance}, coordinates: [{coordinates[0]} m, {coordinates[1]} m, {coordinates[2]} m]\n"
     listStationSection = pd.DataFrame(columns=['StationName', 'Survey_Name'])
+    listStationSectionFixed = pd.DataFrame(columns=['Station_Fix', 'Survey_Name'])
     threads = []    
     fixPoints = []
     fixPoints.append([entrance, " ", coordinates[0], coordinates[1], coordinates[2]])
@@ -1430,7 +1447,7 @@ def tro_to_th_files(ENTRY_FILE, centerlines = [],
 
         # Ajouter les données de la section à la liste
         if len(cl['DATA']) > 0 :
-            listStationSection, dfDATA = station_list_th(cl, listStationSection, fixPoints, currentSurveyName)
+            listStationSectionFixed, listStationSection, dfDATA = station_list_th(cl, listStationSection, listStationSectionFixed, fixPoints, currentSurveyName)
             # print(f"Explo {i}, dfDATA : {dfDATA}")
             # print(listStationSection)
             
@@ -1446,7 +1463,7 @@ def tro_to_th_files(ENTRY_FILE, centerlines = [],
                                                             proj = args.proj.lower())
         threads += thread2
         
-        log.info(f"File: {Colors.ENDC}{currentSurveyName}{Colors.INFO},  compilation successful, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")   
+        log.info(f"File: {Colors.ENDC}{currentSurveyName}{Colors.INFO}, compilation successful, length: {Colors.ENDC}{stat["length"]}m{Colors.INFO}, depth: {Colors.ENDC}{stat["depth"]}m")   
         totReadMe += f"\t{currentSurveyName} compilation successful length: {stat["length"]} m, depth: {stat["depth"]} m\n"
          
         if not StatCreateFolder :
@@ -1518,6 +1535,10 @@ def tro_to_th_files(ENTRY_FILE, centerlines = [],
     totdata +=f"\n\t## Maps list:\n\t{maps}input {SurveyTitle}-maps.th\n"
     
     if totReadMeErrorDat == "" : totReadMeErrorDat += "\tThis file has no errors, perfect!\n"
+    
+    for index, row in listStationSectionFixed.iterrows():
+        # log.info(f"Fixed station : {Colors.ENDC}{row['Station_Fix']}{Colors.INFO}, Survey : {Colors.ENDC}{row['Survey_Name']}")
+        totReadMeFixPoint += f"\tFixed station : {row['Station_Fix']}, Survey : {row['Survey_Name']}\n"
         
     config_vars = {
                     'fileName': SurveyTitle,
@@ -1638,6 +1659,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     
     # Tableau global pour stocker toutes les stations
     stationList = pd.DataFrame(columns=['StationName', 'Survey_Name_01', 'Survey_Name_02'])
+    stationList_Fixed = pd.DataFrame(columns=['StationName', 'Survey_Name'])
     
     section0 = True; 
     
@@ -1647,6 +1669,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     for section in sections:
         
         listStationSection = pd.DataFrame(columns=['StationName', 'Survey_Name'])
+        listStationSection_Fixed = pd.DataFrame(columns=['StationName', 'Survey_Name'])
         
         if not section.strip():
             continue  # ignorer les sections vides
@@ -1667,6 +1690,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
             "PREFIX": None,
             'DATA' : [],  
             'STATION': [],
+            'STATION_FIXED': [],
             'SOURCE' : []
         }
         
@@ -1703,8 +1727,10 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
             if jumpLine == True :
                 jumpLine = False
                 line = line.strip()  
+            
             elif line.startswith('SURVEY NAME:'):
                 section_data['SURVEY_NAME'] = sanitize_filename(line.split(':', 1)[1].strip())
+            
             elif line.startswith('SURVEY DATE:'):
                 # current_field = 'DATE'
                 # Séparer la date et le commentaire
@@ -1718,23 +1744,25 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
                     log.warning(f"Survey {Colors.ENDC}{section_data['SURVEY_NAME']}{Colors.WARNING} with no date, add default date 2000 01 01 ")
                 if len(date_parts) > 1:
                     section_data['COMMENT'] = date_parts[1].strip()
+            
             elif line.startswith('SURVEY TEAM:'):   
                 NextLineSurveyTeam = True
                 line.strip()
+            
             elif NextLineSurveyTeam == True : 
                 NextLineSurveyTeam = False
                 val = line.strip()
                 if val.count(' ') >= 2:
                     val = val.replace(' ', '/', 1)
                 section_data['SURVEY_TEAM'] = val
+            
             elif line.startswith('DECLINATION:'):         
                 for champ, pattern in regex_patterns.items():
                     match = re.search(pattern, line)
                     if match:
                         section_data[champ] = match.group(1).strip()
                 jumpLine = True # Sauter une ligne après la ligne DECLINATION
-                    
-                        
+                                
             else :
                 if line.strip() != '' :       
                     section_data['DATA'].append(line.strip())
@@ -1743,8 +1771,9 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         
         # Ajouter les données de la section à la liste
         if len(section_data['DATA']) > 0 :
-            listStationSection, dfDATA = station_list_dat(section_data, listStationSection, fixPoints, section_data['SURVEY_NAME'])
+            listStationSection_Fixed, listStationSection, dfDATA = station_list_dat(section_data, listStationSection, listStationSection_Fixed, fixPoints, section_data['SURVEY_NAME'])
             section_data['STATION'] = listStationSection
+            section_data['STATION_FIXED'] = listStationSection_Fixed
             data.append(section_data)    
             unique_id += 1 
             
@@ -1839,6 +1868,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         
         if all(val == 0.0 for val in _CorrectionValues) :
             _corrections = ""
+        
         else :
             _corrections = f"\t\t# Corrections: {_CorrectionValues[0]} {_CorrectionValues[1]} {_CorrectionValues[2]}, not yet implemented\n"
             log.error(f"Corrections: {Colors.ENDC}{_CorrectionValues[0]} {_CorrectionValues[1]} {_CorrectionValues[2]}{Colors.ERROR}, not yet implemented in {Colors.ENDC}{currentSurveyName}")  
@@ -1849,6 +1879,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
             _CorrectionValues3 =  [float(val) for val in _line['CORRECTIONS2'].strip().split()] 
             if all(val == 0.0 for val in _CorrectionValues) :
                 _CorrectionValues3 = ""
+            
             else :
                 log.error(f"Corrections2: {Colors.ENDC}{_CorrectionValues[0]} {_CorrectionValues[1]} {_CorrectionValues[2]}{Colors.ERROR}, not yet implemented in {Colors.ENDC}{currentSurveyName}")  
                 totReadMeError += f"\tCorrections2: {_CorrectionValues[0]} {_CorrectionValues[1]} {_CorrectionValues[2]}, not yet implemented in {currentSurveyName}\n" 
@@ -1858,6 +1889,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
             date = _line['DISCOVERY'].strip()
             mois, jour, annee = date.split()
             discovery = f"{int(annee):04d} {int(mois):02d} {int(jour):02d}"
+        
         else : 
             discovery = f"{_line['SURVEY_DATE']} # '????'"
         
@@ -1876,7 +1908,7 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         # gestion des DATA                                                                              #
         #################################################################################################
 
-        stationList, dfDATA = station_list_dat(_line, stationList, fixPoints, currentSurveyName)
+        stationList_Fixed, stationList, dfDATA = station_list_dat(_line, stationList, stationList_Fixed, fixPoints, currentSurveyName)
 
         headerData = dfDATA.iloc[0].tolist()
               
@@ -1900,13 +1932,14 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
         if len(list_common_points) >= 1 :
             fixPoint += f"\t\tcs {crs_wkt}\n"             
             for point in list_common_points :
-                totReadMeFixPoint += f"\tFix point: {point[0]} [{point[2]:.3f} m, {point[3]:.3f} m, {point[4]:.3f} m], in {currentSurveyName}\n"
+                totReadMeFixPoint += f"\tFix point: {point[0]} [{point[2]:.2f} m, {point[3]:.2f} m, {point[4]:.2f} m], in {currentSurveyName}\n"
                 if point[1] == 'm' :
-                    fixPoint +=  f"\t\tfix {point[0]} {point[2]:.3f} {point[3]:.3f}	{point[4]:.3f}\n" 
+                    fixPoint +=  f"\t\tfix {point[0]} {point[2]:.2f} {point[3]:.2f}	{point[4]:.3f}\n" 
                 elif point[1] == 'f' :
-                   fixPoint += f"\t\tfix {point[0]} {point[2]*0.3048:.3f} {point[3]*0.3048:.3f} {point[4]*0.3048:.3f} # Conversion feet - meter\n"
+                   fixPoint += f"\t\tfix {point[0]} {point[2]*0.3048:.2f} {point[3]*0.3048:.2f} {point[4]*0.3048:.2f} # Conversion feet - meter\n"
                 fixPoint +=  f'\t\tstation	{point[0]} "{point[0]}" entrance\n' 
         
+
          
         ################################################################################################# 
         # Gestion des formats
@@ -2046,7 +2079,13 @@ def dat_to_th_files (ENTRY_FILE, fixPoints = [], crs_wkt = "", CONFIG_PATH = "",
     totdata +=f"\n\t## Maps list:\n\t{maps}input {SurveyTitle}-maps.th\n"
     
     if totReadMeErrorDat == "" : totReadMeErrorDat += "\tNo errors in the file, that's excellent !\n"
+            
+    stationList_Fixed = stationList_Fixed.drop_duplicates()
         
+    for index, row in stationList_Fixed.iterrows():
+        # log.info(f"Fixed station: {Colors.ENDC}{row['Station_Fix']}{Colors.INFO}, survey: {Colors.ENDC}{row['Survey_Name']}")
+        totReadMeFixPoint += f"\tFixed station: {row['Station_Fix']}, Survey: {row['Survey_Name']}\n"
+      
     config_vars = {
                     'fileName': SurveyTitle,
                     'caveName': SurveyTitle.replace("_", " "),
@@ -2199,7 +2238,7 @@ if __name__ == u'__main__':
     #################################################################################################
     # titre                                                                                         #
     #################################################################################################
-    titre_largeur = 160
+    titre_largeur = 150
     bordure = "#" * titre_largeur + Colors.ENDC
     ansi_escape = re.compile(r'\x1b\[[0-9;]*m')
 
@@ -2217,7 +2256,7 @@ if __name__ == u'__main__':
 
     _titre = [
         bordure,
-        pad_line(f"{Colors.BOLD}{Colors.YELLOW}Conversion Th, Dat, Mak, Tro, files to Therion files and folders", center=True),
+        pad_line(f"{Colors.BOLD}{Colors.YELLOW}Files conversion th, dat, mak, tro and trox to therion files and folders", center=True),
         pad_line(f"Script pyCreateTh by : {Colors.BLUE}alexandre.pont@yahoo.fr"),
         pad_line(f"Version :              {Colors.ENDC}{globalData.Version}"),
         pad_line(f"Input file :           {Colors.ENDC}{safe_relpath(args.file)}"),
@@ -2230,6 +2269,11 @@ if __name__ == u'__main__':
 
     for line in _titre:
         log.info(line)
+        
+        
+    if args.file == "":
+            log.critical(f"No valid file selected, try again")
+            exit(0)
 
         
     #################################################################################################
@@ -2263,8 +2307,7 @@ if __name__ == u'__main__':
         
         fileTitle, thread2 = mak_to_th_file(abspath(args.file))    
         threads += thread2
-        
-        
+           
     #################################################################################################
     # Fichier DAT                                                                                   #
     #################################################################################################    

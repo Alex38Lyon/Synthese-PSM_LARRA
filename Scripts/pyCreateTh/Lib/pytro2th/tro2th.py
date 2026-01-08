@@ -381,7 +381,7 @@ def convert_tro(fle_tro_fnme, fle_tro_encoding=None, fle_th_fnme = None, cavenam
 		OUTPUTS:
 			new .th file with surveyed data for Therion
 			cavename      : Name of the cave from the .tro file
-			coordinates   : Coordinates of the entrance
+			coordinates   : Coordinates of the entrance (in m)
 			coordsyst     : Coordinates system used by the .tro file
 			entrance      : Entrance station
 			

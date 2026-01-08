@@ -88,6 +88,9 @@ def read_vtopo_header(lines):
 		if u'Trou' in line:
 			# read Trou
 			(cavename, xcoord, ycoord, alt, coordtro) = line[5:].replace(u'\n', u'').rstrip(u'\n\r').split(u',')
+			xcoord = "{:.2f}".format(float(xcoord) * 1000)
+			ycoord = "{:.2f}".format(float(ycoord) * 1000)
+			alt = "{:.2f}".format(float(alt) * 1)
 			coordinates = [xcoord, ycoord, alt]
 		# read club
 		if u'Club' in line: club = line[5:].replace(u'\n', u'')
