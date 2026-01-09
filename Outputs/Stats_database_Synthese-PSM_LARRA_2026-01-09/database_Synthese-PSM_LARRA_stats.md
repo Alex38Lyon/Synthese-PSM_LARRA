@@ -1,14 +1,16 @@
 --------------
 # Calcul des statistiques par entrées d'une BD Therion
-- **       Script pythStat par alexandre.pont@yahoo.fr**
-- **       Version : 2026.01.09**
-- **       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql**
-- **       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\stat_database_Synthese-PSM_LARRA_2026-01-08**
-- **       Date : 2026-01-08 23:45:03**
-- **       Durée calcul : 02(m)28(s) sans erreur**
+-       Script pythStat par : alexandre.pont@yahoo.fr
+-       Version : 2026.01.09
+-       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql
+-       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09
+-       Date : 2026-01-09 10:24:42
+-       Durée calcul :  01(h)02(m)28(s)!! avec erreur(s): 1
 --------------
-**Développement total des centerlines (m):**  , Développement: '340754.54', Dupliqué: '13027.78', Surface: '10574.75'
-!!Attention, 82 station(s) non comptabilisée(s) et raccordée(s)
+
+**Développement total des centerlines (m):** développement: `340754.54`, dupliqué: `13027.78`, surface: `10574.75`
+!!Attention, `82` station(s) non comptabilisée(s) et raccordée(s)
+
 
 --------------
 **Développement total par réseaux**
@@ -239,3 +241,5 @@
 | 2023       | 6343.27    | 327354.72  | 1180.34    | 12377.13   | 79.70      | 10279.50 |
 | 2024       | 7703.88    | 335058.60  | 547.76     | 12924.89   | 144.72     | 10424.22 |
 | 2025       | 5695.94    | 340754.54  | 102.89     | 13027.78   | 150.53     | 10574.75 |
+
+--------------

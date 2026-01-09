@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
-
-########################################################################################################################################
+"""
+!#######################################################################################################################################
 #                                                        	                                                                           #  
 #                                Script pour calculer les statistiques des entités jonctionnées                                        #
 #                                      d'un fichier database (.sql) produit par Therion                                                #  
 #                                         By Alexandre PONT  alexandre.pont@yahoo.fr                                                   # 
 #                                                                                                                                      #
-# Utilisation:                                                                                                                         #
-#   Exporter le fichier sql avec therion, commande therion.thconfig : export database -o Outputs/database.sql                          #
-#   Commande : python pythStat.py ./chemin/fichier.sql                                                                                 #   
-#   ou : python pythStat.py  pour ouvrir une fenêtre                                                                                  #
-#   Résultat : fichiers dans le dossier crée du fichier source                                                                         #
-########################################################################################################################################
-
+* Utilisation:                                                                                                                         #
+#       Exporter le fichier sql avec therion, commande therion.thconfig : export database -o Outputs/database.sql                      #
+#       Commande : python pythStat.py ./chemin/fichier.sql                                                                             #   
+#           ou : python pythStat.py  pour ouvrir une fenêtre                                                                           #
+#       Résultat : fichiers dans le dossier crée du fichier source                                                                     #
+!########################################################################################################################################
+"""
 
 import sqlite3, sys, os, re, argparse
 from pathlib import Path
+from os.path import isfile, join, abspath, splitext
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -24,13 +25,12 @@ from tkinter import filedialog
 from alive_progress import alive_bar              # https://github.com/rsalmei/alive-progress	
 from datetime import datetime
 
-Version ="2026.01.09"  
+import Lib.global_data as globalDat
+from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_help
 
-
-"""#####################################################################################################################################
-#                              Fonction pour importer un fichier SQL dans une base de données SQLite                                   #
-#                                                                                                                                      #
-#####################################################################################################################################"""
+#####################################################################################################################################
+#                              Fonction pour importer un fichier SQL dans une base de données SQLite                                #
+#####################################################################################################################################
 def importation_sql_data(fichier_sql):
     """
     Fonction pour importer un fichier SQL dans une base de données SQLite
@@ -43,7 +43,7 @@ def importation_sql_data(fichier_sql):
     
     try:
         # Si la base de données existe, supprimez-la pour forcer l'écriture
-        print(f"\033[1;32mPhase 1: Importation de la base de données Therion \033[0m{safe_relpath(input_file_name)}\033[1;32m dans: \033[0m{safe_relpath(imported_database)}")
+        log.info(f"Phase 1: Importation de la base de données Therion {Colors.ENDC}{safe_relpath(input_file_name, 2)}{Colors.INFO} dans: {Colors.ENDC}{safe_relpath(imported_database, 0)}")
         if os.path.exists(imported_database):
             #print("Suppression de la Bd existante: " + imported_database)
             os.remove(imported_database)
@@ -62,7 +62,7 @@ def importation_sql_data(fichier_sql):
        
 
         # Exécution des commandes avec une barre de progression
-        with alive_bar(len(commandes), title = "\x1b[32;1m\t Progression\x1b[0m",  length = 20) as bar:
+        with alive_bar(len(commandes), title = f"{Colors.YELLOW}Progression{Colors.ENDC}",  length = 20) as bar:
             for commande in commandes:
                 cursor.execute(commande)
                 connection.commit()
@@ -70,7 +70,7 @@ def importation_sql_data(fichier_sql):
 
         connection.close()
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête importation_sql_data code:\033[0m {e}") 
+        log.error(f"Erreur lors de l'exécution de la requête importation_sql_data code:{Colors.ENDC} {e}") 
         error_count  += 1
         sys.exit(1)  # Arrête le programme en cas d'erreur
         
@@ -78,7 +78,6 @@ def importation_sql_data(fichier_sql):
 
 #####################################################################################################################################
 #                                    Fonction pour construire les tables JONCTION, SERIE, VISEE_FLAG et RESEAU                      #
-#                                                                                                                                   #
 #####################################################################################################################################
 def construction_tables():
     """
@@ -90,10 +89,10 @@ def construction_tables():
        
     #conn = sqlite3.connect(database)  # Connexion à la base de données SQLite
     #cursor = conn.cursor()
-    # print(f"\033[1;32mConstruction des tables dans {imported_database}\033[0m")   
+    # print(f"{Colors.GREEN}{Colors.BOLD}Construction des tables dans {imported_database}{Colors.ENDC}")   
     
     try :   
-        print(f"\033[1;32mPhase 2: Création des nouvelles tables, indexation\033[0m") 
+        log.info(f"Phase 2: Création des nouvelles tables, indexation") 
         
         cursor.execute("DROP TABLE IF EXISTS JONCTION") # Créer et initialiser une nouvelle table de jonctions 
         cursor.execute("""
@@ -168,7 +167,7 @@ def construction_tables():
         cursor.executemany("INSERT INTO VISEE_FLAG (SHOT_ID) VALUES (?)", results)  # type: ignore
         conn.commit()
         
-        print(f"\033[0m\t Création de l'index des tables principales et optimisation de la mémoire\033[0m")
+        log.info(f"Création de l'index des tables principales et optimisation de la mémoire")
         
         cursor.execute("CREATE INDEX INDEX_JONCTION_STATION_ID ON JONCTION(STATION_ID)")
         cursor.execute("PRAGMA index_list(SHOT)")
@@ -190,7 +189,7 @@ def construction_tables():
        
     # A partir des entrées, remplir les tables des jonctions et des séries     
         results = sql_liste_entree() 
-        print(f"\033[1;32mPhase 3: Remplissage des tables d'après les \033[0m{len(results)}\033[1;32m entrée(s)\033[0m")    # type: ignore
+        log.info(f"Phase 3: Remplissage des tables d'après les {Colors.ENDC}{len(results)}{Colors.INFO} entrée(s){Colors.ENDC}")    # type: ignore
         for row in results:   # type: ignore
             # if row[0]==28548:
             #     print("debug point")
@@ -234,11 +233,11 @@ def construction_tables():
                             """)        
             conn.commit()
             
-            # print(f"\tCréation Série: {Current_Serie_ID} depuis la station d'entrée Station_ID: {row[0]}")      
+            # print(f"Création Série: {Current_Serie_ID} depuis la station d'entrée Station_ID: {row[0]}")      
             
             
         # A partir des série vides, itération pour remplir les tables des JONCTION et des SERIE
-        print(f"\033[1;32mPhase 4: Remplissage des tables d'après les séries vides jonctionnées aux\033[0m {Current_Serie_ID}\033[1;32m entrée(s)\033[0m")   
+        log.info(f"Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux{Colors.ENDC} {Current_Serie_ID}{Colors.INFO} entrée(s){Colors.ENDC}")   
     
         results = sql_serie_vides()
         Count = 1
@@ -252,10 +251,10 @@ def construction_tables():
         compteur_ttl = int(_compteur[0][0])
         avt_compteur = 0
             
-        with alive_bar(compteur_ttl, title = "\x1b[32;1m\t Progression\x1b[0m", length = 20) as bar: 
+        with alive_bar(compteur_ttl, title = f"{Colors.YELLOW}Progression{Colors.ENDC}", length = 20) as bar: 
             while len(results) > 0: # type: ignore
-                # print(f"\033[1;32mPhase 4.{Count}: Remplissage des tables JONCTION et SERIE itération: {Count}, séries créée(s): {New_Serie_ID} ajoutée(s): {New_Serie_ID-New_Serie_IDOld} à traiter: {len(results)}\033[0m")            # type: ignore
-                bar.text(f"itération: {Count}, série(s) créée(s): {New_Serie_ID}")       # type: ignore
+                # print(f"{Colors.GREEN}{Colors.BOLD}Phase 4.{Count}: Remplissage des tables JONCTION et SERIE itération: {Count}, séries créée(s): {New_Serie_ID} ajoutée(s): {New_Serie_ID-New_Serie_IDOld} à traiter: {len(results)}{Colors.ENDC}")            # type: ignore
+                bar.text(f"{Colors.YELLOW}itération(s): {Colors.ENDC}{Count}{Colors.YELLOW}, série(s) créée(s): {Colors.ENDC}{New_Serie_ID}")       # type: ignore
                 cursor.execute("SELECT COUNT(*) AS nbre FROM JONCTION WHERE STATION_TYPE IS NULL")
                 _compteur = cursor.fetchall()
                 compteur = int(_compteur[0][0])
@@ -274,7 +273,7 @@ def construction_tables():
                     # Current_Serie_Lenght_Duplicate = 0.0 + float(row[8])
                     Current_Ent = int(row[10])
                     Direction = int(row[9])
-                    #print(f"\tSerie courante {Current_Serie_ID}  Station_ID: {Current_Station_ID} results: {results}")
+                    #print(f"Serie courante {Current_Serie_ID}  Station_ID: {Current_Station_ID} results: {results}")
                     Fin_Serie = False
                     while Fin_Serie is False:
                         if Direction == 1 :    
@@ -306,7 +305,7 @@ def construction_tables():
                             else :
                                 # A gérer nouvelles séries
                                 nouvelles_series(Current_Station_ID, Current_Station_ID_Old, Current_Serie_ID, 1, Current_Ent) # type: ignore
-                                # print (f"\033[34m\tA traiter création nouvelles séries inverses depuis l'entrée {Current_Station_ID} - {Next_Station_ID_2}, {Next_Station_ID_1}\033[0m")
+                                # print (f"\033[34m\tA traiter création nouvelles séries inverses depuis l'entrée {Current_Station_ID} - {Next_Station_ID_2}, {Next_Station_ID_1}{Colors.ENDC}")
                                 nouvelles_series(Current_Station_ID, Current_Station_ID_Old, Current_Serie_ID, -1, Current_Ent)
                                 Direction = 1 
                                 Next_Station_ID = Next_Station_ID_1
@@ -314,7 +313,7 @@ def construction_tables():
                         if len(Next_Station_ID) == 0 : # type: ignore
                             Next_Station_ID_1 = sql_station_depart(Current_Station_ID) # type: ignore
                             Next_Station_ID_2 = sql_station_arrivee(Current_Station_ID) # type: ignore
-                            # print(f"\033[34m\tA gérer, fin de la Série: {Current_Serie_ID} à la Station_ID: {Current_Station_ID} nbre: {Current_Nre_Shot} Next station: {Next_Station_ID}, départs directs {len(Next_Station_ID_1)}, départs inverses {len(Next_Station_ID_2)}\033[0m") # type: ignore
+                            # print(f"\033[34m\tA gérer, fin de la Série: {Current_Serie_ID} à la Station_ID: {Current_Station_ID} nbre: {Current_Nre_Shot} Next station: {Next_Station_ID}, départs directs {len(Next_Station_ID_1)}, départs inverses {len(Next_Station_ID_2)}{Colors.ENDC}") # type: ignore
                             # cursor.execute(f"UPDATE SERIE SET SERIE_DEP_ID = {Current_Serie_ID}  WHERE SERIE_ID = {Current_Serie_ID};") # type: ignore
                             # cursor.execute(f"UPDATE SERIE SET STATION_DEP_ID = {Current_Station_ID}  WHERE SERIE_ID = {Current_Serie_ID};") # type: ignore
                             # cursor.execute(f"UPDATE SERIE SET SERIE_NBRE_SHOT = 0  WHERE SERIE_ID = {Current_Serie_ID};") # type: ignore
@@ -337,7 +336,7 @@ def construction_tables():
                 New_Serie_ID = cursor.lastrowid  # type: ignore
                 if resultsOld == results :
                         #print(f"Erreur sortie itération qté: {len(resultsOld)} - {resultsOld} - {results}")
-                        print(f"\033[91mErreur sortie itération {Count}, séries restantes: {len(resultsOld)} - {results}\033[0m") # type: ignore
+                        log.error(f"Erreur sortie itération {Colors.ENDC}{Count}{Colors.ERROR}, séries restantes: {Colors.ENDC}{len(resultsOld)}{Colors.ERROR} - {Colors.ENDC}{results}") # type: ignore
                         error_count  += 1
                         break
             
@@ -357,14 +356,14 @@ def construction_tables():
         jonction_RESEAU()
         
         if compteur > 0 :            
-            print(f"\033[1;32mPhase 4: Fin du remplissage des tables,\033[91m attention \033[0m{compteur}\033[91m station(s) non comptabilisé(s)\033[0m")
+            log.warning(f"Phase 4: Fin du remplissage des tables,{Colors.WARNING} attention {Colors.ENDC}{compteur}{Colors.WARNING} station(s) non comptabilisé(s)")
             error_count  += 1
         # else :
-        #     print(f"\033[1;32mPhase 4: Fin du remplissage des tables voir {imported_database}\033[0m")      
+        #     print(f"{Colors.GREEN}{Colors.BOLD}Phase 4: Fin du remplissage des tables voir {imported_database}{Colors.ENDC}")      
         
 
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution d'une des requêtes (construction_tables) code:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution d'une des requêtes (construction_tables) code:{Colors.ENDC} {e}")
         error_count  += 1
     return
 
@@ -407,7 +406,7 @@ def orphelines_shot():
         conn.commit() 
         orphelines = cursor.fetchall()
         
-        print(f"\t Intégrations des visées orphelines (entre 2 stations existantes) nbre: {len(orphelines)}")
+        log.info(f"Intégrations des visées orphelines (entre 2 stations existantes) nbre: {Colors.ENDC}{len(orphelines)}")
         
         for row in orphelines:
             _SERIE_LENGHT = 0
@@ -446,12 +445,12 @@ def orphelines_shot():
         
             if row[7] != row[11] :
                 cursor.execute(f"INSERT INTO RESEAU (STATION_JONC, ENT_1, ENT_2) VALUES (?, ?, ?)", (row[8], row[7], row[11]))  
-                # print (f"\033[36m\t Jonction des entrées à la Station_ID: {row[8]} entre: {row[7]} et: {row[11]}\033[0m")
+                # print (f"{Colors.BLUE}\t Jonction des entrées à la Station_ID: {row[8]} entre: {row[7]} et: {row[11]}{Colors.ENDC}")
             
             conn.commit()
 
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête orphelines_shot code:\033[0m {e}" )
+        log.error(f"Erreur lors de l'exécution de la requête orphelines_shot code:{Colors.ENDC} {e}" )
         error_count  += 1
     
     return
@@ -475,7 +474,7 @@ def jonction_RESEAU():
         conn.commit() 
         doublons = cursor.fetchall()
         
-        # print(f"\t Table des RESEAUX doublons nbre: {len(doublons)}")
+        # print(f"Table des RESEAUX doublons nbre: {len(doublons)}")
         for row in doublons : cursor.execute(f"DELETE FROM RESEAU WHERE RESEAU.ID = {row[0]}")  
         conn.commit()   
          
@@ -533,7 +532,7 @@ def jonction_RESEAU():
                            
                     for row2 in jonction:  # type: ignore
                         if row2[0] not in liste_entrees_reseau:
-                            # print(f"\t Jonction de l'entrée: {row2[0]} au reseau ID: {index_reseau}")
+                            # print(f"Jonction de l'entrée: {row2[0]} au reseau ID: {index_reseau}")
                             cursor.execute(f"UPDATE RESEAU SET RESEAU_ID = {index_reseau}  WHERE RESEAU.ENT_1 = {row2[0]} ")  
                             cursor.execute(f"UPDATE RESEAU SET RESEAU_ID = {index_reseau}  WHERE RESEAU.ENT_2 = {row2[0]} ")
                             liste_entrees_reseau.append(row2[0])  
@@ -545,10 +544,10 @@ def jonction_RESEAU():
                     cursor.execute(f"UPDATE VISEE_FLAG SET RESEAU_ID = {index_reseau}  WHERE VISEE_FLAG.ENTREE_ID = {row2} ") 
                 conn.commit()
         
-            print(f"\t Réseau: {index_reseau}, entrées jonctionnées: {len(liste_entrees_reseau)}, {liste_entrees_reseau}")
+            log.info(f"Réseau: {Colors.ENDC}{index_reseau}{Colors.INFO}, entrées jonctionnées: {Colors.ENDC}{len(liste_entrees_reseau)}{Colors.INFO}, {Colors.ENDC}{liste_entrees_reseau}")
         
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête Jonction_RESEAU code:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête Jonction_RESEAU code:{Colors.ENDC} {e}")
         error_count  += 1
         
     return
@@ -582,7 +581,7 @@ def SHOT_equates_station():
                     """)    
         equate = cursor.fetchall()
         
-        print(f"\t Jonction de SHOT equates nbre: {len(equate)}")
+        log.info(f"Jonction de SHOT equates nbre: {Colors.ENDC}{len(equate)}")
         for row in equate :
             sous_valeurs = row[0].split(',')
             # print(f": {sous_valeurs[0]} = ", end="")
@@ -607,10 +606,10 @@ def SHOT_equates_station():
         
         # print("")               
                          
-        # if len(equate) == 0 : print(f"\tAucun 'equate'")
+        # if len(equate) == 0 : print(f"Aucun 'equate'")
     
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête 8 (sql_8_equates) code:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête 8 (sql_8_equates) code:{Colors.ENDC} {e}")
         error_count  += 1
         
     return
@@ -639,6 +638,7 @@ def duplicate_SHOT():
         duplicate = cursor.fetchall()
         
         _total_length_err = 0.0
+        
         for row in duplicate :
             sous_valeurs = row[3].split(',')
             cursor.execute(f"""
@@ -665,6 +665,7 @@ def duplicate_SHOT():
             shot_flag2 = cursor.fetchall()
             # print("\t " + str(shot_flag2)) 
             # _total_length += int(row[2])
+            
             if shot_flag[0][1] is None and shot_flag2[0][1]== 'dpl':
                 cursor.execute("SELECT COUNT(*) AS nombre_enregistrements FROM STATION")
                 Current_Station_ID = cursor.fetchall()
@@ -672,6 +673,7 @@ def duplicate_SHOT():
                 cursor.execute(f"INSERT INTO STATION (ID, NAME) VALUES ({_Current_Station_ID}, 'isu')")   
                 cursor.execute(f"UPDATE SHOT SET TO_ID = {_Current_Station_ID} WHERE SHOT.ID = {shot_flag2[0][0]}")
                 cursor.execute(f"INSERT INTO JONCTION (STATION_ID) VALUES ({_Current_Station_ID})")  
+            
             elif shot_flag2[0][1] is None and shot_flag[0][1]== 'dpl':
                 cursor.execute("SELECT COUNT(*) AS nombre_enregistrements FROM STATION")
                 Current_Station_ID = cursor.fetchall()
@@ -679,6 +681,7 @@ def duplicate_SHOT():
                 cursor.execute(f"INSERT INTO STATION (ID, NAME) VALUES ({_Current_Station_ID}, 'isu')")   
                 cursor.execute(f"UPDATE SHOT SET TO_ID = {_Current_Station_ID} WHERE SHOT.ID = {shot_flag[0][0]}")
                 cursor.execute(f"INSERT INTO JONCTION (STATION_ID) VALUES ({_Current_Station_ID})")
+            
             else :               
                 _total_length_err += float(shot_flag2[0][2])
                 cursor.execute("SELECT COUNT(*) AS nombre_enregistrements FROM STATION")
@@ -687,9 +690,9 @@ def duplicate_SHOT():
                 cursor.execute(f"INSERT INTO STATION (ID, NAME) VALUES ({_Current_Station_ID}, 'isu')")   
                 cursor.execute(f"UPDATE SHOT SET TO_ID = {_Current_Station_ID} WHERE SHOT.ID = {shot_flag2[0][0]}")
                 cursor.execute(f"INSERT INTO JONCTION (STATION_ID) VALUES ({_Current_Station_ID})")  
-                print(f"\033[91m\t Table des SHOT, visées en double à traiter à la source : \033[0m{shot_flag}, {shot_flag2}" +
-                      f"\033[91m, station crée : \033[0m{_Current_Station_ID}" + 
-                      f"\033[91m, long. en double : \033[0m{"{:.2f}".format(_total_length_err)} m")
+                log.warning(f"Table des SHOT, visées en double à traiter à la source : {Colors.ENDC}{shot_flag}{Colors.WARNING}, {Colors.ENDC}{shot_flag2}" +
+                      f"{Colors.WARNING}, station crée : {Colors.ENDC}{_Current_Station_ID}" + 
+                      f"{Colors.WARNING}, long. en double : {Colors.ENDC}{"{:.2f}".format(_total_length_err)}{Colors.WARNING} m")
                                 
             conn.commit()
             
@@ -699,14 +702,15 @@ def duplicate_SHOT():
             #     filtre = cursor.fetchall()
                       
         if len(duplicate) > 0:
-            print(f"\t Table des SHOT, visées dupliquées traités nbre: {len(duplicate)}")
-            # print(f"\t Visées dupliqués supprimés {duplicate}")
+            log.info(f"Table des SHOT, visées dupliquées traités nbre: {Colors.ENDC}{len(duplicate)}")
+            # print(f"Visées dupliqués supprimés {duplicate}")
+        
         else :
-            print(f"\t Table des SHOT, aucune visée dupliquée")     
+            log.info(f"Table des SHOT, aucune visée dupliquée")     
             
             
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête (duplicate_SHOT) code:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête (duplicate_SHOT) code:{Colors.ENDC} {e}")
         error_count  += 1
         
     return
@@ -736,14 +740,14 @@ def issue_SHOT():
        
         
         if len(issue) > 0:
-            print(f"\t Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s) nbre: {len(issue)}")
-            # print(f"\t Visée(s) bloquante(s) supprimée(s) {issue}")
+            log.warning(f"Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s) nbre: {Colors.ENDC}{len(issue)}")
+            # print(f"Visée(s) bloquante(s) supprimée(s) {issue}")
         else :
-            print(f"\t Table des SHOT, aucune visée bloquante")     
+            log.info(f"Table des SHOT, aucune visée bloquante")     
             
             
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête (Issue_SHOT) code:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête (Issue_SHOT) code:{Colors.ENDC} {e}")
         error_count  += 1
         
     return      
@@ -765,7 +769,7 @@ def marquage_visee_station_habillage() :
                        """ )  
         
         filtre = cursor.fetchall()
-        print(f"\t Marquage des visées et des stations d'habillage nbre: {len(filtre)}") 
+        log.info(f"Marquage des visées et des stations d'habillage nbre: {Colors.ENDC}{len(filtre)}") 
         for row in filtre :
             cursor.execute(f"UPDATE JONCTION SET STATION_TYPE = 'hab' WHERE STATION_ID = {row[0]}")
             cursor.execute(f"UPDATE VISEE_FLAG SET SERIE_ID = -1 WHERE SHOT_ID = {row[1]}")
@@ -774,7 +778,7 @@ def marquage_visee_station_habillage() :
         
         
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête (marquage_station_habillage):\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête (marquage_station_habillage):{Colors.ENDC} {e}")
         error_count += 1
         
     return
@@ -804,7 +808,7 @@ def suivi_serie( _Current_Serie_ID, bar) :
         _Current_Ent = int(_Serie[0][10])
     
         if _Direction == 0 :
-            # print(f"\t\033[34mA gérer séries sans direction station série: {_Current_Serie_ID}\033[0m") # type: ignore
+            # print(f"\033[34mA gérer séries sans direction station série: {_Current_Serie_ID}{Colors.ENDC}") # type: ignore
             _Current_Station_ID = int(_Serie[0][2])
             Next_Station_ID_1 = sql_station_depart(_Current_Station_ID)
             Next_Station_ID_2 = sql_station_arrivee(_Current_Station_ID)
@@ -830,7 +834,7 @@ def suivi_serie( _Current_Serie_ID, bar) :
             else :
                 # A gérer nouvelles séries
                 # nouvelles_series(_Current_Station_ID, _Current_Station_ID_Old, _Current_Serie_ID, 1, _Current_Ent) # type: ignore
-                # print (f"\033[34m\tA vérifier dans suivi_serie nouvelles séries inverses depuis {_Current_Station_ID} - {Next_Station_ID_2}, {Next_Station_ID_1}\033[0m")
+                # print (f"\033[34m\tA vérifier dans suivi_serie nouvelles séries inverses depuis {_Current_Station_ID} - {Next_Station_ID_2}, {Next_Station_ID_1}{Colors.ENDC}")
                 # nouvelles_series(_Current_Station_ID, _Current_Station_ID_Old, _Current_Serie_ID, -1, _Current_Ent)
                 return  
                 
@@ -838,7 +842,7 @@ def suivi_serie( _Current_Serie_ID, bar) :
             _Current_Station_ID = int(_Serie[0][4])
             _Next_Station_ID = sql_station_arrivee(_Current_Station_ID) # type: ignore
             _Current_Nre_Shot = 0
-            #print(f"\tDébut suivi serie inverse {_Current_Serie_ID}  Station_ID: {_Current_Station_ID} Nre: {_Current_Nre_Shot} Next station: {_Next_Station_ID}") # type: ignore
+            #print(f"Début suivi serie inverse {_Current_Serie_ID}  Station_ID: {_Current_Station_ID} Nre: {_Current_Nre_Shot} Next station: {_Next_Station_ID}") # type: ignore
         
             _ID_Suite = 0
             _Force = False
@@ -846,7 +850,7 @@ def suivi_serie( _Current_Serie_ID, bar) :
                 while int(_Next_Station_ID[_ID_Suite][0]) != int(_Serie[0][2]) : # type: ignore
                     _ID_Suite += 1        
                     if _ID_Suite >= len(_Next_Station_ID): # type: ignore
-                        # print(f"\t \033[34mA vérifier, pas de suite trouvée à la serie inverse: {_Current_Serie_ID} station:{_Current_Station_ID}, shot: {_Current_Shot}\033[0m")
+                        # print(f"\033[34mA vérifier, pas de suite trouvée à la serie inverse: {_Current_Serie_ID} station:{_Current_Station_ID}, shot: {_Current_Shot}{Colors.ENDC}")
                         #error_count  += 1
                         return    
                                             
@@ -893,7 +897,7 @@ def suivi_serie( _Current_Serie_ID, bar) :
                             WHERE SHOT_ID = {_Current_Shot}
                             """)         
                 
-                #print(f"\tSuivi serie inverse {_Current_Serie_ID}  Station_ID: {_Current_Station_ID} Nre: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}, Next station: {_Next_Station_ID}")
+                #print(f"Suivi serie inverse {_Current_Serie_ID}  Station_ID: {_Current_Station_ID} Nre: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}, Next station: {_Next_Station_ID}")
                 conn.commit()
                 depart =  sql_station_depart(_Current_Station_ID)
 
@@ -946,20 +950,20 @@ def suivi_serie( _Current_Serie_ID, bar) :
             depart =  sql_station_depart(_Current_Station_ID) # type: ignore     
             if (len(_Next_Station_ID)==0): # type: ignore
                 # fin de la série
-                # print (f"\tFin de la série inverse: {_Current_Serie_ID} (pas de suite) station: {_Current_Station_ID}, nbre de shot: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}")    
+                # print (f"Fin de la série inverse: {_Current_Serie_ID} (pas de suite) station: {_Current_Station_ID}, nbre de shot: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}")    
                 nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_ID, 1, _Current_Ent) # type: ignore     
                 if (len(depart)>=1):# type: ignore
                     nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_ID, -1, _Current_Ent) # type: ignore   
             else :
                 nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_ID, -1, _Current_Ent) # type: ignore     
-                # print (f"\tFin de la série inverse: {_Current_Serie_ID} station: {_Current_Station_ID}, nbre de shot: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}")
+                # print (f"Fin de la série inverse: {_Current_Serie_ID} station: {_Current_Station_ID}, nbre de shot: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}")
                 if (len(depart)>=1):# type: ignore
                     nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_ID, 1, _Current_Ent) # type: ignore  
         elif _Direction == 1 :
             _Current_Station_ID = int(_Serie[0][2])          
             _Next_Station_ID = sql_station_depart(_Current_Station_ID)
             _Current_Nre_Shot = 0
-            #print(f"\tDébut suivi serie directe {_Current_Serie_ID}  Station_ID: {_Current_Station_ID} Nre: {_Current_Nre_Shot} Next station: {_Next_Station_ID}")
+            #print(f"Début suivi serie directe {_Current_Serie_ID}  Station_ID: {_Current_Station_ID} Nre: {_Current_Nre_Shot} Next station: {_Next_Station_ID}")
             
             _ID_Suite = 0
             _Force = False
@@ -967,7 +971,7 @@ def suivi_serie( _Current_Serie_ID, bar) :
                 while int(_Next_Station_ID[_ID_Suite][0]) != int(_Serie[0][4]) : # type: ignore
                     _ID_Suite += 1     
                     if _ID_Suite >= len(_Next_Station_ID): # type: ignore
-                        # print(f"\t \033[34mA vérifier, pas de suite trouvée à la serie directe: {_Current_Serie_ID}, Station: {_Current_Station_ID}, shot: {_Current_Shot}\033[0m")
+                        # print(f"\033[34mA vérifier, pas de suite trouvée à la serie directe: {_Current_Serie_ID}, Station: {_Current_Station_ID}, shot: {_Current_Shot}{Colors.ENDC}")
                         # error_count  += 1
                         return    
                                             
@@ -1017,7 +1021,7 @@ def suivi_serie( _Current_Serie_ID, bar) :
                                 """)    
                 
                 conn.commit()
-                #print(f"\tSuivi serie directe {_Current_Serie_ID}  Station_ID: {_Current_Station_ID} Nre: {_Current_Nre_Shot} Next station: {_Next_Station_ID}")
+                #print(f"Suivi serie directe {_Current_Serie_ID}  Station_ID: {_Current_Station_ID} Nre: {_Current_Nre_Shot} Next station: {_Next_Station_ID}")
                 
                 arrivee =  sql_station_arrivee(_Current_Station_ID)
                     
@@ -1066,18 +1070,18 @@ def suivi_serie( _Current_Serie_ID, bar) :
             arrivee = sql_station_arrivee(_Current_Next_Station) # type: ignore     
             if (len(_Next_Station_ID)==0): # type: ignore
                 # fin de la série
-                # print (f"\tFin de la série directe: {_Current_Serie_ID} (pas de suite) à la station: {_Current_Station_ID}, nbre de shot: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}")           
+                # print (f"Fin de la série directe: {_Current_Serie_ID} (pas de suite) à la station: {_Current_Station_ID}, nbre de shot: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}")           
                 nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_ID, -1, _Current_Ent) # type: ignore
                 if (len(arrivee)>=1): # type: ignore
                     nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_ID, 1, _Current_Ent) # type: ignore
             else :
                 nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_ID, 1, _Current_Ent) # type: ignore
-                # print (f"\tFin de la série directe: {_Current_Serie_ID} station: {_Current_Station_ID}, nbre de shot: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}")
+                # print (f"Fin de la série directe: {_Current_Serie_ID} station: {_Current_Station_ID}, nbre de shot: {_Current_Nre_Shot}, long: {_Current_Serie_Lenght:.2f}")
                 if (len(arrivee)>=1): # type: ignore
                     nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_ID, -1, _Current_Ent) # type: ignore  
        
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête de lecture de la série\033[0m {_Current_Serie_ID}\033[91m, suivi_serie:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête de lecture de la série{Colors.ENDC} {_Current_Serie_ID}{Colors.ERROR}, suivi_serie:{Colors.ENDC} {e}")
         error_count  += 1
         return        
     
@@ -1114,7 +1118,7 @@ def nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_I
             # _Next_Station = cursor.fetchall()
     
         if _Next_Station is None: # type: ignore
-                print(f"Pas de série crées à la station: {_Current_Station_ID}")
+                log.warning(f"Pas de série crées à la station: {Colors.ENDC}{_Current_Station_ID}")
                 return
     #  boucle sur liste _Next_Station
         for Depart in _Next_Station:  # type: ignore
@@ -1138,7 +1142,7 @@ def nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_I
                                 STATION_ENT_ID) 
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""", (_Current_Serie_ID, _Current_Station_ID, -1, Depart[0], -1, 0.0, 0.0, 0.0, 1,_STATION_ENT_ID))
                     conn.commit() 
-                    # print(f"\tCréation Série directe: {cursor.lastrowid} depuis la station: {_Current_Station_ID} vers {Depart[0]} ")
+                    # print(f"Création Série directe: {cursor.lastrowid} depuis la station: {_Current_Station_ID} vers {Depart[0]} ")
                 elif _DIRECTION == -1 :
                     cursor.execute(f"""
                         INSERT INTO SERIE (  
@@ -1155,10 +1159,10 @@ def nouvelles_series(_Current_Station_ID, _Current_Old_Station, _Current_Serie_I
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""", (-1, Depart[0], _Current_Serie_ID, _Current_Station_ID, -1, 0.0, 0.0, 0.0, -1,_STATION_ENT_ID))
                     conn.commit() 
                     
-                    # print(f"\tCréation Série inv.: {cursor.lastrowid} depuis {Depart[0]} vers la station: {_Current_Station_ID}")
+                    # print(f"Création Série inv.: {cursor.lastrowid} depuis {Depart[0]} vers la station: {_Current_Station_ID}")
                    
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de la requête (nouvelle_serie):\033[0m {e}")
+        log.error(f"Erreur lors de la requête (nouvelle_serie):{Colors.ENDC} {e}")
         error_count  += 1
         
     return
@@ -1236,13 +1240,13 @@ def test_jonction(station, serie, entree) :
                 retour = cursor.fetchall()
                 cursor.execute(f"SELECT JONCTION.SERIE_ID FROM JONCTION WHERE JONCTION.STATION_ID = {row[0]}")
                 _serie = cursor.fetchall()
-                # print (f"\tJonction à proximité de la Station_ID: {row[0]}, retour: {str(val)}, serie {serie} - {_serie[0][0]},  entrée {entree} - {retour[0][0]}")
+                # print (f"Jonction à proximité de la Station_ID: {row[0]}, retour: {str(val)}, serie {serie} - {_serie[0][0]},  entrée {entree} - {retour[0][0]}")
                 if (retour[0][0] != entree) and (retour[0][0] != None) :
-                    print (f"\033[36m\t Jonction à la Station_ID: {row[0]} entre les entrées {entree} et {retour[0][0]}\033[0m")
+                    log.info(f"Jonction à la Station_ID: {Colors.ENDC}{row[0]}{Colors.INFO} entre les entrées {Colors.ENDC}{entree}{Colors.INFO} et {Colors.ENDC}{retour[0][0]}")
                     cursor.execute(f"INSERT INTO RESEAU ( STATION_JONC, ENT_1, ENT_2) VALUES (?, ?, ?)", (row[0], entree, retour[0][0]))   
                     conn.commit() 
                 # if _serie[0][0] != serie and (_serie[0][0] != None):
-                    # print (f"\033[34m\tJonction à la Station_ID: {row[0]} entre les series {serie} et {_serie[0][0]}\033[0m")     
+                    # print (f"\033[34m\tJonction à la Station_ID: {row[0]} entre les series {serie} et {_serie[0][0]}{Colors.ENDC}")     
                        
                                  
         cursor.execute(f"SELECT JONCTION.STATION_TYPE FROM JONCTION WHERE JONCTION.STATION_ID = {station}")
@@ -1250,7 +1254,7 @@ def test_jonction(station, serie, entree) :
         val = str(retour[0])
         
         if val == '(None,)' : 
-            #print (f"\tPas de jonction à la Station_ID: {station}, retour: {val}")
+            #print (f"Pas de jonction à la Station_ID: {station}, retour: {val}")
             return False
         else :
             cursor.execute(f"UPDATE JONCTION SET STATION_TYPE = ? WHERE id = ?",  ('jon', station))
@@ -1258,22 +1262,21 @@ def test_jonction(station, serie, entree) :
             retour = cursor.fetchall()
             cursor.execute(f"SELECT JONCTION.SERIE_ID FROM JONCTION WHERE JONCTION.STATION_ID = {station}")
             _serie = cursor.fetchall()
-            # print (f"\tJonction à proximité de la Station_ID: {row[0]}, retour: {str(val)}, serie {serie} - {_serie[0][0]},  entrée {entree} - {retour[0][0]}")
+            # print (f"Jonction à proximité de la Station_ID: {row[0]}, retour: {str(val)}, serie {serie} - {_serie[0][0]},  entrée {entree} - {retour[0][0]}")
             if retour[0][0] != entree :
-                print (f"\033[0m\t Jonction à la Station_ID: {station} entre les entrées {entree} et {retour[0][0]}\033[0m") 
+                log.info(f"Jonction à la Station_ID: {Colors.ENDC}{station}{Colors.INFO} entre les entrées {Colors.ENDC}{entree}{Colors.INFO} et {Colors.ENDC}{retour[0][0]}") 
             if _serie[0][0] != serie :
-                print (f"\033[0m\t Jonction à la Station_ID: {station} entre les series {serie} et {_serie[0][0]}\033[0m")            
+                log.info (f"Jonction à la Station_ID: {Colors.ENDC}{station}{Colors.INFO} entre les series {Colors.ENDC}{serie}{Colors.INFO} et {Colors.ENDC}{_serie[0][0]}")            
             return True
         
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requêtes (test_jonction): {e}\033[0m")
+        log.error(f"Erreur lors de l'exécution de la requêtes (test_jonction): {Colors.ENDC}{e}")
         error_count  += 1    
     
     return
       
 #####################################################################################################################################
 #         Fonction pour exécuter une requête et sauvegarder les résultats dans un fichier texte                                     #
-#                                                                                                                                   #
 #####################################################################################################################################
 def calcul_stats(output_file):
     global error_count
@@ -1281,24 +1284,24 @@ def calcul_stats(output_file):
     global _largeurColTete
     
     try:
-        print(f"\033[1;32mPhase 5: Écriture des statistiques dans fichier \033[0m{safe_relpath(output_file)}")    
+        log.info(f"Phase 5: Écriture des statistiques dans fichier {Colors.ENDC}{safe_relpath(output_file, 2)}")    
        # Enregistrement des résultats dans un fichier texte
         output_file_ligne_md = []
         output_file_ligne_csv = []
             
         for i in range(9): 
-            output_file_ligne_csv.append(titre[i].ljust(120)+"*\n")  
+            output_file_ligne_csv.append(titre[i].ljust(118)+"*\n")  
             
         output_file_ligne_md.extend([
             f"--------------\n",
              f"# {titre[1].strip()[2:]}\n",
-            f"- ** {titre[2].strip()[2:]}**\n",
-            f"- ** {titre[3].strip()[2:]}**\n",
-            f"- ** {titre[4].strip()[2:]}**\n",
-            f"- ** {titre[5].strip()[2:]}**\n",
-            f"- ** {titre[6].strip()[2:]}**\n",
-            f"- ** {titre[7].strip()[2:]}**\n",
-            f"--------------\n",
+            f"- {titre[2].strip()[2:]}\n",
+            f"- {titre[3].strip()[2:]}\n",
+            f"- {titre[4].strip()[2:]}\n",
+            f"- {titre[5].strip()[2:]}\n",
+            f"- {titre[6].strip()[2:]}\n",
+            f"- {titre[7].strip()[2:]}\n",
+            f"--------------\n\n",
         ])
 
         
@@ -1316,18 +1319,17 @@ def calcul_stats(output_file):
         vide ="-".ljust(_largeurCol)
                                                                                                                                                                                                         
         output_file_ligne_csv.append(
-                f"**Développement total centerline:**\t%s\t%s\t%s\t%s\t%s\tDev.(m), Dupl.(m), Surf.(m)\n" 
+                f"**Développement total centerline (m):**\tdéveloppement: %s,\tdupliqué: %s,\tsurface: %s\n" 
                 %(str("{:.2f}".format(results[0][0]).ljust(_largeurCol)), 
                 str("{:.2f}".format(results[0][1]).ljust(_largeurCol)),
                 str("{:.2f}".format(results[0][2]).ljust(_largeurCol)),
-                str(vide), 
-                str(vide)))    
+                ))
 
         output_file_ligne_md.append(
-                    f"**Développement total des centerlines (m):**  "
-                    f", Développement: '{results[0][0]:.2f}'"
-                    f", Dupliqué: '{results[0][1]:.2f}'"
-                    f", Surface: '{results[0][2]:.2f}'\n"
+                    f"**Développement total des centerlines (m):**"
+                    f" développement: `{results[0][0]:.2f}`"
+                    f", dupliqué: `{results[0][1]:.2f}`"
+                    f", surface: `{results[0][2]:.2f}`\n"
                 )
 
         cursor.execute("SELECT COUNT(*) AS nbre FROM JONCTION WHERE STATION_TYPE IS NULL")
@@ -1335,13 +1337,16 @@ def calcul_stats(output_file):
         compteur = int(_compteur[0][0])
         
         if compteur > 0 : # type: ignore
-            output_file_ligne_md.append(f"!!Attention, {compteur} station(s) non comptabilisée(s) et raccordée(s)\n\n")
+            output_file_ligne_md.append(f"!!Attention, `{compteur}` station(s) non comptabilisée(s) et raccordée(s)\n\n")
             output_file_ligne_csv.append(f"Attention, {compteur} station(s) non comptabilisée(s) et raccordée(s)\n\n")
+        else :
+            output_file_ligne_md.append(f"Toutes les stations sont comptabilisées et raccordées\n\n")
+            output_file_ligne_csv.append(f"Toutes les stations sont comptabilisées et raccordées\n\n")
         
         results=sql_bilan_reseaux()
         
-        def format_markdown_row(row_data):
-            return '| ' + ' | '.join(f"{str(item):>10}" for item in row_data) + ' |'
+        # def format_markdown_row(row_data):
+        #     return '| ' + ' | '.join(f"{str(item):>10}" for item in row_data) + ' |'
         
         if results[0][0] != None :# type: ignore
             output_file_ligne_csv.append("Développement total par réseaux\n")
@@ -1351,7 +1356,7 @@ def calcul_stats(output_file):
                 
                 #print('Développement total: ' + formatted_row + 'm') 
                 
-            output_file_ligne_md.append(f"--------------\n")
+            output_file_ligne_md.append(f"\n--------------\n")
             output_file_ligne_md.append("**Développement total par réseaux**\n")    
             
             headers = ["Entrée(s)", "Nbre", "Dev.(m)", "Prof.(m)", "Dupl.(m)", "Surf.(m)", "Visées", "ID Sta.", "Alt. min(m)", "ID Sta.", "Alt. max(m)"]
@@ -1366,7 +1371,7 @@ def calcul_stats(output_file):
         results=sql_bilan_annee()
         
         if results[0][0] != None :# type: ignore
-            output_file_ligne_csv.append("\nDéveloppement total topographié par année(s)**\n") 
+            output_file_ligne_csv.append("\nDéveloppement total topographié par année(s)\n") 
             for row in results: # type: ignore
                 if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :                
                     formatted_row = '\t'.join(map(str, row))
@@ -1385,6 +1390,8 @@ def calcul_stats(output_file):
                     formatted_row = [str(v) for v in row]
                     output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
 
+        
+        output_file_ligne_md.append(f"\n--------------\n")
                 
         Rose(output_file_name_rose)        
         
@@ -1405,14 +1412,14 @@ def calcul_stats(output_file):
             duree_formatee = "{:02}(s)".format(secondes)
             
         if error_count == 0:   
-                output_file_ligne_csv[7] = "*       Durée calcul: " + duree_formatee + " sans erreur"
-                output_file_ligne_md[7] = "- **       Durée calcul : " + duree_formatee + " sans erreur**\n"
-                output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(120)+"*\n"
+                output_file_ligne_csv[7] = "*       Durée calcul : " + duree_formatee + " sans erreur"
+                output_file_ligne_md[7] = "-       Durée calcul : " + duree_formatee + " sans erreur\n"
+                output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(118)+"*\n"
                         
         else :
-                output_file_ligne_csv[7] = "*       Durée calcul: " + duree_formatee + " avec erreur(s): " + str(error_count)
-                output_file_ligne_md[7] = "- **       Durée calcul : ** " + duree_formatee + "!! avec erreur(s): " + str(error_count) + "**\n"
-                output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(120)+"*\n"
+                output_file_ligne_csv[7] = "*       Durée calcul : " + duree_formatee + " avec erreur(s): " + str(error_count)
+                output_file_ligne_md[7] = "-       Durée calcul :  " + duree_formatee + "!! avec erreur(s): " + str(error_count) + "\n"
+                output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(118)+"*\n"
         
         with open(output_file + ".md", 'w',  encoding='utf-8') as file:
             file.writelines(output_file_ligne_md)
@@ -1421,14 +1428,14 @@ def calcul_stats(output_file):
             file.writelines(output_file_ligne_csv)
 
         if error_count == 0 :
-            print(f"\033[1;32mPhase 6: Fin de traitement en \033[0m" + duree_formatee + f"\033[1;32m, résultats enregistrés dans \033[0m{safe_relpath(output_file)}") 
+            log.info(f"Phase 6: Fin de traitement en {Colors.ENDC}" + duree_formatee + f"{Colors.INFO}, résultats enregistrés dans {Colors.ENDC}{safe_relpath(output_file, 2)}") 
         
         else :
-            print(f"\033[1;32mPhase 6: Fin de traitement en \033[0m" + duree_formatee 
-                + f",\033[91m avec \033[0m{error_count}\033[91m erreur(s), \033[1;32mrésultats enregistrés dans \033[0m{safe_relpath(output_file)}")  
+            log.warning(f"Phase 6: Fin de traitement en {Colors.ENDC}" + duree_formatee 
+                + f",{Colors.WARNING} avec {Colors.ENDC}{error_count}{Colors.WARNING} erreur(s), {Colors.INFO}résultats enregistrés dans {Colors.ENDC}{safe_relpath(output_file, 2)}")  
             
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution des requêtes calcul_stats:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution des requêtes calcul_stats:{Colors.ENDC} {e}")
         error_count  += 1
         output_file_ligne_md.append(f"!!! Erreur lors de l'exécution des requêtes calcul_stats: {e}\n")
         output_file_ligne_csv.append(f"Erreur lors de l'exécution des requêtes calcul_stats: {e}\n")
@@ -1442,13 +1449,13 @@ def calcul_stats(output_file):
         return
         
     except FileNotFoundError:
-        print(f"\033[91mErreur d'ouverture du fichier: \033[0m{safe_relpath(output_file)} ")
+        log.error(f"Erreur d'ouverture du fichier: {Colors.ENDC}{safe_relpath(output_file)} ")
         error_count  += 1
         
         return
     
     except Exception as e:
-        print(f"\033[91mErreur lors de l'exécution de calcul_stats:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de calcul_stats:{Colors.ENDC} {e}")
         error_count  += 1
         output_file_ligne_md.append(f"!! Erreur lors de l'exécution de calcul_stats: {e}\n")
         output_file_ligne_csv.append(f"Erreur lors de l'exécution de calcul_stats: {e}\n")
@@ -1464,7 +1471,7 @@ def calcul_stats(output_file):
     return
 
 #####################################################################################################################################
-#        # Requête : Table des entrées  (Liste des entrées avec coordonnées)                                                       #
+#           Requête : Table des entrées  (Liste des entrées avec coordonnées)                                                       #
 #####################################################################################################################################
 def sql_liste_entree():
     global error_count
@@ -1509,39 +1516,39 @@ def sql_liste_entree():
         # result_fix = cursor.fetchall()
         if len(result_ent) == 0 :
             error_count  += 1 
-            print(f"\t \033[91mAttention aucune entrée ou point fix comptabilisé\033[0m")
+            log.warning(f"Attention aucune entrée ou point fix comptabilisé")
         else :
-            print(f"\t \033[32mTable des STATION, entrée et fix nbre: \033[0m{len(result_ent)}")
+            log.info(f"Table des STATION, entrée et fix nbre: {Colors.ENDC}{len(result_ent)}")
         
         return result_ent
     
         # if len(result_ent) == 0:
-        #     print(f"\033[91mPas d'entrées\033[0m")
+        #     print(f"{Colors.RED}Pas d'entrées{Colors.ENDC}")
         #     if len(result_fix) == 0:
-        #         print(f"\033[91mPas de points fixes\033[0m")
+        #         print(f"{Colors.RED}Pas de points fixes{Colors.ENDC}")
         #         return None
         #     else :
-        #         print(f"\tTable des STATION, point fixe nbre: {len(result_fix)}")     
+        #         print(f"Table des STATION, point fixe nbre: {len(result_fix)}")     
         #         return result_fix
         # elif len(result_ent) == len(result_fix) :
-        #     print(f"\tTable des STATION, entrée nbre: {len(result_ent)}")
-        #     # print(f"\tTable des STATION, point fixe nbre: {len(result_fix)}")
+        #     print(f"Table des STATION, entrée nbre: {len(result_ent)}")
+        #     # print(f"Table des STATION, point fixe nbre: {len(result_fix)}")
         #     return result_ent
         # elif len(result_ent) > len(result_fix) :
-        #     print(f"\033[91mA gérer Points fixes > entrées, traitement uniquement des entrées\033[0m")
+        #     print(f"{Colors.RED}A gérer Points fixes > entrées, traitement uniquement des entrées{Colors.ENDC}")
         #     return result_ent
         # elif len(result_ent) < len(result_fix) :
-        #     print(f"\033[91mA gérer Points fixes < entrées, traitement uniquement des points fixes\033[0m")
+        #     print(f"{Colors.RED}A gérer Points fixes < entrées, traitement uniquement des points fixes{Colors.ENDC}")
         #     return result_fix
         
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête 4 (sql_liste_entree):\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête 4 (sql_liste_entree):{Colors.ENDC} {e}")
         error_count  += 1
         return None
     return
 
 #####################################################################################################################################
-#           # Requête : Table des séries vides                                                                                     #
+#              Requête : Table des séries vides                                                                                     #
 #####################################################################################################################################
 def sql_serie_vides():
     global error_count   
@@ -1558,14 +1565,14 @@ def sql_serie_vides():
         return retour
     
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête (sql_serie_vides): {e}\033[0m")
+        log.error(f"Erreur lors de l'exécution de la requête (sql_serie_vides): {Colors.ENDC}{e}")
         error_count  += 1
         return None
     
     return
 
 #####################################################################################################################################
-#           # Requête: From_To (recherche si il y a un départ dans le sens From vers To depuis la station Current_Station_ID)     #
+#               Requête: From_To (recherche si il y a un départ dans le sens From vers To depuis la station Current_Station_ID)     #
 #####################################################################################################################################
 def sql_station_depart(station):
     global error_count   
@@ -1594,18 +1601,18 @@ def sql_station_depart(station):
                         -- AND ( SELECT SHOT.TO_ID FROM SHOT WHERE SHOT.FROM_ID = TO_ID_RESULT)
             """)  
         retour = cursor.fetchall()
-        # if len(retour) == 0 : print(f"\tAucun départ depuis la station: {station}")
+        # if len(retour) == 0 : print(f"Aucun départ depuis la station: {station}")
         return retour
     
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête 6 (sql_station_depart) code:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête 6 (sql_station_depart) code:{Colors.ENDC} {e}")
         error_count  += 1
         return None
     
     return
 
 #####################################################################################################################################
-#           # Requête : To_From (recherche si il y a un départ dans le sens To vers From depuis la station Current_Station_ID)     #
+#              Requête : To_From (recherche si il y a un départ dans le sens To vers From depuis la station Current_Station_ID)     #
 #####################################################################################################################################
 def sql_station_arrivee(station):
     global error_count  
@@ -1634,18 +1641,18 @@ def sql_station_arrivee(station):
                         --AND ( SELECT JONCTION.STATION_TYPE FROM JONCTION WHERE SHOT.TO_ID = FROM_ID_RESULT 
                     """)    
         retour = cursor.fetchall()
-        # if len(retour) == 0 print(f"\tAucune arrivée depuis  la station: {station}")
+        # if len(retour) == 0 print(f"Aucune arrivée depuis  la station: {station}")
         return retour
     
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête 7 (sql_station_arrivee) code:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête 7 (sql_station_arrivee) code:{Colors.ENDC} {e}")
         error_count  += 1
         return None
     
     return
 
 #####################################################################################################################################
-#            #-- Bilan table série                                                                                                  #
+#                Bilan table série                                                                                                  #
 #####################################################################################################################################
 def sql_bilan_serie():
     global error_count
@@ -1668,14 +1675,14 @@ def sql_bilan_serie():
         return retour
     
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête 11 (sql_bilan_serie):\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête 11 (sql_bilan_serie):{Colors.ENDC} {e}")
         error_count  += 1
         return None
     
     return
 
 #####################################################################################################################################
-#            #--  Bilan table série By Réseaux                                                                                      #
+#                 Bilan table série By Réseaux                                                                                      #
 #####################################################################################################################################
 def sql_bilan_reseaux():
     global error_count 
@@ -2333,12 +2340,11 @@ def sql_bilan_reseaux():
         return _retour  # type: ignore
     
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête (sql_bilan_reseaux):\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête (sql_bilan_reseaux):{Colors.ENDC} {e}")
         error_count  += 1
         return retour
     
     return
-
 
 #####################################################################################################################################
 #            Optimisation, création des indexes                                                                                     #
@@ -2396,7 +2402,7 @@ def sql_optimisation():
         return             
     
     except Exception as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête (sql_optimisation):\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête (sql_optimisation):{Colors.ENDC} {e}")
         error_count  += 1
         return 
     
@@ -2404,13 +2410,13 @@ def sql_optimisation():
     return
 
 #####################################################################################################################################
-#            # Clé de tri                                                                                                           #
+#              Clé de tri                                                                                                           #
 #####################################################################################################################################        
 def cle_tri(element):
     return float(element[2])
      
 #####################################################################################################################################
-#            #--  Bilan topo par années                                                                                             #
+#                 Bilan topo par années                                                                                             #
 #####################################################################################################################################
 def sql_bilan_annee():
     global error_count 
@@ -2502,18 +2508,18 @@ def sql_bilan_annee():
         
         
     except sqlite3.Error as e:
-        print(f"\033[91mErreur lors de l'exécution de la requête (sql_bilan_annee):\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de la requête (sql_bilan_annee):{Colors.ENDC} {e}")
         error_count  += 1
         return None
     
     except Exception as e:
-        print(f"\033[91mErreur lors de l'exécution de sql_bilan_annee:\033[0m {e}")
+        log.error(f"Erreur lors de l'exécution de sql_bilan_annee:{Colors.ENDC} {e}")
         error_count  += 1
     
     return None
      
 #####################################################################################################################################
-#            diagramme de "rose"                                                                                                     #
+#            diagramme de "rose"                                                                                                    #
 #####################################################################################################################################     
 def Rose(graph_name, bins = 72):
 	"""
@@ -2648,7 +2654,7 @@ def PlotExploYears(graph_name, rangeyear = [1959, datetime.now().year], systems 
 		if len(systems) > 1:
 			# Check if the number of colors is enough for the number of systems
 			if len(systems)>len(colores):
-				raise NameError('\033[91mERROR:\033[00m Number of colors lower than the number of systems!\n\tedit the code to add colors in the list, or lower the number of systems to plot')
+				raise NameError(f'{Colors.RED}ERROR:Number of colors lower than the number of systems!\n\tedit the code to add colors in the list, or lower the number of systems to plot')
 			# Copy the length column in an other column to trace of it
 			sommeplot[systems[0]] = sommeplot["Longueur"]
 
@@ -2736,94 +2742,7 @@ def PlotExploYears(graph_name, rangeyear = [1959, datetime.now().year], systems 
 
 	return    
      
-#################################################################################################
-# fonction pour réduire l'affichage des chemins long                                            #
-#################################################################################################
-def safe_relpath(path, base_dir=None, max_depth=3, max_name_len=50, prefix="~"):
-    """
-    Retourne un chemin lisible et sûr pour affichage (logs / UI).
 
-    - Compatible Windows / Linux / macOS
-    - Tronque la profondeur du chemin
-    - Tronque le nom de fichier si trop long
-    - Ne lève jamais d'exception
-    """
-
-    try:
-        path = Path(path).expanduser().resolve()
-    except Exception:
-        return str(path)
-
-    try:
-        base = Path(base_dir).expanduser().resolve() if base_dir else Path.cwd().resolve()
-    except Exception:
-        base = None
-
-    name = path.name or str(path)
-    if len(name) > max_name_len:
-        stem = path.stem[: max(1, max_name_len - 6)]
-        name = f"{stem}...{path.suffix}"
-
-    try:
-        if base:
-            rel = path.relative_to(base)
-            parts = list(rel.parts)
-        else:
-            raise ValueError
-    except Exception:
-        parts = list(path.parts)
-
-    if not parts:
-        parts = ["."]
-
-    if isinstance(max_depth, int) and max_depth > 0 and len(parts) > max_depth:
-        parts = parts[-max_depth:]
-        parts.insert(0, prefix)
-
-    if parts and parts[-1] not in (".", os.sep):
-        parts[-1] = name
-
-    try:
-        return os.path.join(*parts)
-    except Exception:
-        return name
-
-#################################################################################################
-# Coloration des messages d'aide d'arg                                                          #
-#################################################################################################
-def colored_help(parser):
-    """
-    Affiche l'aide colorée pour les arguments de la ligne de commande.
-
-    Args:
-        parser (argparse.ArgumentParser): Le parseur d'arguments.
-    Returns:
-        None
-            
-    """
-    # Captures the help output
-    help_text = parser.format_help()
-    
-    # Coloration des différentes parties
-    colored_help_text = help_text.replace(
-        'usage:', f'\033[91musage:\033[0m'
-    ).replace(
-        'options:', f'\033[92moptions:\033[0m'
-    ).replace('positional arguments:', f'\033[94mpositional arguments:\033[0m'
-    ).replace(', --help', f'\033[94m, --help:\033[0m'
-    ).replace('elp:', f'\033[94melp\033[0m')
-
-    # Surligner les arguments
-    for action in parser._actions:
-        if action.option_strings:
-            # Colorer les options (--xyz)
-            for opt in action.option_strings:
-                colored_help_text = colored_help_text.replace(opt, f'\033[94m{opt}\033[0m').replace('--help', f'\033[94m--help:\033[0m')
-    
-    # Imprimer le texte coloré
-    print(colored_help_text)
-    sys.exit(1)
-  
 #####################################################################################################################################
 #                                                                                                                                   #
 #                                                           Main                                                                    #
@@ -2838,6 +2757,7 @@ if __name__ == '__main__':
     input_file_name = ""
     outputs_path = "./Test/"
     inputs_path = "./Test/"
+    
     # if not os.path.exists(outputs_path): os.makedirs(outputs_path)
 
     if os.name == 'posix':  os.system('clear') # Linux, MacOS
@@ -2846,8 +2766,11 @@ if __name__ == '__main__':
     
     maintenant = datetime.now()
     
+    #################################################################################################
+    # Parse arguments                                                                               #
+    #################################################################################################
     parser = argparse.ArgumentParser(
-        description=f"Calcul des statistiques par entrées d'une BD Therion", 
+        description=f"{Colors.HEADER}Calcul des statistiques par entrées d'une BD Therion", 
         formatter_class=argparse.RawTextHelpFormatter)
     parser.print_help = colored_help.__get__(parser)
     parser.add_argument(
@@ -2860,11 +2783,12 @@ if __name__ == '__main__':
         )
     )
     
-    parser.add_argument("--file", help="Chemin vers le fichier SQL d'entrée (pas de d'option : fenêtre de choix)")
-    parser.epilog = (f"Commande therion (fichier .thconfig) : export database -o Outputs/database.sql")
+    parser.add_argument("--file", help="Chemin vers le fichier SQL d'entrée (par défaut : fenêtre de choix)")
+    parser.epilog = (f"{Colors.HEADER}Pour générer fichier sql, commande therion dans .thconfig -> {Colors.ENDC}export database -o Outputs/database.sql")
    
     # Analyser les arguments de ligne de commande
     args = parser.parse_args()
+    
 
     if not args.file:    # Si aucun fichier n'est fourni en ligne de commande, ouvrir une fenêtre Tkinter pour sélectionner un fichier
         # input_file = "rabbit.sql"                        # Erreur car pas de point fix ou d'entrée python
@@ -2875,7 +2799,7 @@ if __name__ == '__main__':
         input_file_name = filedialog.askopenfilename( title="Sélectionnez le fichier SQL", filetypes=(("Fichiers SQL", "*.sql"), ("Tous les fichiers", "*.*"))        )
         
         if not input_file_name:
-            print("Aucun fichier sélectionné. Le programme va se terminer.")
+            print(f"{Colors.ERROR}Aucun fichier sélectionné. Le programme va se terminer.")
             sys.exit()    
         
         outputs_path = os.path.dirname(input_file_name) + "/"
@@ -2886,41 +2810,50 @@ if __name__ == '__main__':
         input_file_name = args.file
         # print("Le paramètre fourni est:", input_file_name) 
         if os.path.isfile(input_file_name) is False :
-            print(f"\033[91mErreur : fichier \033[0m{input_file_name}\033[91m inexistant\033[0m")      
-            print(f"\033[92mCommande : \033[0mpython pythStat.py votre_fichier_therion.sql")
+            print(f"{Colors.ERROR}Erreur : fichier {Colors.ENDC}{input_file_name}{Colors.ERROR} inexistant{Colors.ENDC}")      
+            print(f"{Colors.ERROR}Commande : {Colors.ENDC}python pythStat.py -file votre_fichier_therion.sql")
             sys.exit()  
+        
         else :
             outputs_path = os.path.dirname(input_file_name) + "/"
             input_file = os.path.basename(input_file_name)
             if os.name == 'posix':  os.system('clear') # Linux, MacOS
+            
             elif os.name == 'nt':  os.system('cls')# Windows
+            
             else: print("\n" * 100)
         
-
-    outputfolder = outputs_path + "stat_" + input_file[:-4] + "_" + maintenant.strftime("%Y-%m-%d") + "/"
+    outputfolder = outputs_path + "Stats_" + input_file[:-4] + "_" + maintenant.strftime("%Y-%m-%d") + "/"
     
     if not os.path.exists(outputfolder): os.makedirs(outputfolder)
-            
-    output_file_name = outputfolder + input_file[:-4]+"_stats"
-    output_file_name_rose = outputfolder + input_file[:-4]+"_rose.pdf"
-    output_file_name_histo = outputfolder + input_file[:-4]+"_histo.pdf"
-    output_file_name_year = outputfolder + input_file[:-4]+"_year"
-    imported_database = outputfolder + input_file[:-4]+"_stats.db"
-
-    _titre =['\033[1;32m************************************************************************************************************************\033[0m', 
-            '\033[1;32m* Calcul des statistiques par entrées d\'une BD Therion\033[0m',
-            '\033[1;32m*       Script pythStat par alexandre.pont@yahoo.fr\033[0m',
-            '\033[1;32m*       Version : \033[0m' + Version,
-            '\033[1;32m*       Fichier source : \033[0m' + safe_relpath(input_file_name),           
-            '\033[1;32m*       Dossier destination : \033[0m' + safe_relpath(outputfolder),
-            '\033[1;32m*       Date : \033[0m' + maintenant.strftime("%Y-%m-%d %H:%M:%S"), 
-            '\033[1;32m*      \033[0m', 
-            '\033[1;32m************************************************************************************************************************\033[0m']
-
-
-    for i in range(9): print(_titre[i].ljust(131)+"\033[1;32m*\033[0m")
     
-    titre = [ligne.replace("\033[1;32m", "").replace("\033[0m", "") for ligne in _titre]  
+    output_file_name_log = outputfolder + input_file[:-4] + "_log.log"         
+    output_file_name = outputfolder + input_file[:-4] + "_stats"
+    output_file_name_rose = outputfolder + input_file[:-4] + "_rose.pdf"
+    output_file_name_histo = outputfolder + input_file[:-4] + "_histo.pdf"
+    output_file_name_year = outputfolder + input_file[:-4] + "_year"
+    imported_database = outputfolder + input_file[:-4] + "_stats.db"
+    
+    log = setup_logger(output_file_name_log, globalDat.debug_log)
+    
+    #################################################################################################
+    # titre                                                                                         #
+    #################################################################################################
+
+    _titre =[f'{Colors.MAGENTA}{Colors.BOLD}**********************************************************************************************************************{Colors.ENDC}', 
+            f'{Colors.MAGENTA}{Colors.BOLD}* Calcul des statistiques par entrées d\'une BD Therion{Colors.ENDC}  ',
+            f'{Colors.MAGENTA}{Colors.BOLD}*       Script pythStat par : {Colors.ENDC}alexandre.pont@yahoo.fr  ',
+            f'{Colors.MAGENTA}{Colors.BOLD}*       Version : {Colors.ENDC}{globalDat.Version}  ',
+            f'{Colors.MAGENTA}{Colors.BOLD}*       Fichier source : {Colors.ENDC}{safe_relpath(input_file_name)}  ',           
+            f'{Colors.MAGENTA}{Colors.BOLD}*       Dossier destination : {Colors.ENDC}{safe_relpath(outputfolder)}  ',
+            f'{Colors.MAGENTA}{Colors.BOLD}*       Date : {Colors.ENDC}{maintenant.strftime("%Y-%m-%d %H:%M:%S")}  ', 
+            f'{Colors.MAGENTA}{Colors.BOLD}*      {Colors.ENDC}  ', 
+            f'{Colors.MAGENTA}{Colors.BOLD}**********************************************************************************************************************{Colors.ENDC}']
+
+
+    for i in range(9): log.info(_titre[i].ljust(131)+f"{Colors.MAGENTA}{Colors.BOLD}*{Colors.ENDC}")
+    
+    titre = [ligne.replace(f"{Colors.MAGENTA}{Colors.BOLD}", "").replace(f"{Colors.ENDC}", "") for ligne in _titre]  
 
     if args.option == "sync" : 
         importation_sql_data(input_file_name)
