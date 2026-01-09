@@ -91,3 +91,148 @@ on 31834: 2026-01-09 11:18:37,801 - INFO - Jonction à la Station_ID: 25261 entr
 2026-01-09 11:23:05,713 - INFO - Phase 5: Écriture des statistiques dans fichier ~\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09\database_Synthese-PSM_LARRA_stats
 2026-01-09 11:25:20,502 - INFO - Table des STATION, entrée et fix nbre: 193
 2026-01-09 11:27:11,770 - WARNING - Phase 6: Fin de traitement en 01(h)02(m)28(s), avec 1 erreur(s), résultats enregistrés dans ~\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09\database_Synthese-PSM_LARRA_stats
+2026-01-09 12:07:19,363 - INFO - ***********************************************************************************************************************
+2026-01-09 12:07:19,364 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-01-09 12:07:19,364 - INFO - *       Script pythStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-01-09 12:07:19,364 - INFO - *       Version : 2026.01.09                                                                                          *
+2026-01-09 12:07:19,364 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql                                 *
+2026-01-09 12:07:19,365 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09               *
+2026-01-09 12:07:19,365 - INFO - *       Date : 2026-01-09 12:07:15                                                                                    *
+2026-01-09 12:07:19,365 - INFO - *                                                                                                                     *
+2026-01-09 12:07:19,365 - INFO - ***********************************************************************************************************************
+2026-01-09 12:07:19,366 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql dans: ~\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09\database_Synthese-PSM_LARRA_stats.db
+2026-01-09 12:07:37,848 - INFO - ***********************************************************************************************************************
+2026-01-09 12:07:37,848 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-01-09 12:07:37,849 - INFO - *       Script pythStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-01-09 12:07:37,849 - INFO - *       Version : 2026.01.09                                                                                          *
+2026-01-09 12:07:37,849 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql                                 *
+2026-01-09 12:07:37,850 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09               *
+2026-01-09 12:07:37,850 - INFO - *       Date : 2026-01-09 12:07:35                                                                                    *
+2026-01-09 12:07:37,850 - INFO - *                                                                                                                     *
+2026-01-09 12:07:37,850 - INFO - ***********************************************************************************************************************
+2026-01-09 12:07:37,852 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql dans: ~\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09\database_Synthese-PSM_LARRA_stats.db
+2026-01-09 12:39:12,186 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-01-09 12:39:12,541 - INFO - Jonction de SHOT equates nbre: 2572
+2026-01-09 12:41:02,575 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s) nbre: 1688
+2026-01-09 13:55:25,160 - INFO - ***********************************************************************************************************************
+2026-01-09 13:55:25,162 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-01-09 13:55:25,163 - INFO - *       Script pythStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-01-09 13:55:25,163 - INFO - *       Version : 2026.01.09                                                                                          *
+2026-01-09 13:55:25,163 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql                                 *
+2026-01-09 13:55:25,163 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09               *
+2026-01-09 13:55:25,163 - INFO - *       Date : 2026-01-09 13:55:22                                                                                    *
+2026-01-09 13:55:25,164 - INFO - *                                                                                                                     *
+2026-01-09 13:55:25,164 - INFO - ***********************************************************************************************************************
+2026-01-09 13:55:47,004 - INFO - ***********************************************************************************************************************
+2026-01-09 13:55:47,004 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-01-09 13:55:47,004 - INFO - *       Script pythStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-01-09 13:55:47,004 - INFO - *       Version : 2026.01.09                                                                                          *
+2026-01-09 13:55:47,004 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql                                 *
+2026-01-09 13:55:47,005 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09               *
+2026-01-09 13:55:47,005 - INFO - *       Date : 2026-01-09 13:55:44                                                                                    *
+2026-01-09 13:55:47,005 - INFO - *                                                                                                                     *
+2026-01-09 13:55:47,005 - INFO - ***********************************************************************************************************************
+2026-01-09 13:55:47,006 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql dans: ~\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09\database_Synthese-PSM_LARRA_stats.db
+2026-01-09 14:25:01,006 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-01-09 14:25:01,431 - INFO - Jonction de SHOT equates nbre: 2572
+2026-01-09 14:26:39,678 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s) nbre: 1688
+2026-01-09 14:33:09,628 - INFO - ***********************************************************************************************************************
+2026-01-09 14:33:09,629 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-01-09 14:33:09,630 - INFO - *       Script pythStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-01-09 14:33:09,630 - INFO - *       Version : 2026.01.09                                                                                          *
+2026-01-09 14:33:09,630 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql                                 *
+2026-01-09 14:33:09,630 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09               *
+2026-01-09 14:33:09,631 - INFO - *       Date : 2026-01-09 14:33:06                                                                                    *
+2026-01-09 14:33:09,631 - INFO - *                                                                                                                     *
+2026-01-09 14:33:09,631 - INFO - ***********************************************************************************************************************
+2026-01-09 14:33:18,942 - INFO - ***********************************************************************************************************************
+2026-01-09 14:33:18,942 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-01-09 14:33:18,943 - INFO - *       Script pythStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-01-09 14:33:18,943 - INFO - *       Version : 2026.01.09                                                                                          *
+2026-01-09 14:33:18,943 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql                                 *
+2026-01-09 14:33:18,943 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09               *
+2026-01-09 14:33:18,943 - INFO - *       Date : 2026-01-09 14:33:16                                                                                    *
+2026-01-09 14:33:18,944 - INFO - *                                                                                                                     *
+2026-01-09 14:33:18,944 - INFO - ***********************************************************************************************************************
+2026-01-09 14:33:18,945 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql dans: ~\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09\database_Synthese-PSM_LARRA_stats.db
+2026-01-09 15:09:50,403 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-01-09 15:09:50,941 - INFO - Jonction de SHOT equates nbre: 2572
+2026-01-09 15:11:27,850 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s) nbre: 1688
+2026-01-09 15:11:28,007 - WARNING - Table des SHOT, visées en double à traiter à la source : [(1637, None, 2.77)], [(1647, None, 2.77)], station crée : 67391, long. en double : 2.77 m
+Full name : Explo_01_2023_08_09.Explo_01_2023_08_09.AN326-Sima_del_Liron.Synthese-PSM_LARRA, and : Explo_02_2024_06_21.Explo_02_2024_06_21.AN326-Sima_del_Liron.Synthese-PSM_LARRA
+2026-01-09 15:11:28,141 - WARNING - Table des SHOT, visées en double à traiter à la source : [(9824, 'srf', 8.76)], [(14684, 'srf', 8.73)], station crée : 67394, long. en double : 11.50 m
+Full name : Explo_64_2004_08_06.Explo_64_2004_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, and : Explo_301_2015_08_16.Explo_301_2015_08_16.Complexe_Anialarra.Synthese-PSM_LARRA
+2026-01-09 15:11:28,434 - WARNING - Table des SHOT, visées en double à traiter à la source : [(51351, None, 17.6)], [(51469, None, 18.0)], station crée : 67400, long. en double : 29.50 m
+Full name : Explo_06_2014_05_16.Explo_06_2014_05_16.Grotte_aux_lacs.Synthese-PSM_LARRA, and : Explo_11_2014_09_22.Explo_11_2014_09_22.Grotte_aux_lacs.Synthese-PSM_LARRA
+2026-01-09 15:11:28,493 - WARNING - Table des SHOT, visées en double à traiter à la source : [(51407, None, 6.5)], [(51441, None, 10.0)], station crée : 67401, long. en double : 39.50 m
+Full name : Explo_08_2014_07_18.Explo_08_2014_07_18.Grotte_aux_lacs.Synthese-PSM_LARRA, and : Explo_10_2014_09_22.Explo_10_2014_09_22.Grotte_aux_lacs.Synthese-PSM_LARRA
+2026-01-09 15:11:28,500 - INFO - Table des SHOT, visées dupliquées traités nbre: 11
+2026-01-09 15:11:28,690 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-01-09 15:11:28,788 - INFO - Marquage des visées et des stations d'habillage nbre: 19045
+2026-01-09 15:12:20,494 - INFO - Table des STATION, entrée et fix nbre: 193
+2026-01-09 15:12:20,497 - INFO - Phase 3: Remplissage des tables d'après les 193 entrée(s)
+2026-01-09 15:12:22,903 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 193 entrée(s)
+on 1423: 2026-01-09 15:12:48,168 - INFO - Jonction à la Station_ID: 49336 entre les entrées 49457 et 49328
+on 3315: 2026-01-09 15:13:06,892 - INFO - Jonction à la Station_ID: 229 entre les entrées 218 et 834
+on 3343: 2026-01-09 15:13:07,565 - INFO - Jonction à la Station_ID: 3525 entre les entrées 3455 et 3525
+on 6314: 2026-01-09 15:13:36,977 - INFO - Jonction à la Station_ID: 1666 entre les entrées 1613 et 2784
+on 9044: 2026-01-09 15:14:31,711 - INFO - Jonction à la Station_ID: 3348 entre les entrées 3358 et 3397
+on 9999: 2026-01-09 15:14:54,177 - INFO - Jonction à la Station_ID: 40146 entre les entrées 38328 et 39667
+on 12262: 2026-01-09 15:15:36,843 - INFO - Jonction à la Station_ID: 47397 entre les entrées 48105 et 47361
+on 12737: 2026-01-09 15:15:43,932 - INFO - Jonction à la Station_ID: 9041 entre les entrées 10902 et 8905
+on 15193: 2026-01-09 15:16:34,577 - INFO - Jonction à la Station_ID: 12059 entre les entrées 10902 et 12987
+on 16399: 2026-01-09 15:16:55,056 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16399: 2026-01-09 15:16:55,068 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16453: 2026-01-09 15:16:57,402 - INFO - Jonction à la Station_ID: 9547 entre les entrées 9884 et 9366
+on 17153: 2026-01-09 15:17:14,221 - INFO - Jonction à la Station_ID: 49863 entre les entrées 48105 et 49804
+on 17700: 2026-01-09 15:17:24,336 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 17701: 2026-01-09 15:17:24,420 - INFO - Jonction à la Station_ID: 9338 entre les entrées 10902 et 14852
+on 17701: 2026-01-09 15:17:24,478 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 18840: 2026-01-09 15:17:44,051 - INFO - Jonction à la Station_ID: 12771 entre les entrées 14852 et 9366
+on 18914: 2026-01-09 15:17:46,439 - INFO - Jonction à la Station_ID: 17222 entre les entrées 16774 et 10902
+on 21020: 2026-01-09 15:18:26,875 - INFO - Jonction à la Station_ID: 15570 entre les entrées 8905 et 9366
+on 23018: 2026-01-09 15:19:07,032 - INFO - Jonction à la Station_ID: 15611 entre les entrées 9366 et 8905
+on 23099: 2026-01-09 15:19:09,971 - INFO - Jonction à la Station_ID: 15557 entre les entrées 8905 et 9366
+on 23104: 2026-01-09 15:19:10,017 - INFO - Jonction à la Station_ID: 9477 entre les entrées 8905 et 14852
+on 23106: 2026-01-09 15:19:10,217 - INFO - Jonction à la Station_ID: 9834 entre les entrées 14852 et 11338
+on 23950: 2026-01-09 15:19:30,542 - INFO - Jonction à la Station_ID: 47028 entre les entrées 49090 et 48105
+on 24942: 2026-01-09 15:19:48,392 - INFO - Jonction à la Station_ID: 16242 entre les entrées 15665 et 14852
+on 25665: 2026-01-09 15:20:06,422 - INFO - Jonction à la Station_ID: 16259 entre les entrées 10902 et 14852
+on 28197: 2026-01-09 15:20:55,636 - INFO - Jonction à la Station_ID: 9522 entre les entrées 16789 et 9366
+on 28370: 2026-01-09 15:21:00,849 - INFO - Jonction à la Station_ID: 44663 entre les entrées 49457 et 43629
+on 29811: 2026-01-09 15:21:28,902 - INFO - Jonction à la Station_ID: 44815 entre les entrées 48105 et 49457
+on 30890: 2026-01-09 15:21:48,560 - INFO - Jonction à la Station_ID: 16483 entre les entrées 15665 et 10902
+on 31336: 2026-01-09 15:22:01,044 - INFO - Jonction à la Station_ID: 17453 entre les entrées 19538 et 17667
+on 31834: 2026-01-09 15:22:08,457 - INFO - Jonction à la Station_ID: 25261 entre les entrées 27454 et 24729
+2026-01-09 15:26:29,811 - INFO - Intégrations des visées orphelines (entre 2 stations existantes) nbre: 338
+2026-01-09 15:26:35,009 - INFO - Réseau: 1, entrées jonctionnées: 10, [11338, 14852, 8905, 9366, 10902, 15665, 9884, 16789, 12987, 16774]
+2026-01-09 15:26:35,083 - INFO - Réseau: 2, entrées jonctionnées: 2, [3397, 3358]
+2026-01-09 15:26:35,335 - INFO - Réseau: 3, entrées jonctionnées: 7, [43629, 49457, 48105, 49328, 47361, 49090, 49804]
+2026-01-09 15:26:35,416 - INFO - Réseau: 4, entrées jonctionnées: 2, [1613, 2784]
+2026-01-09 15:26:35,507 - INFO - Réseau: 5, entrées jonctionnées: 2, [3455, 3525]
+2026-01-09 15:26:36,065 - INFO - Réseau: 6, entrées jonctionnées: 2, [24729, 27454]
+2026-01-09 15:26:36,149 - INFO - Réseau: 7, entrées jonctionnées: 2, [834, 218]
+2026-01-09 15:26:36,229 - INFO - Réseau: 8, entrées jonctionnées: 2, [38328, 39667]
+2026-01-09 15:26:36,337 - INFO - Réseau: 9, entrées jonctionnées: 2, [17667, 19538]
+2026-01-09 15:26:36,337 - WARNING - Phase 4: Fin du remplissage des tables, attention 82 station(s) non comptabilisé(s)
+2026-01-09 15:26:36,475 - INFO - Phase 5: Écriture des statistiques dans fichier ~\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09\database_Synthese-PSM_LARRA_stats
+2026-01-09 15:28:16,694 - INFO - Table des STATION, entrée et fix nbre: 193
+2026-01-09 15:29:45,823 - WARNING - Phase 6: Fin de traitement en 56(m)29(s), avec 1 erreur(s), résultats enregistrés dans ~\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09\database_Synthese-PSM_LARRA_stats
+2026-01-09 15:51:31,209 - INFO - ***********************************************************************************************************************
+2026-01-09 15:51:31,209 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-01-09 15:51:31,210 - INFO - *       Script pythStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-01-09 15:51:31,210 - INFO - *       Version : 2026.01.09                                                                                          *
+2026-01-09 15:51:31,210 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql                                 *
+2026-01-09 15:51:31,210 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09               *
+2026-01-09 15:51:31,210 - INFO - *       Date : 2026-01-09 15:51:27                                                                                    *
+2026-01-09 15:51:31,210 - INFO - *                                                                                                                     *
+2026-01-09 15:51:31,211 - INFO - ***********************************************************************************************************************
+2026-01-09 15:52:55,564 - INFO - ***********************************************************************************************************************
+2026-01-09 15:52:55,565 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-01-09 15:52:55,565 - INFO - *       Script pythStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-01-09 15:52:55,565 - INFO - *       Version : 2026.01.09                                                                                          *
+2026-01-09 15:52:55,565 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql                                 *
+2026-01-09 15:52:55,566 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09               *
+2026-01-09 15:52:55,566 - INFO - *       Date : 2026-01-09 15:52:52                                                                                    *
+2026-01-09 15:52:55,566 - INFO - *                                                                                                                     *
+2026-01-09 15:52:55,566 - INFO - ***********************************************************************************************************************

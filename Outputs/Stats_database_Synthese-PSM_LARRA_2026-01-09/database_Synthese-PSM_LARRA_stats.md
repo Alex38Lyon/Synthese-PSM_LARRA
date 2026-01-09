@@ -4,8 +4,8 @@
 -       Version : 2026.01.09
 -       Fichier source : ~\Synthese-PSM_LARRA\Outputs\database_Synthese-PSM_LARRA.sql
 -       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\Stats_database_Synthese-PSM_LARRA_2026-01-09
--       Date : 2026-01-09 10:24:42
--       Durée calcul :  01(h)02(m)28(s)!! avec erreur(s): 1
+-       Date : 2026-01-09 14:33:16
+-       Durée calcul :  56(m)29(s)!! avec erreur(s): 1
 --------------
 
 **Développement total des centerlines (m):** développement: `340754.54`, dupliqué: `13027.78`, surface: `10574.75`

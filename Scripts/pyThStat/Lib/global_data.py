@@ -10,5 +10,5 @@ Version = "2026.01.09"
 
 #################################################################################################
 
-error_count = 0                # Compteur d'erreurs
+# error_count = 0                # Compteur d'erreurs
 debug_log = False

@@ -690,9 +690,13 @@ def duplicate_SHOT():
                 cursor.execute(f"INSERT INTO STATION (ID, NAME) VALUES ({_Current_Station_ID}, 'isu')")   
                 cursor.execute(f"UPDATE SHOT SET TO_ID = {_Current_Station_ID} WHERE SHOT.ID = {shot_flag2[0][0]}")
                 cursor.execute(f"INSERT INTO JONCTION (STATION_ID) VALUES ({_Current_Station_ID})")  
+                
                 log.warning(f"Table des SHOT, visées en double à traiter à la source : {Colors.ENDC}{shot_flag}{Colors.WARNING}, {Colors.ENDC}{shot_flag2}" +
                       f"{Colors.WARNING}, station crée : {Colors.ENDC}{_Current_Station_ID}" + 
-                      f"{Colors.WARNING}, long. en double : {Colors.ENDC}{"{:.2f}".format(_total_length_err)}{Colors.WARNING} m")
+                      f"{Colors.WARNING}, long. en double : {Colors.ENDC}{"{:.2f}".format(_total_length_err)}{Colors.WARNING} m" +
+                      f"{Colors.WARNING}\nFull name : {Colors.ENDC}{sql_shot_full_name(shot_flag[0][0])}" +
+                      f"{Colors.WARNING}, and : {Colors.ENDC}{sql_shot_full_name(shot_flag2[0][0])}"
+                      )
                                 
             conn.commit()
             
@@ -1568,6 +1572,47 @@ def sql_serie_vides():
         log.error(f"Erreur lors de l'exécution de la requête (sql_serie_vides): {Colors.ENDC}{e}")
         error_count  += 1
         return None
+    
+    return
+
+#####################################################################################################################################
+#              Requête : Table des séries vides                                                                                     #
+#####################################################################################################################################
+def sql_shot_full_name(station):
+    global error_count   
+    
+    try:    
+        sql_query = (f"""
+                        SELECT
+                            s.ID              AS shot_id,
+                            st_from.NAME      AS from_name, 
+                            st_to.NAME        AS to_name, 
+                            sv.FULL_NAME      AS survey_full_name
+                        FROM SHOT s
+                        JOIN CENTRELINE c
+                            ON c.ID = s.CENTRELINE_ID
+                        JOIN SURVEY sv
+                            ON sv.ID = c.SURVEY_ID
+                        JOIN STATION st_from
+                            ON st_from.ID = s.FROM_ID 
+                        JOIN STATION st_to
+                            ON st_to.ID = s.TO_ID 	
+                        WHERE s.ID = {station};
+                    """)
+    
+        cursor.execute(sql_query)     # Exécution de la requête SQL
+        retour = cursor.fetchall()
+        
+        if len(retour) == 0 :
+            log.warning(f"Aucune information sur la station ID (sql_shot_full_name){Colors.ENDC}{station}")
+            return ""
+    
+        return  f"{retour[0][1]} {retour[0][2]} @ {retour[0][3]}"
+    
+    except sqlite3.Error as e:
+        log.error(f"Erreur lors de l'exécution de la requête (sql_shot_full_name): {Colors.ENDC}{e}")
+        error_count  += 1
+        return ""
     
     return
 
@@ -2742,7 +2787,8 @@ def PlotExploYears(graph_name, rangeyear = [1959, datetime.now().year], systems 
 
 	return    
      
-
+     
+     
 #####################################################################################################################################
 #                                                                                                                                   #
 #                                                           Main                                                                    #
@@ -2776,7 +2822,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--option',
         default="sync",
-        choices=["sync", "update"],
+        choices=["sync", "update", "test"],
         help=(
             f"Options d'execution de pythStat.py\nsync\t-> Synchronisation des données depuis une nouvelle base de données(défaut)\n"
             f"update\t-> Mise à jour des statistiques de la base de données\n"
@@ -2873,6 +2919,15 @@ if __name__ == '__main__':
         cursor = conn.cursor()
         
         calcul_stats(output_file_name)
+        
+    elif args.option == "test" :
+        
+        conn = sqlite3.connect(imported_database)  # Connexion à la base de données SQLite
+        cursor = conn.cursor()
+        
+        value = sql_shot_full_name("16883")
+        
+        print(value)
     
     conn.close()
     
