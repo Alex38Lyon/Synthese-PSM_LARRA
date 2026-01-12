@@ -1,6 +1,14 @@
 Scripts for Therion
 ====================
 
+pyThtoQGis
+---------
+
+Script to convert (.shp) Therion file in (.qkpg) files for Qgis 
+
+Usage : python pyThtoGgis.py
+
+
 pyThtoDat
 ---------
 

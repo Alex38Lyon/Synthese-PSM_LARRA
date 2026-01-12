@@ -3,6 +3,15 @@ Scripts pour Therion
 
 🇬🇧 [Read in English](./README.en.md)
 
+pyThtoQGis
+---------
+
+Script pour convertir les fichiers (.shp) produit par Therion en fichiers (.qkpg) pour Qgis 
+
+Usage : python pyThtoGgis.py
+
+
+
 pyThtoDat
 ---------
 

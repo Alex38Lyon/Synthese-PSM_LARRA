@@ -10,8 +10,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	plan_BB09@BB09
 	break
 	plan_BB26@BB26
-	break
-	plan_BB27@BB27
+	# break
+	# plan_BB27@BB27
 	break
 
 	# MP-Grotte_de_Alhais-Plan-tot@Grotte_de_Alhais
