@@ -237,14 +237,14 @@ def shp2gpkg(pathshp, infile, outputspath, outfile ):
 
                 # Vérification que le driver GPKG est disponible
                 if 'GPKG' not in fiona.supported_drivers:
-                    raise RuntimeError(f"{Colors.ERROR}Error: The GPKG driver is not supported by Fiona{Colors.ENDC}")
+                    raise RuntimeError(f"{Colors.ERROR}Error, the GPKG driver is not supported by Fiona")
 
                 # Création du fichier GeoPackage
                 with fiona.open( output_gpkg, 'w', driver='GPKG', schema=source.schema, crs=source.crs, encoding='utf-8') as destination:
                     for feature in source:
                         destination.write(feature)
 
-            print(f'{Colors.GREEN}Conversion to GPKG OK, {Colors.GREEN} file : {Colors.ENDC}{pathshp}{infile}.shp{Colors.GREEN} to : {Colors.ENDC}{outputspath}{outfile}.gpkg, type {geometry_type} : {num_features}')
+            print(f'{Colors.GREEN}Conversion to GPKG OK, {Colors.GREEN}file : {Colors.ENDC}{pathshp}{infile}.shp{Colors.GREEN} to : {Colors.ENDC}{outputspath}{outfile}.gpkg{Colors.GREEN}, type {Colors.ENDC}{geometry_type}{Colors.GREEN} : {Colors.ENDC}{num_features}')
 
 
     except FileNotFoundError as e:
@@ -479,7 +479,7 @@ def fix_geometries(input_shp, output_shp):
                         print(f"{Colors.WARNING}Correction issue{Colors.ERROR}, file {Colors.ENDC}{input_shp}{Colors.ERROR} saved as: {Colors.ENDC}{output_shp}{Colors.ERROR} Erreur type : {Colors.ENDC}{error_type} : {len(indices)}{Colors.ERROR} occurrences{Colors.ENDC}")
         
         else:
-            print(f"{Colors.ERROR}Error: No valid features found in {Colors.ENDC}{input_shp}.{Colors.ERROR}No file generated.{Colors.ENDC}")
+            print(f"{Colors.ERROR}Error, no valid features found in {Colors.ENDC}{input_shp}.{Colors.ERROR} No file generated.{Colors.ENDC}")
 
         # Display the summary
         if modifications !=0 : print(f"{Colors.WARNING}Total number of geometries ignored: {Colors.ENDC}{modifications}")
@@ -511,6 +511,10 @@ def ThtoQGis(pathshp, outputspath):
         file_list = ['outline2d', 'lines2d', 'areas2d', 'points2d']
         areaOK = True
     
+    elif  os.path.isfile(pathshp + 'walls3d.shp') :
+        file_list = ['outline2d', 'lines2d', 'points2d', 'walls3d']
+        areaOK = False
+        
     else :
         file_list = ['outline2d', 'lines2d', 'points2d']
         areaOK = False
@@ -633,6 +637,7 @@ if __name__ == u'__main__':
     
     if args.option == "auto" : 
         
+        print(f'{Colors.HEADER}        auto mode')
         print(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{globalDat.pathshp}')
         print(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
         print(f'{Colors.HEADER}*********************************************************************************************************')
@@ -651,7 +656,7 @@ if __name__ == u'__main__':
         
     
         input_folder = input_folder_name + "\\"
-        
+        print(f'{Colors.HEADER}        manual mode')
         print(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{safe_relpath(input_folder)}')
         print(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
         print(f'{Colors.HEADER}****************************************************************')
@@ -660,6 +665,17 @@ if __name__ == u'__main__':
         
     
     elif args.option == "test" :
-        exit(1)
+        print(f'{Colors.HEADER}        test mode')
+        print(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{globalDat.pathshp}')
+        print(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
+        print(f'{Colors.HEADER}****************************************************************')
+        
+        fname = "walls3d"
+        shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
+        
+        fname = "shots3d"
+        shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
+        
 
 
+ 

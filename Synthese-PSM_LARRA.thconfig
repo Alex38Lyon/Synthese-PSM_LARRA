@@ -272,8 +272,10 @@ export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_L
 
 # Export du fichier 3d pour Loch
 export model -enable all -o Outputs/Synthese-PSM_LARRA.lox
-export model -enable all -o Outputs/Synthese-PSM_LARRA.3d
+# export model -enable all -o Outputs/Synthese-PSM_LARRA.dxf
 export model -enable all -o Outputs/Synthese-PSM_LARRA.kml
+# export model -enable all -o Outputs/Synthese-PSM_LARRA.3d
+# export model -enable all -o Outputs/Synthese-PSM_LARRA.plt
 
 # Export de la database sql
 # export des statistiques de l'ensemble de la cavité
@@ -284,11 +286,11 @@ export database -fmt sql -o Outputs/DB_Synthese-PSM_LARRA.sql
 # Export des fichiers ESRI
 export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
 export model -fmt esri -o Outputs/SHP/ -enc UTF-8
-export map -proj plan -fmt esri -o Outputs/SHP/therion -layout my_layout -enc ASCII
+# export map -proj plan -fmt esri -o Outputs/SHP/therion -layout my_layout -enc ASCII
 
 # Export des fichiers kml
- export map -proj plan -fmt kml -o Outputs/Synthese-PSM_LARRA.kml -layout layout-kml
- export model -fmt kml -o Outputs/Synthese-PSM_LARRA-model.kml -enable all
- export model -enable all -o Outputs/Synthese-PSM_LARRA-3D.kml
+ # export map -proj plan -fmt kml -o Outputs/Synthese-PSM_LARRA.kml -layout layout-kml
+ # export model -fmt kml -o Outputs/Synthese-PSM_LARRA-model.kml -enable all
+ # export model -enable all -o Outputs/Synthese-PSM_LARRA-3D.kml
  export cave-list -location on -o Outputs/Synthese-PSM_LARRA-Cave-list.html
  export survey-list -location on -o Outputs/Synthese-PSM_LARRA-Surveys.html

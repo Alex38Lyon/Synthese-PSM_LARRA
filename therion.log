@@ -642,7 +642,7 @@ S  1.5e+03 SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA ()
 writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  12 JAN 2026 18:52
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  13 JAN 2026 18:18
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -866,7 +866,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  12 JAN 2026 18:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  13 JAN 2026 18:18
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -999,8 +999,8 @@ C:\Program Files\Therion\therion.exe: warning -- SP-Explo_29_2022_12_03_01@Explo
 ...............
 C:\Program Files\Therion\therion.exe: warning -- SP-L5_02@Explo_13_2025_08_10.L5.Synthese-PSM_LARRA -- invalid scrap outline
 .................................................................... done
-writing Outputs/Synthese-PSM_LARRA.3d ... done
 writing Outputs/Synthese-PSM_LARRA.kml ... done
+writing Outputs/Synthese-PSM_LARRA.3d ... done
 writing Outputs/DB_Synthese-PSM_LARRA.sql ... 
 processing projection extended ... done
 average distortion: 16.26%
@@ -1012,7 +1012,7 @@ processing projection elevation ... done
 average distortion: 0.47%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  12 JAN 2026 19:00
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  13 JAN 2026 18:27
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1023,13 +1023,9 @@ Preloading the plain mem file, version 1.005) ) (./data.mp [1] )
 #################### end of metapost log file ####################
 writing Outputs/SHP/ ... done
 writing Outputs/SHP/ ... done
-writing Outputs/SHP/therion ... done
-writing Outputs/Synthese-PSM_LARRA.kml ... done
-writing Outputs/Synthese-PSM_LARRA-model.kml ... done
-writing Outputs/Synthese-PSM_LARRA-3D.kml ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.html ... done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
-compilation time: 583 sec
+compilation time: 613 sec
 
 
 ######################### loop errors ##########################
