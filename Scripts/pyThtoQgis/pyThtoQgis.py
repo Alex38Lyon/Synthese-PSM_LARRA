@@ -30,35 +30,43 @@ En cas d'erreur corriger manuellement (QGis) les topologies des fichiers
 
 """
 
-# Do divisions with Reals, not with integers
-# Must be at the beginning of the file
+    # Do divisions with Reals, not with integers
+    # Must be at the beginning of the file
 from __future__ import division
-
-# Import Python modules
-#import numpy as np
-import sys, os, argparse, shutil 
-import matplotlib.pyplot as plt
-import tkinter as tk
-from tkinter import filedialog
-import fiona
-from fiona import Env
-import shapely
-import geopandas as gpd
-import pandas as pd
-from shapely.geometry import Point, MultiPoint, Polygon, LineString, MultiLineString, MultiPolygon, Polygon
-from shapely.geometry import shape, mapping, GeometryCollection
-from shapely.ops import transform, unary_union, polygonize
-from shapely.errors import TopologicalError
-from shapely.validation import make_valid, explain_validity
-from collections import Counter
-
-#from functools import wraps
-from alive_progress import alive_bar              # https://github.com/rsalmei/alive-progress	
 
 import Lib.global_data as globalDat
 from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_help
+    
+try:
 
+    # Import Python modules
+    #import numpy as np
+    import sys, os, argparse, shutil 
+    import matplotlib.pyplot as plt
+    import tkinter as tk
+    from tkinter import filedialog
+    import shapely
+    import fiona
+    from fiona import Env
+    import geopandas as gpd
+    import pandas as pd
+    from shapely.geometry import Point, MultiPoint, Polygon, LineString, MultiLineString, MultiPolygon, Polygon
+    from shapely.geometry import shape, mapping, GeometryCollection
+    from shapely.ops import transform, unary_union, polygonize
+    from shapely.errors import TopologicalError
+    from shapely.validation import make_valid, explain_validity
+    from collections import Counter
 
+    #from functools import wraps
+    from alive_progress import alive_bar              # https://github.com/rsalmei/alive-progress	
+
+except ModuleNotFoundError as e:
+    print(f"{Colors.ERROR}ERROR: Some required modules were not found: {Colors.ENDC}{e}")
+    print(f"{Colors.WARNING}\t- installation: {Colors.ENDC}pip install xxxxx")
+    print(f"{Colors.ERROR}Create or activate the Python 3.13 virtual environment")
+    print(f'{Colors.WARNING}\t- command:{Colors.ENDC} . "D:\\08 GitHub\\.venv\\Scripts\\Activate.ps1"')
+    print(f"{Colors.ERROR}Script execution stopped{Colors.ENDC}")
+    sys.exit(1)
 
 #################################################################################################
 def cutareas(pathshp, outlines, outputspath):
@@ -553,7 +561,7 @@ def ThtoQGis(pathshp, outputspath):
             shp2gpkg(pathshp, fname, outputspath, fname)
 
 
-    print(f"{Colors.HEADER}{Colors.UNDERLINE}Step 2: Adapte files for Qgis in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
+    print(f"{Colors.HEADER}{Colors.UNDERLINE}Step 2: Adapte drawing files for Qgis in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
     #1- Read the outline shapefile
     
     outlines = gpd.read_file(outputspath + 'outline2d.gpkg')
@@ -584,6 +592,21 @@ def ThtoQGis(pathshp, outputspath):
         else :
             print(f'{Colors.GREEN}Update point and lines done with warning {Colors.ENDC}{modifications}{Colors.GREEN} to be checked{Colors.ENDC}')
     
+    print(f"{Colors.HEADER}{Colors.UNDERLINE}Step 3: Adapte polygonal files for Qgis in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
+    
+    if os.path.isfile(pathshp + 'stations3d.shp') :
+        fname = "stations3d"
+        shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
+    
+    if os.path.isfile(pathshp + 'shots3d.shp') :
+        fname = "shots3d"
+        shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
+        
+    if os.path.isfile(pathshp + 'walls3d.shp') :
+        fname = "walls3d"
+        shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
+        
+    #1- Read the outline shapefile
 
 
 
@@ -596,86 +619,92 @@ if __name__ == u'__main__':
 	###################################################
     
 
-    
-    #################################################################################################
-    # Parse arguments                                                                               #
-    #################################################################################################
-    parser = argparse.ArgumentParser(
-        description=f"{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible", 
-        formatter_class=argparse.RawTextHelpFormatter)
-    parser.print_help = colored_help.__get__(parser)
-    parser.add_argument(
-        '--option',
-        default="auto",
-        choices=["auto", "manual", "test"],
-        help=(
-            f"Execution options for pyThtoQgis.py\n"
-            f"auto\t-> Execution from the folder {globalDat.pathshp} (défaut)\n"
-            f"manual\t-> Manual selection for the input folder\n"
-            f"test\t-> Tests fonction (debug)\n"
+        #################################################################################################
+        # Parse arguments                                                                               #
+        #################################################################################################
+        parser = argparse.ArgumentParser(
+            description=f"{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible", 
+            formatter_class=argparse.RawTextHelpFormatter)
+        parser.print_help = colored_help.__get__(parser)
+        parser.add_argument(
+            '--option',
+            default="auto",
+            choices=["auto", "manual", "test"],
+            help=(
+                f"Execution options for pyThtoQgis.py\n"
+                f"auto\t-> Execution from the folder {globalDat.pathshp} (défaut)\n"
+                f"manual\t-> Manual selection for the input folder\n"
+                f"test\t-> Tests fonction (debug)\n"
+            )
         )
-    )
-    
-    parser.epilog = (
-        f"{Colors.HEADER}to generate shp files with therion, add in .thconfig : "
-        f"-> {Colors.ENDC}export model -fmt esri -o Outputs/SHP/ -enc UTF-8"
-        )
-   
-    # Analyser les arguments de ligne de commande
-    args = parser.parse_args()
-    
-    if os.name == 'posix':  os.system('clear') # Linux, MacOS
-    elif os.name == 'nt':  os.system('cls')# Windows
-    else: print("\n" * 100) 
-    
-    print(f'{Colors.HEADER}*********************************************************************************************************')
-    print(f'{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible')
-    print(f'{Colors.HEADER}        Original written by X. Robert, ISTerre : {Colors.ENDC}October 2022')
-    print(f'{Colors.HEADER}        Updated by : {Colors.ENDC}alexandre.pont@yahoo.fr')
-    print(f'{Colors.HEADER}        Version : {Colors.ENDC}{globalDat.Version}')
-
-    
-    if args.option == "auto" : 
         
-        print(f'{Colors.HEADER}        auto mode')
-        print(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{globalDat.pathshp}')
-        print(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
+        parser.epilog = (
+            f"{Colors.HEADER}to generate shp files with therion, add in .thconfig : "
+            f"-> {Colors.ENDC}export model -fmt esri -o Outputs/SHP/ -enc UTF-8"
+            )
+    
+        # Analyser les arguments de ligne de commande
+        args = parser.parse_args()
+        
+        if os.name == 'posix':  os.system('clear') # Linux, MacOS
+        elif os.name == 'nt':  os.system('cls')# Windows
+        else: print("\n" * 100) 
+        
         print(f'{Colors.HEADER}*********************************************************************************************************')
+        print(f'{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible')
+        print(f'{Colors.HEADER}        Original written by X. Robert, ISTerre : {Colors.ENDC}October 2022')
+        print(f'{Colors.HEADER}        Updated by : {Colors.ENDC}alexandre.pont@yahoo.fr')
+        print(f'{Colors.HEADER}        Version : {Colors.ENDC}{globalDat.Version}')
+
         
-        ThtoQGis(globalDat.pathshp, globalDat.outputspath)
+        if args.option == "auto" : 
+            
+            print(f'{Colors.HEADER}        auto mode')
+            print(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{globalDat.pathshp}')
+            print(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
+            print(f'{Colors.HEADER}*********************************************************************************************************')
+            
+            ThtoQGis(globalDat.pathshp, globalDat.outputspath)
+            
         
-    
-    elif args.option == "manual" :
-        root = tk.Tk()
-        root.withdraw()  # Cacher la fenêtre principale de Tkinter
-        input_folder_name = filedialog.askdirectory( title="Choose the shp folder")       
+        elif args.option == "manual" :
+            root = tk.Tk()
+            root.withdraw()  # Cacher la fenêtre principale de Tkinter
+            input_folder_name = filedialog.askdirectory( title="Choose the shp folder")       
+            
+            if not input_folder_name:
+                print(f"{Colors.ERROR}No folder selected. The program will terminate")
+                sys.exit()    
+            
         
-        if not input_folder_name:
-            print(f"{Colors.ERROR}No folder selected. The program will terminate")
-            sys.exit()    
+            input_folder = input_folder_name + "\\"
+            print(f'{Colors.HEADER}        manual mode')
+            print(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{safe_relpath(input_folder)}')
+            print(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
+            print(f'{Colors.HEADER}*********************************************************************************************************')
+            
+            ThtoQGis(input_folder, globalDat.outputspath)
+            
         
-    
-        input_folder = input_folder_name + "\\"
-        print(f'{Colors.HEADER}        manual mode')
-        print(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{safe_relpath(input_folder)}')
-        print(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
-        print(f'{Colors.HEADER}****************************************************************')
-        
-        ThtoQGis(input_folder, globalDat.outputspath)
-        
-    
-    elif args.option == "test" :
-        print(f'{Colors.HEADER}        test mode')
-        print(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{globalDat.pathshp}')
-        print(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
-        print(f'{Colors.HEADER}****************************************************************')
-        
-        fname = "walls3d"
-        shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
-        
-        fname = "shots3d"
-        shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
-        
+        elif args.option == "test" :
+            print(f'{Colors.HEADER}        test mode')
+            print(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{globalDat.pathshp}')
+            print(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
+            print(f'{Colors.HEADER}*********************************************************************************************************')
+            
+            fname = "stations3d"
+            shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
+            
+            fname = "shots3d"
+            shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
+            
+            fname = "walls3d"
+            shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
+            
+
+            
+
+            
 
 
  
