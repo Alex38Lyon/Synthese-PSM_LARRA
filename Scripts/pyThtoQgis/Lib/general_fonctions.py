@@ -1,11 +1,11 @@
 """
 !#############################################################################################
 #                                                                                            #
-#                      general_fonctions.py for  pythStat.py                                 #
+#                      general_fonctions.py for  pyThtoQgis.py                               #
 #                                                                                            #                           
 !#############################################################################################
 
-Alex 2026 01 09
+Alex 2026 02 26
 
 """
 import os, logging, sys, re, unicodedata
@@ -66,12 +66,11 @@ def colored_help(parser):
     
     # Coloration des différentes parties
     colored_help_text = help_text.replace(
-        'usage:', f'{Colors.ERROR}usage:{Colors.ENDC}'
-    ).replace(
-        'options:', f'{Colors.GREEN}options:{Colors.ENDC}'
-    ).replace('positional arguments:', f'{Colors.BLUE}positional arguments:{Colors.ENDC}'
-    ).replace(', --help', f'{Colors.BLUE}, --help:{Colors.ENDC}'
-    ).replace('elp:', f'{Colors.BLUE}elp{Colors.ENDC}')
+        'usage:', f'{Colors.ERROR}Usage:{Colors.ENDC}').replace(
+        'options:', f'{Colors.ERROR}Options:{Colors.ENDC}').replace(
+        '--option', f'{Colors.GREEN}--option{Colors.ENDC}').replace(
+        '-h, --help', f'{Colors.GREEN}-h, --help{Colors.ENDC}').replace(    
+        'positional arguments:', f'{Colors.BLUE}positional arguments:{Colors.ENDC}')
 
     # Surligner les arguments
     # for action in parser._actions:

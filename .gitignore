@@ -1,0 +1,12 @@
+# Ignore files:
+**.log
+**.backup
+.xtherion.dat
+
+# Folders
+**/OLD/
+**/old/
+**/.venv.
+**/.vscode/
+
+

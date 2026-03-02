@@ -1,24 +1,14 @@
 {
      "cSpell.words": [
-          "cutareas",
+          "defn",
           "ENDC",
           "esri",
-          "fiona",
-          "ftype",
-          "geodf",
-          "geopandas",
-          "Ggis",
           "gpkg",
-          "infile",
           "Masekd",
+          "osgeo",
           "outputspath",
           "pathshp",
-          "polygonize",
-          "pygeos",
-          "Qgis",
-          "shapefiles",
           "thconfig",
-          "therion",
-          "writerecords"
+          "therion"
      ]
 }

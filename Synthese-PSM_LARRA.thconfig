@@ -147,19 +147,11 @@ layout my_layout
 	symbol-hide line survey
 	
 	# symbol-hide group water
-	symbol-hide group speleothems
+	# symbol-hide group speleothems
 	# symbol-hide group text	
-	symbol-hide line label
-	# symbol-hide line label:xs
-	# symbol-hide line label:s
-	# symbol-hide line label:m
-	symbol-hide point label
-	# symbol-hide point label:xs
-	# symbol-hide point label:s
-	# symbol-hide point label:m
-	# symbol-hide point label:l
-	# symbol-hide point label:xl
-	symbol-hide point height	
+	# symbol-hide line label
+	# symbol-hide point label
+	# symbol-hide point height	
 
 	# symbol-hide point dig
 	# symbol-hide point camp
@@ -193,6 +185,8 @@ layout my_layout
 		 # % draw_altitude (P, "wall");
 	  # enddef;
 	# endcode
+	
+	# min-symbol-scale S   # XL, L, M, S, XS
 	
 	layers on
 	

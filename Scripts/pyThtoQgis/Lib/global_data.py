@@ -6,12 +6,12 @@ global_data.py for pyThtoQgis.py
 !#############################################################################################!
 """
 
-Version = "2026.01.19" 
+Version = "2026.03.01" 
 
 #################################################################################################
 
 pathshp = ".\\Inputs\\"
 outputspath = ".\\Outputs\\"
+output_log = ".\\pyThtoQgis.log"
 
-# error_count = 0                # Compteur d'erreurs
 debug_log = False
