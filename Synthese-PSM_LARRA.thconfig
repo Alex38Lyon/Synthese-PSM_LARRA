@@ -109,6 +109,8 @@ layout my_layout
 	doc-author "Alexandre Pont pour l'ARSIP"
 	# Titre
 	doc-title "Synthèse générale des réseaux"
+	doc-subject "Cave survey" 
+	doc-keywords "ARSIP, PSM-LARRA, Synthèse"
 	
 	# Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -261,6 +263,8 @@ select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
 export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
+export map -projection plan -fmt xhtml -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.xhtml
+export map -projection plan -fmt svg -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.svg
 # export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Puits-Coupe.pdf
 
 
@@ -286,5 +290,5 @@ export model -fmt esri -o Outputs/SHP/ -enc UTF-8
  # export map -proj plan -fmt kml -o Outputs/Synthese-PSM_LARRA.kml -layout layout-kml
  # export model -fmt kml -o Outputs/Synthese-PSM_LARRA-model.kml -enable all
  # export model -enable all -o Outputs/Synthese-PSM_LARRA-3D.kml
- export cave-list -location on -o Outputs/Synthese-PSM_LARRA-Cave-list.html
+ export cave-list -surveys off -location on -o Outputs/Synthese-PSM_LARRA-Cave-list.html
  export survey-list -location on -o Outputs/Synthese-PSM_LARRA-Surveys.html

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viewer Map SVG</title>
+
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+.controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: rgba(255,255,255,0.8);
+    padding: 6px;
+    border-radius: 4px;
+}
+button {
+    margin: 2px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="controls">
+    <button onclick="zoomIn()">+</button>
+    <button onclick="zoomOut()">-</button>
+    <button onclick="resetZoom()">Reset</button>
+</div>
+
+<div id="container">
+    <object id="map" type="image/svg+xml" data="Synthese-PSM_LARRA-Plan.svg"></object>
+</div>
+
+<script>
+
+let panZoomInstance = null;
+
+function init() {
+    const obj = document.getElementById('map');
+
+    obj.addEventListener("load", function () {
+        const svgDoc = obj.contentDocument;
+        const svgElement = svgDoc.querySelector("svg");
+
+        panZoomInstance = svgPanZoom(svgElement, {
+            zoomEnabled: true,
+            controlIconsEnabled: false,
+            fit: true,
+            center: true,
+            minZoom: 0.1,
+            maxZoom: 50
+        });
+    });
+}
+
+function zoomIn() {
+    if (panZoomInstance) panZoomInstance.zoomIn();
+}
+
+function zoomOut() {
+    if (panZoomInstance) panZoomInstance.zoomOut();
+}
+
+function resetZoom() {
+    if (panZoomInstance) {
+        panZoomInstance.resetZoom();
+        panZoomInstance.fit();
+        panZoomInstance.center();
+    }
+}
+
+init();
+
+</script>
+
+</body>
+</html>
