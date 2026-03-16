@@ -6,7 +6,7 @@ encoding utf-8
 # <http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 
-map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de la Pierre Saint Martin-PSM"
+map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de la Pierre Saint-Martin - Larra"
 	plan_BB09@BB09
 	break
 	plan_BB26@BB26
