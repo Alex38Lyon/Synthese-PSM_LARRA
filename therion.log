@@ -810,7 +810,7 @@ S  1478.06 SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA ()
 writing Outputs/Synthese-PSM_LARRA-Atlas.pdf ...
 processing projection none ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  16 MAR 2026 19:57
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  16 MAR 2026 22:29
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1148,7 +1148,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making atlas ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  16 MAR 2026 19:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  16 MAR 2026 22:30
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex
@@ -1157,42 +1157,42 @@ rogram Files/Therion/texmf/fonts/pdftex.map}) (./th_fontdef2.tex)
 (./th_formdef.tex
 Normal \count register pool exhausted, switching to extended pool.)
 (./th_pagedef.tex) (./th_pages.tex [1 <d:/08 GitHub/Synthese-PSM_LARRA/./Logos/
-Logo-ARSIP-Synthese-Topographique.png>] [2] [3 <d:/08 GitHub/Synthese-PSM_LARRA
-/./Logos/Logo-ARSIP-Synthese-Topographique_XS.png>] [4] [5] [6] [7] [8]
+Logo-ARSIP-Synthese-Topographique.png>] [2 <d:/08 GitHub/Synthese-PSM_LARRA/./L
+ogos/Logo-ARSIP-Synthese-Topographique_XS.png>] [3] [4] [5] [6] [7] [8]
 [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23]
 [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
 [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53]
 [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68]
 [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83]
 [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97] [98]
-[99] [100] [101] [102] [103])
+[99] [100] [101] [102])
  253 numeric registers used out of 32768
- (./th_legend.tex) [104] )
+ (./th_legend.tex) [103] )
 (\end occurred when \ifx on line 997 was incomplete) 
 Here is how much of TeX's memory you used:
  3817 strings out of 95671
- 45101 string characters out of 1192323
- 235147 words of memory out of 1689190
+ 45098 string characters out of 1192323
+ 233904 words of memory out of 1688947
  5106 multiletter control sequences out of 15000+50000
  23527 words of font info for 72 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
- 9i,12n,9p,844b,68s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 8i,12n,9p,844b,68s stack positions out of 5000i,500n,10000p,200000b,50000s
 <c:/Program Files/Therion/t
 exmf/fonts/type1/cmss10.pfb><c:/Program Files/Therion/texmf/fonts/type1/cmssi10
 .pfb><c:/Program Files/Therion/texmf/fonts/type1/cmsy10.pfb><c:/Program Files/T
 herion/texmf/fonts/type1/csss10.pfb><c:/Program Files/Therion/texmf/fonts/type1
 /csssi10.pfb>
-Output written on data.pdf (104 pages, 10964773 bytes).
+Output written on data.pdf (103 pages, 10964315 bytes).
 PDF statistics:
- 10977 PDF objects out of 12825 (max. 8388607)
- 6530 compressed objects within 66 object streams
+ 10974 PDF objects out of 12825 (max. 8388607)
+ 6528 compressed objects within 66 object streams
  101 named destinations out of 1000 (max. 500000)
  25593 words of extra memory for PDF output out of 29859 (max. 10000000)
 
 
 ##################### end of pdftex log file #####################
 done
-compilation time: 94 sec
+compilation time: 82 sec
 
 
 ######################### loop errors ##########################

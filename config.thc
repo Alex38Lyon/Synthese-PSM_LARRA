@@ -3572,7 +3572,7 @@ layout Atlas_layout
 	
 	#<en> Print (or not) the title of the pages before each capter of the Atlas
 	#<fr> Affiche (ou non) le titre des pages avant chaque chapitre de l’atlas
-	title-pages on
+	title-pages off
 	
 	#<en> Zoom factor of the navigation pannel; by default, 30
 	#<fr> Facteur de zoom du panneau de navigation ; Par défault, 30
@@ -3590,7 +3590,7 @@ layout Atlas_layout
 		\newbox\arsipheaderlogo \setbox\arsipheaderlogo=\hbox{\loadpicture{./Logos/Logo-ARSIP-Synthese-Topographique.png}}
 		 
 		\legendtextsize={\size[12]}
-		\cavename={Atlas général des réseaux de la Pierre Saint-Martin \_ Larra}		
+		\cavename={Atlas général des réseaux de la Pierre Saint-Martin / Larra}		
 		\datat={https://github.com/Alex38Lyon/Synthese-PSM\_LARRA}
 		\database={https://karsteau.org/}
 		\synth={Alexandre Pont pour l'ARSIP}		
@@ -3690,7 +3690,7 @@ layout Atlas_layout
 									
 			}%
 		}
-
+		
 		#####################################################################################
 		# Redéfinition de \dopage pour les pages de carte                                   #
 		#####################################################################################
@@ -3735,22 +3735,19 @@ layout Atlas_layout
 								\fi
 							 }
 						  }
-						}				
+						}	
 					\hss
-					
 					# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 					\vbox to \ht\navbox{                							     % Cadre 2 : Bloc central
 						\vss\centerline{\copy\arsiplogo}\vss   % Logo	
 					}			 	 
 					\hss
-					
 					# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 					\vbox to \ht\navbox{                                       % Cadre 3 : bas droit   
 						\ifnortharrow\hbox to 0pt{\hss\northarrow\qquad}\fi     % flèche nord
 						\vss
 						}
-					\box\navbox                                                % Cadre zoom général
-					
+					\box\navbox                                                % Cadre zoom général	
 				}
 		  }%
 		}
