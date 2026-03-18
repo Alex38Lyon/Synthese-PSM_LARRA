@@ -174,7 +174,7 @@ layout my_layout
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		%\newtoks\wpage \wpage={https://www.arsip.fr/}
-		%\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM_LARRA}
+		%\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM\_LARRA}
 		\newtoks\synth \synth={Alexandre Pont}
 		\framethickness=0.5mm
 	endcode
@@ -301,7 +301,7 @@ layout layout-coupe
 		\newtoks\club \club={ARSIP}
 		%\newtoks\thanksto \thanksto={Alpes Minages pour son soutien actif et Loire Travaux Spéciaux l'aide logistique}
 		%\newtoks\wpage \wpage={https://www.arsip.fr/}
-		%\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM_LARRA}
+		%\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM\_LARRA}
 		\newtoks\synth \synth={Alexandre Pont}
 		\framethickness=0.5mm
 	endcode
