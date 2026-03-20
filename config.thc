@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version ARSIP By Alex 2026 03 16
+# Version ARSIP By Alex 2026 03 20
 ######################################################################################################################################
 
 
@@ -307,10 +307,10 @@ layout langue-fr
 	language fr
 	
 	code tex-map
-		#% Definition of variables for the tuned headers :
+		#% Definition of variables for the tuned headers :	
 		\newtoks\thversiontitleB \thversiontitleB={Therion }
 		
-		\newtoks\thversiontitleA \thversiontitleA={Compilation}
+		\newtoks\thversiontitleA \thversiontitleA={Compilation }
 		\newtoks\datetitle \datetitle={le }
 		\newtoks\thproj \thproj={Projection }
 		\newtoks\thclub \thclub={Réalisation }
@@ -326,16 +326,8 @@ layout langue-fr
 		\newtoks\explolengthtitle \explolengthtitle{Longueur explorée }
 		\newtoks\explodepthtitle \explodepthtitle{\thinspace{}---\thinspace{}\thinspace{}\thinspace{}\thinspace{}Profondeur explorée }
 		
-		# Initiate variables
-		\newtoks\club \club={}
-		\newtoks\synth \synth={}
-		\newtoks\wpage \wpage={}
-		\newtoks\expe \expe={}
-		\newtoks\guide \guide={}
-		\newtoks\datat \datat={}
-		\newtoks\database \database={}
-		\newtoks\thanksto \thanksto={}
-		\newtoks\ECoordinates \ECoordinates={}
+		\cavelengthtitle{Développement }
+		\cavedepthtitle{dénivellation }
 		
 	endcode
 	
@@ -343,7 +335,7 @@ layout langue-fr
 		#% Definition of variables for the tuned headers :
 		\newtoks\thversiontitleB \thversiontitleB={Therion }
 		
-		\newtoks\thversiontitleA \thversiontitleA={Compilation}
+		\newtoks\thversiontitleA \thversiontitleA={Compilation }
 		\newtoks\datetitle \datetitle={le }
 		\newtoks\thproj \thproj={Projection }
 		\newtoks\thclub \thclub={Réalisation }
@@ -358,17 +350,6 @@ layout langue-fr
 		\newtoks\thcoords \thcoords{Coordonnées }
 		\newtoks\explolengthtitle \explolengthtitle{Longueur explorée }
 		\newtoks\explodepthtitle \explodepthtitle{\thinspace{}---\thinspace{}\thinspace{}\thinspace{}\thinspace{}Profondeur explorée }
-		
-		# Initiate variables
-		\newtoks\club \club={}
-		\newtoks\synth \synth={}
-		\newtoks\wpage \wpage={}
-		\newtoks\expe \expe={}
-		\newtoks\guide \guide={}
-		\newtoks\datat \datat={}
-		\newtoks\database \database={}
-		\newtoks\thanksto \thanksto={}
-		\newtoks\ECoordinates \ECoordinates={}
 		
 	endcode
 	
@@ -384,34 +365,23 @@ layout langue-es
 		#% Definition of variables for the tuned headers :
 		\newtoks\thversiontitleB \thversiontitleB={Therion }
 		
-		\newtoks\thversiontitleA \thversiontitleA={Compilación}
+		\newtoks\thversiontitleA \thversiontitleA={Compilación }
 		\newtoks\datetitle \datetitle={el }
-		\newtoks\thproj \thproj={Proyección}
-		\newtoks\thclub \thclub={Realización}
-		\newtoks\thsynth \thsynth={Síntesis}
-		\newtoks\thwpage \thwpage={Web}
-		\newtoks\thexpe \thexpe={Expedición}
+		\newtoks\thproj \thproj={Proyección }
+		\newtoks\thclub \thclub={Realización }
+		\newtoks\thsynth \thsynth={Síntesis }
+		\newtoks\thwpage \thwpage={Web }
+		\newtoks\thexpe \thexpe={Expedición }
 		\newtoks\depthrangetitle \depthrangetitle={Depth range from }
-		\newtoks\thguide \thguide={Guia(s)}
-		\newtoks\thdatat \thdatat={Datos topograficas}
-		\newtoks\thdatabase \thdatabase={Dase de datos}
+		\newtoks\thguide \thguide={Guia(s) }
+		\newtoks\thdatat \thdatat={Datos topograficas }
+		\newtoks\thdatabase \thdatabase={Dase de datos }
 		\newtoks\ththanksto \ththanksto{Nuestros agradecimientos }
-		\newtoks\thcoords \thcoords{Coordinadas GPS (WGS84) }
-		\newtoks\explolengthtitle \explolengthtitle{Longitud explorada}
+		\newtoks\thcoords \thcoords{Coordinadas GPS }
+		\newtoks\explolengthtitle \explolengthtitle{Longitud explorada }
 		\newtoks\explodepthtitle \explodepthtitle{\thinspace{}---\thinspace{}\thinspace{}\thinspace{}\thinspace{}Profondidad explorada}
 		
 		\cartotitle={Dibujo}
-		
-		# Initiate variables
-		\newtoks\club \club={}
-		\newtoks\synth \synth={}
-		\newtoks\wpage \wpage={}
-		\newtoks\expe \expe={}
-		\newtoks\guide \guide={}
-		\newtoks\datat \datat={}
-		\newtoks\database \database={}
-		\newtoks\thanksto \thanksto={}
-		\newtoks\ECoordinates \ECoordinates={}
 		
 	endcode
 	
@@ -419,34 +389,23 @@ layout langue-es
 		#% Definition of variables for the tuned headers :
 		\newtoks\thversiontitleB \thversiontitleB={Therion }
 		
-		\newtoks\thversiontitleA \thversiontitleA={Compilación}
+		\newtoks\thversiontitleA \thversiontitleA={Compilación }
 		\newtoks\datetitle \datetitle={el }
-		\newtoks\thproj \thproj={Proyección}
-		\newtoks\thclub \thclub={Realización}
-		\newtoks\thsynth \thsynth={Síntesis}
-		\newtoks\thwpage \thwpage={Web}
-		\newtoks\thexpe \thexpe={Expedición}
+		\newtoks\thproj \thproj={Proyección }
+		\newtoks\thclub \thclub={Realización }
+		\newtoks\thsynth \thsynth={Síntesis }
+		\newtoks\thwpage \thwpage={Web }
+		\newtoks\thexpe \thexpe={Expedición }
 		\newtoks\depthrangetitle \depthrangetitle={Depth range from }
 		\newtoks\thguide \thguide={Guia(s)}
-		\newtoks\thdatat \thdatat={Datos topograficas}
-		\newtoks\thdatabase \thdatabase={Dase de datos}
+		\newtoks\thdatat \thdatat={Datos topograficas }
+		\newtoks\thdatabase \thdatabase={Dase de datos }
 		\newtoks\ththanksto \ththanksto{Nuestros agradecimientos }
-		\newtoks\thcoords \thcoords{Coordinadas GPS (WGS84) }
-		\newtoks\explolengthtitle \explolengthtitle{Longitud explorada}
+		\newtoks\thcoords \thcoords{Coordinadas GPS }
+		\newtoks\explolengthtitle \explolengthtitle{Longitud explorada }
 		\newtoks\explodepthtitle \explodepthtitle{\thinspace{}---\thinspace{}\thinspace{}\thinspace{}\thinspace{}Profondidad explorada}
 		
 		\cartotitle={Dibujo}
-		
-		# Initiate variables
-		\newtoks\club \club={}
-		\newtoks\synth \synth={}
-		\newtoks\wpage \wpage={}
-		\newtoks\expe \expe={}
-		\newtoks\guide \guide={}
-		\newtoks\datat \datat={}
-		\newtoks\database \database={}
-		\newtoks\thanksto \thanksto={}
-		\newtoks\ECoordinates \ECoordinates={}
 		
 	endcode
 	
@@ -462,32 +421,21 @@ layout langue-en
 		#% Definition of variables for the tuned headers :
 		\newtoks\thversiontitleB \thversiontitleB={Therion }
 		
-		\newtoks\thversiontitleA \thversiontitleA={Compiled}
+		\newtoks\thversiontitleA \thversiontitleA={Compiled }
 		\newtoks\datetitle \datetitle={on }
-		\newtoks\thproj \thproj={Projection}
-		\newtoks\thclub \thclub={Realisation}
-		\newtoks\thsynth \thsynth={Synthesys}
-		\newtoks\thwpage \thwpage={Web page}
-		\newtoks\thexpe \thexpe={Expedition}
+		\newtoks\thproj \thproj={Projection }
+		\newtoks\thclub \thclub={Realisation }
+		\newtoks\thsynth \thsynth={Synthesys }
+		\newtoks\thwpage \thwpage={Web page }
+		\newtoks\thexpe \thexpe={Expedition }
 		\newtoks\depthrangetitle \depthrangetitle={Depth range from }
 		\newtoks\thguide \thguide={Guide(s)}
-		\newtoks\thdatat \thdatat={Survey's data}
-		\newtoks\thdatabase \thdatabase={Data base}
-		\newtoks\ththanksto \ththanksto{Acknowledgments}
-		\newtoks\thcoords \thcoords{GPS coordinates (WGS84) }
-		\newtoks\explolengthtitle \explolengthtitle{Explored length}
+		\newtoks\thdatat \thdatat={Survey's data }
+		\newtoks\thdatabase \thdatabase={Data base }
+		\newtoks\ththanksto \ththanksto{Acknowledgments }
+		\newtoks\thcoords \thcoords{GPS coordinates }
+		\newtoks\explolengthtitle \explolengthtitle{Explored length }
 		\newtoks\explodepthtitle \explodepthtitle{\thinspace{}---\thinspace{}\thinspace{}\thinspace{}\thinspace{}Explored depth}
-		
-		# Initiate variables
-		\newtoks\club \club={}
-		\newtoks\synth \synth={}
-		\newtoks\wpage \wpage={}
-		\newtoks\expe \expe={}
-		\newtoks\guide \guide={}
-		\newtoks\datat \datat={}
-		\newtoks\database \database={}
-		\newtoks\thanksto \thanksto={}
-		\newtoks\ECoordinates \ECoordinates={}
 		
 	endcode
 	
@@ -495,32 +443,21 @@ layout langue-en
 		#% Definition of variables for the tuned headers :
 		\newtoks\thversiontitleB \thversiontitleB={Therion }
 		
-		\newtoks\thversiontitleA \thversiontitleA={Compiled}
+		\newtoks\thversiontitleA \thversiontitleA={Compiled }
 		\newtoks\datetitle \datetitle={on }
-		\newtoks\thproj \thproj={Projection}
-		\newtoks\thclub \thclub={Realisation}
-		\newtoks\thsynth \thsynth={Synthesys}
-		\newtoks\thwpage \thwpage={Web page}
+		\newtoks\thproj \thproj={Projection }
+		\newtoks\thclub \thclub={Realisation }
+		\newtoks\thsynth \thsynth={Synthesys }
+		\newtoks\thwpage \thwpage={Web page }
 		\newtoks\thexpe \thexpe={Expedition}
 		\newtoks\depthrangetitle \depthrangetitle={Depth range from }
 		\newtoks\thguide \thguide={Guide(s)}
-		\newtoks\thdatat \thdatat={Survey's data}
-		\newtoks\thdatabase \thdatabase={Data base}
-		\newtoks\ththanksto \ththanksto{Acknowledgments}
-		\newtoks\thcoords \thcoords{GPS coordinates (WGS84) }
-		\newtoks\explolengthtitle \explolengthtitle{Explored length}
+		\newtoks\thdatat \thdatat={Survey's data }
+		\newtoks\thdatabase \thdatabase={Data base }
+		\newtoks\ththanksto \ththanksto{Acknowledgments }
+		\newtoks\thcoords \thcoords{GPS coordinates }
+		\newtoks\explolengthtitle \explolengthtitle{Explored length }
 		\newtoks\explodepthtitle \explodepthtitle{\thinspace{}---\thinspace{}\thinspace{}\thinspace{}\thinspace{}Explored depth}
-		
-		# Initiate variables
-		\newtoks\club \club={}
-		\newtoks\synth \synth={}
-		\newtoks\wpage \wpage={}
-		\newtoks\expe \expe={}
-		\newtoks\guide \guide={}
-		\newtoks\datat \datat={}
-		\newtoks\database \database={}
-		\newtoks\thanksto \thanksto={}
-		\newtoks\ECoordinates \ECoordinates={}
 		
 	endcode
 	
@@ -551,6 +488,8 @@ layout drawingconfig
 	symbol-assign area clay AUT
 	symbol-assign area mudcrack SBE
 	symbol-assign area pebbles AUT
+	symbol-assign area ice AUT
+	symbol-assign area snow AUT
 	
 	# symbol-assign line wall:blocks AUT
 	
@@ -652,11 +591,40 @@ layout drawingconfig
 	symbol-color point water-flow:intermittent [17 46 100]
 	symbol-color point water-flow:paleo [17 46 100]
 	
+	
+	code tex-map				
+		
+		# Initiate variables
+		\newtoks\club \club={}
+		\newtoks\synth \synth={}
+		\newtoks\wpage \wpage={}
+		\newtoks\expe \expe={}
+		\newtoks\guide \guide={}
+		\newtoks\datat \datat={}
+		\newtoks\database \database={}
+		\newtoks\thanksto \thanksto={}
+		\newtoks\ECoordinates \ECoordinates={}
+		\newtoks\legendtextlicencesize \legendtextlicencesize={\the\legendtextsize} 
+		\newtoks\thversiontitleB \thversiontitleB={Therion }
+	endcode
+	
+	code tex-atlas
+		# Initiate variables
+		\newtoks\club \club={}
+		\newtoks\synth \synth={}
+		\newtoks\wpage \wpage={}
+		\newtoks\expe \expe={}
+		\newtoks\guide \guide={}
+		\newtoks\datat \datat={}
+		\newtoks\database \database={}
+		\newtoks\thanksto \thanksto={}
+		\newtoks\ECoordinates \ECoordinates={}
+		\newtoks\legendtextlicencesize \legendtextlicencesize={\the\legendtextsize} 
+		\newtoks\thversiontitleB \thversiontitleB={Therion }
+	endcode
 
 	####### Metapost-changes ############
 	code metapost
-
-		#fonts_setup( 12, 16, 32, 64, 96 );
 		
 		#<en> Modify length/depth statistics to print
 		#<fr> Modifier l'aspect et les données des statistiques de longueur affichées si besoin
@@ -2325,9 +2293,8 @@ layout drawingconfig
 	
 	endcode
 
-	code tex-map
-		\newtoks\thversiontitleB \thversiontitleB={Therion }
-	endcode
+
+	
 endlayout
 
 
@@ -2472,6 +2439,7 @@ layout scalebar_vert-Halama
 			endgroup
 		enddef;
 	endcode
+	
 endlayout
 
 ######################################################################################################################################
@@ -2515,6 +2483,7 @@ layout scalebar_vert
 			endgroup;
 		enddef;
 	endcode
+	
 endlayout
 		
 ######################################################################################################################################
@@ -2536,26 +2505,31 @@ layout headerl
 			\hsize=\legendwidth
 			\color[0 0 0]\the\legendtextcolor
 			\ifnortharrow\vbox to 0pt{\line{\hfil\northarrow}\vss}\fi
+			
 # %print cave map name
 			\edef\tmp{\the\cavename} \ifx\tmp\empty \else
-				{\the\legendtextheadersize\the\cavename}\vskip0.5cm
+				{\the\legendtextheadersize\the\cavename}\vskip0.2cm
 			\fi
+			
 # %print comment
 			{\rightskip=0pt plus 3em\parskip=3bp
 			\edef\tmp{\the\comment} \ifx\tmp\empty \else
-				{\the\legendtextsize\the\comment} \par\medskip\vskip1cm
-			\fi}
+				{\the\legendtextsectionsize\the\comment} \par
+			\fi\medskip\vskip0.5cm}
+			
 # %print scalebar
-			\ifscalebar\scalebar\vskip1cm\fi
-				%print entrances coordinates (Lat-Long/WGS84) if defined
-				\edef\tmp{\the\ECoordinates} \ifx\tmp\empty \else
-				{\the\legendtextsize\si\the\thcoords \the\ECoordinates\par}
-				\vskip0.5cm
+			\ifscalebar\scalebar\vskip0.5cm\fi
+				
+%print entrances coordinates if defined
+			\edef\tmp{\the\ECoordinates} \ifx\tmp\empty \else	
+				{\the\legendtextsize\si\the\thcoords (\the\outcsname) :\par \begingroup\obeylines\the\ECoordinates\endgroup\par}		
+				\vskip0.2cm
 			\fi
 			
+
 # % start bruces addition
 # %    CS
-			\edef\tmp{\the\outcsname} \ifx\tmp\empty \else
+			%\edef\tmp{\the\outcsname} \ifx\tmp\empty \else
 			%{\the\legendtextsize\si\the\thproj: \ss\the\outcsname\par}
 			%\fi
 			%\edef\tmp{\the\northdir} \ifx\tmp\empty \else
@@ -2564,24 +2538,27 @@ layout headerl
 			%\edef\tmp{\the\magdecl} \ifx\tmp\empty \else
 			%{\the\legendtextsize\ss\the\magdecl { deg.} \par}
 			%\fi
-			\vskip0.5cm
+			%\vskip0.5cm
 # % end bruces addition
+
 #%print comment
 			{
 				#\rightskip=0pt plus 3em\parskip=3bp
 				#\edef\tmp{\the\comment} \ifx\tmp\empty \else
 				#	{\the\legendtextsize\the\comment} \par\medskip
 				#\fi
+				
 # %print cavelength and depth
 				\everypar{\hangindent=2em\hangafter=1}
 					\edef\tmp{\the\cavelength} \ifx\tmp\empty \else
-					{\the\legendtextsize\si\the\cavelengthtitle: \ss\the\cavelength\par}
+					{\the\legendtextsize\si\the\cavelengthtitle: \ss\the\cavelength, }
 				\fi
 				\edef\tmp{\the\cavedepth} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\cavedepthtitle: \ss\the\cavedepth\par}
 				\fi
+				
 # % start bruces addition
-## %      altitude
+## %      altitude max and min
 				#\edef\tmp{\the\cavemaxz} \ifx\tmp\empty \else
 					#	{\the\legendtextsize\si\the\depthrangetitle \ss\the\cavemaxz m to}
 				#\fi
@@ -2613,22 +2590,27 @@ layout headerl
 				\edef\tmp{\the\club} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thclub: \ss\the\club\par}
 				\fi
+				
 # %%print the expedition
 				\edef\tmp{\the\expe} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thexpe: \ss\the\expe\par}
 				\fi
+				
 # %%print the web page
 				\edef\tmp{\the\wpage} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thwpage: \ss\the\wpage\par}
 				\fi
+				
 # %%print the survey's data web page
 				\edef\tmp{\the\datat} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thdatat: \ss\the\datat\par}
 				\fi
+				
 # %%print the survey's database web page
 				\edef\tmp{\the\database} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thdatabase: \ss\the\database\par}
 				\fi				
+				
 # % start bruces addition (compilation version and date modified to use built-in 5.3.15 variables)
 				\edef\tmp{\the\thversion} \ifx\tmp\empty \else  %only write version and date if version is not emplty
 					{\the\legendtextsize\si\the\thversiontitleA: \ss\the\thversiontitleB \ss\the\thversion}
@@ -2636,11 +2618,12 @@ layout headerl
 					% \edef\tmp{\the\currentdate} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\datetitle \ss\the\currentdate\par}
 				\fi
+				
 # % end bruces addition
 # %print copyrights
-				\edef\tmp{\the\copyrights} \ifx\tmp\empty \else
-					{\the\legendtextsize\ss\the\copyrights\par}
-				\fi
+				# \edef\tmp{\the\copyrights} \ifx\tmp\empty \else
+					# {\the\legendtextlicencesize\ss\the\copyrights\par}
+				# \fi
 				\edef\tmp{\the\thanksto} \ifx\tmp\empty \else
 					\bigskip
 					{\the\legendtextsize\si\the\ththanksto: \ss\the\thanksto\par}
@@ -2649,16 +2632,25 @@ layout headerl
 					%\size[\thsizem]\si\ththankstotitle \ss\ththanksto\par}
 				\fi
 			}
+			
 # %print synthesys name !!!  !!! with newtoks\synth \synth={Synth Name} in the thconfig
-			\vskip0.3cm
+			\vskip0.2cm
 			\edef\tmp{\the\synth} \ifx\tmp\empty \else
 				{\the\legendtextsize\si\the\thsynth: \ss\the\synth\par}
 			\fi
+
+# %print legende			
 			\formattedlegend
-			\color[0 0 0]
+			
+			%\color[0 0 0]
+			
+# %print copyrights
+			\edef\tmp{\the\copyrights} \ifx\tmp\empty \else
+				\vskip0.5cm
+				{\the\legendtextlicencesize\ss\the\copyrights\par}
+			\fi
 		}
-# % Add Logos
-		#\legendbox{50}{60}{NW}{\loadpicture{Logos/Logo_FFS_small.jpg}}
+		
 		
 	endcode
 	
@@ -2681,31 +2673,37 @@ layout headerl_LT
 	#<en> This one affects maps only
 	#<fr> Ceci ne touche que les maps (plans)
 	code tex-map
+	
 		\def\loadpicture	#1{\pdfximage{#1}\pdfrefximage\pdflastximage}
 		\legendcontent={%
 			\hsize=\legendwidth
 			\color[0 0 0]\the\legendtextcolor
 			\ifnortharrow\vbox to 0pt{\line{\hfil\northarrow}\vss}\fi
+			
 # %print cave map name
 			\edef\tmp{\the\cavename} \ifx\tmp\empty \else
-				{\the\legendtextheadersize\the\cavename}\vskip0.5cm
+				{\the\legendtextheadersize\the\cavename}\vskip0.2cm
 			\fi
+			
 # %print comment
 			{\rightskip=0pt plus 3em\parskip=3bp
 			\edef\tmp{\the\comment} \ifx\tmp\empty \else
-				{\the\legendtextsize\the\comment} \par\medskip\vskip1cm
-			\fi}
+				{\the\legendtextsectionsize\the\comment} \par
+			\fi\medskip\vskip0.5cm}
+			
 # %print scalebar
-			\ifscalebar\scalebar\vskip1cm\fi
-				%print entrances coordinates (Lat-Long/WGS84) if defined
-				\edef\tmp{\the\ECoordinates} \ifx\tmp\empty \else
-				{\the\legendtextsize\si\the\thcoords \the\ECoordinates\par}
-				\vskip0.5cm
+			\ifscalebar\scalebar\vskip0.5cm\fi
+				
+%print entrances coordinates if defined
+			\edef\tmp{\the\ECoordinates} \ifx\tmp\empty \else	
+				{\the\legendtextsize\si\the\thcoords (\the\outcsname) :\par \begingroup\obeylines\the\ECoordinates\endgroup\par}		
+				\vskip0.2cm
 			\fi
 			
+
 # % start bruces addition
 # %    CS
-			\edef\tmp{\the\outcsname} \ifx\tmp\empty \else
+			%\edef\tmp{\the\outcsname} \ifx\tmp\empty \else
 			%{\the\legendtextsize\si\the\thproj: \ss\the\outcsname\par}
 			%\fi
 			%\edef\tmp{\the\northdir} \ifx\tmp\empty \else
@@ -2714,24 +2712,27 @@ layout headerl_LT
 			%\edef\tmp{\the\magdecl} \ifx\tmp\empty \else
 			%{\the\legendtextsize\ss\the\magdecl { deg.} \par}
 			%\fi
-			\vskip0.5cm
+			%\vskip0.5cm
 # % end bruces addition
+
 #%print comment
 			{
 				#\rightskip=0pt plus 3em\parskip=3bp
 				#\edef\tmp{\the\comment} \ifx\tmp\empty \else
 				#	{\the\legendtextsize\the\comment} \par\medskip
 				#\fi
+				
 # %print cavelength and depth
 				\everypar{\hangindent=2em\hangafter=1}
 					\edef\tmp{\the\cavelength} \ifx\tmp\empty \else
-					{\the\legendtextsize\si\the\cavelengthtitle: \ss\the\cavelength\par}
+					{\the\legendtextsize\si\the\cavelengthtitle: \ss\the\cavelength, }
 				\fi
 				\edef\tmp{\the\cavedepth} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\cavedepthtitle: \ss\the\cavedepth\par}
 				\fi
+				
 # % start bruces addition
-## %      altitude
+## %      altitude max and min
 				#\edef\tmp{\the\cavemaxz} \ifx\tmp\empty \else
 					#	{\the\legendtextsize\si\the\depthrangetitle \ss\the\cavemaxz m to}
 				#\fi
@@ -2747,7 +2748,7 @@ layout headerl_LT
 
 # %print surveyors names
 				# \edef\tmp{\the\topoteam} \ifx\tmp\empty \else
-				# 	{\the\legendtextsize\si\the\topotitle: \ss\the\topoteam\quad\si\the\topodate\par}
+					# {\the\legendtextsize\si\the\topotitle: \ss\the\topoteam\quad\si\the\topodate\par}
 				# \fi
 
 # %%print the guides
@@ -2763,22 +2764,27 @@ layout headerl_LT
 				\edef\tmp{\the\club} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thclub: \ss\the\club\par}
 				\fi
+				
 # %%print the expedition
 				\edef\tmp{\the\expe} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thexpe: \ss\the\expe\par}
 				\fi
+				
 # %%print the web page
 				\edef\tmp{\the\wpage} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thwpage: \ss\the\wpage\par}
 				\fi
+				
 # %%print the survey's data web page
 				\edef\tmp{\the\datat} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thdatat: \ss\the\datat\par}
 				\fi
+				
 # %%print the survey's database web page
 				\edef\tmp{\the\database} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thdatabase: \ss\the\database\par}
 				\fi				
+				
 # % start bruces addition (compilation version and date modified to use built-in 5.3.15 variables)
 				\edef\tmp{\the\thversion} \ifx\tmp\empty \else  %only write version and date if version is not emplty
 					{\the\legendtextsize\si\the\thversiontitleA: \ss\the\thversiontitleB \ss\the\thversion}
@@ -2786,11 +2792,12 @@ layout headerl_LT
 					% \edef\tmp{\the\currentdate} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\datetitle \ss\the\currentdate\par}
 				\fi
+				
 # % end bruces addition
 # %print copyrights
-				\edef\tmp{\the\copyrights} \ifx\tmp\empty \else
-					{\the\legendtextsize\ss\the\copyrights\par}
-				\fi
+				# \edef\tmp{\the\copyrights} \ifx\tmp\empty \else
+					# {\the\legendtextlicencesize\ss\the\copyrights\par}
+				# \fi
 				\edef\tmp{\the\thanksto} \ifx\tmp\empty \else
 					\bigskip
 					{\the\legendtextsize\si\the\ththanksto: \ss\the\thanksto\par}
@@ -2799,17 +2806,25 @@ layout headerl_LT
 					%\size[\thsizem]\si\ththankstotitle \ss\ththanksto\par}
 				\fi
 			}
+			
 # %print synthesys name !!!  !!! with newtoks\synth \synth={Synth Name} in the thconfig
-			\vskip0.3cm
+			\vskip0.2cm
 			\edef\tmp{\the\synth} \ifx\tmp\empty \else
 				{\the\legendtextsize\si\the\thsynth: \ss\the\synth\par}
 			\fi
+
+# %print legende			
 			\formattedlegend
-			\color[0 0 0]
+			
+			%\color[0 0 0]
+			
+# %print copyrights
+			\edef\tmp{\the\copyrights} \ifx\tmp\empty \else
+				\vskip0.5cm
+				{\the\legendtextlicencesize\ss\the\copyrights\par}
+			\fi
 		}
-# % Add Logos
-		#\legendbox{50}{60}{NW}{\loadpicture{Logos/Logo_FFS_small.jpg}}
-		
+
 	endcode
 	
 endlayout
@@ -2824,31 +2839,37 @@ layout headerl_XXLT
 	#<en> This one affects maps only
 	#<fr> Ceci ne touche que les maps (plans)
 	code tex-map
+	
 		\def\loadpicture	#1{\pdfximage{#1}\pdfrefximage\pdflastximage}
 		\legendcontent={%
 			\hsize=\legendwidth
 			\color[0 0 0]\the\legendtextcolor
 			\ifnortharrow\vbox to 0pt{\line{\hfil\northarrow}\vss}\fi
+			
 # %print cave map name
 			\edef\tmp{\the\cavename} \ifx\tmp\empty \else
-				{\the\legendtextheadersize\the\cavename}\vskip0.5cm
+				{\the\legendtextheadersize\the\cavename}\vskip0.2cm
 			\fi
+			
 # %print comment
 			{\rightskip=0pt plus 3em\parskip=3bp
 			\edef\tmp{\the\comment} \ifx\tmp\empty \else
-				{\the\legendtextsize\the\comment} \par\medskip\vskip1cm
-			\fi}
-# %print scalebar
-			\ifscalebar\scalebar\vskip1cm\fi
-				%print entrances coordinates (Lat-Long/WGS84) if defined
-				\edef\tmp{\the\ECoordinates} \ifx\tmp\empty \else
-				{\the\legendtextsize\si\the\thcoords \the\ECoordinates\par}
-				\vskip0.5cm
-			\fi
+				{\the\legendtextsectionsize\the\comment} \par
+			\fi\medskip\vskip0.5cm}
 			
+# %print scalebar
+			\ifscalebar\scalebar\vskip0.5cm\fi
+				
+%print entrances coordinates if defined
+			# \edef\tmp{\the\ECoordinates} \ifx\tmp\empty \else	
+				# {\the\legendtextsize\si\the\thcoords (\the\outcsname) :\par \begingroup\obeylines\the\ECoordinates\endgroup\par}		
+				# \vskip0.2cm
+			# \fi
+			
+
 # % start bruces addition
 # %    CS
-			\edef\tmp{\the\outcsname} \ifx\tmp\empty \else
+			%\edef\tmp{\the\outcsname} \ifx\tmp\empty \else
 			%{\the\legendtextsize\si\the\thproj: \ss\the\outcsname\par}
 			%\fi
 			%\edef\tmp{\the\northdir} \ifx\tmp\empty \else
@@ -2857,24 +2878,27 @@ layout headerl_XXLT
 			%\edef\tmp{\the\magdecl} \ifx\tmp\empty \else
 			%{\the\legendtextsize\ss\the\magdecl { deg.} \par}
 			%\fi
-			\vskip0.5cm
+			%\vskip0.5cm
 # % end bruces addition
+
 #%print comment
 			{
 				#\rightskip=0pt plus 3em\parskip=3bp
 				#\edef\tmp{\the\comment} \ifx\tmp\empty \else
 				#	{\the\legendtextsize\the\comment} \par\medskip
 				#\fi
+				
 # %print cavelength and depth
-				# \everypar{\hangindent=2em\hangafter=1}
-					# \edef\tmp{\the\cavelength} \ifx\tmp\empty \else
-					# {\the\legendtextsize\si\the\cavelengthtitle: \ss\the\cavelength\par}
-				# \fi
-				# \edef\tmp{\the\cavedepth} \ifx\tmp\empty \else
-					# {\the\legendtextsize\si\the\cavedepthtitle: \ss\the\cavedepth\par}
-				# \fi
+				\everypar{\hangindent=2em\hangafter=1}
+					\edef\tmp{\the\cavelength} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\cavelengthtitle: \ss\the\cavelength, }
+				\fi
+				\edef\tmp{\the\cavedepth} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\cavedepthtitle: \ss\the\cavedepth\par}
+				\fi
+				
 # % start bruces addition
-## %      altitude
+## %      altitude max and min
 				#\edef\tmp{\the\cavemaxz} \ifx\tmp\empty \else
 					#	{\the\legendtextsize\si\the\depthrangetitle \ss\the\cavemaxz m to}
 				#\fi
@@ -2884,19 +2908,20 @@ layout headerl_XXLT
 # % end bruces addition
 				
 # %print explorers names
-				# \edef\tmp{\the\exploteam} \ifx\tmp\empty \else
-					# {\the\legendtextsize\si\the\explotitle: \ss\the\exploteam\quad\si\the\explodate\par}
-				# \fi
+					# \edef\tmp{\the\exploteam} \ifx\tmp\empty \else
+						# {\the\legendtextsize\si\the\explotitle: \ss\the\exploteam\quad\si\the\explodate\par}
+					# \fi
 
 # %print surveyors names
 				# \edef\tmp{\the\topoteam} \ifx\tmp\empty \else
-				# 	{\the\legendtextsize\si\the\topotitle: \ss\the\topoteam\quad\si\the\topodate\par}
+					# {\the\legendtextsize\si\the\topotitle: \ss\the\topoteam\quad\si\the\topodate\par}
 				# \fi
 
 # %%print the guides
 				\edef\tmp{\the\guide} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thguide: \ss\the\guide\par}
 				\fi
+				
 # %print cartographers names
 				# \edef\tmp{\the\cartoteam} \ifx\tmp\empty \else
 					# {\the\legendtextsize\si\the\cartotitle: \ss\the\cartoteam\quad\si\the\cartodate\par}
@@ -2906,35 +2931,40 @@ layout headerl_XXLT
 				\edef\tmp{\the\club} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thclub: \ss\the\club\par}
 				\fi
+				
 # %%print the expedition
 				\edef\tmp{\the\expe} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thexpe: \ss\the\expe\par}
 				\fi
+				
 # %%print the web page
 				\edef\tmp{\the\wpage} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thwpage: \ss\the\wpage\par}
 				\fi
+				
 # %%print the survey's data web page
 				\edef\tmp{\the\datat} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thdatat: \ss\the\datat\par}
 				\fi
+				
 # %%print the survey's database web page
 				\edef\tmp{\the\database} \ifx\tmp\empty \else
 					{\the\legendtextsize\si\the\thdatabase: \ss\the\database\par}
 				\fi				
+				
 # % start bruces addition (compilation version and date modified to use built-in 5.3.15 variables)
-				# \edef\tmp{\the\thversion} \ifx\tmp\empty \else  %only write version and date if version is not emplty
-					# {\the\legendtextsize\si\the\thversiontitleA: \ss\the\thversiontitleB \ss\the\thversion}
-					# % \fi
-					# % \edef\tmp{\the\currentdate} \ifx\tmp\empty \else
-					# {\the\legendtextsize\si\the\datetitle \ss\the\currentdate\par}
-				# \fi
-# % end bruces addition
-
-# %print copyrights
-				\edef\tmp{\the\copyrights} \ifx\tmp\empty \else
-					{\the\legendtextsize\ss\the\copyrights\par}
+				\edef\tmp{\the\thversion} \ifx\tmp\empty \else  %only write version and date if version is not emplty
+					{\the\legendtextsize\si\the\thversiontitleA: \ss\the\thversiontitleB \ss\the\thversion}
+					% \fi
+					% \edef\tmp{\the\currentdate} \ifx\tmp\empty \else
+					{\the\legendtextsize\si\the\datetitle \ss\the\currentdate\par}
 				\fi
+				
+# % end bruces addition
+# %print copyrights
+				# \edef\tmp{\the\copyrights} \ifx\tmp\empty \else
+					# {\the\legendtextlicencesize\ss\the\copyrights\par}
+				# \fi
 				\edef\tmp{\the\thanksto} \ifx\tmp\empty \else
 					\bigskip
 					{\the\legendtextsize\si\the\ththanksto: \ss\the\thanksto\par}
@@ -2943,16 +2973,24 @@ layout headerl_XXLT
 					%\size[\thsizem]\si\ththankstotitle \ss\ththanksto\par}
 				\fi
 			}
+			
 # %print synthesys name !!!  !!! with newtoks\synth \synth={Synth Name} in the thconfig
-			\vskip0.3cm
+			\vskip0.2cm
 			\edef\tmp{\the\synth} \ifx\tmp\empty \else
 				{\the\legendtextsize\si\the\thsynth: \ss\the\synth\par}
 			\fi
+
+# %print legende			
 			\formattedlegend
-			\color[0 0 0]
+			
+			%\color[0 0 0]
+			
+# %print copyrights
+			\edef\tmp{\the\copyrights} \ifx\tmp\empty \else
+				\vskip0.5cm
+				{\the\legendtextlicencesize\ss\the\copyrights\par}
+			\fi
 		}
-# % Add Logos
-		#\legendbox{50}{60}{NW}{\loadpicture{Logos/Logo_FFS_small.jpg}}
 		
 	endcode
 	
@@ -4180,11 +4218,13 @@ endlayout
 #<fr> fonts pour dessin à 1/2000 
 ######################################################################################################################################
 layout fonts_2000
+
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
 		# Old: (6, 8, 12, 16, 18)
 		fonts_setup(5, 8, 12, 20, 34);
 	endcode	
+	
 endlayout
 
 ######################################################################################################################################
@@ -4193,13 +4233,15 @@ endlayout
 #<en> fonts for 1/1000 scale drawing
 #<fr> fonts pour dessin à 1/1000
 ######################################################################################################################################
-layout fonts_1000		
+layout fonts_1000
+		
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
 		# Old: (10, 14, 20, 28, 32)
 		# Old: (8, 12, 20, 28, 34)
 		fonts_setup(8, 12, 20, 32, 52);
 	endcode
+	
 endlayout
 
 ######################################################################################################################################
@@ -4209,11 +4251,13 @@ endlayout
 #<fr> fonts pour dessin à 1/500 
 ######################################################################################################################################
 layout fonts_500
+
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
 		# Old: (6, 10, 12, 14, 18)
 		fonts_setup(12, 20, 32, 52, 84);
 	endcode
+	
 endlayout
 
 ######################################################################################################################################

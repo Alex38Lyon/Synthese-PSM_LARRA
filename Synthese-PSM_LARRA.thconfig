@@ -59,7 +59,7 @@ layout my_layout
 	
 	
 	# Définition du système de projection du plan
-	cs EPSG:32630
+	cs UTM30
 	
 	# La ligne base-scale spécifie l'échelle auquel nous avons dessiné nos croquis.
 	# Par défaut, Therion pense que c'est une échelle 1:200. Si on a utilisé une autre échelle,
@@ -179,14 +179,14 @@ layout my_layout
 	#debug scrap-names
 	#debug station-names
 	
-	# code metapost
-	  # def p_wall (expr P) =
-		 # T := (if known T: T else origin) shifted (u * (P + (-0.5w, 0)));
-		 # draw P withpen linepen;
-		 # % Retirer ou commenter la ligne d'altitude
-		 # % draw_altitude (P, "wall");
-	  # enddef;
-	# endcode
+	code metapost
+	  def p_wall (expr P) =
+		 T := (if known T: T else origin) shifted (u * (P + (-0.5w, 0)));
+		 draw P withpen linepen;
+		 % Retirer ou commenter la ligne d'altitude
+		 % draw_altitude (P, "wall");
+	  enddef;
+	endcode
 	
 	# min-symbol-scale S   # XL, L, M, S, XS
 	
@@ -229,7 +229,7 @@ endlayout
 
 # Debut de la definition du Layout "xviexport"
 layout xviexport
-	#cs UTM32
+	#cs UTM30
 	# echelle à laquelle on veut dessiner la topo
 	scale 1 100
 	#scale 1 1000
@@ -254,9 +254,7 @@ endlayout
 # 3-EXPORT
 
 # Export des xvi pour le dessin si besoin
-#export map -fmt xvi -layout xviexport -o Data/Complexe_Lonne_Peyret-Bourrugues-map.xvi
-#export map -proj extended -layout xviexport -fmt xvi -o Data/Complexe_Lonne_Peyret-Bourrugues-coupe.xvi
-
+#export map -fmt xvi -layout xviexport -o Data/xxxxxxxxxxxxxxxxxxx.xvi
 
 select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
 
