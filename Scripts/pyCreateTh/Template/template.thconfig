@@ -32,10 +32,12 @@ encoding  utf-8
 ## "jb.th" et a leur tour, "jb.th" appellera
 ## "jb-dessin.th2")
 
+cs {cs}
+
 source {fileName}-tot.th
 
 ## Add config file
-input {configPath}config.thc
+# input {configPath}config.thc
 
 
 ###############################################################################################
@@ -144,47 +146,66 @@ layout layout-Plan
 	## Afficher un copyright
 	statistics copyright 2
 	
-	## Dessin ou pas du cheminement topo
-	# symbol-hide point station
-	# symbol-hide line survey
-	# symbol-hide group
-	# symbol-show line wall
-	# symbol-hide point station-name
-	# symbol-hide point u:symbol_plan
-	# symbol-hide point u:symbol_extend
-	# debug scrap-names
-	# debug station-names
+	symbol-hide point u:symbol_plan
+	symbol-hide point u:symbol_extend
+	symbol-hide point station-name
+	symbol-hide point station
+	symbol-hide line survey
 	
+	# symbol-hide group water
+	# symbol-hide group speleothems
+	# symbol-hide group text	
+	# symbol-hide line label
+	# symbol-hide point label
+	# symbol-hide point height	
+
+	# symbol-hide point dig
+	# symbol-hide point camp
+	# symbol-hide point air-draught
+	# symbol-hide point continuation
+	# symbol-hide point masonry
+	# symbol-hide point low-end
+	# symbol-hide point narrow-end
+	# symbol-hide point flowstone-choke
+	# symbol-hide point breakdown-choke
+	# symbol-hide point clay-choke
+	# symbol-hide point bones
+	# symbol-hide point bat
+	# symbol-hide point rope
+	# symbol-hide point traverse
+	# symbol-hide point u:man_w
+	# symbol-hide point stalagmites
+	# symbol-hide point stalagmite
+	# symbol-hide point paleo-material
+	
+	# symbol-hide group all 
+	
+	#debug scrap-names
+	#debug station-names
+	
+	# min-symbol-scale S   # XL, L, M, S, XS
+		
 	layers on
 	
 	overlap 2 cm
 	
 	code tex-map
-		\legendwidth=15cm                        %%% Largeur cartouche
-		\legendtextsize={\size[12]}              %%% Police principale
-		\legendtextheadersize={\size[28]}        %%% Taille du titre
-		\legendtextsectionsize={\size[14]}       %%% Taille des sous titres
-		%\legendtextcolor={\color[0 0 110]}      %%% RGB values 0--100
-		% Output map title as determined by Therion is stored in caveName, défini par la une Map.
-		% It will be empty if there are multiple maps selected for any one projection
-		% AND there are multiple source surveys identified in the thconfig file
-		% ie Therion can not infer a unique title from the input data given.
-		% This code allows you to define an output map title {caveName} if it happens to be empty
-		\edef\temp{\the\cavename}        %%% cavename from Therion
-		\edef\nostring{}                 %%% empty string
-		\ifx\temp\nostring               %%% test if cavename is empty
-		% if empty
-		reassign cavename to describe selected maps as a group
-		\else                            %%% if not empty keep the value set by therion, or assign an override cavename here
-		\fi
+		\legendwidth=15cm                   %%% Largeur de la légende
+		\legendtextsize={\size[10]}         %%% Taille des polices 
+		\legendtextheadersize={\size[20]}   %%% Taille du titre
+		\legendtextsectionsize={\size[14]}  %%% Taille des sections 
+		\legendtextlicencesize={\size[8]}   %%% Taille de la licence 
 		\cavename={{caveName}, Plan 1:{Scale}}     %%% Note Alex : Bug avec certains fichiers ?
 		\newtoks\club \club={{club}}
-		%\newtoks\thanksto \thanksto={{thanksto}}
-		\newtoks\wpage \wpage={{wpage}}
-		\newtoks\datat \datat={{datat}}
-		\newtoks\synth \synth={{Author}}
+		%\thanksto={{thanksto}}
+	   \wpage={{wpage}}
+		\datat={{datat}}
+		\synth={{Author}}
 		\framethickness=0.5mm
 	endcode
+	
+	# map-image 0 -100 nw ./../../Logos/Logo-ARSIP-Synthese-Topographique_XL.png
+	# map-image 0 -100 nw Outputs/C108-Sima_H-Cave-list.html
 	
 endlayout
 
@@ -301,31 +322,18 @@ layout layout-Extended
 	
 	overlap 2 cm
 	
-	## Modification du Titre de la topo
 	code tex-map
-		\legendwidth=15cm                        %%% Largeur cartouche
-		\legendtextsize={\size[12]}              %%% Police principale
-		\legendtextheadersize={\size[28]}        %%% Taille du titre
-		\legendtextsectionsize={\size[14]}       %%% Taille des sous titres
-		%\legendtextcolor={\color[0 0 110]}      %%% RGB values 0--100
-		% Output map title as determined by Therion is stored in caveName, défini par la une Map.
-		% It will be empty if there are multiple maps selected for any one projection
-		% AND there are multiple source surveys identified in the thconfig file
-		% ie Therion can not infer a unique title from the input data given.
-		% This code allows you to define an output map title {caveName} if it happens to be empty
-		\edef\temp{\the\cavename}        %%% cavename from Therion
-		\edef\nostring{}                 %%% empty string
-		\ifx\temp\nostring               %%% test if cavename is empty
-		% if empty
-		reassign cavename to describe selected maps as a group
-		\else                            %%% if not empty keep the value set by therion, or assign an override cavename here
-		\fi
-		\cavename={{caveName}, Coupe développée 1:{Scale}}             %%% Note Alex : Bug avec certains fichiers ?
-		\newtoks\club \club={{club}}
-		%\newtoks\thanksto \thanksto={{thanksto}}
-		\newtoks\wpage \wpage={{wpage}}
-		\newtoks\datat \datat={{datat}}
-		\newtoks\synth \synth={{Author}}
+		\legendwidth=15cm                   %%% Largeur de la légende
+		\legendtextsize={\size[10]}         %%% Taille des polices 
+		\legendtextheadersize={\size[20]}   %%% Taille du titre
+		\legendtextsectionsize={\size[14]}  %%% Taille des sections 
+		\legendtextlicencesize={\size[8]}   %%% Taille de la licence 
+		\cavename={{caveName}, Coupe développée 1:{Scale}}   
+		\club={{club}}
+		%\thanksto={{thanksto}}
+	   \wpage={{wpage}}
+		\datat={{datat}}
+		\synth={{Author}}
 		\framethickness=0.5mm
 	endcode
 	
@@ -350,7 +358,7 @@ endlayout
 ## Début de la définition du Layout "xviexport"
 ###############################################################################################
 layout xviexport
-	# cs UTM32
+	# cs {cs}
 	## echelle à laquelle on veut dessiner la topo
 	scale 1 {XVIscale}
 	# scale 1 1000
@@ -391,9 +399,9 @@ endlayout
 	# export map -proj plan -fmt kml -o Outputs/{fileName}.kml -layout layout-kml
 	# export model -fmt kml -o Outputs/{fileName}-model.kml -enable all
 	# export model -enable all -o Outputs/{fileName}-3D.kml
-	# export cave-list -location on -o Outputs/{fileName}-Cave-list.html
+	export cave-list -surveys off -location on -o Outputs/{fileName}-Cave-list.html
 	export survey-list -location on -o Outputs/{fileName}-Surveys.html
-	# export database -fmt sql -o Outputs/{fileName}-database.sql
+	# export database -fmt sql -o Outputs/{fileName}-Database.sql
 	# export continuation-list -o Outputs/{fileName}-Continuations.html
 
 
