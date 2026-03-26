@@ -10,10 +10,9 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	plan_BB09@BB09
 	break
 	plan_BB26@BB26
-	# break
-	# plan_BB27@BB27
 	break
-
+	# plan_BB27@BB27
+	# break
 	# MP-Grotte_de_Alhais-Plan-tot@Grotte_de_Alhais
 	# break
 	# MP-Arphidia-Plan-tot@Arphidia
@@ -30,10 +29,10 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-C103-Plan-tot@C103
 	# break
-	# MP-C108-Sima_H-Plan-tot@C108-Sima_H
-	# break
-	# MP-C110-Plan-tot@C110
-	# break
+	MP-C108-Sima_H-Plan-tot@C108-Sima_H
+	break
+	MP-C110-Plan-tot@C110
+	break
 	MP-C299-Gouffre_belle_gueule-Plan-tot@C299-Gouffre_belle_gueule
 	break
 	# MP-Grotte_de_la_Cascade-Plan-tot@Grotte_de_la_Cascade
@@ -164,10 +163,10 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-E022-Gouffre_de_la_Glaciere-Plan-tot@E022-Gouffre_de_la_Glaciere
 	# break
-	# MP-C214-Niebla-Plan-tot@C214-Niebla
-	# break
-	# MP-K007-Hourat_det_Soure-Plan-tot@K007-Hourat_det_Soure
-	# break
+	MP-C214-Niebla-Plan-tot@C214-Niebla
+	break
+	MP-K007-Hourat_det_Soure-Plan-tot@K007-Hourat_det_Soure
+	break
 	# MP-A110-Plan-tot@A110
 	# break
 	# MP-AP045-Plan-tot@AP045
@@ -192,8 +191,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-AN639-Plan-tot@AN639
 	# break
-	# MP-C243-Los_Cairns-Plan-tot@C243-Los_Cairns
-	# break
+	MP-C243-Los_Cairns-Plan-tot@C243-Los_Cairns
+	break
 	# MP-AN624-Pokemon-Plan-tot@AN624-Pokemon
 	# break
 	# MP-AN669-Babosa-Plan-tot@AN669-Babosa
@@ -284,8 +283,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-C213-Plan-tot@C213
 	# break
-	# MP-C230-Plan-tot@C230
-	# break
+	MP-C230-Plan-tot@C230
+	break
 	# MP-AN058-Trou_du_Chien-Plan-tot@AN058-Trou_du_Chien
 	# break
 	# MP-AN514-Venus-Plan-tot@AN514-Venus

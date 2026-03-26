@@ -29,6 +29,9 @@ encoding  utf-8
 # les donnees du dessin, comme ça, ce fichier thconfig appellera
 # "jb.th" et a leur tour, "jb.th" appellera
 # "jb-dessin.th2")
+
+cs UTM30
+
 source Synthese-PSM_LARRA-tot.th
 
 # pour le MNT avec une résolution spaciale de 1" STRM10
@@ -120,6 +123,8 @@ layout my_layout
 	# Alors nous pouvons specifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	# ou une autre combination...
 	map-header 2 98 nw
+	
+	map-image 4 80 nw Logos/Logo-ARSIP-Synthese-Topographique_XL.png
 	
 	# arrière plan de la manchette
 	map-header-bg on
@@ -222,7 +227,7 @@ layout my_layout
 		\framethickness=0.5mm
 	endcode
 
-	map-image 4 72 nw ./Logos/Logo-ARSIP-Synthese-Topographique_XL.png
+	
 
 endlayout
 # Fin de la definition du Layout "normal"
@@ -261,8 +266,8 @@ select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
 export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
-export map -projection plan -fmt xhtml -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.xhtml
-export map -projection plan -fmt svg -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.svg
+# export map -projection plan -fmt xhtml -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.xhtml
+# export map -projection plan -fmt svg -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.svg
 # export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Puits-Coupe.pdf
 
 
@@ -277,7 +282,7 @@ export model -enable all -o Outputs/Synthese-PSM_LARRA.kml
 # export des statistiques de l'ensemble de la cavité
 #    Attention, les points de départ et d'arrivée de chaque centreline correspondent
 #    au second point et à l'avant dernier point de la série.
-export database -fmt sql -o Outputs/DB_Synthese-PSM_LARRA.sql
+# export database -fmt sql -o Outputs/DB_Synthese-PSM_LARRA.sql
 
 # Export des fichiers ESRI
 export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
