@@ -261,7 +261,9 @@ endlayout
 # Export des xvi pour le dessin si besoin
 #export map -fmt xvi -layout xviexport -o Data/xxxxxxxxxxxxxxxxxxx.xvi
 
+select MC-Synthese_PSM-Extended-tot@Synthese-PSM_LARRA
 select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
+
 
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !

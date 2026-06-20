@@ -300,7 +300,7 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 endmap
 
 
-# map MC-Synthese_PSM-Extended-tot -title "Synthese PSM"
+map MC-Synthese_PSM-Extended-tot -title "Synthese PSM"
 # 	# MC-00-Ref_Square-Extended-tot@00-Ref_Square
 	# break
 	# MC-Grotte_de_Alhais-Extended-tot@Grotte_de_Alhais
@@ -319,8 +319,8 @@ endmap
 	# break
 	# MC-C103-Extended-tot@C103
 	# break
-	# MC-C108-Sima_H-Extended-tot@C108-Sima_H
-	# break
+	MC-C108-Sima_H-Extended-tot@C108-Sima_H
+	break
 	# MC-C110-Extended-tot@C110
 	# break
 	# MC-Grotte_de_la_Cascade-Extended-tot@Grotte_de_la_Cascade
@@ -553,8 +553,8 @@ endmap
 	# break
 	# MC-Complexe_PSM_GdP-Extended-tot@Complexe_PSM_GdP
 	# break
-	# MC-L5-Extended-tot@L5
-	# break
+	MC-L5-Extended-tot@L5
+	break
 	# MC-AN455-Extended-tot@AN455
 	# break
 	# MC-AN465B-Extended-tot@AN465B
@@ -564,8 +564,6 @@ endmap
 	# MC-Complexe_BU56_Ilamina-Extended-tot@Complexe_BU56_Ilamina
 	# break
 	# MC-Complexe_Ours-Veau-Extended-tot@Complexe_Ours-Veau
-	# break
-	# MC-Complexe_Lonne_Peyret-Bourrugues-Extended-tot@Complexe_Lonne_Peyret-Bourrugues
 	# break
 	# MC-AN326-Extended-tot@AN326
 	# break
@@ -581,7 +579,13 @@ endmap
 	# break
 	# MC-Complexe_Anialarra-Extended-tot@Complexe_Anialarra
 	# break
+	MC-Complexe_Lonne_Peyret-Bourrugues-coupe-tot@Complexe_Lonne_Peyret-Bourrugues
+	break
+	MC-Z510-coupe-tot@Z510	
+	break
+	MC-Tobozo-Extended-tot@Tobozo
+	break
 	
-# endmap
+endmap
 
 

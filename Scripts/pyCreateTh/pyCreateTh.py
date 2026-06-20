@@ -28,6 +28,7 @@ Sources documentaires :
 
 
 Création Alex le 2025 06 09
+Mise à jour : 2026 06 20
                                         
 En cours :
     - Exports Tro :
@@ -38,8 +39,8 @@ En cours :
         - A créer pour avoir notamment les réseaux à plusieurs entrées 
     - Exports DAT/MARK
         - Attention les  Flags '#|L#' posent problèmes (A voir convertisseur PdB vers compass...)
-    - tester avec les dernières option de la version de DAT (CORRECTION2 et suivants)
-    - améliorer fonction wall shot pour faire habillage des th2 files, les jointures...
+    - Tester avec les dernières option de la version de DAT (CORRECTION2 et suivants)
+    - Améliorer fonction wall shot pour faire habillage des th2 files, les jointures...
         - traiter les series avec 1 ou 2 stations
     - PB des cartouches et des échelles pour faire des pdf automatiquement
 
@@ -2191,6 +2192,7 @@ if __name__ == u'__main__':
     threads = []
     fileTitle = ""
     _fileTitle = ""
+    profile = "Default"
     
     #################################################################################################
     # Parse arguments                                                                               #
@@ -2202,16 +2204,26 @@ if __name__ == u'__main__':
     parser.add_argument("--file", help="the file (*.th, *.mak, *.dat, *.tro) to perform e.g. './Therion_file.th'", default="")
     parser.add_argument("--proj", choices=['All', 'Plan', 'Extended', 'None'], help="the th2 files scrap projection to produce, default: All", default="All")
     parser.add_argument("--scale", help="scale for the pdf layout exports, default value: 1000 (i.e. xvi files scale is 100)", default="1000")
-    parser.add_argument("--update", help="th2 files update mode (only for th input files, no folders created)", action="store_true", default=False)
+    parser.add_argument("--update", help=f"th2 files update mode (only for th input files, no folders created), {Colors.RED}Attention : save your old th2 files", action="store_true", default=False)
                         
     parser.epilog = (
         f"{Colors.GREEN}Please, complete {Colors.BLUE}config.ini{Colors.GREEN} in {Colors.BLUE}FILE{Colors.GREEN} folder or in script folder for personal configuration{Colors.ENDC}\n"
-        f"{Colors.GREEN}If no argument: {Colors.BLUE} files selection by a windows\n{Colors.ENDC}\n"
-        f"{Colors.BLUE}Examples:{Colors.ENDC}\n"
-        f"\t> python pyCreateTh.py ./Tests/Entree.th --scale 1000\n"
-        f"\t> python pyCreateTh.py Entree.th\n"
+        f"{Colors.GREEN}Configuration profiles in {Colors.BLUE}config.ini{Colors.GREEN} file{Colors.ENDC}\n" 
+        f"{Colors.GREEN}\t{Colors.BLUE}--Default{Colors.ENDC}\tDefault configuration (or none){Colors.ENDC}\n" 
+        f"{Colors.GREEN}\t{Colors.BLUE}--PSM{Colors.ENDC}\t\tPSM configuration values{Colors.ENDC}\n\n" 
+        f"{Colors.GREEN}If no {Colors.BLUE}--file {Colors.GREEN}argument : {Colors.ENDC}files selection by a windows\n\n"
+        f"{Colors.GREEN}Examples:{Colors.ENDC}\n"
+        f"\t> python pyCreateTh.py ./Tests/Entree.th --scale 1000 --Default\n"
+        f"\t> python pyCreateTh.py Entree.th --PSM\n"
+        f"\t> python pyCreateTh.py --Tritons\n"
         f"\t> python pyCreateTh.py\n\n")
-    args = parser.parse_args()
+    args, unknown = parser.parse_known_args()
+    
+    for arg in unknown:
+        if arg.startswith("--"):
+            profile = arg[2:]
+    section = f"Survey_Data:{profile}"
+        
     
     if args.file == "":
         args.file = select_file_tk_window()
@@ -2233,7 +2245,7 @@ if __name__ == u'__main__':
     #################################################################################################
     # Reading config.ini                                                                            #
     #################################################################################################   
-    config_file = load_config(args)
+    config_file, profile = load_config(args, profile=profile)
 
     #################################################################################################
     # titre                                                                                         #
@@ -2262,7 +2274,7 @@ if __name__ == u'__main__':
         pad_line(f"Input file :           {Colors.ENDC}{safe_relpath(args.file)}"),
         pad_line(f"Output folder :        {Colors.ENDC}{safe_relpath(splitext(abspath(args.file))[0])}"),
         pad_line(f"Log file :             {Colors.ENDC}{os.path.basename(output_log)}"),
-        pad_line(f"Config file:           {Colors.ENDC}{safe_relpath(config_file)}"),
+        pad_line(f"Config file :          {Colors.ENDC}{safe_relpath(config_file)}{Colors.GREEN}, profile : {Colors.ENDC}{profile}"),
         pad_line(""),
         bordure
     ]
@@ -2274,7 +2286,16 @@ if __name__ == u'__main__':
     if args.file == "":
             log.critical(f"No valid file selected, try again")
             exit(0)
-
+            
+    # print(f"{Colors.BLUE}Author = {Colors.ENDC}{globalData.Author}")
+    # print(f"{Colors.BLUE}Copyright = {Colors.ENDC}{globalData.Copyright}")
+    # print(f"{Colors.BLUE}CopyrightShort = {Colors.ENDC}{globalData.CopyrightShort}")
+    # print(f"{Colors.BLUE}mapComment = {Colors.ENDC}{globalData.mapComment}")
+    # print(f"{Colors.BLUE}cs = {Colors.ENDC}{globalData.cs}")
+    # print(f"{Colors.BLUE}club = {Colors.ENDC}{globalData.club}")
+    # print(f"{Colors.BLUE}thanksto = {Colors.ENDC}{globalData.thanksto}")
+    # print(f"{Colors.BLUE}datat = {Colors.ENDC}{globalData.datat}")
+    # print(f"{Colors.BLUE}wpage = {Colors.ENDC}{globalData.wpage}")
         
     #################################################################################################
     # Fichier TH                                                                                    #

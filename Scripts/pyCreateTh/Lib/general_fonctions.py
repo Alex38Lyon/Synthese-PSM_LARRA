@@ -10,6 +10,7 @@ Alex 2025 06 09
 import os, logging, sys, re, configparser, unicodedata, shutil
 from pathlib import Path
 import Lib.global_data as global_Data
+from datetime import datetime
 
 import tkinter as tk
 from tkinter import filedialog
@@ -218,7 +219,7 @@ def select_file_tk_window():
 
 
 #################################################################################################
-def load_config(args, configIni="config.ini"):
+def load_config_old(args, configIni="config.ini"):
     """
     Charge un fichier de configuration .ini et initialise les variables globales.
 
@@ -287,6 +288,169 @@ def load_config(args, configIni="config.ini"):
         log.critical(f"Reading {configIni} file error: {Colors.ENDC}{e}")
         exit(0)
 
+
+def load_config(args, configIni="config.ini", profile="Default"):
+    """
+    Charge un fichier de configuration .ini et initialise les variables globales.
+
+    Args:
+        args: Argument contenant le chemin du fichier principal.
+        configIni: Nom du fichier de configuration.
+        profile: Nom du profil Survey_Data à utiliser.
+                 Exemple : Survey_Data:PSM
+    """
+    try:
+        
+        # Chemin potentiel du fichier config
+        config_file = os.path.join(os.path.dirname(args.file), configIni)
+        if not os.path.isfile(config_file):
+            config_file = configIni
+
+        config = configparser.ConfigParser()
+        config.read(config_file, encoding="utf-8")
+
+        # ----------------------------------------------------------
+        # Sélection du profil Survey_Data
+        # ----------------------------------------------------------
+
+        survey_section = f"Survey_Data:{profile}"
+
+        if survey_section in config:
+            survey_cfg = config[survey_section]
+
+        elif "Survey_Data" in config:
+            # Compatibilité ancienne configuration
+            survey_cfg = config["Survey_Data"]
+
+            if profile != "Default":
+                log.warning(f"Profile '{Colors.ENDC}{profile}{Colors.WARNING}' not found. Using legacy default {Colors.ENDC}[Survey_Data]{Colors.WARNING} section.")
+                profile = "Default"
+        else:
+            raise ValueError(f"Section [{survey_section}] not found and no legacy [Survey_Data] section available.")
+
+        # ----------------------------------------------------------
+        # Lecture Survey_Data
+        # ----------------------------------------------------------
+
+        survey_keys = {
+            'Author': 'Author',
+            'Copyright1': 'Copyright',
+            'Copyright2': 'Copyright',
+            'Copyright3': 'Copyright',
+            'Copyright_Short': None,
+            'map_comment': 'mapComment',
+            'club': 'club',
+            'thanksto': 'thanksto',
+            'datat': 'datat',
+            'wpage': 'wpage',
+            'cs': 'cs'
+        }
+
+        # ==========================================================
+        # Variables de substitution
+        # ==========================================================
+
+        variables = {
+            "YEAR": str(datetime.now().year)
+        }
+
+        def expand(value):
+            try:
+                return value.format(**variables)
+            except Exception:
+                return value
+
+        # ==========================================================
+        # Lecture Survey_Data
+        # ==========================================================
+
+        survey_keys = {
+            'Author': 'Author',
+            'map_comment': 'mapComment',
+            'club': 'club',
+            'thanksto': 'thanksto',
+            'datat': 'datat',
+            'wpage': 'wpage',
+            'cs': 'cs'
+        }
+
+        for key, attr in survey_keys.items():
+
+            if key in survey_cfg:
+
+                value = expand(survey_cfg[key])
+
+                setattr(global_Data, attr, value)
+
+        # ==========================================================
+        # Gestion Copyright
+        # ==========================================================
+
+        copyright_lines = []
+
+        for key in ("Copyright1", "Copyright2", "Copyright3"):
+
+            if key in survey_cfg:
+
+                copyright_lines.append(
+                    expand(survey_cfg[key])
+                )
+
+        if copyright_lines:
+
+            global_Data.Copyright = "\n".join(
+                copyright_lines
+            )
+
+        if "Copyright_Short" in survey_cfg:
+
+            global_Data.CopyrightShort = expand(
+                survey_cfg["Copyright_Short"]
+            )
+
+
+        # ----------------------------------------------------------
+        # Lecture Application_Data
+        # ----------------------------------------------------------
+
+        app_keys = {
+            'template_path': 'templatePath',
+            'station_by_scrap': ('stationByScrap', int),
+            'final_therion_exe': ('finalTherionExe', lambda x: x.lower() == 'true'),
+            'parse_tro_files_by_explo': ('parse_tro_files_by_explo', lambda x: x.lower() == 'true'),
+            'therion_path': 'therionPath',
+            'survey_prefix_name': 'SurveyPrefixName',
+            'shot_lines_in_th2_files': ('linesInTh2', lambda x: x.lower() == 'true'),
+            'station_name_in_th2_files': ('stationNamesInTh2', lambda x: x.lower() == 'true'),
+            'wall_lines_in_th2_files': ('wallLinesInTh2', lambda x: x.lower() == 'true'),
+            'kSmooth': ('kSmooth', float)
+        }
+
+        if 'Application_Data' in config:
+
+            for key, value in app_keys.items():
+                if key not in config['Application_Data']:
+                    continue
+
+                attr, caster = (
+                    (value, str)
+                    if isinstance(value, str)
+                    else value
+                )
+
+                setattr(
+                    global_Data,
+                    attr,
+                    caster(config['Application_Data'][key])
+                )
+
+        # log.info(f"Configuration profile : {profile}")
+
+        return config_file, profile
+
+    except Exception as e:
+        log.critical(f"Reading config file : {Colors.ENDC}{configIni}{Colors.ERROR} error : {Colors.ENDC}{e}"  )
+        exit(0)
 
 #################################################################################################
 # Supprime les codes ANSI (pour l'écriture dans les fichiers)
