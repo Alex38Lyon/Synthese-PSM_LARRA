@@ -2204,7 +2204,7 @@ if __name__ == u'__main__':
     parser.add_argument("--file", help="the file (*.th, *.mak, *.dat, *.tro) to perform e.g. './Therion_file.th'", default="")
     parser.add_argument("--proj", choices=['All', 'Plan', 'Extended', 'None'], help="the th2 files scrap projection to produce, default: All", default="All")
     parser.add_argument("--scale", help="scale for the pdf layout exports, default value: 1000 (i.e. xvi files scale is 100)", default="1000")
-    parser.add_argument("--update", help=f"th2 files update mode (only for th input files, no folders created), {Colors.RED}Attention : save your old th2 files", action="store_true", default=False)
+    parser.add_argument("--update", help=f"th2 files update mode (only for th input files, no folders created), {Colors.RED}attention : save your old th2 files", action="store_true", default=False)
                         
     parser.epilog = (
         f"{Colors.GREEN}Please, complete {Colors.BLUE}config.ini{Colors.GREEN} in {Colors.BLUE}FILE{Colors.GREEN} folder or in script folder for personal configuration{Colors.ENDC}\n"
