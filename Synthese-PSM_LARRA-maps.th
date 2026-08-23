@@ -71,8 +71,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-Trou_Martin-Plan-tot@Trou_Martin
 	# break
-	# MP-UK004-Plan-tot@UK004
-	# break
+	MP-UK004-Plan-tot@UK004
+	break
 	# MP-UK557-Ourtets-Plan-tot@UK557-Ourtets
 	# break
 	# MP-UK559-Plan-tot@UK559
@@ -81,8 +81,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-UT140-Basa_Ordia_Lezia-Plan-tot@UT140-Basa_Ordia_Lezia
 	# break
-	# MP-Z106-Plan-tot@Z106
-	# break
+	MP-Z106-Plan-tot@Z106
+	break
 	# MP-Z111-Plan-tot@Z111
 	# break
 	# MP-Z124-Plan-tot@Z124
@@ -237,10 +237,10 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-Sima_1748-Plan-tot@Sima_1748
 	# break
-	# MP-Z107-Plan-tot@Z107
-	# break
-	# MP-Z127-Plan-tot@Z127
-	# break
+	MP-Z107-Plan-tot@Z107
+	break
+	MP-Z127-Plan-tot@Z127
+	break
 	# MP-AN456-Banco-Plan-tot@AN456-Banco
 	# break
 	# MP-AN480-Plan-tot@AN480
@@ -253,8 +253,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-Z108-Plan-tot@Z108
 	# break
-	# MP-Z100-Plan-tot@Z100
-	# break
+	MP-Z100-Plan-tot@Z100
+	break
 	# MP-BB50-Plan-tot@BB50
 	# break
 	# MP-AN324-Plan-tot@AN324
@@ -523,10 +523,10 @@ map MC-Synthese_PSM-Extended-tot -title "Synthese PSM"
 	# break
 	# MC-Sima_1748-Extended-tot@Sima_1748
 	# break
-	# MC-Z107-Extended-tot@Z107
-	# break
-	# MC-Z127-Extended-tot@Z127
-	# break
+	MC-Z107-Extended-tot@Z107
+	break
+	MC-Z127-Extended-tot@Z127
+	break
 	# MC-AN456-Banco-Extended-tot@AN456-Banco
 	# break
 	# MC-AN480-Extended-tot@AN480

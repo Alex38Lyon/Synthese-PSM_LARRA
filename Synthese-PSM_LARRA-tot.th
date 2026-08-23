@@ -132,7 +132,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/Trou_Martin/Trou_Martin-tot.th
 	input Data/Trou_du_Mouton/Trou_du_Mouton-tot.th
 	input Data/Trou_du_Renard/Trou_du_Renard-tot.th
-	input Data/UK004/UK004-tot.th
+	input Data/UK004_Sima_de_Ukerdi_Abajo/UK004-tot.th
 	input Data/UK557-Ourtets/UK557-Ourtets-tot.th
 	input Data/UK559/UK559-tot.th
 	input Data/UK600-Sima_Beauf/UK600-Sima_Beauf-tot.th
