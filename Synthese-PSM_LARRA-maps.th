@@ -83,8 +83,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	MP-Z106-Plan-tot@Z106
 	break
-	# MP-Z111-Plan-tot@Z111
-	# break
+	MP-Z111-Plan-tot@Z111
+	break
 	# MP-Z124-Plan-tot@Z124
 	# break
 	# MP-Z017-Plan-tot@Z017
@@ -217,8 +217,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-Z150-Gouffre_Patrick_GROSDEMANCHE-Plan-tot@Z150-Gouffre_Patrick_GROSDEMANCHE
 	# break
-	# MP-Z112-Plan-tot@Z112
-	# break
+	MP-Z112-Plan-tot@Z112
+	break
 	# MP-Z123-Plan-tot@Z123
 	# break
 	# MP-A106-Plan-tot@A106
@@ -249,10 +249,10 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-AN711-Oso-Plan-tot@AN711-Oso
 	# break
-	# MP-Z444-Plan-tot@Z444
-	# break
-	# MP-Z108-Plan-tot@Z108
-	# break
+	MP-Z444-Plan-tot@Z444
+	break
+	MP-Z108-Plan-tot@Z108
+	break
 	MP-Z100-Plan-tot@Z100
 	break
 	# MP-BB50-Plan-tot@BB50

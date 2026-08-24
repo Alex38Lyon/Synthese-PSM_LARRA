@@ -740,15 +740,15 @@
 <Point> <coordinates>-0.80145539452867,42.95409778012333,1660.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z_108]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z108 Grotte Françou]]></name>
 <Point> <coordinates>-0.78959801739938,42.95624664239442,1684.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z_111]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z111]]></name>
 <Point> <coordinates>-0.79797284519337,42.95412985929002,1685.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z_112]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z112 Sima Christophe Audezzano]]></name>
 <Point> <coordinates>-0.79295690932651,42.95659062977266,1639.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -776,7 +776,7 @@
 <Point> <coordinates>-0.80628406298440,42.94654548479802,1497.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z_444]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z444]]></name>
 <Point> <coordinates>-0.78927336776673,42.95606928112938,1686.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
