@@ -73,10 +73,10 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	MP-UK004-Plan-tot@UK004
 	break
-	# MP-UK557-Ourtets-Plan-tot@UK557-Ourtets
-	# break
-	# MP-UK559-Plan-tot@UK559
-	# break
+	MP-UK557-Ourtets-Plan-tot@UK557-Ourtets
+	break
+	MP-UK559-Plan-tot@UK559
+	break
 	# MP-UKD6-Plan-tot@UKD6
 	# break
 	# MP-UT140-Basa_Ordia_Lezia-Plan-tot@UT140-Basa_Ordia_Lezia
@@ -85,10 +85,10 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	MP-Z111-Plan-tot@Z111
 	break
-	# MP-Z124-Plan-tot@Z124
-	# break
-	# MP-Z017-Plan-tot@Z017
-	# break
+	MP-Z124-Plan-tot@Z124
+	break
+	MP-Z017-Plan-tot@Z017
+	break
 	# MP-Laminako_Ziloa_Illamina-Plan-tot@Laminako_Ziloa_Illamina
 	# break
 	# MP-AN008-Plan-tot@AN008
@@ -213,14 +213,14 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-AN576-Plan-tot@AN576
 	# break
-	# MP-Z208-Plan-tot@Z208
-	# break
-	# MP-Z150-Gouffre_Patrick_GROSDEMANCHE-Plan-tot@Z150-Gouffre_Patrick_GROSDEMANCHE
-	# break
+	MP-Z208-Plan-tot@Z208
+	break
+	MP-Z150-Gouffre_Patrick_GROSDEMANCHE-Plan-tot@Z150-Gouffre_Patrick_GROSDEMANCHE
+	break
 	MP-Z112-Plan-tot@Z112
 	break
-	# MP-Z123-Plan-tot@Z123
-	# break
+	MP-Z123-Plan-tot@Z123
+	break
 	# MP-A106-Plan-tot@A106
 	# break
 	# MP-AN066-Plan-tot@AN066
@@ -231,8 +231,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-AN704-Plan-tot@AN704
 	# break
-	# MP-Z143-Plan-tot@Z143
-	# break
+	MP-Z143-Plan-tot@Z143
+	break
 	# MP-AN453-Plan-tot@AN453
 	# break
 	# MP-Sima_1748-Plan-tot@Sima_1748
