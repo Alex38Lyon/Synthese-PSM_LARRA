@@ -17,14 +17,14 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-Arphidia-Plan-tot@Arphidia
 	# break
-	# MP-UK600-Sima_Beauf-Plan-tot@UK600-Sima_Beauf
-	# break
+	MP-UK600-Sima_Beauf-Plan-tot@UK600-Sima_Beauf
+	break
 	# MP-BG063-Gouffre_de_la_comete-Plan-tot@BG063-Gouffre_de_la_comete
 	# break
 	# MP-BL118-Plan-tot@BL118
 	# break
-	# MP-LAKxxx-Bouquetins-Plan-tot@LAKxxx-Bouquetins
-	# break
+	MP-LAKxxx-Bouquetins-Plan-tot@LAKxxx-Bouquetins
+	break
 	# MP-BT006-Plan-tot@BT006
 	# break
 	# MP-C103-Plan-tot@C103
@@ -59,8 +59,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	plan_oueils@Oueils
 	break
-	# MP-UKxxx-Marmitou-Plan-tot@UKxxx-Marmitou
-	# break
+	MP-UKxxx-Marmitou-Plan-tot@UKxxx-Marmitou
+	break
 	# MP-Trou_du_Renard-Plan-tot@Trou_du_Renard
 	# break
 	# MP-Grotte_des_Stalactites_deviees-Plan-tot@Grotte_des_Stalactites_deviees
@@ -77,8 +77,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	MP-UK559-Plan-tot@UK559
 	break
-	# MP-UKD6-Plan-tot@UKD6
-	# break
+	MP-UKD6-Plan-tot@UKD6
+	break
 	# MP-UT140-Basa_Ordia_Lezia-Plan-tot@UT140-Basa_Ordia_Lezia
 	# break
 	MP-Z106-Plan-tot@Z106
@@ -235,8 +235,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	# MP-AN453-Plan-tot@AN453
 	# break
-	# MP-Sima_1748-Plan-tot@Sima_1748
-	# break
+	MP-Sima_1748-Plan-tot@Sima_1748
+	break
 	MP-Z107-Plan-tot@Z107
 	break
 	MP-Z127-Plan-tot@Z127

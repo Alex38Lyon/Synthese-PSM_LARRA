@@ -126,9 +126,8 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/M405/M405-tot.th
 	input Data/M414/M414-tot.th
 	input Data/Oueils/Oueils-tot.th
-	input Data/SC60/SC60-tot.th
 	input Data/SC223/SC223-tot.th
-	input Data/Sima_1748/Sima_1748-tot.th
+	input Data/SC60/SC60-tot.th
 	input Data/Trou_Martin/Trou_Martin-tot.th
 	input Data/Trou_du_Mouton/Trou_du_Mouton-tot.th
 	input Data/Trou_du_Renard/Trou_du_Renard-tot.th
@@ -139,6 +138,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/UKD6/UKD6-tot.th
 	input Data/UKK22-Sima_del_Tobozo/Tobozo-tot.th
 	input Data/UKxxx-Marmitou/UKxxx-Marmitou-tot.th
+	input Data/UKxxx-Sima_1748/Sima_1748-tot.th
 	input Data/UT140-Basa_Ordia_Lezia/UT140-Basa_Ordia_Lezia-tot.th
 	input Data/Z017/Z017-tot.th
 	input Data/Z100/Z100-tot.th
