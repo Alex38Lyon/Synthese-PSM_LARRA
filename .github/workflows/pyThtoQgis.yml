@@ -115,36 +115,7 @@ jobs:
 
           python -c "from alive_progress import alive_bar; print('alive-progress OK')"
 
-      # ------------------------------------------------------------
-      # Diagnostic des fichiers SHP
-      #
-      # Uniquement les SHP directement dans Outputs/SHP/
-      # ------------------------------------------------------------
-      - name: Inspect SHP geometry
-        run: |
-          echo "========================================"
-          echo "Fichiers SHP détectés"
-          echo "========================================"
-
-          shopt -s nullglob
-
-          files=(Outputs/SHP/*.shp)
-
-          if [ ${#files[@]} -eq 0 ]; then
-            echo "Aucun fichier SHP trouvé."
-            exit 0
-          fi
-
-          for file in "${files[@]}"; do
-
-            echo
-            echo "========================================"
-            echo "$file"
-            echo "========================================"
-
-            ogrinfo -al -so "$file"
-
-          done
+   
 
       # ------------------------------------------------------------
       # Exécution de pyThtoQgis
