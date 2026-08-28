@@ -28,26 +28,52 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
-          python-version: '3.13'
+          python-version: '3.12'
 
       # ------------------------------------------------------------
-      # Installation des dépendances Python
+      # Installation de GDAL au niveau système
+      # ------------------------------------------------------------
+      - name: Install GDAL system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            gdal-bin \
+            libgdal-dev
+
+      # ------------------------------------------------------------
+      # Vérification de GDAL
+      # ------------------------------------------------------------
+      - name: Check GDAL
+        run: |
+          echo "Version GDAL système :"
+          gdal-config --version
+
+          echo "Chemin gdal-config :"
+          which gdal-config
+
+      # ------------------------------------------------------------
+      # Installation des bibliothèques Python
       # ------------------------------------------------------------
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
+
           pip install numpy
-          pip install gdal
           pip install alive-progress
 
+          # Installer exactement la version correspondant
+          # à la bibliothèque GDAL système
+          pip install "gdal[numpy]==$(gdal-config --version).*"
+
       # ------------------------------------------------------------
-      # Vérification de l'installation
+      # Vérification des bindings Python GDAL/OGR
       # ------------------------------------------------------------
       - name: Test Python dependencies
         run: |
           python -c "import numpy; print('NumPy:', numpy.__version__)"
-          python -c "from osgeo import ogr, gdal; print('GDAL:', gdal.__version__)"
-          python -c "import alive_progress; print('alive-progress:', alive_progress.__version__)"
+          python -c "from osgeo import gdal; print('GDAL Python:', gdal.__version__)"
+          python -c "from osgeo import ogr; print('OGR OK')"
+          python -c "from alive_progress import alive_bar; print('alive-progress OK')"
 
       # ------------------------------------------------------------
       # Exécution de pyThtoQgis
@@ -58,7 +84,7 @@ jobs:
           python pyThtoQgis.py --folder "../../Outputs/SHP/"
 
       # ------------------------------------------------------------
-      # Enregistrement des résultats
+      # Enregistrement des résultats dans Git
       # ------------------------------------------------------------
       - name: Commit generated files
         uses: stefanzweifel/git-auto-commit-action@v7
