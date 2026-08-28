@@ -1,4 +1,3 @@
-```yaml
 name: Convert PLY to STL
 
 on:
@@ -245,4 +244,3 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Auto-convert PLY to reduced STL"
-```
