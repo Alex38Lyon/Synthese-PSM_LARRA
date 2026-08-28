@@ -242,183 +242,188 @@ def extractVertices(input_gpkg_path, output_gpkg_path):
     - Ajoute un attribut 'angle' correspondant à la direction locale de la ligne (en degrés)
     - Si le fichier de sortie existe, les points sont ajoutés à la fin
     """
+    try :
 
-    log.info(f"Extract vertices from : {Colors.ENDC}{input_gpkg_path}{Colors.INFO} to {Colors.ENDC}{output_gpkg_path}")
+        log.info(f"Extract vertices from : {Colors.ENDC}{input_gpkg_path}{Colors.INFO} to {Colors.ENDC}{output_gpkg_path}")
 
-    # -------------------------------------------------
-    # OPEN INPUT
-    # -------------------------------------------------
-    ds_in = ogr.Open(input_gpkg_path)
-    if ds_in is None:
-        log.error(f"Extract vertices, cannot open file : {Colors.ENDC}{input_gpkg_path}")
-        globalDat.errorCount += 1
-        return
-
-    layer_in = ds_in.GetLayer()
-    in_defn = layer_in.GetLayerDefn()
-    srs = layer_in.GetSpatialRef()
-
-    geom_type = layer_in.GetGeomType()
-
-    allowed_types = {
-        0,
-        ogr.wkbLineString,
-        ogr.wkbMultiLineString,
-        ogr.wkbLineString25D,
-        ogr.wkbMultiLineString25D,
-        ogr.wkbLineStringM,
-        ogr.wkbMultiLineStringM,
-        ogr.wkbLineStringZM,
-        ogr.wkbMultiLineStringZM,
-    }
-    
-    if geom_type not in allowed_types:
-        log.error(f"Extract vertices, layer must be LineString type with M support and not : {Colors.ENDC}{geom_type}.")
-        globalDat.errorCount += 1
-        return
-
-    # -------------------------------------------------
-    # CREATE OR OPEN OUTPUT
-    # -------------------------------------------------
-    driver = ogr.GetDriverByName("GPKG")
-
-    if os.path.exists(output_gpkg_path):
-        ds_out = ogr.Open(output_gpkg_path, update=1)
-        if ds_out is None:
-            log.error(f"Extract vertices, cannot open file : {Colors.ENDC}{output_gpkg_path}{Colors.ERROR} in update mode.")
+        # -------------------------------------------------
+        # OPEN INPUT
+        # -------------------------------------------------
+        ds_in = ogr.Open(input_gpkg_path)
+        if ds_in is None:
+            log.error(f"Extract vertices, cannot open file : {Colors.ENDC}{input_gpkg_path}")
             globalDat.errorCount += 1
             return
+
+        layer_in = ds_in.GetLayer()
+        in_defn = layer_in.GetLayerDefn()
+        srs = layer_in.GetSpatialRef()
+
+        geom_type = layer_in.GetGeomType()
+
+        allowed_types = {
+            0,
+            ogr.wkbLineString,
+            ogr.wkbMultiLineString,
+            ogr.wkbLineString25D,
+            ogr.wkbMultiLineString25D,
+            ogr.wkbLineStringM,
+            ogr.wkbMultiLineStringM,
+            ogr.wkbLineStringZM,
+            ogr.wkbMultiLineStringZM,
+        }
         
-        out_layer = ds_out.GetLayer()
-        out_defn = out_layer.GetLayerDefn()
+        if geom_type not in allowed_types:
+            log.error(f"Extract vertices, layer must be LineString type with M support and not : {Colors.ENDC}{geom_type}.")
+            globalDat.errorCount += 1
+            return
+
+        # -------------------------------------------------
+        # CREATE OR OPEN OUTPUT
+        # -------------------------------------------------
+        driver = ogr.GetDriverByName("GPKG")
+
+        if os.path.exists(output_gpkg_path):
+            ds_out = ogr.Open(output_gpkg_path, update=1)
+            if ds_out is None:
+                log.error(f"Extract vertices, cannot open file : {Colors.ENDC}{output_gpkg_path}{Colors.ERROR} in update mode.")
+                globalDat.errorCount += 1
+                return
+            
+            out_layer = ds_out.GetLayer()
+            out_defn = out_layer.GetLayerDefn()
+            
+        else:
+            ds_out = driver.CreateDataSource(output_gpkg_path)
+
+            out_layer = ds_out.CreateLayer(os.path.splitext(os.path.basename(output_gpkg_path))[0], srs=srs, geom_type=ogr.wkbPoint25D )
+
         
-    else:
-        ds_out = driver.CreateDataSource(output_gpkg_path)
+        # -------------------------------------------------
+        # COPY FIELDS (SAFE FOR EXISTING FILE)
+        # -------------------------------------------------
 
-        out_layer = ds_out.CreateLayer(os.path.splitext(os.path.basename(output_gpkg_path))[0], srs=srs, geom_type=ogr.wkbPoint25D )
+        existing_defn = out_layer.GetLayerDefn()
 
-    
-    # -------------------------------------------------
-    # COPY FIELDS (SAFE FOR EXISTING FILE)
-    # -------------------------------------------------
+        exclude_fields = {
+            "fid",
+            "vertex_index",
+            "vertex_part",
+            "vertex_part_index",
+            "distance"
+        }
 
-    existing_defn = out_layer.GetLayerDefn()
+        for i in range(in_defn.GetFieldCount()):
 
-    exclude_fields = {
-        "fid",
-        "vertex_index",
-        "vertex_part",
-        "vertex_part_index",
-        "distance"
-    }
+            field_def = in_defn.GetFieldDefn(i)
+            field_name = field_def.GetNameRef()
 
-    for i in range(in_defn.GetFieldCount()):
-
-        field_def = in_defn.GetFieldDefn(i)
-        field_name = field_def.GetNameRef()
-
-        if field_name.lower() in exclude_fields:
-            continue
-
-        # Si le champ existe déjà → on ne recrée pas
-        if existing_defn.GetFieldIndex(field_name) != -1:
-            continue
-
-        # Création sécurisée (sans Clone)
-        new_field = ogr.FieldDefn(field_name, field_def.GetType())
-        new_field.SetWidth(field_def.GetWidth())
-        new_field.SetPrecision(field_def.GetPrecision())
-        new_field.SetNullable(field_def.IsNullable())
-
-        out_layer.CreateField(new_field)
-
-    # Ajout du champ angle si absent
-    if existing_defn.GetFieldIndex("_TYPEFCR") == -1:
-        field_angle = ogr.FieldDefn("_TYPEFCR", ogr.OFTReal)
-        out_layer.CreateField(field_angle)
-
-    out_defn = out_layer.GetLayerDefn()
-    
- 
-    # -------------------------------------------------
-    # PROCESS
-    # -------------------------------------------------
-    layer_in.ResetReading()
-
-    with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Extract vertices {Colors.ENDC}", length=20) as bar:
-
-        for feat in layer_in:
-
-            geom = feat.GetGeometryRef()
-            if geom is None:
+            if field_name.lower() in exclude_fields:
                 continue
 
-            if not geom.IsValid():
-                geom = geom.Buffer(0)
+            # Si le champ existe déjà → on ne recrée pas
+            if existing_defn.GetFieldIndex(field_name) != -1:
+                continue
 
-            def process_linestring(ls):
+            # Création sécurisée (sans Clone)
+            new_field = ogr.FieldDefn(field_name, field_def.GetType())
+            new_field.SetWidth(field_def.GetWidth())
+            new_field.SetPrecision(field_def.GetPrecision())
+            new_field.SetNullable(field_def.IsNullable())
 
-                n = ls.GetPointCount()
-                if n < 2:
-                    return
+            out_layer.CreateField(new_field)
 
-                for i in range(n):
+        # Ajout du champ angle si absent
+        if existing_defn.GetFieldIndex("_TYPEFCR") == -1:
+            field_angle = ogr.FieldDefn("_TYPEFCR", ogr.OFTReal)
+            out_layer.CreateField(field_angle)
 
-                    x, y, z, m = ls.GetPointZM(i)
+        out_defn = out_layer.GetLayerDefn()
+        
+    
+        # -------------------------------------------------
+        # PROCESS
+        # -------------------------------------------------
+        layer_in.ResetReading()
 
-                    if m != 16:
-                        continue
+        with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Extract vertices {Colors.ENDC}", length=20) as bar:
 
-                    # calcul direction locale
-                    if i == 0:
-                        x2, y2, _, _ = ls.GetPointZM(i + 1)
-                        dx = x2 - x
-                        dy = y2 - y
-                    else:
-                        x1, y1, _, _ = ls.GetPointZM(i - 1)
-                        dx = x - x1
-                        dy = y - y1
+            for feat in layer_in:
 
-                    angle = math.degrees(math.atan2(dy, dx))
+                geom = feat.GetGeometryRef()
+                if geom is None:
+                    continue
 
-                    pt = ogr.Geometry(ogr.wkbPoint25D)
-                    pt.AddPoint(x, y, z)
+                if not geom.IsValid():
+                    geom = geom.Buffer(0)
 
-                    new_feat = ogr.Feature(out_defn)
-                    new_feat.SetGeometry(pt)
+                def process_linestring(ls):
 
-                    # copie attributs
-                    for f in range(in_defn.GetFieldCount()):
-                        new_feat.SetField(in_defn.GetFieldDefn(f).GetNameRef(), feat.GetField(f) )
+                    n = ls.GetPointCount()
+                    if n < 2:
+                        return
 
-                    new_feat.SetField("_TYPEFCR", angle)
-                    
-                    type_val = feat.GetField("_TYPE")
-                    
-                    if type_val is not None:
-                        new_feat.SetField("_TYPE", "line_" + str(type_val))
+                    for i in range(n):
 
-                    out_layer.CreateFeature(new_feat)
-                    new_feat = None
+                        x, y, z, m = ls.GetPointZM(i)
 
-            geom_name = geom.GetGeometryName()
+                        if m != 16:
+                            continue
 
-            if geom_name == "LINESTRING":
-                process_linestring(geom)
+                        # calcul direction locale
+                        if i == 0:
+                            x2, y2, _, _ = ls.GetPointZM(i + 1)
+                            dx = x2 - x
+                            dy = y2 - y
+                        else:
+                            x1, y1, _, _ = ls.GetPointZM(i - 1)
+                            dx = x - x1
+                            dy = y - y1
 
-            elif geom_name == "MULTILINESTRING":
-                for part in range(geom.GetGeometryCount()):
-                    process_linestring(geom.GetGeometryRef(part))
+                        angle = math.degrees(math.atan2(dy, dx))
 
-            bar()
+                        pt = ogr.Geometry(ogr.wkbPoint25D)
+                        pt.AddPoint(x, y, z)
 
-    # -------------------------------------------------
-    # CLEANUP
-    # -------------------------------------------------
-    ds_in = None
-    ds_out = None
+                        new_feat = ogr.Feature(out_defn)
+                        new_feat.SetGeometry(pt)
 
-    return
+                        # copie attributs
+                        for f in range(in_defn.GetFieldCount()):
+                            new_feat.SetField(in_defn.GetFieldDefn(f).GetNameRef(), feat.GetField(f) )
+
+                        new_feat.SetField("_TYPEFCR", angle)
+                        
+                        type_val = feat.GetField("_TYPE")
+                        
+                        if type_val is not None:
+                            new_feat.SetField("_TYPE", "line_" + str(type_val))
+
+                        out_layer.CreateFeature(new_feat)
+                        new_feat = None
+
+                geom_name = geom.GetGeometryName()
+
+                if geom_name == "LINESTRING":
+                    process_linestring(geom)
+
+                elif geom_name == "MULTILINESTRING":
+                    for part in range(geom.GetGeometryCount()):
+                        process_linestring(geom.GetGeometryRef(part))
+
+                bar()
+
+        # -------------------------------------------------
+        # CLEANUP
+        # -------------------------------------------------
+        ds_in = None
+        ds_out = None
+
+        return
+    
+    except RuntimeError as e:
+        log.error(f"extractVertices, unable to validate geometry: {e}, continuing anyway.")
+        globalDat.errorCount += 1
 
 #################################################################################################    
 def diagnostic(file_path):
@@ -531,17 +536,18 @@ def diagnostic(file_path):
         return invalid
     
     except RuntimeError as e:
-        log.warning(f"Unable to validate geometry: {e}, Continuing anyway.")
+        log.error(f"diagnostic, unable to validate geometry: {e}, continuing anyway.")
+        globalDat.errorCount += 1
+        
 
 #################################################################################################
 def fix_geometry(geom, GetFID):
-    
-    if geom is None:
-        return None
-
-    geom = geom.Clone()
-
     try:
+        if geom is None:
+            return None
+
+        geom = geom.Clone()
+
         geom.CloseRings()   # ferme anneaux
                 
         # geom = geom.RemoveDuplicatePoints()  # supprime points dupliqués
