@@ -12,7 +12,7 @@ Version = "2026.08.28"
 
 pathshp = ".\\Inputs\\"
 
-outputfolder ="QGis_GPKG_Files\\"
+outputfolder ="QGis_GPKG_Files"
 outputspath = ".\\outputfolder"
 
 file_log = "pyThtoQgis.log"
