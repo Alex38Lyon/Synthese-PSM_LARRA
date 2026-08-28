@@ -1,0 +1,25 @@
+name: Convert PLY to STL/OBJ
+on:
+  push:
+    paths:
+      - '**.ply'
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: pip install trimesh numpy
+      - run: |
+          python -c "
+          import trimesh, glob, os
+          for f in glob.glob('**/*.ply', recursive=True):
+              m = trimesh.load(f)
+              m.export(f.replace('.ply', '.stl'))
+          "
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-convert PLY to STL/OBJ"
