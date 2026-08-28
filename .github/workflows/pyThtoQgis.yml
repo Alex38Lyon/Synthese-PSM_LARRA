@@ -3,7 +3,7 @@ name: pyThtoQgis
 on:
   push:
     paths:
-      - 'Outputs/SHP/**'
+      - 'Outputs/SHP/*.shp'
 
   workflow_dispatch:
 
