@@ -839,12 +839,14 @@ def ThtoQGis(pathshp, outputspath):
     for fname in file_list:
         log.info(f"Working with file: {Colors.ENDC}{fname}.shp")
         
-        if not os.path.isfile(pathshp + fname + '.shp'):
-            log.error(f"ERROR the file {Colors.ENDC}{(str(pathshp + fname + '.shp'))}{Colors.ERROR} does not exist'{Colors.ENDC}")
+        file = os.path.join(pathshp, fname + '.shp')
+        
+        if not os.path.isfile(file):
+            log.error(f"ERROR the file {Colors.ENDC}{(str(file))}{Colors.ERROR} does not exist'{Colors.ENDC}")
             globalDat.errorCount += 1
             continue    
                    
-        diagnostic(pathshp + fname + '.shp')
+        diagnostic(file)
         
         if fname in dest_list :
             destinationName = fname 
@@ -853,7 +855,7 @@ def ThtoQGis(pathshp, outputspath):
             
         shp2gpkg(pathshp, fname, outputspath,  destinationName) 
         
-        err = diagnostic(outputspath + destinationName + '.gpkg')
+        err = diagnostic(os.path.join(outputspath,destinationName + '.gpkg'))
 
         if err != 0 : 
             log.error(f"ERROR: in file {Colors.ENDC}{(str(outputspath + destinationName + '.gpkg'))} {Colors.ERROR} please fix it manually with QGis...")
@@ -864,16 +866,16 @@ def ThtoQGis(pathshp, outputspath):
     log.info(f"{Colors.HEADER}{Colors.UNDERLINE}Step 2: Adapte drawing files for QGis in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
     
     ## Work with lines
-    cutGPKG(outputspath + 'lines2d_fixed.gpkg', outputspath + 'outline2d.gpkg', outputspath + 'lines2dMasked.gpkg')     
-    diagnostic(outputspath + 'lines2dMasked.gpkg')
+    cutGPKG(os.path.join(outputspath,'lines2d_fixed.gpkg'),os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'lines2dMasked.gpkg'))     
+    diagnostic(os.path.join(outputspath,'lines2dMasked.gpkg'))
           
     ## Work with Areas        
-    cutGPKG(outputspath + 'areas2d_fixed.gpkg', outputspath + 'outline2d.gpkg', outputspath + 'areas2dMasked.gpkg')    
-    diagnostic(outputspath + 'areas2dMasked.gpkg')    
+    cutGPKG(os.path.join(outputspath, 'areas2d_fixed.gpkg'), os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'areas2dMasked.gpkg'))    
+    diagnostic(os.path.join(outputspath,'areas2dMasked.gpkg'))    
     
     ## Work with Points 'add altitudes' 
-    extractVertices(outputspath + 'lines2dMasked.gpkg', outputspath + 'points2d.gpkg')
-    diagnostic(outputspath + 'points2d.gpkg') 
+    extractVertices(os.path.join(outputspath,'lines2dMasked.gpkg'), os.path.join(outputspath,'points2d.gpkg'))
+    diagnostic(os.path.join(outputspath,'points2d.gpkg')) 
     
   
 #####################################################################################################################################
@@ -939,20 +941,19 @@ if __name__ == u'__main__':
     
     if args.folder :
         
-        input_folder = args.folder
-        output_folder = input_folder + globalDat.outputfolder
-        
-        log = setup_logger(output_folder + globalDat.file_log, globalDat.debug_log)
+        input_folder =  os.path.normpath(args.folder)
+        output_folder = os.path.join(input_folder,globalDat.outputfolder)
         
         if not os.path.exists(input_folder):
+            log = setup_logger(globalDat.output_log, globalDat.debug_log)
             log.error(f"ERROR the folder {Colors.ENDC}{input_folder}{Colors.ERROR} does not exist'{Colors.ENDC}")
             globalDat.errorCount += 1
             sys.exit() 
         
         if not os.path.exists(output_folder):
-            os.makedirs(output_folder)
-        
-        log = setup_logger(output_folder + globalDat.file_log, globalDat.debug_log)
+            os.makedirs(output_folder)  
+            
+        log = setup_logger(os.path.join(output_folder,globalDat.file_log), globalDat.debug_log)
           
         log.info(f'{Colors.HEADER}*********************************************************************************************************')
         log.info(f'{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible')

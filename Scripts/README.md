@@ -8,8 +8,10 @@ pyThtoQGis
 
 Script pour convertir les fichiers (.shp) produit par Therion en fichiers (.qkpg) pour Qgis 
 
-Usage : python pyThtoGgis.py
-
+Usage : 
+	- python pyThtoGgis.py --manual
+	- python pyThtoQgis.py --help
+	- python pyThtoQgis.py --folder "../../Outputs/SHP/"
 
 
 pyThtoDat
