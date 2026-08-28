@@ -31,25 +31,31 @@ jobs:
           python-version: '3.12'
 
       # ------------------------------------------------------------
-      # Installation de GDAL au niveau système
+      # Installation de GDAL + SFCGAL
       # ------------------------------------------------------------
-      - name: Install GDAL system packages
+      - name: Install GDAL and SFCGAL
         run: |
           sudo apt-get update
+
           sudo apt-get install -y \
             gdal-bin \
-            libgdal-dev
+            libgdal-dev \
+            sfcgal-bin \
+            libsfcgal-dev
 
       # ------------------------------------------------------------
-      # Vérification de GDAL
+      # Vérification de GDAL et SFCGAL
       # ------------------------------------------------------------
-      - name: Check GDAL
+      - name: Check GDAL and SFCGAL
         run: |
-          echo "Version GDAL système :"
+          echo "=== GDAL ==="
           gdal-config --version
-
-          echo "Chemin gdal-config :"
           which gdal-config
+
+          echo
+          echo "=== SFCGAL ==="
+          sfcgal-config --version || true
+          which sfcgal-config || true
 
       # ------------------------------------------------------------
       # Installation des bibliothèques Python
@@ -61,12 +67,12 @@ jobs:
           pip install numpy
           pip install alive-progress
 
-          # Installer exactement la version correspondant
-          # à la bibliothèque GDAL système
+          # Bindings Python correspondant à la version
+          # de GDAL installée par Ubuntu
           pip install "gdal[numpy]==$(gdal-config --version).*"
 
       # ------------------------------------------------------------
-      # Vérification des bindings Python GDAL/OGR
+      # Vérification des bindings Python
       # ------------------------------------------------------------
       - name: Test Python dependencies
         run: |
@@ -84,7 +90,7 @@ jobs:
           python pyThtoQgis.py --folder "../../Outputs/SHP/"
 
       # ------------------------------------------------------------
-      # Enregistrement des résultats dans Git
+      # Commit des résultats
       # ------------------------------------------------------------
       - name: Commit generated files
         uses: stefanzweifel/git-auto-commit-action@v7
