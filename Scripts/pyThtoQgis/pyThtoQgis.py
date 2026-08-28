@@ -15,11 +15,12 @@
 #                                                        	#  
 #############################################################
 
-Written by Xavier Robert, October 2022x
+Written by Xavier Robert, October 2022
 Xavier.robert@ird.fr
 
 Modifié Alex 2025 01 31
 Modifié Alex 2026 02 27 
+Modifié Alex 2026 08 28
 
 Inputs files (16):  (.dbf, .prj, .shp, .shx)
     - points2d
@@ -64,7 +65,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
         output_gpkg_path (str): output gpkg path
     """
 
-    log.info(f"Clipping file : {Colors.ENDC}{input_gpkg_path}{Colors.INFO} to file : {Colors.ENDC}{output_gpkg_path}")
+    log.info(f"Clipping file : {Colors.ENDC}{safe_relpath(input_gpkg_path)}{Colors.INFO} to file : {Colors.ENDC}{safe_relpath(output_gpkg_path)}")
 
     # -------------------------------------------------
     # OPEN INPUT
@@ -72,6 +73,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
     ds_in = ogr.Open(input_gpkg_path)
     if ds_in is None:
         log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{input_gpkg_path}")
+        globalDat.errorCount += 1
         return
 
     layer_in = ds_in.GetLayer()
@@ -83,6 +85,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
     idx_scrap = in_defn.GetFieldIndex("_SCRAP_ID")
     if idx_scrap == -1:
         log.error("cutGPKG, field '_SCRAP_ID' not found in input layer.")
+        globalDat.errorCount += 1
         return
 
     # -------------------------------------------------
@@ -91,6 +94,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
     ds_outline = ogr.Open(outlines_path)
     if ds_outline is None:
         log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{outlines_path}")
+        globalDat.errorCount += 1
         return
 
     layer_outline = ds_outline.GetLayer()
@@ -99,6 +103,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
     idx_id = outline_defn.GetFieldIndex("_ID")
     if idx_id == -1:
         log.error("cutGPKG, field '_ID' not found in outlines layer.")
+        globalDat.errorCount += 1
         return
 
     # -------------------------------------------------
@@ -125,6 +130,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
 
     if not outline_dict:
         log.error("cutGPKG, no valid geometry found in outlines.")
+        globalDat.errorCount += 1
         return
 
     # -------------------------------------------------
@@ -153,7 +159,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
     # -------------------------------------------------
     # PROCESS FEATURES
     # -------------------------------------------------
-    with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Clipping {Colors.ENDC}", length=20) as bar:
+    with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Clipping file {Colors.ENDC}", length=20) as bar:
         for feat in layer_in:
 
             geom = feat.GetGeometryRef()
@@ -245,6 +251,7 @@ def extractVertices(input_gpkg_path, output_gpkg_path):
     ds_in = ogr.Open(input_gpkg_path)
     if ds_in is None:
         log.error(f"Extract vertices, cannot open file : {Colors.ENDC}{input_gpkg_path}")
+        globalDat.errorCount += 1
         return
 
     layer_in = ds_in.GetLayer()
@@ -267,6 +274,7 @@ def extractVertices(input_gpkg_path, output_gpkg_path):
     
     if geom_type not in allowed_types:
         log.error(f"Extract vertices, layer must be LineString type with M support and not : {Colors.ENDC}{geom_type}.")
+        globalDat.errorCount += 1
         return
 
     # -------------------------------------------------
@@ -278,6 +286,7 @@ def extractVertices(input_gpkg_path, output_gpkg_path):
         ds_out = ogr.Open(output_gpkg_path, update=1)
         if ds_out is None:
             log.error(f"Extract vertices, cannot open file : {Colors.ENDC}{output_gpkg_path}{Colors.ERROR} in update mode.")
+            globalDat.errorCount += 1
             return
         
         out_layer = ds_out.GetLayer()
@@ -418,12 +427,14 @@ def diagnostic(file_path):
     
     if not os.path.exists(file_path):
         log.error(f"diagnostic, fichier non trouvé : {Colors.ENDC}{file_path}")
+        globalDat.errorCount += 1
         return
     
     ds = ogr.Open(file_path)
     
     if ds is None:
         log.error(f"Impossible d'ouvrir le fichier : {Colors.ENDC}{file_path}")
+        globalDat.errorCount += 1
         return
 
     layer = ds.GetLayer()
@@ -476,43 +487,43 @@ def diagnostic(file_path):
     elapsed = time.time() - start_time
     file_size = os.path.getsize(file_path) / (1024*1024)  # Mo
 
-    log.info(f"{Colors.HEADER}============================================== {Colors.INFO}BILAN FILE : {Colors.ENDC}{file_path}{Colors.HEADER}   ==============================================")
-    log.info(f"Temps d'analyse : {Colors.ENDC}{elapsed:.2f}{Colors.INFO} s")
-    log.info(f"Taille : {Colors.ENDC}{file_size:.2f}{Colors.INFO} Mo")
-    log.info(f"Nombre d'objets :  {Colors.ENDC}{total}")
+    log.info(f"==================== BILAN FILE : {Colors.ENDC}{safe_relpath(file_path)}{Colors.INFO} ====================")
+    log.debug(f"Temps d'analyse : {Colors.ENDC}{elapsed:.2f}{Colors.INFO} s")
+    log.debug(f"Taille : {Colors.ENDC}{file_size:.2f}{Colors.INFO} Mo")
+    log.debug(f"Nombre d'objets :  {Colors.ENDC}{total}")
     
-    if empty == 0 : log.info(f"Géométries vides : {Colors.ENDC}{empty}")
+    if empty == 0 : log.debug(f"Géométries vides : {Colors.ENDC}{empty}")
     else :  log.warning(f"Géométries vides : {Colors.ENDC}{empty}")
     
-    if invalid == 0 : log.info(f"Géométries invalides : {Colors.ENDC}{invalid}")
+    if invalid == 0 : log.debug(f"Géométries invalides : {Colors.ENDC}{invalid}")
     else : log.warning(f"Géométries invalides : {Colors.ENDC}{invalid}")
     
-    log.info(f"MultiGeometries / Collections : {Colors.ENDC}{multi_geom_count}")
+    log.debug(f"MultiGeometries / Collections : {Colors.ENDC}{multi_geom_count}")
     
-    log.info("Types géométriques :")
+    log.debug("Types géométriques :")
     for gtype, count in geom_types.items():
-        log.info(f"\t{gtype} : {Colors.ENDC}{count}")
+        log.debug(f"\t{gtype} : {Colors.ENDC}{count}")
 
-    log.info("Bounding box :")
-    log.info(f"\txmin = {Colors.ENDC}{extent[0]}")
-    log.info(f"\txmax = {Colors.ENDC}{extent[1]}")
-    log.info(f"\tymin = {Colors.ENDC}{extent[2]}")
-    log.info(f"\tymax = {Colors.ENDC}{extent[3]}")
+    log.debug("Bounding box :")
+    log.debug(f"\txmin = {Colors.ENDC}{extent[0]}")
+    log.debug(f"\txmax = {Colors.ENDC}{extent[1]}")
+    log.debug(f"\tymin = {Colors.ENDC}{extent[2]}")
+    log.debug(f"\tymax = {Colors.ENDC}{extent[3]}")
 
 
-    log.info(f"CRS : {Colors.ENDC}{crs}")
+    log.debug(f"CRS : {Colors.ENDC}{crs}")
 
-    log.info("Dimensions :")
-    log.info(f"\tZ présent : {Colors.ENDC}{has_z}")
-    log.info(f"\tM présent : {Colors.ENDC}{has_m}")
+    log.debug("Dimensions :")
+    log.debug(f"\tZ présent : {Colors.ENDC}{has_z}")
+    log.debug(f"\tM présent : {Colors.ENDC}{has_m}")
     
-    log.info("Champs attributaires :")
+    log.debug("Champs attributaires :")
     
     for field, values in field_stats.items():
         unique_count = len(set(values))
-        log.info(f"\tchamp : {Colors.ENDC}{field}{Colors.INFO} : {Colors.ENDC}{len(values)}{Colors.INFO} valeurs, {Colors.ENDC}{unique_count}{Colors.INFO} uniques")
+        log.debug(f"\tchamp : {Colors.ENDC}{field}{Colors.DEBUG} : {Colors.ENDC}{len(values)}{Colors.DEBUG} valeurs, {Colors.ENDC}{unique_count}{Colors.DEBUG} uniques")
 
-    log.info(f"{Colors.HEADER}=========================================================================================================")
+    log.info(f"=========================================================================================================")
 
     ds = None
     
@@ -533,32 +544,34 @@ def fix_geometry(geom, GetFID):
 
        
         if not geom.IsValid():  # corrige topologie
-            log.debug(f"Géométrie invalide FID {Colors.ENDC}{GetFID}{Colors.WARNING}")
+            log.error(f"Invalid geometry FID {Colors.ENDC}{GetFID}{Colors.WARNING}")
+            globalDat.errorCount += 1
             geom = geom.MakeValid()
             if not geom.IsValid():
                 return None
 
         if geom is None or geom.IsEmpty(): # supprime géométries vides
-            log.warning(f"Géométrie vide supprimée FID {Colors.ENDC}{GetFID}{Colors.WARNING}")
+            log.warning(f"Empty geometry removed FID {Colors.ENDC}{GetFID}{Colors.WARNING}")
             return None
 
         gtype = geom.GetGeometryType()
 
         if gtype in (ogr.wkbLineString, ogr.wkbLineString25D):
             if geom.GetPointCount() < 2:
-                log.warning(f"Géométrie de type ligne supprimée, nombre de points insuffisant <2 {Colors.ENDC}{GetFID}{Colors.WARNING}")
+                log.warning(f"Line geometry removed, insufficient number of points < 2 {Colors.ENDC}{GetFID}{Colors.WARNING}")
                 return None
 
         if gtype == ogr.wkbPolygon:
             ring = geom.GetGeometryRef(0)
             if ring is None or ring.GetPointCount() < 4:
-                log.warning(f"Géométrie de type Polygone supprimée, nombre de points insuffisant <4 {Colors.ENDC}{GetFID}{Colors.WARNING}")
+                log.warning(f"Polygon geometry removed, insufficient number of points < 4 {Colors.ENDC}{GetFID}{Colors.WARNING}")
                 return None
 
         return geom
 
     except Exception as e:
-        log.error(f"Géométrie impossible à corriger, FID {Colors.ENDC}{GetFID}{Colors.ERROR} code : {Colors.ENDC}{e}")
+        log.error(f"Geometry cannot be repaired, FID {Colors.ENDC}{GetFID}{Colors.ERROR} code : {Colors.ENDC}{e}")
+        globalDat.errorCount += 1
         return None
 
 #################################################################################################
@@ -592,6 +605,7 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
         ds = ogr.Open(input_shp)
         if ds is None:
             log.error(f"shp2gpkg, impossible d'ouvrir le SHP : {Colors.ENDC}{input_shp}")
+            globalDat.errorCount += 1
             return
 
         layer = ds.GetLayer()
@@ -623,9 +637,9 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
         feature_count = 0
         total_count = len(layer)
         
-        log.info(f"Conversion du fichier SHP : {Colors.ENDC}{infile}.shp{Colors.INFO} contenant {Colors.ENDC}{total_count}{Colors.INFO} objets")
+        log.info(f"SHP file conversion : {Colors.ENDC}{infile}.shp{Colors.INFO} with {Colors.ENDC}{total_count}{Colors.INFO} objets")
 
-        with alive_bar(len(layer), title=f"{Colors.YELLOW}Conversion {Colors.ENDC}" ,  length = 20) as bar:
+        with alive_bar(len(layer), title=f"{Colors.YELLOW}Conversion SHP file to GPKG {Colors.ENDC}" ,  length = 20) as bar:
             for feature in layer:
 
                 geom = fix_geometry(feature.GetGeometryRef(), feature.GetFID() )
@@ -677,7 +691,8 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
     except Exception as e:
 
         if log:
-            log.error(f"Erreur conversion SHP to GPKG : {e}")
+            log.error(f"Error in conversion SHP to GPKG : {e}")
+            globalDat.errorCount += 1
 
         raise
 
@@ -721,6 +736,7 @@ def count_topology_errors(file_path):
                     f"Error in file {Colors.ENDC}{safe_relpath(file_path)}{Colors.ERROR}, "
                     f"record {Colors.ENDC}{i+1}{Colors.ERROR} is None"
                 )
+                globalDat.errorCount += 1
                 continue
 
             geometry = feature.GetGeometryRef()
@@ -734,6 +750,7 @@ def count_topology_errors(file_path):
                     f"_NAME: {Colors.ENDC}{feature.GetField('_NAME')}{Colors.ERROR}, "
                     f"_SURVEY: {Colors.ENDC}{feature.GetField('_SURVEY')}{Colors.ENDC}"
                 )
+                globalDat.errorCount += 1
                 continue
 
             # Ignorer géométries vides
@@ -767,6 +784,7 @@ def count_topology_errors(file_path):
                     f"validating geometry for record {Colors.ENDC}{i+1}{Colors.ERROR}: "
                     f"{Colors.ENDC}{e}{Colors.ENDC}"
                 )
+                globalDat.errorCount += 1
 
         log.info(
             f"Geometry num: {Colors.ENDC}{total_records}{Colors.YELLOW}, "
@@ -784,6 +802,7 @@ def count_topology_errors(file_path):
                 f"records: {Colors.ENDC}{total_records}{Colors.ERROR}, "
                 f"total errors: {Colors.ENDC}{total_errors}"
             )
+            globalDat.errorCount += 1
 
         log.info(
             f"Geometry in file: {Colors.ENDC}{safe_relpath(file_path)}{Colors.GREEN}, "
@@ -799,6 +818,7 @@ def count_topology_errors(file_path):
             f"Topology error when analyzing the shapefile: {Colors.ENDC}"
             f"{safe_relpath(file_path)}{Colors.ERROR}, code: {Colors.ENDC}{e}"
         )
+        globalDat.errorCount += 1
         return {}, -1
 
 #################################################################################################
@@ -821,38 +841,38 @@ def ThtoQGis(pathshp, outputspath):
         
         if not os.path.isfile(pathshp + fname + '.shp'):
             log.error(f"ERROR the file {Colors.ENDC}{(str(pathshp + fname + '.shp'))}{Colors.ERROR} does not exist'{Colors.ENDC}")
+            globalDat.errorCount += 1
             continue    
                    
         diagnostic(pathshp + fname + '.shp')
         
         if fname in dest_list :
-            destination = outputspath
             destinationName = fname 
         else :
-            destination = pathshp
             destinationName = fname +  '_fixed'
             
-        shp2gpkg(pathshp, fname, destination,  destinationName) 
+        shp2gpkg(pathshp, fname, outputspath,  destinationName) 
         
-        err = diagnostic(destination + destinationName + '.gpkg')
+        err = diagnostic(outputspath + destinationName + '.gpkg')
 
         if err != 0 : 
-            log.error(f"ERROR: in file {Colors.ENDC}{(str(destination + destinationName + '.gpkg'))} {Colors.ERROR} please fix it manually with QGis...")
+            log.error(f"ERROR: in file {Colors.ENDC}{(str(outputspath + destinationName + '.gpkg'))} {Colors.ERROR} please fix it manually with QGis...")
+            globalDat.errorCount += 1
             return False
 
 
-    log.info(f"{Colors.HEADER}{Colors.UNDERLINE}Step 2: Adapte drawing files for Qgis in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
+    log.info(f"{Colors.HEADER}{Colors.UNDERLINE}Step 2: Adapte drawing files for QGis in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
     
     ## Work with lines
-    cutGPKG(pathshp + 'lines2d_fixed.gpkg', outputspath + 'outline2d.gpkg', outputspath + 'lines2dMasked.gpkg')     
+    cutGPKG(outputspath + 'lines2d_fixed.gpkg', outputspath + 'outline2d.gpkg', outputspath + 'lines2dMasked.gpkg')     
     diagnostic(outputspath + 'lines2dMasked.gpkg')
           
     ## Work with Areas        
-    cutGPKG(pathshp + 'areas2d_fixed.gpkg', outputspath + 'outline2d.gpkg', outputspath + 'areas2dMasked.gpkg')    
+    cutGPKG(outputspath + 'areas2d_fixed.gpkg', outputspath + 'outline2d.gpkg', outputspath + 'areas2dMasked.gpkg')    
     diagnostic(outputspath + 'areas2dMasked.gpkg')    
     
     ## Work with Points 'add altitudes' 
-    extractVertices(globalDat.outputspath + 'lines2dMasked.gpkg', globalDat.outputspath + 'points2d.gpkg')
+    extractVertices(outputspath + 'lines2dMasked.gpkg', outputspath + 'points2d.gpkg')
     diagnostic(outputspath + 'points2d.gpkg') 
     
   
@@ -870,7 +890,8 @@ if __name__ == u'__main__':
     gdal.SetConfigOption("OGR_CHARSET", "UTF-8")
     gdal.SetConfigOption("OGR_GPKG_ENCODING", "UTF-8")
     
-    log = setup_logger(globalDat.output_log, globalDat.debug_log)
+    globalDat.errorCount = 0
+    input_folder_name =""
 
     #################################################################################################
     # Parse arguments                                                                               #
@@ -878,6 +899,7 @@ if __name__ == u'__main__':
     parser = argparse.ArgumentParser(
         description=f"{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible", 
         formatter_class=argparse.RawTextHelpFormatter)
+    
     parser.print_help = colored_help.__get__(parser)
     parser.add_argument(
         '--option',
@@ -886,15 +908,26 @@ if __name__ == u'__main__':
         help=(
             f"Execution options for pyThtoQgis.py\n"
             f"auto\t-> Execution from the folder {globalDat.pathshp} (défaut)\n"
-            f"manual\t-> Manual selection for the input folder\n"
+            f"manual\t-> Manual selection by a window box for the input folder\n"
             f"test\t-> Tests fonction (debug)\n"
         )
     )
+
+    parser.add_argument(
+        '--folder',
+        type=str,
+        help="Input folder containing the shapefiles to process"
+    )
+
     
     parser.epilog = (
-        f"{Colors.GREEN}Note : to generate shp files in therion, add in .thconfig "
-        f"-> {Colors.ENDC}export model -fmt esri -o Outputs/SHP/ -enc UTF-8"
-        )
+        f"{Colors.HEADER}Note : {Colors.GREEN}to generate shp files in therion, add in thconfig file the commande\n"
+        f"\t{Colors.GREEN}-> {Colors.ENDC}export model -fmt esri -o Outputs/SHP/ -enc UTF-8{Colors.ENDC}\n"
+        f"\n"
+        f"{Colors.HEADER}Usage examples :{Colors.ENDC}\n"
+        f"\t{Colors.GREEN}-> {Colors.ENDC}python pyThtoQgis.py --folder \"../../Outputs/SHP/\"{Colors.ENDC}\n"
+        f"\t{Colors.GREEN}-> {Colors.ENDC}python pyThtoQgis.py --option manual{Colors.ENDC}\n"
+    )
 
     # Analyser les arguments de ligne de commande
     args = parser.parse_args()
@@ -903,14 +936,48 @@ if __name__ == u'__main__':
     elif os.name == 'nt':  os.system('cls')# Windows
     else: print("\n" * 100) 
     
-    log.info(f'{Colors.HEADER}*********************************************************************************************************')
-    log.info(f'{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible')
-    log.info(f'{Colors.HEADER}        original written by X. Robert, ISTerre : {Colors.ENDC}October 2022')
-    log.info(f'{Colors.HEADER}        updated by : {Colors.ENDC}alexandre.pont@yahoo.fr')
-    log.info(f'{Colors.HEADER}        version : {Colors.ENDC}{globalDat.Version}')
-
     
-    if args.option == "auto" : 
+    if args.folder :
+        
+        input_folder = args.folder
+        output_folder = input_folder + globalDat.outputfolder
+        
+        log = setup_logger(output_folder + globalDat.file_log, globalDat.debug_log)
+        
+        if not os.path.exists(input_folder):
+            log.error(f"ERROR the folder {Colors.ENDC}{input_folder}{Colors.ERROR} does not exist'{Colors.ENDC}")
+            globalDat.errorCount += 1
+            sys.exit() 
+        
+        if not os.path.exists(output_folder):
+            os.makedirs(output_folder)
+        
+        log = setup_logger(output_folder + globalDat.file_log, globalDat.debug_log)
+          
+        log.info(f'{Colors.HEADER}*********************************************************************************************************')
+        log.info(f'{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible')
+        log.info(f'{Colors.HEADER}        original written by X. Robert, ISTerre : {Colors.ENDC}October 2022')
+        log.info(f'{Colors.HEADER}        updated by : {Colors.ENDC}alexandre.pont@yahoo.fr')
+        log.info(f'{Colors.HEADER}        version : {Colors.ENDC}{globalDat.Version}')
+        log.info(f'{Colors.HEADER}        commande line mode')
+        log.info(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{safe_relpath(input_folder)}')
+        log.info(f'{Colors.HEADER}        output folder : {Colors.ENDC}{safe_relpath(output_folder)}')
+        log.info(f'{Colors.HEADER}*********************************************************************************************************')
+        
+        ThtoQGis(input_folder, output_folder)
+        
+    
+    elif args.option == "auto" : 
+        log = setup_logger(globalDat.output_log, globalDat.debug_log)
+        
+        if not os.path.exists(globalDat.outputspath):
+            os.makedirs(globalDat.outputspath)
+        
+        log.info(f'{Colors.HEADER}*********************************************************************************************************')
+        log.info(f'{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible')
+        log.info(f'{Colors.HEADER}        original written by X. Robert, ISTerre : {Colors.ENDC}October 2022')
+        log.info(f'{Colors.HEADER}        updated by : {Colors.ENDC}alexandre.pont@yahoo.fr')
+        log.info(f'{Colors.HEADER}        version : {Colors.ENDC}{globalDat.Version}')
         log.info(f'{Colors.HEADER}        auto mode')
         log.info(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{globalDat.pathshp}')
         log.info(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
@@ -924,21 +991,45 @@ if __name__ == u'__main__':
         root.withdraw()  # Cacher la fenêtre principale de Tkinter
         input_folder_name = filedialog.askdirectory( title="Choose the shp folder")       
         
+        input_folder = input_folder_name + "\\"
+        output_folder = input_folder + globalDat.outputfolder
+        
+        if not os.path.exists(output_folder):
+            os.makedirs(output_folder)
+        
+        log = setup_logger(output_folder + globalDat.file_log, globalDat.debug_log)
+        
         if not input_folder_name:
             log.error(f"No folder selected. The program will terminate")
+            globalDat.errorCount += 1
             sys.exit()    
-        
     
-        input_folder = input_folder_name + "\\"
+        
+        log.info(f'{Colors.HEADER}*********************************************************************************************************')
+        log.info(f'{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible')
+        log.info(f'{Colors.HEADER}        original written by X. Robert, ISTerre : {Colors.ENDC}October 2022')
+        log.info(f'{Colors.HEADER}        updated by : {Colors.ENDC}alexandre.pont@yahoo.fr')
+        log.info(f'{Colors.HEADER}        version : {Colors.ENDC}{globalDat.Version}')
         log.info(f'{Colors.HEADER}        manual mode')
         log.info(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{safe_relpath(input_folder)}')
-        log.info(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
+        log.info(f'{Colors.HEADER}        output folder : {Colors.ENDC}{safe_relpath(output_folder)}')
         log.info(f'{Colors.HEADER}*********************************************************************************************************')
         
-        ThtoQGis(input_folder, globalDat.outputspath)
+        ThtoQGis(input_folder, output_folder)
         
     
     elif args.option == "test" :
+        
+        log = setup_logger(globalDat.output_log, globalDat.debug_log)
+        
+        if not os.path.exists(globalDat.outputspath):
+            os.makedirs(globalDat.outputspath)
+        
+        log.info(f'{Colors.HEADER}*********************************************************************************************************')
+        log.info(f'{Colors.HEADER}Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible')
+        log.info(f'{Colors.HEADER}        original written by X. Robert, ISTerre : {Colors.ENDC}October 2022')
+        log.info(f'{Colors.HEADER}        updated by : {Colors.ENDC}alexandre.pont@yahoo.fr')
+        log.info(f'{Colors.HEADER}        version : {Colors.ENDC}{globalDat.Version}')
         log.info(f'{Colors.HEADER}        test mode')
         log.info(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{globalDat.pathshp}')
         log.info(f'{Colors.HEADER}        output folder : {Colors.ENDC}{globalDat.outputspath}')
@@ -991,7 +1082,11 @@ if __name__ == u'__main__':
         # shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
         
 
-        
+if globalDat.errorCount == 0 :              
+    log.info(f'Execution completed without errors')
+else :
+    log.error(f'Execution completed with  {Colors.ENDC}{globalDat.errorCount}{Colors.ERROR} errors')
+    
 
             
 

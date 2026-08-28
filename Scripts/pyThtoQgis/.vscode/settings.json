@@ -6,8 +6,11 @@
           "gpkg",
           "Masekd",
           "osgeo",
+          "outputfolder",
           "outputspath",
           "pathshp",
+          "Qgis",
+          "shapefiles",
           "thconfig",
           "therion"
      ]

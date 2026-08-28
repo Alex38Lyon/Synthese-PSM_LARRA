@@ -6,12 +6,18 @@ global_data.py for pyThtoQgis.py
 !#############################################################################################!
 """
 
-Version = "2026.03.01" 
+Version = "2026.08.28" 
 
 #################################################################################################
 
 pathshp = ".\\Inputs\\"
-outputspath = ".\\Outputs\\"
-output_log = ".\\pyThtoQgis.log"
 
-debug_log = False
+outputfolder ="QGis_QPKG_Files\\"
+outputspath = ".\\outputfolder"
+
+file_log = "pyThtoQgis.log"
+output_log = ".\\" + file_log
+
+errorCount = 0
+
+debug_log = True

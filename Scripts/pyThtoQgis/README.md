@@ -6,5 +6,5 @@ source .venv/bin/activate
 
 python pyThtoQgis.py
 python pyThtoQgis.py  --help
-
+python pyThtoQgis.py  --folder "../../Outputs/SHP/"
 

@@ -10,6 +10,7 @@
 			"esri",
 			"geopandas",
 			"Ggis",
+			"outputfolder",
 			"Qgis"
 		]
 	}
