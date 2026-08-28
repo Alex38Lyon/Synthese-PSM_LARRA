@@ -5,6 +5,7 @@ on:
     paths:
       - 'Outputs/SHP/*.shp'
 
+  # Permet de lancer l'action manuellement
   workflow_dispatch:
 
 permissions:
@@ -31,7 +32,7 @@ jobs:
           python-version: '3.12'
 
       # ------------------------------------------------------------
-      # Installation de GDAL + SFCGAL
+      # Installation de GDAL et SFCGAL
       # ------------------------------------------------------------
       - name: Install GDAL and SFCGAL
         run: |
@@ -40,22 +41,26 @@ jobs:
           sudo apt-get install -y \
             gdal-bin \
             libgdal-dev \
-            sfcgal-bin \
             libsfcgal-dev
 
       # ------------------------------------------------------------
-      # Vérification de GDAL et SFCGAL
+      # Vérification de GDAL
       # ------------------------------------------------------------
-      - name: Check GDAL and SFCGAL
+      - name: Check GDAL
         run: |
-          echo "=== GDAL ==="
+          echo "========================================"
+          echo "GDAL système"
+          echo "========================================"
+
           gdal-config --version
+
+          echo
+          echo "gdal-config :"
           which gdal-config
 
           echo
-          echo "=== SFCGAL ==="
-          sfcgal-config --version || true
-          which sfcgal-config || true
+          echo "GDAL --version :"
+          gdalinfo --version
 
       # ------------------------------------------------------------
       # Installation des bibliothèques Python
@@ -67,19 +72,79 @@ jobs:
           pip install numpy
           pip install alive-progress
 
-          # Bindings Python correspondant à la version
-          # de GDAL installée par Ubuntu
+          # Installation des bindings Python GDAL
+          # correspondant à la version de GDAL du système
           pip install "gdal[numpy]==$(gdal-config --version).*"
 
       # ------------------------------------------------------------
-      # Vérification des bindings Python
+      # Vérification des bibliothèques Python
       # ------------------------------------------------------------
       - name: Test Python dependencies
         run: |
-          python -c "import numpy; print('NumPy:', numpy.__version__)"
-          python -c "from osgeo import gdal; print('GDAL Python:', gdal.__version__)"
+          echo "========================================"
+          echo "Python"
+          echo "========================================"
+
+          python --version
+
+          echo
+          echo "========================================"
+          echo "NumPy"
+          echo "========================================"
+
+          python -c "import numpy; print(numpy.__version__)"
+
+          echo
+          echo "========================================"
+          echo "GDAL Python"
+          echo "========================================"
+
+          python -c "from osgeo import gdal; print(gdal.__version__)"
+
+          echo
+          echo "========================================"
+          echo "OGR"
+          echo "========================================"
+
           python -c "from osgeo import ogr; print('OGR OK')"
+
+          echo
+          echo "========================================"
+          echo "alive-progress"
+          echo "========================================"
+
           python -c "from alive_progress import alive_bar; print('alive-progress OK')"
+
+      # ------------------------------------------------------------
+      # Diagnostic des fichiers SHP
+      #
+      # Uniquement les SHP directement dans Outputs/SHP/
+      # ------------------------------------------------------------
+      - name: Inspect SHP geometry
+        run: |
+          echo "========================================"
+          echo "Fichiers SHP détectés"
+          echo "========================================"
+
+          shopt -s nullglob
+
+          files=(Outputs/SHP/*.shp)
+
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "Aucun fichier SHP trouvé."
+            exit 0
+          fi
+
+          for file in "${files[@]}"; do
+
+            echo
+            echo "========================================"
+            echo "$file"
+            echo "========================================"
+
+            ogrinfo -al -so "$file"
+
+          done
 
       # ------------------------------------------------------------
       # Exécution de pyThtoQgis
@@ -88,6 +153,17 @@ jobs:
         working-directory: Scripts/pyThtoQgis
         run: |
           python pyThtoQgis.py --folder "../../Outputs/SHP/"
+
+      # ------------------------------------------------------------
+      # Affichage des fichiers générés/modifiés
+      # ------------------------------------------------------------
+      - name: Show generated files
+        run: |
+          echo "========================================"
+          echo "Fichiers modifiés"
+          echo "========================================"
+
+          git status --short
 
       # ------------------------------------------------------------
       # Commit des résultats
