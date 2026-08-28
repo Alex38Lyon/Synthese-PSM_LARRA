@@ -64,104 +64,54 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
         outlines_path (str)   : polygon outline file (doit contenir _ID)
         output_gpkg_path (str): output gpkg path
     """
+    try : 
+        log.info(f"Clipping file : {Colors.ENDC}{safe_relpath(input_gpkg_path)}{Colors.INFO} to file : {Colors.ENDC}{safe_relpath(output_gpkg_path)}")
 
-    log.info(f"Clipping file : {Colors.ENDC}{safe_relpath(input_gpkg_path)}{Colors.INFO} to file : {Colors.ENDC}{safe_relpath(output_gpkg_path)}")
+        # -------------------------------------------------
+        # OPEN INPUT
+        # -------------------------------------------------
+        ds_in = ogr.Open(input_gpkg_path)
+        if ds_in is None:
+            log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{input_gpkg_path}")
+            globalDat.errorCount += 1
+            return
 
-    # -------------------------------------------------
-    # OPEN INPUT
-    # -------------------------------------------------
-    ds_in = ogr.Open(input_gpkg_path)
-    if ds_in is None:
-        log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{input_gpkg_path}")
-        globalDat.errorCount += 1
-        return
+        layer_in = ds_in.GetLayer()
+        in_defn = layer_in.GetLayerDefn()
+        srs = layer_in.GetSpatialRef()
+        geom_type = layer_in.GetGeomType()
 
-    layer_in = ds_in.GetLayer()
-    in_defn = layer_in.GetLayerDefn()
-    srs = layer_in.GetSpatialRef()
-    geom_type = layer_in.GetGeomType()
+        # Vérification présence champ _SCRAP_ID
+        idx_scrap = in_defn.GetFieldIndex("_SCRAP_ID")
+        if idx_scrap == -1:
+            log.error("cutGPKG, field '_SCRAP_ID' not found in input layer.")
+            globalDat.errorCount += 1
+            return
 
-    # Vérification présence champ _SCRAP_ID
-    idx_scrap = in_defn.GetFieldIndex("_SCRAP_ID")
-    if idx_scrap == -1:
-        log.error("cutGPKG, field '_SCRAP_ID' not found in input layer.")
-        globalDat.errorCount += 1
-        return
+        # -------------------------------------------------
+        # OPEN OUTLINES
+        # -------------------------------------------------
+        ds_outline = ogr.Open(outlines_path)
+        if ds_outline is None:
+            log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{outlines_path}")
+            globalDat.errorCount += 1
+            return
 
-    # -------------------------------------------------
-    # OPEN OUTLINES
-    # -------------------------------------------------
-    ds_outline = ogr.Open(outlines_path)
-    if ds_outline is None:
-        log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{outlines_path}")
-        globalDat.errorCount += 1
-        return
+        layer_outline = ds_outline.GetLayer()
+        outline_defn = layer_outline.GetLayerDefn()
 
-    layer_outline = ds_outline.GetLayer()
-    outline_defn = layer_outline.GetLayerDefn()
+        idx_id = outline_defn.GetFieldIndex("_ID")
+        if idx_id == -1:
+            log.error("cutGPKG, field '_ID' not found in outlines layer.")
+            globalDat.errorCount += 1
+            return
 
-    idx_id = outline_defn.GetFieldIndex("_ID")
-    if idx_id == -1:
-        log.error("cutGPKG, field '_ID' not found in outlines layer.")
-        globalDat.errorCount += 1
-        return
+        # -------------------------------------------------
+        # BUILD DICTIONARY {_ID : geometry}
+        # -------------------------------------------------
+        outline_dict = {}
 
-    # -------------------------------------------------
-    # BUILD DICTIONARY {_ID : geometry}
-    # -------------------------------------------------
-    outline_dict = {}
-
-    for feat in layer_outline:
-        geom = feat.GetGeometryRef()
-        if geom is None:
-            continue
-
-        if not geom.IsValid():
-            geom = geom.Buffer(0)
-
-        scrap_id = feat.GetField("_ID")
-        if scrap_id is None:
-            continue
-
-        if scrap_id not in outline_dict:
-            outline_dict[scrap_id] = geom.Clone()
-        else:
-            outline_dict[scrap_id] = outline_dict[scrap_id].Union(geom)
-
-    if not outline_dict:
-        log.error("cutGPKG, no valid geometry found in outlines.")
-        globalDat.errorCount += 1
-        return
-
-    # -------------------------------------------------
-    # CREATE OUTPUT
-    # -------------------------------------------------
-    driver = ogr.GetDriverByName("GPKG")
-
-    if os.path.exists(output_gpkg_path):
-        driver.DeleteDataSource(output_gpkg_path)
-
-    ds_out = driver.CreateDataSource(output_gpkg_path)
-
-    out_layer = ds_out.CreateLayer(
-        os.path.splitext(os.path.basename(output_gpkg_path))[0],
-        srs=srs,
-        geom_type=geom_type
-    )
-
-    # Copy fields
-    for i in range(in_defn.GetFieldCount()):
-        out_layer.CreateField(in_defn.GetFieldDefn(i))
-
-    out_defn = out_layer.GetLayerDefn()
-    layer_in.ResetReading()
-
-    # -------------------------------------------------
-    # PROCESS FEATURES
-    # -------------------------------------------------
-    with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Clipping file {Colors.ENDC}", length=20) as bar:
-        for feat in layer_in:
-
+        for feat in layer_outline:
             geom = feat.GetGeometryRef()
             if geom is None:
                 continue
@@ -169,67 +119,121 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
             if not geom.IsValid():
                 geom = geom.Buffer(0)
 
-            scrap_id = feat.GetField("_SCRAP_ID")
-
-            # Si aucun scrap correspondant → on ignore
-            if scrap_id not in outline_dict:
+            scrap_id = feat.GetField("_ID")
+            if scrap_id is None:
                 continue
 
-            outline_geom = outline_dict[scrap_id]
+            if scrap_id not in outline_dict:
+                outline_dict[scrap_id] = geom.Clone()
+            else:
+                outline_dict[scrap_id] = outline_dict[scrap_id].Union(geom)
 
-            _type = feat.GetField("_TYPE")
-            _clip = feat.GetField("_CLIP")
+        if not outline_dict:
+            log.error("cutGPKG, no valid geometry found in outlines.")
+            globalDat.errorCount += 1
+            return
 
-            _type = (_type or "").strip().lower()
-            _clip = (_clip or "").strip().lower()
+        # -------------------------------------------------
+        # CREATE OUTPUT
+        # -------------------------------------------------
+        driver = ogr.GetDriverByName("GPKG")
 
-            # -----------------------------------
-            # OUTSIDE (no clipping)
-            # -----------------------------------
-            keep_outside = (_type in {"label", "water_flow", "centerline"} or _clip == "off")
+        if os.path.exists(output_gpkg_path):
+            driver.DeleteDataSource(output_gpkg_path)
 
-            if keep_outside:
+        ds_out = driver.CreateDataSource(output_gpkg_path)
+
+        out_layer = ds_out.CreateLayer(
+            os.path.splitext(os.path.basename(output_gpkg_path))[0],
+            srs=srs,
+            geom_type=geom_type
+        )
+
+        # Copy fields
+        for i in range(in_defn.GetFieldCount()):
+            out_layer.CreateField(in_defn.GetFieldDefn(i))
+
+        out_defn = out_layer.GetLayerDefn()
+        layer_in.ResetReading()
+
+        # -------------------------------------------------
+        # PROCESS FEATURES
+        # -------------------------------------------------
+        with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Clipping file {Colors.ENDC}", length=20) as bar:
+            for feat in layer_in:
+
+                geom = feat.GetGeometryRef()
+                if geom is None:
+                    continue
+
+                if not geom.IsValid():
+                    geom = geom.Buffer(0)
+
+                scrap_id = feat.GetField("_SCRAP_ID")
+
+                # Si aucun scrap correspondant → on ignore
+                if scrap_id not in outline_dict:
+                    continue
+
+                outline_geom = outline_dict[scrap_id]
+
+                _type = feat.GetField("_TYPE")
+                _clip = feat.GetField("_CLIP")
+
+                _type = (_type or "").strip().lower()
+                _clip = (_clip or "").strip().lower()
+
+                # -----------------------------------
+                # OUTSIDE (no clipping)
+                # -----------------------------------
+                keep_outside = (_type in {"label", "water_flow", "centerline"} or _clip == "off")
+
+                if keep_outside:
+                    new_feat = ogr.Feature(out_defn)
+                    new_feat.SetGeometry(geom.Clone())
+
+                    for i in range(out_defn.GetFieldCount()):
+                        new_feat.SetField(out_defn.GetFieldDefn(i).GetNameRef(), feat.GetField(i))
+
+                    out_layer.CreateFeature(new_feat)
+                    new_feat = None
+                    bar()
+                    continue
+
+                # Pas d'intersection → on ignore
+                if not geom.Intersects(outline_geom):
+                    continue
+
+                inter_geom = geom.Intersection(outline_geom)
+
+                if inter_geom is None or inter_geom.IsEmpty():
+                    continue
+
                 new_feat = ogr.Feature(out_defn)
-                new_feat.SetGeometry(geom.Clone())
+                new_feat.SetGeometry(inter_geom)
 
                 for i in range(out_defn.GetFieldCount()):
-                    new_feat.SetField(out_defn.GetFieldDefn(i).GetNameRef(), feat.GetField(i))
+                    new_feat.SetField(
+                        out_defn.GetFieldDefn(i).GetNameRef(),
+                        feat.GetField(i)
+                    )
 
                 out_layer.CreateFeature(new_feat)
                 new_feat = None
                 bar()
-                continue
 
-            # Pas d'intersection → on ignore
-            if not geom.Intersects(outline_geom):
-                continue
+        # -------------------------------------------------
+        # CLEANUP
+        # -------------------------------------------------
+        ds_in = None
+        ds_outline = None
+        ds_out = None
 
-            inter_geom = geom.Intersection(outline_geom)
-
-            if inter_geom is None or inter_geom.IsEmpty():
-                continue
-
-            new_feat = ogr.Feature(out_defn)
-            new_feat.SetGeometry(inter_geom)
-
-            for i in range(out_defn.GetFieldCount()):
-                new_feat.SetField(
-                    out_defn.GetFieldDefn(i).GetNameRef(),
-                    feat.GetField(i)
-                )
-
-            out_layer.CreateFeature(new_feat)
-            new_feat = None
-            bar()
-
-    # -------------------------------------------------
-    # CLEANUP
-    # -------------------------------------------------
-    ds_in = None
-    ds_outline = None
-    ds_out = None
-
-    return
+        return
+    
+    except RuntimeError as e:
+        log.error(f"cutGPKG, unable to validate geometry: {e}, continuing anyway.")
+        globalDat.errorCount += 1
 
 #################################################################################################
 def extractVertices(input_gpkg_path, output_gpkg_path):
@@ -539,7 +543,6 @@ def diagnostic(file_path):
         log.error(f"diagnostic, unable to validate geometry: {e}, continuing anyway.")
         globalDat.errorCount += 1
         
-
 #################################################################################################
 def fix_geometry(geom, GetFID):
     try:
@@ -658,8 +661,8 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
                     log.warning(f"Géométrie impossible à corriger FID")
                     error_count += 1
                     
-                geom_type_name = geom.GetGeometryName()
-                geom_stats[geom_type_name] += 1
+                # geom_type_name = geom.GetGeometryName()
+                # geom_stats[geom_type_name] += 1
 
                 # création feature
                 out_feature = ogr.Feature(out_layer_defn)
