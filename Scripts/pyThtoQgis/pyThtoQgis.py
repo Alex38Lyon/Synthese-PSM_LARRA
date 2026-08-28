@@ -422,112 +422,116 @@ def extractVertices(input_gpkg_path, output_gpkg_path):
 
 #################################################################################################    
 def diagnostic(file_path):
-
-    start_time = time.time()
-    
-    if not os.path.exists(file_path):
-        log.error(f"diagnostic, fichier non trouvé : {Colors.ENDC}{file_path}")
-        globalDat.errorCount += 1
-        return
-    
-    ds = ogr.Open(file_path)
-    
-    if ds is None:
-        log.error(f"Impossible d'ouvrir le fichier : {Colors.ENDC}{file_path}")
-        globalDat.errorCount += 1
-        return
-
-    layer = ds.GetLayer()
-
-    total = 0
-    invalid = 0
-    empty = 0
-    multi_geom_count = 0
-    geom_types = defaultdict(int)
-    has_z = False
-    has_m = False
-    field_stats = defaultdict(list)
-
-    extent = layer.GetExtent()
-    srs = layer.GetSpatialRef()
-    crs = srs.ExportToWkt() if srs else "CRS inconnu"
-
-    for feature in layer:
-
-        total += 1
-
-        geom = feature.GetGeometryRef()
+    try:
         
-        if geom is None or geom.IsEmpty():
-            empty += 1
-            continue
-
-        geom_types[geom.GetGeometryName()] += 1
-
-        if not geom.IsValid():
-            invalid += 1
-
-        gtype = geom.GetGeometryType()
-
-        if ogr.GT_HasZ(gtype):
-            has_z = True
-
-        if ogr.GT_HasM(gtype):
-            has_m = True
-            
-        # champs attributaires
-        layer_defn = layer.GetLayerDefn()
+        start_time = time.time()
         
-        for i in range(layer_defn.GetFieldCount()):
-            field_name = layer_defn.GetFieldDefn(i).GetNameRef()
-            val = feature.GetField(i)
-            if val is not None:
-                field_stats[field_name].append(val)
+        if not os.path.exists(file_path):
+            log.error(f"diagnostic, fichier non trouvé : {Colors.ENDC}{file_path}")
+            globalDat.errorCount += 1
+            return
+        
+        ds = ogr.Open(file_path)
+        
+        if ds is None:
+            log.error(f"Impossible d'ouvrir le fichier : {Colors.ENDC}{file_path}")
+            globalDat.errorCount += 1
+            return
+
+        layer = ds.GetLayer()
+
+        total = 0
+        invalid = 0
+        empty = 0
+        multi_geom_count = 0
+        geom_types = defaultdict(int)
+        has_z = False
+        has_m = False
+        field_stats = defaultdict(list)
+
+        extent = layer.GetExtent()
+        srs = layer.GetSpatialRef()
+        crs = srs.ExportToWkt() if srs else "CRS inconnu"
+
+        for feature in layer:
+
+            total += 1
+
+            geom = feature.GetGeometryRef()
             
-    elapsed = time.time() - start_time
-    file_size = os.path.getsize(file_path) / (1024*1024)  # Mo
+            if geom is None or geom.IsEmpty():
+                empty += 1
+                continue
 
-    log.info(f"==================== BILAN FILE : {Colors.ENDC}{safe_relpath(file_path)}{Colors.INFO} ====================")
-    log.debug(f"Temps d'analyse : {Colors.ENDC}{elapsed:.2f}{Colors.INFO} s")
-    log.debug(f"Taille : {Colors.ENDC}{file_size:.2f}{Colors.INFO} Mo")
-    log.debug(f"Nombre d'objets :  {Colors.ENDC}{total}")
-    
-    if empty == 0 : log.debug(f"Géométries vides : {Colors.ENDC}{empty}")
-    else :  log.warning(f"Géométries vides : {Colors.ENDC}{empty}")
-    
-    if invalid == 0 : log.debug(f"Géométries invalides : {Colors.ENDC}{invalid}")
-    else : log.warning(f"Géométries invalides : {Colors.ENDC}{invalid}")
-    
-    log.debug(f"MultiGeometries / Collections : {Colors.ENDC}{multi_geom_count}")
-    
-    log.debug("Types géométriques :")
-    for gtype, count in geom_types.items():
-        log.debug(f"\t{gtype} : {Colors.ENDC}{count}")
+            geom_types[geom.GetGeometryName()] += 1
 
-    log.debug("Bounding box :")
-    log.debug(f"\txmin = {Colors.ENDC}{extent[0]}")
-    log.debug(f"\txmax = {Colors.ENDC}{extent[1]}")
-    log.debug(f"\tymin = {Colors.ENDC}{extent[2]}")
-    log.debug(f"\tymax = {Colors.ENDC}{extent[3]}")
+            if not geom.IsValid():
+                invalid += 1
+
+            gtype = geom.GetGeometryType()
+
+            if ogr.GT_HasZ(gtype):
+                has_z = True
+
+            if ogr.GT_HasM(gtype):
+                has_m = True
+                
+            # champs attributaires
+            layer_defn = layer.GetLayerDefn()
+            
+            for i in range(layer_defn.GetFieldCount()):
+                field_name = layer_defn.GetFieldDefn(i).GetNameRef()
+                val = feature.GetField(i)
+                if val is not None:
+                    field_stats[field_name].append(val)
+                
+        elapsed = time.time() - start_time
+        file_size = os.path.getsize(file_path) / (1024*1024)  # Mo
+
+        log.info(f"==================== BILAN FILE : {Colors.ENDC}{safe_relpath(file_path)}{Colors.INFO} ====================")
+        log.debug(f"Temps d'analyse : {Colors.ENDC}{elapsed:.2f}{Colors.INFO} s")
+        log.debug(f"Taille : {Colors.ENDC}{file_size:.2f}{Colors.INFO} Mo")
+        log.debug(f"Nombre d'objets :  {Colors.ENDC}{total}")
+        
+        if empty == 0 : log.debug(f"Géométries vides : {Colors.ENDC}{empty}")
+        else :  log.warning(f"Géométries vides : {Colors.ENDC}{empty}")
+        
+        if invalid == 0 : log.debug(f"Géométries invalides : {Colors.ENDC}{invalid}")
+        else : log.warning(f"Géométries invalides : {Colors.ENDC}{invalid}")
+        
+        log.debug(f"MultiGeometries / Collections : {Colors.ENDC}{multi_geom_count}")
+        
+        log.debug("Types géométriques :")
+        for gtype, count in geom_types.items():
+            log.debug(f"\t{gtype} : {Colors.ENDC}{count}")
+
+        log.debug("Bounding box :")
+        log.debug(f"\txmin = {Colors.ENDC}{extent[0]}")
+        log.debug(f"\txmax = {Colors.ENDC}{extent[1]}")
+        log.debug(f"\tymin = {Colors.ENDC}{extent[2]}")
+        log.debug(f"\tymax = {Colors.ENDC}{extent[3]}")
 
 
-    log.debug(f"CRS : {Colors.ENDC}{crs}")
+        log.debug(f"CRS : {Colors.ENDC}{crs}")
 
-    log.debug("Dimensions :")
-    log.debug(f"\tZ présent : {Colors.ENDC}{has_z}")
-    log.debug(f"\tM présent : {Colors.ENDC}{has_m}")
+        log.debug("Dimensions :")
+        log.debug(f"\tZ présent : {Colors.ENDC}{has_z}")
+        log.debug(f"\tM présent : {Colors.ENDC}{has_m}")
+        
+        log.debug("Champs attributaires :")
+        
+        for field, values in field_stats.items():
+            unique_count = len(set(values))
+            log.debug(f"\tchamp : {Colors.ENDC}{field}{Colors.DEBUG} : {Colors.ENDC}{len(values)}{Colors.DEBUG} valeurs, {Colors.ENDC}{unique_count}{Colors.DEBUG} uniques")
+
+        log.info(f"=========================================================================================================")
+
+        ds = None
+        
+        return invalid
     
-    log.debug("Champs attributaires :")
-    
-    for field, values in field_stats.items():
-        unique_count = len(set(values))
-        log.debug(f"\tchamp : {Colors.ENDC}{field}{Colors.DEBUG} : {Colors.ENDC}{len(values)}{Colors.DEBUG} valeurs, {Colors.ENDC}{unique_count}{Colors.DEBUG} uniques")
-
-    log.info(f"=========================================================================================================")
-
-    ds = None
-    
-    return invalid
+    except RuntimeError as e:
+        log.warning(f"Unable to validate geometry: {e}, Continuing anyway.")
 
 #################################################################################################
 def fix_geometry(geom, GetFID):
