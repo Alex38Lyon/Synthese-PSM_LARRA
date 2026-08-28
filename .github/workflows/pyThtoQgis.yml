@@ -1,0 +1,66 @@
+name: pyThtoQgis
+
+on:
+  push:
+    paths:
+      - 'Outputs/SHP/**'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ------------------------------------------------------------
+      # Récupération du dépôt
+      # ------------------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      # ------------------------------------------------------------
+      # Installation de Python
+      # ------------------------------------------------------------
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      # ------------------------------------------------------------
+      # Installation des dépendances Python
+      # ------------------------------------------------------------
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy
+          pip install gdal
+          pip install alive-progress
+
+      # ------------------------------------------------------------
+      # Vérification de l'installation
+      # ------------------------------------------------------------
+      - name: Test Python dependencies
+        run: |
+          python -c "import numpy; print('NumPy:', numpy.__version__)"
+          python -c "from osgeo import ogr, gdal; print('GDAL:', gdal.__version__)"
+          python -c "import alive_progress; print('alive-progress:', alive_progress.__version__)"
+
+      # ------------------------------------------------------------
+      # Exécution de pyThtoQgis
+      # ------------------------------------------------------------
+      - name: Run pyThtoQgis
+        working-directory: Scripts/pyThtoQgis
+        run: |
+          python pyThtoQgis.py --folder "../../Outputs/SHP/"
+
+      # ------------------------------------------------------------
+      # Enregistrement des résultats
+      # ------------------------------------------------------------
+      - name: Commit generated files
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "Auto-run pyThtoQgis"
