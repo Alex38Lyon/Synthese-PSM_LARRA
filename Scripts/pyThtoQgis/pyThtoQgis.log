@@ -40144,3 +40144,4 @@ on 65484: 2026-08-28 11:46:58,690 - ERROR - !!! Géométrie invalide FID 65484
 2026-08-28 11:49:25,191 - DEBUG - 	champ : reseau : 54 valeurs, 16 uniques
 2026-08-28 11:49:25,192 - DEBUG - 	champ : CA : 9 valeurs, 2 uniques
 2026-08-28 11:49:25,192 - INFO - =========================================================================================================
+2026-08-31 17:58:32,282 - ERROR - !!! ERROR the folder ..\..\..\Topographies-Samoens_Folly\Data\Mirolda\Outputs\SHP\Criou does not exist'
