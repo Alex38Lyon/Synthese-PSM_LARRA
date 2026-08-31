@@ -251,19 +251,13 @@ jobs:
       - name: Test SFCGAL via OGR
         shell: bash -el {0}
         run: |
-
-          python - <<'PY'
-
+          python -c '
           from osgeo import ogr
           from osgeo import gdal
 
-          print("========================================")
-          print("TEST SFCGAL")
-          print("========================================")
+          print("GDAL :", gdal.VersionInfo("--version"))
 
-          print(gdal.VersionInfo("--version"))
-
-          wkt = """
+          geom = ogr.CreateGeometryFromWkt("""
           POLYHEDRALSURFACE Z (
               (
                   (0 0 0,
@@ -273,27 +267,18 @@ jobs:
                    0 0 0)
               )
           )
-          """
-
-          geom = ogr.CreateGeometryFromWkt(wkt)
-
-          if geom is None:
-              raise RuntimeError(
-                  "Impossible de créer la géométrie 3D"
-              )
+          """)
 
           print("Type :", geom.GetGeometryName())
           print("Geometry type :", geom.GetGeometryType())
           print("Has Z :", ogr.GT_HasZ(geom.GetGeometryType()))
+          print("IsValid() :", geom.IsValid())
 
-          valid = geom.IsValid()
+          if geom is None:
+              raise RuntimeError("Impossible de créer la géométrie 3D")
 
-          print("IsValid() :", valid)
-
-          print()
           print("SFCGAL accessible par OGR : OK")
-
-          PY      
+          '
       
       # ============================================================
       # 12. Création du package GDAL + SFCGAL
