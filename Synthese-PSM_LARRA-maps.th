@@ -523,10 +523,10 @@ map MC-Synthese_PSM-Extended-tot -title "Synthese PSM"
 	# break
 	# MC-Sima_1748-Extended-tot@Sima_1748
 	# break
-	MC-Z107-Extended-tot@Z107
-	break
-	MC-Z127-Extended-tot@Z127
-	break
+	# MC-Z107-Extended-tot@Z107
+	# break
+	# MC-Z127-Extended-tot@Z127
+	# break
 	# MC-AN456-Banco-Extended-tot@AN456-Banco
 	# break
 	# MC-AN480-Extended-tot@AN480

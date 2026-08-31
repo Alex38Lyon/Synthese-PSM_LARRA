@@ -6,14 +6,14 @@
 
 
 """
-#############################################################
-#                                                        	#  
-# Script to automatize data extraction of Therion databases #
-#                                                        	#  
-#                 By Xavier Robert                       	#
-#               Grenoble, October 2022                   	#
-#                                                        	#  
-#############################################################
+!######################################################################
+!#                                                        	          #  
+!# Script to automatize data extraction of Therion databases for QGis #
+!#                                                        	          #  
+!#                       By Xavier Robert                             #
+!#                    Grenoble, October 2022                   	      #
+!#                                                        	          #  
+!######################################################################
 
 Written by Xavier Robert, October 2022
 Xavier.robert@ird.fr
@@ -45,9 +45,6 @@ Outputs files (8), in QGis_GPKG_Files folder:
 En cas d'erreur (voir log), corriger manuellement avec QGis ou dans therion la topologie des fichiers 
 
 """
-
-# Do divisions with Reals, not with integers
-# Must be at the beginning of the file
     
 from __future__ import division
 
@@ -65,64 +62,66 @@ from alive_progress import alive_bar              # https://github.com/rsalmei/a
 
 
 #################################################################################################
-def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
+#################################################################################################
+def cutGPKG_2(input_gpkg_path, outlines_path, output_gpkg_path):
     """
     Generic clipping function for lines or polygons using OGR only.
-
-    Ne coupe que les objets de input_gpkg_path dont
-    _SCRAP_ID == _ID (dans outlines_path), et uniquement
-    avec la géométrie correspondante.
-
-    Args:
-        input_gpkg_path (str) : input gpkg path (lines or areas)
-        outlines_path (str)   : polygon outline file (doit contenir _ID)
-        output_gpkg_path (str): output gpkg path
     """
-    try : 
-        log.info(f"Clipping file : {Colors.ENDC}{safe_relpath(input_gpkg_path)}{Colors.INFO} to file : {Colors.ENDC}{safe_relpath(output_gpkg_path)}")
+    try:
+        log.info(
+            f"Clipping file : {Colors.ENDC}{safe_relpath(input_gpkg_path)}"
+            f"{Colors.INFO} to file : {Colors.ENDC}{safe_relpath(output_gpkg_path)}"
+        )
 
         # -------------------------------------------------
         # OPEN INPUT
         # -------------------------------------------------
         ds_in = ogr.Open(input_gpkg_path)
-        
+
         if ds_in is None:
-            log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{input_gpkg_path}")
+            log.error(
+                f"cutGPKG, cannot open file : "
+                f"{Colors.ENDC}{input_gpkg_path}"
+            )
             globalDat.errorCount += 1
-            return
+            return -1
 
         layer_in = ds_in.GetLayer()
         in_defn = layer_in.GetLayerDefn()
         srs = layer_in.GetSpatialRef()
         geom_type = layer_in.GetGeomType()
 
-        # Vérification présence champ _SCRAP_ID
         idx_scrap = in_defn.GetFieldIndex("_SCRAP_ID")
-        
+
         if idx_scrap == -1:
             log.error("cutGPKG, field '_SCRAP_ID' not found in input layer.")
             globalDat.errorCount += 1
-            return
+            return -1
 
         # -------------------------------------------------
         # OPEN OUTLINES
         # -------------------------------------------------
         ds_outline = ogr.Open(outlines_path)
-        
+
         if ds_outline is None:
-            log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{outlines_path}")
+            log.error(
+                f"cutGPKG, cannot open file : "
+                f"{Colors.ENDC}{outlines_path}"
+            )
             globalDat.errorCount += 1
-            return
+            return -1
 
         layer_outline = ds_outline.GetLayer()
         outline_defn = layer_outline.GetLayerDefn()
 
         idx_id = outline_defn.GetFieldIndex("_ID")
-        
+
         if idx_id == -1:
-            log.error("cutGPKG, field '_ID' not found in outlines layer.")
+            log.error(
+                "cutGPKG, field '_ID' not found in outlines layer."
+            )
             globalDat.errorCount += 1
-            return
+            return -1
 
         # -------------------------------------------------
         # BUILD DICTIONARY {_ID : geometry}
@@ -130,26 +129,48 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
         outline_dict = {}
 
         for feat in layer_outline:
+
             geom = feat.GetGeometryRef()
+
             if geom is None:
+                log.warning(
+                    f"cutGPKG, outline FID={feat.GetFID()} : "
+                    f"geometry is None"
+                )
                 continue
 
             if not geom.IsValid():
+                log.warning(
+                    f"cutGPKG, invalid outline geometry, "
+                    f"FID={feat.GetFID()}, _ID={feat.GetField('_ID')}, "
+                    f"applying Buffer(0)"
+                )
                 geom = geom.Buffer(0)
 
             scrap_id = feat.GetField("_ID")
+
             if scrap_id is None:
+                log.warning(
+                    f"cutGPKG, outline FID={feat.GetFID()} : "
+                    f"_ID is NULL"
+                )
                 continue
 
             if scrap_id not in outline_dict:
                 outline_dict[scrap_id] = geom.Clone()
+
             else:
                 outline_dict[scrap_id] = outline_dict[scrap_id].Union(geom)
 
         if not outline_dict:
             log.error("cutGPKG, no valid geometry found in outlines.")
             globalDat.errorCount += 1
-            return
+            return -1
+
+        log.debug(
+            f"cutGPKG, nombre de _ID dans les outlines : "
+            f"{len(outline_dict)}"
+        )
 
         # -------------------------------------------------
         # CREATE OUTPUT
@@ -177,29 +198,532 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
         # -------------------------------------------------
         # PROCESS FEATURES
         # -------------------------------------------------
-        with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Clipping file {Colors.ENDC}{safe_relpath(input_gpkg_path)} {Colors.ENDC}", length=20) as bar:
+
+        countObjetsInput = len(layer_in)
+
+        # Compteurs de diagnostic
+        count_keep_outside = 0
+        count_clipped = 0
+        count_no_scrap = 0
+        count_no_intersection = 0
+        count_empty_intersection = 0
+        count_geom_none = 0
+        count_create_error = 0
+
+        input_fids = set()
+        output_fids = []
+
+        with alive_bar(
+            countObjetsInput,
+            title=f"{Colors.YELLOW}Clipping file "
+                  f"{Colors.ENDC}{safe_relpath(input_gpkg_path)}",
+            length=20
+        ) as bar:
+
+            for feat in layer_in:
+
+                fid = feat.GetFID()
+                input_fids.add(fid)
+
+                geom = feat.GetGeometryRef()
+
+                scrap_id = feat.GetField("_SCRAP_ID")
+
+                _type = (
+                    feat.GetField("_TYPE") or ""
+                ).strip().lower()
+
+                _clip = (
+                    feat.GetField("_CLIP") or ""
+                ).strip().lower()
+
+                # -------------------------------------------------
+                # ATTRIBUTS POUR LES LOGS
+                # -------------------------------------------------
+
+                attrs = []
+
+                for i in range(in_defn.GetFieldCount()):
+                    field_name = in_defn.GetFieldDefn(i).GetNameRef()
+                    field_value = feat.GetField(i)
+                    attrs.append(
+                        f"{field_name}={field_value}"
+                    )
+
+                attrs_formatted = ", ".join(attrs)
+
+                # -------------------------------------------------
+                # GEOMETRY NONE
+                # -------------------------------------------------
+
+                if geom is None:
+
+                    count_geom_none += 1
+
+                    log.warning(
+                        f"cutGPKG, OBJET IGNORE - geometry is None : "
+                        f"FID={fid}, "
+                        f"_SCRAP_ID={scrap_id}, "
+                        f"_TYPE={_type}, "
+                        f"_CLIP={_clip}, "
+                        f"attributes: {attrs_formatted}"
+                    )
+
+                    bar()
+                    continue
+
+                # -------------------------------------------------
+                # INVALID GEOMETRY
+                # -------------------------------------------------
+
+                if not geom.IsValid():
+
+                    log.warning(
+                        f"cutGPKG, invalid input geometry : "
+                        f"FID={fid}, "
+                        f"_SCRAP_ID={scrap_id}, "
+                        f"_TYPE={_type}, "
+                        f"_CLIP={_clip}"
+                    )
+
+                    geom = geom.Buffer(0)
+
+                    if geom is None or geom.IsEmpty():
+
+                        log.warning(
+                            f"cutGPKG, OBJET PERDU après Buffer(0) : "
+                            f"FID={fid}, "
+                            f"_SCRAP_ID={scrap_id}, "
+                            f"attributes: {attrs_formatted}"
+                        )
+
+                        bar()
+                        continue
+
+                # -------------------------------------------------
+                # SCRAP ID INCONNU
+                # -------------------------------------------------
+
+                if scrap_id not in outline_dict:
+
+                    count_no_scrap += 1
+
+                    log.warning(
+                        f"cutGPKG, SCRAP_ID ABSENT DES OUTLINES : "
+                        f"FID={fid}, "
+                        f"_SCRAP_ID={scrap_id}, "
+                        f"_TYPE={_type}, "
+                        f"_CLIP={_clip}, "
+                        f"attributes: {attrs_formatted}"
+                    )
+
+                    # ATTENTION :
+                    # comportement actuel conservé
+                    outline_dict[scrap_id] = geom.Clone()
+
+                outline_geom = outline_dict[scrap_id]
+
+                # -------------------------------------------------
+                # OUTSIDE (no clipping)
+                # -------------------------------------------------
+
+                keep_outside = (
+                    _type in {
+                        "label",
+                        "water_flow",
+                        "centerline"
+                    }
+                    or _clip == "off"
+                )
+
+                if keep_outside:
+
+                    new_feat = ogr.Feature(out_defn)
+                    new_feat.SetGeometry(geom.Clone())
+
+                    for i in range(out_defn.GetFieldCount()):
+                        new_feat.SetField(
+                            out_defn.GetFieldDefn(i).GetNameRef(),
+                            feat.GetField(i)
+                        )
+
+                    result = out_layer.CreateFeature(new_feat)
+
+                    if result != 0:
+
+                        count_create_error += 1
+
+                        log.warning(
+                            f"cutGPKG, ERREUR CreateFeature "
+                            f"(OUTSIDE) : "
+                            f"FID={fid}, "
+                            f"_SCRAP_ID={scrap_id}, "
+                            f"OGR error={result}, "
+                            f"attributes: {attrs_formatted}"
+                        )
+
+                    else:
+                        count_keep_outside += 1
+
+                    new_feat = None
+                    bar()
+                    continue
+
+                # -------------------------------------------------
+                # NO INTERSECTION
+                # -------------------------------------------------
+
+                try:
+                    intersects = geom.Intersects(outline_geom)
+                except Exception as e:
+
+                    log.warning(
+                        f"cutGPKG, ERREUR Intersects : "
+                        f"FID={fid}, "
+                        f"_SCRAP_ID={scrap_id}, "
+                        f"error={e}, "
+                        f"attributes: {attrs_formatted}"
+                    )
+
+                    bar()
+                    continue
+
+                if not intersects:
+
+                    count_no_intersection += 1
+
+                    log.warning(
+                        f"cutGPKG, OBJET IGNORE - aucune intersection : "
+                        f"FID={fid}, "
+                        f"_SCRAP_ID={scrap_id}, "
+                        f"_TYPE={_type}, "
+                        f"_CLIP={_clip}, "
+                        f"attributes: {attrs_formatted}"
+                    )
+
+                    bar()
+                    continue
+
+                # -------------------------------------------------
+                # INTERSECTION
+                # -------------------------------------------------
+
+                try:
+                    inter_geom = geom.Intersection(outline_geom)
+
+                except Exception as e:
+
+                    log.warning(
+                        f"cutGPKG, ERREUR Intersection : "
+                        f"FID={fid}, "
+                        f"_SCRAP_ID={scrap_id}, "
+                        f"error={e}, "
+                        f"attributes: {attrs_formatted}"
+                    )
+
+                    bar()
+                    continue
+
+                if inter_geom is None:
+
+                    count_empty_intersection += 1
+
+                    log.warning(
+                        f"cutGPKG, OBJET IGNORE - "
+                        f"Intersection retourne None : "
+                        f"FID={fid}, "
+                        f"_SCRAP_ID={scrap_id}, "
+                        f"attributes: {attrs_formatted}"
+                    )
+
+                    bar()
+                    continue
+
+                if inter_geom.IsEmpty():
+
+                    count_empty_intersection += 1
+
+                    log.warning(
+                        f"cutGPKG, OBJET IGNORE - "
+                        f"Intersection vide : "
+                        f"FID={fid}, "
+                        f"_SCRAP_ID={scrap_id}, "
+                        f"attributes: {attrs_formatted}"
+                    )
+
+                    bar()
+                    continue
+
+                # -------------------------------------------------
+                # CREATE FEATURE
+                # -------------------------------------------------
+
+                new_feat = ogr.Feature(out_defn)
+                new_feat.SetGeometry(inter_geom)
+
+                for i in range(out_defn.GetFieldCount()):
+                    new_feat.SetField(
+                        out_defn.GetFieldDefn(i).GetNameRef(),
+                        feat.GetField(i)
+                    )
+
+                result = out_layer.CreateFeature(new_feat)
+
+                if result != 0:
+
+                    count_create_error += 1
+
+                    log.warning(
+                        f"cutGPKG, ERREUR CreateFeature "
+                        f"(CLIPPED) : "
+                        f"FID={fid}, "
+                        f"_SCRAP_ID={scrap_id}, "
+                        f"OGR error={result}, "
+                        f"attributes: {attrs_formatted}"
+                    )
+
+                else:
+                    count_clipped += 1
+                    output_fids.append(fid)
+
+                new_feat = None
+
+                bar()
+
+        # -------------------------------------------------
+        # DIAGNOSTIC FINAL
+        # -------------------------------------------------
+
+        total_output = (
+            count_keep_outside +
+            count_clipped
+        )
+
+        log.warning(
+            f"cutGPKG, BILAN : "
+            f"entrée={countObjetsInput}, "
+            f"sortie={total_output}, "
+            f"différence={countObjetsInput - total_output}"
+        )
+
+        log.warning(
+            f"cutGPKG, conservés sans découpage : "
+            f"{count_keep_outside}"
+        )
+
+        log.warning(
+            f"cutGPKG, objets découpés : "
+            f"{count_clipped}"
+        )
+
+        log.warning(
+            f"cutGPKG, SCRAP_ID absents : "
+            f"{count_no_scrap}"
+        )
+
+        log.warning(
+            f"cutGPKG, sans intersection : "
+            f"{count_no_intersection}"
+        )
+
+        log.warning(
+            f"cutGPKG, intersections vides : "
+            f"{count_empty_intersection}"
+        )
+
+        log.warning(
+            f"cutGPKG, géométries None : "
+            f"{count_geom_none}"
+        )
+
+        log.warning(
+            f"cutGPKG, erreurs CreateFeature : "
+            f"{count_create_error}"
+        )
+
+        # -------------------------------------------------
+        # VERIFICATION REELLE DU FICHIER DE SORTIE
+        # -------------------------------------------------
+
+        ds_out.FlushCache()
+
+        output_layer_count = len(out_layer)
+
+        log.warning(
+            f"cutGPKG, nombre réel d'objets dans la couche finale : "
+            f"{output_layer_count}"
+        )
+
+        # -------------------------------------------------
+        # CLEANUP
+        # -------------------------------------------------
+
+        ds_in = None
+        ds_outline = None
+        ds_out = None
+
+        return countObjetsInput
+
+    except RuntimeError as e:
+
+        log.error(
+            f"cutGPKG, unable to validate geometry: "
+            f"{e}, continuing anyway."
+        )
+
+        globalDat.errorCount += 1
+        return -1
+
+def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
+    """
+    Generic clipping function for lines or polygons using OGR only.
+
+    Ne coupe que les objets de input_gpkg_path dont
+    _SCRAP_ID == _ID (dans outlines_path), et uniquement
+    avec la géométrie correspondante.
+
+    Args:
+        input_gpkg_path (str) : input gpkg path (lines or areas)
+        outlines_path (str)   : polygon outline file (doit contenir _ID)
+        output_gpkg_path (str): output gpkg path
+    """
+    try : 
+        log.info(f"Clipping file : {Colors.ENDC}{safe_relpath(input_gpkg_path)}{Colors.INFO} to file : {Colors.ENDC}{safe_relpath(output_gpkg_path)}")
+
+        # -------------------------------------------------
+        # OPEN INPUT
+        # -------------------------------------------------
+        ds_in = ogr.Open(input_gpkg_path)
+        
+        if ds_in is None:
+            log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{input_gpkg_path}")
+            globalDat.errorCount += 1
+            return -1
+
+        layer_in = ds_in.GetLayer()
+        in_defn = layer_in.GetLayerDefn()
+        srs = layer_in.GetSpatialRef()
+        geom_type = layer_in.GetGeomType()
+
+        # Vérification présence champ _SCRAP_ID
+        idx_scrap = in_defn.GetFieldIndex("_SCRAP_ID")
+        
+        if idx_scrap == -1:
+            log.error("cutGPKG, field '_SCRAP_ID' not found in input layer.")
+            globalDat.errorCount += 1
+            return -1
+
+        # -------------------------------------------------
+        # OPEN OUTLINES
+        # -------------------------------------------------
+        ds_outline = ogr.Open(outlines_path)
+        
+        if ds_outline is None:
+            log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{outlines_path}")
+            globalDat.errorCount += 1
+            return -1
+
+        layer_outline = ds_outline.GetLayer()
+        outline_defn = layer_outline.GetLayerDefn()
+
+        idx_id = outline_defn.GetFieldIndex("_ID")
+        
+        if idx_id == -1:
+            log.error("cutGPKG, field '_ID' not found in outlines layer.")
+            globalDat.errorCount += 1
+            return -1
+
+        # -------------------------------------------------
+        # BUILD DICTIONARY {_ID : geometry}
+        # -------------------------------------------------
+        outline_dict = {}
+
+        for feat in layer_outline:
+            geom = feat.GetGeometryRef()
+            
+            if geom is None:
+                continue
+
+            if not geom.IsValid():
+                geom = geom.Buffer(0)
+
+            scrap_id = feat.GetField("_ID")
+            
+            if scrap_id is None:
+                continue
+
+            if scrap_id not in outline_dict:
+                outline_dict[scrap_id] = geom.Clone()
+            
+            else:
+                outline_dict[scrap_id] = outline_dict[scrap_id].Union(geom)
+
+        if not outline_dict:
+            log.error("cutGPKG, no valid geometry found in outlines.")
+            globalDat.errorCount += 1
+            return -1
+
+        # -------------------------------------------------
+        # CREATE OUTPUT
+        # -------------------------------------------------
+        driver = ogr.GetDriverByName("GPKG")
+
+        if os.path.exists(output_gpkg_path):
+            driver.DeleteDataSource(output_gpkg_path)
+
+        ds_out = driver.CreateDataSource(output_gpkg_path)
+
+        out_layer = ds_out.CreateLayer(os.path.splitext(os.path.basename(output_gpkg_path))[0], srs=srs, geom_type=geom_type)
+
+        # Copy fields
+        for i in range(in_defn.GetFieldCount()):
+            out_layer.CreateField(in_defn.GetFieldDefn(i))
+
+        out_defn = out_layer.GetLayerDefn()
+        layer_in.ResetReading()
+
+        # -------------------------------------------------
+        # PROCESS FEATURES
+        # -------------------------------------------------
+        countObjetsInput = len(layer_in)
+        with alive_bar(countObjetsInput, title=f"{Colors.YELLOW}Clipping file {Colors.ENDC}{safe_relpath(input_gpkg_path)} {Colors.ENDC}", length=20) as bar:
             for feat in layer_in:
 
                 geom = feat.GetGeometryRef()
+                
                 if geom is None:
+                    log.warning(f"geom is None")
+                    bar()
                     continue
 
                 if not geom.IsValid():
                     geom = geom.Buffer(0)
 
                 scrap_id = feat.GetField("_SCRAP_ID")
+                
+                if scrap_id not in outline_dict:
+                    outline_dict[scrap_id] = geom.Clone()                    
 
                 # Si aucun scrap correspondant → on ignore
-                if scrap_id not in outline_dict:
-                    continue
+                # if scrap_id not in outline_dict:
+                #     code, error_type, error_msg = get_geometry_error(geom)
+                #     attrs = []
+                    
+                #     for i in range(in_defn.GetFieldCount()):
+                #         field_name = in_defn.GetFieldDefn(i).GetNameRef()
+                #         field_value = feat.GetField(i)
+                #         attrs.append(f"{Colors.ENDC}{field_name}{Colors.WARNING}={Colors.ENDC}{field_value}{Colors.WARNING}")                
+          
+                #     attrs_formatted = ', '.join(attrs)
+            
+                #     log.warning(f"Scrap_ID {Colors.ENDC}{scrap_id}{Colors.WARNING} issue, error type {Colors.ENDC}{error_type}{Colors.WARNING}, attributes: {Colors.ENDC}{attrs_formatted}{Colors.WARNING}")
+                #     bar()
+                #     continue
 
                 outline_geom = outline_dict[scrap_id]
-
-                _type = feat.GetField("_TYPE")
-                _clip = feat.GetField("_CLIP")
-
-                _type = (_type or "").strip().lower()
-                _clip = (_clip or "").strip().lower()
+                
+                _type = (feat.GetField("_TYPE") or "").strip().lower()
+                _clip = (feat.GetField("_CLIP") or "").strip().lower()
 
                 # -----------------------------------
                 # OUTSIDE (no clipping)
@@ -220,21 +744,30 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
 
                 # Pas d'intersection → on ignore
                 if not geom.Intersects(outline_geom):
+                    attrs = []
+                    
+                    for i in range(in_defn.GetFieldCount()):
+                        field_name = in_defn.GetFieldDefn(i).GetNameRef()
+                        field_value = feat.GetField(i)
+                        attrs.append(f"{Colors.ENDC}{field_name}{Colors.WARNING}={Colors.ENDC}{field_value}{Colors.WARNING}")                
+          
+                    attrs_formatted = ', '.join(attrs)
+            
+                    log.warning(f"Any intersection issue, attributes: {Colors.ENDC}{attrs_formatted}{Colors.WARNING}")
+                    bar()
                     continue
 
                 inter_geom = geom.Intersection(outline_geom)
 
                 if inter_geom is None or inter_geom.IsEmpty():
+                    bar()
                     continue
 
                 new_feat = ogr.Feature(out_defn)
                 new_feat.SetGeometry(inter_geom)
 
                 for i in range(out_defn.GetFieldCount()):
-                    new_feat.SetField(
-                        out_defn.GetFieldDefn(i).GetNameRef(),
-                        feat.GetField(i)
-                    )
+                    new_feat.SetField(out_defn.GetFieldDefn(i).GetNameRef(), feat.GetField(i))
 
                 out_layer.CreateFeature(new_feat)
                 new_feat = None
@@ -247,11 +780,12 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
         ds_outline = None
         ds_out = None
 
-        return
+        return countObjetsInput
     
     except RuntimeError as e:
         log.error(f"cutGPKG, unable to validate geometry: {e}, continuing anyway.")
         globalDat.errorCount += 1
+        return -1
 
 #################################################################################################
 def extractVertices(input_gpkg_path, output_gpkg_path):
@@ -456,14 +990,14 @@ def diagnostic(file_path):
         if not os.path.exists(file_path):
             log.error(f"diagnostic, fichier non trouvé : {Colors.ENDC}{file_path}")
             globalDat.errorCount += 1
-            return
+            return -1, -1
         
         ds = ogr.Open(file_path)
         
         if ds is None:
             log.error(f"Impossible d'ouvrir le fichier : {Colors.ENDC}{file_path}")
             globalDat.errorCount += 1
-            return
+            return -1, -1
 
         layer = ds.GetLayer()
 
@@ -534,9 +1068,9 @@ def diagnostic(file_path):
             log.warning(f"Géométries vides : {Colors.ENDC}{empty}")
         
         if invalid == 0 : 
-            log.info(f"Géométries invalides : {Colors.ENDC}{invalid}")
+            log.info(f"Géométries invalides : {Colors.ENDC}{invalid}{Colors.INFO} sur  {Colors.ENDC}{total}")
         else : 
-            log.warning(f"Géométries invalides : {Colors.ENDC}{invalid}")
+            log.warning(f"Géométries invalides : {Colors.ENDC}{invalid}{Colors.WARNING} sur  {Colors.ENDC}{total}")
             # for code, count in sorted( error_codes.items(), key=lambda item: item[1], reverse=True ): 
             #     log.warning( f"\t\t{Colors.ENDC}{str(code):<20}{Colors.WARNING}: {Colors.ENDC}{count}" )
             for error, count in sorted( error_types.items(), key=lambda item: item[1], reverse=True ): 
@@ -575,11 +1109,12 @@ def diagnostic(file_path):
 
         ds = None
         
-        return invalid
+        return invalid, total
     
     except RuntimeError as e:
         log.error(f"diagnostic, unable to validate geometry: {e}, continuing anyway.")
         globalDat.errorCount += 1
+        return -1, -1
 
 #################################################################################################
 def get_geometry_error(geom):
@@ -870,13 +1405,22 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
         
         if (total_count - feature_count) > 0 : log.warning(f"{Colors.ENDC}{total_count - feature_count}{Colors.WARNING} géométries supprimées") 
 
-    except Exception as e:
+    except RuntimeError as e:
 
         if log:
             log.error(f"Error in conversion file {infile} SHP to GPKG : {e}")
             globalDat.errorCount += 1
+        
+        return
+            
+    
+    # except Exception as e:
 
-        raise
+    #     if log:
+    #         log.error(f"Error in conversion file {infile} SHP to GPKG : {e}")
+    #         globalDat.errorCount += 1
+
+    #     raise
 
 #################################################################################################    
 def count_topology_errors(file_path):
@@ -1031,7 +1575,7 @@ def ThtoQGis(pathshp, outputspath):
             globalDat.errorCount += 1
             continue    
                    
-        err = diagnostic(file)
+        err, valid = diagnostic(file)
         
         if fname in dest_list :
             destinationName = fname 
@@ -1042,28 +1586,38 @@ def ThtoQGis(pathshp, outputspath):
         shp2gpkg(pathshp, fname, outputspath,  destinationName) 
         
         if err != 0 :
-            err = diagnostic(os.path.join(outputspath,destinationName + '.gpkg'))
+            err2, valid2 = diagnostic(os.path.join(outputspath,destinationName + '.gpkg'))
 
-        if err != 0 : 
-            log.error(f"ERROR: in file {Colors.ENDC}{(str(outputspath + destinationName + '.gpkg'))} {Colors.ERROR} please fix it manually with QGis...")
-            globalDat.errorCount += 1
-            return False
+            if err2 != 0 : 
+                log.error(f"ERROR: in file {Colors.ENDC}{(str(outputspath + destinationName + '.gpkg'))} {Colors.ERROR} please fix it manually with QGis...")
+                globalDat.errorCount += 1
+                return False
 
 
     log.info(f"{Colors.HEADER}{Colors.UNDERLINE}Step 2: adapte drawing files (cut it) for QGis in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
     
     ## Work with lines
     file_path = os.path.join(outputspath, 'lines2d_fixed.gpkg')
-    cutGPKG(file_path, os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'lines2dMasked.gpkg'))     
-    diagnostic(os.path.join(outputspath,'lines2dMasked.gpkg'))
+    valid = cutGPKG(file_path, os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'lines2dMasked.gpkg'))     
+    err, valid2 = diagnostic(os.path.join(outputspath,'lines2dMasked.gpkg'))
     
+    if (valid2 - valid) != 0 :
+        log.warning(f"{Colors.ENDC}{abs(valid2 - valid)}{Colors.WARNING} deleted geometries need to be verified in {Colors.ENDC}lines2dMasked.gpkg{Colors.WARNING} file") 
+    else :
+        log.info(f"{Colors.ENDC}{valid}{Colors.INFO} clipped geometries in {Colors.ENDC}lines2dMasked.gpkg{Colors.INFO} file") 
+        
     if os.path.exists(file_path):
         os.remove(file_path)
           
     ## Work with Areas  
     file_path = os.path.join(outputspath, 'areas2d_fixed.gpkg')      
-    cutGPKG(file_path, os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'areas2dMasked.gpkg'))    
-    diagnostic(os.path.join(outputspath,'areas2dMasked.gpkg'))    
+    valid = cutGPKG(file_path, os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'areas2dMasked.gpkg'))    
+    err, valid2 = diagnostic(os.path.join(outputspath,'areas2dMasked.gpkg'))    
+    
+    if (valid2 - valid) != 0 :
+        log.warning(f"{Colors.ENDC}{abs(valid2 - valid)}{Colors.WARNING} Deleted geometries need to be verified in {Colors.ENDC}areas2d_fixed.gpkg{Colors.WARNING} file") 
+    else :
+        log.info(f"{Colors.ENDC}{valid}{Colors.INFO} clipped geometries in {Colors.ENDC}areas2d_fixed.gpkg{Colors.INFO} file") 
     
     if os.path.exists(file_path):
         os.remove(file_path)
@@ -1090,6 +1644,7 @@ if __name__ == u'__main__':
     
     globalDat.errorCount = 0
     input_folder_name =""
+    start_time = time.time()
 
     #################################################################################################
     # Parse arguments                                                                               #
@@ -1280,14 +1835,17 @@ if __name__ == u'__main__':
         # shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
         
 #################################################################################################
+elapsed = time.time() - start_time
+
+
 if globalDat.errorCount == 0 : 
     log.info(f"{Colors.HEADER}=========================================================================================================")             
-    log.info(f'Execution completed without errors')
+    log.info(f"{Colors.HEADER}Execution completed without errors in {Colors.ENDC}{elapsed:.2f}{Colors.HEADER} s")
     log.info(f"{Colors.HEADER}=========================================================================================================")
 
 else :
     log.error(f"{Colors.HEADER}=========================================================================================================")
-    log.error(f"Execution completed with {Colors.ENDC}{globalDat.errorCount}{Colors.ERROR} errors")
+    log.error(f"{Colors.HEADER}Execution completed with {Colors.ENDC}{globalDat.errorCount}{Colors.ERROR} errors in {Colors.ENDC}{elapsed:.2f}{Colors.HEADER} s")
     for i, error in enumerate(globalDat.geometryErrors, start=1):
         log.error(f"{error}")
     log.error(f"{Colors.HEADER}=========================================================================================================")
