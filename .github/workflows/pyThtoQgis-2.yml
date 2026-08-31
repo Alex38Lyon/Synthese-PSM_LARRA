@@ -1,4 +1,4 @@
-name: pyThtoQgis-2
+name: pyThtoQgis
 
 on:
   push:
