@@ -1,0 +1,484 @@
+name: Build GDAL + SFCGAL
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+
+  build-gdal:
+
+    runs-on: ubuntu-24.04
+
+    env:
+      GDAL_VERSION: 3.13.3
+      SFCGAL_VERSION: 2.2
+      GEOS_VERSION: 3.14.1
+      PYTHON_VERSION: 3.12
+
+    steps:
+
+      # ============================================================
+      # 1. Checkout
+      # ============================================================
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+
+      # ============================================================
+      # 2. Micromamba
+      # ============================================================
+
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v3.2.1
+        with:
+
+          environment-name: pyThtoQgis
+
+          create-args: >-
+            python=3.12
+            numpy
+            sfcgal=2.2
+            geos
+            proj
+            sqlite
+            libtiff
+            libjpeg-turbo
+            libpng
+            zlib
+            curl
+            openssl
+            swig
+            cmake
+            ninja
+            pkg-config
+
+          init-shell: bash
+
+          cache-environment: true
+          cache-downloads: true
+
+
+      # ============================================================
+      # 3. Informations environnement
+      # ============================================================
+
+      - name: Environment information
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "ENVIRONMENT"
+          echo "========================================"
+
+          echo "CONDA_PREFIX=$CONDA_PREFIX"
+
+          python --version
+
+          echo ""
+          echo "Packages :"
+
+          conda list | grep -E \
+            "python|numpy|sfcgal|geos|proj|sqlite"
+
+
+      # ============================================================
+      # 4. Vérification SFCGAL
+      # ============================================================
+
+      - name: Check SFCGAL
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "SFCGAL"
+          echo "========================================"
+
+          sfcgal-config --version || true
+
+          find "$CONDA_PREFIX" \
+            \( -iname "*sfcgal*.so*" -o -iname "*SFCGAL*.so*" \) \
+            -print
+
+
+      # ============================================================
+      # 5. Téléchargement GDAL
+      # ============================================================
+
+      - name: Download GDAL
+        shell: bash -el {0}
+        run: |
+
+          set -e
+
+          cd "$RUNNER_TEMP"
+
+          git clone \
+            --depth 1 \
+            --branch "v${GDAL_VERSION}" \
+            https://github.com/OSGeo/gdal.git
+
+          cd gdal
+
+          mkdir build
+
+          cd build
+
+
+      # ============================================================
+      # 6. Configuration CMake
+      # ============================================================
+
+      - name: Configure GDAL
+        shell: bash -el {0}
+        working-directory: ${{ runner.temp }}/gdal/build
+        run: |
+
+          set -e
+
+          cmake .. \
+            -GNinja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX="$CONDA_PREFIX" \
+            -DCMAKE_PREFIX_PATH="$CONDA_PREFIX" \
+            -DCMAKE_LIBRARY_PATH="$CONDA_PREFIX/lib" \
+            -DCMAKE_INCLUDE_PATH="$CONDA_PREFIX/include" \
+            -DCMAKE_INSTALL_RPATH="$CONDA_PREFIX/lib" \
+            -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON \
+            -DGDAL_USE_SFCGAL=ON \
+            -DGDAL_USE_GEOS=ON \
+            -DGDAL_USE_PROJ=ON \
+            -DGDAL_USE_SQLITE3=ON \
+            -DGDAL_USE_CURL=ON \
+            -DGDAL_BUILD_OPTIONAL_DRIVERS=ON \
+            -DBUILD_PYTHON_BINDINGS=ON
+
+
+      # ============================================================
+      # 7. Compilation
+      # ============================================================
+
+      - name: Build GDAL
+        shell: bash -el {0}
+        working-directory: ${{ runner.temp }}/gdal/build
+        run: |
+
+          set -e
+
+          echo "========================================"
+          echo "BUILD GDAL"
+          echo "========================================"
+
+          ninja -j"$(nproc)"
+
+
+      # ============================================================
+      # 8. Installation
+      # ============================================================
+
+      - name: Install GDAL
+        shell: bash -el {0}
+        working-directory: ${{ runner.temp }}/gdal/build
+        run: |
+
+          set -e
+
+          ninja install
+
+
+      # ============================================================
+      # 9. Vérification GDAL
+      # ============================================================
+
+      - name: Check GDAL
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "GDAL"
+          echo "========================================"
+
+          gdalinfo --version
+
+          python - <<'PY'
+
+          from osgeo import gdal
+
+          print("GDAL Python:")
+          print(gdal.VersionInfo("--version"))
+
+          print()
+          print("Build info:")
+          print(gdal.VersionInfo("--build-info"))
+
+          PY
+
+
+      # ============================================================
+      # 10. Vérification liaison SFCGAL
+      # ============================================================
+
+      - name: Check GDAL SFCGAL linkage
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "GDAL / SFCGAL"
+          echo "========================================"
+
+          echo ""
+          echo "libgdal :"
+
+          ls -lh "$CONDA_PREFIX"/lib/libgdal.so*
+
+
+          echo ""
+          echo "Dépendances :"
+
+          ldd "$CONDA_PREFIX/lib/libgdal.so" \
+            | grep -Ei "sfcgal|geos"
+
+
+      # ============================================================
+      # 11. Test SFCGAL
+      # ============================================================
+
+      - name: Test SFCGAL via OGR
+        shell: bash -el {0}
+        run: |
+
+          python - <<'PY'
+
+          from osgeo import ogr
+          from osgeo import gdal
+
+          print("========================================")
+          print("TEST SFCGAL")
+          print("========================================")
+
+          print(gdal.VersionInfo("--version"))
+
+          wkt = """
+          POLYHEDRALSURFACE Z (
+              (
+                  (0 0 0,
+                   10 0 0,
+                   10 10 0,
+                   0 10 0,
+                   0 0 0)
+              )
+          )
+          """
+
+          geom = ogr.CreateGeometryFromWkt(wkt)
+
+          if geom is None:
+              raise RuntimeError(
+                  "Impossible de créer la géométrie 3D"
+              )
+
+          print("Type :", geom.GetGeometryName())
+          print("Geometry type :", geom.GetGeometryType())
+          print("Has Z :", ogr.GT_HasZ(geom.GetGeometryType()))
+
+          valid = geom.IsValid()
+
+          print("IsValid() :", valid)
+
+          print()
+          print("SFCGAL accessible par OGR : OK")
+
+          PY
+
+
+      # ============================================================
+      # 12. Création du package GDAL
+      # ============================================================
+
+      - name: Create GDAL package
+        shell: bash -el {0}
+        run: |
+
+          set -e
+
+          PACKAGE_NAME="gdal-${GDAL_VERSION}-sfcgal-${SFCGAL_VERSION}-geos-${GEOS_VERSION}-ubuntu-24.04"
+
+          PACKAGE_DIR="$RUNNER_TEMP/$PACKAGE_NAME"
+
+          mkdir -p "$PACKAGE_DIR"
+
+
+          echo "========================================"
+          echo "Création du package"
+          echo "========================================"
+
+
+          # --------------------------------------------------------
+          # GDAL executables
+          # --------------------------------------------------------
+
+          cp -a \
+            "$CONDA_PREFIX"/bin/gdal* \
+            "$PACKAGE_DIR/"
+
+
+          # --------------------------------------------------------
+          # GDAL library
+          # --------------------------------------------------------
+
+          cp -a \
+            "$CONDA_PREFIX"/lib/libgdal.so* \
+            "$PACKAGE_DIR/"
+
+
+          # --------------------------------------------------------
+          # Python bindings
+          # --------------------------------------------------------
+
+          cp -a \
+            "$CONDA_PREFIX"/lib/python${PYTHON_VERSION}/site-packages/osgeo \
+            "$PACKAGE_DIR/"
+
+
+          # --------------------------------------------------------
+          # GDAL headers
+          # --------------------------------------------------------
+
+          cp -a \
+            "$CONDA_PREFIX"/include/gdal \
+            "$PACKAGE_DIR/"
+
+
+          # --------------------------------------------------------
+          # GDAL data
+          # --------------------------------------------------------
+
+          cp -a \
+            "$CONDA_PREFIX"/share/gdal \
+            "$PACKAGE_DIR/"
+
+
+          # --------------------------------------------------------
+          # Informations package
+          # --------------------------------------------------------
+
+          cat > "$PACKAGE_DIR/VERSION.txt" <<EOF
+GDAL=${GDAL_VERSION}
+SFCGAL=${SFCGAL_VERSION}
+GEOS=${GEOS_VERSION}
+Python=${PYTHON_VERSION}
+OS=ubuntu-24.04
+Build=GDAL_USE_SFCGAL=ON
+EOF
+
+
+          echo ""
+          echo "Contenu :"
+
+          find "$PACKAGE_DIR" -maxdepth 2 -type f | sort
+
+
+          # --------------------------------------------------------
+          # Compression
+          # --------------------------------------------------------
+
+          cd "$RUNNER_TEMP"
+
+          tar \
+            -czf \
+            "${PACKAGE_NAME}.tar.gz" \
+            "$PACKAGE_NAME"
+
+
+          echo ""
+          echo "Package créé :"
+
+          ls -lh \
+            "${PACKAGE_NAME}.tar.gz"
+
+
+          echo \
+            "PACKAGE_NAME=${PACKAGE_NAME}" \
+            >> "$GITHUB_ENV"
+
+
+      # ============================================================
+      # 13. Test du package
+      # ============================================================
+
+      - name: Test package
+        shell: bash -el {0}
+        run: |
+
+          set -e
+
+          cd "$RUNNER_TEMP"
+
+          mkdir test-package
+
+          tar \
+            -xzf \
+            "${PACKAGE_NAME}.tar.gz" \
+            -C test-package
+
+          echo "Package testé :"
+
+          find test-package \
+            -maxdepth 2 \
+            -type f | sort
+
+
+      # ============================================================
+      # 14. Publication Release
+      # ============================================================
+
+      - name: Publish GDAL package
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+
+          set -e
+
+          TAG="gdal-sfcgal-${GDAL_VERSION}"
+
+          PACKAGE="${RUNNER_TEMP}/${PACKAGE_NAME}.tar.gz"
+
+
+          echo "========================================"
+          echo "Publication"
+          echo "========================================"
+
+          echo "Tag     : $TAG"
+          echo "Package : $PACKAGE"
+
+
+          # --------------------------------------------------------
+          # Suppression éventuelle de l'ancienne release
+          # --------------------------------------------------------
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+
+            echo "Release existante : suppression"
+
+            gh release delete "$TAG" \
+              --yes \
+              --cleanup-tag
+
+          fi
+
+
+          # --------------------------------------------------------
+          # Création de la Release
+          # --------------------------------------------------------
+
+          gh release create "$TAG" \
+            "$PACKAGE" \
+            --title "GDAL ${GDAL_VERSION} + SFCGAL ${SFCGAL_VERSION}" \
+            --notes "GDAL ${GDAL_VERSION} compiled with SFCGAL ${SFCGAL_VERSION} and GEOS ${GEOS_VERSION} for pyThtoQgis." \
+            --latest=false
