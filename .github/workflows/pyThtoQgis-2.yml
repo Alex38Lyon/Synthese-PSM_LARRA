@@ -1,4 +1,4 @@
-name: pyThtoQgis
+name: pyThtoQgis-2
 
 on:
   push:
@@ -312,8 +312,39 @@ jobs:
         run: |
 
           echo "========================================"
-          echo "Test pyThtoQgis"
+          echo "pyThtoQgis"
           echo "========================================"
 
-          python Scripts/pyThtoQgis/pyThtoQgis.py \
-            --help
+          python pyThtoQgis.py --folder "../../Outputs/SHP/"
+
+      
+      # ------------------------------------------------------------
+      # Vérification des fichiers générés
+      # ------------------------------------------------------------
+      - name: Check generated files
+        run: |
+          echo "========================================"
+          echo "GPKG et logs générés"
+          echo "========================================"
+
+          find Outputs -type f \( \
+            -name "*.gpkg" -o \
+            -name "pyThtoQgis.log" \
+          \) -print
+
+          echo
+          echo "========================================"
+          echo "Statut Git"
+          echo "========================================"
+
+          git status --short
+
+      # ------------------------------------------------------------
+      # Commit des résultats
+      # ------------------------------------------------------------
+      - name: Commit generated files
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "Auto-run pyThtoQgis"
+          file_pattern: 'Outputs/**/*.gpkg Outputs/**/pyThtoQgis.log'
+
