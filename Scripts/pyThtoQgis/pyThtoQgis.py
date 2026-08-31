@@ -1837,7 +1837,6 @@ if __name__ == u'__main__':
 #################################################################################################
 elapsed = time.time() - start_time
 
-
 if globalDat.errorCount == 0 : 
     log.info(f"{Colors.HEADER}=========================================================================================================")             
     log.info(f"{Colors.HEADER}Execution completed without errors in {Colors.ENDC}{elapsed:.2f}{Colors.HEADER} s")
