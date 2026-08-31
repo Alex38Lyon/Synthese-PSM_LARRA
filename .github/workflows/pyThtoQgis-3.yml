@@ -205,13 +205,17 @@ jobs:
 
           PACKAGE="$RUNNER_TEMP/${PACKAGE_NAME}.tar.gz"
 
+          EXTRACT_DIR="$RUNNER_TEMP/gdal-extract"
+
 
           echo "========================================"
           echo "INSTALLATION GDAL"
           echo "========================================"
 
 
-          cd "$RUNNER_TEMP"
+          mkdir -p "$EXTRACT_DIR"
+
+          cd "$EXTRACT_DIR"
 
 
           tar \
@@ -219,59 +223,110 @@ jobs:
             "$PACKAGE"
 
 
+          echo ""
+          echo "Contenu après extraction :"
+
+          ls -la
+
+
+          # ========================================================
+          # Déterminer le répertoire racine (dynamique)
+          # ========================================================
+
+          GDAL_DIR=$(ls -d */ 2>/dev/null | head -1)
+
+          if [ -z "$GDAL_DIR" ]; then
+
+              echo "Erreur : Aucun répertoire trouvé après extraction"
+
+              ls -la
+
+              exit 1
+
+          fi
+
+          GDAL_DIR="${GDAL_DIR%/}"
+
+          echo "Répertoire détecté : $GDAL_DIR"
+
+          echo ""
+
+
           # --------------------------------------------------------
           # Exécutables
           # --------------------------------------------------------
 
-          cp -a \
-            "$PACKAGE_NAME"/gdal* \
-            "$CONDA_PREFIX/bin/"
+          if [ -f "$GDAL_DIR/gdal-config" ] || ls "$GDAL_DIR"/gdal* &>/dev/null; then
+
+              cp -v "$GDAL_DIR"/gdal* "$CONDA_PREFIX/bin/" || true
+
+          else
+
+              echo "Avertissement : Aucun exécutable GDAL trouvé"
+
+          fi
 
 
           # --------------------------------------------------------
           # Bibliothèque GDAL
           # --------------------------------------------------------
 
-          cp -a \
-            "$PACKAGE_NAME"/libgdal.so* \
-            "$CONDA_PREFIX/lib/"
+          if ls "$GDAL_DIR"/libgdal.so* &>/dev/null; then
+
+              cp -v "$GDAL_DIR"/libgdal.so* "$CONDA_PREFIX/lib/"
+
+          else
+
+              echo "Erreur : Aucune bibliothèque GDAL trouvée"
+
+              ls "$GDAL_DIR"
+
+              exit 1
+
+          fi
 
 
           # --------------------------------------------------------
           # Python bindings
           # --------------------------------------------------------
 
-          rm -rf \
-            "$CONDA_PREFIX/lib/python3.12/site-packages/osgeo"
+          if [ -d "$GDAL_DIR/osgeo" ]; then
 
-          cp -a \
-            "$PACKAGE_NAME/osgeo" \
-            "$CONDA_PREFIX/lib/python3.12/site-packages/"
+              rm -rf "$CONDA_PREFIX/lib/python3.12/site-packages/osgeo"
+
+              cp -rv "$GDAL_DIR/osgeo" "$CONDA_PREFIX/lib/python3.12/site-packages/"
+
+          else
+
+              echo "Avertissement : Répertoire osgeo non trouvé"
+
+          fi
 
 
           # --------------------------------------------------------
           # Headers
           # --------------------------------------------------------
 
-          rm -rf \
-            "$CONDA_PREFIX/include/gdal"
+          if [ -d "$GDAL_DIR/gdal" ]; then
 
-          cp -a \
-            "$PACKAGE_NAME/gdal" \
-            "$CONDA_PREFIX/include/"
+              rm -rf "$CONDA_PREFIX/include/gdal"
+
+              cp -rv "$GDAL_DIR/gdal" "$CONDA_PREFIX/include/"
+
+          fi
 
 
           # --------------------------------------------------------
           # GDAL data
           # --------------------------------------------------------
 
-          rm -rf \
-            "$CONDA_PREFIX/share/gdal"
+          if [ -d "$GDAL_DIR/gdal" ] && [ -d "$GDAL_DIR/share" ]; then
 
-          cp -a \
-            "$PACKAGE_NAME/gdal" \
-            "$CONDA_PREFIX/share/" \
-            2>/dev/null || true
+              rm -rf "$CONDA_PREFIX/share/gdal"
+
+              cp -rv "$GDAL_DIR/share/gdal" "$CONDA_PREFIX/share/" 2>/dev/null || true
+
+          fi
 
 
           echo ""
@@ -513,3 +568,4 @@ jobs:
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
 
           commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+
