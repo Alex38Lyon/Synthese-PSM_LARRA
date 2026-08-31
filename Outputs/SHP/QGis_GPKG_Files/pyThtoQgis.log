@@ -1,0 +1,1032 @@
+2026-08-31 16:28:34,874 - INFO - *********************************************************************************************************
+2026-08-31 16:28:34,874 - INFO - Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible
+2026-08-31 16:28:34,875 - INFO -         original written by X. Robert, ISTerre : October 2022
+2026-08-31 16:28:34,875 - INFO -         updated by : alexandre.pont@yahoo.fr
+2026-08-31 16:28:34,875 - INFO -         version : 2026.08.28
+2026-08-31 16:28:34,875 - INFO -         commande line mode
+2026-08-31 16:28:34,875 - INFO -         input folder :  ~/Synthese-PSM_LARRA/Outputs/SHP
+2026-08-31 16:28:34,875 - INFO -         output folder : ~/Outputs/SHP/QGis_GPKG_Files
+2026-08-31 16:28:34,876 - INFO -         log file      : ~/SHP/QGis_GPKG_Files/pyThtoQgis.log
+2026-08-31 16:28:34,876 - INFO - *********************************************************************************************************
+2026-08-31 16:28:34,876 - INFO - Step 1: test files and convert to GPKG format in the folder: ~/Outputs/SHP/QGis_GPKG_Files
+2026-08-31 16:28:34,876 - INFO - Working with file (1/7): points2d.shp
+2026-08-31 16:28:37,218 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/points2d.shp ===================================
+2026-08-31 16:28:37,219 - INFO - Géométries invalides : 0 sur  16155
+2026-08-31 16:28:37,223 - INFO - =========================================================================================================
+2026-08-31 16:28:37,233 - INFO - SHP file conversion : points2d.shp with 16155 objets
+2026-08-31 16:28:39,687 - INFO - Conversion GPKG terminée fichier: points2d, 16155 objets convertis
+2026-08-31 16:28:39,687 - INFO - Working with file (2/7): lines2d.shp
+2026-08-31 16:28:42,297 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/lines2d.shp ===================================
+2026-08-31 16:28:42,297 - WARNING - Géométries invalides : 992 sur  34514
+2026-08-31 16:28:42,297 - WARNING - 		Too few points : 992
+2026-08-31 16:28:42,301 - INFO - =========================================================================================================
+2026-08-31 16:28:42,306 - INFO - SHP file conversion : lines2d.shp with 34514 objets
+2026-08-31 16:28:45,718 - INFO - Conversion GPKG terminée fichier: lines2d_fixed, 34514 objets convertis
+2026-08-31 16:28:48,303 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/lines2d_fixed.gpkg ===================================
+2026-08-31 16:28:48,304 - INFO - Géométries invalides : 0 sur  34514
+2026-08-31 16:28:48,308 - INFO - =========================================================================================================
+2026-08-31 16:28:48,310 - INFO - Working with file (3/7): outline2d.shp
+2026-08-31 16:28:48,426 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/outline2d.shp ===================================
+2026-08-31 16:28:48,426 - WARNING - Géométries invalides : 305 sur  464
+2026-08-31 16:28:48,427 - WARNING - 		Unknown (1) : 305
+2026-08-31 16:28:48,427 - INFO - =========================================================================================================
+2026-08-31 16:28:48,431 - INFO - SHP file conversion : outline2d.shp with 464 objets
+2026-08-31 16:28:48,587 - INFO - Conversion GPKG terminée fichier: outline2d, 464 objets convertis
+2026-08-31 16:28:48,671 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/outline2d.gpkg ===================================
+2026-08-31 16:28:48,671 - INFO - Géométries invalides : 0 sur  464
+2026-08-31 16:28:48,671 - INFO - =========================================================================================================
+2026-08-31 16:28:48,672 - INFO - Working with file (4/7): areas2d.shp
+2026-08-31 16:28:48,722 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/areas2d.shp ===================================
+2026-08-31 16:28:48,722 - INFO - Géométries invalides : 0 sur  490
+2026-08-31 16:28:48,723 - INFO - =========================================================================================================
+2026-08-31 16:28:48,726 - INFO - SHP file conversion : areas2d.shp with 490 objets
+2026-08-31 16:28:48,803 - INFO - Conversion GPKG terminée fichier: areas2d_fixed, 490 objets convertis
+2026-08-31 16:28:48,803 - INFO - Working with file (5/7): walls3d.shp
+2026-08-31 16:28:48,803 - ERROR - !!! diagnostic, unable to validate geometry: SFCGAL support not enabled., continuing anyway.
+2026-08-31 16:28:48,807 - INFO - SHP file conversion : walls3d.shp with 471 objets
+on 0: 2026-08-31 16:28:48,808 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 0, code : SFCGAL support not enabled.
+on 0: 2026-08-31 16:28:48,808 - WARNING - Géométrie impossible à corriger FID
+on 1: 2026-08-31 16:28:48,809 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 1, code : SFCGAL support not enabled.
+on 1: 2026-08-31 16:28:48,809 - WARNING - Géométrie impossible à corriger FID
+on 2: 2026-08-31 16:28:48,809 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 2, code : SFCGAL support not enabled.
+on 2: 2026-08-31 16:28:48,809 - WARNING - Géométrie impossible à corriger FID
+on 3: 2026-08-31 16:28:48,810 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 3, code : SFCGAL support not enabled.
+on 3: 2026-08-31 16:28:48,810 - WARNING - Géométrie impossible à corriger FID
+on 4: 2026-08-31 16:28:48,810 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 4, code : SFCGAL support not enabled.
+on 4: 2026-08-31 16:28:48,810 - WARNING - Géométrie impossible à corriger FID
+on 5: 2026-08-31 16:28:48,810 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 5, code : SFCGAL support not enabled.
+on 5: 2026-08-31 16:28:48,810 - WARNING - Géométrie impossible à corriger FID
+on 6: 2026-08-31 16:28:48,811 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 6, code : SFCGAL support not enabled.
+on 6: 2026-08-31 16:28:48,811 - WARNING - Géométrie impossible à corriger FID
+on 7: 2026-08-31 16:28:48,811 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 7, code : SFCGAL support not enabled.
+on 7: 2026-08-31 16:28:48,811 - WARNING - Géométrie impossible à corriger FID
+on 8: 2026-08-31 16:28:48,812 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 8, code : SFCGAL support not enabled.
+on 8: 2026-08-31 16:28:48,812 - WARNING - Géométrie impossible à corriger FID
+on 9: 2026-08-31 16:28:48,812 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 9, code : SFCGAL support not enabled.
+on 9: 2026-08-31 16:28:48,812 - WARNING - Géométrie impossible à corriger FID
+on 10: 2026-08-31 16:28:48,813 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 10, code : SFCGAL support not enabled.
+on 10: 2026-08-31 16:28:48,813 - WARNING - Géométrie impossible à corriger FID
+on 11: 2026-08-31 16:28:48,813 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 11, code : SFCGAL support not enabled.
+on 11: 2026-08-31 16:28:48,813 - WARNING - Géométrie impossible à corriger FID
+on 12: 2026-08-31 16:28:48,813 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 12, code : SFCGAL support not enabled.
+on 12: 2026-08-31 16:28:48,813 - WARNING - Géométrie impossible à corriger FID
+on 13: 2026-08-31 16:28:48,814 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 13, code : SFCGAL support not enabled.
+on 13: 2026-08-31 16:28:48,814 - WARNING - Géométrie impossible à corriger FID
+on 14: 2026-08-31 16:28:48,815 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 14, code : SFCGAL support not enabled.
+on 14: 2026-08-31 16:28:48,815 - WARNING - Géométrie impossible à corriger FID
+on 15: 2026-08-31 16:28:48,816 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 15, code : SFCGAL support not enabled.
+on 15: 2026-08-31 16:28:48,816 - WARNING - Géométrie impossible à corriger FID
+on 16: 2026-08-31 16:28:48,817 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 16, code : SFCGAL support not enabled.
+on 16: 2026-08-31 16:28:48,817 - WARNING - Géométrie impossible à corriger FID
+on 17: 2026-08-31 16:28:48,817 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 17, code : SFCGAL support not enabled.
+on 17: 2026-08-31 16:28:48,818 - WARNING - Géométrie impossible à corriger FID
+on 18: 2026-08-31 16:28:48,818 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 18, code : SFCGAL support not enabled.
+on 18: 2026-08-31 16:28:48,818 - WARNING - Géométrie impossible à corriger FID
+on 19: 2026-08-31 16:28:48,819 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 19, code : SFCGAL support not enabled.
+on 19: 2026-08-31 16:28:48,819 - WARNING - Géométrie impossible à corriger FID
+on 20: 2026-08-31 16:28:48,820 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 20, code : SFCGAL support not enabled.
+on 20: 2026-08-31 16:28:48,820 - WARNING - Géométrie impossible à corriger FID
+on 21: 2026-08-31 16:28:48,821 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 21, code : SFCGAL support not enabled.
+on 21: 2026-08-31 16:28:48,821 - WARNING - Géométrie impossible à corriger FID
+on 22: 2026-08-31 16:28:48,822 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 22, code : SFCGAL support not enabled.
+on 22: 2026-08-31 16:28:48,822 - WARNING - Géométrie impossible à corriger FID
+on 23: 2026-08-31 16:28:48,822 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 23, code : SFCGAL support not enabled.
+on 23: 2026-08-31 16:28:48,823 - WARNING - Géométrie impossible à corriger FID
+on 24: 2026-08-31 16:28:48,823 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 24, code : SFCGAL support not enabled.
+on 24: 2026-08-31 16:28:48,823 - WARNING - Géométrie impossible à corriger FID
+on 25: 2026-08-31 16:28:48,823 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 25, code : SFCGAL support not enabled.
+on 25: 2026-08-31 16:28:48,824 - WARNING - Géométrie impossible à corriger FID
+on 26: 2026-08-31 16:28:48,824 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 26, code : SFCGAL support not enabled.
+on 26: 2026-08-31 16:28:48,824 - WARNING - Géométrie impossible à corriger FID
+on 27: 2026-08-31 16:28:48,825 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 27, code : SFCGAL support not enabled.
+on 27: 2026-08-31 16:28:48,826 - WARNING - Géométrie impossible à corriger FID
+on 28: 2026-08-31 16:28:48,827 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 28, code : SFCGAL support not enabled.
+on 28: 2026-08-31 16:28:48,827 - WARNING - Géométrie impossible à corriger FID
+on 29: 2026-08-31 16:28:48,828 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 29, code : SFCGAL support not enabled.
+on 29: 2026-08-31 16:28:48,828 - WARNING - Géométrie impossible à corriger FID
+on 30: 2026-08-31 16:28:48,828 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 30, code : SFCGAL support not enabled.
+on 30: 2026-08-31 16:28:48,829 - WARNING - Géométrie impossible à corriger FID
+on 31: 2026-08-31 16:28:48,829 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 31, code : SFCGAL support not enabled.
+on 31: 2026-08-31 16:28:48,829 - WARNING - Géométrie impossible à corriger FID
+on 32: 2026-08-31 16:28:48,830 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 32, code : SFCGAL support not enabled.
+on 32: 2026-08-31 16:28:48,830 - WARNING - Géométrie impossible à corriger FID
+on 33: 2026-08-31 16:28:48,831 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 33, code : SFCGAL support not enabled.
+on 33: 2026-08-31 16:28:48,831 - WARNING - Géométrie impossible à corriger FID
+on 34: 2026-08-31 16:28:48,832 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 34, code : SFCGAL support not enabled.
+on 34: 2026-08-31 16:28:48,832 - WARNING - Géométrie impossible à corriger FID
+on 35: 2026-08-31 16:28:48,834 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 35, code : SFCGAL support not enabled.
+on 35: 2026-08-31 16:28:48,834 - WARNING - Géométrie impossible à corriger FID
+on 36: 2026-08-31 16:28:48,835 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 36, code : SFCGAL support not enabled.
+on 36: 2026-08-31 16:28:48,836 - WARNING - Géométrie impossible à corriger FID
+on 37: 2026-08-31 16:28:48,837 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 37, code : SFCGAL support not enabled.
+on 37: 2026-08-31 16:28:48,837 - WARNING - Géométrie impossible à corriger FID
+on 38: 2026-08-31 16:28:48,838 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 38, code : SFCGAL support not enabled.
+on 38: 2026-08-31 16:28:48,838 - WARNING - Géométrie impossible à corriger FID
+on 39: 2026-08-31 16:28:48,838 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 39, code : SFCGAL support not enabled.
+on 39: 2026-08-31 16:28:48,838 - WARNING - Géométrie impossible à corriger FID
+on 40: 2026-08-31 16:28:48,839 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 40, code : SFCGAL support not enabled.
+on 40: 2026-08-31 16:28:48,839 - WARNING - Géométrie impossible à corriger FID
+on 41: 2026-08-31 16:28:48,839 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 41, code : SFCGAL support not enabled.
+on 41: 2026-08-31 16:28:48,840 - WARNING - Géométrie impossible à corriger FID
+on 42: 2026-08-31 16:28:48,840 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 42, code : SFCGAL support not enabled.
+on 42: 2026-08-31 16:28:48,840 - WARNING - Géométrie impossible à corriger FID
+on 43: 2026-08-31 16:28:48,841 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 43, code : SFCGAL support not enabled.
+on 43: 2026-08-31 16:28:48,841 - WARNING - Géométrie impossible à corriger FID
+on 44: 2026-08-31 16:28:48,841 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 44, code : SFCGAL support not enabled.
+on 44: 2026-08-31 16:28:48,842 - WARNING - Géométrie impossible à corriger FID
+on 45: 2026-08-31 16:28:48,842 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 45, code : SFCGAL support not enabled.
+on 45: 2026-08-31 16:28:48,842 - WARNING - Géométrie impossible à corriger FID
+on 46: 2026-08-31 16:28:48,844 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 46, code : SFCGAL support not enabled.
+on 46: 2026-08-31 16:28:48,844 - WARNING - Géométrie impossible à corriger FID
+on 47: 2026-08-31 16:28:48,845 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 47, code : SFCGAL support not enabled.
+on 47: 2026-08-31 16:28:48,845 - WARNING - Géométrie impossible à corriger FID
+on 48: 2026-08-31 16:28:48,846 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 48, code : SFCGAL support not enabled.
+on 48: 2026-08-31 16:28:48,846 - WARNING - Géométrie impossible à corriger FID
+on 49: 2026-08-31 16:28:48,846 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 49, code : SFCGAL support not enabled.
+on 49: 2026-08-31 16:28:48,846 - WARNING - Géométrie impossible à corriger FID
+on 50: 2026-08-31 16:28:48,846 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 50, code : SFCGAL support not enabled.
+on 50: 2026-08-31 16:28:48,847 - WARNING - Géométrie impossible à corriger FID
+on 51: 2026-08-31 16:28:48,847 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 51, code : SFCGAL support not enabled.
+on 51: 2026-08-31 16:28:48,847 - WARNING - Géométrie impossible à corriger FID
+on 52: 2026-08-31 16:28:48,848 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 52, code : SFCGAL support not enabled.
+on 52: 2026-08-31 16:28:48,848 - WARNING - Géométrie impossible à corriger FID
+on 53: 2026-08-31 16:28:48,848 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 53, code : SFCGAL support not enabled.
+on 53: 2026-08-31 16:28:48,849 - WARNING - Géométrie impossible à corriger FID
+on 54: 2026-08-31 16:28:48,849 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 54, code : SFCGAL support not enabled.
+on 54: 2026-08-31 16:28:48,850 - WARNING - Géométrie impossible à corriger FID
+on 55: 2026-08-31 16:28:48,850 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 55, code : SFCGAL support not enabled.
+on 55: 2026-08-31 16:28:48,850 - WARNING - Géométrie impossible à corriger FID
+on 56: 2026-08-31 16:28:48,851 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 56, code : SFCGAL support not enabled.
+on 56: 2026-08-31 16:28:48,851 - WARNING - Géométrie impossible à corriger FID
+on 57: 2026-08-31 16:28:48,852 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 57, code : SFCGAL support not enabled.
+on 57: 2026-08-31 16:28:48,852 - WARNING - Géométrie impossible à corriger FID
+on 58: 2026-08-31 16:28:48,853 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 58, code : SFCGAL support not enabled.
+on 58: 2026-08-31 16:28:48,854 - WARNING - Géométrie impossible à corriger FID
+on 59: 2026-08-31 16:28:48,854 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 59, code : SFCGAL support not enabled.
+on 59: 2026-08-31 16:28:48,854 - WARNING - Géométrie impossible à corriger FID
+on 60: 2026-08-31 16:28:48,855 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 60, code : SFCGAL support not enabled.
+on 60: 2026-08-31 16:28:48,855 - WARNING - Géométrie impossible à corriger FID
+on 61: 2026-08-31 16:28:48,856 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 61, code : SFCGAL support not enabled.
+on 61: 2026-08-31 16:28:48,856 - WARNING - Géométrie impossible à corriger FID
+on 62: 2026-08-31 16:28:48,857 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 62, code : SFCGAL support not enabled.
+on 62: 2026-08-31 16:28:48,857 - WARNING - Géométrie impossible à corriger FID
+on 63: 2026-08-31 16:28:48,859 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 63, code : SFCGAL support not enabled.
+on 63: 2026-08-31 16:28:48,859 - WARNING - Géométrie impossible à corriger FID
+on 64: 2026-08-31 16:28:48,861 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 64, code : SFCGAL support not enabled.
+on 64: 2026-08-31 16:28:48,861 - WARNING - Géométrie impossible à corriger FID
+on 65: 2026-08-31 16:28:48,863 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 65, code : SFCGAL support not enabled.
+on 65: 2026-08-31 16:28:48,863 - WARNING - Géométrie impossible à corriger FID
+on 66: 2026-08-31 16:28:48,864 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 66, code : SFCGAL support not enabled.
+on 66: 2026-08-31 16:28:48,864 - WARNING - Géométrie impossible à corriger FID
+on 67: 2026-08-31 16:28:48,865 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 67, code : SFCGAL support not enabled.
+on 67: 2026-08-31 16:28:48,866 - WARNING - Géométrie impossible à corriger FID
+on 68: 2026-08-31 16:28:48,866 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 68, code : SFCGAL support not enabled.
+on 68: 2026-08-31 16:28:48,867 - WARNING - Géométrie impossible à corriger FID
+on 69: 2026-08-31 16:28:48,867 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 69, code : SFCGAL support not enabled.
+on 69: 2026-08-31 16:28:48,868 - WARNING - Géométrie impossible à corriger FID
+on 70: 2026-08-31 16:28:48,868 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 70, code : SFCGAL support not enabled.
+on 70: 2026-08-31 16:28:48,868 - WARNING - Géométrie impossible à corriger FID
+on 71: 2026-08-31 16:28:48,869 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 71, code : SFCGAL support not enabled.
+on 71: 2026-08-31 16:28:48,870 - WARNING - Géométrie impossible à corriger FID
+on 72: 2026-08-31 16:28:48,870 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 72, code : SFCGAL support not enabled.
+on 72: 2026-08-31 16:28:48,871 - WARNING - Géométrie impossible à corriger FID
+on 73: 2026-08-31 16:28:48,871 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 73, code : SFCGAL support not enabled.
+on 73: 2026-08-31 16:28:48,871 - WARNING - Géométrie impossible à corriger FID
+on 74: 2026-08-31 16:28:48,872 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 74, code : SFCGAL support not enabled.
+on 74: 2026-08-31 16:28:48,872 - WARNING - Géométrie impossible à corriger FID
+on 75: 2026-08-31 16:28:48,873 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 75, code : SFCGAL support not enabled.
+on 75: 2026-08-31 16:28:48,873 - WARNING - Géométrie impossible à corriger FID
+on 76: 2026-08-31 16:28:48,874 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 76, code : SFCGAL support not enabled.
+on 76: 2026-08-31 16:28:48,874 - WARNING - Géométrie impossible à corriger FID
+on 77: 2026-08-31 16:28:48,875 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 77, code : SFCGAL support not enabled.
+on 77: 2026-08-31 16:28:48,875 - WARNING - Géométrie impossible à corriger FID
+on 78: 2026-08-31 16:28:48,876 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 78, code : SFCGAL support not enabled.
+on 78: 2026-08-31 16:28:48,876 - WARNING - Géométrie impossible à corriger FID
+on 79: 2026-08-31 16:28:48,877 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 79, code : SFCGAL support not enabled.
+on 79: 2026-08-31 16:28:48,877 - WARNING - Géométrie impossible à corriger FID
+on 80: 2026-08-31 16:28:48,879 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 80, code : SFCGAL support not enabled.
+on 80: 2026-08-31 16:28:48,879 - WARNING - Géométrie impossible à corriger FID
+on 81: 2026-08-31 16:28:48,880 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 81, code : SFCGAL support not enabled.
+on 81: 2026-08-31 16:28:48,880 - WARNING - Géométrie impossible à corriger FID
+on 82: 2026-08-31 16:28:48,881 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 82, code : SFCGAL support not enabled.
+on 82: 2026-08-31 16:28:48,881 - WARNING - Géométrie impossible à corriger FID
+on 83: 2026-08-31 16:28:48,882 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 83, code : SFCGAL support not enabled.
+on 83: 2026-08-31 16:28:48,882 - WARNING - Géométrie impossible à corriger FID
+on 84: 2026-08-31 16:28:48,883 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 84, code : SFCGAL support not enabled.
+on 84: 2026-08-31 16:28:48,883 - WARNING - Géométrie impossible à corriger FID
+on 85: 2026-08-31 16:28:48,883 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 85, code : SFCGAL support not enabled.
+on 85: 2026-08-31 16:28:48,884 - WARNING - Géométrie impossible à corriger FID
+on 86: 2026-08-31 16:28:48,884 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 86, code : SFCGAL support not enabled.
+on 86: 2026-08-31 16:28:48,884 - WARNING - Géométrie impossible à corriger FID
+on 87: 2026-08-31 16:28:48,885 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 87, code : SFCGAL support not enabled.
+on 87: 2026-08-31 16:28:48,885 - WARNING - Géométrie impossible à corriger FID
+on 88: 2026-08-31 16:28:48,886 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 88, code : SFCGAL support not enabled.
+on 88: 2026-08-31 16:28:48,886 - WARNING - Géométrie impossible à corriger FID
+on 89: 2026-08-31 16:28:48,887 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 89, code : SFCGAL support not enabled.
+on 89: 2026-08-31 16:28:48,887 - WARNING - Géométrie impossible à corriger FID
+on 90: 2026-08-31 16:28:48,888 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 90, code : SFCGAL support not enabled.
+on 90: 2026-08-31 16:28:48,888 - WARNING - Géométrie impossible à corriger FID
+on 91: 2026-08-31 16:28:48,888 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 91, code : SFCGAL support not enabled.
+on 91: 2026-08-31 16:28:48,889 - WARNING - Géométrie impossible à corriger FID
+on 92: 2026-08-31 16:28:48,889 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 92, code : SFCGAL support not enabled.
+on 92: 2026-08-31 16:28:48,889 - WARNING - Géométrie impossible à corriger FID
+on 93: 2026-08-31 16:28:48,889 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 93, code : SFCGAL support not enabled.
+on 93: 2026-08-31 16:28:48,889 - WARNING - Géométrie impossible à corriger FID
+on 94: 2026-08-31 16:28:48,890 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 94, code : SFCGAL support not enabled.
+on 94: 2026-08-31 16:28:48,890 - WARNING - Géométrie impossible à corriger FID
+on 95: 2026-08-31 16:28:48,890 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 95, code : SFCGAL support not enabled.
+on 95: 2026-08-31 16:28:48,891 - WARNING - Géométrie impossible à corriger FID
+on 96: 2026-08-31 16:28:48,891 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 96, code : SFCGAL support not enabled.
+on 96: 2026-08-31 16:28:48,891 - WARNING - Géométrie impossible à corriger FID
+on 97: 2026-08-31 16:28:48,892 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 97, code : SFCGAL support not enabled.
+on 97: 2026-08-31 16:28:48,892 - WARNING - Géométrie impossible à corriger FID
+on 98: 2026-08-31 16:28:48,893 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 98, code : SFCGAL support not enabled.
+on 98: 2026-08-31 16:28:48,893 - WARNING - Géométrie impossible à corriger FID
+on 99: 2026-08-31 16:28:48,894 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 99, code : SFCGAL support not enabled.
+on 99: 2026-08-31 16:28:48,894 - WARNING - Géométrie impossible à corriger FID
+on 100: 2026-08-31 16:28:48,896 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 100, code : SFCGAL support not enabled.
+on 100: 2026-08-31 16:28:48,896 - WARNING - Géométrie impossible à corriger FID
+on 101: 2026-08-31 16:28:48,899 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 101, code : SFCGAL support not enabled.
+on 101: 2026-08-31 16:28:48,899 - WARNING - Géométrie impossible à corriger FID
+on 102: 2026-08-31 16:28:48,900 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 102, code : SFCGAL support not enabled.
+on 102: 2026-08-31 16:28:48,901 - WARNING - Géométrie impossible à corriger FID
+on 103: 2026-08-31 16:28:48,902 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 103, code : SFCGAL support not enabled.
+on 103: 2026-08-31 16:28:48,902 - WARNING - Géométrie impossible à corriger FID
+on 104: 2026-08-31 16:28:48,902 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 104, code : SFCGAL support not enabled.
+on 104: 2026-08-31 16:28:48,902 - WARNING - Géométrie impossible à corriger FID
+on 105: 2026-08-31 16:28:48,903 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 105, code : SFCGAL support not enabled.
+on 105: 2026-08-31 16:28:48,903 - WARNING - Géométrie impossible à corriger FID
+on 106: 2026-08-31 16:28:48,904 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 106, code : SFCGAL support not enabled.
+on 106: 2026-08-31 16:28:48,904 - WARNING - Géométrie impossible à corriger FID
+on 107: 2026-08-31 16:28:48,905 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 107, code : SFCGAL support not enabled.
+on 107: 2026-08-31 16:28:48,905 - WARNING - Géométrie impossible à corriger FID
+on 108: 2026-08-31 16:28:48,906 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 108, code : SFCGAL support not enabled.
+on 108: 2026-08-31 16:28:48,906 - WARNING - Géométrie impossible à corriger FID
+on 109: 2026-08-31 16:28:48,907 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 109, code : SFCGAL support not enabled.
+on 109: 2026-08-31 16:28:48,907 - WARNING - Géométrie impossible à corriger FID
+on 110: 2026-08-31 16:28:48,907 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 110, code : SFCGAL support not enabled.
+on 110: 2026-08-31 16:28:48,907 - WARNING - Géométrie impossible à corriger FID
+on 111: 2026-08-31 16:28:48,908 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 111, code : SFCGAL support not enabled.
+on 111: 2026-08-31 16:28:48,908 - WARNING - Géométrie impossible à corriger FID
+on 112: 2026-08-31 16:28:48,909 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 112, code : SFCGAL support not enabled.
+on 112: 2026-08-31 16:28:48,909 - WARNING - Géométrie impossible à corriger FID
+on 113: 2026-08-31 16:28:48,911 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 113, code : SFCGAL support not enabled.
+on 113: 2026-08-31 16:28:48,911 - WARNING - Géométrie impossible à corriger FID
+on 114: 2026-08-31 16:28:48,911 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 114, code : SFCGAL support not enabled.
+on 114: 2026-08-31 16:28:48,912 - WARNING - Géométrie impossible à corriger FID
+on 115: 2026-08-31 16:28:48,912 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 115, code : SFCGAL support not enabled.
+on 115: 2026-08-31 16:28:48,912 - WARNING - Géométrie impossible à corriger FID
+on 116: 2026-08-31 16:28:48,914 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 116, code : SFCGAL support not enabled.
+on 116: 2026-08-31 16:28:48,914 - WARNING - Géométrie impossible à corriger FID
+on 117: 2026-08-31 16:28:48,915 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 117, code : SFCGAL support not enabled.
+on 117: 2026-08-31 16:28:48,915 - WARNING - Géométrie impossible à corriger FID
+on 118: 2026-08-31 16:28:48,915 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 118, code : SFCGAL support not enabled.
+on 118: 2026-08-31 16:28:48,915 - WARNING - Géométrie impossible à corriger FID
+on 119: 2026-08-31 16:28:48,916 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 119, code : SFCGAL support not enabled.
+on 119: 2026-08-31 16:28:48,916 - WARNING - Géométrie impossible à corriger FID
+on 120: 2026-08-31 16:28:48,917 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 120, code : SFCGAL support not enabled.
+on 120: 2026-08-31 16:28:48,917 - WARNING - Géométrie impossible à corriger FID
+on 121: 2026-08-31 16:28:48,917 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 121, code : SFCGAL support not enabled.
+on 121: 2026-08-31 16:28:48,918 - WARNING - Géométrie impossible à corriger FID
+on 122: 2026-08-31 16:28:48,918 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 122, code : SFCGAL support not enabled.
+on 122: 2026-08-31 16:28:48,918 - WARNING - Géométrie impossible à corriger FID
+on 123: 2026-08-31 16:28:48,919 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 123, code : SFCGAL support not enabled.
+on 123: 2026-08-31 16:28:48,919 - WARNING - Géométrie impossible à corriger FID
+on 124: 2026-08-31 16:28:48,920 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 124, code : SFCGAL support not enabled.
+on 124: 2026-08-31 16:28:48,920 - WARNING - Géométrie impossible à corriger FID
+on 125: 2026-08-31 16:28:48,921 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 125, code : SFCGAL support not enabled.
+on 125: 2026-08-31 16:28:48,921 - WARNING - Géométrie impossible à corriger FID
+on 126: 2026-08-31 16:28:48,922 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 126, code : SFCGAL support not enabled.
+on 126: 2026-08-31 16:28:48,922 - WARNING - Géométrie impossible à corriger FID
+on 127: 2026-08-31 16:28:48,922 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 127, code : SFCGAL support not enabled.
+on 127: 2026-08-31 16:28:48,922 - WARNING - Géométrie impossible à corriger FID
+on 128: 2026-08-31 16:28:48,922 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 128, code : SFCGAL support not enabled.
+on 128: 2026-08-31 16:28:48,923 - WARNING - Géométrie impossible à corriger FID
+on 129: 2026-08-31 16:28:48,923 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 129, code : SFCGAL support not enabled.
+on 129: 2026-08-31 16:28:48,923 - WARNING - Géométrie impossible à corriger FID
+on 130: 2026-08-31 16:28:48,923 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 130, code : SFCGAL support not enabled.
+on 130: 2026-08-31 16:28:48,923 - WARNING - Géométrie impossible à corriger FID
+on 131: 2026-08-31 16:28:48,924 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 131, code : SFCGAL support not enabled.
+on 131: 2026-08-31 16:28:48,924 - WARNING - Géométrie impossible à corriger FID
+on 132: 2026-08-31 16:28:48,925 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 132, code : SFCGAL support not enabled.
+on 132: 2026-08-31 16:28:48,925 - WARNING - Géométrie impossible à corriger FID
+on 133: 2026-08-31 16:28:48,926 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 133, code : SFCGAL support not enabled.
+on 133: 2026-08-31 16:28:48,926 - WARNING - Géométrie impossible à corriger FID
+on 134: 2026-08-31 16:28:48,927 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 134, code : SFCGAL support not enabled.
+on 134: 2026-08-31 16:28:48,927 - WARNING - Géométrie impossible à corriger FID
+on 135: 2026-08-31 16:28:48,928 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 135, code : SFCGAL support not enabled.
+on 135: 2026-08-31 16:28:48,929 - WARNING - Géométrie impossible à corriger FID
+on 136: 2026-08-31 16:28:48,930 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 136, code : SFCGAL support not enabled.
+on 136: 2026-08-31 16:28:48,930 - WARNING - Géométrie impossible à corriger FID
+on 137: 2026-08-31 16:28:48,931 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 137, code : SFCGAL support not enabled.
+on 137: 2026-08-31 16:28:48,931 - WARNING - Géométrie impossible à corriger FID
+on 138: 2026-08-31 16:28:48,932 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 138, code : SFCGAL support not enabled.
+on 138: 2026-08-31 16:28:48,932 - WARNING - Géométrie impossible à corriger FID
+on 139: 2026-08-31 16:28:48,933 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 139, code : SFCGAL support not enabled.
+on 139: 2026-08-31 16:28:48,933 - WARNING - Géométrie impossible à corriger FID
+on 140: 2026-08-31 16:28:48,934 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 140, code : SFCGAL support not enabled.
+on 140: 2026-08-31 16:28:48,935 - WARNING - Géométrie impossible à corriger FID
+on 141: 2026-08-31 16:28:48,935 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 141, code : SFCGAL support not enabled.
+on 141: 2026-08-31 16:28:48,935 - WARNING - Géométrie impossible à corriger FID
+on 142: 2026-08-31 16:28:48,936 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 142, code : SFCGAL support not enabled.
+on 142: 2026-08-31 16:28:48,936 - WARNING - Géométrie impossible à corriger FID
+on 143: 2026-08-31 16:28:48,937 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 143, code : SFCGAL support not enabled.
+on 143: 2026-08-31 16:28:48,937 - WARNING - Géométrie impossible à corriger FID
+on 144: 2026-08-31 16:28:48,937 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 144, code : SFCGAL support not enabled.
+on 144: 2026-08-31 16:28:48,938 - WARNING - Géométrie impossible à corriger FID
+on 145: 2026-08-31 16:28:48,938 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 145, code : SFCGAL support not enabled.
+on 145: 2026-08-31 16:28:48,938 - WARNING - Géométrie impossible à corriger FID
+on 146: 2026-08-31 16:28:48,939 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 146, code : SFCGAL support not enabled.
+on 146: 2026-08-31 16:28:48,939 - WARNING - Géométrie impossible à corriger FID
+on 147: 2026-08-31 16:28:48,940 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 147, code : SFCGAL support not enabled.
+on 147: 2026-08-31 16:28:48,940 - WARNING - Géométrie impossible à corriger FID
+on 148: 2026-08-31 16:28:48,941 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 148, code : SFCGAL support not enabled.
+on 148: 2026-08-31 16:28:48,941 - WARNING - Géométrie impossible à corriger FID
+on 149: 2026-08-31 16:28:48,942 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 149, code : SFCGAL support not enabled.
+on 149: 2026-08-31 16:28:48,942 - WARNING - Géométrie impossible à corriger FID
+on 150: 2026-08-31 16:28:48,943 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 150, code : SFCGAL support not enabled.
+on 150: 2026-08-31 16:28:48,943 - WARNING - Géométrie impossible à corriger FID
+on 151: 2026-08-31 16:28:48,943 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 151, code : SFCGAL support not enabled.
+on 151: 2026-08-31 16:28:48,944 - WARNING - Géométrie impossible à corriger FID
+on 152: 2026-08-31 16:28:48,945 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 152, code : SFCGAL support not enabled.
+on 152: 2026-08-31 16:28:48,945 - WARNING - Géométrie impossible à corriger FID
+on 153: 2026-08-31 16:28:48,946 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 153, code : SFCGAL support not enabled.
+on 153: 2026-08-31 16:28:48,946 - WARNING - Géométrie impossible à corriger FID
+on 154: 2026-08-31 16:28:48,947 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 154, code : SFCGAL support not enabled.
+on 154: 2026-08-31 16:28:48,948 - WARNING - Géométrie impossible à corriger FID
+on 155: 2026-08-31 16:28:48,948 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 155, code : SFCGAL support not enabled.
+on 155: 2026-08-31 16:28:48,948 - WARNING - Géométrie impossible à corriger FID
+on 156: 2026-08-31 16:28:48,950 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 156, code : SFCGAL support not enabled.
+on 156: 2026-08-31 16:28:48,950 - WARNING - Géométrie impossible à corriger FID
+on 157: 2026-08-31 16:28:48,951 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 157, code : SFCGAL support not enabled.
+on 157: 2026-08-31 16:28:48,951 - WARNING - Géométrie impossible à corriger FID
+on 158: 2026-08-31 16:28:48,951 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 158, code : SFCGAL support not enabled.
+on 158: 2026-08-31 16:28:48,951 - WARNING - Géométrie impossible à corriger FID
+on 159: 2026-08-31 16:28:48,952 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 159, code : SFCGAL support not enabled.
+on 159: 2026-08-31 16:28:48,952 - WARNING - Géométrie impossible à corriger FID
+on 160: 2026-08-31 16:28:48,952 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 160, code : SFCGAL support not enabled.
+on 160: 2026-08-31 16:28:48,952 - WARNING - Géométrie impossible à corriger FID
+on 161: 2026-08-31 16:28:48,953 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 161, code : SFCGAL support not enabled.
+on 161: 2026-08-31 16:28:48,953 - WARNING - Géométrie impossible à corriger FID
+on 162: 2026-08-31 16:28:48,954 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 162, code : SFCGAL support not enabled.
+on 162: 2026-08-31 16:28:48,954 - WARNING - Géométrie impossible à corriger FID
+on 163: 2026-08-31 16:28:48,954 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 163, code : SFCGAL support not enabled.
+on 163: 2026-08-31 16:28:48,954 - WARNING - Géométrie impossible à corriger FID
+on 164: 2026-08-31 16:28:48,955 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 164, code : SFCGAL support not enabled.
+on 164: 2026-08-31 16:28:48,955 - WARNING - Géométrie impossible à corriger FID
+on 165: 2026-08-31 16:28:48,955 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 165, code : SFCGAL support not enabled.
+on 165: 2026-08-31 16:28:48,955 - WARNING - Géométrie impossible à corriger FID
+on 166: 2026-08-31 16:28:48,957 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 166, code : SFCGAL support not enabled.
+on 166: 2026-08-31 16:28:48,957 - WARNING - Géométrie impossible à corriger FID
+on 167: 2026-08-31 16:28:48,958 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 167, code : SFCGAL support not enabled.
+on 167: 2026-08-31 16:28:48,959 - WARNING - Géométrie impossible à corriger FID
+on 168: 2026-08-31 16:28:48,960 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 168, code : SFCGAL support not enabled.
+on 168: 2026-08-31 16:28:48,960 - WARNING - Géométrie impossible à corriger FID
+on 169: 2026-08-31 16:28:48,961 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 169, code : SFCGAL support not enabled.
+on 169: 2026-08-31 16:28:48,961 - WARNING - Géométrie impossible à corriger FID
+on 170: 2026-08-31 16:28:48,962 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 170, code : SFCGAL support not enabled.
+on 170: 2026-08-31 16:28:48,962 - WARNING - Géométrie impossible à corriger FID
+on 171: 2026-08-31 16:28:48,962 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 171, code : SFCGAL support not enabled.
+on 171: 2026-08-31 16:28:48,962 - WARNING - Géométrie impossible à corriger FID
+on 172: 2026-08-31 16:28:48,963 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 172, code : SFCGAL support not enabled.
+on 172: 2026-08-31 16:28:48,964 - WARNING - Géométrie impossible à corriger FID
+on 173: 2026-08-31 16:28:48,965 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 173, code : SFCGAL support not enabled.
+on 173: 2026-08-31 16:28:48,965 - WARNING - Géométrie impossible à corriger FID
+on 174: 2026-08-31 16:28:48,966 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 174, code : SFCGAL support not enabled.
+on 174: 2026-08-31 16:28:48,966 - WARNING - Géométrie impossible à corriger FID
+on 175: 2026-08-31 16:28:48,966 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 175, code : SFCGAL support not enabled.
+on 175: 2026-08-31 16:28:48,967 - WARNING - Géométrie impossible à corriger FID
+on 176: 2026-08-31 16:28:48,967 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 176, code : SFCGAL support not enabled.
+on 176: 2026-08-31 16:28:48,968 - WARNING - Géométrie impossible à corriger FID
+on 177: 2026-08-31 16:28:48,968 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 177, code : SFCGAL support not enabled.
+on 177: 2026-08-31 16:28:48,969 - WARNING - Géométrie impossible à corriger FID
+on 178: 2026-08-31 16:28:48,970 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 178, code : SFCGAL support not enabled.
+on 178: 2026-08-31 16:28:48,970 - WARNING - Géométrie impossible à corriger FID
+on 179: 2026-08-31 16:28:48,970 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 179, code : SFCGAL support not enabled.
+on 179: 2026-08-31 16:28:48,970 - WARNING - Géométrie impossible à corriger FID
+on 180: 2026-08-31 16:28:48,971 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 180, code : SFCGAL support not enabled.
+on 180: 2026-08-31 16:28:48,971 - WARNING - Géométrie impossible à corriger FID
+on 181: 2026-08-31 16:28:48,972 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 181, code : SFCGAL support not enabled.
+on 181: 2026-08-31 16:28:48,972 - WARNING - Géométrie impossible à corriger FID
+on 182: 2026-08-31 16:28:48,973 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 182, code : SFCGAL support not enabled.
+on 182: 2026-08-31 16:28:48,974 - WARNING - Géométrie impossible à corriger FID
+on 183: 2026-08-31 16:28:48,974 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 183, code : SFCGAL support not enabled.
+on 183: 2026-08-31 16:28:48,974 - WARNING - Géométrie impossible à corriger FID
+on 184: 2026-08-31 16:28:48,975 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 184, code : SFCGAL support not enabled.
+on 184: 2026-08-31 16:28:48,975 - WARNING - Géométrie impossible à corriger FID
+on 185: 2026-08-31 16:28:48,976 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 185, code : SFCGAL support not enabled.
+on 185: 2026-08-31 16:28:48,976 - WARNING - Géométrie impossible à corriger FID
+on 186: 2026-08-31 16:28:48,976 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 186, code : SFCGAL support not enabled.
+on 186: 2026-08-31 16:28:48,976 - WARNING - Géométrie impossible à corriger FID
+on 187: 2026-08-31 16:28:48,977 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 187, code : SFCGAL support not enabled.
+on 187: 2026-08-31 16:28:48,977 - WARNING - Géométrie impossible à corriger FID
+on 188: 2026-08-31 16:28:48,978 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 188, code : SFCGAL support not enabled.
+on 188: 2026-08-31 16:28:48,978 - WARNING - Géométrie impossible à corriger FID
+on 189: 2026-08-31 16:28:48,978 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 189, code : SFCGAL support not enabled.
+on 189: 2026-08-31 16:28:48,978 - WARNING - Géométrie impossible à corriger FID
+on 190: 2026-08-31 16:28:48,979 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 190, code : SFCGAL support not enabled.
+on 190: 2026-08-31 16:28:48,979 - WARNING - Géométrie impossible à corriger FID
+on 191: 2026-08-31 16:28:48,980 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 191, code : SFCGAL support not enabled.
+on 191: 2026-08-31 16:28:48,980 - WARNING - Géométrie impossible à corriger FID
+on 192: 2026-08-31 16:28:48,980 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 192, code : SFCGAL support not enabled.
+on 192: 2026-08-31 16:28:48,980 - WARNING - Géométrie impossible à corriger FID
+on 193: 2026-08-31 16:28:48,980 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 193, code : SFCGAL support not enabled.
+on 193: 2026-08-31 16:28:48,981 - WARNING - Géométrie impossible à corriger FID
+on 194: 2026-08-31 16:28:48,981 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 194, code : SFCGAL support not enabled.
+on 194: 2026-08-31 16:28:48,981 - WARNING - Géométrie impossible à corriger FID
+on 195: 2026-08-31 16:28:48,981 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 195, code : SFCGAL support not enabled.
+on 195: 2026-08-31 16:28:48,982 - WARNING - Géométrie impossible à corriger FID
+on 196: 2026-08-31 16:28:48,983 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 196, code : SFCGAL support not enabled.
+on 196: 2026-08-31 16:28:48,983 - WARNING - Géométrie impossible à corriger FID
+on 197: 2026-08-31 16:28:48,984 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 197, code : SFCGAL support not enabled.
+on 197: 2026-08-31 16:28:48,984 - WARNING - Géométrie impossible à corriger FID
+on 198: 2026-08-31 16:28:48,985 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 198, code : SFCGAL support not enabled.
+on 198: 2026-08-31 16:28:48,985 - WARNING - Géométrie impossible à corriger FID
+on 199: 2026-08-31 16:28:48,985 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 199, code : SFCGAL support not enabled.
+on 199: 2026-08-31 16:28:48,985 - WARNING - Géométrie impossible à corriger FID
+on 200: 2026-08-31 16:28:48,986 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 200, code : SFCGAL support not enabled.
+on 200: 2026-08-31 16:28:48,986 - WARNING - Géométrie impossible à corriger FID
+on 201: 2026-08-31 16:28:48,987 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 201, code : SFCGAL support not enabled.
+on 201: 2026-08-31 16:28:48,987 - WARNING - Géométrie impossible à corriger FID
+on 202: 2026-08-31 16:28:48,988 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 202, code : SFCGAL support not enabled.
+on 202: 2026-08-31 16:28:48,988 - WARNING - Géométrie impossible à corriger FID
+on 203: 2026-08-31 16:28:48,988 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 203, code : SFCGAL support not enabled.
+on 203: 2026-08-31 16:28:48,989 - WARNING - Géométrie impossible à corriger FID
+on 204: 2026-08-31 16:28:48,989 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 204, code : SFCGAL support not enabled.
+on 204: 2026-08-31 16:28:48,989 - WARNING - Géométrie impossible à corriger FID
+on 205: 2026-08-31 16:28:48,990 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 205, code : SFCGAL support not enabled.
+on 205: 2026-08-31 16:28:48,990 - WARNING - Géométrie impossible à corriger FID
+on 206: 2026-08-31 16:28:48,990 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 206, code : SFCGAL support not enabled.
+on 206: 2026-08-31 16:28:48,991 - WARNING - Géométrie impossible à corriger FID
+on 207: 2026-08-31 16:28:48,991 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 207, code : SFCGAL support not enabled.
+on 207: 2026-08-31 16:28:48,992 - WARNING - Géométrie impossible à corriger FID
+on 208: 2026-08-31 16:28:48,994 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 208, code : SFCGAL support not enabled.
+on 208: 2026-08-31 16:28:48,994 - WARNING - Géométrie impossible à corriger FID
+on 209: 2026-08-31 16:28:48,995 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 209, code : SFCGAL support not enabled.
+on 209: 2026-08-31 16:28:48,995 - WARNING - Géométrie impossible à corriger FID
+on 210: 2026-08-31 16:28:48,996 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 210, code : SFCGAL support not enabled.
+on 210: 2026-08-31 16:28:48,997 - WARNING - Géométrie impossible à corriger FID
+on 211: 2026-08-31 16:28:48,998 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 211, code : SFCGAL support not enabled.
+on 211: 2026-08-31 16:28:48,998 - WARNING - Géométrie impossible à corriger FID
+on 212: 2026-08-31 16:28:48,999 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 212, code : SFCGAL support not enabled.
+on 212: 2026-08-31 16:28:48,999 - WARNING - Géométrie impossible à corriger FID
+on 213: 2026-08-31 16:28:49,001 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 213, code : SFCGAL support not enabled.
+on 213: 2026-08-31 16:28:49,001 - WARNING - Géométrie impossible à corriger FID
+on 214: 2026-08-31 16:28:49,002 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 214, code : SFCGAL support not enabled.
+on 214: 2026-08-31 16:28:49,002 - WARNING - Géométrie impossible à corriger FID
+on 215: 2026-08-31 16:28:49,004 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 215, code : SFCGAL support not enabled.
+on 215: 2026-08-31 16:28:49,004 - WARNING - Géométrie impossible à corriger FID
+on 216: 2026-08-31 16:28:49,005 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 216, code : SFCGAL support not enabled.
+on 216: 2026-08-31 16:28:49,005 - WARNING - Géométrie impossible à corriger FID
+on 217: 2026-08-31 16:28:49,006 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 217, code : SFCGAL support not enabled.
+on 217: 2026-08-31 16:28:49,006 - WARNING - Géométrie impossible à corriger FID
+on 218: 2026-08-31 16:28:49,007 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 218, code : SFCGAL support not enabled.
+on 218: 2026-08-31 16:28:49,007 - WARNING - Géométrie impossible à corriger FID
+on 219: 2026-08-31 16:28:49,007 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 219, code : SFCGAL support not enabled.
+on 219: 2026-08-31 16:28:49,008 - WARNING - Géométrie impossible à corriger FID
+on 220: 2026-08-31 16:28:49,009 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 220, code : SFCGAL support not enabled.
+on 220: 2026-08-31 16:28:49,009 - WARNING - Géométrie impossible à corriger FID
+on 221: 2026-08-31 16:28:49,010 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 221, code : SFCGAL support not enabled.
+on 221: 2026-08-31 16:28:49,010 - WARNING - Géométrie impossible à corriger FID
+on 222: 2026-08-31 16:28:49,012 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 222, code : SFCGAL support not enabled.
+on 222: 2026-08-31 16:28:49,012 - WARNING - Géométrie impossible à corriger FID
+on 223: 2026-08-31 16:28:49,014 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 223, code : SFCGAL support not enabled.
+on 223: 2026-08-31 16:28:49,014 - WARNING - Géométrie impossible à corriger FID
+on 224: 2026-08-31 16:28:49,016 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 224, code : SFCGAL support not enabled.
+on 224: 2026-08-31 16:28:49,016 - WARNING - Géométrie impossible à corriger FID
+on 225: 2026-08-31 16:28:49,017 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 225, code : SFCGAL support not enabled.
+on 225: 2026-08-31 16:28:49,017 - WARNING - Géométrie impossible à corriger FID
+on 226: 2026-08-31 16:28:49,019 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 226, code : SFCGAL support not enabled.
+on 226: 2026-08-31 16:28:49,019 - WARNING - Géométrie impossible à corriger FID
+on 227: 2026-08-31 16:28:49,021 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 227, code : SFCGAL support not enabled.
+on 227: 2026-08-31 16:28:49,021 - WARNING - Géométrie impossible à corriger FID
+on 228: 2026-08-31 16:28:49,022 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 228, code : SFCGAL support not enabled.
+on 228: 2026-08-31 16:28:49,022 - WARNING - Géométrie impossible à corriger FID
+on 229: 2026-08-31 16:28:49,023 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 229, code : SFCGAL support not enabled.
+on 229: 2026-08-31 16:28:49,023 - WARNING - Géométrie impossible à corriger FID
+on 230: 2026-08-31 16:28:49,024 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 230, code : SFCGAL support not enabled.
+on 230: 2026-08-31 16:28:49,024 - WARNING - Géométrie impossible à corriger FID
+on 231: 2026-08-31 16:28:49,025 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 231, code : SFCGAL support not enabled.
+on 231: 2026-08-31 16:28:49,025 - WARNING - Géométrie impossible à corriger FID
+on 232: 2026-08-31 16:28:49,025 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 232, code : SFCGAL support not enabled.
+on 232: 2026-08-31 16:28:49,025 - WARNING - Géométrie impossible à corriger FID
+on 233: 2026-08-31 16:28:49,026 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 233, code : SFCGAL support not enabled.
+on 233: 2026-08-31 16:28:49,026 - WARNING - Géométrie impossible à corriger FID
+on 234: 2026-08-31 16:28:49,026 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 234, code : SFCGAL support not enabled.
+on 234: 2026-08-31 16:28:49,026 - WARNING - Géométrie impossible à corriger FID
+on 235: 2026-08-31 16:28:49,027 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 235, code : SFCGAL support not enabled.
+on 235: 2026-08-31 16:28:49,027 - WARNING - Géométrie impossible à corriger FID
+on 236: 2026-08-31 16:28:49,028 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 236, code : SFCGAL support not enabled.
+on 236: 2026-08-31 16:28:49,028 - WARNING - Géométrie impossible à corriger FID
+on 237: 2026-08-31 16:28:49,028 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 237, code : SFCGAL support not enabled.
+on 237: 2026-08-31 16:28:49,029 - WARNING - Géométrie impossible à corriger FID
+on 238: 2026-08-31 16:28:49,029 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 238, code : SFCGAL support not enabled.
+on 238: 2026-08-31 16:28:49,029 - WARNING - Géométrie impossible à corriger FID
+on 239: 2026-08-31 16:28:49,031 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 239, code : SFCGAL support not enabled.
+on 239: 2026-08-31 16:28:49,031 - WARNING - Géométrie impossible à corriger FID
+on 240: 2026-08-31 16:28:49,031 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 240, code : SFCGAL support not enabled.
+on 240: 2026-08-31 16:28:49,032 - WARNING - Géométrie impossible à corriger FID
+on 241: 2026-08-31 16:28:49,032 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 241, code : SFCGAL support not enabled.
+on 241: 2026-08-31 16:28:49,033 - WARNING - Géométrie impossible à corriger FID
+on 242: 2026-08-31 16:28:49,033 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 242, code : SFCGAL support not enabled.
+on 242: 2026-08-31 16:28:49,033 - WARNING - Géométrie impossible à corriger FID
+on 243: 2026-08-31 16:28:49,034 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 243, code : SFCGAL support not enabled.
+on 243: 2026-08-31 16:28:49,034 - WARNING - Géométrie impossible à corriger FID
+on 244: 2026-08-31 16:28:49,035 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 244, code : SFCGAL support not enabled.
+on 244: 2026-08-31 16:28:49,036 - WARNING - Géométrie impossible à corriger FID
+on 245: 2026-08-31 16:28:49,037 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 245, code : SFCGAL support not enabled.
+on 245: 2026-08-31 16:28:49,037 - WARNING - Géométrie impossible à corriger FID
+on 246: 2026-08-31 16:28:49,038 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 246, code : SFCGAL support not enabled.
+on 246: 2026-08-31 16:28:49,038 - WARNING - Géométrie impossible à corriger FID
+on 247: 2026-08-31 16:28:49,039 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 247, code : SFCGAL support not enabled.
+on 247: 2026-08-31 16:28:49,039 - WARNING - Géométrie impossible à corriger FID
+on 248: 2026-08-31 16:28:49,040 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 248, code : SFCGAL support not enabled.
+on 248: 2026-08-31 16:28:49,040 - WARNING - Géométrie impossible à corriger FID
+on 249: 2026-08-31 16:28:49,041 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 249, code : SFCGAL support not enabled.
+on 249: 2026-08-31 16:28:49,042 - WARNING - Géométrie impossible à corriger FID
+on 250: 2026-08-31 16:28:49,043 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 250, code : SFCGAL support not enabled.
+on 250: 2026-08-31 16:28:49,043 - WARNING - Géométrie impossible à corriger FID
+on 251: 2026-08-31 16:28:49,044 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 251, code : SFCGAL support not enabled.
+on 251: 2026-08-31 16:28:49,044 - WARNING - Géométrie impossible à corriger FID
+on 252: 2026-08-31 16:28:49,044 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 252, code : SFCGAL support not enabled.
+on 252: 2026-08-31 16:28:49,045 - WARNING - Géométrie impossible à corriger FID
+on 253: 2026-08-31 16:28:49,045 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 253, code : SFCGAL support not enabled.
+on 253: 2026-08-31 16:28:49,045 - WARNING - Géométrie impossible à corriger FID
+on 254: 2026-08-31 16:28:49,046 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 254, code : SFCGAL support not enabled.
+on 254: 2026-08-31 16:28:49,046 - WARNING - Géométrie impossible à corriger FID
+on 255: 2026-08-31 16:28:49,046 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 255, code : SFCGAL support not enabled.
+on 255: 2026-08-31 16:28:49,046 - WARNING - Géométrie impossible à corriger FID
+on 256: 2026-08-31 16:28:49,047 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 256, code : SFCGAL support not enabled.
+on 256: 2026-08-31 16:28:49,048 - WARNING - Géométrie impossible à corriger FID
+on 257: 2026-08-31 16:28:49,048 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 257, code : SFCGAL support not enabled.
+on 257: 2026-08-31 16:28:49,048 - WARNING - Géométrie impossible à corriger FID
+on 258: 2026-08-31 16:28:49,049 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 258, code : SFCGAL support not enabled.
+on 258: 2026-08-31 16:28:49,049 - WARNING - Géométrie impossible à corriger FID
+on 259: 2026-08-31 16:28:49,050 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 259, code : SFCGAL support not enabled.
+on 259: 2026-08-31 16:28:49,050 - WARNING - Géométrie impossible à corriger FID
+on 260: 2026-08-31 16:28:49,051 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 260, code : SFCGAL support not enabled.
+on 260: 2026-08-31 16:28:49,051 - WARNING - Géométrie impossible à corriger FID
+on 261: 2026-08-31 16:28:49,052 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 261, code : SFCGAL support not enabled.
+on 261: 2026-08-31 16:28:49,052 - WARNING - Géométrie impossible à corriger FID
+on 262: 2026-08-31 16:28:49,053 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 262, code : SFCGAL support not enabled.
+on 262: 2026-08-31 16:28:49,053 - WARNING - Géométrie impossible à corriger FID
+on 263: 2026-08-31 16:28:49,055 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 263, code : SFCGAL support not enabled.
+on 263: 2026-08-31 16:28:49,056 - WARNING - Géométrie impossible à corriger FID
+on 264: 2026-08-31 16:28:49,056 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 264, code : SFCGAL support not enabled.
+on 264: 2026-08-31 16:28:49,056 - WARNING - Géométrie impossible à corriger FID
+on 265: 2026-08-31 16:28:49,057 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 265, code : SFCGAL support not enabled.
+on 265: 2026-08-31 16:28:49,058 - WARNING - Géométrie impossible à corriger FID
+on 266: 2026-08-31 16:28:49,059 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 266, code : SFCGAL support not enabled.
+on 266: 2026-08-31 16:28:49,059 - WARNING - Géométrie impossible à corriger FID
+on 267: 2026-08-31 16:28:49,060 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 267, code : SFCGAL support not enabled.
+on 267: 2026-08-31 16:28:49,060 - WARNING - Géométrie impossible à corriger FID
+on 268: 2026-08-31 16:28:49,061 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 268, code : SFCGAL support not enabled.
+on 268: 2026-08-31 16:28:49,061 - WARNING - Géométrie impossible à corriger FID
+on 269: 2026-08-31 16:28:49,062 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 269, code : SFCGAL support not enabled.
+on 269: 2026-08-31 16:28:49,062 - WARNING - Géométrie impossible à corriger FID
+on 270: 2026-08-31 16:28:49,063 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 270, code : SFCGAL support not enabled.
+on 270: 2026-08-31 16:28:49,063 - WARNING - Géométrie impossible à corriger FID
+on 271: 2026-08-31 16:28:49,064 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 271, code : SFCGAL support not enabled.
+on 271: 2026-08-31 16:28:49,064 - WARNING - Géométrie impossible à corriger FID
+on 272: 2026-08-31 16:28:49,064 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 272, code : SFCGAL support not enabled.
+on 272: 2026-08-31 16:28:49,064 - WARNING - Géométrie impossible à corriger FID
+on 273: 2026-08-31 16:28:49,065 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 273, code : SFCGAL support not enabled.
+on 273: 2026-08-31 16:28:49,065 - WARNING - Géométrie impossible à corriger FID
+on 274: 2026-08-31 16:28:49,066 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 274, code : SFCGAL support not enabled.
+on 274: 2026-08-31 16:28:49,066 - WARNING - Géométrie impossible à corriger FID
+on 275: 2026-08-31 16:28:49,066 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 275, code : SFCGAL support not enabled.
+on 275: 2026-08-31 16:28:49,067 - WARNING - Géométrie impossible à corriger FID
+on 276: 2026-08-31 16:28:49,067 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 276, code : SFCGAL support not enabled.
+on 276: 2026-08-31 16:28:49,067 - WARNING - Géométrie impossible à corriger FID
+on 277: 2026-08-31 16:28:49,068 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 277, code : SFCGAL support not enabled.
+on 277: 2026-08-31 16:28:49,068 - WARNING - Géométrie impossible à corriger FID
+on 278: 2026-08-31 16:28:49,069 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 278, code : SFCGAL support not enabled.
+on 278: 2026-08-31 16:28:49,069 - WARNING - Géométrie impossible à corriger FID
+on 279: 2026-08-31 16:28:49,070 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 279, code : SFCGAL support not enabled.
+on 279: 2026-08-31 16:28:49,070 - WARNING - Géométrie impossible à corriger FID
+on 280: 2026-08-31 16:28:49,072 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 280, code : SFCGAL support not enabled.
+on 280: 2026-08-31 16:28:49,072 - WARNING - Géométrie impossible à corriger FID
+on 281: 2026-08-31 16:28:49,073 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 281, code : SFCGAL support not enabled.
+on 281: 2026-08-31 16:28:49,073 - WARNING - Géométrie impossible à corriger FID
+on 282: 2026-08-31 16:28:49,073 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 282, code : SFCGAL support not enabled.
+on 282: 2026-08-31 16:28:49,073 - WARNING - Géométrie impossible à corriger FID
+on 283: 2026-08-31 16:28:49,074 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 283, code : SFCGAL support not enabled.
+on 283: 2026-08-31 16:28:49,074 - WARNING - Géométrie impossible à corriger FID
+on 284: 2026-08-31 16:28:49,075 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 284, code : SFCGAL support not enabled.
+on 284: 2026-08-31 16:28:49,075 - WARNING - Géométrie impossible à corriger FID
+on 285: 2026-08-31 16:28:49,075 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 285, code : SFCGAL support not enabled.
+on 285: 2026-08-31 16:28:49,075 - WARNING - Géométrie impossible à corriger FID
+on 286: 2026-08-31 16:28:49,077 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 286, code : SFCGAL support not enabled.
+on 286: 2026-08-31 16:28:49,077 - WARNING - Géométrie impossible à corriger FID
+on 287: 2026-08-31 16:28:49,077 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 287, code : SFCGAL support not enabled.
+on 287: 2026-08-31 16:28:49,078 - WARNING - Géométrie impossible à corriger FID
+on 288: 2026-08-31 16:28:49,078 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 288, code : SFCGAL support not enabled.
+on 288: 2026-08-31 16:28:49,078 - WARNING - Géométrie impossible à corriger FID
+on 289: 2026-08-31 16:28:49,079 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 289, code : SFCGAL support not enabled.
+on 289: 2026-08-31 16:28:49,079 - WARNING - Géométrie impossible à corriger FID
+on 290: 2026-08-31 16:28:49,079 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 290, code : SFCGAL support not enabled.
+on 290: 2026-08-31 16:28:49,079 - WARNING - Géométrie impossible à corriger FID
+on 291: 2026-08-31 16:28:49,080 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 291, code : SFCGAL support not enabled.
+on 291: 2026-08-31 16:28:49,080 - WARNING - Géométrie impossible à corriger FID
+on 292: 2026-08-31 16:28:49,081 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 292, code : SFCGAL support not enabled.
+on 292: 2026-08-31 16:28:49,081 - WARNING - Géométrie impossible à corriger FID
+on 293: 2026-08-31 16:28:49,081 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 293, code : SFCGAL support not enabled.
+on 293: 2026-08-31 16:28:49,081 - WARNING - Géométrie impossible à corriger FID
+on 294: 2026-08-31 16:28:49,082 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 294, code : SFCGAL support not enabled.
+on 294: 2026-08-31 16:28:49,082 - WARNING - Géométrie impossible à corriger FID
+on 295: 2026-08-31 16:28:49,082 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 295, code : SFCGAL support not enabled.
+on 295: 2026-08-31 16:28:49,082 - WARNING - Géométrie impossible à corriger FID
+on 296: 2026-08-31 16:28:49,082 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 296, code : SFCGAL support not enabled.
+on 296: 2026-08-31 16:28:49,082 - WARNING - Géométrie impossible à corriger FID
+on 297: 2026-08-31 16:28:49,083 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 297, code : SFCGAL support not enabled.
+on 297: 2026-08-31 16:28:49,083 - WARNING - Géométrie impossible à corriger FID
+on 298: 2026-08-31 16:28:49,083 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 298, code : SFCGAL support not enabled.
+on 298: 2026-08-31 16:28:49,083 - WARNING - Géométrie impossible à corriger FID
+on 299: 2026-08-31 16:28:49,084 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 299, code : SFCGAL support not enabled.
+on 299: 2026-08-31 16:28:49,085 - WARNING - Géométrie impossible à corriger FID
+on 300: 2026-08-31 16:28:49,085 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 300, code : SFCGAL support not enabled.
+on 300: 2026-08-31 16:28:49,086 - WARNING - Géométrie impossible à corriger FID
+on 301: 2026-08-31 16:28:49,086 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 301, code : SFCGAL support not enabled.
+on 301: 2026-08-31 16:28:49,086 - WARNING - Géométrie impossible à corriger FID
+on 302: 2026-08-31 16:28:49,086 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 302, code : SFCGAL support not enabled.
+on 302: 2026-08-31 16:28:49,087 - WARNING - Géométrie impossible à corriger FID
+on 303: 2026-08-31 16:28:49,087 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 303, code : SFCGAL support not enabled.
+on 303: 2026-08-31 16:28:49,087 - WARNING - Géométrie impossible à corriger FID
+on 304: 2026-08-31 16:28:49,088 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 304, code : SFCGAL support not enabled.
+on 304: 2026-08-31 16:28:49,088 - WARNING - Géométrie impossible à corriger FID
+on 305: 2026-08-31 16:28:49,088 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 305, code : SFCGAL support not enabled.
+on 305: 2026-08-31 16:28:49,088 - WARNING - Géométrie impossible à corriger FID
+on 306: 2026-08-31 16:28:49,089 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 306, code : SFCGAL support not enabled.
+on 306: 2026-08-31 16:28:49,089 - WARNING - Géométrie impossible à corriger FID
+on 307: 2026-08-31 16:28:49,090 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 307, code : SFCGAL support not enabled.
+on 307: 2026-08-31 16:28:49,090 - WARNING - Géométrie impossible à corriger FID
+on 308: 2026-08-31 16:28:49,090 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 308, code : SFCGAL support not enabled.
+on 308: 2026-08-31 16:28:49,091 - WARNING - Géométrie impossible à corriger FID
+on 309: 2026-08-31 16:28:49,091 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 309, code : SFCGAL support not enabled.
+on 309: 2026-08-31 16:28:49,091 - WARNING - Géométrie impossible à corriger FID
+on 310: 2026-08-31 16:28:49,092 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 310, code : SFCGAL support not enabled.
+on 310: 2026-08-31 16:28:49,092 - WARNING - Géométrie impossible à corriger FID
+on 311: 2026-08-31 16:28:49,092 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 311, code : SFCGAL support not enabled.
+on 311: 2026-08-31 16:28:49,092 - WARNING - Géométrie impossible à corriger FID
+on 312: 2026-08-31 16:28:49,093 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 312, code : SFCGAL support not enabled.
+on 312: 2026-08-31 16:28:49,093 - WARNING - Géométrie impossible à corriger FID
+on 313: 2026-08-31 16:28:49,093 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 313, code : SFCGAL support not enabled.
+on 313: 2026-08-31 16:28:49,094 - WARNING - Géométrie impossible à corriger FID
+on 314: 2026-08-31 16:28:49,094 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 314, code : SFCGAL support not enabled.
+on 314: 2026-08-31 16:28:49,094 - WARNING - Géométrie impossible à corriger FID
+on 315: 2026-08-31 16:28:49,095 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 315, code : SFCGAL support not enabled.
+on 315: 2026-08-31 16:28:49,095 - WARNING - Géométrie impossible à corriger FID
+on 316: 2026-08-31 16:28:49,095 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 316, code : SFCGAL support not enabled.
+on 316: 2026-08-31 16:28:49,095 - WARNING - Géométrie impossible à corriger FID
+on 317: 2026-08-31 16:28:49,096 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 317, code : SFCGAL support not enabled.
+on 317: 2026-08-31 16:28:49,096 - WARNING - Géométrie impossible à corriger FID
+on 318: 2026-08-31 16:28:49,097 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 318, code : SFCGAL support not enabled.
+on 318: 2026-08-31 16:28:49,097 - WARNING - Géométrie impossible à corriger FID
+on 319: 2026-08-31 16:28:49,098 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 319, code : SFCGAL support not enabled.
+on 319: 2026-08-31 16:28:49,098 - WARNING - Géométrie impossible à corriger FID
+on 320: 2026-08-31 16:28:49,098 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 320, code : SFCGAL support not enabled.
+on 320: 2026-08-31 16:28:49,098 - WARNING - Géométrie impossible à corriger FID
+on 321: 2026-08-31 16:28:49,099 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 321, code : SFCGAL support not enabled.
+on 321: 2026-08-31 16:28:49,099 - WARNING - Géométrie impossible à corriger FID
+on 322: 2026-08-31 16:28:49,099 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 322, code : SFCGAL support not enabled.
+on 322: 2026-08-31 16:28:49,100 - WARNING - Géométrie impossible à corriger FID
+on 323: 2026-08-31 16:28:49,100 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 323, code : SFCGAL support not enabled.
+on 323: 2026-08-31 16:28:49,100 - WARNING - Géométrie impossible à corriger FID
+on 324: 2026-08-31 16:28:49,101 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 324, code : SFCGAL support not enabled.
+on 324: 2026-08-31 16:28:49,101 - WARNING - Géométrie impossible à corriger FID
+on 325: 2026-08-31 16:28:49,102 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 325, code : SFCGAL support not enabled.
+on 325: 2026-08-31 16:28:49,102 - WARNING - Géométrie impossible à corriger FID
+on 326: 2026-08-31 16:28:49,102 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 326, code : SFCGAL support not enabled.
+on 326: 2026-08-31 16:28:49,102 - WARNING - Géométrie impossible à corriger FID
+on 327: 2026-08-31 16:28:49,103 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 327, code : SFCGAL support not enabled.
+on 327: 2026-08-31 16:28:49,103 - WARNING - Géométrie impossible à corriger FID
+on 328: 2026-08-31 16:28:49,104 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 328, code : SFCGAL support not enabled.
+on 328: 2026-08-31 16:28:49,104 - WARNING - Géométrie impossible à corriger FID
+on 329: 2026-08-31 16:28:49,104 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 329, code : SFCGAL support not enabled.
+on 329: 2026-08-31 16:28:49,105 - WARNING - Géométrie impossible à corriger FID
+on 330: 2026-08-31 16:28:49,105 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 330, code : SFCGAL support not enabled.
+on 330: 2026-08-31 16:28:49,106 - WARNING - Géométrie impossible à corriger FID
+on 331: 2026-08-31 16:28:49,106 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 331, code : SFCGAL support not enabled.
+on 331: 2026-08-31 16:28:49,107 - WARNING - Géométrie impossible à corriger FID
+on 332: 2026-08-31 16:28:49,107 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 332, code : SFCGAL support not enabled.
+on 332: 2026-08-31 16:28:49,107 - WARNING - Géométrie impossible à corriger FID
+on 333: 2026-08-31 16:28:49,108 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 333, code : SFCGAL support not enabled.
+on 333: 2026-08-31 16:28:49,108 - WARNING - Géométrie impossible à corriger FID
+on 334: 2026-08-31 16:28:49,108 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 334, code : SFCGAL support not enabled.
+on 334: 2026-08-31 16:28:49,109 - WARNING - Géométrie impossible à corriger FID
+on 335: 2026-08-31 16:28:49,109 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 335, code : SFCGAL support not enabled.
+on 335: 2026-08-31 16:28:49,109 - WARNING - Géométrie impossible à corriger FID
+on 336: 2026-08-31 16:28:49,110 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 336, code : SFCGAL support not enabled.
+on 336: 2026-08-31 16:28:49,110 - WARNING - Géométrie impossible à corriger FID
+on 337: 2026-08-31 16:28:49,110 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 337, code : SFCGAL support not enabled.
+on 337: 2026-08-31 16:28:49,111 - WARNING - Géométrie impossible à corriger FID
+on 338: 2026-08-31 16:28:49,111 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 338, code : SFCGAL support not enabled.
+on 338: 2026-08-31 16:28:49,111 - WARNING - Géométrie impossible à corriger FID
+on 339: 2026-08-31 16:28:49,112 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 339, code : SFCGAL support not enabled.
+on 339: 2026-08-31 16:28:49,112 - WARNING - Géométrie impossible à corriger FID
+on 340: 2026-08-31 16:28:49,113 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 340, code : SFCGAL support not enabled.
+on 340: 2026-08-31 16:28:49,113 - WARNING - Géométrie impossible à corriger FID
+on 341: 2026-08-31 16:28:49,113 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 341, code : SFCGAL support not enabled.
+on 341: 2026-08-31 16:28:49,113 - WARNING - Géométrie impossible à corriger FID
+on 342: 2026-08-31 16:28:49,114 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 342, code : SFCGAL support not enabled.
+on 342: 2026-08-31 16:28:49,114 - WARNING - Géométrie impossible à corriger FID
+on 343: 2026-08-31 16:28:49,115 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 343, code : SFCGAL support not enabled.
+on 343: 2026-08-31 16:28:49,115 - WARNING - Géométrie impossible à corriger FID
+on 344: 2026-08-31 16:28:49,115 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 344, code : SFCGAL support not enabled.
+on 344: 2026-08-31 16:28:49,115 - WARNING - Géométrie impossible à corriger FID
+on 345: 2026-08-31 16:28:49,116 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 345, code : SFCGAL support not enabled.
+on 345: 2026-08-31 16:28:49,116 - WARNING - Géométrie impossible à corriger FID
+on 346: 2026-08-31 16:28:49,116 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 346, code : SFCGAL support not enabled.
+on 346: 2026-08-31 16:28:49,117 - WARNING - Géométrie impossible à corriger FID
+on 347: 2026-08-31 16:28:49,118 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 347, code : SFCGAL support not enabled.
+on 347: 2026-08-31 16:28:49,118 - WARNING - Géométrie impossible à corriger FID
+on 348: 2026-08-31 16:28:49,119 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 348, code : SFCGAL support not enabled.
+on 348: 2026-08-31 16:28:49,119 - WARNING - Géométrie impossible à corriger FID
+on 349: 2026-08-31 16:28:49,120 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 349, code : SFCGAL support not enabled.
+on 349: 2026-08-31 16:28:49,120 - WARNING - Géométrie impossible à corriger FID
+on 350: 2026-08-31 16:28:49,121 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 350, code : SFCGAL support not enabled.
+on 350: 2026-08-31 16:28:49,121 - WARNING - Géométrie impossible à corriger FID
+on 351: 2026-08-31 16:28:49,122 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 351, code : SFCGAL support not enabled.
+on 351: 2026-08-31 16:28:49,122 - WARNING - Géométrie impossible à corriger FID
+on 352: 2026-08-31 16:28:49,123 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 352, code : SFCGAL support not enabled.
+on 352: 2026-08-31 16:28:49,123 - WARNING - Géométrie impossible à corriger FID
+on 353: 2026-08-31 16:28:49,124 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 353, code : SFCGAL support not enabled.
+on 353: 2026-08-31 16:28:49,124 - WARNING - Géométrie impossible à corriger FID
+on 354: 2026-08-31 16:28:49,124 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 354, code : SFCGAL support not enabled.
+on 354: 2026-08-31 16:28:49,124 - WARNING - Géométrie impossible à corriger FID
+on 355: 2026-08-31 16:28:49,125 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 355, code : SFCGAL support not enabled.
+on 355: 2026-08-31 16:28:49,125 - WARNING - Géométrie impossible à corriger FID
+on 356: 2026-08-31 16:28:49,125 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 356, code : SFCGAL support not enabled.
+on 356: 2026-08-31 16:28:49,126 - WARNING - Géométrie impossible à corriger FID
+on 357: 2026-08-31 16:28:49,126 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 357, code : SFCGAL support not enabled.
+on 357: 2026-08-31 16:28:49,126 - WARNING - Géométrie impossible à corriger FID
+on 358: 2026-08-31 16:28:49,127 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 358, code : SFCGAL support not enabled.
+on 358: 2026-08-31 16:28:49,127 - WARNING - Géométrie impossible à corriger FID
+on 359: 2026-08-31 16:28:49,127 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 359, code : SFCGAL support not enabled.
+on 359: 2026-08-31 16:28:49,127 - WARNING - Géométrie impossible à corriger FID
+on 360: 2026-08-31 16:28:49,128 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 360, code : SFCGAL support not enabled.
+on 360: 2026-08-31 16:28:49,128 - WARNING - Géométrie impossible à corriger FID
+on 361: 2026-08-31 16:28:49,128 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 361, code : SFCGAL support not enabled.
+on 361: 2026-08-31 16:28:49,129 - WARNING - Géométrie impossible à corriger FID
+on 362: 2026-08-31 16:28:49,129 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 362, code : SFCGAL support not enabled.
+on 362: 2026-08-31 16:28:49,129 - WARNING - Géométrie impossible à corriger FID
+on 363: 2026-08-31 16:28:49,130 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 363, code : SFCGAL support not enabled.
+on 363: 2026-08-31 16:28:49,130 - WARNING - Géométrie impossible à corriger FID
+on 364: 2026-08-31 16:28:49,130 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 364, code : SFCGAL support not enabled.
+on 364: 2026-08-31 16:28:49,130 - WARNING - Géométrie impossible à corriger FID
+on 365: 2026-08-31 16:28:49,131 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 365, code : SFCGAL support not enabled.
+on 365: 2026-08-31 16:28:49,131 - WARNING - Géométrie impossible à corriger FID
+on 366: 2026-08-31 16:28:49,132 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 366, code : SFCGAL support not enabled.
+on 366: 2026-08-31 16:28:49,132 - WARNING - Géométrie impossible à corriger FID
+on 367: 2026-08-31 16:28:49,132 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 367, code : SFCGAL support not enabled.
+on 367: 2026-08-31 16:28:49,133 - WARNING - Géométrie impossible à corriger FID
+on 368: 2026-08-31 16:28:49,133 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 368, code : SFCGAL support not enabled.
+on 368: 2026-08-31 16:28:49,133 - WARNING - Géométrie impossible à corriger FID
+on 369: 2026-08-31 16:28:49,133 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 369, code : SFCGAL support not enabled.
+on 369: 2026-08-31 16:28:49,134 - WARNING - Géométrie impossible à corriger FID
+on 370: 2026-08-31 16:28:49,134 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 370, code : SFCGAL support not enabled.
+on 370: 2026-08-31 16:28:49,134 - WARNING - Géométrie impossible à corriger FID
+on 371: 2026-08-31 16:28:49,135 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 371, code : SFCGAL support not enabled.
+on 371: 2026-08-31 16:28:49,135 - WARNING - Géométrie impossible à corriger FID
+on 372: 2026-08-31 16:28:49,136 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 372, code : SFCGAL support not enabled.
+on 372: 2026-08-31 16:28:49,136 - WARNING - Géométrie impossible à corriger FID
+on 373: 2026-08-31 16:28:49,136 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 373, code : SFCGAL support not enabled.
+on 373: 2026-08-31 16:28:49,137 - WARNING - Géométrie impossible à corriger FID
+on 374: 2026-08-31 16:28:49,138 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 374, code : SFCGAL support not enabled.
+on 374: 2026-08-31 16:28:49,138 - WARNING - Géométrie impossible à corriger FID
+on 375: 2026-08-31 16:28:49,139 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 375, code : SFCGAL support not enabled.
+on 375: 2026-08-31 16:28:49,139 - WARNING - Géométrie impossible à corriger FID
+on 376: 2026-08-31 16:28:49,139 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 376, code : SFCGAL support not enabled.
+on 376: 2026-08-31 16:28:49,140 - WARNING - Géométrie impossible à corriger FID
+on 377: 2026-08-31 16:28:49,140 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 377, code : SFCGAL support not enabled.
+on 377: 2026-08-31 16:28:49,140 - WARNING - Géométrie impossible à corriger FID
+on 378: 2026-08-31 16:28:49,141 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 378, code : SFCGAL support not enabled.
+on 378: 2026-08-31 16:28:49,141 - WARNING - Géométrie impossible à corriger FID
+on 379: 2026-08-31 16:28:49,142 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 379, code : SFCGAL support not enabled.
+on 379: 2026-08-31 16:28:49,142 - WARNING - Géométrie impossible à corriger FID
+on 380: 2026-08-31 16:28:49,143 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 380, code : SFCGAL support not enabled.
+on 380: 2026-08-31 16:28:49,143 - WARNING - Géométrie impossible à corriger FID
+on 381: 2026-08-31 16:28:49,144 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 381, code : SFCGAL support not enabled.
+on 381: 2026-08-31 16:28:49,144 - WARNING - Géométrie impossible à corriger FID
+on 382: 2026-08-31 16:28:49,146 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 382, code : SFCGAL support not enabled.
+on 382: 2026-08-31 16:28:49,146 - WARNING - Géométrie impossible à corriger FID
+on 383: 2026-08-31 16:28:49,147 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 383, code : SFCGAL support not enabled.
+on 383: 2026-08-31 16:28:49,147 - WARNING - Géométrie impossible à corriger FID
+on 384: 2026-08-31 16:28:49,148 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 384, code : SFCGAL support not enabled.
+on 384: 2026-08-31 16:28:49,148 - WARNING - Géométrie impossible à corriger FID
+on 385: 2026-08-31 16:28:49,149 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 385, code : SFCGAL support not enabled.
+on 385: 2026-08-31 16:28:49,149 - WARNING - Géométrie impossible à corriger FID
+on 386: 2026-08-31 16:28:49,150 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 386, code : SFCGAL support not enabled.
+on 386: 2026-08-31 16:28:49,150 - WARNING - Géométrie impossible à corriger FID
+on 387: 2026-08-31 16:28:49,150 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 387, code : SFCGAL support not enabled.
+on 387: 2026-08-31 16:28:49,151 - WARNING - Géométrie impossible à corriger FID
+on 388: 2026-08-31 16:28:49,151 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 388, code : SFCGAL support not enabled.
+on 388: 2026-08-31 16:28:49,151 - WARNING - Géométrie impossible à corriger FID
+on 389: 2026-08-31 16:28:49,153 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 389, code : SFCGAL support not enabled.
+on 389: 2026-08-31 16:28:49,153 - WARNING - Géométrie impossible à corriger FID
+on 390: 2026-08-31 16:28:49,155 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 390, code : SFCGAL support not enabled.
+on 390: 2026-08-31 16:28:49,155 - WARNING - Géométrie impossible à corriger FID
+on 391: 2026-08-31 16:28:49,156 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 391, code : SFCGAL support not enabled.
+on 391: 2026-08-31 16:28:49,156 - WARNING - Géométrie impossible à corriger FID
+on 392: 2026-08-31 16:28:49,156 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 392, code : SFCGAL support not enabled.
+on 392: 2026-08-31 16:28:49,156 - WARNING - Géométrie impossible à corriger FID
+on 393: 2026-08-31 16:28:49,157 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 393, code : SFCGAL support not enabled.
+on 393: 2026-08-31 16:28:49,157 - WARNING - Géométrie impossible à corriger FID
+on 394: 2026-08-31 16:28:49,158 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 394, code : SFCGAL support not enabled.
+on 394: 2026-08-31 16:28:49,158 - WARNING - Géométrie impossible à corriger FID
+on 395: 2026-08-31 16:28:49,159 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 395, code : SFCGAL support not enabled.
+on 395: 2026-08-31 16:28:49,159 - WARNING - Géométrie impossible à corriger FID
+on 396: 2026-08-31 16:28:49,160 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 396, code : SFCGAL support not enabled.
+on 396: 2026-08-31 16:28:49,160 - WARNING - Géométrie impossible à corriger FID
+on 397: 2026-08-31 16:28:49,160 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 397, code : SFCGAL support not enabled.
+on 397: 2026-08-31 16:28:49,160 - WARNING - Géométrie impossible à corriger FID
+on 398: 2026-08-31 16:28:49,161 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 398, code : SFCGAL support not enabled.
+on 398: 2026-08-31 16:28:49,161 - WARNING - Géométrie impossible à corriger FID
+on 399: 2026-08-31 16:28:49,162 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 399, code : SFCGAL support not enabled.
+on 399: 2026-08-31 16:28:49,162 - WARNING - Géométrie impossible à corriger FID
+on 400: 2026-08-31 16:28:49,162 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 400, code : SFCGAL support not enabled.
+on 400: 2026-08-31 16:28:49,162 - WARNING - Géométrie impossible à corriger FID
+on 401: 2026-08-31 16:28:49,163 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 401, code : SFCGAL support not enabled.
+on 401: 2026-08-31 16:28:49,163 - WARNING - Géométrie impossible à corriger FID
+on 402: 2026-08-31 16:28:49,163 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 402, code : SFCGAL support not enabled.
+on 402: 2026-08-31 16:28:49,163 - WARNING - Géométrie impossible à corriger FID
+on 403: 2026-08-31 16:28:49,164 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 403, code : SFCGAL support not enabled.
+on 403: 2026-08-31 16:28:49,164 - WARNING - Géométrie impossible à corriger FID
+on 404: 2026-08-31 16:28:49,164 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 404, code : SFCGAL support not enabled.
+on 404: 2026-08-31 16:28:49,164 - WARNING - Géométrie impossible à corriger FID
+on 405: 2026-08-31 16:28:49,165 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 405, code : SFCGAL support not enabled.
+on 405: 2026-08-31 16:28:49,165 - WARNING - Géométrie impossible à corriger FID
+on 406: 2026-08-31 16:28:49,165 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 406, code : SFCGAL support not enabled.
+on 406: 2026-08-31 16:28:49,166 - WARNING - Géométrie impossible à corriger FID
+on 407: 2026-08-31 16:28:49,167 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 407, code : SFCGAL support not enabled.
+on 407: 2026-08-31 16:28:49,167 - WARNING - Géométrie impossible à corriger FID
+on 408: 2026-08-31 16:28:49,168 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 408, code : SFCGAL support not enabled.
+on 408: 2026-08-31 16:28:49,168 - WARNING - Géométrie impossible à corriger FID
+on 409: 2026-08-31 16:28:49,169 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 409, code : SFCGAL support not enabled.
+on 409: 2026-08-31 16:28:49,169 - WARNING - Géométrie impossible à corriger FID
+on 410: 2026-08-31 16:28:49,170 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 410, code : SFCGAL support not enabled.
+on 410: 2026-08-31 16:28:49,170 - WARNING - Géométrie impossible à corriger FID
+on 411: 2026-08-31 16:28:49,171 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 411, code : SFCGAL support not enabled.
+on 411: 2026-08-31 16:28:49,171 - WARNING - Géométrie impossible à corriger FID
+on 412: 2026-08-31 16:28:49,172 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 412, code : SFCGAL support not enabled.
+on 412: 2026-08-31 16:28:49,172 - WARNING - Géométrie impossible à corriger FID
+on 413: 2026-08-31 16:28:49,173 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 413, code : SFCGAL support not enabled.
+on 413: 2026-08-31 16:28:49,173 - WARNING - Géométrie impossible à corriger FID
+on 414: 2026-08-31 16:28:49,174 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 414, code : SFCGAL support not enabled.
+on 414: 2026-08-31 16:28:49,174 - WARNING - Géométrie impossible à corriger FID
+on 415: 2026-08-31 16:28:49,175 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 415, code : SFCGAL support not enabled.
+on 415: 2026-08-31 16:28:49,176 - WARNING - Géométrie impossible à corriger FID
+on 416: 2026-08-31 16:28:49,177 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 416, code : SFCGAL support not enabled.
+on 416: 2026-08-31 16:28:49,177 - WARNING - Géométrie impossible à corriger FID
+on 417: 2026-08-31 16:28:49,178 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 417, code : SFCGAL support not enabled.
+on 417: 2026-08-31 16:28:49,179 - WARNING - Géométrie impossible à corriger FID
+on 418: 2026-08-31 16:28:49,180 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 418, code : SFCGAL support not enabled.
+on 418: 2026-08-31 16:28:49,180 - WARNING - Géométrie impossible à corriger FID
+on 419: 2026-08-31 16:28:49,181 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 419, code : SFCGAL support not enabled.
+on 419: 2026-08-31 16:28:49,181 - WARNING - Géométrie impossible à corriger FID
+on 420: 2026-08-31 16:28:49,183 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 420, code : SFCGAL support not enabled.
+on 420: 2026-08-31 16:28:49,183 - WARNING - Géométrie impossible à corriger FID
+on 421: 2026-08-31 16:28:49,184 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 421, code : SFCGAL support not enabled.
+on 421: 2026-08-31 16:28:49,184 - WARNING - Géométrie impossible à corriger FID
+on 422: 2026-08-31 16:28:49,185 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 422, code : SFCGAL support not enabled.
+on 422: 2026-08-31 16:28:49,185 - WARNING - Géométrie impossible à corriger FID
+on 423: 2026-08-31 16:28:49,186 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 423, code : SFCGAL support not enabled.
+on 423: 2026-08-31 16:28:49,186 - WARNING - Géométrie impossible à corriger FID
+on 424: 2026-08-31 16:28:49,187 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 424, code : SFCGAL support not enabled.
+on 424: 2026-08-31 16:28:49,187 - WARNING - Géométrie impossible à corriger FID
+on 425: 2026-08-31 16:28:49,188 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 425, code : SFCGAL support not enabled.
+on 425: 2026-08-31 16:28:49,189 - WARNING - Géométrie impossible à corriger FID
+on 426: 2026-08-31 16:28:49,189 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 426, code : SFCGAL support not enabled.
+on 426: 2026-08-31 16:28:49,190 - WARNING - Géométrie impossible à corriger FID
+on 427: 2026-08-31 16:28:49,190 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 427, code : SFCGAL support not enabled.
+on 427: 2026-08-31 16:28:49,190 - WARNING - Géométrie impossible à corriger FID
+on 428: 2026-08-31 16:28:49,191 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 428, code : SFCGAL support not enabled.
+on 428: 2026-08-31 16:28:49,191 - WARNING - Géométrie impossible à corriger FID
+on 429: 2026-08-31 16:28:49,191 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 429, code : SFCGAL support not enabled.
+on 429: 2026-08-31 16:28:49,191 - WARNING - Géométrie impossible à corriger FID
+on 430: 2026-08-31 16:28:49,192 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 430, code : SFCGAL support not enabled.
+on 430: 2026-08-31 16:28:49,192 - WARNING - Géométrie impossible à corriger FID
+on 431: 2026-08-31 16:28:49,193 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 431, code : SFCGAL support not enabled.
+on 431: 2026-08-31 16:28:49,193 - WARNING - Géométrie impossible à corriger FID
+on 432: 2026-08-31 16:28:49,194 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 432, code : SFCGAL support not enabled.
+on 432: 2026-08-31 16:28:49,194 - WARNING - Géométrie impossible à corriger FID
+on 433: 2026-08-31 16:28:49,194 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 433, code : SFCGAL support not enabled.
+on 433: 2026-08-31 16:28:49,194 - WARNING - Géométrie impossible à corriger FID
+on 434: 2026-08-31 16:28:49,195 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 434, code : SFCGAL support not enabled.
+on 434: 2026-08-31 16:28:49,195 - WARNING - Géométrie impossible à corriger FID
+on 435: 2026-08-31 16:28:49,196 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 435, code : SFCGAL support not enabled.
+on 435: 2026-08-31 16:28:49,196 - WARNING - Géométrie impossible à corriger FID
+on 436: 2026-08-31 16:28:49,197 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 436, code : SFCGAL support not enabled.
+on 436: 2026-08-31 16:28:49,197 - WARNING - Géométrie impossible à corriger FID
+on 437: 2026-08-31 16:28:49,197 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 437, code : SFCGAL support not enabled.
+on 437: 2026-08-31 16:28:49,197 - WARNING - Géométrie impossible à corriger FID
+on 438: 2026-08-31 16:28:49,198 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 438, code : SFCGAL support not enabled.
+on 438: 2026-08-31 16:28:49,198 - WARNING - Géométrie impossible à corriger FID
+on 439: 2026-08-31 16:28:49,198 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 439, code : SFCGAL support not enabled.
+on 439: 2026-08-31 16:28:49,199 - WARNING - Géométrie impossible à corriger FID
+on 440: 2026-08-31 16:28:49,199 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 440, code : SFCGAL support not enabled.
+on 440: 2026-08-31 16:28:49,199 - WARNING - Géométrie impossible à corriger FID
+on 441: 2026-08-31 16:28:49,200 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 441, code : SFCGAL support not enabled.
+on 441: 2026-08-31 16:28:49,200 - WARNING - Géométrie impossible à corriger FID
+on 442: 2026-08-31 16:28:49,201 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 442, code : SFCGAL support not enabled.
+on 442: 2026-08-31 16:28:49,201 - WARNING - Géométrie impossible à corriger FID
+on 443: 2026-08-31 16:28:49,202 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 443, code : SFCGAL support not enabled.
+on 443: 2026-08-31 16:28:49,202 - WARNING - Géométrie impossible à corriger FID
+on 444: 2026-08-31 16:28:49,203 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 444, code : SFCGAL support not enabled.
+on 444: 2026-08-31 16:28:49,203 - WARNING - Géométrie impossible à corriger FID
+on 445: 2026-08-31 16:28:49,204 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 445, code : SFCGAL support not enabled.
+on 445: 2026-08-31 16:28:49,204 - WARNING - Géométrie impossible à corriger FID
+on 446: 2026-08-31 16:28:49,204 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 446, code : SFCGAL support not enabled.
+on 446: 2026-08-31 16:28:49,204 - WARNING - Géométrie impossible à corriger FID
+on 447: 2026-08-31 16:28:49,205 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 447, code : SFCGAL support not enabled.
+on 447: 2026-08-31 16:28:49,206 - WARNING - Géométrie impossible à corriger FID
+on 448: 2026-08-31 16:28:49,207 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 448, code : SFCGAL support not enabled.
+on 448: 2026-08-31 16:28:49,207 - WARNING - Géométrie impossible à corriger FID
+on 449: 2026-08-31 16:28:49,207 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 449, code : SFCGAL support not enabled.
+on 449: 2026-08-31 16:28:49,207 - WARNING - Géométrie impossible à corriger FID
+on 450: 2026-08-31 16:28:49,209 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 450, code : SFCGAL support not enabled.
+on 450: 2026-08-31 16:28:49,209 - WARNING - Géométrie impossible à corriger FID
+on 451: 2026-08-31 16:28:49,210 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 451, code : SFCGAL support not enabled.
+on 451: 2026-08-31 16:28:49,210 - WARNING - Géométrie impossible à corriger FID
+on 452: 2026-08-31 16:28:49,211 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 452, code : SFCGAL support not enabled.
+on 452: 2026-08-31 16:28:49,211 - WARNING - Géométrie impossible à corriger FID
+on 453: 2026-08-31 16:28:49,211 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 453, code : SFCGAL support not enabled.
+on 453: 2026-08-31 16:28:49,212 - WARNING - Géométrie impossible à corriger FID
+on 454: 2026-08-31 16:28:49,212 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 454, code : SFCGAL support not enabled.
+on 454: 2026-08-31 16:28:49,212 - WARNING - Géométrie impossible à corriger FID
+on 455: 2026-08-31 16:28:49,212 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 455, code : SFCGAL support not enabled.
+on 455: 2026-08-31 16:28:49,212 - WARNING - Géométrie impossible à corriger FID
+on 456: 2026-08-31 16:28:49,213 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 456, code : SFCGAL support not enabled.
+on 456: 2026-08-31 16:28:49,213 - WARNING - Géométrie impossible à corriger FID
+on 457: 2026-08-31 16:28:49,213 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 457, code : SFCGAL support not enabled.
+on 457: 2026-08-31 16:28:49,213 - WARNING - Géométrie impossible à corriger FID
+on 458: 2026-08-31 16:28:49,214 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 458, code : SFCGAL support not enabled.
+on 458: 2026-08-31 16:28:49,214 - WARNING - Géométrie impossible à corriger FID
+on 459: 2026-08-31 16:28:49,214 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 459, code : SFCGAL support not enabled.
+on 459: 2026-08-31 16:28:49,214 - WARNING - Géométrie impossible à corriger FID
+on 460: 2026-08-31 16:28:49,215 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 460, code : SFCGAL support not enabled.
+on 460: 2026-08-31 16:28:49,215 - WARNING - Géométrie impossible à corriger FID
+on 461: 2026-08-31 16:28:49,215 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 461, code : SFCGAL support not enabled.
+on 461: 2026-08-31 16:28:49,215 - WARNING - Géométrie impossible à corriger FID
+on 462: 2026-08-31 16:28:49,216 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 462, code : SFCGAL support not enabled.
+on 462: 2026-08-31 16:28:49,216 - WARNING - Géométrie impossible à corriger FID
+on 463: 2026-08-31 16:28:49,216 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 463, code : SFCGAL support not enabled.
+on 463: 2026-08-31 16:28:49,216 - WARNING - Géométrie impossible à corriger FID
+on 464: 2026-08-31 16:28:49,217 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 464, code : SFCGAL support not enabled.
+on 464: 2026-08-31 16:28:49,217 - WARNING - Géométrie impossible à corriger FID
+on 465: 2026-08-31 16:28:49,217 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 465, code : SFCGAL support not enabled.
+on 465: 2026-08-31 16:28:49,218 - WARNING - Géométrie impossible à corriger FID
+on 466: 2026-08-31 16:28:49,218 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 466, code : SFCGAL support not enabled.
+on 466: 2026-08-31 16:28:49,218 - WARNING - Géométrie impossible à corriger FID
+on 467: 2026-08-31 16:28:49,219 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 467, code : SFCGAL support not enabled.
+on 467: 2026-08-31 16:28:49,219 - WARNING - Géométrie impossible à corriger FID
+on 468: 2026-08-31 16:28:49,219 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 468, code : SFCGAL support not enabled.
+on 468: 2026-08-31 16:28:49,219 - WARNING - Géométrie impossible à corriger FID
+on 469: 2026-08-31 16:28:49,220 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 469, code : SFCGAL support not enabled.
+on 469: 2026-08-31 16:28:49,220 - WARNING - Géométrie impossible à corriger FID
+on 470: 2026-08-31 16:28:49,221 - ERROR - !!! Geometry in file walls3d, cannot be repaired : FID 470, code : SFCGAL support not enabled.
+on 470: 2026-08-31 16:28:49,221 - WARNING - Géométrie impossible à corriger FID
+2026-08-31 16:28:49,224 - INFO - Conversion GPKG terminée fichier: walls3d, 471 objets convertis
+2026-08-31 16:28:49,224 - WARNING - 471 géométries n'ont pas pu être corrigées
+2026-08-31 16:28:49,229 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/walls3d.gpkg ===================================
+2026-08-31 16:28:49,229 - WARNING - Géométries vides : 471
+2026-08-31 16:28:49,229 - INFO - Géométries invalides : 0 sur  471
+2026-08-31 16:28:49,230 - INFO - =========================================================================================================
+2026-08-31 16:28:49,230 - INFO - Working with file (6/7): stations3d.shp
+2026-08-31 16:28:55,988 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/stations3d.shp ===================================
+2026-08-31 16:28:55,988 - INFO - Géométries invalides : 0 sur  67579
+2026-08-31 16:28:55,999 - INFO - =========================================================================================================
+2026-08-31 16:28:56,006 - INFO - SHP file conversion : stations3d.shp with 67579 objets
+2026-08-31 16:29:03,692 - INFO - Conversion GPKG terminée fichier: stations3d, 67579 objets convertis
+2026-08-31 16:29:03,692 - INFO - Working with file (7/7): shots3d.shp
+2026-08-31 16:29:09,656 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/shots3d.shp ===================================
+2026-08-31 16:29:09,657 - WARNING - Géométries invalides : 4327 sur  66048
+2026-08-31 16:29:09,657 - WARNING - 		Too few points : 4327
+2026-08-31 16:29:09,665 - INFO - =========================================================================================================
+2026-08-31 16:29:09,671 - INFO - SHP file conversion : shots3d.shp with 66048 objets
+2026-08-31 16:29:17,194 - INFO - Conversion GPKG terminée fichier: shots3d, 66048 objets convertis
+2026-08-31 16:29:22,957 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/shots3d.gpkg ===================================
+2026-08-31 16:29:22,957 - INFO - Géométries invalides : 0 sur  66048
+2026-08-31 16:29:22,965 - INFO - =========================================================================================================
+2026-08-31 16:29:22,968 - INFO - Step 2: adapte drawing files (cut it) for QGis in the folder: ~/Outputs/SHP/QGis_GPKG_Files
+2026-08-31 16:29:22,969 - INFO - Clipping file : ~/SHP/QGis_GPKG_Files/lines2d_fixed.gpkg to file : ~/SHP/QGis_GPKG_Files/lines2dMasked.gpkg
+on 100: 2026-08-31 16:29:23,075 - WARNING - Any intersection issue, attributes: _SCRAP_ID=3024, _TYPE=rock-edge, _SCRAP=BB26_meandre_entree, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 4224: 2026-08-31 16:29:24,391 - WARNING - Any intersection issue, attributes: _SCRAP_ID=4226, _TYPE=fault, _SCRAP=SP-Explo_01_2013_10_09_02, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 4225: 2026-08-31 16:29:24,391 - WARNING - Any intersection issue, attributes: _SCRAP_ID=4226, _TYPE=fault, _SCRAP=SP-Explo_01_2013_10_09_02, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 8037: 2026-08-31 16:29:25,830 - WARNING - Any intersection issue, attributes: _SCRAP_ID=33199, _TYPE=rock-border, _SCRAP=SP-AP7_Aval_02, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 8451: 2026-08-31 16:29:26,007 - WARNING - Any intersection issue, attributes: _SCRAP_ID=33046, _TYPE=contour, _SCRAP=SP-AP7_Aval_01, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 10037: 2026-08-31 16:29:26,608 - WARNING - Any intersection issue, attributes: _SCRAP_ID=38882, _TYPE=pit, _SCRAP=SP-B3_Aval_02E, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 12615: 2026-08-31 16:29:27,508 - WARNING - Any intersection issue, attributes: _SCRAP_ID=41256, _TYPE=rock-border, _SCRAP=SP-GL102_Aval_01B, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 21527: 2026-08-31 16:29:30,767 - WARNING - Any intersection issue, attributes: _SCRAP_ID=58879, _TYPE=border, _SCRAP=SP-Explo_12_1982_08_05_01, _CLIP=on, _TAGS=6144, _SUBTYPE=invisible, _SCALE=4, _TEXT=None
+2026-08-31 16:29:38,116 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/lines2dMasked.gpkg ===================================
+2026-08-31 16:29:38,116 - INFO - Géométries invalides : 0 sur  34506
+2026-08-31 16:29:38,119 - INFO - =========================================================================================================
+2026-08-31 16:29:38,120 - WARNING - 8 deleted geometries need to be verified in lines2dMasked.gpkg file
+2026-08-31 16:29:38,126 - INFO - Clipping file : ~/SHP/QGis_GPKG_Files/areas2d_fixed.gpkg to file : ~/SHP/QGis_GPKG_Files/areas2dMasked.gpkg
+2026-08-31 16:29:38,656 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/areas2dMasked.gpkg ===================================
+2026-08-31 16:29:38,656 - INFO - Géométries invalides : 0 sur  490
+2026-08-31 16:29:38,656 - INFO - =========================================================================================================
+2026-08-31 16:29:38,657 - INFO - 490 clipped geometries in areas2d_fixed.gpkg file
+2026-08-31 16:29:38,658 - ERROR - !!! =========================================================================================================
+2026-08-31 16:29:38,658 - ERROR - !!! Execution completed with 472 errors in 63.79 s
+2026-08-31 16:29:38,658 - ERROR - !!! =========================================================================================================
