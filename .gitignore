@@ -1,5 +1,5 @@
 # Ignore files:
-**.log
+# **.log
 **.backup
 .xtherion.dat
 
