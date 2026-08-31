@@ -11,7 +11,8 @@
 			"geopandas",
 			"Ggis",
 			"outputfolder",
-			"Qgis"
+			"Qgis",
+			"TYPEFCR"
 		]
 	}
 }

@@ -5,7 +5,7 @@
 #                                                                                            #                           
 !#############################################################################################
 
-Alex 2026 02 26
+Alex 2026 08 30
 
 """
 import os, logging, sys, re, unicodedata
@@ -14,7 +14,7 @@ from pathlib import Path
 log = logging.getLogger("Logger")
 
 #################################################################################################
-# Couleurs ANSI par niveau de log
+# Couleurs ANSI par niveau de log                                                               #
 #################################################################################################
 COLOR_CODES = {
     logging.DEBUG: "\033[94m",       # Bleu
@@ -26,7 +26,8 @@ COLOR_CODES = {
 RESET = "\033[0m"
 
 #################################################################################################
-# Codes de couleur ANSI
+# Codes de couleur ANSI                                                                         #
+#################################################################################################
 class Colors:
     BLACK = '\033[90m'
     RED = '\033[91m'
@@ -120,14 +121,14 @@ def sanitize_filename(thName):
     return thName or "default_filename"  # Avoid empty result
 
 #################################################################################################
-# Supprime les codes ANSI (pour l'écriture dans les fichiers)
+# Supprime les codes ANSI (pour l'écriture dans les fichiers)                                   #
 #################################################################################################
 def strip_ansi_codes(text):
     ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
     return ansi_escape.sub('', text)
 
 #################################################################################################
-# Formatter pour la console avec couleurs
+# Formatter pour la console avec couleurs                                                       #
 #################################################################################################
 class ConsoleFormatter(logging.Formatter):
     def format(self, record):
@@ -136,7 +137,7 @@ class ConsoleFormatter(logging.Formatter):
         return f"{color}{message}{RESET}"
 
 #################################################################################################
-# Formatter pour le fichier avec "!!!" sur les erreurs
+# Formatter pour le fichier avec "!!!" sur les erreurs                                          #
 #################################################################################################
 class FileFormatter(logging.Formatter):
     def format(self, record):
@@ -156,7 +157,7 @@ class FileFormatter(logging.Formatter):
         return super().format(record_copy)
       
 #################################################################################################
-# Fonction de configuration du logger
+# Fonction de configuration du logger                                                           #
 #################################################################################################
 def setup_logger(logfile="app.log", debug_log=False):
     logger = logging.getLogger("Logger")

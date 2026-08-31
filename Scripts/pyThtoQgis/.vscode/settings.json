@@ -12,6 +12,7 @@
           "Qgis",
           "shapefiles",
           "thconfig",
-          "therion"
+          "therion",
+          "TYPEFCR"
      ]
 }

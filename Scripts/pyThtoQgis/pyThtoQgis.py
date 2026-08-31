@@ -22,13 +22,27 @@ Modifié Alex 2025 01 31
 Modifié Alex 2026 02 27 
 Modifié Alex 2026 08 28
 
-Inputs files (16):  (.dbf, .prj, .shp, .shx)
-    - points2d
-    - lines2d
-    - areas2d
-    - outlines
+Inputs files (28):  (.dbf, .prj, .shp, .shx)
+    - points2d (4)
+    - lines2d (4)
+    - areas2d (4)
+    - outlines (4)
+    - shots3d (4)
+    - stations3d (4)
+    - walls3d (4)
 
-En cas d'erreur corriger manuellement (QGis) la topologie des fichiers 
+Outputs files (8), in QGis_GPKG_Files folder: 
+    - points2d.gpkg
+    - lines2dMasked.gpkg
+    - areas2dMasked.gpkg
+    - outline2d.gpkg
+    - shots3d.gpkg
+    - stations3d.gpkg
+    - walls3d.gpkg
+    - pyThtoQgis.log
+    
+    
+En cas d'erreur (voir log), corriger manuellement avec QGis ou dans therion la topologie des fichiers 
 
 """
 
@@ -42,7 +56,7 @@ from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_he
 
 
 # Import Python modules
-import sys, os, argparse, time, math
+import sys, os, argparse, time, math, logging
 import tkinter as tk
 from tkinter import filedialog
 from osgeo import ogr, gdal
@@ -71,6 +85,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
         # OPEN INPUT
         # -------------------------------------------------
         ds_in = ogr.Open(input_gpkg_path)
+        
         if ds_in is None:
             log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{input_gpkg_path}")
             globalDat.errorCount += 1
@@ -83,6 +98,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
 
         # Vérification présence champ _SCRAP_ID
         idx_scrap = in_defn.GetFieldIndex("_SCRAP_ID")
+        
         if idx_scrap == -1:
             log.error("cutGPKG, field '_SCRAP_ID' not found in input layer.")
             globalDat.errorCount += 1
@@ -92,6 +108,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
         # OPEN OUTLINES
         # -------------------------------------------------
         ds_outline = ogr.Open(outlines_path)
+        
         if ds_outline is None:
             log.error(f"cutGPKG, cannot open file : {Colors.ENDC}{outlines_path}")
             globalDat.errorCount += 1
@@ -101,6 +118,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
         outline_defn = layer_outline.GetLayerDefn()
 
         idx_id = outline_defn.GetFieldIndex("_ID")
+        
         if idx_id == -1:
             log.error("cutGPKG, field '_ID' not found in outlines layer.")
             globalDat.errorCount += 1
@@ -159,7 +177,7 @@ def cutGPKG(input_gpkg_path, outlines_path, output_gpkg_path):
         # -------------------------------------------------
         # PROCESS FEATURES
         # -------------------------------------------------
-        with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Clipping file {Colors.ENDC}", length=20) as bar:
+        with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Clipping file {Colors.ENDC}{safe_relpath(input_gpkg_path)} {Colors.ENDC}", length=20) as bar:
             for feat in layer_in:
 
                 geom = feat.GetGeometryRef()
@@ -350,7 +368,7 @@ def extractVertices(input_gpkg_path, output_gpkg_path):
         # -------------------------------------------------
         layer_in.ResetReading()
 
-        with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Extract vertices {Colors.ENDC}", length=20) as bar:
+        with alive_bar(len(layer_in), title=f"{Colors.YELLOW}Extract vertices {Colors.ENDC}{input_gpkg_path}{Colors.ENDC}", length=20) as bar:
 
             for feat in layer_in:
 
@@ -457,7 +475,11 @@ def diagnostic(file_path):
         has_z = False
         has_m = False
         field_stats = defaultdict(list)
-
+        
+        error_codes = defaultdict(int) 
+        error_types = defaultdict(int) 
+        error_messages = defaultdict(int)
+        
         extent = layer.GetExtent()
         srs = layer.GetSpatialRef()
         crs = srs.ExportToWkt() if srs else "CRS inconnu"
@@ -476,6 +498,10 @@ def diagnostic(file_path):
 
             if not geom.IsValid():
                 invalid += 1
+                code, error_type, error_msg = get_geometry_error(geom)
+                error_codes[code] += 1
+                error_types[error_type] += 1
+                error_messages[error_msg] += 1
 
             gtype = geom.GetGeometryType()
 
@@ -497,41 +523,53 @@ def diagnostic(file_path):
         elapsed = time.time() - start_time
         file_size = os.path.getsize(file_path) / (1024*1024)  # Mo
 
-        log.info(f"==================== BILAN FILE : {Colors.ENDC}{safe_relpath(file_path)}{Colors.INFO} ====================")
-        log.debug(f"Temps d'analyse : {Colors.ENDC}{elapsed:.2f}{Colors.INFO} s")
-        log.debug(f"Taille : {Colors.ENDC}{file_size:.2f}{Colors.INFO} Mo")
+        log.info(f"==================== BILAN FILE: {Colors.ENDC}{safe_relpath(file_path)}{Colors.INFO} ===================================")
+        log.debug(f"Temps d'analyse : {Colors.ENDC}{elapsed:.2f}{Colors.DEBUG} s")
+        log.debug(f"Taille : {Colors.ENDC}{file_size:.2f}{Colors.DEBUG} Mo")
         log.debug(f"Nombre d'objets :  {Colors.ENDC}{total}")
         
-        if empty == 0 : log.debug(f"Géométries vides : {Colors.ENDC}{empty}")
-        else :  log.warning(f"Géométries vides : {Colors.ENDC}{empty}")
+        if empty == 0 : 
+            log.debug(f"Géométries vides : {Colors.ENDC}{empty}")
+        else :  
+            log.warning(f"Géométries vides : {Colors.ENDC}{empty}")
         
-        if invalid == 0 : log.debug(f"Géométries invalides : {Colors.ENDC}{invalid}")
-        else : log.warning(f"Géométries invalides : {Colors.ENDC}{invalid}")
+        if invalid == 0 : 
+            log.info(f"Géométries invalides : {Colors.ENDC}{invalid}")
+        else : 
+            log.warning(f"Géométries invalides : {Colors.ENDC}{invalid}")
+            # for code, count in sorted( error_codes.items(), key=lambda item: item[1], reverse=True ): 
+            #     log.warning( f"\t\t{Colors.ENDC}{str(code):<20}{Colors.WARNING}: {Colors.ENDC}{count}" )
+            for error, count in sorted( error_types.items(), key=lambda item: item[1], reverse=True ): 
+                log.warning( f"\t\t{Colors.ENDC}{error}{Colors.WARNING} : {Colors.ENDC}{count}" )
         
         log.debug(f"MultiGeometries / Collections : {Colors.ENDC}{multi_geom_count}")
         
         log.debug("Types géométriques :")
         for gtype, count in geom_types.items():
-            log.debug(f"\t{gtype} : {Colors.ENDC}{count}")
+            log.debug(f"\t\t{gtype} : {Colors.ENDC}{count}")
 
         log.debug("Bounding box :")
-        log.debug(f"\txmin = {Colors.ENDC}{extent[0]}")
-        log.debug(f"\txmax = {Colors.ENDC}{extent[1]}")
-        log.debug(f"\tymin = {Colors.ENDC}{extent[2]}")
-        log.debug(f"\tymax = {Colors.ENDC}{extent[3]}")
-
+        log.debug(f"\t\txmin = {Colors.ENDC}{extent[0]:>8.3f}{Colors.DEBUG}\txmax = {Colors.ENDC}{extent[1]:>8.3f}")
+        log.debug(f"\t\tymin = {Colors.ENDC}{extent[2]:>8.3f}{Colors.DEBUG}\tymax = {Colors.ENDC}{extent[3]:>8.3f}")
 
         log.debug(f"CRS : {Colors.ENDC}{crs}")
 
-        log.debug("Dimensions :")
-        log.debug(f"\tZ présent : {Colors.ENDC}{has_z}")
-        log.debug(f"\tM présent : {Colors.ENDC}{has_m}")
+        log.debug(f"Dimensions, Z présent : {Colors.ENDC}{has_z}{Colors.DEBUG}\tM présent : {Colors.ENDC}{has_m}")
         
         log.debug("Champs attributaires :")
         
         for field, values in field_stats.items():
             unique_count = len(set(values))
-            log.debug(f"\tchamp : {Colors.ENDC}{field}{Colors.DEBUG} : {Colors.ENDC}{len(values)}{Colors.DEBUG} valeurs, {Colors.ENDC}{unique_count}{Colors.DEBUG} uniques")
+            # log.debug(f"\t\t{Colors.ENDC}{field}{Colors.DEBUG}\t\t: {Colors.ENDC}{len(values)}{Colors.DEBUG} valeurs,\t\t{Colors.ENDC}{unique_count}{Colors.DEBUG} uniques")
+            # Définir une largeur fixe pour les noms de champs (par exemple 20 caractères)
+            field_width = 20
+            number_width = 10
+
+            log.debug(
+                f"\t\t{Colors.ENDC}{field:<{field_width}}{Colors.DEBUG}: "
+                f"{Colors.ENDC}{len(values):>{number_width}}{Colors.DEBUG} valeurs, "
+                f"{Colors.ENDC}{unique_count:>{number_width}}{Colors.DEBUG} uniques"
+            )
 
         log.info(f"=========================================================================================================")
 
@@ -542,10 +580,99 @@ def diagnostic(file_path):
     except RuntimeError as e:
         log.error(f"diagnostic, unable to validate geometry: {e}, continuing anyway.")
         globalDat.errorCount += 1
+
+#################################################################################################
+def get_geometry_error(geom):
+    """
+    Analyse la validité d'une géométrie OGR.
+
+    Retourne :
+        code       : code d'erreur entier fourni par GDAL/OGR
+        error_type : type d'erreur normalisé
+        error_msg  : message complet retourné par GEOS/OGR
+    """
+
+    if geom is None:
+        return ( -1, "Null geometry", "Geometry is None" )
+
+    if geom.IsEmpty():
+        return ( -1, "Empty geometry", "Geometry is empty" )
+        
+    # ------------------------------------------------------------------
+    # GEOMETRYCOLLECTION / MULTI*
+    # ------------------------------------------------------------------
+
+    geom_name = geom.GetGeometryName().upper()
+
+    if geom_name == "GEOMETRYCOLLECTION":
+        return -2, "Not supported", "Geometry not checked (GEOMETRYCOLLECTION)"
+
+    error_messages = []
+
+    def error_handler(err_class, err_no, message):
+        error_messages.append((err_no, message))
+
+    # Intercepte les messages GDAL/GEOS
+    gdal.PushErrorHandler(error_handler)
+
+    try:
+        valid = geom.IsValid()
+        
+    finally:
+        gdal.PopErrorHandler()
+
+    # Géométrie valide
+    if valid:
+        return (
+            0,
+            "Valid",
+            "Geometry is valid"
+        )
+
+    # Récupération du code et du message GEOS
+    if error_messages:
+        code, error_msg = error_messages[0]
+    
+    else:
+        code = -1
+        error_msg = "Invalid geometry"
+
+    # Normalisation du type d'erreur
+    msg = error_msg.lower()
+
+    if "ring self-intersection" in msg:
+        error_type = "Ring self-intersection"
+
+    elif "self-intersection" in msg:
+        error_type = "Self-intersection"
+
+    elif "hole lies outside shell" in msg:
+        error_type = "Hole lies outside shell"
+
+    elif "nested shells" in msg:
+        error_type = "Nested shells"
+
+    elif "too few points" in msg:
+        error_type = "Too few points"
+
+    elif "duplicate rings" in msg:
+        error_type = "Duplicate rings"
+
+    elif "invalid coordinate" in msg:
+        error_type = "Invalid coordinate"
+
+    else:
+        error_type = f"Unknown ({code})"
+
+    return code, error_type, error_msg
         
 #################################################################################################
-def fix_geometry(geom, GetFID):
+def fix_geometry(feature, infile, layer_defn):
+    
     try:
+        geom = feature.GetGeometryRef()
+        GetFID = feature.GetFID()
+        
         if geom is None:
             return None
 
@@ -555,41 +682,80 @@ def fix_geometry(geom, GetFID):
                 
         # geom = geom.RemoveDuplicatePoints()  # supprime points dupliqués
 
-       
         if not geom.IsValid():  # corrige topologie
-            log.error(f"Invalid geometry FID {Colors.ENDC}{GetFID}{Colors.WARNING}")
-            globalDat.errorCount += 1
+            geom_type = geom.GetGeometryName() if geom else "None"
+            
+            code, error_type, error_msg = get_geometry_error(geom)
+            
+            # Récupérer les attributs de l'objet
+            attrs = []
+            for i in range(layer_defn.GetFieldCount()):
+                field_name = layer_defn.GetFieldDefn(i).GetNameRef()
+                field_value = feature.GetField(i)
+                attrs.append(f"{Colors.ENDC}{field_name}{Colors.ERROR}={Colors.ENDC}{field_value}{Colors.ERROR}")                
+          
+            attrs_formatted = ', '.join(attrs)
+            
+            if error_type == "Too few points" :
+                log.debug(
+                    f"geometry in file : {Colors.ENDC}{infile}{Colors.DEBUG}, "
+                    f"geometry type: {Colors.ENDC}{geom_type}{Colors.DEBUG}, "
+                    f"FID: {Colors.ENDC}{GetFID}{Colors.DEBUG}, "
+                    f"message code: {Colors.ENDC}{code}{Colors.DEBUG}, {Colors.ENDC}{error_msg}{Colors.DEBUG}, "
+                    # f"attributes: {Colors.ENDC}{attrs_formatted}{Colors.DEBUG}"
+                )
+            
+            elif error_type == "Not supported" :
+                log.debug(
+                    f"geometry in file : {Colors.ENDC}{infile}{Colors.DEBUG}, "
+                    f"geometry type: {Colors.ENDC}{geom_type}{Colors.DEBUG}, "
+                    f"FID: {Colors.ENDC}{GetFID}{Colors.DEBUG}, "
+                    f"message code: {Colors.ENDC}{code}{Colors.DEBUG}, {Colors.ENDC}{error_msg}{Colors.DEBUG}, "
+                    # f"attributes: {Colors.ENDC}{attrs_formatted}{Colors.DEBUG}"
+                )
+                
+            else : 
+                error_info = (
+                    f"invalid geometry in file : {Colors.ENDC}{infile}{Colors.ERROR}, "
+                    f"geometry type: {Colors.ENDC}{geom_type}{Colors.ERROR}, "
+                    f"FID: {Colors.ENDC}{GetFID}{Colors.ERROR}, "
+                    f"message code: {Colors.ENDC}{code}{Colors.ERROR}, {Colors.ENDC}{error_msg}{Colors.ERROR}, "
+                    f"attributes: {Colors.ENDC}{attrs_formatted}{Colors.ERROR}"
+                )
+                log.error(f"{error_info}")
+                globalDat.geometryErrors.append(error_info)
+                globalDat.errorCount += 1
+
             geom = geom.MakeValid()
             if not geom.IsValid():
                 return None
 
         if geom is None or geom.IsEmpty(): # supprime géométries vides
-            log.warning(f"Empty geometry removed FID {Colors.ENDC}{GetFID}{Colors.WARNING}")
+            log.warning(f"Empty geometry removed FID {Colors.ENDC}{GetFID}")
             return None
 
         gtype = geom.GetGeometryType()
 
         if gtype in (ogr.wkbLineString, ogr.wkbLineString25D):
             if geom.GetPointCount() < 2:
-                log.warning(f"Line geometry removed, insufficient number of points < 2 {Colors.ENDC}{GetFID}{Colors.WARNING}")
+                log.warning(f"Line geometry removed, insufficient number of points < 2 {Colors.ENDC}{GetFID}")
                 return None
 
         if gtype == ogr.wkbPolygon:
             ring = geom.GetGeometryRef(0)
             if ring is None or ring.GetPointCount() < 4:
-                log.warning(f"Polygon geometry removed, insufficient number of points < 4 {Colors.ENDC}{GetFID}{Colors.WARNING}")
+                log.warning(f"Polygon geometry removed, insufficient number of points < 4 {Colors.ENDC}{GetFID}")
                 return None
 
         return geom
 
     except Exception as e:
-        log.error(f"Geometry cannot be repaired, FID {Colors.ENDC}{GetFID}{Colors.ERROR} code : {Colors.ENDC}{e}")
+        log.error(f"Geometry in file {Colors.ENDC}{infile}{Colors.ERROR}, cannot be repaired : FID {Colors.ENDC}{GetFID}{Colors.ERROR}, code : {Colors.ENDC}{e}")
         globalDat.errorCount += 1
         return None
 
 #################################################################################################
 def shp2gpkg(pathshp, infile, outputspath, outfile):
-
     """
     Conversion rapide SHP -> GPKG.
 
@@ -604,7 +770,7 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
     input_shp = os.path.join(pathshp, infile + ".shp")
     output_gpkg = os.path.join(outputspath, outfile + ".gpkg")
     
-    geom_stats = defaultdict(int)
+    # geom_stats = defaultdict(int)
 
     try:        
 
@@ -616,6 +782,7 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
 
         # ouverture SHP
         ds = ogr.Open(input_shp)
+        
         if ds is None:
             log.error(f"shp2gpkg, impossible d'ouvrir le SHP : {Colors.ENDC}{input_shp}")
             globalDat.errorCount += 1
@@ -652,10 +819,10 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
         
         log.info(f"SHP file conversion : {Colors.ENDC}{infile}.shp{Colors.INFO} with {Colors.ENDC}{total_count}{Colors.INFO} objets")
 
-        with alive_bar(len(layer), title=f"{Colors.YELLOW}Conversion SHP file to GPKG {Colors.ENDC}" ,  length = 20) as bar:
+        with alive_bar(len(layer), title=f"{Colors.YELLOW}Conversion SHP file {Colors.ENDC}{infile}{Colors.YELLOW} to GPKG {Colors.ENDC}" ,  length = 20) as bar:
             for feature in layer:
 
-                geom = fix_geometry(feature.GetGeometryRef(), feature.GetFID() )
+                geom = fix_geometry(feature, infile, layer_defn)
                 
                 if geom is None : 
                     log.warning(f"Géométrie impossible à corriger FID")
@@ -683,6 +850,7 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
                 if feature_count % 10000 == 0:
                     out_layer.CommitTransaction()
                     out_layer.StartTransaction()
+                
                 bar()
 
         out_layer.CommitTransaction()
@@ -699,12 +867,13 @@ def shp2gpkg(pathshp, infile, outputspath, outfile):
         
 
         if error_count > 0: log.warning(f"{Colors.ENDC}{error_count}{Colors.WARNING} géométries n'ont pas pu être corrigées")
+        
         if (total_count - feature_count) > 0 : log.warning(f"{Colors.ENDC}{total_count - feature_count}{Colors.WARNING} géométries supprimées") 
 
     except Exception as e:
 
         if log:
-            log.error(f"Error in conversion SHP to GPKG : {e}")
+            log.error(f"Error in conversion file {infile} SHP to GPKG : {e}")
             globalDat.errorCount += 1
 
         raise
@@ -847,10 +1016,13 @@ def ThtoQGis(pathshp, outputspath):
     file_list = ['points2d', 'lines2d', 'outline2d', 'areas2d', 'walls3d', 'stations3d', 'shots3d']
     dest_list = ['points2d', 'outline2d', 'walls3d', 'stations3d', 'shots3d']
         
-    log.info(f"{Colors.HEADER}{Colors.UNDERLINE}Step 1: Test files and convert to GPKG format in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
+    log.info(f"{Colors.HEADER}{Colors.UNDERLINE}Step 1: test files and convert to GPKG format in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
+    
+    count = 0
     
     for fname in file_list:
-        log.info(f"Working with file: {Colors.ENDC}{fname}.shp")
+        count+= 1
+        log.info(f"Working with file ({Colors.ENDC}{count}/{len(file_list)}{Colors.INFO}): {Colors.ENDC}{fname}.shp")
         
         file = os.path.join(pathshp, fname + '.shp')
         
@@ -859,16 +1031,18 @@ def ThtoQGis(pathshp, outputspath):
             globalDat.errorCount += 1
             continue    
                    
-        diagnostic(file)
+        err = diagnostic(file)
         
         if fname in dest_list :
             destinationName = fname 
+        
         else :
             destinationName = fname +  '_fixed'
             
         shp2gpkg(pathshp, fname, outputspath,  destinationName) 
         
-        err = diagnostic(os.path.join(outputspath,destinationName + '.gpkg'))
+        if err != 0 :
+            err = diagnostic(os.path.join(outputspath,destinationName + '.gpkg'))
 
         if err != 0 : 
             log.error(f"ERROR: in file {Colors.ENDC}{(str(outputspath + destinationName + '.gpkg'))} {Colors.ERROR} please fix it manually with QGis...")
@@ -876,28 +1050,37 @@ def ThtoQGis(pathshp, outputspath):
             return False
 
 
-    log.info(f"{Colors.HEADER}{Colors.UNDERLINE}Step 2: Adapte drawing files for QGis in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
+    log.info(f"{Colors.HEADER}{Colors.UNDERLINE}Step 2: adapte drawing files (cut it) for QGis in the folder:{Colors.ENDC} {safe_relpath(outputspath)}")
     
     ## Work with lines
-    cutGPKG(os.path.join(outputspath,'lines2d_fixed.gpkg'),os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'lines2dMasked.gpkg'))     
+    file_path = os.path.join(outputspath, 'lines2d_fixed.gpkg')
+    cutGPKG(file_path, os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'lines2dMasked.gpkg'))     
     diagnostic(os.path.join(outputspath,'lines2dMasked.gpkg'))
+    
+    if os.path.exists(file_path):
+        os.remove(file_path)
           
-    ## Work with Areas        
-    cutGPKG(os.path.join(outputspath, 'areas2d_fixed.gpkg'), os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'areas2dMasked.gpkg'))    
+    ## Work with Areas  
+    file_path = os.path.join(outputspath, 'areas2d_fixed.gpkg')      
+    cutGPKG(file_path, os.path.join(outputspath,'outline2d.gpkg'), os.path.join(outputspath,'areas2dMasked.gpkg'))    
     diagnostic(os.path.join(outputspath,'areas2dMasked.gpkg'))    
     
-    ## Work with Points 'add altitudes' 
-    extractVertices(os.path.join(outputspath,'lines2dMasked.gpkg'), os.path.join(outputspath,'points2d.gpkg'))
-    diagnostic(os.path.join(outputspath,'points2d.gpkg')) 
+    if os.path.exists(file_path):
+        os.remove(file_path)
     
-  
+    ## Work with Points 'add altitudes' 
+    # extractVertices(os.path.join(outputspath,'lines2dMasked.gpkg'), os.path.join(outputspath,'points2d.gpkg'))
+    # diagnostic(os.path.join(outputspath,'points2d.gpkg')) 
+    
+   
+
 #####################################################################################################################################
 #                                                                                                                                   #
 #                                                           Main                                                                    #
 #                                                                                                                                   #
 #####################################################################################################################################
 if __name__ == u'__main__':	
-	###################################################
+	#################################################################################################
     ogr.UseExceptions()
     gdal.UseExceptions()
     gdal.PushErrorHandler("CPLQuietErrorHandler")
@@ -951,7 +1134,7 @@ if __name__ == u'__main__':
     elif os.name == 'nt':  os.system('cls')# Windows
     else: print("\n" * 100) 
     
-    
+    #################################################################################################
     if args.folder :
         
         input_folder =  os.path.normpath(args.folder)
@@ -976,6 +1159,7 @@ if __name__ == u'__main__':
         log.info(f'{Colors.HEADER}        commande line mode')
         log.info(f'{Colors.HEADER}        input folder :  {Colors.ENDC}{safe_relpath(input_folder)}')
         log.info(f'{Colors.HEADER}        output folder : {Colors.ENDC}{safe_relpath(output_folder)}')
+        log.info(f'{Colors.HEADER}        log file      : {Colors.ENDC}{safe_relpath(next((h.baseFilename for h in log.handlers if isinstance(h, logging.FileHandler)), None))}')
         log.info(f'{Colors.HEADER}*********************************************************************************************************')
         
         ThtoQGis(input_folder, output_folder)
@@ -1095,12 +1279,18 @@ if __name__ == u'__main__':
         # fname = "walls3d"
         # shp2gpkg(globalDat.pathshp, fname , globalDat.outputspath, fname)
         
-
-if globalDat.errorCount == 0 :              
+#################################################################################################
+if globalDat.errorCount == 0 : 
+    log.info(f"{Colors.HEADER}=========================================================================================================")             
     log.info(f'Execution completed without errors')
+    log.info(f"{Colors.HEADER}=========================================================================================================")
+
 else :
-    log.error(f'Execution completed with  {Colors.ENDC}{globalDat.errorCount}{Colors.ERROR} errors')
-    
+    log.error(f"{Colors.HEADER}=========================================================================================================")
+    log.error(f"Execution completed with {Colors.ENDC}{globalDat.errorCount}{Colors.ERROR} errors")
+    for i, error in enumerate(globalDat.geometryErrors, start=1):
+        log.error(f"{error}")
+    log.error(f"{Colors.HEADER}=========================================================================================================")
 
             
 
