@@ -293,11 +293,8 @@ jobs:
           print()
           print("SFCGAL accessible par OGR : OK")
 
-          PY
-
-
-      # ============================================================
-      # 12. Création du package GDAL
+          PY      # ============================================================
+      # 12. Création du package GDAL + SFCGAL
       # ============================================================
 
       - name: Create GDAL package
@@ -318,54 +315,117 @@ jobs:
           echo "========================================"
 
 
-          # --------------------------------------------------------
+          # ========================================================
+          # Structure du package
+          # ========================================================
+
+          mkdir -p "$PACKAGE_DIR/bin"
+          mkdir -p "$PACKAGE_DIR/lib"
+          mkdir -p "$PACKAGE_DIR/lib/python3.12/site-packages"
+          mkdir -p "$PACKAGE_DIR/share"
+
+
+          # ========================================================
           # GDAL executables
-          # --------------------------------------------------------
+          # ========================================================
 
-          cp -a \
-            "$CONDA_PREFIX"/bin/gdal* \
-            "$PACKAGE_DIR/"
+          echo "Copie des exécutables GDAL..."
+
+          find "$CONDA_PREFIX/bin" \
+            -maxdepth 1 \
+            -type f \
+            -name "gdal*" \
+            -exec cp -a {} "$PACKAGE_DIR/bin/" \;
 
 
-          # --------------------------------------------------------
+          # ========================================================
           # GDAL library
-          # --------------------------------------------------------
+          # ========================================================
+
+          echo "Copie de libgdal..."
 
           cp -a \
             "$CONDA_PREFIX"/lib/libgdal.so* \
-            "$PACKAGE_DIR/"
+            "$PACKAGE_DIR/lib/"
 
 
-          # --------------------------------------------------------
+          # ========================================================
           # Python bindings
-          # --------------------------------------------------------
+          # ========================================================
+
+          echo "Copie des bindings Python..."
+
+          if [ ! -d "$CONDA_PREFIX/lib/python3.12/site-packages/osgeo" ]; then
+
+              echo "ERREUR : bindings Python osgeo absents"
+
+              find "$CONDA_PREFIX/lib" \
+                -maxdepth 4 \
+                -type d \
+                -name osgeo \
+                -print
+
+              exit 1
+
+          fi
+
 
           cp -a \
-            "$CONDA_PREFIX"/lib/python${PYTHON_VERSION}/site-packages/osgeo \
-            "$PACKAGE_DIR/"
+            "$CONDA_PREFIX/lib/python3.12/site-packages/osgeo" \
+            "$PACKAGE_DIR/lib/python3.12/site-packages/"
 
 
-          # --------------------------------------------------------
-          # GDAL headers
-          # --------------------------------------------------------
-
-          cp -a \
-            "$CONDA_PREFIX"/include/gdal \
-            "$PACKAGE_DIR/"
-
-
-          # --------------------------------------------------------
+          # ========================================================
           # GDAL data
-          # --------------------------------------------------------
+          # ========================================================
 
-          cp -a \
-            "$CONDA_PREFIX"/share/gdal \
-            "$PACKAGE_DIR/"
+          echo "Recherche des données GDAL..."
+
+          if [ -d "$CONDA_PREFIX/share/gdal" ]; then
+
+              cp -a \
+                "$CONDA_PREFIX/share/gdal" \
+                "$PACKAGE_DIR/share/"
+
+          else
+
+              echo "ATTENTION : share/gdal absent"
+
+          fi
 
 
-          # --------------------------------------------------------
-          # Informations package
-          # --------------------------------------------------------
+          # ========================================================
+          # Bibliothèques SFCGAL
+          # ========================================================
+
+          echo "Copie des bibliothèques SFCGAL..."
+
+          find "$CONDA_PREFIX/lib" \
+            -maxdepth 1 \
+            \( \
+              -name "libSFCGAL.so*" \
+            \) \
+            -exec cp -a {} "$PACKAGE_DIR/lib/" \;
+
+
+          # ========================================================
+          # Bibliothèques GEOS
+          # ========================================================
+
+          echo "Copie des bibliothèques GEOS..."
+
+          find "$CONDA_PREFIX/lib" \
+            -maxdepth 1 \
+            \( \
+              -name "libgeos.so*" \
+              -o -name "libgeos_c.so*" \
+            \) \
+            -exec cp -a {} "$PACKAGE_DIR/lib/" \;
+
+
+          # ========================================================
+          # Informations
+          # ========================================================
 
           cat > "$PACKAGE_DIR/VERSION.txt" <<EOF
           GDAL=${GDAL_VERSION}
@@ -373,19 +433,40 @@ jobs:
           GEOS=${GEOS_VERSION}
           Python=${PYTHON_VERSION}
           OS=ubuntu-24.04
-          Build=GDAL_USE_SFCGAL=ON
+
+          GDAL_USE_SFCGAL=ON
+          GDAL_USE_GEOS=ON
           EOF
 
 
+          # ========================================================
+          # Affichage
+          # ========================================================
+
           echo ""
-          echo "Contenu :"
+          echo "========================================"
+          echo "Contenu du package"
+          echo "========================================"
 
-          find "$PACKAGE_DIR" -maxdepth 2 -type f | sort
+          find "$PACKAGE_DIR" \
+            -maxdepth 5 \
+            -type f \
+            | sort
 
 
-          # --------------------------------------------------------
+          # ========================================================
+          # Taille
+          # ========================================================
+
+          echo ""
+          echo "Taille :"
+
+          du -sh "$PACKAGE_DIR"
+
+
+          # ========================================================
           # Compression
-          # --------------------------------------------------------
+          # ========================================================
 
           cd "$RUNNER_TEMP"
 
@@ -396,7 +477,9 @@ jobs:
 
 
           echo ""
-          echo "Package créé :"
+          echo "========================================"
+          echo "Package créé"
+          echo "========================================"
 
           ls -lh \
             "${PACKAGE_NAME}.tar.gz"
@@ -405,6 +488,9 @@ jobs:
           echo \
             "PACKAGE_NAME=${PACKAGE_NAME}" \
             >> "$GITHUB_ENV"
+
+
+
 
 
       # ============================================================
