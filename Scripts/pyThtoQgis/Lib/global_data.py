@@ -22,4 +22,4 @@ output_log = ".\\" + file_log
 errorCount = 0
 geometryErrors = []
 
-debug_log = False
+debug_log = True
