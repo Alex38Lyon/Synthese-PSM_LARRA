@@ -2,17 +2,25 @@ name: pyThtoQgis-2
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'Outputs/SHP/*.shp'
 
-  # Permet de lancer l'action manuellement
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: pyThtoQgis
+  cancel-in-progress: false
+
+
 jobs:
-  build:
+
+  pyThtoQgis:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -20,17 +28,72 @@ jobs:
       # ============================================================
       # 1. Récupération du dépôt
       # ============================================================
-      - name: Checkout
+
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
 
       # ============================================================
-      # 2. Installation de Micromamba
+      # 2. Vérification du type de modification
+      #
+      # Le workflow est déclenché par *.shp mais GitHub déclenche
+      # également l'action lorsqu'un SHP est supprimé.
+      #
+      # On ne continue que si au moins un SHP a été AJOUTÉ ou MODIFIÉ.
       # ============================================================
+
+      - name: Check SHP changes
+        id: changed
+        shell: bash
+        run: |
+
+          echo "========================================"
+          echo "Recherche des SHP ajoutés/modifiés"
+          echo "========================================"
+
+          SHP_FILES=$(git diff-tree \
+            --no-commit-id \
+            --name-only \
+            --diff-filter=AM \
+            -r \
+            "$GITHUB_SHA" \
+            -- 'Outputs/SHP/*.shp')
+
+          echo "Fichiers SHP ajoutés/modifiés :"
+          echo "$SHP_FILES"
+
+          if [ -n "$SHP_FILES" ]; then
+              echo "shp=true" >> "$GITHUB_OUTPUT"
+          else
+              echo "shp=false" >> "$GITHUB_OUTPUT"
+          fi
+
+
+      # ============================================================
+      # 3. Arrêt si aucun SHP ajouté/modifié
+      # ============================================================
+
+      - name: Stop if no SHP added or modified
+        if: steps.changed.outputs.shp != 'true'
+        shell: bash
+        run: |
+
+          echo "Aucun fichier SHP ajouté ou modifié."
+          echo "Le workflow s'arrête."
+
+
+      # ============================================================
+      # 4. Installation de Micromamba
+      # ============================================================
+
       - name: Setup Micromamba
+        if: steps.changed.outputs.shp == 'true'
         uses: mamba-org/setup-micromamba@v2
         with:
           environment-name: pyThtoQgis
+
           create-args: >-
             python=3.12
             numpy
@@ -48,15 +111,19 @@ jobs:
             cmake
             ninja
             pkg-config
+
           init-shell: bash
+
           cache-environment: true
           cache-downloads: true
 
 
       # ============================================================
-      # 3. Informations environnement
+      # 5. Informations environnement
       # ============================================================
+
       - name: Environment information
+        if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
         run: |
 
@@ -73,14 +140,20 @@ jobs:
 
           echo "CONDA_PREFIX=$CONDA_PREFIX"
 
+          echo "========================================"
+          echo "Packages"
+          echo "========================================"
+
           conda list | grep -E \
-            "python|numpy|gdal|geos|sfcgal|proj|sqlite"
+            "python|numpy|gdal|geos|sfcgal|proj|sqlite|cmake"
 
 
       # ============================================================
-      # 4. Vérification SFCGAL
+      # 6. Vérification SFCGAL
       # ============================================================
+
       - name: Check SFCGAL
+        if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
         run: |
 
@@ -90,6 +163,7 @@ jobs:
 
           sfcgal-config --version || true
 
+          echo ""
           echo "Bibliothèques SFCGAL :"
 
           find "$CONDA_PREFIX" \
@@ -98,9 +172,11 @@ jobs:
 
 
       # ============================================================
-      # 5. Compilation de GDAL
+      # 7. Compilation de GDAL avec SFCGAL
       # ============================================================
+
       - name: Build GDAL with SFCGAL
+        if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
         run: |
 
@@ -125,9 +201,9 @@ jobs:
           cd build
 
 
-          # --------------------------------------------------------
-          # CMake
-          # --------------------------------------------------------
+          echo "========================================"
+          echo "Configuration CMake"
+          echo "========================================"
 
           cmake .. \
             -GNinja \
@@ -148,28 +224,25 @@ jobs:
 
 
           echo "========================================"
-          echo "Configuration CMake terminée"
+          echo "Compilation"
           echo "========================================"
-
-
-          # --------------------------------------------------------
-          # Compilation
-          # --------------------------------------------------------
 
           ninja -j"$(nproc)"
 
 
-          # --------------------------------------------------------
-          # Installation dans Conda
-          # --------------------------------------------------------
+          echo "========================================"
+          echo "Installation"
+          echo "========================================"
 
           ninja install
 
 
       # ============================================================
-      # 6. Vérification de GDAL installé
+      # 8. Vérification GDAL
       # ============================================================
+
       - name: Check GDAL
+        if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
         run: |
 
@@ -178,24 +251,30 @@ jobs:
           echo "========================================"
 
           which gdalinfo
+
           gdalinfo --version
 
           echo ""
           echo "GDAL Python :"
 
           python - <<'PY'
+
           from osgeo import gdal
 
           print(gdal.VersionInfo("--version"))
+
           print()
           print(gdal.VersionInfo("--build-info"))
+
           PY
 
 
       # ============================================================
-      # 7. Vérification liaison SFCGAL
+      # 9. Vérification liaison GDAL / SFCGAL / GEOS
       # ============================================================
+
       - name: Check GDAL SFCGAL linkage
+        if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
         run: |
 
@@ -203,6 +282,7 @@ jobs:
           echo "GDAL / SFCGAL linkage"
           echo "========================================"
 
+          echo ""
           echo "libgdal :"
 
           find "$CONDA_PREFIX/lib" \
@@ -211,16 +291,18 @@ jobs:
             -print
 
           echo ""
-          echo "Dépendances :"
+          echo "Dépendances libgdal :"
 
           ldd "$CONDA_PREFIX/lib/libgdal.so" \
             | grep -Ei "sfcgal|geos" || true
 
 
       # ============================================================
-      # 8. Test OGR / SFCGAL
+      # 10. Test SFCGAL via OGR
       # ============================================================
+
       - name: Test SFCGAL via OGR
+        if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
         run: |
 
@@ -236,7 +318,7 @@ jobs:
           print("GDAL :", gdal.VersionInfo("--version"))
 
           # --------------------------------------------------------
-          # Géométrie PolyhedralSurface Z
+          # Création d'une géométrie 3D
           # --------------------------------------------------------
 
           wkt = """
@@ -259,6 +341,7 @@ jobs:
               )
 
           print("Type :", geom.GetGeometryName())
+
           print(
               "Geometry type :",
               geom.GetGeometryType()
@@ -266,7 +349,9 @@ jobs:
 
           print(
               "Has Z :",
-              ogr.GT_HasZ(geom.GetGeometryType())
+              ogr.GT_HasZ(
+                  geom.GetGeometryType()
+              )
           )
 
           try:
@@ -288,13 +373,15 @@ jobs:
               raise
 
           print()
-          print("Test terminé.")
+          print("Test SFCGAL terminé avec succès.")
 
 
       # ============================================================
-      # 9. Installation des dépendances Python
+      # 11. Installation des dépendances Python du projet
       # ============================================================
+
       - name: Install Python dependencies
+        if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
         run: |
 
@@ -305,46 +392,76 @@ jobs:
 
 
       # ============================================================
-      # 10. Test pyThtoQgis
+      # 12. Affichage des SHP à traiter
       # ============================================================
-      - name: Test pyThtoQgis
+
+      - name: List SHP input files
+        if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
         run: |
 
           echo "========================================"
-          echo "pyThtoQgis"
+          echo "Fichiers SHP"
           echo "========================================"
 
-          python pyThtoQgis.py --folder "../../Outputs/SHP/"
+          find Outputs/SHP \
+            -maxdepth 1 \
+            -type f \
+            -name "*.shp" \
+            -print
 
-      
-      # ------------------------------------------------------------
-      # Vérification des fichiers générés
-      # ------------------------------------------------------------
-      - name: Check generated files
+
+      # ============================================================
+      # 13. Exécution de pyThtoQgis
+      # ============================================================
+
+      - name: Run pyThtoQgis
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
         run: |
+
           echo "========================================"
-          echo "GPKG et logs générés"
+          echo "Exécution pyThtoQgis"
           echo "========================================"
 
-          find Outputs -type f \( \
-            -name "*.gpkg" -o \
-            -name "pyThtoQgis.log" \
-          \) -print
+          cd Scripts/pyThtoQgis
 
-          echo
+          python pyThtoQgis.py \
+            --folder "../../Outputs/SHP/"
+
+
+      # ============================================================
+      # 14. Affichage des fichiers produits
+      # ============================================================
+
+      - name: Show generated files
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash
+        run: |
+
           echo "========================================"
-          echo "Statut Git"
+          echo "Fichiers générés / modifiés"
           echo "========================================"
 
           git status --short
 
-      # ------------------------------------------------------------
-      # Commit des résultats
-      # ------------------------------------------------------------
+          echo ""
+          echo "========================================"
+          echo "Différence Git"
+          echo "========================================"
+
+          git diff --stat
+
+
+      # ============================================================
+      # 15. Commit des fichiers produits
+      # ============================================================
+
       - name: Commit generated files
+        if: steps.changed.outputs.shp == 'true'
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          commit_message: "Auto-run pyThtoQgis"
-          file_pattern: 'Outputs/**/*.gpkg Outputs/**/pyThtoQgis.log'
-
+          commit_message: "Auto-generate outputs from SHP"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
