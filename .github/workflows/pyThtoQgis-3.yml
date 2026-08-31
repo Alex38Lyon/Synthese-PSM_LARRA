@@ -1,0 +1,515 @@
+name: pyThtoQgis
+
+on:
+
+  push:
+    branches:
+      - main
+
+    paths:
+      - 'Outputs/SHP/*.shp'
+
+  workflow_dispatch:
+
+
+permissions:
+  contents: write
+
+
+concurrency:
+  group: pyThtoQgis
+  cancel-in-progress: false
+
+
+jobs:
+
+  pyThtoQgis:
+
+    runs-on: ubuntu-24.04
+
+    steps:
+
+
+      # ============================================================
+      # 1. Checkout
+      # ============================================================
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+
+      # ============================================================
+      # 2. Vérification SHP
+      # ============================================================
+
+      - name: Check SHP changes
+        id: changed
+        shell: bash
+        run: |
+
+          SHP_FILES=$(git diff-tree \
+            --no-commit-id \
+            --name-only \
+            --diff-filter=AM \
+            -r \
+            "$GITHUB_SHA" \
+            -- 'Outputs/SHP/*.shp')
+
+
+          echo "SHP ajoutés/modifiés :"
+
+          echo "$SHP_FILES"
+
+
+          if [ -n "$SHP_FILES" ]; then
+
+            echo "shp=true" >> "$GITHUB_OUTPUT"
+
+          else
+
+            echo "shp=false" >> "$GITHUB_OUTPUT"
+
+          fi
+
+
+      # ============================================================
+      # 3. Arrêt si suppression uniquement
+      # ============================================================
+
+      - name: Stop if no SHP added or modified
+        if: steps.changed.outputs.shp != 'true'
+        shell: bash
+        run: |
+
+          echo "Aucun SHP ajouté ou modifié."
+          echo "Arrêt du workflow."
+
+
+      # ============================================================
+      # 4. Micromamba
+      #
+      # IMPORTANT :
+      # PAS de GDAL ici.
+      #
+      # GDAL sera fourni par notre package précompilé.
+      # ============================================================
+
+      - name: Setup Micromamba
+        if: steps.changed.outputs.shp == 'true'
+        uses: mamba-org/setup-micromamba@v3.2.1
+        with:
+
+          environment-name: pyThtoQgis
+
+          create-args: >-
+            python=3.12
+            numpy
+            sfcgal=2.2
+            geos
+            proj
+            sqlite
+            libtiff
+            libjpeg-turbo
+            libpng
+            zlib
+            curl
+            openssl
+
+          init-shell: bash
+
+          cache-environment: true
+          cache-downloads: true
+
+
+      # ============================================================
+      # 5. Informations environnement
+      # ============================================================
+
+      - name: Environment information
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "ENVIRONMENT"
+          echo "========================================"
+
+          echo "CONDA_PREFIX=$CONDA_PREFIX"
+
+          python --version
+
+          echo ""
+
+          conda list | grep -E \
+            "python|numpy|sfcgal|geos|proj|sqlite"
+
+
+      # ============================================================
+      # 6. Téléchargement package GDAL
+      # ============================================================
+
+      - name: Download GDAL + SFCGAL package
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+
+          set -e
+
+          GDAL_VERSION=3.13.3
+
+          PACKAGE_NAME="gdal-${GDAL_VERSION}-sfcgal-2.2-geos-3.14.1-ubuntu-24.04"
+
+          TAG="gdal-sfcgal-${GDAL_VERSION}"
+
+
+          echo "========================================"
+          echo "GDAL PACKAGE"
+          echo "========================================"
+
+          echo "Release : $TAG"
+
+          echo "Package : $PACKAGE_NAME"
+
+
+          gh release download "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern "${PACKAGE_NAME}.tar.gz" \
+            --dir "$RUNNER_TEMP"
+
+
+          echo ""
+          echo "Package téléchargé :"
+
+          ls -lh \
+            "$RUNNER_TEMP/${PACKAGE_NAME}.tar.gz"
+
+
+      # ============================================================
+      # 7. Installation package GDAL
+      # ============================================================
+
+      - name: Install GDAL package
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
+        run: |
+
+          set -e
+
+          GDAL_VERSION=3.13.3
+
+          PACKAGE_NAME="gdal-${GDAL_VERSION}-sfcgal-2.2-geos-3.14.1-ubuntu-24.04"
+
+          PACKAGE="$RUNNER_TEMP/${PACKAGE_NAME}.tar.gz"
+
+
+          echo "========================================"
+          echo "INSTALLATION GDAL"
+          echo "========================================"
+
+
+          cd "$RUNNER_TEMP"
+
+
+          tar \
+            -xzf \
+            "$PACKAGE"
+
+
+          # --------------------------------------------------------
+          # Exécutables
+          # --------------------------------------------------------
+
+          cp -a \
+            "$PACKAGE_NAME"/gdal* \
+            "$CONDA_PREFIX/bin/"
+
+
+          # --------------------------------------------------------
+          # Bibliothèque GDAL
+          # --------------------------------------------------------
+
+          cp -a \
+            "$PACKAGE_NAME"/libgdal.so* \
+            "$CONDA_PREFIX/lib/"
+
+
+          # --------------------------------------------------------
+          # Python bindings
+          # --------------------------------------------------------
+
+          rm -rf \
+            "$CONDA_PREFIX/lib/python3.12/site-packages/osgeo"
+
+          cp -a \
+            "$PACKAGE_NAME/osgeo" \
+            "$CONDA_PREFIX/lib/python3.12/site-packages/"
+
+
+          # --------------------------------------------------------
+          # Headers
+          # --------------------------------------------------------
+
+          rm -rf \
+            "$CONDA_PREFIX/include/gdal"
+
+          cp -a \
+            "$PACKAGE_NAME/gdal" \
+            "$CONDA_PREFIX/include/"
+
+
+          # --------------------------------------------------------
+          # GDAL data
+          # --------------------------------------------------------
+
+          rm -rf \
+            "$CONDA_PREFIX/share/gdal"
+
+          cp -a \
+            "$PACKAGE_NAME/gdal" \
+            "$CONDA_PREFIX/share/" \
+            2>/dev/null || true
+
+
+          echo ""
+          echo "GDAL installé."
+
+
+      # ============================================================
+      # 8. Vérification GDAL
+      # ============================================================
+
+      - name: Check GDAL
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
+        run: |
+
+          set -e
+
+          echo "========================================"
+          echo "GDAL"
+          echo "========================================"
+
+
+          which gdalinfo
+
+          gdalinfo --version
+
+
+          echo ""
+          echo "Python GDAL :"
+
+
+          python - <<'PY'
+
+          from osgeo import gdal
+
+          print(
+              gdal.VersionInfo("--version")
+          )
+
+          print()
+
+          print(
+              gdal.VersionInfo("--build-info")
+          )
+
+          PY
+
+
+      # ============================================================
+      # 9. Vérification SFCGAL
+      # ============================================================
+
+      - name: Check SFCGAL linkage
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
+        run: |
+
+          set -e
+
+          echo "========================================"
+          echo "GDAL / SFCGAL"
+          echo "========================================"
+
+
+          ldd "$CONDA_PREFIX/lib/libgdal.so" \
+            | grep -Ei "sfcgal|geos"
+
+
+      # ============================================================
+      # 10. Test SFCGAL
+      # ============================================================
+
+      - name: Test SFCGAL via OGR
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
+        run: |
+
+          python - <<'PY'
+
+          from osgeo import ogr
+          from osgeo import gdal
+
+          print("========================================")
+          print("TEST SFCGAL")
+          print("========================================")
+
+          print(
+              gdal.VersionInfo("--version")
+          )
+
+
+          wkt = """
+          POLYHEDRALSURFACE Z (
+              (
+                  (0 0 0,
+                   10 0 0,
+                   10 10 0,
+                   0 10 0,
+                   0 0 0)
+              )
+          )
+          """
+
+
+          geom = ogr.CreateGeometryFromWkt(wkt)
+
+
+          if geom is None:
+
+              raise RuntimeError(
+                  "Impossible de créer la géométrie 3D"
+              )
+
+
+          print(
+              "Type :",
+              geom.GetGeometryName()
+          )
+
+
+          print(
+              "Geometry type :",
+              geom.GetGeometryType()
+          )
+
+
+          print(
+              "Has Z :",
+              ogr.GT_HasZ(
+                  geom.GetGeometryType()
+              )
+          )
+
+
+          valid = geom.IsValid()
+
+
+          print(
+              "IsValid() :",
+              valid
+          )
+
+
+          print()
+          print(
+              "SFCGAL accessible par OGR : OK"
+          )
+
+          PY
+
+
+      # ============================================================
+      # 11. Dépendances Python
+      # ============================================================
+
+      - name: Install Python dependencies
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
+        run: |
+
+          python -m pip install --upgrade pip
+
+          pip install \
+            alive-progress
+
+
+      # ============================================================
+      # 12. Affichage des SHP
+      # ============================================================
+
+      - name: List SHP input files
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "SHP INPUT"
+          echo "========================================"
+
+          find Outputs/SHP \
+            -maxdepth 1 \
+            -type f \
+            -name "*.shp" \
+            -print
+
+
+      # ============================================================
+      # 13. Exécution pyThtoQgis
+      # ============================================================
+
+      - name: Run pyThtoQgis
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "pyThtoQgis"
+          echo "========================================"
+
+          cd Scripts/pyThtoQgis
+
+          python pyThtoQgis.py \
+            --folder "../../Outputs/SHP/"
+
+
+      # ============================================================
+      # 14. Fichiers produits
+      # ============================================================
+
+      - name: Show generated files
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash
+        run: |
+
+          echo "========================================"
+          echo "GENERATED FILES"
+          echo "========================================"
+
+          git status --short
+
+          echo ""
+
+          git diff --stat
+
+
+      # ============================================================
+      # 15. Commit
+      # ============================================================
+
+      - name: Commit generated files
+        if: steps.changed.outputs.shp == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+
+          commit_message: "Auto-generate outputs from SHP"
+
+          commit_user_name: "github-actions[bot]"
+
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+
+          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
