@@ -1,7 +1,15 @@
 name: pyThtoQgis
 
 on:
+  push:
+    paths:
+      - 'Outputs/SHP/*.shp'
+
+  # Permet de lancer l'action manuellement
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
