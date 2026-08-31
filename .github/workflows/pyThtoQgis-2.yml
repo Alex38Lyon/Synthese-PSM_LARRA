@@ -1,0 +1,311 @@
+name: pyThtoQgis
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ============================================================
+      # 1. Récupération du dépôt
+      # ============================================================
+      - name: Checkout
+        uses: actions/checkout@v4
+
+
+      # ============================================================
+      # 2. Installation de Micromamba
+      # ============================================================
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: pyThtoQgis
+          create-args: >-
+            python=3.12
+            numpy
+            sfcgal=2.2
+            geos
+            proj
+            sqlite
+            libtiff
+            libjpeg-turbo
+            libpng
+            zlib
+            curl
+            openssl
+            swig
+            cmake
+            ninja
+            pkg-config
+          init-shell: bash
+          cache-environment: true
+          cache-downloads: true
+
+
+      # ============================================================
+      # 3. Informations environnement
+      # ============================================================
+      - name: Environment information
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "Python"
+          echo "========================================"
+
+          python --version
+          which python
+
+          echo "========================================"
+          echo "Conda"
+          echo "========================================"
+
+          echo "CONDA_PREFIX=$CONDA_PREFIX"
+
+          conda list | grep -E \
+            "python|numpy|gdal|geos|sfcgal|proj|sqlite"
+
+
+      # ============================================================
+      # 4. Vérification SFCGAL
+      # ============================================================
+      - name: Check SFCGAL
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "SFCGAL"
+          echo "========================================"
+
+          sfcgal-config --version || true
+
+          echo "Bibliothèques SFCGAL :"
+
+          find "$CONDA_PREFIX" \
+            \( -iname "*sfcgal*.so*" -o -iname "*SFCGAL*.so*" \) \
+            -print
+
+
+      # ============================================================
+      # 5. Compilation de GDAL
+      # ============================================================
+      - name: Build GDAL with SFCGAL
+        shell: bash -el {0}
+        run: |
+
+          set -e
+
+          GDAL_VERSION=3.13.3
+
+          echo "========================================"
+          echo "Compilation GDAL $GDAL_VERSION"
+          echo "========================================"
+
+          cd "$RUNNER_TEMP"
+
+          git clone \
+            --depth 1 \
+            --branch "v${GDAL_VERSION}" \
+            https://github.com/OSGeo/gdal.git
+
+          cd gdal
+
+          mkdir build
+          cd build
+
+
+          # --------------------------------------------------------
+          # CMake
+          # --------------------------------------------------------
+
+          cmake .. \
+            -GNinja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX="$CONDA_PREFIX" \
+            -DCMAKE_PREFIX_PATH="$CONDA_PREFIX" \
+            -DCMAKE_LIBRARY_PATH="$CONDA_PREFIX/lib" \
+            -DCMAKE_INCLUDE_PATH="$CONDA_PREFIX/include" \
+            -DCMAKE_INSTALL_RPATH="$CONDA_PREFIX/lib" \
+            -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON \
+            -DGDAL_USE_SFCGAL=ON \
+            -DGDAL_USE_GEOS=ON \
+            -DGDAL_USE_PROJ=ON \
+            -DGDAL_USE_SQLITE3=ON \
+            -DGDAL_USE_CURL=ON \
+            -DGDAL_BUILD_OPTIONAL_DRIVERS=ON \
+            -DBUILD_PYTHON_BINDINGS=ON
+
+
+          echo "========================================"
+          echo "Configuration CMake terminée"
+          echo "========================================"
+
+
+          # --------------------------------------------------------
+          # Compilation
+          # --------------------------------------------------------
+
+          ninja -j"$(nproc)"
+
+
+          # --------------------------------------------------------
+          # Installation dans Conda
+          # --------------------------------------------------------
+
+          ninja install
+
+
+      # ============================================================
+      # 6. Vérification de GDAL installé
+      # ============================================================
+      - name: Check GDAL
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "GDAL"
+          echo "========================================"
+
+          which gdalinfo
+          gdalinfo --version
+
+          echo ""
+          echo "GDAL Python :"
+
+          python - <<'PY'
+          from osgeo import gdal
+
+          print(gdal.VersionInfo("--version"))
+          print()
+          print(gdal.VersionInfo("--build-info"))
+          PY
+
+
+      # ============================================================
+      # 7. Vérification liaison SFCGAL
+      # ============================================================
+      - name: Check GDAL SFCGAL linkage
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "GDAL / SFCGAL linkage"
+          echo "========================================"
+
+          echo "libgdal :"
+
+          find "$CONDA_PREFIX/lib" \
+            -maxdepth 1 \
+            -name "libgdal.so*" \
+            -print
+
+          echo ""
+          echo "Dépendances :"
+
+          ldd "$CONDA_PREFIX/lib/libgdal.so" \
+            | grep -Ei "sfcgal|geos" || true
+
+
+      # ============================================================
+      # 8. Test OGR / SFCGAL
+      # ============================================================
+      - name: Test SFCGAL via OGR
+        shell: bash -el {0}
+        run: |
+
+          python - <<'PY'
+
+          from osgeo import ogr
+          from osgeo import gdal
+
+          print("========================================")
+          print("Test SFCGAL via OGR")
+          print("========================================")
+
+          print("GDAL :", gdal.VersionInfo("--version"))
+
+          # --------------------------------------------------------
+          # Géométrie PolyhedralSurface Z
+          # --------------------------------------------------------
+
+          wkt = """
+          POLYHEDRALSURFACE Z (
+              (
+                  (0 0 0,
+                   10 0 0,
+                   10 10 0,
+                   0 10 0,
+                   0 0 0)
+              )
+          )
+          """
+
+          geom = ogr.CreateGeometryFromWkt(wkt)
+
+          if geom is None:
+              raise RuntimeError(
+                  "Impossible de créer la géométrie 3D"
+              )
+
+          print("Type :", geom.GetGeometryName())
+          print(
+              "Geometry type :",
+              geom.GetGeometryType()
+          )
+
+          print(
+              "Has Z :",
+              ogr.GT_HasZ(geom.GetGeometryType())
+          )
+
+          try:
+
+              valid = geom.IsValid()
+
+              print(
+                  "IsValid() :",
+                  valid
+              )
+
+          except Exception as e:
+
+              print(
+                  "IsValid() ERROR :",
+                  e
+              )
+
+              raise
+
+          print()
+          print("Test terminé.")
+
+
+      # ============================================================
+      # 9. Installation des dépendances Python
+      # ============================================================
+      - name: Install Python dependencies
+        shell: bash -el {0}
+        run: |
+
+          python -m pip install --upgrade pip
+
+          pip install \
+            alive-progress
+
+
+      # ============================================================
+      # 10. Test pyThtoQgis
+      # ============================================================
+      - name: Test pyThtoQgis
+        shell: bash -el {0}
+        run: |
+
+          echo "========================================"
+          echo "Test pyThtoQgis"
+          echo "========================================"
+
+          python Scripts/pyThtoQgis/pyThtoQgis.py \
+            --help
