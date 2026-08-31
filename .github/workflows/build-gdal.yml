@@ -368,13 +368,13 @@ jobs:
           # --------------------------------------------------------
 
           cat > "$PACKAGE_DIR/VERSION.txt" <<EOF
-GDAL=${GDAL_VERSION}
-SFCGAL=${SFCGAL_VERSION}
-GEOS=${GEOS_VERSION}
-Python=${PYTHON_VERSION}
-OS=ubuntu-24.04
-Build=GDAL_USE_SFCGAL=ON
-EOF
+          GDAL=${GDAL_VERSION}
+          SFCGAL=${SFCGAL_VERSION}
+          GEOS=${GEOS_VERSION}
+          Python=${PYTHON_VERSION}
+          OS=ubuntu-24.04
+          Build=GDAL_USE_SFCGAL=ON
+          EOF
 
 
           echo ""
