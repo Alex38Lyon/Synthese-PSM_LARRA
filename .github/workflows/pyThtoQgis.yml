@@ -6,6 +6,7 @@ on:
     paths:
       - 'Outputs/SHP/*.shp'
 
+  # Permet de lancer l'action manuellement
   workflow_dispatch:
 
 permissions:
@@ -24,120 +25,176 @@ jobs:
         uses: actions/checkout@v6
 
       # ------------------------------------------------------------
-      # Installation de Python
+      # Installation de Micromamba
       # ------------------------------------------------------------
-      - name: Setup Python
-        uses: actions/setup-python@v7
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v2
         with:
-          python-version: '3.12'
-
-      # ------------------------------------------------------------
-      # Installation de GDAL et SFCGAL
-      # ------------------------------------------------------------
-      - name: Install GDAL and SFCGAL
-        run: |
-          sudo apt-get update
-
-          sudo apt-get install -y \
-            gdal-bin \
-            libgdal-dev \
-            libsfcgal-dev
-
-      # ------------------------------------------------------------
-      # Vérification de GDAL
-      # ------------------------------------------------------------
-      - name: Check GDAL
-        run: |
-          echo "========================================"
-          echo "GDAL système"
-          echo "========================================"
-
-          gdal-config --version
-
-          echo
-          echo "gdal-config :"
-          which gdal-config
-
-          echo
-          echo "GDAL --version :"
-          gdalinfo --version
+          environment-name: pyThtoQgis
+          create-args: >-
+            python=3.12
+            gdal
+            sfcgal
+            numpy
+            pip
+          init-shell: bash
+          cache-environment: true
+          cache-downloads: true
 
       # ------------------------------------------------------------
       # Installation des bibliothèques Python
       # ------------------------------------------------------------
       - name: Install Python dependencies
+        shell: bash -el {0}
         run: |
           python -m pip install --upgrade pip
-
-          pip install numpy
-          pip install alive-progress
-
-          pip install "gdal[numpy]==$(gdal-config --version).*"
+          python -m pip install alive-progress
 
       # ------------------------------------------------------------
-      # Vérification des bibliothèques Python
+      # Vérification de l'environnement
       # ------------------------------------------------------------
-      - name: Test Python dependencies
+      - name: Check GDAL and SFCGAL
+        shell: bash -el {0}
         run: |
+
           echo "========================================"
           echo "Python"
           echo "========================================"
 
           python --version
+          which python
 
           echo
           echo "========================================"
-          echo "NumPy"
+          echo "Conda"
           echo "========================================"
 
-          python -c "import numpy; print(numpy.__version__)"
+          echo "$CONDA_PREFIX"
+
+          conda list | grep -E "gdal|libgdal|sfcgal|geos|numpy"
 
           echo
           echo "========================================"
-          echo "GDAL Python"
+          echo "GDAL"
           echo "========================================"
 
-          python -c "from osgeo import gdal; print(gdal.__version__)"
+          gdalinfo --version
+
+          echo
+          echo "GDAL Python :"
+
+          python -c "
+          from osgeo import gdal
+          print(gdal.__version__)
+          "
 
           echo
           echo "========================================"
           echo "OGR"
           echo "========================================"
 
-          python -c "from osgeo import ogr; print('OGR OK')"
+          python -c "
+          from osgeo import ogr
+          print('OGR OK')
+          print('GEOS version:', ogr.GetGEOSVersionMajor(),
+                ogr.GetGEOSVersionMinor(),
+                ogr.GetGEOSVersionMicro())
+          "
 
           echo
           echo "========================================"
-          echo "alive-progress"
+          echo "SFCGAL"
           echo "========================================"
 
-          python -c "from alive_progress import alive_bar; print('alive-progress OK')"
+          sfcgal-config --version || true
+
+          echo
+          echo "========================================"
+          echo "Test SFCGAL via OGR"
+          echo "========================================"
+
+          python - <<'PY'
+          from osgeo import ogr
+
+          print("Création d'une géométrie 3D...")
+
+          # PolyhedralSurface simple :
+          # une pyramide composée de triangles
+          wkt = """
+          POLYHEDRALSURFACE Z (
+            ((0 0 0, 10 0 0, 0 10 0, 0 0 0)),
+            ((0 0 0, 10 0 0, 0 0 10, 0 0 0)),
+            ((10 0 0, 0 10 0, 0 0 10, 10 0 0)),
+            ((0 10 0, 0 0 0, 0 0 10, 0 10 0)),
+            ((0 0 10, 10 0 0, 0 0 0, 0 0 10))
+          )
+          """
+
+          geom = ogr.CreateGeometryFromWkt(wkt)
+
+          if geom is None:
+              raise RuntimeError("Impossible de créer la géométrie de test")
+
+          print("Type :", geom.GetGeometryName())
+
+          try:
+              valid = geom.IsValid()
+              print("IsValid() :", valid)
+              print("SFCGAL accessible par OGR : OK")
+
+          except RuntimeError as e:
+              print("ERREUR IsValid() :", e)
+              raise
+          PY
 
       # ------------------------------------------------------------
       # Exécution de pyThtoQgis
       # ------------------------------------------------------------
       - name: Run pyThtoQgis
+        shell: bash -el {0}
         working-directory: Scripts/pyThtoQgis
         run: |
           python pyThtoQgis.py --folder "../../Outputs/SHP/"
 
       # ------------------------------------------------------------
-      # Vérification des fichiers générés
+      # Affichage des fichiers générés
       # ------------------------------------------------------------
-      - name: Check generated files
+      - name: Show generated files
+        shell: bash -el {0}
         run: |
+
           echo "========================================"
-          echo "GPKG et logs générés"
+          echo "Fichiers générés"
           echo "========================================"
 
-          find Outputs -type f \( \
-            -name "*.gpkg" -o \
-            -name "pyThtoQgis.log" \
-          \) -print
+          find Outputs/SHP/QGis_GPKG_Files \
+            -maxdepth 1 \
+            -type f \
+            -print
 
           echo
           echo "========================================"
           echo "Statut Git"
+          echo "========================================"
+
+          git status --short
+
+      # ------------------------------------------------------------
+      # Ajout explicite des résultats
+      # ------------------------------------------------------------
+      - name: Add generated files
+        shell: bash -el {0}
+        run: |
+
+          git add Outputs/SHP/QGis_GPKG_Files/*.gpkg
+
+          # Le log peut être ignoré par .gitignore.
+          # -f force son ajout.
+          git add -f Outputs/SHP/QGis_GPKG_Files/pyThtoQgis.log
+
+          echo
+          echo "========================================"
+          echo "Fichiers prêts pour le commit"
           echo "========================================"
 
           git status --short
@@ -149,5 +206,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Auto-run pyThtoQgis"
-          file_pattern: 'Outputs/**/*.gpkg Outputs/**/pyThtoQgis.log'
-
+          file_pattern: >-
+            Outputs/SHP/QGis_GPKG_Files/*.gpkg
+            Outputs/SHP/QGis_GPKG_Files/pyThtoQgis.log
