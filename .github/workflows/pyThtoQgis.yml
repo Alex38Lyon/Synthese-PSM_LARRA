@@ -1,3 +1,4 @@
+
 name: pyThtoQgis
 
 on:
@@ -5,7 +6,6 @@ on:
     paths:
       - 'Outputs/SHP/*.shp'
 
-  # Permet de lancer l'action manuellement
   workflow_dispatch:
 
 permissions:
@@ -72,8 +72,6 @@ jobs:
           pip install numpy
           pip install alive-progress
 
-          # Installation des bindings Python GDAL
-          # correspondant à la version de GDAL du système
           pip install "gdal[numpy]==$(gdal-config --version).*"
 
       # ------------------------------------------------------------
@@ -115,8 +113,6 @@ jobs:
 
           python -c "from alive_progress import alive_bar; print('alive-progress OK')"
 
-   
-
       # ------------------------------------------------------------
       # Exécution de pyThtoQgis
       # ------------------------------------------------------------
@@ -126,12 +122,22 @@ jobs:
           python pyThtoQgis.py --folder "../../Outputs/SHP/"
 
       # ------------------------------------------------------------
-      # Affichage des fichiers générés/modifiés
+      # Vérification des fichiers générés
       # ------------------------------------------------------------
-      - name: Show generated files
+      - name: Check generated files
         run: |
           echo "========================================"
-          echo "Fichiers modifiés"
+          echo "GPKG et logs générés"
+          echo "========================================"
+
+          find Outputs -type f \( \
+            -name "*.gpkg" -o \
+            -name "pyThtoQgis.log" \
+          \) -print
+
+          echo
+          echo "========================================"
+          echo "Statut Git"
           echo "========================================"
 
           git status --short
@@ -143,3 +149,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Auto-run pyThtoQgis"
+          file_pattern: 'Outputs/**/*.gpkg Outputs/**/pyThtoQgis.log'
+
