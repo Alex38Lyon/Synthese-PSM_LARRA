@@ -187,7 +187,6 @@ jobs:
           ls -lh \
             "$RUNNER_TEMP/${PACKAGE_NAME}.tar.gz"
 
-
       # ============================================================
       # 7. Installation package GDAL
       # ============================================================
@@ -213,6 +212,26 @@ jobs:
           echo "========================================"
 
 
+          # ========================================================
+          # Vérification package
+          # ========================================================
+
+          if [ ! -f "$PACKAGE" ]; then
+
+              echo "Erreur : package GDAL introuvable :"
+              echo "$PACKAGE"
+
+              exit 1
+
+          fi
+
+
+          # ========================================================
+          # Extraction
+          # ========================================================
+
+          rm -rf "$EXTRACT_DIR"
+
           mkdir -p "$EXTRACT_DIR"
 
           cd "$EXTRACT_DIR"
@@ -224,114 +243,210 @@ jobs:
 
 
           echo ""
-          echo "Contenu après extraction :"
+          echo "Contenu du package :"
 
-          ls -la
+          find . \
+            -maxdepth 5 \
+            -type f \
+            | sort
 
 
           # ========================================================
-          # Déterminer le répertoire racine (dynamique)
+          # Déterminer le répertoire racine
           # ========================================================
 
-          GDAL_DIR=$(ls -d */ 2>/dev/null | head -1)
+          GDAL_DIR="$EXTRACT_DIR/$PACKAGE_NAME"
 
-          if [ -z "$GDAL_DIR" ]; then
 
-              echo "Erreur : Aucun répertoire trouvé après extraction"
+          if [ ! -d "$GDAL_DIR" ]; then
 
-              ls -la
+              echo ""
+              echo "Erreur : répertoire GDAL absent :"
+              echo "$GDAL_DIR"
+
+              find "$EXTRACT_DIR" \
+                -maxdepth 3 \
+                -print
 
               exit 1
 
           fi
 
-          GDAL_DIR="${GDAL_DIR%/}"
 
-          echo "Répertoire détecté : $GDAL_DIR"
+          echo ""
+          echo "Répertoire GDAL :"
+          echo "$GDAL_DIR"
+
+
+          # ========================================================
+          # Vérification structure
+          # ========================================================
+
+          echo ""
+          echo "Structure :"
+
+          ls -la "$GDAL_DIR"
 
           echo ""
 
-
-          # --------------------------------------------------------
-          # Exécutables
-          # --------------------------------------------------------
-
-          if [ -f "$GDAL_DIR/gdal-config" ] || ls "$GDAL_DIR"/gdal* &>/dev/null; then
-
-              cp -v "$GDAL_DIR"/gdal* "$CONDA_PREFIX/bin/" || true
-
+          if [ -d "$GDAL_DIR/bin" ]; then
+              echo "bin/        : OK"
           else
+              echo "bin/        : ABSENT"
+          fi
 
-              echo "Avertissement : Aucun exécutable GDAL trouvé"
+          if [ -d "$GDAL_DIR/lib" ]; then
+              echo "lib/        : OK"
+          else
+              echo "lib/        : ABSENT"
+          fi
+
+          if [ -d "$GDAL_DIR/share" ]; then
+              echo "share/      : OK"
+          else
+              echo "share/      : ABSENT"
+          fi
+
+
+          # ========================================================
+          # Installation
+          #
+          # Le package reproduit l'arborescence de l'environnement
+          # Conda.
+          #
+          # bin/   -> $CONDA_PREFIX/bin/
+          # lib/   -> $CONDA_PREFIX/lib/
+          # share/ -> $CONDA_PREFIX/share/
+          # ========================================================
+
+
+          # --------------------------------------------------------
+          # bin
+          # --------------------------------------------------------
+
+          if [ -d "$GDAL_DIR/bin" ]; then
+
+              echo ""
+              echo "Installation des exécutables GDAL..."
+
+              cp -av \
+                "$GDAL_DIR/bin/." \
+                "$CONDA_PREFIX/bin/"
 
           fi
 
 
           # --------------------------------------------------------
-          # Bibliothèque GDAL
+          # lib
           # --------------------------------------------------------
 
-          if ls "$GDAL_DIR"/libgdal.so* &>/dev/null; then
+          if [ -d "$GDAL_DIR/lib" ]; then
 
-              cp -v "$GDAL_DIR"/libgdal.so* "$CONDA_PREFIX/lib/"
+              echo ""
+              echo "Installation des bibliothèques GDAL..."
 
-          else
+              cp -av \
+                "$GDAL_DIR/lib/." \
+                "$CONDA_PREFIX/lib/"
 
-              echo "Erreur : Aucune bibliothèque GDAL trouvée"
+          fi
 
-              ls "$GDAL_DIR"
 
-              exit 1
+          # --------------------------------------------------------
+          # share
+          # --------------------------------------------------------
+
+          if [ -d "$GDAL_DIR/share" ]; then
+
+              echo ""
+              echo "Installation des données GDAL..."
+
+              cp -av \
+                "$GDAL_DIR/share/." \
+                "$CONDA_PREFIX/share/"
 
           fi
 
 
           # --------------------------------------------------------
           # Python bindings
+          #
+          # Si osgeo est déjà présent dans lib/python3.12/site-packages,
+          # on le remplace par celui compilé avec notre GDAL.
           # --------------------------------------------------------
 
-          if [ -d "$GDAL_DIR/osgeo" ]; then
+          if [ -d "$GDAL_DIR/lib/python3.12/site-packages/osgeo" ]; then
 
-              rm -rf "$CONDA_PREFIX/lib/python3.12/site-packages/osgeo"
+              echo ""
+              echo "Installation des bindings Python osgeo..."
 
-              cp -rv "$GDAL_DIR/osgeo" "$CONDA_PREFIX/lib/python3.12/site-packages/"
+              rm -rf \
+                "$CONDA_PREFIX/lib/python3.12/site-packages/osgeo"
+
+              cp -av \
+                "$GDAL_DIR/lib/python3.12/site-packages/osgeo" \
+                "$CONDA_PREFIX/lib/python3.12/site-packages/"
 
           else
 
-              echo "Avertissement : Répertoire osgeo non trouvé"
+              echo ""
+              echo "Avertissement : bindings Python osgeo absents du package."
 
           fi
 
 
-          # --------------------------------------------------------
-          # Headers
-          # --------------------------------------------------------
+          # ========================================================
+          # Vérification finale
+          # ========================================================
 
-          if [ -d "$GDAL_DIR/gdal" ]; then
-
-              rm -rf "$CONDA_PREFIX/include/gdal"
-
-              cp -rv "$GDAL_DIR/gdal" "$CONDA_PREFIX/include/"
-
-          fi
+          echo ""
+          echo "========================================"
+          echo "GDAL INSTALLE"
+          echo "========================================"
 
 
-          # --------------------------------------------------------
-          # GDAL data
-          # --------------------------------------------------------
+          echo ""
+          echo "gdalinfo :"
 
-          if [ -d "$GDAL_DIR/gdal" ] && [ -d "$GDAL_DIR/share" ]; then
+          if [ -x "$CONDA_PREFIX/bin/gdalinfo" ]; then
 
-              rm -rf "$CONDA_PREFIX/share/gdal"
+              "$CONDA_PREFIX/bin/gdalinfo" --version
 
-              cp -rv "$GDAL_DIR/share/gdal" "$CONDA_PREFIX/share/" 2>/dev/null || true
+          else
+
+              echo "ERREUR : gdalinfo absent"
+
+              exit 1
 
           fi
 
 
           echo ""
-          echo "GDAL installé."
+          echo "libgdal :"
 
+          ls -lh \
+            "$CONDA_PREFIX"/lib/libgdal.so*
+
+
+          echo ""
+          echo "Python osgeo :"
+
+          python - <<'PY'
+
+          from osgeo import gdal
+          from osgeo import ogr
+
+          print("GDAL Python :")
+          print(gdal.VersionInfo("--version"))
+
+          print()
+          print("OGR drivers :", ogr.GetDriverCount())
+
+          PY
+
+
+          echo ""
+          echo "Installation GDAL terminée."
 
       # ============================================================
       # 8. Vérification GDAL
