@@ -394,7 +394,9 @@ jobs:
           echo "========================================"
           echo "CHECK DATABASE"
           echo "========================================"
-          SQL_FILE="Outputs/DB_Synthese-PSM_LARRA.sql"
+          cd ..
+          cd Scripts/pyThStat
+          SQL_FILE="./../../Outputs/DB_Synthese-PSM_LARRA.sql"
           if [ ! -f "$SQL_FILE" ]; then
             echo "ERREUR : fichier SQL introuvable :"
             echo "$SQL_FILE"
@@ -414,9 +416,8 @@ jobs:
           echo "========================================"
           echo "pyThStat"
           echo "========================================"
-          cd ..
-          cd Scripts/pyThStat
-          python pyThStat.py --file "../../Outputs/DB_Synthese-PSM_LARRA.sql"
+          ls -l
+          python pyThStat.py --file "./../../Outputs/DB_Synthese-PSM_LARRA.sql"
 
       # ============================================================
       # 16. Fichiers produits
