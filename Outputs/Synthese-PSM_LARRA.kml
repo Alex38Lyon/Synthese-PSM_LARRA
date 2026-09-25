@@ -16,7 +16,7 @@
 <Point> <coordinates>-0.79246080167638,42.94612662600291,1648.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[A_110]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[A110]]></name>
 <Point> <coordinates>-0.77270187482696,42.95192098768256,1820.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -292,7 +292,7 @@
 <Point> <coordinates>-0.72912903254229,42.97210846596820,1750.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[ROBINET]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Trou du robinet]]></name>
 <Point> <coordinates>-0.79400709339633,42.97693439909926,1054.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -324,7 +324,7 @@
 <Point> <coordinates>-0.78971111333562,42.98867457111513,1023.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BT_6]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BT6]]></name>
 <Point> <coordinates>-0.75683381025102,42.98040792327568,1618.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -372,7 +372,7 @@
 <Point> <coordinates>-0.73001810727739,42.89979743272614,2300.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[CHIPI]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Chipi josetteko leze]]></name>
 <Point> <coordinates>-0.79745597911343,42.96792406736851,1495.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -460,15 +460,15 @@
 <Point> <coordinates>-0.75071682885282,42.94637633027746,2045.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[ERUSO]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Perte d'Eruso]]></name>
 <Point> <coordinates>-0.82912645181957,42.96585498694493,1435.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[ODITA]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Odita lezia]]></name>
 <Point> <coordinates>-0.84859689988787,42.98611029608084,825.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BU56]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BU56 Ilamina]]></name>
 <Point> <coordinates>-0.75784215367999,42.92703014088809,1978.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -484,7 +484,7 @@
 <Point> <coordinates>-0.72715034186979,42.97494479896826,1720.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[B3-Bourrugues]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[B3 Gouffre des Bourrugues]]></name>
 <Point> <coordinates>-0.74063139465021,42.97818335316136,1620.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -496,7 +496,7 @@
 <Point> <coordinates>-0.76143103536037,42.97614297054731,1655.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[GL102]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[GL102 Gouffre du Lonné Peyret]]></name>
 <Point> <coordinates>-0.76379845180019,42.97612623632634,1633.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -568,7 +568,7 @@
 <Point> <coordinates>-0.79626573685294,42.97961619835996,1049.24000000000001</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[DS_49]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[DS49]]></name>
 <Point> <coordinates>-0.72175994550148,42.98172304913784,1550.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -600,7 +600,7 @@
 <Point> <coordinates>-0.79962656678914,42.95966353139832,1604.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[LACS]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Grotte aux lacs]]></name>
 <Point> <coordinates>-0.85162332689886,42.98773775897716,535.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -676,7 +676,7 @@
 <Point> <coordinates>-0.72477465229969,42.95723049401028,2162.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[MARTIN]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Trou Martin]]></name>
 <Point> <coordinates>-0.84654472267853,42.98600343200813,820.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -684,11 +684,11 @@
 <Point> <coordinates>-0.85014392284560,42.98760191301428,535.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[RENARD]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Trou du renard]]></name>
 <Point> <coordinates>-0.81283917628060,42.99226159111979,587.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[UK_4]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[UK4]]></name>
 <Point> <coordinates>-0.78559455265033,42.93901530957292,1799.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -1962,7 +1962,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1997 08 05]]></name>
 <Folder>
-<name><![CDATA[1S1C1X1]]></name>
+<name><![CDATA[A110]]></name>
 <Placemark>
 <name>A_110</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -2000,7 +2000,7 @@
 </Folder>
 </Folder>
 <Folder>
-<name><![CDATA[AN008]]></name>
+<name><![CDATA[AN8]]></name>
 <Folder>
 <name><![CDATA[Explo 01 1991 08 01]]></name>
 <Folder>
@@ -2079,7 +2079,7 @@
 <Folder>
 <name><![CDATA[Explo 02 1992 08 01]]></name>
 <Folder>
-<name><![CDATA[SECTION001]]></name>
+<name><![CDATA[AN8]]></name>
 <Placemark>
 <name>AN8</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -2922,7 +2922,7 @@
 <Folder>
 <name><![CDATA[Explo 11 2003 08 01]]></name>
 <Folder>
-<name><![CDATA[SECTION014 SECTION015]]></name>
+<name><![CDATA[AN9]]></name>
 <Placemark>
 <name>AN9</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3189,7 +3189,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2006 11 04]]></name>
 <Folder>
-<name><![CDATA[SECTION001]]></name>
+<name><![CDATA[AN26]]></name>
 <Placemark>
 <name>AN26</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5676,7 +5676,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2010 09 15]]></name>
 <Folder>
-<name><![CDATA[AN669-10-20]]></name>
+<name><![CDATA[AN669]]></name>
 <Placemark>
 <name>AN669</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -6519,7 +6519,7 @@
 <Folder>
 <name><![CDATA[Explo 02 1981 01 01]]></name>
 <Folder>
-<name><![CDATA[12S15C2X1 - 9S9C2X1]]></name>
+<name><![CDATA[Trou du robinet]]></name>
 <Placemark>
 <name>ROBINET</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -8505,7 +8505,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1985 08 01]]></name>
 <Folder>
-<name><![CDATA[1S1C1X1 2S2C1X1 3S3C1X1]]></name>
+<name><![CDATA[BT6]]></name>
 <Placemark>
 <name>BT_6</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -10464,7 +10464,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1993 01 01]]></name>
 <Folder>
-<name><![CDATA[10S10C1X1 - 9S9C1X1]]></name>
+<name><![CDATA[Chipi josetteko leze]]></name>
 <Placemark>
 <name>CHIPI</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -13593,7 +13593,7 @@
 <Folder>
 <name><![CDATA[Explo 158 2009 10 10]]></name>
 <Folder>
-<name><![CDATA[AN43SECTION001]]></name>
+<name><![CDATA[AN43]]></name>
 <Placemark>
 <name>AN43</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -19278,7 +19278,7 @@
 <Folder>
 <name><![CDATA[Explo 11 1992 06 26]]></name>
 <Folder>
-<name><![CDATA[555S700C2X164]]></name>
+<name><![CDATA[Perte d'Eruso]]></name>
 <Placemark>
 <name>ERUSO</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -20292,7 +20292,7 @@
 <Folder>
 <name><![CDATA[Explo 62 1994 08 06]]></name>
 <Folder>
-<name><![CDATA[565S800C1X157]]></name>
+<name><![CDATA[Odita lezia]]></name>
 <Placemark>
 <name>ODITA</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -24303,7 +24303,7 @@
 <Folder>
 <name><![CDATA[Explo 06 2014 08 01]]></name>
 <Folder>
-<name><![CDATA[ILAMINA - BU56 A60 Explo num 06]]></name>
+<name><![CDATA[BU56 Ilamina]]></name>
 <Placemark>
 <name>0</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -25968,7 +25968,7 @@
 <Folder>
 <name><![CDATA[Explo 62 2021 07 24]]></name>
 <Folder>
-<name><![CDATA[ILAMINA - BU56 A60 Explo num 62]]></name>
+<name><![CDATA[A60]]></name>
 <Placemark>
 <name>A60_GPS</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -49991,7 +49991,7 @@
 <Folder>
 <name><![CDATA[B3 Entree]]></name>
 <Folder>
-<name><![CDATA[Gouffre des Bourrugues B3, entrée 01 : puits d'entrée]]></name>
+<name><![CDATA[B3 Gouffre des Bourrugues]]></name>
 <Placemark>
 <name>B_3</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -50186,7 +50186,7 @@
 <Folder>
 <name><![CDATA[GL04_Cam_Claque]]></name>
 <Folder>
-<name><![CDATA[Gouffre du Cam de Caque GL04]]></name>
+<name><![CDATA[GL4 Gouffre du Cam de Caque]]></name>
 <Placemark>
 <name>GL_4</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -53370,7 +53370,7 @@
 <Folder>
 <name><![CDATA[Gouffre du Lonné Peyret]]></name>
 <Folder>
-<name><![CDATA[Gouffre du Lonné Peyret GL102 - Entrée]]></name>
+<name><![CDATA[GL102 Gouffre du Lonné Peyret]]></name>
 <Placemark>
 <name>GL_102</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -60108,7 +60108,7 @@
 <Folder>
 <name><![CDATA[Explo 32 2023 08 03]]></name>
 <Folder>
-<name><![CDATA[Grotte de l'Ours - Perdida del Becerro Explo num 32]]></name>
+<name><![CDATA[LAK01 Grotte de l'Ours]]></name>
 <Placemark>
 <name>LAK_1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -65195,7 +65195,7 @@
 <Folder>
 <name><![CDATA[Explo 02 1987 08 01]]></name>
 <Folder>
-<name><![CDATA[SECTION001 - Puits C50 ]]></name>
+<name><![CDATA[C50 Gouffre des Pré-Hus]]></name>
 <Placemark>
 <name>C_50</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -65231,7 +65231,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2007 08 01]]></name>
 <Folder>
-<name><![CDATA[C104, C2 Gouffre des quinquas]]></name>
+<name><![CDATA[Gouffre des quinquas]]></name>
 <Placemark>
 <name>C_104</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -66221,7 +66221,7 @@
 <Folder>
 <name><![CDATA[Explo 14 2015 03 30]]></name>
 <Folder>
-<name><![CDATA[VER SECTION001 VER SECTION002 Tunnel de la Verna]]></name>
+<name><![CDATA[Tunnel de la Verna]]></name>
 <Placemark>
 <name>T_VENT</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -66645,7 +66645,7 @@
 <Folder>
 <name><![CDATA[Explo 02 1998 12 13]]></name>
 <Folder>
-<name><![CDATA[10S6C7X1 - 9S5C6X1]]></name>
+<name><![CDATA[DS49]]></name>
 <Placemark>
 <name>DS_49</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -67083,7 +67083,7 @@
 <Folder>
 <name><![CDATA[Explo 02 2014 04 16]]></name>
 <Folder>
-<name><![CDATA[SECTION006 - SECTION009]]></name>
+<name><![CDATA[Grotte aux lacs]]></name>
 <Placemark>
 <name>LAC_d_0</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -70854,7 +70854,7 @@
 <Folder>
 <name><![CDATA[Explo 11 2025 08 06]]></name>
 <Folder>
-<name><![CDATA[L5 Entrée puits]]></name>
+<name><![CDATA[L5]]></name>
 <Placemark>
 <name>L_5</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -75103,7 +75103,7 @@
 <Folder>
 <name><![CDATA[SC60]]></name>
 <Folder>
-<name><![CDATA[SC 60]]></name>
+<name><![CDATA[SC60]]></name>
 <Placemark>
 <name>SC_60</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -75252,7 +75252,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2006 08 01]]></name>
 <Folder>
-<name><![CDATA[10S10C1X1 - 9S9C1X1]]></name>
+<name><![CDATA[Trou Martin]]></name>
 <Placemark>
 <name>MARTIN</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -75333,7 +75333,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1982 01 01]]></name>
 <Folder>
-<name><![CDATA[1S1C1X1 - 9S9C1X1]]></name>
+<name><![CDATA[Trou du renard]]></name>
 <Placemark>
 <name>RENARD</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -75558,7 +75558,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1995 08 10]]></name>
 <Folder>
-<name><![CDATA[UK4 1S1C1X1 2S1C4X1]]></name>
+<name><![CDATA[UK4]]></name>
 <Placemark>
 <name>UK_4</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -76071,7 +76071,7 @@
 <Folder>
 <name><![CDATA[Tobozo_1]]></name>
 <Folder>
-<name><![CDATA[Sima del Tobozo (galerie 1)]]></name>
+<name><![CDATA[UKK22 - Sima del Tobozo]]></name>
 <Placemark>
 <name>0</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -94566,7 +94566,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2018 08 04]]></name>
 <Folder>
-<name><![CDATA[Z127 SECTION001]]></name>
+<name><![CDATA[Z127 - Sima Miguel Garibal]]></name>
 <Placemark>
 <name>Z_127</name>
 <styleUrl>#ThSurveyLine</styleUrl>
