@@ -642,7 +642,24 @@ jobs:
       # ============================================================
       # 15. Exécution pyThStat
       # ============================================================
+      # ============================================================
+      # Recherche pyThStat.py
+      # ============================================================
 
+      - name: Find pyThStat.py
+        if: steps.changed.outputs.shp == 'true'
+        shell: bash
+        run: |
+
+          echo "========================================"
+          echo "RECHERCHE pyThStat.py"
+          echo "========================================"
+
+          find . \
+            -type f \
+            -name "pyThStat.py" \
+            -print
+            
       - name: Run pyThStat
         if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
