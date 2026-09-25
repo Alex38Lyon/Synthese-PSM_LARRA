@@ -251,9 +251,9 @@ Soit un grand total de :             	`364 834,30 (m)`
 | :---------------- | :--- |
 |       Script pyThStat par | alexandre.pont@yahoo.fr |
 |       Version | 2026.09.25 |
-|       Fichier source | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql |
-|       Dossier destination | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-09-25 18h02m49s |
-| Durée calcul |29 (m) 39 (s) sans erreur |
+|       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
+|       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
+|       Date | 2026-09-25 18h40m58s |
+| Durée calcul |02 (m) 30 (s) sans erreur |
 
 --------------
