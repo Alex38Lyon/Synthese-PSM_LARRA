@@ -381,8 +381,7 @@ jobs:
           echo "pyThtoQgis"
           echo "========================================"
           cd Scripts/pyThtoQgis
-          python pyThtoQgis.py \
-            --folder "../../Outputs/SHP/"
+          python pyThtoQgis.py --folder "../../Outputs/SHP/"
 
       # ============================================================
       # 14. Vérification base SQL
@@ -406,22 +405,7 @@ jobs:
 
       # ============================================================
       # 15. Exécution pyThStat
-      # ============================================================
-      # ============================================================
-      # Recherche pyThStat.py
-      # ============================================================
-      - name: Find pyThStat.py
-        if: steps.changed.outputs.shp == 'true'
-        shell: bash
-        run: |
-          echo "========================================"
-          echo "RECHERCHE pyThStat.py"
-          echo "========================================"
-          find . \
-            -type f \
-            -name "pyThStat.py" \
-            -print
-            
+      # ============================================================           
       - name: Run pyThStat
         if: steps.changed.outputs.shp == 'true'
         shell: bash -el {0}
@@ -432,42 +416,30 @@ jobs:
           echo "========================================"
           cd ..
           cd Scripts/pyThStat
-          python pyThStat.py \
-            --file "../../Outputs/DB_Synthese-PSM_LARRA.sql"
+          python pyThStat.py --file "../../Outputs/DB_Synthese-PSM_LARRA.sql"
 
       # ============================================================
       # 16. Fichiers produits
       # ============================================================
-
       - name: Show generated files
         if: steps.changed.outputs.shp == 'true'
         shell: bash
         run: |
-
           echo "========================================"
           echo "GENERATED FILES"
           echo "========================================"
-
-
           git status --short
-
-
           echo ""
-
           git diff --stat
-
 
       # ============================================================
       # 17. Commit
       # ============================================================
-
       - name: Commit generated files
         if: steps.changed.outputs.shp == 'true'
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-
           commit_message: "Auto-generate outputs from SHP"
-
           commit_user_name: "github-actions[bot]"
 
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
