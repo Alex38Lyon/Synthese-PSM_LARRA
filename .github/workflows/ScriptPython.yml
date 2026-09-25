@@ -398,8 +398,9 @@ jobs:
           echo "========================================"
           echo "Find SQL"
           echo "========================================"
+          ls -l
           find Outputs \
-            -maxdepth 2 \
+            -maxdepth 1 \
             -type f \
             -name "*.sql" \
             -print
