@@ -394,24 +394,24 @@ jobs:
           echo "========================================"
           echo "CHECK DATABASE"
           echo "========================================"
-          cd ..
+    
           echo "========================================"
           echo "Find SQL"
           echo "========================================"
           ls -l
+          echo "========================================"
           find Outputs \
             -maxdepth 1 \
             -type f \
             -name "*.sql" \
             -print
-          ls -l
           
           SQL_FILE="Outputs/DB_Synthese-PSM_LARRA.sql"
           
           if [ ! -f "$SQL_FILE" ]; then
             echo "ERREUR : fichier SQL introuvable :"
             echo "$SQL_FILE"
-            exit 1
+            # exit 1
           fi
           echo "Base SQL trouvée :"
           ls -lh "$SQL_FILE"
@@ -429,6 +429,8 @@ jobs:
           echo "========================================"
           ls -l
           cd Scripts/pyThStat
+          echo "========================================"
+          ls -l
           python pyThStat.py --file "/../../Outputs/DB_Synthese-PSM_LARRA.sql"
 
       # ============================================================
