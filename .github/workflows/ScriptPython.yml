@@ -352,6 +352,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install alive-progress
           pip install pandas
+          pip install matplotlib
 
       # ============================================================
       # 12. Affichage des SHP
@@ -431,7 +432,7 @@ jobs:
           cd Scripts/pyThStat
           echo "========================================"
           ls -l
-          python pythStat.py --file "./../../Outputs/DB_Synthese-PSM_LARRA.sql"
+          python pythStat.py --file "../../Outputs/DB_Synthese-PSM_LARRA.sql"
 
       # ============================================================
       # 16. Fichiers produits
