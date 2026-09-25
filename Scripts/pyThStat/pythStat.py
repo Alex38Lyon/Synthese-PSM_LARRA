@@ -17,6 +17,7 @@
 import sqlite3, sys, os, re, argparse
 from pathlib import Path
 from os.path import isfile, join, abspath, splitext
+from turtle import color
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -55,7 +56,7 @@ def importation_sql_data(fichier_sql):
         cursor = connection.cursor()
         
         # Lecture du fichier SQL et exécution des commandes
-        with open(fichier_sql, 'r') as sql_file:
+        with open(fichier_sql, 'r', encoding='utf-8') as sql_file:
             sql_script = sql_file.read()
              
         
@@ -150,7 +151,8 @@ def construction_tables():
                 RESEAU_ID INTEGER,
                 STATION_JONC INTEGER,
                 ENT_1 INTEGER,
-                ENT_2 INTEGER)
+                ENT_2 INTEGER,
+                RESEAU_NAME)
             """)
         conn.commit()      
         
@@ -267,7 +269,7 @@ def construction_tables():
         with alive_bar(compteur_ttl, title = f"{Colors.YELLOW}Progression{Colors.ENDC}", length = 20) as bar: 
             while len(results) > 0: # type: ignore
                 # print(f"{Colors.GREEN}{Colors.BOLD}Phase 4.{Count}: Remplissage des tables _JONCTION et _SERIE itération: {Count}, séries créée(s): {New_Serie_ID} ajoutée(s): {New_Serie_ID-New_Serie_IDOld} à traiter: {len(results)}{Colors.ENDC}")            # type: ignore
-                bar.text(f"{Colors.YELLOW}itération(s): {Colors.ENDC}{Count}{Colors.YELLOW}, série(s) créée(s): {Colors.ENDC}{New_Serie_ID}")       # type: ignore
+                bar.text(f"{Colors.YELLOW}itération(s): {Colors.ENDC}{Count}{Colors.YELLOW}, série(s) créée(s): {Colors.ENDC}{New_Serie_ID}{Colors.YELLOW}")       # type: ignore
                 cursor.execute("SELECT COUNT(*) AS nbre FROM _JONCTION WHERE STATION_TYPE IS NULL")
                 _compteur = cursor.fetchall()
                 compteur = int(_compteur[0][0])
@@ -377,16 +379,16 @@ def construction_tables():
                          
         orphelines_shot()
         jonction_RESEAU()
+        name_RESEAU()
         
         if compteur > 0 :            
             log.warning(f"Phase 4: Fin du remplissage des tables,{Colors.WARNING} attention {Colors.ENDC}{compteur}{Colors.WARNING} station(s) non comptabilisé(s)")
-            error_count  += 1
         # else :
         #     print(f"{Colors.GREEN}{Colors.BOLD}Phase 4: Fin du remplissage des tables voir {imported_database}{Colors.ENDC}")      
         
 
     except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution d'une des requêtes (construction_tables) code:{Colors.ENDC} {e}")
+        log.error(f"Erreur lors de l'exécution d'une de la fonction construction_tables, code:{Colors.ENDC} {e}")
         error_count  += 1
     
     return
@@ -430,7 +432,7 @@ def orphelines_shot():
         conn.commit() 
         orphelines = cursor.fetchall()
         
-        log.info(f"Intégrations des visées orphelines (entre 2 stations existantes) nbre: {Colors.ENDC}{len(orphelines)}")
+        log.info(f"Intégrations des visées orphelines (entre 2 stations existantes), nbre: {Colors.ENDC}{len(orphelines)}")
         
         for row in orphelines:
             _SERIE_LENGHT = 0
@@ -571,7 +573,70 @@ def jonction_RESEAU():
             log.info(f"Réseau: {Colors.ENDC}{index_reseau}{Colors.INFO}, entrées jonctionnées: {Colors.ENDC}{len(liste_entrees_reseau)}{Colors.INFO}, {Colors.ENDC}{liste_entrees_reseau}")
         
     except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution de la requête Jonction_RESEAU code:{Colors.ENDC} {e}")
+        log.error(f"Erreur lors de l'exécution de la fonction Jonction_RESEAU, code:{Colors.ENDC} {e}")
+        error_count  += 1
+        
+    return
+
+#####################################################################################################################################
+#         Fonction pour nommer les réseaux d'après les survey name                                                                                        #
+#####################################################################################################################################
+def name_RESEAU():
+    global error_count     
+    
+    try:
+        cursor.execute("""
+            SELECT
+                _RESEAU.ID AS _ID,
+                _RESEAU.RESEAU_ID AS _RESEAU_ID,
+                _RESEAU.ENT_1,
+                _RESEAU.ENT_2,
+                STATION_ENT_1.NAME  AS S1_NAME,
+                STATION_ENT_2.NAME  AS S2_NAME,
+                SURVEY_ENT_1.NAME AS SURVEY_NAME_ENT_1,
+                SURVEY_ENT_1.FULL_NAME AS SURVEY_FULL_NAME_ENT_1,
+                SURVEY_ENT_1.ID AS SURVEY_ID_ENT_1,
+                SURVEY_ENT_1.TITLE AS SURVEY_TITLE_NAME_ENT_1,
+                SURVEY_ENT_2.NAME AS SURVEY_NAME_ENT_2,
+                SURVEY_ENT_2.FULL_NAME AS SURVEY_FULL_NAME_ENT_2,
+                SURVEY_ENT_2.ID AS SURVEY_ID_ENT_2,
+                SURVEY_ENT_2.TITLE AS SURVEY_TITLE_NAME_ENT_2
+            FROM _RESEAU AS _RESEAU
+            INNER JOIN STATION AS STATION_ENT_1 ON _RESEAU.ENT_1      = STATION_ENT_1.ID
+            LEFT  JOIN STATION AS STATION_ENT_2 ON _RESEAU.ENT_2      = STATION_ENT_2.ID
+            INNER JOIN SURVEY  AS SURVEY_ENT_1  ON STATION_ENT_1.SURVEY_ID = SURVEY_ENT_1.ID
+            INNER JOIN SURVEY  AS SURVEY_ENT_2  ON STATION_ENT_2.SURVEY_ID = SURVEY_ENT_2.ID
+            ORDER BY _RESEAU_ID;
+        """)
+        
+        conn.commit() 
+        name_reseau = cursor.fetchall()
+        
+        for row in name_reseau : 
+            log.debug(f"{Colors.BLUE}Réseau ID {Colors.ENDC}{row[0]}{Colors.BLUE}, ENT_1 full name : {Colors.ENDC}{row[7]}{Colors.BLUE}, Survey ID {Colors.ENDC}{row[8]}{Colors.BLUE}, ENT_2 full name : {Colors.ENDC}{row[11]}{Colors.BLUE}, Survey ID {Colors.ENDC}{row[12]}{Colors.BLUE}")
+            
+            parent_ent_01 = sql_Parents_Survey(row[8]) 
+            parent_ent_02 = sql_Parents_Survey(row[12])
+
+            # IDs communs aux deux listes, en parcourant depuis la racine vers l'enfant
+            ids_01 = [row[0] for row in parent_ent_01] # type: ignore
+            ids_02 = [row[0] for row in parent_ent_02] # type: ignore
+
+            # Ancêtres communs = intersection
+            communs = set(ids_01) & set(ids_02)
+
+            # Premier parent commun = celui le plus proche des enfants
+            # → dans les listes ordonnées enfant→racine, c'est le commun le plus "à gauche"
+            premier_commun = next( (row for row in parent_ent_01 if row[0] in communs), )# type: ignore
+            log.debug(f"{Colors.BLUE}Premier commun : {Colors.ENDC}{premier_commun}")
+            
+            cursor.execute("UPDATE _RESEAU SET RESEAU_NAME = ? WHERE RESEAU_ID = ?", (premier_commun[2], row[1]))
+            conn.commit()
+            
+            
+        
+    except sqlite3.Error as e:
+        log.error(f"Erreur lors de l'exécution de la fonction name_RESEAU, code:{Colors.ENDC} {e}")
         error_count  += 1
         
     return
@@ -605,7 +670,7 @@ def SHOT_equates_station():
                     """)    
         equate = cursor.fetchall()
         
-        log.info(f"Jonction de SHOT equates nbre: {Colors.ENDC}{len(equate)}")
+        log.info(f"Jonction de SHOT equates, nbre: {Colors.ENDC}{len(equate)}")
         for row in equate :
             sous_valeurs = row[0].split(',')
             # print(f": {sous_valeurs[0]} = ", end="")
@@ -730,7 +795,7 @@ def duplicate_SHOT():
             #     filtre = cursor.fetchall()
                       
         if len(duplicate) > 0:
-            log.info(f"Table des SHOT, visées dupliquées traités nbre: {Colors.ENDC}{len(duplicate)}")
+            log.info(f"Table des SHOT, visées dupliquées traités, nbre: {Colors.ENDC}{len(duplicate)}")
             # print(f"Visées dupliqués supprimés {duplicate}")
         
         else :
@@ -768,7 +833,7 @@ def issue_SHOT():
        
         
         if len(issue) > 0:
-            log.warning(f"Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s) nbre: {Colors.ENDC}{len(issue)}")
+            log.warning(f"Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: {Colors.ENDC}{len(issue)}")
             # print(f"Visée(s) bloquante(s) supprimée(s) {issue}")
         else :
             log.info(f"Table des SHOT, aucune visée bloquante")     
@@ -797,7 +862,7 @@ def marquage_visee_station_habillage() :
                        """ )  
         
         filtre = cursor.fetchall()
-        log.info(f"Marquage des visées et des stations d'habillage nbre: {Colors.ENDC}{len(filtre)}") 
+        log.info(f"Marquage des visées et des stations d'habillage, nbre: {Colors.ENDC}{len(filtre)}") 
         for row in filtre :
             cursor.execute(f"UPDATE _JONCTION SET STATION_TYPE = 'hab' WHERE STATION_ID = {row[0]}")
             cursor.execute(f"UPDATE _VISEE_FLAG SET SERIE_ID = -1 WHERE SHOT_ID = {row[1]}")
@@ -1270,7 +1335,7 @@ def test_jonction(station, serie, entree) :
                 _serie = cursor.fetchall()
                 # print (f"Jonction à proximité de la Station_ID: {row[0]}, retour: {str(val)}, serie {serie} - {_serie[0][0]},  entrée {entree} - {retour[0][0]}")
                 if (retour[0][0] != entree) and (retour[0][0] != None) :
-                    log.info(f"Jonction à la Station_ID: {Colors.ENDC}{row[0]}{Colors.INFO} entre les entrées {Colors.ENDC}{entree}{Colors.INFO} et {Colors.ENDC}{retour[0][0]}")
+                    log.info(f"Jonction à la Station_ID: {Colors.ENDC}{row[0]}{Colors.INFO} entre les entrées {Colors.ENDC}{entree}{Colors.INFO} et {Colors.ENDC}{retour[0][0]}{Colors.YELLOW}")
                     cursor.execute(f"INSERT INTO _RESEAU ( STATION_JONC, ENT_1, ENT_2) VALUES (?, ?, ?)", (row[0], entree, retour[0][0]))   
                     conn.commit() 
                 # if _serie[0][0] != serie and (_serie[0][0] != None):
@@ -1292,9 +1357,9 @@ def test_jonction(station, serie, entree) :
             _serie = cursor.fetchall()
             # print (f"Jonction à proximité de la Station_ID: {row[0]}, retour: {str(val)}, serie {serie} - {_serie[0][0]},  entrée {entree} - {retour[0][0]}")
             if retour[0][0] != entree :
-                log.info(f"Jonction à la Station_ID: {Colors.ENDC}{station}{Colors.INFO} entre les entrées {Colors.ENDC}{entree}{Colors.INFO} et {Colors.ENDC}{retour[0][0]}") 
+                log.info(f"Jonction à la Station_ID: {Colors.ENDC}{station}{Colors.INFO} entre les entrées {Colors.ENDC}{entree}{Colors.INFO} et {Colors.ENDC}{retour[0][0]}{Colors.YELLOW}") 
             if _serie[0][0] != serie :
-                log.info (f"Jonction à la Station_ID: {Colors.ENDC}{station}{Colors.INFO} entre les series {Colors.ENDC}{serie}{Colors.INFO} et {Colors.ENDC}{_serie[0][0]}")            
+                log.info (f"Jonction à la Station_ID: {Colors.ENDC}{station}{Colors.INFO} entre les series {Colors.ENDC}{serie}{Colors.INFO} et {Colors.ENDC}{_serie[0][0]}{Colors.YELLOW}")            
             return True
         
     except sqlite3.Error as e:
@@ -1340,520 +1405,7 @@ def format_french_number(value):
 #####################################################################################################################################
 #         Fonction pour exécuter une requête et sauvegarder les résultats dans un fichier texte                                     #
 #####################################################################################################################################
-def calcul_statsNew(output_file, filename= "None"):
-    global error_count
-
-    try:
-        # =====================================================================
-        # Phase 5 - Génération des statistiques
-        # =====================================================================
-
-        log.info(
-            f"{Colors.UNDERLINE}Phase 5:{Colors.ENDC}"
-            f"{Colors.INFO} Écriture des statistiques dans "
-            f"{Colors.ENDC}{safe_relpath(output_file, 2)}"
-        )
-
-        md = []
-        csv = []
-
-        # ---------------------------------------------------------------------
-        # En-tête CSV
-        # ---------------------------------------------------------------------
-
-        csv.extend(f"{titre[i].ljust(118)}*\n" for i in range(9))
-
-        # ---------------------------------------------------------------------
-        # En-tête Markdown
-        # ---------------------------------------------------------------------
-
-        md.extend([
-            f"# {titre[1].strip()[2:]}\n\n",
-            "## Informations générales\n\n",
-            f"| Information | Valeur |\n",
-            "|---|---|\n",
-            f"| Script | {titre[2].strip()[2:]} |\n",
-            f"| Version | {titre[3].strip()[2:]} |\n",
-            f"| Fichier source | `{titre[4].strip()[2:]}` |\n",
-            f"| Dossier destination | `{titre[5].strip()[2:]}` |\n",
-            f"| Date | {titre[6].strip()[2:]} |\n",
-        ])
-
-        # ---------------------------------------------------------------------
-        # Développement total
-        # ---------------------------------------------------------------------
-
-        cursor.execute("""
-            SELECT
-                ROUND(SUM(LENGTH), 2),
-                ROUND(SUM(DUPLICATE_LENGTH), 2),
-                ROUND(SUM(SURFACE_LENGTH), 2)
-            FROM CENTRELINE
-        """)
-
-        total = cursor.fetchone()
-
-        developpement = total[0] or 0
-        duplique = total[1] or 0
-        surface = total[2] or 0
-
-        md.extend([
-            "\n## Synthèse\n\n",
-            "| Statistique | Valeur |\n",
-            "|---|---:|\n",
-            f"| Développement total | **{developpement:.2f} m** |\n",
-            f"| Développement dupliqué | {duplique:.2f} m |\n",
-            f"| Surface | {surface:.2f} m² |\n",
-        ])
-
-        csv.append(
-            f"**Développement total centerline (m):**\t"
-            f"développement: {developpement:.2f}\t"
-            f"dupliqué: {duplique:.2f}\t"
-            f"surface: {surface:.2f}\n"
-        )
-
-        # ---------------------------------------------------------------------
-        # Vérification des stations
-        # ---------------------------------------------------------------------
-
-        cursor.execute(
-            "SELECT COUNT(*) FROM _JONCTION WHERE STATION_TYPE IS NULL"
-        )
-
-        compteur = int(cursor.fetchone()[0])
-
-        md.append("\n### Raccordement des stations\n\n")
-
-        if compteur > 0:
-            md.append(
-                f"> [!WARNING]\n"
-                f"> **{compteur} station(s)** ne sont pas comptabilisées "
-                f"et sont raccordées.\n\n"
-            )
-
-            csv.append(
-                f"Attention, {compteur} station(s) non comptabilisée(s) "
-                f"et raccordée(s)\n"
-            )
-        else:
-            md.append(
-                "> [!NOTE]\n"
-                "> Toutes les stations sont comptabilisées et raccordées.\n\n"
-            )
-
-            csv.append(
-                "Toutes les stations sont comptabilisées et raccordées\n"
-            )
-
-        # ---------------------------------------------------------------------
-        # Développement par réseaux
-        # ---------------------------------------------------------------------
-
-        results = sql_bilan_reseaux()
-
-        if results and results[0][0] is not None:
-
-            headers = [
-                "Entrée(s)", "Nbre", "Dev. (m)", "Prof. (m)",
-                "Dupl. (m)", "Surf. (m)", "Visées",
-                "ID min", "Alt. min (m)", "ID max", "Alt. max (m)"
-            ]
-
-            md.extend([
-                "## Développement par réseaux\n\n",
-                "<details>\n",
-                "<summary>Afficher le détail des réseaux</summary>\n\n",
-                "| " + " | ".join(headers) + " |\n",
-                "|" + "|".join(["---"] * len(headers)) + "|\n",
-            ])
-
-            csv.append("\nDéveloppement total par réseaux\n")
-
-            for row in results:
-                csv.append("\t" + "\t".join(map(str, row)) + "\n")
-
-            for row in results[1:]:
-                values = [str(v) for v in row]
-
-                md.append("| " + " | ".join(values) + " |\n")
-
-            md.extend([
-                "\n</details>\n\n"
-            ])
-
-        # ---------------------------------------------------------------------
-        # Développement par année
-        # ---------------------------------------------------------------------
-
-        results = sql_bilan_annee()
-
-        if results and results[0][0] is not None:
-
-            headers = [
-                "Année", "Dev. (m)", "Cumul (m)",
-                "Dupl. (m)", "Cumul (m)",
-                "Surf. (m²)", "Cumul (m²)"
-            ]
-
-            md.extend([
-                "## Développement topographié par année\n\n",
-                "| " + " | ".join(headers) + " |\n",
-                "|" + "|".join(["---"] * len(headers)) + "|\n",
-            ])
-
-            csv.append("\nDéveloppement total topographié par année(s)\n")
-
-            for row in results[1:]:
-                if (
-                    str(row[1]).strip() != "0.00"
-                    or str(row[3]).strip() != "0.00"
-                    or str(row[5]).strip() != "0.00"
-                ):
-                    csv.append("\t" + "\t".join(map(str, row)) + "\n")
-
-                    md.append(
-                        "| " + " | ".join(map(str, row)) + " |\n"
-                    )
-
-            md.append("\n")
-
-        # ---------------------------------------------------------------------
-        # Graphiques
-        # ---------------------------------------------------------------------
-
-        Rose(output_file_name_rose)
-        Shot_lengths_histogram(output_file_name_histo)
-
-        md.extend([
-            "## Graphiques\n\n",
-            f"- [Rose des directions]({output_file_name_rose})\n",
-            f"- [Histogramme des longueurs]({output_file_name_histo})\n\n",
-        ])
-
-        # ---------------------------------------------------------------------
-        # Durée totale
-        # ---------------------------------------------------------------------
-
-        duree = datetime.now() - maintenant
-        secondes_total = int(duree.total_seconds())
-
-        heures, reste = divmod(secondes_total, 3600)
-        minutes, secondes = divmod(reste, 60)
-
-        if heures:
-            duree_formatee = f"{heures:02d} h {minutes:02d} min {secondes:02d} s"
-        elif minutes:
-            duree_formatee = f"{minutes:02d} min {secondes:02d} s"
-        else:
-            duree_formatee = f"{secondes:02d} s"
-
-        if error_count == 0:
-            md.extend([
-                "## Traitement\n\n",
-                f"> [!NOTE]\n"
-                f"> **Traitement terminé sans erreur.** "
-                f"Durée : **{duree_formatee}**.\n"
-            ])
-
-            csv[7] = (
-                f"*       Durée calcul : {duree_formatee} sans erreur"
-            )
-        else:
-            md.extend([
-                "## Traitement\n\n",
-                f"> [!WARNING]\n"
-                f"> **Traitement terminé avec {error_count} erreur(s).** "
-                f"Durée : **{duree_formatee}**.\n"
-            ])
-
-            csv[7] = (
-                f"*       Durée calcul : {duree_formatee} "
-                f"avec erreur(s): {error_count}"
-            )
-
-        csv[7] = csv[7].ljust(118) + "*\n"
-
-        # ---------------------------------------------------------------------
-        # Écriture des fichiers
-        # ---------------------------------------------------------------------
-
-        with open(output_file + ".md", "w", encoding="utf-8") as file:
-            file.writelines(md)
-
-        with open(output_file + ".csv", "w", encoding="utf-8") as file:
-            file.writelines(csv)
-
-        # ---------------------------------------------------------------------
-        # Journalisation
-        # ---------------------------------------------------------------------
-
-        if error_count == 0:
-            log.info(
-                f"Phase 5: Fin de traitement en {Colors.ENDC}{duree_formatee}"
-                f"{Colors.INFO}, résultats enregistrés dans "
-                f"{Colors.ENDC}{safe_relpath(output_file, 2)}"
-            )
-        else:
-            log.warning(
-                f"Phase 5: Fin de traitement en {Colors.ENDC}{duree_formatee}, "
-                f"{Colors.WARNING}avec {Colors.ENDC}{error_count}"
-                f"{Colors.WARNING} erreur(s), {Colors.INFO}"
-                f"résultats enregistrés dans {Colors.ENDC}"
-                f"{safe_relpath(output_file, 2)}"
-            )
-
-    except sqlite3.Error as e:
-        log.error(
-            f"Erreur lors de l'exécution des requêtes calcul_stats:"
-            f"{Colors.ENDC} {e}"
-        )
-        error_count += 1
-
-        md.append(
-            f"\n> [!CAUTION]\n"
-            f"> **Erreur SQLite :** `{e}`\n"
-        )
-        csv.append(f"Erreur lors de l'exécution de calcul_stats: {e}\n")
-
-        with open(output_file + ".md", "w", encoding="utf-8") as file:
-            file.writelines(md)
-
-        with open(output_file + ".csv", "w", encoding="utf-8") as file:
-            file.writelines(csv)
-
-    except FileNotFoundError:
-        log.error(
-            f"Erreur d'ouverture du fichier: {Colors.ENDC}"
-            f"{safe_relpath(output_file)}"
-        )
-        error_count += 1
-
-    except Exception as e:
-        log.error(
-            f"Erreur lors de l'exécution de calcul_stats:"
-            f"{Colors.ENDC} {e}"
-        )
-        error_count += 1
-
-        md.append(
-            f"\n> [!CAUTION]\n"
-            f"> **Erreur lors de l'exécution de calcul_stats :** `{e}`\n"
-        )
-        csv.append(f"Erreur lors de l'exécution de calcul_stats: {e}\n")
-
-        with open(output_file + ".md", "w", encoding="utf-8") as file:
-            file.writelines(md)
-
-        with open(output_file + ".csv", "w", encoding="utf-8") as file:
-            file.writelines(csv)
-
-def calcul_statsOld(output_file, filename= "None"):
-    global error_count
-    global _largeurCol
-    global _largeurColTete
-    
-    try:
-        #####################################################################################################################################
-        # Phase 5 
-        # Enregistrement des résultats dans un fichier 
-        #####################################################################################################################################
-        log.info(f"{Colors.UNDERLINE}Phase 5:{Colors.ENDC}{Colors.INFO} Écriture des statistiques dans fichier {Colors.ENDC}{safe_relpath(output_file, 2)}")    
-      
-        output_file_ligne_md = []
-        output_file_ligne_csv = []
-            
-        for i in range(9): 
-            output_file_ligne_csv.append(titre[i].ljust(118)+"*\n")  
-            
-                        
-        output_file_ligne_md.extend([
-            f"--------------\n",
-            f"# {titre[1].strip()[2:]}\n",
-            "|---|---|\n",
-            f"| Script | {titre[2].strip()[2:]} |\n",
-            f"| Version | {titre[3].strip()[2:]} |\n",
-            f"| Fichier source | `{titre[4].strip()[2:]}` |\n",
-            f"| Dossier destination | `{titre[5].strip()[2:]}` |\n",
-            f"| Date | {titre[6].strip()[2:]} |\n",
-            f"- {titre[2].strip()[2:]}\n",
-            f"- {titre[3].strip()[2:]}\n",
-            f"- {titre[4].strip()[2:]}\n",
-            f"- {titre[5].strip()[2:]}\n",
-            f"- {titre[6].strip()[2:]}\n",
-            f"- {titre[7].strip()[2:]}\n",
-            f"--------------\n\n",
-        ])
-
-        
-        sql_query1 = ("""
-                Select 
-                       round(sum(LENGTH), 2) as Lg,
-                       round(sum(DUPLICATE_LENGTH),2) as Duplicate,
-                       round(sum(SURFACE_LENGTH),2) as Surface
-                       -- round(sum(LENGTH) + sum(DUPLICATE_LENGTH), 2)  as Total
-                from CENTRELINE length 
-                 """)
-        
-        cursor.execute(sql_query1)     
-        results = cursor.fetchall()            
-        vide ="-".ljust(_largeurCol)
-                                                                                                                                                                                                        
-        output_file_ligne_csv.append(
-                f"**Développement total centerline (m):**\tdéveloppement: %s,\tdupliqué: %s,\tsurface: %s\n" 
-                %(str("{:.2f}".format(results[0][0]).ljust(_largeurCol)), 
-                str("{:.2f}".format(results[0][1]).ljust(_largeurCol)),
-                str("{:.2f}".format(results[0][2]).ljust(_largeurCol)),
-                ))
-
-        output_file_ligne_md.append(
-                    f"**Développement total des centerlines (m):**"
-                    f" développement: `{results[0][0]:.2f}`"
-                    f", dupliqué: `{results[0][1]:.2f}`"
-                    f", surface: `{results[0][2]:.2f}`\n"
-                )
-
-        cursor.execute("SELECT COUNT(*) AS nbre FROM _JONCTION WHERE STATION_TYPE IS NULL")
-        _compteur = cursor.fetchall()
-        compteur = int(_compteur[0][0])
-        
-        if compteur > 0 : # type: ignore
-            output_file_ligne_md.append(f"!!Attention, `{compteur}` station(s) non comptabilisée(s) et raccordée(s)\n\n")
-            output_file_ligne_csv.append(f"Attention, {compteur} station(s) non comptabilisée(s) et raccordée(s)\n\n")
-        else :
-            output_file_ligne_md.append(f"Toutes les stations sont comptabilisées et raccordées\n\n")
-            output_file_ligne_csv.append(f"Toutes les stations sont comptabilisées et raccordées\n\n")
-        
-        results=sql_bilan_reseaux()
-        
-        # def format_markdown_row(row_data):
-        #     return '| ' + ' | '.join(f"{str(item):>10}" for item in row_data) + ' |'
-        
-        if results[0][0] != None :# type: ignore
-            output_file_ligne_csv.append("Développement total par réseaux\n")
-            for row in results: # type: ignore
-                formatted_row = '\t'.join(map(str, row))
-                output_file_ligne_csv.append('\t' + formatted_row + '\n')
-                
-                #print('Développement total: ' + formatted_row + 'm') 
-                
-            output_file_ligne_md.append(f"\n--------------\n")
-            output_file_ligne_md.append("**Développement total par réseaux**\n")    
-            
-            headers = ["Entrée(s)", "Nbre", "Dev.(m)", "Prof.(m)", "Dupl.(m)", "Surf.(m)", "Visées", "ID Sta.", "Alt. min(m)", "ID Sta.", "Alt. max(m)"]
-            output_file_ligne_md.append("| " + " | ".join(headers) + " |\n")
-            output_file_ligne_md.append("|" + "|".join(["------"] * len(headers)) + "|\n")
-            
-            for row in results[1:]:  # type: ignore              
-                formatted_row = [str(v) for v in row]
-                output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
-
-        
-        results=sql_bilan_annee()
-        
-        if results[0][0] != None :# type: ignore
-            output_file_ligne_csv.append("\nDéveloppement total topographié par année(s)\n") 
-            for row in results: # type: ignore
-                if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :                
-                    formatted_row = '\t'.join(map(str, row))
-                    output_file_ligne_csv.append('\t' + formatted_row + '\n')
-                    #print('Développement total: ' + formatted_row + 'm') 
-                    
-            output_file_ligne_md.append(f"\n--------------\n")        
-            output_file_ligne_md.append("\n**Développement total topographié par année(s)**\n") 
-            headers = ["Année", "Dev.(m)", "Cumul (m)", "Dupl.(m)", "Cumul (m)", "Surf.(m)", "Cumul (m)"]
-
-            output_file_ligne_md.append("| " + " | ".join(headers) + " |\n")
-            output_file_ligne_md.append("|" + "|".join(["---"] * len(headers)) + "|\n")
-
-            for row in results[1:]:  # type: ignore
-                if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :                
-                    formatted_row = [str(v) for v in row]
-                    output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
-
-        
-        output_file_ligne_md.append(f"\n--------------\n")
-                
-        Rose(output_file_name_rose)        
-        
-        Shot_lengths_histogram(output_file_name_histo)   
-        
-        
-        findetraitement = datetime.now()
-
-        duree = findetraitement - maintenant        
-        jours, secondes = divmod(duree.seconds, 86400)    # 86400 secondes dans une journée
-        heures, secondes = divmod(secondes, 3600)         # 3600 secondes dans une heure
-        minutes, secondes = divmod(secondes, 60)          # 60 secondes dans une minute
-        if duree.seconds > 3600: 
-            duree_formatee = "{:02}(h){:02}(m){:02}(s)".format(heures, minutes, secondes)
-            
-        elif duree.seconds > 60: 
-            duree_formatee = "{:02}(m){:02}(s)".format(minutes, secondes)
-            
-        else :
-            duree_formatee = "{:02}(s)".format(secondes)
-            
-        if error_count == 0:   
-                output_file_ligne_csv[7] = "*       Durée calcul : " + duree_formatee + " sans erreur"
-                output_file_ligne_md[7] = "-       Durée calcul : " + duree_formatee + " sans erreur\n"
-                output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(118)+"*\n"
-                        
-        else :
-                output_file_ligne_csv[7] = "*       Durée calcul : " + duree_formatee + " avec erreur(s): " + str(error_count)
-                output_file_ligne_md[7] = "-       Durée calcul :  " + duree_formatee + "!! avec erreur(s): " + str(error_count) + "\n"
-                output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(118)+"*\n"
-        
-        with open(output_file + ".md", 'w',  encoding='utf-8') as file:
-            file.writelines(output_file_ligne_md)
-            
-        with open(output_file + ".csv", 'w',  encoding='utf-8') as file:
-            file.writelines(output_file_ligne_csv)
-
-        if error_count == 0 :
-            log.info(f"Phase 5: Fin de traitement en {Colors.ENDC}" + duree_formatee + f"{Colors.INFO}, résultats enregistrés dans {Colors.ENDC}{safe_relpath(output_file, 2)}") 
-        
-        else :
-            log.warning(f"Phase 5: Fin de traitement en {Colors.ENDC}" + duree_formatee 
-                + f",{Colors.WARNING} avec {Colors.ENDC}{error_count}{Colors.WARNING} erreur(s), {Colors.INFO}résultats enregistrés dans {Colors.ENDC}{safe_relpath(output_file, 2)}")  
-            
-    except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution des requêtes calcul_stats:{Colors.ENDC} {e}")
-        error_count  += 1
-        output_file_ligne_md.append(f"!!! Erreur lors de l'exécution des requêtes calcul_stats: {e}\n")
-        output_file_ligne_csv.append(f"Erreur lors de l'exécution des requêtes calcul_stats: {e}\n")
-        
-        with open(output_file + ".md", 'w',  encoding='utf-8') as file:
-            file.writelines(output_file_ligne_md)
-            
-        with open(output_file + ".csv", 'w',  encoding='utf-8') as file:
-            file.writelines(output_file_ligne_csv)
-            
-        return
-        
-    except FileNotFoundError:
-        log.error(f"Erreur d'ouverture du fichier: {Colors.ENDC}{safe_relpath(output_file)} ")
-        error_count  += 1
-        
-        return
-    
-    except Exception as e:
-        log.error(f"Erreur lors de l'exécution de calcul_stats:{Colors.ENDC} {e}")
-        error_count  += 1
-        output_file_ligne_md.append(f"!! Erreur lors de l'exécution de calcul_stats: {e}\n")
-        output_file_ligne_csv.append(f"Erreur lors de l'exécution de calcul_stats: {e}\n")
-        
-        with open(output_file + ".md", 'w',  encoding='utf-8') as file:
-            file.writelines(output_file_ligne_md)
-            
-        with open(output_file + ".csv", 'w',  encoding='utf-8') as file:
-            file.writelines(output_file_ligne_csv)
-        
-        return
-        
-    return
-
-def calcul_stats(output_file , filename= "None"):
+def calcul_stats(output_file_csv , output_file_md, filename= "None",  ):
     global error_count
     
     try:
@@ -1861,7 +1413,7 @@ def calcul_stats(output_file , filename= "None"):
         # Phase 5 
         # Enregistrement des résultats dans un fichier 
         #####################################################################################################################################
-        log.info(f"{Colors.UNDERLINE}Phase 5:{Colors.ENDC}{Colors.INFO} Écriture des statistiques dans le fichier: {Colors.ENDC}{safe_relpath(output_file, 2)}")    
+        log.info(f"{Colors.UNDERLINE}Phase 5:{Colors.ENDC}{Colors.INFO} Écriture des statistiques dans le fichier: {Colors.ENDC}{safe_relpath(output_file_md, 2)}")    
       
         ###############################################################################################################
         #  Général
@@ -1874,6 +1426,8 @@ def calcul_stats(output_file , filename= "None"):
         results3=sql_bilan_annee()
         Rose(output_file_name_rose)        
         Shot_lengths_histogram(output_file_name_histo)   
+        
+        base_name= sql_base_name()
         
         findetraitement = datetime.now()
         
@@ -1896,9 +1450,75 @@ def calcul_stats(output_file , filename= "None"):
         ###############################################################################################################  
         output_file_ligne_md = []
         
+        output_file_ligne_md.append(f"-------------\n")
+        output_file_ligne_md.append(f"# Statistiques de `{base_name}`\n")
+        output_file_ligne_md.append(f"--------------\n\n")
+        output_file_ligne_md.append(
+            f"### Développement total\n\n"
+            f"Développement topographié:           \t`{format_french_number(results[0][0])} (m)`\n" # type: ignore
+            f"Développement topographie dupliqués: \t`{format_french_number(results[0][1])} (m)`\n" # type: ignore
+            f"Développement topographie de surface:\t`{format_french_number(results[0][2])} (m)`\n" # type: ignore
+            f"Soit un grand total de :             \t`{format_french_number(results[0][0] + results[0][1] + results[0][2])} (m)`\n" # type: ignore     
+        )
+        
+        if compteur > 0 : # type: ignore
+            output_file_ligne_md.append(f"> [!WARNING] `{compteur}` station(s) non comptabilisée(s) et raccordée(s)\n\n")
+        
+        else :
+            output_file_ligne_md.append(f"Toutes les stations sont comptabilisées et raccordées\n\n")
+        
+        output_file_ligne_md.append(f"\n--------------\n")
+            
+        if results2[0][0] != None : # type: ignore              
+            output_file_ligne_md.append("### Développement total par réseau\n")    
+            
+            headers = [" Réseau ", " Entrée(s) ", " Nbre ", " Dev. (m) ", " Prof. (m) ", " Dupl. (m) ", "Surf. (m)", " Visées ", " ID Stat. ", " Alt. min (m) ", " ID Stat. ", " Alt. max (m) "]
+            output_file_ligne_md.append("| " + " | ".join(headers) + " |\n")
+            output_file_ligne_md.append("|" + "|".join(["------------"] * len(headers)) + "|\n")
+            
+            vals = results2[1]
+
+            def fmt(v, idx):
+                if v is None: return ""
+                return format_french_number(v) if idx in (3,4,5,6,9,11) else str(v).replace(' ', '')
+
+            first = fmt(vals[0], 0) if vals[0] is not None else " "
+            reste = " | ".join(f"**{fmt(v, i+1)}**" for i, v in enumerate(vals[1:]))
+
+            output_file_ligne_md.append(f"| {first}" + (f" | {reste}" if reste else "") + " |\n")
+            
+            
+            for row in results2[2:]: # type: ignore              
+                
+                clean_row = (v.strip() for v in row)
+                _row = [
+                    format_french_number(v) if idx in (3, 4, 5, 6, 9, 11) else str(v) 
+                    for idx, v in enumerate(clean_row)
+                    ]   
+                formatted_row = [str(v) for v in _row]
+                output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
+                
+        if results3[0][0] != None : # type: ignore      
+            output_file_ligne_md.append(f"\n\n--------------\n")        
+            output_file_ligne_md.append("\n### Développement total topographié par année(s)\n") 
+            headers = [" Année ", "Dev. (m)", "Cumul (m)", "Dupl. (m)", "Cumul (m)", "Surf. (m)", "Cumul (m)"]
+
+            output_file_ligne_md.append("| " + " | ".join(headers) + " |\n")
+            output_file_ligne_md.append("|" + "|".join(["---"] * len(headers)) + "|\n")
+ 
+            for row in results3[1:]:    # type: ignore
+                if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :                
+                    _row = [
+                        format_french_number(v) if idx in (1, 2, 3, 4, 5, 6) else str(v) 
+                        for idx, v in enumerate(row)
+                        ]  
+                    formatted_row = [str(v) for v in _row]
+                    output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
+
+        output_file_ligne_md.append(f"\n\n--------------\n")
+        
         output_file_ligne_md.extend([
-            f"--------------\n",
-            f"# Statistiques de la base {filename}\n",
+            f"### Bilan final\n",
             "|                   |      |\n",
             "| :---------------- | :--- |\n",
             f"| {titre[2].strip()[2:].replace(":", "|")} |\n",
@@ -1917,59 +1537,9 @@ def calcul_stats(output_file , filename= "None"):
             output_file_ligne_md.append("| Durée calcul |" + duree_formatee + " avec erreur(s): " + str(error_count) + " |\n")
         
         output_file_ligne_md.append(f"\n--------------\n")
-        
-        output_file_ligne_md.append(
-            f"### Développement total (m)\n\n"
-            f"Développement:\t`{format_french_number(results[0][0])}`" # type: ignore
-            f", dupliqué:\t`{format_french_number(results[0][1])}`" # type: ignore
-            f", surface:\t`{format_french_number(results[0][2])}`\n\n" # type: ignore
-        )
-        
-        if compteur > 0 : # type: ignore
-            output_file_ligne_md.append(f"> [!WARNING] `{compteur}` station(s) non comptabilisée(s) et raccordée(s)\n\n")
-        else :
-            output_file_ligne_md.append(f"Toutes les stations sont comptabilisées et raccordées\n\n")
-        
-        output_file_ligne_md.append(f"\n--------------\n")
-            
-        if results2[0][0] != None : # type: ignore              
-            output_file_ligne_md.append("### Développement total par réseaux\n")    
-            
-            headers = [" Entrée(s) ", " Nbre ", " Dev. (m) ", " Prof. (m) ", " Dupl. (m) ", "Surf. (m)", " Visées ", " ID Stat. ", " Alt. min (m) ", " ID Stat. ", " Alt. max (m) "]
-            output_file_ligne_md.append("| " + " | ".join(headers) + " |\n")
-            output_file_ligne_md.append("|" + "|".join(["------------"] * len(headers)) + "|\n")
-            
-            for row in results2[1:]: # type: ignore              
                 
-                _row = [
-                    format_french_number(v) if idx in (2, 3, 4, 5, 8, 10) else str(v) 
-                    for idx, v in enumerate(row)
-                    ]   
-                formatted_row = [str(v) for v in _row]
-                output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
-                
-        if results3[0][0] != None : # type: ignore      
-            output_file_ligne_md.append(f"\n--------------\n")        
-            output_file_ligne_md.append("\n### Développement total topographié par année(s)\n") 
-            headers = [" Année ", "Dev. (m)", "Cumul (m)", "Dupl. (m)", "Cumul (m)", "Surf. (m)", "Cumul (m)"]
-
-            output_file_ligne_md.append("| " + " | ".join(headers) + " |\n")
-            output_file_ligne_md.append("|" + "|".join(["---"] * len(headers)) + "|\n")
- 
-            for row in results3[1:]:    # type: ignore
-                if row[1].strip() != "0.00" or row[3].strip() != "0.00" or row[5].strip() != "0.00" :                
-                    _row = [
-                        format_french_number(v) if idx in (1, 2, 3, 4, 5, 6) else str(v) 
-                        for idx, v in enumerate(row)
-                        ]  
-                    formatted_row = [str(v) for v in _row]
-                    output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
-
-        output_file_ligne_md.append(f"\n--------------\n")
-        
-
                
-        with open(output_file + ".md", 'w',  encoding='utf-8') as file:
+        with open(output_file_md + ".md", 'w',  encoding='utf-8') as file:
             file.writelines(output_file_ligne_md)
 
         ###############################################################################################################
@@ -2013,15 +1583,15 @@ def calcul_stats(output_file , filename= "None"):
                 output_file_ligne_csv[7] = "*       Durée calcul : " + duree_formatee + " avec erreur(s): " + str(error_count)
                 output_file_ligne_csv[7] = output_file_ligne_csv[7].ljust(118)+"*\n"
             
-        with open(output_file + ".csv", 'w',  encoding='utf-8') as file:
+        with open(output_file_csv + ".csv", 'w',  encoding='utf-8') as file:
             file.writelines(output_file_ligne_csv)
 
         if error_count == 0 :
-            log.info(f"Phase 5: Fin de traitement en {Colors.ENDC}" + duree_formatee + f"{Colors.INFO}, résultats enregistrés dans {Colors.ENDC}{safe_relpath(output_file, 2)}") 
+            log.info(f"Phase 5: Fin de traitement en {Colors.ENDC}" + duree_formatee + f"{Colors.INFO}, résultats enregistrés dans {Colors.ENDC}{safe_relpath(output_file_csv, 2)}") 
         
         else :
             log.warning(f"Phase 5: Fin de traitement en {Colors.ENDC}" + duree_formatee 
-                + f",{Colors.WARNING} avec {Colors.ENDC}{error_count}{Colors.WARNING} erreur(s), {Colors.INFO}résultats enregistrés dans {Colors.ENDC}{safe_relpath(output_file, 2)}")  
+                + f",{Colors.WARNING} avec {Colors.ENDC}{error_count}{Colors.WARNING} erreur(s), {Colors.WARNING}résultats enregistrés dans {Colors.ENDC}{safe_relpath(output_file_csv, 2)}")  
             
     except sqlite3.Error as e:
         log.error(f"Erreur lors de l'exécution des requêtes calcul_stats:{Colors.ENDC} {e}")
@@ -2029,16 +1599,16 @@ def calcul_stats(output_file , filename= "None"):
         output_file_ligne_md.append(f"!!! Erreur lors de l'exécution des requêtes calcul_stats: {e}\n")
         output_file_ligne_csv.append(f"Erreur lors de l'exécution des requêtes calcul_stats: {e}\n")
         
-        with open(output_file + ".md", 'w',  encoding='utf-8') as file:
+        with open(output_file_md + ".md", 'w',  encoding='utf-8') as file:
             file.writelines(output_file_ligne_md)
             
-        with open(output_file + ".csv", 'w',  encoding='utf-8') as file:
+        with open(output_file_csv + ".csv", 'w',  encoding='utf-8') as file:
             file.writelines(output_file_ligne_csv)
             
         return
         
     except FileNotFoundError:
-        log.error(f"Erreur d'ouverture du fichier: {Colors.ENDC}{safe_relpath(output_file)} ")
+        log.error(f"Erreur d'ouverture du fichier: {Colors.ENDC}{safe_relpath(output_file_ligne_md)} ")
         error_count  += 1
         
         return
@@ -2049,15 +1619,55 @@ def calcul_stats(output_file , filename= "None"):
         output_file_ligne_md.append(f"!! Erreur lors de l'exécution de calcul_stats: {e}\n")
         output_file_ligne_csv.append(f"Erreur lors de l'exécution de calcul_stats: {e}\n")
         
-        with open(output_file + ".md", 'w',  encoding='utf-8') as file:
+        with open(output_file_md + ".md", 'w',  encoding='utf-8') as file:
             file.writelines(output_file_ligne_md)
             
-        with open(output_file + ".csv", 'w',  encoding='utf-8') as file:
+        with open(output_file_csv + ".csv", 'w',  encoding='utf-8') as file:
             file.writelines(output_file_ligne_csv)
         
         return
         
     return
+
+#####################################################################################################################################
+#           Requête : parents d'une survey                                                                                          #
+#####################################################################################################################################
+def sql_Parents_Survey(ID):
+    global error_count     
+   
+    sql_query = (f"""
+        WITH RECURSIVE PARENTS AS (
+            SELECT ID, PARENT_ID, NAME, TITLE
+            FROM SURVEY
+            WHERE ID = {ID}
+
+            UNION ALL
+
+            SELECT SURVEY.ID, SURVEY.PARENT_ID, SURVEY.NAME, SURVEY.TITLE
+            FROM SURVEY AS SURVEY
+            INNER JOIN PARENTS AS PARENTS ON SURVEY.ID = PARENTS.PARENT_ID
+            WHERE PARENTS.PARENT_ID <> 0
+        )
+        SELECT ID AS PARENT_ID, NAME, TITLE
+        FROM PARENTS
+        WHERE ID <> {ID}; 
+        """)
+    
+    try:
+        cursor.execute(sql_query)    
+        result_ent = cursor.fetchall()
+        
+        if len(result_ent) == 0 :
+            error_count  += 1 
+            log.error(f"Attention aucun parents à l'ID {ID}")
+        
+        return result_ent
+
+    except sqlite3.Error as e:
+        log.error(f"Erreur lors de l'exécution de la requête (sql_Parents_Survey):{Colors.ENDC} {e}")
+        error_count  += 1
+        return None
+
 
 #####################################################################################################################################
 #           Requête : Longueur totale des centerlines                                                                               #
@@ -2092,7 +1702,6 @@ def sql_Centerline_length():
         error_count  += 1
         return None
     
-
 #####################################################################################################################################
 #           Requête : Table des entrées  (Liste des entrées avec coordonnées)                                                       #
 #####################################################################################################################################
@@ -2141,7 +1750,7 @@ def sql_liste_entree():
             error_count  += 1 
             log.warning(f"Attention aucune entrée ou point fix comptabilisé")
         else :
-            log.info(f"Table des STATION, entrée et fix nbre: {Colors.ENDC}{len(result_ent)}")
+            log.info(f"Table des STATION entrée et fix, nbre: {Colors.ENDC}{len(result_ent)}")
         
         return result_ent
     
@@ -2362,175 +1971,187 @@ def sql_bilan_reseaux():
         ###############################################################################################################    
         
         cursor.execute(f"""
-                            -- Bilan table série By Réseaux
-                            select 
-                                --SURVEY_RESEAU.TITLE as Réseau,
-                                --SURVEY_RESEAU.NAME,
-                                --SURVEY_RESEAU.ID,
-                                RESEAU_ID,
-                                --STATION.NAME as Nom,
-                                -- sum(_SERIE.SERIE_LENGHT) as Total,
-                                round(sum(_SERIE.SERIE_LENGHT) - sum(_SERIE.SERIE_LENGHT_SURFACE)- sum(_SERIE.SERIE_LENGHT_DUPLICATE), 2) as Long,
-                                round(sum(_SERIE.SERIE_LENGHT_DUPLICATE),2) as Duplicate, 
-                                round(sum(_SERIE.SERIE_LENGHT_SURFACE),2) as Surface, 
-                                sum(_SERIE.SERIE_NBRE_SHOT) as Nbre_Shot
-                                --COUNT(*) AS Nbre_serie
-                                --round(max(STATION.Z),2) as Max_Z,
-                                --round(min(STATION.Z),2) as Min_Z,
-                                --max(STATION.Z) - min(STATION.Z) as Delta_Z
-                            FROM _SERIE	
-                            JOIN STATION ON _SERIE.STATION_ENT_ID = STATION.ID
-                            JOIN SURVEY AS SURVEY_JONCTION ON STATION.SURVEY_ID = SURVEY_JONCTION.ID
-                            JOIN SURVEY AS SURVEY_RESEAU ON SURVEY_JONCTION.PARENT_ID = SURVEY_RESEAU.ID
-                            WHERE RESEAU_ID is not NULL and RESEAU_ID !=0
-                            GROUP BY _SERIE.RESEAU_ID
-                            ORDER BY Long DESC
-                        """)
+            -- Bilan table série By Réseaux
+            select 
+                --SURVEY_RESEAU.TITLE as Réseau,
+                --SURVEY_RESEAU.NAME,
+                --SURVEY_RESEAU.ID,
+                RESEAU_ID,
+                --STATION.NAME as Nom,
+                -- sum(_SERIE.SERIE_LENGHT) as Total,
+                round(sum(_SERIE.SERIE_LENGHT) - sum(_SERIE.SERIE_LENGHT_SURFACE)- sum(_SERIE.SERIE_LENGHT_DUPLICATE), 2) as Long,
+                round(sum(_SERIE.SERIE_LENGHT_DUPLICATE),2) as Duplicate, 
+                round(sum(_SERIE.SERIE_LENGHT_SURFACE),2) as Surface, 
+                sum(_SERIE.SERIE_NBRE_SHOT) as Nbre_Shot
+                --COUNT(*) AS Nbre_serie
+                --round(max(STATION.Z),2) as Max_Z,
+                --round(min(STATION.Z),2) as Min_Z,
+                --max(STATION.Z) - min(STATION.Z) as Delta_Z
+            FROM _SERIE	
+            JOIN STATION ON _SERIE.STATION_ENT_ID = STATION.ID
+            JOIN SURVEY AS SURVEY_JONCTION ON STATION.SURVEY_ID = SURVEY_JONCTION.ID
+            JOIN SURVEY AS SURVEY_RESEAU ON SURVEY_JONCTION.PARENT_ID = SURVEY_RESEAU.ID
+            WHERE RESEAU_ID is not NULL and RESEAU_ID !=0
+            GROUP BY _SERIE.RESEAU_ID
+            ORDER BY Long DESC
+        """)
         result = cursor.fetchall()
              
         if len(result) >0 : 
-            # _ligne = [ ' - ', " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "] 
-            # _ligne[0]= 'Aucun réseau'.ljust(_largeurColTete)
-            # retour.append(_ligne)
-            # return retour
         
             for row in result:
-                ligne = [ ' - ', " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "] 
+                ligne = [ " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "] 
                 
                 result_shot = 0
             
                 cursor.execute(f"""
-                                    select 
-                                        COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
-                                        count(_VISEE_FLAG.ID) as count,
-                                        STATION_TO.NAME as To_Name	
-                                    from _VISEE_FLAG 
-                                    JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                                    JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                                    LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                                    WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG is null and _VISEE_FLAG.RESEAU_ID ={row[0]}
-                                """)
+                    select 
+                        COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
+                        count(_VISEE_FLAG.ID) as count,
+                        STATION_TO.NAME as To_Name	
+                    from _VISEE_FLAG 
+                    JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+                    JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+                    LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+                    WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG is null and _VISEE_FLAG.RESEAU_ID ={row[0]}
+                """)
                 _result_length = cursor.fetchall()
                 result_length = float(_result_length[0][0])
                 result_shot = int(_result_length[0][1])
             
                 cursor.execute(f"""
-                                    select 
-                                        COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
-                                        count(_VISEE_FLAG.ID) as count,
-                                        STATION_TO.NAME as To_Name	
-                                    from _VISEE_FLAG 
-                                    JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                                    JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                                    LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                                    WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='dpl' and _VISEE_FLAG.RESEAU_ID ={row[0]}
-                                """)
-                
+                    select 
+                        COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
+                        count(_VISEE_FLAG.ID) as count,
+                        STATION_TO.NAME as To_Name	
+                    from _VISEE_FLAG 
+                    JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+                    JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+                    LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+                    WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='dpl' and _VISEE_FLAG.RESEAU_ID ={row[0]}
+                """)
                 _result_length_dpl = cursor.fetchall()
                 result_length_dpl = float(_result_length_dpl[0][0])
                 result_shot += int(_result_length_dpl[0][1]) 
             
                 cursor.execute(f"""
-                                    select 
-                                        COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
-                                        count(_VISEE_FLAG.ID) as count,
-                                        STATION_TO.NAME as To_Name	
-                                    from _VISEE_FLAG 
-                                    JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                                    JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                                    LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                                    WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='srf' and _VISEE_FLAG.RESEAU_ID ={row[0]}
-                                """)
-                
+                    select 
+                        COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
+                        count(_VISEE_FLAG.ID) as count,
+                        STATION_TO.NAME as To_Name	
+                    from _VISEE_FLAG 
+                    JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+                    JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+                    LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+                    WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='srf' and _VISEE_FLAG.RESEAU_ID ={row[0]}
+                """)
                 _result_length_srf = cursor.fetchall()
                 result_length_srf = float(_result_length_srf[0][0])
                 result_shot += int(_result_length_srf[0][1])  
-
                 
-                # ligne = [ 'none', 0, 0, 0, 0, 0, 0, 'none', 0, 'none', 0, 0]     
                 cursor.execute(f""" 
-                                -- Liste des entrée dans la table _RESEAU 
-                                SELECT 
-                                    --_RESEAU.ENT_1 AS ENT_ID,
-                                    --_RESEAU.RESEAU_ID,
-                                    STATION.NAME
-                                    --STATION.Z
-                                FROM _RESEAU 
-                                JOIN STATION ON _RESEAU.ENT_1 = STATION.ID
-                                WHERE RESEAU_ID = {row[0]}
-                                UNION --ALL
-                                SELECT 
-                                    --_RESEAU.ENT_2 AS ENT_ID,
-                                    --_RESEAU.RESEAU_ID,
-                                    STATION.NAME
-                                    --STATION.Z
-                                FROM _RESEAU
-                                JOIN STATION ON _RESEAU.ENT_2 = STATION.ID 
-                                WHERE RESEAU_ID =  {row[0]}
-                                GROUP BY STATION.NAME
-                                ORDER BY STATION.NAME 
-                                --ORDER BY STATION.Z DESC
-                            """)
+                    SELECT DISTINCT
+                        _RESEAU.RESEAU_NAME
+                    FROM _RESEAU
+                    WHERE _RESEAU.RESEAU_ID ={row[0]};
+                """)
+                reseau = cursor.fetchall()
+                
+                if len(reseau) : 
+                    _reseau = ", ".join(row[0] for row in reseau if row[0])
+                
+                else : _reseau = reseau[0]
+    
+                cursor.execute(f""" 
+                    -- Liste des entrée dans la table _RESEAU 
+                    SELECT 
+                        --_RESEAU.ENT_1 AS ENT_ID,
+                        --_RESEAU.RESEAU_ID,
+                        STATION.NAME,
+                        SURVEY.NAME AS Survey_Name,
+                        SURVEY.TITLE AS Survey_Title 
+                        --STATION.Z
+                    FROM _RESEAU 
+                    JOIN STATION ON _RESEAU.ENT_1 = STATION.ID
+                    JOIN SURVEY ON STATION.SURVEY_ID = SURVEY.ID
+                    WHERE RESEAU_ID = {row[0]}
+                    UNION --ALL
+                    SELECT 
+                        --_RESEAU.ENT_2 AS ENT_ID,
+                        --_RESEAU.RESEAU_ID,
+                        STATION.NAME,
+                        SURVEY.NAME AS Survey_Name,
+                        SURVEY.TITLE AS Survey_Title 
+                        --STATION.Z
+                    FROM _RESEAU
+                    JOIN STATION ON _RESEAU.ENT_2 = STATION.ID
+                    JOIN SURVEY ON STATION.SURVEY_ID = SURVEY.ID 
+                    WHERE RESEAU_ID =  {row[0]}
+                    GROUP BY STATION.NAME
+                    ORDER BY STATION.NAME 
+                    --ORDER BY STATION.Z DESC
+                """)
                 liste_entree = cursor.fetchall()
                 
             
-                _liste_ent = liste_entree[0][0]
+                _liste_ent = liste_entree[0][2]
                 
                 index = 1
                 while index < len(liste_entree):
-                    _liste_ent += ", " +  liste_entree[index][0]
+                    _liste_ent += ", " +  liste_entree[index][2]
                     index += 1
                         
                 if len(_liste_ent) > _largeurColTete :
                     _largeurColTete = len(_liste_ent) + 2
                      
-                ligne[0] =_liste_ent.ljust(_largeurColTete)          # Liste Entrées
-                ligne[1] = str(len(liste_entree))                    # Nre Entrées
-                ligne[2] = str("{:.2f}".format(result_length))       # Dev.
-                ligne[4] = str("{:.2f}".format(result_length_dpl))   # Dupl.
-                ligne[5] = str("{:.2f}".format(result_length_srf))   # Surf.
-                ligne[6] = str(result_shot)                          # Visées
+                ligne[0] = str(_reseau)
+                ligne[1] = str(_liste_ent.ljust(_largeurColTete))    # Liste Entrées
+                ligne[2] = str(len(liste_entree))                    # Nre Entrées
+                ligne[3] = str("{:.2f}".format(result_length))       # Dev.
+                ligne[5] = str("{:.2f}".format(result_length_dpl))   # Dupl.
+                ligne[6] = str("{:.2f}".format(result_length_srf))   # Surf.
+                ligne[7] = str(result_shot)                          # Visées
                 
                 cursor.execute(f""" 
-                                -- Requête pour rechercher le point bas d'un réseau / entrée
-                                SELECT
-                                    STATION.name,
-                                    STATION.Z as Min
-                                from STATION 
-                                join (
-                                    select Min(STATION.Z) as Val_Min
-                                    from STATION
-                                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                                    WHERE _JONCTION.RESEAU_ID = {row[0]}
-                                ) min on STATION.Z = min.Val_Min
-                                LIMIT 1
-                            """)
+                    -- Requête pour rechercher le point bas d'un réseau / entrée
+                    SELECT
+                        STATION.name,
+                        STATION.Z as Min
+                    from STATION 
+                    join (
+                        select Min(STATION.Z) as Val_Min
+                        from STATION
+                        join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                        WHERE _JONCTION.RESEAU_ID = {row[0]}
+                    ) min on STATION.Z = min.Val_Min
+                    LIMIT 1
+                """)
                 altitude_min = cursor.fetchall()
                 
-                ligne[7] = altitude_min[0][0]
-                ligne[8] = str("{:.2f}".format(altitude_min[0][1])) 
+                ligne[8] = str(altitude_min[0][0])
+                ligne[9] = str("{:.2f}".format(altitude_min[0][1])) 
                 
                 cursor.execute(f""" 
-                                -- Requête pour rechercher le point haut  d'un réseau / entrée
-                                SELECT
-                                    STATION.name,
-                                    STATION.Z as Max
-                                from STATION 
-                                join (
-                                    select Max(STATION.Z) as Val_Max
-                                    from STATION
-                                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                                    WHERE _JONCTION.RESEAU_ID = {row[0]}
-                                ) max on STATION.Z = max.Val_Max
-                                LIMIT 1
-                            """)
+                    -- Requête pour rechercher le point haut  d'un réseau / entrée
+                    SELECT
+                        STATION.name,
+                        STATION.Z as Max
+                    from STATION 
+                    join (
+                        select Max(STATION.Z) as Val_Max
+                        from STATION
+                        join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                        WHERE _JONCTION.RESEAU_ID = {row[0]}
+                    ) max on STATION.Z = max.Val_Max
+                    LIMIT 1
+                """)
                 altitude_max = cursor.fetchall()
                 
-                ligne[9] = altitude_max[0][0]
-                ligne[10] = str("{:.2f}".format(altitude_max[0][1])) 
-                ligne[3] =  "{:.2f}".format(altitude_max[0][1] - altitude_min[0][1]) 
+                ligne[10] = str(altitude_max[0][0])
+                ligne[11] = str("{:.2f}".format(altitude_max[0][1])) 
+                ligne[4] =  str("{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])) 
                 
-                for i in range(9): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
+                for i in range(10): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
                 retour.append(ligne)
                 
                 # print(f"Reseau num {row[0]}, {len(liste_entree)} entrée(s): {_liste_ent} ")
@@ -2540,17 +2161,17 @@ def sql_bilan_reseaux():
         #  Liste des visées non raccordées 
         ###############################################################################################################
         cursor.execute(f"""
-                            SELECT 
-                                sum (SHOT.LENGTH) as Long
-                            FROM _VISEE_FLAG
-                            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                            JOIN STATION AS STATION_FROM ON SHOT.FROM_ID = STATION_FROM.ID
-                            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                            JOIN _JONCTION AS JONCTION_FROM ON SHOT.FROM_ID = JONCTION_FROM.ID
-                            JOIN _JONCTION AS JONCTION_TO ON SHOT.TO_ID = JONCTION_TO.ID
-                            WHERE _VISEE_FLAG.SERIE_ID is NULL and SHOT_FLAG.FLAG is NULL 
-                        """)
+            SELECT 
+                sum (SHOT.LENGTH) as Long
+            FROM _VISEE_FLAG
+            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+            JOIN STATION AS STATION_FROM ON SHOT.FROM_ID = STATION_FROM.ID
+            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+            JOIN _JONCTION AS JONCTION_FROM ON SHOT.FROM_ID = JONCTION_FROM.ID
+            JOIN _JONCTION AS JONCTION_TO ON SHOT.TO_ID = JONCTION_TO.ID
+            WHERE _VISEE_FLAG.SERIE_ID is NULL and SHOT_FLAG.FLAG is NULL 
+        """)
         result_long = cursor.fetchall()
         
         if result_long[0][0] is None : 
@@ -2559,17 +2180,17 @@ def sql_bilan_reseaux():
             _result_long = result_long[0][0]
         
         cursor.execute(f"""
-                            SELECT 
-                                sum (SHOT.LENGTH) as Long
-                            FROM _VISEE_FLAG
-                            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                            JOIN STATION AS STATION_FROM ON SHOT.FROM_ID = STATION_FROM.ID
-                            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                            JOIN _JONCTION AS JONCTION_FROM ON SHOT.FROM_ID = JONCTION_FROM.ID
-                            JOIN _JONCTION AS JONCTION_TO ON SHOT.TO_ID = JONCTION_TO.ID
-                            WHERE _VISEE_FLAG.SERIE_ID is NULL and SHOT_FLAG.FLAG ='dpl' 
-                        """)
+            SELECT 
+                sum (SHOT.LENGTH) as Long
+            FROM _VISEE_FLAG
+            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+            JOIN STATION AS STATION_FROM ON SHOT.FROM_ID = STATION_FROM.ID
+            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+            JOIN _JONCTION AS JONCTION_FROM ON SHOT.FROM_ID = JONCTION_FROM.ID
+            JOIN _JONCTION AS JONCTION_TO ON SHOT.TO_ID = JONCTION_TO.ID
+            WHERE _VISEE_FLAG.SERIE_ID is NULL and SHOT_FLAG.FLAG ='dpl' 
+        """)
         result_dpl = cursor.fetchall()
         
         if result_dpl[0][0] is None : 
@@ -2578,17 +2199,17 @@ def sql_bilan_reseaux():
             _result_dpl = result_dpl[0][0]
         
         cursor.execute(f"""
-                            SELECT 
-                                sum (SHOT.LENGTH) as Long
-                            FROM _VISEE_FLAG
-                            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                            JOIN STATION AS STATION_FROM ON SHOT.FROM_ID = STATION_FROM.ID
-                            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                            JOIN _JONCTION AS JONCTION_FROM ON SHOT.FROM_ID = JONCTION_FROM.ID
-                            JOIN _JONCTION AS JONCTION_TO ON SHOT.TO_ID = JONCTION_TO.ID
-                            WHERE _VISEE_FLAG.SERIE_ID is NULL and SHOT_FLAG.FLAG ='srf' 
-                        """)
+            SELECT 
+                sum (SHOT.LENGTH) as Long
+            FROM _VISEE_FLAG
+            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+            JOIN STATION AS STATION_FROM ON SHOT.FROM_ID = STATION_FROM.ID
+            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+            JOIN _JONCTION AS JONCTION_FROM ON SHOT.FROM_ID = JONCTION_FROM.ID
+            JOIN _JONCTION AS JONCTION_TO ON SHOT.TO_ID = JONCTION_TO.ID
+            WHERE _VISEE_FLAG.SERIE_ID is NULL and SHOT_FLAG.FLAG ='srf' 
+        """)
         result_srf = cursor.fetchall()
         if result_srf[0][0] is None : 
             _result_srf = 0.0
@@ -2596,17 +2217,17 @@ def sql_bilan_reseaux():
             _result_srf = result_srf[0][0]
         
         cursor.execute(f"""
-                            SELECT 
-                                count (SHOT.LENGTH) as Long
-                            FROM _VISEE_FLAG
-                            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                            JOIN STATION AS STATION_FROM ON SHOT.FROM_ID = STATION_FROM.ID
-                            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                            JOIN _JONCTION AS JONCTION_FROM ON SHOT.FROM_ID = JONCTION_FROM.ID
-                            JOIN _JONCTION AS JONCTION_TO ON SHOT.TO_ID = JONCTION_TO.ID
-                            WHERE _VISEE_FLAG.SERIE_ID is NULL --and SHOT_FLAG.FLAG ='srf' 
-                        """)
+            SELECT 
+                count (SHOT.LENGTH) as Long
+            FROM _VISEE_FLAG
+            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+            JOIN STATION AS STATION_FROM ON SHOT.FROM_ID = STATION_FROM.ID
+            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+            JOIN _JONCTION AS JONCTION_FROM ON SHOT.FROM_ID = JONCTION_FROM.ID
+            JOIN _JONCTION AS JONCTION_TO ON SHOT.TO_ID = JONCTION_TO.ID
+            WHERE _VISEE_FLAG.SERIE_ID is NULL --and SHOT_FLAG.FLAG ='srf' 
+        """)
         result_count = cursor.fetchall()
         
         if result_count[0][0] is None : 
@@ -2615,30 +2236,31 @@ def sql_bilan_reseaux():
         else :
             _result_count = result_count[0][0]
         
-        ligne = [ ' - ', " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "] 
+        ligne = [ " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "] 
         _liste_ent = "Visée(s) non raccordées" 
         _liste_ent = _liste_ent.ljust(_largeurColTete)           
-        ligne[0] = _liste_ent
-        ligne[1] = str("0") 
-        ligne[2] = str("{:.2f}".format(_result_long)) 
-        ligne[4] = str("{:.2f}".format(_result_dpl)) 
-        ligne[5] = str("{:.2f}".format(_result_srf)) 
-        ligne[6] = str(_result_count) 
+        ligne[0] = str(" ")
+        ligne[1] = str(_liste_ent)
+        ligne[2] = str("0") 
+        ligne[3] = str("{:.2f}".format(_result_long)) 
+        ligne[5] = str("{:.2f}".format(_result_dpl)) 
+        ligne[6] = str("{:.2f}".format(_result_srf)) 
+        ligne[7] = str(_result_count) 
         
         cursor.execute(f""" 
-                        -- Requête pour rechercher le point bas d'un réseau / entrée
-                        SELECT
-                            STATION.name,
-                            STATION.Z as Min
-                        from STATION 
-                        join (
-                            select Min(STATION.Z) as Val_Min
-                            from STATION
-                            join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                            WHERE _JONCTION.SERIE_ID is null 
-                        ) min on STATION.Z = min.Val_Min
-                        LIMIT 1
-                    """)
+            -- Requête pour rechercher le point bas d'un réseau / entrée
+            SELECT
+                STATION.name,
+                STATION.Z as Min
+            from STATION 
+            join (
+                select Min(STATION.Z) as Val_Min
+                from STATION
+                join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                WHERE _JONCTION.SERIE_ID is null 
+            ) min on STATION.Z = min.Val_Min
+            LIMIT 1
+        """)
         altitude_min = cursor.fetchall()
         
         if len(altitude_min) == 0 : 
@@ -2649,23 +2271,23 @@ def sql_bilan_reseaux():
             _altitude_min = altitude_min[0][1]
             _altitude_min_name =  str(altitude_min[0][0])
         
-        ligne[7] = str(_altitude_min_name)
-        ligne[8] = str("{:.2f}".format(_altitude_min))
+        ligne[8] = str(_altitude_min_name)
+        ligne[9] = str("{:.2f}".format(_altitude_min))
         
         cursor.execute(f""" 
-                        -- Requête pour rechercher le point haut d'un réseau / entrée
-                        SELECT
-                            STATION.name,
-                            STATION.Z as Max
-                        from STATION 
-                        join (
-                            select Max(STATION.Z) as Val_Max
-                            from STATION
-                            join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                            WHERE _JONCTION.SERIE_ID is null 
-                        ) max on STATION.Z = max.Val_Max
-                        LIMIT 1
-                    """)
+            -- Requête pour rechercher le point haut d'un réseau / entrée
+            SELECT
+                STATION.name,
+                STATION.Z as Max
+            from STATION 
+            join (
+                select Max(STATION.Z) as Val_Max
+                from STATION
+                join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                WHERE _JONCTION.SERIE_ID is null 
+            ) max on STATION.Z = max.Val_Max
+            LIMIT 1
+        """)
         altitude_max = cursor.fetchall()
         
         if len(altitude_max) == 0 : 
@@ -2676,12 +2298,12 @@ def sql_bilan_reseaux():
             _altitude_max = altitude_max[0][1]
             _altitude_max_name =  str(altitude_max[0][0])
         
-        ligne[7] = str(_altitude_max_name)
-        ligne[8] = str("{:.2f}".format(_altitude_max)) 
-        ligne[3] =  "-"  #"{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])
+        ligne[8] = str(_altitude_max_name)
+        ligne[9] = str("{:.2f}".format(_altitude_max)) 
+        ligne[4] = str("-")  #"{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])
         
         
-        for i in range(9): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
+        for i in range(10): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
         if  _result_long !=0 or _result_dpl != 0 or _result_srf !=0 or _result_count !=0:
             retour.append(ligne)    
         
@@ -2692,63 +2314,63 @@ def sql_bilan_reseaux():
         result_shot = 0
     
         cursor.execute(f"""
-                            select 
-                                COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
-                                count(_VISEE_FLAG.ID) as count,
-                                STATION_TO.NAME as To_Name	
-                            from _VISEE_FLAG 
-                            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                            WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG is null 
-                        """)
-        _result_length = cursor.fetchall()
+            select 
+                COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
+                count(_VISEE_FLAG.ID) as count,
+                STATION_TO.NAME as To_Name	
+            from _VISEE_FLAG 
+            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+            WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG is 'apx' OR SHOT_FLAG.FLAG is NULL
+        """)  
+        _result_length = cursor.fetchall()    # Visées normales & Approximates (apx)
         
         result_length = float(_result_length[0][0])
         result_shot = int(_result_length[0][1])
     
         cursor.execute(f"""
-                            SELECT 
-                                COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
-                                count(_VISEE_FLAG.ID) as count,
-                                STATION_TO.NAME as To_Name	
-                            FROM _VISEE_FLAG 
-                            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                            WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='dpl' 
-                        """)
+            SELECT 
+                COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
+                count(_VISEE_FLAG.ID) as count,
+                STATION_TO.NAME as To_Name	
+            FROM _VISEE_FLAG 
+            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+            WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='dpl' 
+        """)
         _result_length_dpl = cursor.fetchall()
         
         result_length_dpl = float(_result_length_dpl[0][0])
         result_shot += int(_result_length_dpl[0][1]) 
     
         cursor.execute(f"""
-                            SELECT 
-                                COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
-                                count(_VISEE_FLAG.ID) as count,
-                                STATION_TO.NAME as To_Name	
-                            FROM _VISEE_FLAG 
-                            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                            WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='srf' 
-                        """)
+            SELECT 
+                COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
+                count(_VISEE_FLAG.ID) as count,
+                STATION_TO.NAME as To_Name	
+            FROM _VISEE_FLAG 
+            JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+            JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+            LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+            WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='srf' 
+        """)
         _result_length_srf = cursor.fetchall()
         
         result_length_srf = float(_result_length_srf[0][0])
         result_shot += int(_result_length_srf[0][1])  
         
         cursor.execute(f"""
-                            -- Bilan table _VISEE_FLAG By entrées
-                            select 
-                                ENTREE_ID
-                                --STATION.NAME
-                            FROM _VISEE_FLAG	
-                            JOIN STATION ON _VISEE_FLAG.ENTREE_ID = STATION.ID
-                            WHERE SERIE_ID >0
-                            GROUP BY _VISEE_FLAG.ENTREE_ID
-                        """)
+            -- Bilan table _VISEE_FLAG By entrées
+            select 
+                ENTREE_ID
+                --STATION.NAME
+            FROM _VISEE_FLAG	
+            JOIN STATION ON _VISEE_FLAG.ENTREE_ID = STATION.ID
+            WHERE SERIE_ID >0
+            GROUP BY _VISEE_FLAG.ENTREE_ID
+        """)
         _result_entrees = cursor.fetchall()
         
         _total_entrees_topo = len(_result_entrees)
@@ -2757,53 +2379,54 @@ def sql_bilan_reseaux():
         _total_entrees_non_topo = len(result2) - _total_entrees_topo    # type: ignore
         
         if _result_length[0][1] != None :
-            ligne = [ ' - ', " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "] 
+            ligne = [ " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "] 
     
-            ligne[0] = "Totaux (entrées et points fixes)".ljust(_largeurColTete)   # Liste Entrées
-            ligne[1] = str("{:.0f}".format(len(result2)))        # type: ignore    # Nre Ent.
-            ligne[2] = str("{:.2f}".format(result_length))       # Dev.
-            ligne[4] = str("{:.2f}".format(result_length_dpl))   # Dupl.
-            ligne[5] = str("{:.2f}".format(result_length_srf))   # Surf.
-            ligne[6] = str(result_shot)                          # Visées
+            ligne[0] = str(" ")
+            ligne[1] = str("Totaux".ljust(_largeurColTete))   # Liste Entrées
+            ligne[2] = str("{:.0f}".format(len(result2)))        # type: ignore    # Nre Ent.
+            ligne[3] = str("{:.2f}".format(result_length))       # Dev.
+            ligne[5] = str("{:.2f}".format(result_length_dpl))   # Dupl.
+            ligne[6] = str("{:.2f}".format(result_length_srf))   # Surf.
+            ligne[7] = str(result_shot)                          # Visées
             
             cursor.execute(f""" 
-                            -- Requête pour rechercher le point bas d'un réseau / entrée
-                            SELECT
-                                STATION.name,
-                                STATION.Z as Min
-                            from STATION 
-                            join (
-                                select Min(STATION.Z) as Val_Min
-                                from STATION
-                                join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                            ) min on STATION.Z = min.Val_Min
-                            LIMIT 1
-                            """)
+                -- Requête pour rechercher le point bas d'un réseau / entrée
+                SELECT
+                    STATION.name,
+                    STATION.Z as Min
+                from STATION 
+                join (
+                    select Min(STATION.Z) as Val_Min
+                    from STATION
+                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                ) min on STATION.Z = min.Val_Min
+                LIMIT 1
+            """)
             altitude_min = cursor.fetchall()
             
-            ligne[7] = altitude_min[0][0]
-            ligne[8] = str(altitude_min[0][1]) 
+            ligne[8] = str(altitude_min[0][0])
+            ligne[9] = str(altitude_min[0][1]) 
             
             cursor.execute(f""" 
-                            -- Requête pour rechercher le point haut d'un réseau / entrée
-                            SELECT
-                                STATION.name,
-                                STATION.Z as Max
-                            from STATION 
-                            join (
-                                select Max(STATION.Z) as Val_Max
-                                from STATION
-                                join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                            ) max on STATION.Z = max.Val_Max
-                            LIMIT 1
-                        """)
+                -- Requête pour rechercher le point haut d'un réseau / entrée
+                SELECT
+                    STATION.name,
+                    STATION.Z as Max
+                from STATION 
+                join (
+                    select Max(STATION.Z) as Val_Max
+                    from STATION
+                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                ) max on STATION.Z = max.Val_Max
+                LIMIT 1
+            """)
             altitude_max = cursor.fetchall()
             
-            ligne[9] = altitude_max[0][0]
-            ligne[10] = str("{:.2f}".format(altitude_max[0][1])) 
-            ligne[3] =  "{:.2f}".format(altitude_max[0][1] - altitude_min[0][1]) 
+            ligne[10] = str(altitude_max[0][0])
+            ligne[11] = str("{:.2f}".format(altitude_max[0][1])) 
+            ligne[4] =  str("{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])) 
             
-            for i in range(9): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
+            for i in range(10): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
             retour.append(ligne)
             
         else :
@@ -2815,65 +2438,70 @@ def sql_bilan_reseaux():
         #  Liste des entrées uniques
         ###############################################################################################################
         cursor.execute(f"""
-                        -- Bilan table _VISEE_FLAG By entrées
-                        select 
-                            ENTREE_ID,
-                            STATION.NAME
-                        FROM _VISEE_FLAG	
-                        JOIN STATION ON _VISEE_FLAG.ENTREE_ID = STATION.ID
-                        WHERE RESEAU_ID ==0 or RESEAU_ID is null and SERIE_ID >0
-                        GROUP BY _VISEE_FLAG.ENTREE_ID
-                        """)
+            -- Bilan table _VISEE_FLAG By entrées
+            select 
+                ENTREE_ID,
+                STATION.NAME,
+                STATION.SURVEY_ID,
+                SURVEY.NAME AS Survey_Name,
+                SURVEY.TITLE AS Survey_Title 
+            FROM _VISEE_FLAG	
+            JOIN STATION ON _VISEE_FLAG.ENTREE_ID = STATION.ID
+            JOIN SURVEY ON STATION.SURVEY_ID = SURVEY.ID
+            WHERE RESEAU_ID ==0 or RESEAU_ID is null and SERIE_ID >0
+            GROUP BY _VISEE_FLAG.ENTREE_ID
+        """)
+        
         result = cursor.fetchall()
         
         for row in result :
-            ligne = [ ' - ', " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]            
+            ligne = [ " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]            
             
             result_shot = 0
         
             cursor.execute(f"""
-                                select 
-                                    COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
-                                    count(_VISEE_FLAG.ID) as count,
-                                    STATION_TO.NAME as To_Name	
-                                from _VISEE_FLAG 
-                                JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                                JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                                LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                                WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG is null and _VISEE_FLAG.ENTREE_ID ={row[0]}
-                            """)
+                select 
+                    COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
+                    count(_VISEE_FLAG.ID) as count,
+                    STATION_TO.NAME as To_Name	
+                from _VISEE_FLAG 
+                JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+                JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+                LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+                WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG is null and _VISEE_FLAG.ENTREE_ID ={row[0]}
+            """)
             _result_length = cursor.fetchall()
             
             result_length = float(_result_length[0][0])
             result_shot = int(_result_length[0][1])
         
             cursor.execute(f"""
-                                select 
-                                    COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
-                                    count(_VISEE_FLAG.ID) as count,
-                                    STATION_TO.NAME as To_Name	
-                                from _VISEE_FLAG 
-                                JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                                JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                                LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                                WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='dpl' and _VISEE_FLAG.ENTREE_ID ={row[0]}
-                            """)
+                select 
+                    COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
+                    count(_VISEE_FLAG.ID) as count,
+                    STATION_TO.NAME as To_Name	
+                from _VISEE_FLAG 
+                JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+                JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+                LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+                WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='dpl' and _VISEE_FLAG.ENTREE_ID ={row[0]}
+            """)
             _result_length_dpl = cursor.fetchall()
             
             result_length_dpl = float(_result_length_dpl[0][0])
             result_shot += int(_result_length_dpl[0][1]) 
         
             cursor.execute(f"""
-                                select 
-                                    COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
-                                    count(_VISEE_FLAG.ID) as count,
-                                    STATION_TO.NAME as To_Name	
-                                from _VISEE_FLAG 
-                                JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
-                                JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
-                                LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-                                WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='srf' and _VISEE_FLAG.ENTREE_ID ={row[0]}
-                            """)
+                select 
+                    COALESCE(round(sum(SHOT.length), 2), 0) as ttl,
+                    count(_VISEE_FLAG.ID) as count,
+                    STATION_TO.NAME as To_Name	
+                from _VISEE_FLAG 
+                JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
+                JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
+                LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
+                WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='srf' and _VISEE_FLAG.ENTREE_ID ={row[0]}
+            """)
             _result_length_srf = cursor.fetchall()
             
             result_length_srf = float(_result_length_srf[0][0])
@@ -2881,112 +2509,115 @@ def sql_bilan_reseaux():
             
             if result_length_srf == 0.0 and result_length == 0.0 and result_length_dpl == 0.0 :
                 _total_entrees_non_topo+=1
+                
             else :         
-                ligne[0] = str((row[1])).ljust(_largeurColTete)  
-                ligne[1] = str("1") 
-                ligne[2] = str("{:.2f}".format(result_length))       # Dev.
-                ligne[4] = str("{:.2f}".format(result_length_dpl))   # Dupl.
-                ligne[5] = str("{:.2f}".format(result_length_srf))   # Surf.
-                ligne[6] = str(result_shot)                          # Visées
+                ligne[0] = str(" ")
+                ligne[1] = str((row[4])).ljust(_largeurColTete)  
+                ligne[2] = str("1") 
+                ligne[3] = str("{:.2f}".format(result_length))       # Dev.
+                ligne[5] = str("{:.2f}".format(result_length_dpl))   # Dupl.
+                ligne[6] = str("{:.2f}".format(result_length_srf))   # Surf.
+                ligne[7] = str(result_shot)                          # Visées
                 
                 cursor.execute(f""" 
-                                -- Requête pour rechercher le point bas d'un réseau / entrée
-                                SELECT
-                                    STATION.name,
-                                    STATION.Z as Min
-                                from STATION 
-                                join (
-                                    select Min(STATION.Z) as Val_Min
-                                    from STATION
-                                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                                    WHERE _JONCTION.ENTREE_ID = {row[0]}
-                                ) min on STATION.Z = min.Val_Min
-                                LIMIT 1
-                            """)
+                    -- Requête pour rechercher le point bas d'un réseau / entrée
+                    SELECT
+                        STATION.name,
+                        STATION.Z as Min
+                    from STATION 
+                    join (
+                        select Min(STATION.Z) as Val_Min
+                        from STATION
+                        join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                        WHERE _JONCTION.ENTREE_ID = {row[0]}
+                    ) min on STATION.Z = min.Val_Min
+                    LIMIT 1
+                """)
                 altitude_min = cursor.fetchall()
                 
-                ligne[7] = altitude_min[0][0]
-                ligne[8] = str("{:.2f}".format(altitude_min[0][1])) 
+                ligne[8] = str(altitude_min[0][0])
+                ligne[9] = str("{:.2f}".format(altitude_min[0][1])) 
                 
                 cursor.execute(f""" 
-                                -- Requête pour rechercher le point haut d'un réseau / entrée
-                                SELECT
-                                    STATION.name,
-                                    STATION.Z as Max
-                                from STATION 
-                                join (
-                                    select Max(STATION.Z) as Val_Max
-                                    from STATION
-                                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                                    WHERE _JONCTION.ENTREE_ID = {row[0]}
-                                ) max on STATION.Z = max.Val_Max
-                                LIMIT 1
-                            """)
+                    -- Requête pour rechercher le point haut d'un réseau / entrée
+                    SELECT
+                        STATION.name,
+                        STATION.Z as Max
+                    from STATION 
+                    join (
+                        select Max(STATION.Z) as Val_Max
+                        from STATION
+                        join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                        WHERE _JONCTION.ENTREE_ID = {row[0]}
+                    ) max on STATION.Z = max.Val_Max
+                    LIMIT 1
+                """)
                 altitude_max = cursor.fetchall()
                 
-                ligne[9] = altitude_max[0][0]
-                ligne[10] = str("{:.2f}".format(altitude_max[0][1]))
-                ligne[3] =  "{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])
+                ligne[10] = str(altitude_max[0][0])
+                ligne[11] = str("{:.2f}".format(altitude_max[0][1]))
+                ligne[4] =  str("{:.2f}".format(altitude_max[0][1] - altitude_min[0][1]))
                 
                 
-                for i in range(9): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
+                for i in range(10): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
                 retour.append(ligne)    
                 
         ###############################################################################################################
         #  Entrées sans topo 
         ###############################################################################################################
         
-        ligne = [ ' - ', " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "] 
+        ligne = [ " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "] 
         
         if _total_entrees_non_topo >=1 :
-            ligne[0] = "Entrée(s) sans topographie".ljust(_largeurColTete)
-            ligne[1] = str(_total_entrees_non_topo)    
-            ligne[2] = "0.00"
-            ligne[3] = "0.00"
-            ligne[4] = "0.00" 
-            ligne[5] = "0.00"  
-            ligne[6] = "0"  
+            ligne[0] = str(" ")
+            ligne[1] = str("Entrée(s) sans topographie".ljust(_largeurColTete))
+            ligne[2] = str(_total_entrees_non_topo)    
+            ligne[3] = str("0.00")
+            ligne[4] = str("0.00")
+            ligne[5] = str("0.00") 
+            ligne[6] = str("0.00")  
+            ligne[7] = str("0")  
             
             cursor.execute(f""" 
-                            -- Requête pour rechercher le points bas d'un réseau / entrée
-                            SELECT
-                                STATION.name,
-                                STATION.Z as Min
-                            from STATION 
-                            join (
-                                select Min(STATION.Z) as Val_Min
-                                from STATION
-                                join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                                WHERE _JONCTION.SERIE_ENT = -1 AND _JONCTION.STATION_TYPE = 'ent' 
-                            ) min on STATION.Z = min.Val_Min
-                            LIMIT 1
-                        """)
+                -- Requête pour rechercher le points bas d'un réseau / entrée
+                SELECT
+                    STATION.name,
+                    STATION.Z as Min
+                from STATION 
+                join (
+                    select Min(STATION.Z) as Val_Min
+                    from STATION
+                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                    WHERE _JONCTION.SERIE_ENT = -1 AND _JONCTION.STATION_TYPE = 'ent' 
+                ) min on STATION.Z = min.Val_Min
+                LIMIT 1
+            """)
             altitude_min = cursor.fetchall()
             
-            ligne[7] = altitude_min[0][0]
-            ligne[8] = str(altitude_min[0][1]) 
+            ligne[8] = str(altitude_min[0][0])
+            ligne[9] = str(altitude_min[0][1]) 
             
             cursor.execute(f""" 
-                            -- Requête pour rechercher le point haut d'un réseau / entrée
-                            SELECT
-                                STATION.name,
-                                STATION.Z as Max
-                            from STATION 
-                            join (
-                                select Max(STATION.Z) as Val_Max
-                                from STATION
-                                join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                                WHERE _JONCTION.SERIE_ENT = -1 AND _JONCTION.STATION_TYPE = 'ent' 
-                            ) max on STATION.Z = max.Val_Max
-                            LIMIT 1
-                        """)
+                -- Requête pour rechercher le point haut d'un réseau / entrée
+                SELECT
+                    STATION.name,
+                    STATION.Z as Max
+                from STATION 
+                join (
+                    select Max(STATION.Z) as Val_Max
+                    from STATION
+                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+                    WHERE _JONCTION.SERIE_ENT = -1 AND _JONCTION.STATION_TYPE = 'ent' 
+                ) max on STATION.Z = max.Val_Max
+                LIMIT 1
+            """)
             altitude_max = cursor.fetchall()
             
-            ligne[9] = altitude_max[0][0]
-            ligne[10] = str("{:.2f}".format(altitude_max[0][1])) 
-            ligne[3] =  "{:.2f}".format(altitude_max[0][1] - altitude_min[0][1]) 
+            ligne[10] = str(altitude_max[0][0])
+            ligne[11] = str("{:.2f}".format(altitude_max[0][1])) 
+            ligne[4] =  str("{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])) 
 
-            for i in range(9): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
+            for i in range(10): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
             retour.append(ligne)
         
         
@@ -2995,10 +2626,10 @@ def sql_bilan_reseaux():
         #  Tri et résultats
         ###############################################################################################################     
             
-        entetes = [ 'Entrée(s)', "Nbre", "Dev.(m)", "Prof.(m)", "Dupl.(m)", "Surf.(m)", "Visées", "ID Sta.", "Alt. min(m)", "ID Sta.", "Alt. max(m)" ]  
+        entetes = [ "Réseaux", "Entrée(s)", "Nbre", "Dev.(m)", "Prof.(m)", "Dupl.(m)", "Surf.(m)", "Visées", "ID Sta.", "Alt. min(m)", "ID Sta.", "Alt. max(m)" ]  
         entetes[0] = entetes[0].ljust(_largeurColTete)  
         
-        for i in range(9): entetes[i+1] = entetes[i+1].ljust(_largeurCol)  
+        for i in range(10): entetes[i+1] = entetes[i+1].ljust(_largeurCol)  
         
         _corps_retour = sorted(retour, key=cle_tri, reverse=True)
         
@@ -3080,7 +2711,37 @@ def sql_optimisation():
 #              Clé de tri                                                                                                           #
 #####################################################################################################################################        
 def cle_tri(element):
-    return float(element[2])
+    return float(element[3])
+
+#####################################################################################################################################
+#                 Nom de base de la base de donnée                                                                                  #
+#####################################################################################################################################
+def sql_base_name():
+    global error_count 
+    
+    try:
+                   
+        cursor.execute(f"""
+            SELECT 
+                SURVEY.TITLE
+            FROM SURVEY
+            WHERE PARENT_ID = 1
+        """)
+        result = cursor.fetchall()
+        
+        return str(result[0][0]) 
+        
+        
+    except sqlite3.Error as e:
+        log.error(f"Exécution de la requête (sql_base_name):{Colors.ENDC} {e}")
+        error_count  += 1
+        return None
+    
+    except Exception as e:
+        log.error(f"Exécution de sql_base_name:{Colors.ENDC} {e}")
+        error_count  += 1
+    
+    return None
      
 #####################################################################################################################################
 #                 Bilan topo par années                                                                                             #
@@ -3094,11 +2755,11 @@ def sql_bilan_annee():
         retour = []
                    
         cursor.execute(f"""
-                        select strftime('%Y', TOPO_DATE) as annee
-                        from CENTRELINE 
-                        Where TOPO_DATE is not NULL
-                        order by TOPO_DATE
-                        """)
+            select strftime('%Y', TOPO_DATE) as annee
+            from CENTRELINE 
+            Where TOPO_DATE is not NULL
+            order by TOPO_DATE
+        """)
         result = cursor.fetchall()
         
         entetes = [ "Année" , "Dev.(m)", "Cumul (m)", "Dupl.(m)",  "Cumul (m)",  "Surf.(m)", "Cumul (m)" ]  
@@ -3111,13 +2772,13 @@ def sql_bilan_annee():
         
         #            topo sans année
         cursor.execute(f"""
-                        select 
-                            COALESCE( sum(LENGTH), 0), 
-                            COALESCE (sum(DUPLICATE_LENGTH), 0),
-                            COALESCE( sum(SURFACE_LENGTH), 0) 
-                        from CENTRELINE 
-                        where TOPO_DATE IS NULL 
-                """)
+            select 
+                COALESCE( sum(LENGTH), 0), 
+                COALESCE (sum(DUPLICATE_LENGTH), 0),
+                COALESCE( sum(SURFACE_LENGTH), 0) 
+            from CENTRELINE 
+            where TOPO_DATE IS NULL 
+        """)
         bilan_annee = cursor.fetchall()
         
         if ( len(bilan_annee) >=  1 ) and (( float(bilan_annee[0][0]) > 0.0)  or (float(bilan_annee[0][1]) > 0.0 ) or (float(bilan_annee[0][2]) > 0.0 )):
@@ -3146,13 +2807,13 @@ def sql_bilan_annee():
         
         for annee in range(debut, fin + 1, 1 ): 
             cursor.execute(f"""
-                            select 
-                                COALESCE (sum(LENGTH), 0), 
-                                COALESCE (sum(DUPLICATE_LENGTH), 0), 
-                                COALESCE (sum(SURFACE_LENGTH), 0)
-                            from CENTRELINE 
-                            where TOPO_DATE between '{annee}-01-01' and '{annee}-12-31';
-                    """)
+                select 
+                    COALESCE (sum(LENGTH), 0), 
+                    COALESCE (sum(DUPLICATE_LENGTH), 0), 
+                    COALESCE (sum(SURFACE_LENGTH), 0)
+                from CENTRELINE 
+                where TOPO_DATE between '{annee}-01-01' and '{annee}-12-31';
+            """)
             bilan_annee = cursor.fetchall()
             
             ligne =   [ " - ", " - ", " - ", " - ", " - ", " - ", " - " ]
@@ -3175,12 +2836,12 @@ def sql_bilan_annee():
         
         
     except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution de la requête (sql_bilan_annee):{Colors.ENDC} {e}")
+        log.error(f"Exécution de la requête (sql_bilan_annee):{Colors.ENDC} {e}")
         error_count  += 1
         return None
     
     except Exception as e:
-        log.error(f"Erreur lors de l'exécution de sql_bilan_annee:{Colors.ENDC} {e}")
+        log.error(f"Exécution de sql_bilan_annee:{Colors.ENDC} {e}")
         error_count  += 1
     
     return None
@@ -3410,15 +3071,16 @@ def PlotExploYears(graph_name, rangeyear = [1959, datetime.now().year], systems 
 	return    
      
      
-     
+#####################################################################################################################################     
 #####################################################################################################################################
 #                                                                                                                                   #
 #                                                           Main                                                                    #
 #                                                                                                                                   #
 #####################################################################################################################################
+#####################################################################################################################################
 if __name__ == '__main__':
-    _largeurColTete = 35
-    _largeurCol = 15
+    _largeurColTete = 40
+    _largeurCol = 20
     avt_compteur = 0
     error_count = 0
     visee_suprimmees= [ 0.0, 0.0, 0.0, 0]    # Lg, Lg dpl, Lg surf
@@ -3502,6 +3164,8 @@ if __name__ == '__main__':
     output_file_name_histo = outputfolder + input_file[:-4] + "_histo.pdf"
     output_file_name_year = outputfolder + input_file[:-4] + "_year"
     imported_database = outputfolder + input_file[:-4] + "_stats.db"
+
+    output_file_md = os.path.join(os.path.dirname(input_file_name), globalDat.outputFilename) 
     
     log = setup_logger(output_file_name_log, globalDat.debug_log)
     
@@ -3530,12 +3194,12 @@ if __name__ == '__main__':
         cursor = conn.cursor()
         construction_tables()
         sql_optimisation()
-        calcul_stats(output_file_name, input_file[:-4])
+        calcul_stats(output_file_name, output_file_md, input_file[:-4])
 
     elif args.option == "update" :
         conn = sqlite3.connect(imported_database)  # Connexion à la base de données SQLite
         cursor = conn.cursor()
-        calcul_stats(output_file_name, input_file[:-4])
+        calcul_stats(output_file_name, output_file_md, input_file[:-4])
         
     elif args.option == "test" :
         conn = sqlite3.connect(imported_database)  # Connexion à la base de données SQLite
@@ -3551,13 +3215,13 @@ if __name__ == '__main__':
     minutes, secondes = divmod(secondes, 60)          # 60 secondes dans une minute
     
     if duree.seconds > 3600: 
-        duree_formatee = f"{heures:02d}{Colors.INFO}(h){Colors.ENDC}{minutes:02d}{Colors.INFO}(m){Colors.ENDC}{secondes:02d}{Colors.INFO}(s)"
+        duree_formatee = f"{heures:02d}{Colors.ENDC}(h){Colors.ENDC}{minutes:02d}{Colors.ENDC}(m){Colors.ENDC}{secondes:02d}{Colors.ENDC}(s)"
         
     elif duree.seconds > 60: 
-        duree_formatee = f"{minutes:02d}{Colors.INFO}(m){Colors.ENDC}{secondes:02d}{Colors.INFO}(s)"
+        duree_formatee = f"{minutes:02d}{Colors.ENDC}(m){Colors.ENDC}{secondes:02d}{Colors.ENDC}(s)"
         
     else :
-        duree_formatee = f"{secondes:02d}{Colors.INFO}(s)"
+        duree_formatee = f"{secondes:02d}{Colors.ENDC}(s)"
     
     if error_count == 0 :
         log.info(f"Execution terminée sans erreur en {Colors.ENDC}{duree_formatee}{Colors.INFO}")

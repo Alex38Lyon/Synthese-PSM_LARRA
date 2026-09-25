@@ -6,8 +6,8 @@
 |       Version | 2026.09.03 |
 |       Fichier source | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-09-03 21h50m35s |
-| Durée calcul |02 (m) 32 (s) sans erreur |
+|       Date | 2026-09-25 08h56m02s |
+| Durée calcul |30 (m) 03 (s) avec erreur(s): 1 |
 
 --------------
 ### Développement total (m)

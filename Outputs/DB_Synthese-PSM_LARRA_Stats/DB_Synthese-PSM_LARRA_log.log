@@ -548,3 +548,484 @@ on 31827: 2026-09-03 11:29:12,208 - INFO - Jonction à la Station_ID: 25261 entr
 2026-09-03 21:52:03,224 - INFO - Table des STATION, entrée et fix nbre: 194
 2026-09-03 21:53:08,640 - INFO - Phase 5: Fin de traitement en 02 (m) 32 (s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
 2026-09-03 21:53:08,641 - INFO - Execution terminée sans erreur en 02(m)32(s)
+2026-09-25 08:56:02,559 - INFO - ***********************************************************************************************************************
+2026-09-25 08:56:02,560 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-09-25 08:56:02,560 - INFO - *       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-09-25 08:56:02,561 - INFO - *       Version : 2026.09.03                                                                                          *
+2026-09-25 08:56:02,561 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                       *
+2026-09-25 08:56:02,561 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                                *
+2026-09-25 08:56:02,561 - INFO - *       Date : 2026-09-25 08h56m02s                                                                                   *
+2026-09-25 08:56:02,561 - INFO - *       Mode : sync                                                                                                   *
+2026-09-25 08:56:02,562 - INFO - ***********************************************************************************************************************
+2026-09-25 08:56:02,563 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql dans: ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats.db
+2026-09-25 08:56:05,441 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-09-25 08:56:05,737 - INFO - Jonction de SHOT equates nbre: 2580
+2026-09-25 08:59:36,514 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s) nbre: 1688
+2026-09-25 08:59:38,323 - INFO - Table des SHOT, visées dupliquées traités nbre: 19
+2026-09-25 08:59:38,538 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-09-25 08:59:38,688 - INFO - Marquage des visées et des stations d'habillage nbre: 19021
+2026-09-25 09:00:39,424 - INFO - Phase 3: Remplissage des tables d'après les 64171 entrée(s)
+2026-09-25 09:00:39,431 - INFO - Table des STATION, entrée et fix nbre: 194
+2026-09-25 09:00:39,479 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 194 entrée(s)
+on 1423: 2026-09-25 09:00:57,496 - INFO - Jonction à la Station_ID: 49335 entre les entrées 49456 et 49327
+on 3318: 2026-09-25 09:01:18,885 - INFO - Jonction à la Station_ID: 229 entre les entrées 218 et 834
+on 3357: 2026-09-25 09:01:19,690 - INFO - Jonction à la Station_ID: 3525 entre les entrées 3455 et 3525
+on 6351: 2026-09-25 09:02:12,376 - INFO - Jonction à la Station_ID: 1666 entre les entrées 1613 et 2784
+on 9158: 2026-09-25 09:03:31,987 - INFO - Jonction à la Station_ID: 3348 entre les entrées 3358 et 3397
+on 9594: 2026-09-25 09:03:47,553 - INFO - Jonction à la Station_ID: 48093 entre les entrées 49183 et 48104
+on 9622: 2026-09-25 09:03:51,206 - INFO - Jonction à la Station_ID: 49838 entre les entrées 49183 et 49803
+on 10275: 2026-09-25 09:04:05,069 - INFO - Jonction à la Station_ID: 40146 entre les entrées 38328 et 39667
+on 12587: 2026-09-25 09:05:03,907 - INFO - Jonction à la Station_ID: 47396 entre les entrées 48104 et 47360
+on 13062: 2026-09-25 09:05:14,849 - INFO - Jonction à la Station_ID: 9041 entre les entrées 10902 et 8905
+on 15553: 2026-09-25 09:06:21,984 - INFO - Jonction à la Station_ID: 12059 entre les entrées 10902 et 12987
+on 16763: 2026-09-25 09:06:51,965 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16763: 2026-09-25 09:06:51,978 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16817: 2026-09-25 09:06:54,158 - INFO - Jonction à la Station_ID: 9547 entre les entrées 9884 et 9366
+on 17832: 2026-09-25 09:07:27,488 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 09:07:27,618 - INFO - Jonction à la Station_ID: 9338 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 09:07:27,730 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 18972: 2026-09-25 09:07:55,769 - INFO - Jonction à la Station_ID: 12771 entre les entrées 14852 et 9366
+on 19046: 2026-09-25 09:07:58,773 - INFO - Jonction à la Station_ID: 17222 entre les entrées 16774 et 10902
+on 21114: 2026-09-25 09:09:00,518 - INFO - Jonction à la Station_ID: 15570 entre les entrées 8905 et 9366
+on 21600: 2026-09-25 09:09:17,328 - INFO - Jonction à la Station_ID: 47077 entre les entrées 49183 et 49089
+on 23056: 2026-09-25 09:09:59,072 - INFO - Jonction à la Station_ID: 15611 entre les entrées 9366 et 8905
+on 23137: 2026-09-25 09:10:01,400 - INFO - Jonction à la Station_ID: 15557 entre les entrées 8905 et 9366
+on 23142: 2026-09-25 09:10:01,511 - INFO - Jonction à la Station_ID: 9477 entre les entrées 8905 et 14852
+on 23144: 2026-09-25 09:10:01,966 - INFO - Jonction à la Station_ID: 9834 entre les entrées 14852 et 11338
+on 24975: 2026-09-25 09:11:03,202 - INFO - Jonction à la Station_ID: 16242 entre les entrées 15665 et 14852
+on 25697: 2026-09-25 09:11:32,706 - INFO - Jonction à la Station_ID: 16259 entre les entrées 10902 et 14852
+on 25981: 2026-09-25 09:11:44,327 - INFO - Jonction à la Station_ID: 50263 entre les entrées 50909 et 50130
+on 28328: 2026-09-25 09:12:48,062 - INFO - Jonction à la Station_ID: 9522 entre les entrées 16789 et 9366
+on 28497: 2026-09-25 09:12:55,373 - INFO - Jonction à la Station_ID: 44662 entre les entrées 49456 et 43628
+on 29909: 2026-09-25 09:13:40,650 - INFO - Jonction à la Station_ID: 44814 entre les entrées 48104 et 49456
+on 30963: 2026-09-25 09:14:09,628 - INFO - Jonction à la Station_ID: 16483 entre les entrées 15665 et 10902
+on 31414: 2026-09-25 09:14:28,590 - INFO - Jonction à la Station_ID: 17453 entre les entrées 19538 et 17667
+on 31827: 2026-09-25 09:14:37,289 - INFO - Jonction à la Station_ID: 25261 entre les entrées 27454 et 24729
+2026-09-25 09:21:27,889 - INFO - Intégrations des visées orphelines (entre 2 stations existantes) nbre: 340
+2026-09-25 09:21:35,555 - INFO - Réseau: 1, entrées jonctionnées: 10, [11338, 14852, 8905, 9366, 10902, 15665, 9884, 16789, 12987, 16774]
+2026-09-25 09:21:35,742 - INFO - Réseau: 2, entrées jonctionnées: 2, [3397, 3358]
+2026-09-25 09:21:36,412 - INFO - Réseau: 3, entrées jonctionnées: 8, [43628, 49456, 48104, 49327, 47360, 49183, 49089, 49803]
+2026-09-25 09:21:36,558 - INFO - Réseau: 4, entrées jonctionnées: 2, [1613, 2784]
+2026-09-25 09:21:36,802 - INFO - Réseau: 5, entrées jonctionnées: 2, [3455, 3525]
+2026-09-25 09:21:36,973 - INFO - Réseau: 6, entrées jonctionnées: 2, [24729, 27454]
+2026-09-25 09:21:37,459 - INFO - Réseau: 7, entrées jonctionnées: 2, [834, 218]
+2026-09-25 09:21:37,559 - INFO - Réseau: 8, entrées jonctionnées: 2, [38328, 39667]
+2026-09-25 09:21:37,708 - INFO - Réseau: 9, entrées jonctionnées: 2, [50130, 50909]
+2026-09-25 09:21:37,862 - INFO - Réseau: 10, entrées jonctionnées: 2, [17667, 19538]
+2026-09-25 09:21:37,863 - WARNING - Phase 4: Fin du remplissage des tables, attention 82 station(s) non comptabilisé(s)
+2026-09-25 09:21:38,027 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
+2026-09-25 09:21:38,030 - INFO - Table des CENTRELINE, longueur: [(340302.67, 15575.02, 8956.61)]
+2026-09-25 09:24:08,764 - INFO - Table des STATION, entrée et fix nbre: 194
+2026-09-25 09:26:05,872 - WARNING - Phase 5: Fin de traitement en 30 (m) 03 (s), avec 1 erreur(s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
+2026-09-25 09:26:05,878 - WARNING - Execution terminée avec 1 erreurs en 30(m)03(s), verifier le log
+2026-09-25 09:28:23,185 - INFO - ***********************************************************************************************************************
+2026-09-25 09:28:23,185 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-09-25 09:28:23,185 - INFO - *       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-09-25 09:28:23,186 - INFO - *       Version : 2026.09.25                                                                                          *
+2026-09-25 09:28:23,186 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                       *
+2026-09-25 09:28:23,186 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                                *
+2026-09-25 09:28:23,186 - INFO - *       Date : 2026-09-25 09h28m23s                                                                                   *
+2026-09-25 09:28:23,187 - INFO - *       Mode : sync                                                                                                   *
+2026-09-25 09:28:23,187 - INFO - ***********************************************************************************************************************
+2026-09-25 09:28:23,188 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql dans: ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats.db
+2026-09-25 09:28:25,913 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-09-25 09:28:26,225 - INFO - Jonction de SHOT equates nbre: 2580
+2026-09-25 09:32:19,773 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s) nbre: 1688
+2026-09-25 09:32:22,495 - INFO - Table des SHOT, visées dupliquées traités nbre: 19
+2026-09-25 09:32:22,883 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-09-25 09:32:23,057 - INFO - Marquage des visées et des stations d'habillage nbre: 19021
+2026-09-25 09:33:49,244 - INFO - Phase 3: Remplissage des tables d'après les 64171 entrée(s)
+2026-09-25 09:33:49,251 - INFO - Table des STATION, entrée et fix nbre: 194
+2026-09-25 09:33:49,296 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 194 entrée(s)
+on 1423: 2026-09-25 09:34:07,005 - INFO - Jonction à la Station_ID: 49335 entre les entrées 49456 et 49327
+on 3318: 2026-09-25 09:34:28,031 - INFO - Jonction à la Station_ID: 229 entre les entrées 218 et 834
+on 3357: 2026-09-25 09:34:28,795 - INFO - Jonction à la Station_ID: 3525 entre les entrées 3455 et 3525
+on 6351: 2026-09-25 09:35:03,177 - INFO - Jonction à la Station_ID: 1666 entre les entrées 1613 et 2784
+on 9158: 2026-09-25 09:35:49,698 - INFO - Jonction à la Station_ID: 3348 entre les entrées 3358 et 3397
+on 9594: 2026-09-25 09:36:05,542 - INFO - Jonction à la Station_ID: 48093 entre les entrées 49183 et 48104
+on 9622: 2026-09-25 09:36:08,361 - INFO - Jonction à la Station_ID: 49838 entre les entrées 49183 et 49803
+on 10275: 2026-09-25 09:36:23,241 - INFO - Jonction à la Station_ID: 40146 entre les entrées 38328 et 39667
+on 12587: 2026-09-25 09:37:22,037 - INFO - Jonction à la Station_ID: 47396 entre les entrées 48104 et 47360
+on 13062: 2026-09-25 09:37:33,118 - INFO - Jonction à la Station_ID: 9041 entre les entrées 10902 et 8905
+on 15553: 2026-09-25 09:38:37,508 - INFO - Jonction à la Station_ID: 12059 entre les entrées 10902 et 12987
+on 16763: 2026-09-25 09:39:08,078 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16763: 2026-09-25 09:39:08,090 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16817: 2026-09-25 09:39:10,059 - INFO - Jonction à la Station_ID: 9547 entre les entrées 9884 et 9366
+on 17832: 2026-09-25 09:39:41,295 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 09:39:41,469 - INFO - Jonction à la Station_ID: 9338 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 09:39:41,516 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 18972: 2026-09-25 09:40:10,365 - INFO - Jonction à la Station_ID: 12771 entre les entrées 14852 et 9366
+on 19046: 2026-09-25 09:40:14,112 - INFO - Jonction à la Station_ID: 17222 entre les entrées 16774 et 10902
+on 21114: 2026-09-25 09:41:13,826 - INFO - Jonction à la Station_ID: 15570 entre les entrées 8905 et 9366
+on 21600: 2026-09-25 09:41:29,632 - INFO - Jonction à la Station_ID: 47077 entre les entrées 49183 et 49089
+on 23056: 2026-09-25 09:42:08,145 - INFO - Jonction à la Station_ID: 15611 entre les entrées 9366 et 8905
+on 23137: 2026-09-25 09:42:10,268 - INFO - Jonction à la Station_ID: 15557 entre les entrées 8905 et 9366
+on 23142: 2026-09-25 09:42:10,342 - INFO - Jonction à la Station_ID: 9477 entre les entrées 8905 et 14852
+on 23144: 2026-09-25 09:42:10,578 - INFO - Jonction à la Station_ID: 9834 entre les entrées 14852 et 11338
+on 24975: 2026-09-25 09:43:04,127 - INFO - Jonction à la Station_ID: 16242 entre les entrées 15665 et 14852
+on 25697: 2026-09-25 09:43:28,963 - INFO - Jonction à la Station_ID: 16259 entre les entrées 10902 et 14852
+on 25981: 2026-09-25 09:43:39,099 - INFO - Jonction à la Station_ID: 50263 entre les entrées 50909 et 50130
+on 28328: 2026-09-25 09:44:53,839 - INFO - Jonction à la Station_ID: 9522 entre les entrées 16789 et 9366
+on 28497: 2026-09-25 09:45:02,864 - INFO - Jonction à la Station_ID: 44662 entre les entrées 49456 et 43628
+2026-09-25 09:45:18,712 - INFO - ***********************************************************************************************************************
+2026-09-25 09:45:18,713 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-09-25 09:45:18,713 - INFO - *       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-09-25 09:45:18,713 - INFO - *       Version : 2026.09.25                                                                                          *
+2026-09-25 09:45:18,714 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                       *
+2026-09-25 09:45:18,714 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                                *
+2026-09-25 09:45:18,714 - INFO - *       Date : 2026-09-25 09h45m18s                                                                                   *
+2026-09-25 09:45:18,715 - INFO - *       Mode : sync                                                                                                   *
+2026-09-25 09:45:18,715 - INFO - ***********************************************************************************************************************
+2026-09-25 09:45:18,717 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql dans: ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats.db
+2026-09-25 09:45:21,997 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-09-25 09:45:24,220 - INFO - Jonction de SHOT equates, nbre: 2580
+2026-09-25 13:29:34,757 - INFO - ***********************************************************************************************************************
+2026-09-25 13:29:34,762 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-09-25 13:29:34,762 - INFO - *       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-09-25 13:29:34,762 - INFO - *       Version : 2026.09.25                                                                                          *
+2026-09-25 13:29:34,763 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                       *
+2026-09-25 13:29:34,763 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                                *
+2026-09-25 13:29:34,763 - INFO - *       Date : 2026-09-25 13h29m34s                                                                                   *
+2026-09-25 13:29:34,764 - INFO - *       Mode : sync                                                                                                   *
+2026-09-25 13:29:34,764 - INFO - ***********************************************************************************************************************
+2026-09-25 13:29:34,765 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql dans: ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats.db
+2026-09-25 13:29:37,109 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-09-25 13:29:37,384 - INFO - Jonction de SHOT equates, nbre: 2580
+2026-09-25 13:32:29,786 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 1688
+2026-09-25 13:32:31,987 - INFO - Table des SHOT, visées dupliquées traités nbre: 19
+2026-09-25 13:32:32,237 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-09-25 13:32:32,393 - INFO - Marquage des visées et des stations d'habillage, nbre: 19021
+2026-09-25 13:33:29,929 - INFO - Phase 3: Remplissage des tables d'après les 64171 entrée(s)
+2026-09-25 13:33:29,935 - INFO - Table des STATION entrée et fix, nbre: 194
+2026-09-25 13:33:29,978 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 194 entrée(s)
+on 1423: 2026-09-25 13:33:54,316 - INFO - Jonction à la Station_ID: 49335 entre les entrées 49456 et 49327
+on 3318: 2026-09-25 13:34:24,094 - INFO - Jonction à la Station_ID: 229 entre les entrées 218 et 834
+on 3357: 2026-09-25 13:34:25,149 - INFO - Jonction à la Station_ID: 3525 entre les entrées 3455 et 3525
+on 6351: 2026-09-25 13:35:07,931 - INFO - Jonction à la Station_ID: 1666 entre les entrées 1613 et 2784
+on 9158: 2026-09-25 13:36:04,556 - INFO - Jonction à la Station_ID: 3348 entre les entrées 3358 et 3397
+on 9594: 2026-09-25 13:36:22,101 - INFO - Jonction à la Station_ID: 48093 entre les entrées 49183 et 48104
+on 9622: 2026-09-25 13:36:26,303 - INFO - Jonction à la Station_ID: 49838 entre les entrées 49183 et 49803
+on 10275: 2026-09-25 13:36:43,488 - INFO - Jonction à la Station_ID: 40146 entre les entrées 38328 et 39667
+on 12587: 2026-09-25 13:37:47,559 - INFO - Jonction à la Station_ID: 47396 entre les entrées 48104 et 47360
+on 13062: 2026-09-25 13:37:59,496 - INFO - Jonction à la Station_ID: 9041 entre les entrées 10902 et 8905
+on 15553: 2026-09-25 13:39:09,986 - INFO - Jonction à la Station_ID: 12059 entre les entrées 10902 et 12987
+on 16763: 2026-09-25 13:39:42,530 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16763: 2026-09-25 13:39:42,543 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16817: 2026-09-25 13:39:44,744 - INFO - Jonction à la Station_ID: 9547 entre les entrées 9884 et 9366
+on 17832: 2026-09-25 13:40:18,110 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 13:40:18,207 - INFO - Jonction à la Station_ID: 9338 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 13:40:18,267 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 18972: 2026-09-25 13:40:47,557 - INFO - Jonction à la Station_ID: 12771 entre les entrées 14852 et 9366
+on 19046: 2026-09-25 13:40:50,262 - INFO - Jonction à la Station_ID: 17222 entre les entrées 16774 et 10902
+on 21114: 2026-09-25 13:41:49,626 - INFO - Jonction à la Station_ID: 15570 entre les entrées 8905 et 9366
+on 21600: 2026-09-25 13:42:05,319 - INFO - Jonction à la Station_ID: 47077 entre les entrées 49183 et 49089
+on 23056: 2026-09-25 13:42:44,492 - INFO - Jonction à la Station_ID: 15611 entre les entrées 9366 et 8905
+on 23137: 2026-09-25 13:42:46,660 - INFO - Jonction à la Station_ID: 15557 entre les entrées 8905 et 9366
+on 23142: 2026-09-25 13:42:46,740 - INFO - Jonction à la Station_ID: 9477 entre les entrées 8905 et 14852
+on 23144: 2026-09-25 13:42:46,986 - INFO - Jonction à la Station_ID: 9834 entre les entrées 14852 et 11338
+on 24975: 2026-09-25 13:43:43,239 - INFO - Jonction à la Station_ID: 16242 entre les entrées 15665 et 14852
+on 25697: 2026-09-25 13:44:09,588 - INFO - Jonction à la Station_ID: 16259 entre les entrées 10902 et 14852
+on 25981: 2026-09-25 13:44:21,298 - INFO - Jonction à la Station_ID: 50263 entre les entrées 50909 et 50130
+on 28328: 2026-09-25 13:45:21,382 - INFO - Jonction à la Station_ID: 9522 entre les entrées 16789 et 9366
+on 28497: 2026-09-25 13:45:27,207 - INFO - Jonction à la Station_ID: 44662 entre les entrées 49456 et 43628
+on 29909: 2026-09-25 13:46:09,359 - INFO - Jonction à la Station_ID: 44814 entre les entrées 48104 et 49456
+on 30963: 2026-09-25 13:46:36,462 - INFO - Jonction à la Station_ID: 16483 entre les entrées 15665 et 10902
+on 31414: 2026-09-25 13:46:51,003 - INFO - Jonction à la Station_ID: 17453 entre les entrées 19538 et 17667
+on 31827: 2026-09-25 13:47:00,812 - INFO - Jonction à la Station_ID: 25261 entre les entrées 27454 et 24729
+2026-09-25 13:53:13,135 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 340
+2026-09-25 13:53:21,522 - INFO - Réseau: 1, entrées jonctionnées: 10, [11338, 14852, 8905, 9366, 10902, 15665, 9884, 16789, 12987, 16774]
+2026-09-25 13:53:21,647 - INFO - Réseau: 2, entrées jonctionnées: 2, [3397, 3358]
+2026-09-25 13:53:21,978 - INFO - Réseau: 3, entrées jonctionnées: 8, [43628, 49456, 48104, 49327, 47360, 49183, 49089, 49803]
+2026-09-25 13:53:22,074 - INFO - Réseau: 4, entrées jonctionnées: 2, [1613, 2784]
+2026-09-25 13:53:22,273 - INFO - Réseau: 5, entrées jonctionnées: 2, [3455, 3525]
+2026-09-25 13:53:22,394 - INFO - Réseau: 6, entrées jonctionnées: 2, [24729, 27454]
+2026-09-25 13:53:22,498 - INFO - Réseau: 7, entrées jonctionnées: 2, [834, 218]
+2026-09-25 13:53:22,603 - INFO - Réseau: 8, entrées jonctionnées: 2, [38328, 39667]
+2026-09-25 13:53:22,711 - INFO - Réseau: 9, entrées jonctionnées: 2, [50130, 50909]
+2026-09-25 13:53:22,874 - INFO - Réseau: 10, entrées jonctionnées: 2, [17667, 19538]
+2026-09-25 13:53:22,883 - DEBUG - Réseau ID 10, ENT_1 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532, ENT_2 full name : Explo_01_1999_07_25.Explo_01_1999_07_25.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 5613
+2026-09-25 13:53:22,888 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,903 - DEBUG - Réseau ID 13, ENT_1 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806, ENT_2 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532
+2026-09-25 13:53:22,909 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,909 - DEBUG - Réseau ID 14, ENT_1 full name : Explo_54_2002_09_27.Explo_54_2002_09_27.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 8087, ENT_2 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752
+2026-09-25 13:53:22,916 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,916 - DEBUG - Réseau ID 17, ENT_1 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532, ENT_2 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806
+2026-09-25 13:53:22,923 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,923 - DEBUG - Réseau ID 18, ENT_1 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806, ENT_2 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752
+2026-09-25 13:53:22,929 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,930 - DEBUG - Réseau ID 19, ENT_1 full name : Explo_386_2020_09_23.Explo_386_2020_09_23.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 24415, ENT_2 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532
+2026-09-25 13:53:22,935 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,936 - DEBUG - Réseau ID 23, ENT_1 full name : Explo_01_1999_07_25.Explo_01_1999_07_25.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 5613, ENT_2 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752
+2026-09-25 13:53:22,942 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,943 - DEBUG - Réseau ID 24, ENT_1 full name : Explo_01_1999_07_25.Explo_01_1999_07_25.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 5613, ENT_2 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806
+2026-09-25 13:53:22,950 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,950 - DEBUG - Réseau ID 26, ENT_1 full name : Explo_320_2016_09_23.Explo_320_2016_09_23.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 21678, ENT_2 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806
+2026-09-25 13:53:22,958 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,958 - DEBUG - Réseau ID 27, ENT_1 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532, ENT_2 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806
+2026-09-25 13:53:22,965 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,965 - DEBUG - Réseau ID 29, ENT_1 full name : Explo_387_2021_08_03.Explo_387_2021_08_03.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 24458, ENT_2 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752
+2026-09-25 13:53:22,973 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,973 - DEBUG - Réseau ID 32, ENT_1 full name : Explo_320_2016_09_23.Explo_320_2016_09_23.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 21678, ENT_2 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532
+2026-09-25 13:53:22,981 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,981 - DEBUG - Réseau ID 39, ENT_1 full name : Explo_01_1999_07_25.Explo_01_1999_07_25.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 5613, ENT_2 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532
+2026-09-25 13:53:22,989 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,989 - DEBUG - Réseau ID 40, ENT_1 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532, ENT_2 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806
+2026-09-25 13:53:22,997 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:22,998 - DEBUG - Réseau ID 41, ENT_1 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806, ENT_2 full name : Explo_01_1999_07_25.Explo_01_1999_07_25.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 5613
+2026-09-25 13:53:23,005 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,006 - DEBUG - Réseau ID 42, ENT_1 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752, ENT_2 full name : Explo_387_2021_08_03.Explo_387_2021_08_03.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 24458
+2026-09-25 13:53:23,012 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,013 - DEBUG - Réseau ID 43, ENT_1 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752, ENT_2 full name : Explo_54_2002_09_27.Explo_54_2002_09_27.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 8087
+2026-09-25 13:53:23,020 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,020 - DEBUG - Réseau ID 44, ENT_1 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806, ENT_2 full name : Explo_112_2007_10_04.Explo_112_2007_10_04.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 11155
+2026-09-25 13:53:23,028 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,029 - DEBUG - Réseau ID 45, ENT_1 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532, ENT_2 full name : Explo_188_2011_09_15.Explo_188_2011_09_15.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 15365
+2026-09-25 13:53:23,036 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,036 - DEBUG - Réseau ID 46, ENT_1 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752, ENT_2 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806
+2026-09-25 13:53:23,043 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,043 - DEBUG - Réseau ID 47, ENT_1 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806, ENT_2 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532
+2026-09-25 13:53:23,050 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,051 - DEBUG - Réseau ID 48, ENT_1 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532, ENT_2 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806
+2026-09-25 13:53:23,058 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,059 - DEBUG - Réseau ID 49, ENT_1 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806, ENT_2 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532
+2026-09-25 13:53:23,067 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,068 - DEBUG - Réseau ID 50, ENT_1 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806, ENT_2 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532
+2026-09-25 13:53:23,075 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,076 - DEBUG - Réseau ID 51, ENT_1 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752, ENT_2 full name : Explo_01_1999_07_25.Explo_01_1999_07_25.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 5613
+2026-09-25 13:53:23,083 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,084 - DEBUG - Réseau ID 52, ENT_1 full name : Explo_01_1999_07_25.Explo_01_1999_07_25.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 5613, ENT_2 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752
+2026-09-25 13:53:23,092 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,092 - DEBUG - Réseau ID 53, ENT_1 full name : Explo_26_2001_08_06.Explo_26_2001_08_06.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 6752, ENT_2 full name : Explo_01_1999_07_25.Explo_01_1999_07_25.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 5613
+2026-09-25 13:53:23,099 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,100 - DEBUG - Réseau ID 54, ENT_1 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806, ENT_2 full name : Explo_320_2016_09_23.Explo_320_2016_09_23.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 21678
+2026-09-25 13:53:23,107 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,108 - DEBUG - Réseau ID 55, ENT_1 full name : Explo_279_2014_09_13.Explo_279_2014_09_13.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 19806, ENT_2 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532
+2026-09-25 13:53:23,115 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,116 - DEBUG - Réseau ID 56, ENT_1 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532, ENT_2 full name : Explo_320_2016_09_23.Explo_320_2016_09_23.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 21678
+2026-09-25 13:53:23,121 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,122 - DEBUG - Réseau ID 57, ENT_1 full name : Explo_101_2006_08_18.Explo_101_2006_08_18.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 10532, ENT_2 full name : Explo_386_2020_09_23.Explo_386_2020_09_23.Complexe_Anialarra.Synthese-PSM_LARRA, Survey ID 24415
+2026-09-25 13:53:23,128 - DEBUG - Premier commun : (5609, 'Complexe_Anialarra', 'Complexe Anialarra')
+2026-09-25 13:53:23,129 - DEBUG - Réseau ID 5, ENT_1 full name : Explo_03_2011_08_08.Explo_03_2011_08_08.AN676-Helado.Synthese-PSM_LARRA, Survey ID 2552, ENT_2 full name : Explo_04_2011_08_14.Explo_04_2011_08_14.AN676-Helado.Synthese-PSM_LARRA, Survey ID 2559
+2026-09-25 13:53:23,135 - DEBUG - Premier commun : (2534, 'AN676-Helado', 'AN676-Helado')
+2026-09-25 13:53:23,151 - DEBUG - Réseau ID 37, ENT_1 full name : Explo_04_2011_08_14.Explo_04_2011_08_14.AN676-Helado.Synthese-PSM_LARRA, Survey ID 2559, ENT_2 full name : Explo_03_2011_08_08.Explo_03_2011_08_08.AN676-Helado.Synthese-PSM_LARRA, Survey ID 2552
+2026-09-25 13:53:23,157 - DEBUG - Premier commun : (2534, 'AN676-Helado', 'AN676-Helado')
+2026-09-25 13:53:23,158 - DEBUG - Réseau ID 1, ENT_1 full name : Explo_01_2007_08_01.Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64914, ENT_2 full name : Explo_01_2007_08_01.Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64914
+2026-09-25 13:53:23,165 - DEBUG - Premier commun : (64912, 'Explo_01_2007_08_01', 'Explo 01 2007 08 01')
+2026-09-25 13:53:23,181 - DEBUG - Réseau ID 6, ENT_1 full name : Explo_02_1987_08_01.Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64529, ENT_2 full name : Explo_23_1983_08_01.Explo_23_1983_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 60728
+2026-09-25 13:53:23,187 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,204 - DEBUG - Réseau ID 7, ENT_1 full name : Explo_02_1987_08_01.Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64529, ENT_2 full name : Explo_01_2011_08_01.Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 66326
+2026-09-25 13:53:23,210 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,210 - DEBUG - Réseau ID 9, ENT_1 full name : Explo_23_1983_08_01.Explo_23_1983_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 60728, ENT_2 full name : Explo_08_1981_08_02.Explo_08_1981_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 58183
+2026-09-25 13:53:23,216 - DEBUG - Premier commun : (56312, 'M31_Pourtet', 'M31 Pourtet')
+2026-09-25 13:53:23,233 - DEBUG - Réseau ID 21, ENT_1 full name : Explo_02_1987_08_01.Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64529, ENT_2 full name : Explo_43_2011_08_04.Explo_43_2011_08_04.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64263
+2026-09-25 13:53:23,238 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,255 - DEBUG - Réseau ID 30, ENT_1 full name : Explo_01_2007_08_01.Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64914, ENT_2 full name : Explo_01_1983_08_18.Explo_01_1983_08_18.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 44188
+2026-09-25 13:53:23,261 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,262 - DEBUG - Réseau ID 31, ENT_1 full name : Explo_23_1983_08_01.Explo_23_1983_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 60728, ENT_2 full name : Explo_01_2007_08_01.Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64914
+2026-09-25 13:53:23,267 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,267 - DEBUG - Réseau ID 61, ENT_1 full name : Explo_01_1983_08_18.Explo_01_1983_08_18.M413_Partages.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 44188, ENT_2 full name : Explo_01_2007_08_01.Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64914
+2026-09-25 13:53:23,272 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,273 - DEBUG - Réseau ID 62, ENT_1 full name : Explo_01_2007_08_01.Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64914, ENT_2 full name : Explo_23_1983_08_01.Explo_23_1983_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 60728
+2026-09-25 13:53:23,278 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,279 - DEBUG - Réseau ID 63, ENT_1 full name : Explo_43_2011_08_04.Explo_43_2011_08_04.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64263, ENT_2 full name : Explo_02_1987_08_01.Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64529
+2026-09-25 13:53:23,285 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,285 - DEBUG - Réseau ID 64, ENT_1 full name : Explo_08_1981_08_02.Explo_08_1981_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 58183, ENT_2 full name : Explo_23_1983_08_01.Explo_23_1983_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 60728
+2026-09-25 13:53:23,290 - DEBUG - Premier commun : (56312, 'M31_Pourtet', 'M31 Pourtet')
+2026-09-25 13:53:23,309 - DEBUG - Réseau ID 65, ENT_1 full name : Explo_23_1983_08_01.Explo_23_1983_08_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 60728, ENT_2 full name : Explo_02_1987_08_01.Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64529
+2026-09-25 13:53:23,316 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,327 - DEBUG - Réseau ID 66, ENT_1 full name : Explo_01_2007_08_01.Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64914, ENT_2 full name : Explo_01_2007_08_01.Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64914
+2026-09-25 13:53:23,333 - DEBUG - Premier commun : (64912, 'Explo_01_2007_08_01', 'Explo 01 2007 08 01')
+2026-09-25 13:53:23,345 - DEBUG - Réseau ID 67, ENT_1 full name : Explo_01_2011_08_01.Explo_01_2011_08_01.C226.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 66326, ENT_2 full name : Explo_02_1987_08_01.Explo_02_1987_08_01.C50_Pre_Hus.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 64529
+2026-09-25 13:53:23,351 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,364 - DEBUG - Réseau ID 36, ENT_1 full name : Explo_01_1993_09_01.Explo_01_1993_09_01.AN211.Synthese-PSM_LARRA, Survey ID 708, ENT_2 full name : Explo_01_2016_09_15.Explo_01_2016_09_15.AN596-Antartica.Synthese-PSM_LARRA, Survey ID 2272
+2026-09-25 13:53:23,371 - DEBUG - Premier commun : (57, 'Synthese-PSM_LARRA', 'Synthèse générale des réseaux de la Pierre Saint Martin-Larra')
+2026-09-25 13:53:23,389 - DEBUG - Réseau ID 3, ENT_1 full name : Explo_01_2019_09_15.Explo_01_2019_09_15.AN702-Burros.Synthese-PSM_LARRA, Survey ID 2613, ENT_2 full name : Explo_01_2019_09_19.Explo_01_2019_09_19.AN704.Synthese-PSM_LARRA, Survey ID 2651
+2026-09-25 13:53:23,396 - DEBUG - Premier commun : (57, 'Synthese-PSM_LARRA', 'Synthèse générale des réseaux de la Pierre Saint Martin-Larra')
+2026-09-25 13:53:23,409 - DEBUG - Réseau ID 38, ENT_1 full name : Explo_01_2019_09_19.Explo_01_2019_09_19.AN704.Synthese-PSM_LARRA, Survey ID 2651, ENT_2 full name : Explo_01_2019_09_15.Explo_01_2019_09_15.AN702-Burros.Synthese-PSM_LARRA, Survey ID 2613
+2026-09-25 13:53:23,414 - DEBUG - Premier commun : (57, 'Synthese-PSM_LARRA', 'Synthèse générale des réseaux de la Pierre Saint Martin-Larra')
+2026-09-25 13:53:23,415 - DEBUG - Réseau ID 34, ENT_1 full name : Explo_62_2021_07_24.Explo_62_2021_07_24.Complexe_BU56_Ilamina.Synthese-PSM_LARRA, Survey ID 30152, ENT_2 full name : Explo_06_2014_08_01.Explo_06_2014_08_01.Complexe_BU56_Ilamina.Synthese-PSM_LARRA, Survey ID 27850
+2026-09-25 13:53:23,421 - DEBUG - Premier commun : (27366, 'Complexe_BU56_Ilamina', 'Complexe BU56 Ilamina')
+2026-09-25 13:53:23,434 - DEBUG - Réseau ID 59, ENT_1 full name : Explo_06_2014_08_01.Explo_06_2014_08_01.Complexe_BU56_Ilamina.Synthese-PSM_LARRA, Survey ID 27850, ENT_2 full name : Explo_62_2021_07_24.Explo_62_2021_07_24.Complexe_BU56_Ilamina.Synthese-PSM_LARRA, Survey ID 30152
+2026-09-25 13:53:23,441 - DEBUG - Premier commun : (27366, 'Complexe_BU56_Ilamina', 'Complexe BU56 Ilamina')
+2026-09-25 13:53:23,441 - DEBUG - Réseau ID 35, ENT_1 full name : Explo_02_1992_08_01.Explo_02_1992_08_01.AN008.Synthese-PSM_LARRA, Survey ID 162, ENT_2 full name : Explo_11_2003_08_01.Explo_11_2003_08_01.AN008.Synthese-PSM_LARRA, Survey ID 225
+2026-09-25 13:53:23,447 - DEBUG - Premier commun : (151, 'AN008', 'AN008')
+2026-09-25 13:53:23,461 - DEBUG - Réseau ID 8, ENT_1 full name : GL04_Entree.GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA, Survey ID 39253, ENT_2 full name : GL102_Entree_01.Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA, Survey ID 40869
+2026-09-25 13:53:23,467 - DEBUG - Premier commun : (32648, 'Complexe_Lonne_Peyret-Bourrugues', 'Complexe Lonné Peyret-Bourrugues')
+2026-09-25 13:53:23,480 - DEBUG - Réseau ID 60, ENT_1 full name : GL102_Entree_01.Gouffre_du_Lonne_Peyret.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA, Survey ID 40869, ENT_2 full name : GL04_Entree.GL04_Entree.GL04_Cam_Claque.Complexe_Lonne_Peyret-Bourrugues.Synthese-PSM_LARRA, Survey ID 39253
+2026-09-25 13:53:23,486 - DEBUG - Premier commun : (32648, 'Complexe_Lonne_Peyret-Bourrugues', 'Complexe Lonné Peyret-Bourrugues')
+2026-09-25 13:53:23,487 - DEBUG - Réseau ID 28, ENT_1 full name : Explo_14_2015_03_30.Explo_14_2015_03_30.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 69727, ENT_2 full name : Explo_01_2017_05_20.Explo_01_2017_05_20.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 67320
+2026-09-25 13:53:23,494 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,508 - DEBUG - Réseau ID 68, ENT_1 full name : Explo_01_2017_05_20.Explo_01_2017_05_20.Xendako.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 67320, ENT_2 full name : Explo_14_2015_03_30.Explo_14_2015_03_30.Aranzadi.Complexe_PSM_GdP.Synthese-PSM_LARRA, Survey ID 69727
+2026-09-25 13:53:23,512 - DEBUG - Premier commun : (44156, 'Complexe_PSM_GdP', 'Complexe PSM GdP')
+2026-09-25 13:53:23,513 - DEBUG - Réseau ID 58, ENT_1 full name : Explo_62_1994_08_06.Explo_62_1994_08_06.Complexe_Arrestelia.Synthese-PSM_LARRA, Survey ID 26086, ENT_2 full name : Explo_11_1992_06_26.Explo_11_1992_06_26.Complexe_Arrestelia.Synthese-PSM_LARRA, Survey ID 25729
+2026-09-25 13:53:23,518 - DEBUG - Premier commun : (25655, 'Complexe_Arrestelia', 'Complexe Arrestelia')
+2026-09-25 13:53:23,534 - WARNING - Phase 4: Fin du remplissage des tables, attention 82 station(s) non comptabilisé(s)
+2026-09-25 13:53:23,664 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\Synthese-PSM_LARRA\Outputs\readme
+2026-09-25 13:53:23,666 - INFO - Table des CENTRELINE, longueur: [(340302.67, 15575.02, 8956.61)]
+2026-09-25 13:54:51,061 - INFO - Table des STATION entrée et fix, nbre: 194
+2026-09-25 13:56:04,191 - WARNING - Phase 5: Fin de traitement en 26 (m) 29 (s), avec 1 erreur(s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
+2026-09-25 13:56:04,197 - WARNING - Execution terminée avec 1 erreurs en 26(m)29(s), verifier le log
+2026-09-25 16:47:15,690 - INFO - ***********************************************************************************************************************
+2026-09-25 16:47:15,691 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-09-25 16:47:15,691 - INFO - *       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-09-25 16:47:15,692 - INFO - *       Version : 2026.09.25                                                                                          *
+2026-09-25 16:47:15,692 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                       *
+2026-09-25 16:47:15,692 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                                *
+2026-09-25 16:47:15,692 - INFO - *       Date : 2026-09-25 16h47m15s                                                                                   *
+2026-09-25 16:47:15,693 - INFO - *       Mode : sync                                                                                                   *
+2026-09-25 16:47:15,693 - INFO - ***********************************************************************************************************************
+2026-09-25 16:47:15,694 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql dans: ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats.db
+2026-09-25 16:47:18,753 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-09-25 16:47:19,080 - INFO - Jonction de SHOT equates, nbre: 2580
+2026-09-25 16:52:05,791 - INFO - ***********************************************************************************************************************
+2026-09-25 16:52:05,792 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-09-25 16:52:05,792 - INFO - *       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-09-25 16:52:05,792 - INFO - *       Version : 2026.09.25                                                                                          *
+2026-09-25 16:52:05,793 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                       *
+2026-09-25 16:52:05,793 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                                *
+2026-09-25 16:52:05,793 - INFO - *       Date : 2026-09-25 16h52m05s                                                                                   *
+2026-09-25 16:52:05,793 - INFO - *       Mode : sync                                                                                                   *
+2026-09-25 16:52:05,794 - INFO - ***********************************************************************************************************************
+2026-09-25 16:52:05,795 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql dans: ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats.db
+2026-09-25 16:52:08,557 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-09-25 16:52:08,857 - INFO - Jonction de SHOT equates, nbre: 2580
+2026-09-25 16:55:11,015 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 1688
+2026-09-25 16:55:12,749 - INFO - Table des SHOT, visées dupliquées traités, nbre: 19
+2026-09-25 16:55:12,965 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-09-25 16:55:13,091 - INFO - Marquage des visées et des stations d'habillage, nbre: 19021
+2026-09-25 16:56:05,633 - INFO - Phase 3: Remplissage des tables d'après les 64171 entrée(s)
+2026-09-25 16:56:05,639 - INFO - Table des STATION entrée et fix, nbre: 194
+2026-09-25 16:56:05,680 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 194 entrée(s)
+on 1423: 2026-09-25 16:56:23,587 - INFO - Jonction à la Station_ID: 49335 entre les entrées 49456 et 49327
+on 3318: 2026-09-25 16:56:45,276 - INFO - Jonction à la Station_ID: 229 entre les entrées 218 et 834
+on 3357: 2026-09-25 16:56:46,060 - INFO - Jonction à la Station_ID: 3525 entre les entrées 3455 et 3525
+on 6351: 2026-09-25 16:57:20,739 - INFO - Jonction à la Station_ID: 1666 entre les entrées 1613 et 2784
+on 9158: 2026-09-25 16:58:28,171 - INFO - Jonction à la Station_ID: 3348 entre les entrées 3358 et 3397
+on 9594: 2026-09-25 16:58:43,664 - INFO - Jonction à la Station_ID: 48093 entre les entrées 49183 et 48104
+on 9622: 2026-09-25 16:58:47,830 - INFO - Jonction à la Station_ID: 49838 entre les entrées 49183 et 49803
+on 10275: 2026-09-25 16:59:02,939 - INFO - Jonction à la Station_ID: 40146 entre les entrées 38328 et 39667
+on 12587: 2026-09-25 17:00:04,043 - INFO - Jonction à la Station_ID: 47396 entre les entrées 48104 et 47360
+on 13062: 2026-09-25 17:00:15,401 - INFO - Jonction à la Station_ID: 9041 entre les entrées 10902 et 8905
+on 15553: 2026-09-25 17:01:23,971 - INFO - Jonction à la Station_ID: 12059 entre les entrées 10902 et 12987
+on 16763: 2026-09-25 17:01:53,334 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16763: 2026-09-25 17:01:53,348 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16817: 2026-09-25 17:01:55,341 - INFO - Jonction à la Station_ID: 9547 entre les entrées 9884 et 9366
+on 17832: 2026-09-25 17:02:26,728 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 17:02:26,819 - INFO - Jonction à la Station_ID: 9338 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 17:02:26,901 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 18972: 2026-09-25 17:02:54,687 - INFO - Jonction à la Station_ID: 12771 entre les entrées 14852 et 9366
+on 19046: 2026-09-25 17:02:58,500 - INFO - Jonction à la Station_ID: 17222 entre les entrées 16774 et 10902
+on 21114: 2026-09-25 17:03:55,184 - INFO - Jonction à la Station_ID: 15570 entre les entrées 8905 et 9366
+on 21600: 2026-09-25 17:04:09,586 - INFO - Jonction à la Station_ID: 47077 entre les entrées 49183 et 49089
+on 23056: 2026-09-25 17:04:49,226 - INFO - Jonction à la Station_ID: 15611 entre les entrées 9366 et 8905
+on 23137: 2026-09-25 17:04:51,614 - INFO - Jonction à la Station_ID: 15557 entre les entrées 8905 et 9366
+on 23142: 2026-09-25 17:04:51,706 - INFO - Jonction à la Station_ID: 9477 entre les entrées 8905 et 14852
+on 23144: 2026-09-25 17:04:51,940 - INFO - Jonction à la Station_ID: 9834 entre les entrées 14852 et 11338
+on 24975: 2026-09-25 17:05:47,136 - INFO - Jonction à la Station_ID: 16242 entre les entrées 15665 et 14852
+on 25697: 2026-09-25 17:06:11,697 - INFO - Jonction à la Station_ID: 16259 entre les entrées 10902 et 14852
+on 25981: 2026-09-25 17:06:22,742 - INFO - Jonction à la Station_ID: 50263 entre les entrées 50909 et 50130
+on 28328: 2026-09-25 17:07:22,128 - INFO - Jonction à la Station_ID: 9522 entre les entrées 16789 et 9366
+on 28497: 2026-09-25 17:07:28,936 - INFO - Jonction à la Station_ID: 44662 entre les entrées 49456 et 43628
+on 29909: 2026-09-25 17:08:06,745 - INFO - Jonction à la Station_ID: 44814 entre les entrées 48104 et 49456
+on 30963: 2026-09-25 17:08:34,847 - INFO - Jonction à la Station_ID: 16483 entre les entrées 15665 et 10902
+on 31414: 2026-09-25 17:08:50,770 - INFO - Jonction à la Station_ID: 17453 entre les entrées 19538 et 17667
+on 31827: 2026-09-25 17:08:58,838 - INFO - Jonction à la Station_ID: 25261 entre les entrées 27454 et 24729
+2026-09-25 17:15:42,526 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 340
+2026-09-25 17:15:51,202 - INFO - Réseau: 1, entrées jonctionnées: 10, [11338, 14852, 8905, 9366, 10902, 15665, 9884, 16789, 12987, 16774]
+2026-09-25 17:15:51,336 - INFO - Réseau: 2, entrées jonctionnées: 2, [3397, 3358]
+2026-09-25 17:15:51,853 - INFO - Réseau: 3, entrées jonctionnées: 8, [43628, 49456, 48104, 49327, 47360, 49183, 49089, 49803]
+2026-09-25 17:15:52,002 - INFO - Réseau: 4, entrées jonctionnées: 2, [1613, 2784]
+2026-09-25 17:15:52,130 - INFO - Réseau: 5, entrées jonctionnées: 2, [3455, 3525]
+2026-09-25 17:15:52,318 - INFO - Réseau: 6, entrées jonctionnées: 2, [24729, 27454]
+2026-09-25 17:15:52,564 - INFO - Réseau: 7, entrées jonctionnées: 2, [834, 218]
+2026-09-25 17:15:52,719 - INFO - Réseau: 8, entrées jonctionnées: 2, [38328, 39667]
+2026-09-25 17:15:52,873 - INFO - Réseau: 9, entrées jonctionnées: 2, [50130, 50909]
+2026-09-25 17:15:53,057 - INFO - Réseau: 10, entrées jonctionnées: 2, [17667, 19538]
+2026-09-25 17:15:54,300 - WARNING - Phase 4: Fin du remplissage des tables, attention 82 station(s) non comptabilisé(s)
+2026-09-25 17:15:54,469 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\Synthese-PSM_LARRA\Outputs\readme
+2026-09-25 17:15:54,472 - INFO - Table des CENTRELINE, longueur: [(340302.67, 15575.02, 8956.61)]
+2026-09-25 17:17:51,665 - INFO - Table des STATION entrée et fix, nbre: 194
+2026-09-25 17:19:27,421 - INFO - Phase 5: Fin de traitement en 27 (m) 21 (s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
+2026-09-25 17:19:27,425 - INFO - Execution terminée sans erreur en 27(m)21(s)
+2026-09-25 17:58:56,870 - INFO - ***********************************************************************************************************************
+2026-09-25 17:58:56,871 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-09-25 17:58:56,871 - INFO - *       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-09-25 17:58:56,872 - INFO - *       Version : 2026.09.25                                                                                          *
+2026-09-25 17:58:56,872 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                       *
+2026-09-25 17:58:56,872 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                                *
+2026-09-25 17:58:56,873 - INFO - *       Date : 2026-09-25 17h58m56s                                                                                   *
+2026-09-25 17:58:56,873 - INFO - *       Mode : sync                                                                                                   *
+2026-09-25 17:58:56,873 - INFO - ***********************************************************************************************************************
+2026-09-25 17:58:56,876 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql dans: ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats.db
+2026-09-25 17:59:00,541 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-09-25 17:59:00,911 - INFO - Jonction de SHOT equates, nbre: 2580
+2026-09-25 18:02:49,702 - INFO - ***********************************************************************************************************************
+2026-09-25 18:02:49,703 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-09-25 18:02:49,703 - INFO - *       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-09-25 18:02:49,703 - INFO - *       Version : 2026.09.25                                                                                          *
+2026-09-25 18:02:49,704 - INFO - *       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                       *
+2026-09-25 18:02:49,704 - INFO - *       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                                *
+2026-09-25 18:02:49,704 - INFO - *       Date : 2026-09-25 18h02m49s                                                                                   *
+2026-09-25 18:02:49,705 - INFO - *       Mode : sync                                                                                                   *
+2026-09-25 18:02:49,705 - INFO - ***********************************************************************************************************************
+2026-09-25 18:02:49,708 - INFO - Phase 1: Importation de la base de données Therion ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql dans: ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats.db
+2026-09-25 18:02:54,221 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-09-25 18:02:54,679 - INFO - Jonction de SHOT equates, nbre: 2580
+2026-09-25 18:07:31,851 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 1688
+2026-09-25 18:07:34,662 - INFO - Table des SHOT, visées dupliquées traités, nbre: 19
+2026-09-25 18:07:35,072 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-09-25 18:07:35,285 - INFO - Marquage des visées et des stations d'habillage, nbre: 19021
+2026-09-25 18:09:08,064 - INFO - Phase 3: Remplissage des tables d'après les 64171 entrée(s)
+2026-09-25 18:09:08,072 - INFO - Table des STATION entrée et fix, nbre: 194
+2026-09-25 18:09:08,122 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 194 entrée(s)
+on 1423: 2026-09-25 18:09:27,468 - INFO - Jonction à la Station_ID: 49335 entre les entrées 49456 et 49327
+on 3318: 2026-09-25 18:09:50,453 - INFO - Jonction à la Station_ID: 229 entre les entrées 218 et 834
+on 3357: 2026-09-25 18:09:51,295 - INFO - Jonction à la Station_ID: 3525 entre les entrées 3455 et 3525
+on 6351: 2026-09-25 18:11:00,212 - INFO - Jonction à la Station_ID: 1666 entre les entrées 1613 et 2784
+on 9158: 2026-09-25 18:12:22,402 - INFO - Jonction à la Station_ID: 3348 entre les entrées 3358 et 3397
+on 9594: 2026-09-25 18:12:38,943 - INFO - Jonction à la Station_ID: 48093 entre les entrées 49183 et 48104
+on 9622: 2026-09-25 18:12:41,762 - INFO - Jonction à la Station_ID: 49838 entre les entrées 49183 et 49803
+on 10275: 2026-09-25 18:12:56,901 - INFO - Jonction à la Station_ID: 40146 entre les entrées 38328 et 39667
+on 12587: 2026-09-25 18:13:58,237 - INFO - Jonction à la Station_ID: 47396 entre les entrées 48104 et 47360
+on 13062: 2026-09-25 18:14:09,113 - INFO - Jonction à la Station_ID: 9041 entre les entrées 10902 et 8905
+on 15553: 2026-09-25 18:15:13,682 - INFO - Jonction à la Station_ID: 12059 entre les entrées 10902 et 12987
+on 16763: 2026-09-25 18:15:42,526 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16763: 2026-09-25 18:15:42,541 - INFO - Jonction à la Station_ID: 9337 entre les entrées 14852 et 10902
+on 16817: 2026-09-25 18:15:45,430 - INFO - Jonction à la Station_ID: 9547 entre les entrées 9884 et 9366
+on 17832: 2026-09-25 18:16:17,954 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 18:16:18,157 - INFO - Jonction à la Station_ID: 9338 entre les entrées 10902 et 14852
+on 17833: 2026-09-25 18:16:18,216 - INFO - Jonction à la Station_ID: 12777 entre les entrées 10902 et 14852
+on 18972: 2026-09-25 18:16:46,502 - INFO - Jonction à la Station_ID: 12771 entre les entrées 14852 et 9366
+on 19046: 2026-09-25 18:16:50,330 - INFO - Jonction à la Station_ID: 17222 entre les entrées 16774 et 10902
+on 21114: 2026-09-25 18:17:46,319 - INFO - Jonction à la Station_ID: 15570 entre les entrées 8905 et 9366
+on 21600: 2026-09-25 18:18:01,235 - INFO - Jonction à la Station_ID: 47077 entre les entrées 49183 et 49089
+on 23056: 2026-09-25 18:18:39,939 - INFO - Jonction à la Station_ID: 15611 entre les entrées 9366 et 8905
+on 23137: 2026-09-25 18:18:42,163 - INFO - Jonction à la Station_ID: 15557 entre les entrées 8905 et 9366
+on 23142: 2026-09-25 18:18:42,254 - INFO - Jonction à la Station_ID: 9477 entre les entrées 8905 et 14852
+on 23144: 2026-09-25 18:18:42,494 - INFO - Jonction à la Station_ID: 9834 entre les entrées 14852 et 11338
+on 24975: 2026-09-25 18:19:36,345 - INFO - Jonction à la Station_ID: 16242 entre les entrées 15665 et 14852
+on 25697: 2026-09-25 18:19:59,598 - INFO - Jonction à la Station_ID: 16259 entre les entrées 10902 et 14852
+on 25981: 2026-09-25 18:20:11,021 - INFO - Jonction à la Station_ID: 50263 entre les entrées 50909 et 50130
+on 28328: 2026-09-25 18:21:11,688 - INFO - Jonction à la Station_ID: 9522 entre les entrées 16789 et 9366
+on 28497: 2026-09-25 18:21:20,415 - INFO - Jonction à la Station_ID: 44662 entre les entrées 49456 et 43628
+on 29909: 2026-09-25 18:22:04,612 - INFO - Jonction à la Station_ID: 44814 entre les entrées 48104 et 49456
+on 30963: 2026-09-25 18:22:34,297 - INFO - Jonction à la Station_ID: 16483 entre les entrées 15665 et 10902
+on 31414: 2026-09-25 18:22:52,151 - INFO - Jonction à la Station_ID: 17453 entre les entrées 19538 et 17667
+on 31827: 2026-09-25 18:23:00,835 - INFO - Jonction à la Station_ID: 25261 entre les entrées 27454 et 24729
+2026-09-25 18:29:19,710 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 340
+2026-09-25 18:29:27,074 - INFO - Réseau: 1, entrées jonctionnées: 10, [11338, 14852, 8905, 9366, 10902, 15665, 9884, 16789, 12987, 16774]
+2026-09-25 18:29:27,199 - INFO - Réseau: 2, entrées jonctionnées: 2, [3397, 3358]
+2026-09-25 18:29:27,602 - INFO - Réseau: 3, entrées jonctionnées: 8, [43628, 49456, 48104, 49327, 47360, 49183, 49089, 49803]
+2026-09-25 18:29:27,686 - INFO - Réseau: 4, entrées jonctionnées: 2, [1613, 2784]
+2026-09-25 18:29:27,780 - INFO - Réseau: 5, entrées jonctionnées: 2, [3455, 3525]
+2026-09-25 18:29:27,934 - INFO - Réseau: 6, entrées jonctionnées: 2, [24729, 27454]
+2026-09-25 18:29:28,027 - INFO - Réseau: 7, entrées jonctionnées: 2, [834, 218]
+2026-09-25 18:29:28,137 - INFO - Réseau: 8, entrées jonctionnées: 2, [38328, 39667]
+2026-09-25 18:29:28,246 - INFO - Réseau: 9, entrées jonctionnées: 2, [50130, 50909]
+2026-09-25 18:29:28,374 - INFO - Réseau: 10, entrées jonctionnées: 2, [17667, 19538]
+2026-09-25 18:29:28,890 - WARNING - Phase 4: Fin du remplissage des tables, attention 82 station(s) non comptabilisé(s)
+2026-09-25 18:29:29,061 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\Synthese-PSM_LARRA\Outputs\readme
+2026-09-25 18:29:29,063 - INFO - Table des CENTRELINE, longueur: [(340302.67, 15575.02, 8956.61)]
+2026-09-25 18:31:14,108 - INFO - Table des STATION entrée et fix, nbre: 194
+2026-09-25 18:32:29,198 - INFO - Phase 5: Fin de traitement en 29 (m) 39 (s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
+2026-09-25 18:32:29,203 - INFO - Execution terminée sans erreur en 29(m)39(s)

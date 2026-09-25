@@ -89,7 +89,7 @@ layout layout-Plan
 	grid-size 50 50 50 m
 	
 	## la topo est transparente (on peut voir les galeries en dessous)
-	## C'est on par défaut, donc, pas vraiment besoin de specifier
+	## C'est 'on' par défaut, donc, pas vraiment besoin de specifier
 	transparency on
 	
 	## Couleurs de la topographie
@@ -103,7 +103,7 @@ layout layout-Plan
 	#colour-legend off
 	colour map-fg 90
 	
-	## ça marche seulement si transparency est "on" 90% blanc= 10% noir
+	## Ça marche seulement si 'transparency' est "on" 90% blanc= 10% noir
 	opacity 75
 	#surface bottom
 	#surface-opacity 100
@@ -123,7 +123,7 @@ layout layout-Plan
 	## ou une autre combinaison...
 	map-header 2 -98 nw
 	
-	## arrière plan de la manchette
+	## Arrière plan de la manchette
 	map-header-bg on
 	
 	## Légende pour expliciter les symboles. "on" imprimera seulement la légende des symboles dessinés
@@ -260,7 +260,7 @@ layout layout-Extended
 	#grid-size 250 250 250 m
 	
 	## la topo est transparente (on peut voir les galeries inférieurs)
-	## C'est on par défaut, donc, pas vraiment besoin de spécifier
+	## C'est 'on' par défaut, donc, pas vraiment besoin de spécifier
 	transparency on
 	
 	## Couleurs de la topographie
@@ -274,7 +274,7 @@ layout layout-Extended
 	#colour-legend off
 	colour map-fg 90
 	
-	## ça marche seulement si transparency est "on" 90% blanc= 10% noir
+	## Ça marche seulement si transparency est "on" 90% blanc= 10% noir
 	opacity 75
 	#surface bottom
 	#surface-opacity 100
@@ -294,7 +294,7 @@ layout layout-Extended
 	## ou une autre combinaison...
 	map-header 98 98 ne
 	
-	## arrière plan de la manchette
+	## Arrière plan de la manchette
 	map-header-bg on
 	
 	## Légende pour expliciter les symboles. "on" imprimera seulement la légende des symboles dessinés
@@ -381,11 +381,11 @@ layout xviexport
 	## taille de la grille
 	grid-size 2 2 2 m
 	
-	## mettre la grille en arrière plan
+	## Mettre la grille en arrière plan
 	grid bottom
 endlayout
 
-## fin de la définition du layout
+## Fin de la définition du layout
 
 ###############################################################################################
 ## 3-EXPORT                                                                                  ##
@@ -422,8 +422,6 @@ endlayout
 	export survey-list -location on -o Outputs/{fileName}-Surveys.html
 	# export database -fmt sql -o Outputs/{fileName}-Database.sql
 	# export continuation-list -o Outputs/{fileName}-Continuations.html
-
-
 
 ###############################################################################################
 ## END FILE                                                                                  ##
