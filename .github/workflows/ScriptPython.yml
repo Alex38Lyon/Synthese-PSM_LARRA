@@ -431,7 +431,7 @@ jobs:
           cd Scripts/pyThStat
           echo "========================================"
           ls -l
-          python pyThStat.py --file "/../../Outputs/DB_Synthese-PSM_LARRA.sql"
+          python pythStat.py --file "/../../Outputs/DB_Synthese-PSM_LARRA.sql"
 
       # ============================================================
       # 16. Fichiers produits
