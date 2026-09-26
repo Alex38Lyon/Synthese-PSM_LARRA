@@ -8,11 +8,11 @@
 <name><![CDATA[Synthèse générale des réseaux de la Pierre Saint Martin-Larra]]></name>
 <description><![CDATA[Longueur  340527 m<br>Dénivellation  2016 m]]></description>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[A_4]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[A4]]></name>
 <Point> <coordinates>-0.73560889269712,42.94524097928116,2145.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[A_106]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[A106]]></name>
 <Point> <coordinates>-0.79246080167638,42.94612662600291,1648.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -48,7 +48,7 @@
 <Point> <coordinates>-0.73820760022411,42.94255496328091,2200.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN61]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN61 Sima de la confusion]]></name>
 <Point> <coordinates>-0.74109968688906,42.94089220681234,2216.50000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -60,7 +60,7 @@
 <Point> <coordinates>-0.74626282315979,42.94147127379006,2111.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN73]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN73 Gouffre des Grands Frissons]]></name>
 <Point> <coordinates>-0.74753156954441,42.94599850310126,2072.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -84,11 +84,11 @@
 <Point> <coordinates>-0.74652663760456,42.94632989656287,2060.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN_324]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN324]]></name>
 <Point> <coordinates>-0.79492774529016,42.94459468398075,1622.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN_325]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN325]]></name>
 <Point> <coordinates>-0.79701696979427,42.94416128224179,1603.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -100,15 +100,15 @@
 <Point> <coordinates>-0.75153326982900,42.94943325353247,1972.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN_455]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN455]]></name>
 <Point> <coordinates>-0.75116412705161,42.94957277450414,1968.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN456]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN456 Sima banco]]></name>
 <Point> <coordinates>-0.75369491396408,42.94840686025579,1962.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN_465]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN465]]></name>
 <Point> <coordinates>-0.74333704694116,42.94707754029600,2125.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -116,7 +116,7 @@
 <Point> <coordinates>-0.75385876477398,42.94996788411940,1945.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN506]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN506 Sima de los niños]]></name>
 <Point> <coordinates>-0.74417740150294,42.94387044181381,2163.30000000000018</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -124,7 +124,7 @@
 <Point> <coordinates>-0.74435255625686,42.94276632082307,2145.59999999999991</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN514]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN514 Sima venus]]></name>
 <Point> <coordinates>-0.73515877372287,42.94013542935461,2324.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -136,7 +136,7 @@
 <Point> <coordinates>-0.73775018056580,42.94500419348076,2124.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN534]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN534 Sima de l'eclipse]]></name>
 <Point> <coordinates>-0.73626320354807,42.94510985245365,2135.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -148,11 +148,11 @@
 <Point> <coordinates>-0.73532659972488,42.94591974627701,2150.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN546]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN546 Pozo goerges]]></name>
 <Point> <coordinates>-0.73406565962572,42.94087017806208,2267.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN557]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN557 Le Grand Avaloir]]></name>
 <Point> <coordinates>-0.74325451472630,42.94665269323855,2112.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -172,7 +172,7 @@
 <Point> <coordinates>-0.74609152022787,42.94817628658117,2083.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN591]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN591 Sima rapido]]></name>
 <Point> <coordinates>-0.74424907303674,42.94325053276980,2147.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -180,31 +180,31 @@
 <Point> <coordinates>-0.75613397891984,42.94840969750980,1956.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN595 Polaire]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN595 Sima Polaire]]></name>
 <Point> <coordinates>-0.73019783314310,42.94106374199274,2248.50000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN596]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN596 Sima Antartica]]></name>
 <Point> <coordinates>-0.74720523073813,42.94620818999527,2057.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN616]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN616 Sima Daniela]]></name>
 <Point> <coordinates>-0.75456800629745,42.94866712449450,1944.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN619]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN619 Trou fion]]></name>
 <Point> <coordinates>-0.75288245488620,42.94378952043361,2033.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN622]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN622 Sima basura]]></name>
 <Point> <coordinates>-0.75300141836951,42.94523260418367,2034.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN624]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN624 Sima Pokemon]]></name>
 <Point> <coordinates>-0.75524563004509,42.94857236523183,1949.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN627]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN627 Sima Conchita]]></name>
 <Point> <coordinates>-0.73872388759056,42.94586087567351,2144.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -232,11 +232,11 @@
 <Point> <coordinates>-0.74064521661265,42.94091925197008,2223.69999999999982</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN671]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN671 Sima verguenza]]></name>
 <Point> <coordinates>-0.75563450866906,42.94832786354942,1958.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN672]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN672 Sima Grosellero]]></name>
 <Point> <coordinates>-0.75258719803114,42.94920453142062,1963.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -244,15 +244,15 @@
 <Point> <coordinates>-0.73919232518347,42.94411422343084,2164.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN52-Helado]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN52 Sima Helado]]></name>
 <Point> <coordinates>-0.73945441385489,42.94365115935013,2170.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN683]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN683 Sima papanatas]]></name>
 <Point> <coordinates>-0.73993445163542,42.94393078269680,2150.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN692]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN692 Sima James Bond]]></name>
 <Point> <coordinates>-0.75432354004607,42.94831114446169,1963.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -260,23 +260,23 @@
 <Point> <coordinates>-0.74942506722546,42.94818787985405,2006.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN_702]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN702 Sima de los burros]]></name>
 <Point> <coordinates>-0.75068670603078,42.94821268999802,1983.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN_704]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN704]]></name>
 <Point> <coordinates>-0.75070059395939,42.94816793970158,1983.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN_702]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN702]]></name>
 <Point> <coordinates>-0.75068670603078,42.94821268999802,1983.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN708]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN708 Sima de la marmota]]></name>
 <Point> <coordinates>-0.74726306197030,42.94159902806952,2134.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN711]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN711 Cueva del Oso]]></name>
 <Point> <coordinates>-0.74186073982939,42.94621998344650,2112.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -312,7 +312,7 @@
 <Point> <coordinates>-0.72586644432993,42.98349167612707,1490.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BB_50]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BB50]]></name>
 <Point> <coordinates>-0.72716490729614,42.98347840001266,1537.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -328,7 +328,7 @@
 <Point> <coordinates>-0.75683381025102,42.98040792327568,1618.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[C_103]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[C103]]></name>
 <Point> <coordinates>-0.76852847152382,42.95648607478179,1853.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -340,7 +340,7 @@
 <Point> <coordinates>-0.77116238974327,42.95721276548556,1783.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[C_213]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[C213]]></name>
 <Point> <coordinates>-0.75629611755585,42.95811089688777,1890.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -572,7 +572,7 @@
 <Point> <coordinates>-0.72175994550148,42.98172304913784,1550.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[E3_TSR3]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[E3 TSR3]]></name>
 <Point> <coordinates>-0.74458656607937,42.96017684771744,1930.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -584,7 +584,7 @@
 <Point> <coordinates>-0.72877612618741,42.91760237906360,2263.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[ERE_80]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[ERE80]]></name>
 <Point> <coordinates>-0.76606299689702,42.90435507197204,1856.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -592,7 +592,7 @@
 <Point> <coordinates>-0.74235630410340,42.95713440232594,1982.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[F_404]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[F404 Cuisse de truffin]]></name>
 <Point> <coordinates>-0.74154689756106,42.95613692078879,1990.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -632,7 +632,7 @@
 <Point> <coordinates>-0.74805434680917,42.95188307567846,2023.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[LAK_15]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[LAK15]]></name>
 <Point> <coordinates>-0.81670399877945,42.94754629931209,1535.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -680,7 +680,7 @@
 <Point> <coordinates>-0.84654472267853,42.98600343200813,820.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[MOUTON]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Trou du mouton]]></name>
 <Point> <coordinates>-0.85014392284560,42.98760191301428,535.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -716,7 +716,7 @@
 <Point> <coordinates>-0.76119729850346,42.93357336509398,1975.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Grotte Marmitou]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Grotte marmitou]]></name>
 <Point> <coordinates>-0.72672215534159,42.92961292260707,2005.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -1779,7 +1779,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2000 08 19]]></name>
 <Folder>
-<name><![CDATA[FI00 19]]></name>
+<name><![CDATA[A4]]></name>
 <Placemark>
 <name>A_4</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -1803,7 +1803,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2015 10 29]]></name>
 <Folder>
-<name><![CDATA[A106 SECTION001]]></name>
+<name><![CDATA[A106]]></name>
 <Placemark>
 <name>A_106</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3348,7 +3348,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2007 08 01]]></name>
 <Folder>
-<name><![CDATA[AN45 SECTION001]]></name>
+<name><![CDATA[AN45]]></name>
 <Placemark>
 <name>AN45</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3447,7 +3447,7 @@
 <Folder>
 <name><![CDATA[Explo 03 2024 08 16]]></name>
 <Folder>
-<name><![CDATA[AN58-2024-02]]></name>
+<name><![CDATA[AN58]]></name>
 <Placemark>
 <name>AN58</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3483,7 +3483,7 @@
 <Folder>
 <name><![CDATA[Explo 02 2002 09 23]]></name>
 <Folder>
-<name><![CDATA[AN61 01 AN61 02]]></name>
+<name><![CDATA[AN61 Sima de la confusion]]></name>
 <Placemark>
 <name>AN61</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3510,7 +3510,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2002 08 14]]></name>
 <Folder>
-<name><![CDATA[FI02 16]]></name>
+<name><![CDATA[AN62]]></name>
 <Placemark>
 <name>AN62</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3552,7 +3552,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1986 08 27]]></name>
 <Folder>
-<name><![CDATA[AN73-86-05]]></name>
+<name><![CDATA[AN73 Gouffre des Grands Frissons]]></name>
 <Placemark>
 <name>ESF1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3576,7 +3576,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2005 08 03]]></name>
 <Folder>
-<name><![CDATA[AN103 1]]></name>
+<name><![CDATA[AN103]]></name>
 <Placemark>
 <name>AN103</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3639,7 +3639,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2003 08 07]]></name>
 <Folder>
-<name><![CDATA[AN107-03 12]]></name>
+<name><![CDATA[AN107]]></name>
 <Placemark>
 <name>LHX1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3744,7 +3744,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1993 09 01]]></name>
 <Folder>
-<name><![CDATA[AN211-93 S1]]></name>
+<name><![CDATA[AN211]]></name>
 <Placemark>
 <name>AN211</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3813,7 +3813,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2022 08 11]]></name>
 <Folder>
-<name><![CDATA[AN324 SECTION001]]></name>
+<name><![CDATA[AN324]]></name>
 <Placemark>
 <name>AN_324</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -3837,7 +3837,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2022 08 08]]></name>
 <Folder>
-<name><![CDATA[AN325 SECTION001]]></name>
+<name><![CDATA[AN325]]></name>
 <Placemark>
 <name>AN_325</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4122,7 +4122,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2020 09 23]]></name>
 <Folder>
-<name><![CDATA[AN453-20-01]]></name>
+<name><![CDATA[AN453]]></name>
 <Placemark>
 <name>AN453</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4158,7 +4158,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2023 07 24]]></name>
 <Folder>
-<name><![CDATA[AN455-23-01]]></name>
+<name><![CDATA[AN455]]></name>
 <Placemark>
 <name>AN_455</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4188,7 +4188,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2021 08 08]]></name>
 <Folder>
-<name><![CDATA[AN456-21-01]]></name>
+<name><![CDATA[AN456 Sima banco]]></name>
 <Placemark>
 <name>AN456</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4230,7 +4230,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2023 08 02]]></name>
 <Folder>
-<name><![CDATA[AN465-23-01]]></name>
+<name><![CDATA[AN465]]></name>
 <Placemark>
 <name>AN_465</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4266,7 +4266,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2021 08 10]]></name>
 <Folder>
-<name><![CDATA[AN480-21-01]]></name>
+<name><![CDATA[AN480]]></name>
 <Placemark>
 <name>AN480</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4284,7 +4284,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1998 08 07]]></name>
 <Folder>
-<name><![CDATA[AN506 MO AN506 PF]]></name>
+<name><![CDATA[AN506 Sima de los niños]]></name>
 <Placemark>
 <name>MO1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4389,7 +4389,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2015 09 25]]></name>
 <Folder>
-<name><![CDATA[AN507-15-1]]></name>
+<name><![CDATA[AN507]]></name>
 <Placemark>
 <name>AN507</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4443,7 +4443,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2008 08 16]]></name>
 <Folder>
-<name><![CDATA[AN514-08 14]]></name>
+<name><![CDATA[AN514 Sima venus]]></name>
 <Placemark>
 <name>AN514</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4584,7 +4584,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2000 08 21]]></name>
 <Folder>
-<name><![CDATA[AN532-FI00 22]]></name>
+<name><![CDATA[AN532]]></name>
 <Placemark>
 <name>UW01</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4602,7 +4602,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2000 08 17]]></name>
 <Folder>
-<name><![CDATA[AN534-01 AN534-02]]></name>
+<name><![CDATA[AN534 Sima de l'eclipse]]></name>
 <Placemark>
 <name>AN534</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4629,7 +4629,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2012 08 07]]></name>
 <Folder>
-<name><![CDATA[AN536-FI12-07]]></name>
+<name><![CDATA[AN536]]></name>
 <Placemark>
 <name>BGG1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4659,7 +4659,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2000 08 20]]></name>
 <Folder>
-<name><![CDATA[FI00 21 FI00 21b]]></name>
+<name><![CDATA[AN542]]></name>
 <Placemark>
 <name>PO01</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4686,7 +4686,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2000 08 22]]></name>
 <Folder>
-<name><![CDATA[AN546-FI00 18]]></name>
+<name><![CDATA[AN546 Pozo goerges]]></name>
 <Placemark>
 <name>AN546</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4707,7 +4707,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2017 09 18]]></name>
 <Folder>
-<name><![CDATA[AN5577-17-1]]></name>
+<name><![CDATA[AN5577 Le Grand Avaloir]]></name>
 <Placemark>
 <name>FS0</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4752,7 +4752,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2002 08 08]]></name>
 <Folder>
-<name><![CDATA[FI02 05]]></name>
+<name><![CDATA[AN567]]></name>
 <Placemark>
 <name>FH1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4791,7 +4791,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2010 08 20]]></name>
 <Folder>
-<name><![CDATA[AN588-FI10-12]]></name>
+<name><![CDATA[AN588]]></name>
 <Placemark>
 <name>AN588</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -4866,7 +4866,7 @@
 <Folder>
 <name><![CDATA[Explo 02 2011 08 15]]></name>
 <Folder>
-<name><![CDATA[AN591-FI11 20]]></name>
+<name><![CDATA[AN591 Sima rapido]]></name>
 <Placemark>
 <name>AN591</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5166,7 +5166,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2010 09 20]]></name>
 <Folder>
-<name><![CDATA[AN595 Polaire]]></name>
+<name><![CDATA[AN595 Sima Polaire]]></name>
 <Placemark>
 <name>AS1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5298,7 +5298,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2016 09 15]]></name>
 <Folder>
-<name><![CDATA[AN596-16-1]]></name>
+<name><![CDATA[AN596 Sima Antartica]]></name>
 <Placemark>
 <name>AN596</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5349,7 +5349,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2015 08 16]]></name>
 <Folder>
-<name><![CDATA[AN616-15-1]]></name>
+<name><![CDATA[AN616 Sima Daniela]]></name>
 <Placemark>
 <name>UD1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5376,7 +5376,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2013 09 27]]></name>
 <Folder>
-<name><![CDATA[AN619-13-16]]></name>
+<name><![CDATA[AN619 Trou fion]]></name>
 <Placemark>
 <name>AN619</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5409,7 +5409,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2014 08 12]]></name>
 <Folder>
-<name><![CDATA[AN622-14-05]]></name>
+<name><![CDATA[AN622 Sima basura]]></name>
 <Placemark>
 <name>EL1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5436,7 +5436,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2016 08 04]]></name>
 <Folder>
-<name><![CDATA[AN624-16-1]]></name>
+<name><![CDATA[AN624 Sima Pokemon]]></name>
 <Placemark>
 <name>AN624</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5529,7 +5529,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2014 09 19]]></name>
 <Folder>
-<name><![CDATA[AN627-14-21]]></name>
+<name><![CDATA[AN627 Sima Conchita]]></name>
 <Placemark>
 <name>GD13</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5607,7 +5607,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2004 08 20]]></name>
 <Folder>
-<name><![CDATA[AN635-04-00]]></name>
+<name><![CDATA[AN635]]></name>
 <Placemark>
 <name>TD1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5628,7 +5628,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2015 08 15]]></name>
 <Folder>
-<name><![CDATA[AN639-15-01]]></name>
+<name><![CDATA[AN639]]></name>
 <Placemark>
 <name>HF1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5658,7 +5658,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2008 08 10]]></name>
 <Folder>
-<name><![CDATA[FI08 15]]></name>
+<name><![CDATA[AN646]]></name>
 <Placemark>
 <name>AN646</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5958,7 +5958,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2016 08 11]]></name>
 <Folder>
-<name><![CDATA[AN671-16-1]]></name>
+<name><![CDATA[AN671 Sima verguenza]]></name>
 <Placemark>
 <name>FM1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5976,7 +5976,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2010 08 11]]></name>
 <Folder>
-<name><![CDATA[AN672-FI10-06]]></name>
+<name><![CDATA[AN672 Sima Groselleros]]></name>
 <Placemark>
 <name>RO1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -5990,7 +5990,7 @@
 </Folder>
 </Folder>
 <Folder>
-<name><![CDATA[AN676-Helado]]></name>
+<name><![CDATA[AN676 Sima Helado]]></name>
 <Folder>
 <name><![CDATA[Explo 01 2011 07 09]]></name>
 <Folder>
@@ -6045,7 +6045,7 @@
 <Folder>
 <name><![CDATA[Explo 03 2011 08 08]]></name>
 <Folder>
-<name><![CDATA[AN676-FI11-10]]></name>
+<name><![CDATA[AN676A]]></name>
 <Placemark>
 <name>HEL29</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -6093,7 +6093,7 @@
 <Folder>
 <name><![CDATA[Explo 04 2011 08 14]]></name>
 <Folder>
-<name><![CDATA[AN52-Helado]]></name>
+<name><![CDATA[AN52 Sima Helado]]></name>
 <Placemark>
 <name>BS1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -6147,7 +6147,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2012 09 25]]></name>
 <Folder>
-<name><![CDATA[AN683-FI12-31]]></name>
+<name><![CDATA[AN683 Sima papanatas]]></name>
 <Placemark>
 <name>AN683</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -6168,7 +6168,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2015 09 22]]></name>
 <Folder>
-<name><![CDATA[AN692-15-1]]></name>
+<name><![CDATA[AN692 Sima James Bond]]></name>
 <Placemark>
 <name>AN692</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -6207,7 +6207,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2019 09 13]]></name>
 <Folder>
-<name><![CDATA[AN699-19-01]]></name>
+<name><![CDATA[AN699]]></name>
 <Placemark>
 <name>AN699</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -6231,7 +6231,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2019 09 15]]></name>
 <Folder>
-<name><![CDATA[AN702-19-01]]></name>
+<name><![CDATA[AN702 Sima de los burros]]></name>
 <Placemark>
 <name>AN_702</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -6339,7 +6339,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2019 09 19]]></name>
 <Folder>
-<name><![CDATA[AN704-19-01]]></name>
+<name><![CDATA[AN704]]></name>
 <Placemark>
 <name>AN_704</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -6369,7 +6369,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2019 09 16]]></name>
 <Folder>
-<name><![CDATA[AN708-19-1]]></name>
+<name><![CDATA[AN708 Sima de la marmota]]></name>
 <Placemark>
 <name>AN708</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -6417,7 +6417,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2021 09 15]]></name>
 <Folder>
-<name><![CDATA[AN711-21-01]]></name>
+<name><![CDATA[AN711 Cueva del Oso]]></name>
 <Placemark>
 <name>AN711</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -7303,7 +7303,7 @@
 <Folder>
 <name><![CDATA[Gouffre du BB26]]></name>
 <Folder>
-<name><![CDATA[BB26 zone d'entree]]></name>
+<name><![CDATA[BB26]]></name>
 <Placemark>
 <name>0</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -8013,7 +8013,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2022 08 01]]></name>
 <Folder>
-<name><![CDATA[BB50 SECTION001]]></name>
+<name><![CDATA[BB50]]></name>
 <Placemark>
 <name>_d_BB50_f_0</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -8526,7 +8526,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1999 01 01]]></name>
 <Folder>
-<name><![CDATA[1S1C1X1 2S2C1X1 3S3C1X1]]></name>
+<name><![CDATA[C103]]></name>
 <Placemark>
 <name>C_103</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -8625,7 +8625,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2023 11 04]]></name>
 <Folder>
-<name><![CDATA[C213 SECTION001]]></name>
+<name><![CDATA[C213]]></name>
 <Placemark>
 <name>C_213</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -11565,7 +11565,7 @@
 <Folder>
 <name><![CDATA[Explo 56 2003 08 02]]></name>
 <Folder>
-<name><![CDATA[AN548-FI03 04]]></name>
+<name><![CDATA[AN548]]></name>
 <Placemark>
 <name>AN548</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -12750,7 +12750,7 @@
 <Folder>
 <name><![CDATA[Explo 110 2007 08 12]]></name>
 <Folder>
-<name><![CDATA[AN57-FI07-03]]></name>
+<name><![CDATA[AN57]]></name>
 <Placemark>
 <name>LK1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -17397,7 +17397,7 @@
 <Folder>
 <name><![CDATA[Explo 331 2017 09 13]]></name>
 <Folder>
-<name><![CDATA[AN564-17-1]]></name>
+<name><![CDATA[AN564]]></name>
 <Placemark>
 <name>AN564</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -18963,7 +18963,7 @@
 <Folder>
 <name><![CDATA[Explo 401 2023 09 17]]></name>
 <Folder>
-<name><![CDATA[AN3-2023-01 AN3-2023-02]]></name>
+<name><![CDATA[AN3]]></name>
 <Placemark>
 <name>AN3</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -66708,7 +66708,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2010 08 14]]></name>
 <Folder>
-<name><![CDATA[1S1C1X1 - 9S5C1X1]]></name>
+<name><![CDATA[E3 TSR3]]></name>
 <Placemark>
 <name>E3_TSR3</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -66918,7 +66918,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2002 08 08]]></name>
 <Folder>
-<name><![CDATA[1S1C1X1 2S2C2X2 3S3C2X2]]></name>
+<name><![CDATA[ERE80]]></name>
 <Placemark>
 <name>ERE_80</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -66966,7 +66966,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1974 08 12]]></name>
 <Folder>
-<name><![CDATA[1S1C1X1 2S2C1X1 3S3C1X1]]></name>
+<name><![CDATA[F404 Cuisse de truffin]]></name>
 <Placemark>
 <name>F_404</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -74670,7 +74670,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2022 10 27]]></name>
 <Folder>
-<name><![CDATA[LAK15 SECTION001]]></name>
+<name><![CDATA[LAK15]]></name>
 <Placemark>
 <name>LAK_15</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -75043,7 +75043,7 @@
 <Folder>
 <name><![CDATA[Résurgen des Oueils d'Issaux]]></name>
 <Folder>
-<name><![CDATA[Oueils exondé étiage]]></name>
+<name><![CDATA[Résurgence des Oueils d'Issaux]]></name>
 <Placemark>
 <name>oueils</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -75064,7 +75064,7 @@
 <Folder>
 <name><![CDATA[SC223]]></name>
 <Folder>
-<name><![CDATA[SC 223]]></name>
+<name><![CDATA[SC223]]></name>
 <Placemark>
 <name>SC_223</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -75321,7 +75321,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1995 01 26]]></name>
 <Folder>
-<name><![CDATA[1S1C1X1 2S2C1X1 3S3C1X1]]></name>
+<name><![CDATA[Trou du mouton]]></name>
 <Placemark>
 <name>MOUTON</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -93678,7 +93678,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1989 08 16]]></name>
 <Folder>
-<name><![CDATA[Grotte Marmitou 1S1C1X1 2S2C1X1 Boyau latéral]]></name>
+<name><![CDATA[Grotte marmitou]]></name>
 <Placemark>
 <name>MARMI</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -93819,7 +93819,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2022 08 08]]></name>
 <Folder>
-<name><![CDATA[Z100 SECTION001]]></name>
+<name><![CDATA[Z100]]></name>
 <Placemark>
 <name>_d_Z100_f_0.0</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -94221,7 +94221,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2022 03 08]]></name>
 <Folder>
-<name><![CDATA[Z108 SECTION001]]></name>
+<name><![CDATA[Z108 Grotte Françou]]></name>
 <Placemark>
 <name>Z_108</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -94497,7 +94497,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2019 12 09]]></name>
 <Folder>
-<name><![CDATA[Z123 SECTION001]]></name>
+<name><![CDATA[Z123]]></name>
 <Placemark>
 <name>Z_123</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -94687,9 +94687,9 @@
 <Folder>
 <name><![CDATA[Z143]]></name>
 <Folder>
-<name><![CDATA[Explo 01 2019 07 01]]></name>
+<name><![CDATA[Z143 Touristen Leize Tipia 1]]></name>
 <Folder>
-<name><![CDATA[Z143 SECTION001]]></name>
+<name><![CDATA[Z143 Touristen Leize Tipia]]></name>
 <Placemark>
 <name>Z_143</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -94737,7 +94737,7 @@
 <Folder>
 <name><![CDATA[Explo 02 2007 08 08]]></name>
 <Folder>
-<name><![CDATA[Z150 SECTION001]]></name>
+<name><![CDATA[Z150 Sima Patrick Grosdemanche]]></name>
 <Placemark>
 <name>Z_150</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -94821,7 +94821,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2019 08 01]]></name>
 <Folder>
-<name><![CDATA[Z208 SECTION001 Z208 SECTION002]]></name>
+<name><![CDATA[Z208]]></name>
 <Placemark>
 <name>Z208</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -94857,7 +94857,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2022 08 03]]></name>
 <Folder>
-<name><![CDATA[Z444 SECTION001]]></name>
+<name><![CDATA[Z444]]></name>
 <Placemark>
 <name>Z_444</name>
 <styleUrl>#ThSurveyLine</styleUrl>

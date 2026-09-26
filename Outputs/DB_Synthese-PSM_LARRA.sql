@@ -106,7 +106,7 @@ insert into SURVEY values (74, 55, 'A004', 'A004.Synthese-PSM_LARRA', 'A004');
  insert into CENTRELINE values (75, 74, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (76, 74, 'Explo_01_2000_08_19', 'Explo_01_2000_08_19.A004.Synthese-PSM_LARRA', 'Explo 01 2000 08 19');
  insert into CENTRELINE values (77, 76, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (78, 76, 'Explo_01_2000_08_19', 'Explo_01_2000_08_19.Explo_01_2000_08_19.A004.Synthese-PSM_LARRA', 'FI00 19');
+ insert into SURVEY values (78, 76, 'Explo_01_2000_08_19', 'Explo_01_2000_08_19.Explo_01_2000_08_19.A004.Synthese-PSM_LARRA', 'A4');
  insert into CENTRELINE values (79, 78, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (80, 78, NULL, '2000-01-01', '2000-01-01', 101.52, 42.89, 0.00);
  insert into SHOT values (39, 48, 49, 80, 3.800, 356.24, -90.00, 3.800, 90.00, -90.00, 0.000, 356.24, -85.83);
@@ -153,7 +153,7 @@ insert into SURVEY values (84, 55, 'A106', 'A106.Synthese-PSM_LARRA', 'A106');
  insert into CENTRELINE values (85, 84, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (86, 84, 'Explo_01_2015_10_29', 'Explo_01_2015_10_29.A106.Synthese-PSM_LARRA', 'Explo 01 2015 10 29');
  insert into CENTRELINE values (87, 86, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (88, 86, 'Explo_01_2015_10_29', 'Explo_01_2015_10_29.Explo_01_2015_10_29.A106.Synthese-PSM_LARRA', 'A106 SECTION001');
+ insert into SURVEY values (88, 86, 'Explo_01_2015_10_29', 'Explo_01_2015_10_29.Explo_01_2015_10_29.A106.Synthese-PSM_LARRA', 'A106');
  insert into CENTRELINE values (89, 88, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (90, 88, NULL, '2015-01-01', '2015-01-01', 108.77, 0.00, 0.00);
  insert into SHOT values (69, 76, 77, 90, 0.000, 358.18, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -1490,7 +1490,7 @@ insert into SURVEY values (368, 55, 'AN045', 'AN045.Synthese-PSM_LARRA', 'AN045'
  insert into CENTRELINE values (369, 368, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (370, 368, 'Explo_01_2007_08_01', 'Explo_01_2007_08_01.AN045.Synthese-PSM_LARRA', 'Explo 01 2007 08 01');
  insert into CENTRELINE values (371, 370, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (372, 370, 'Explo_01_2007_08_01', 'Explo_01_2007_08_01.Explo_01_2007_08_01.AN045.Synthese-PSM_LARRA', 'AN45 SECTION001');
+ insert into SURVEY values (372, 370, 'Explo_01_2007_08_01', 'Explo_01_2007_08_01.Explo_01_2007_08_01.AN045.Synthese-PSM_LARRA', 'AN45');
  insert into CENTRELINE values (373, 372, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (374, 372, NULL, '2007-01-01', '2007-01-01', 32.50, 0.00, 0.00);
  insert into SHOT values (1204, 1252, 1253, 374, 0.000, 357.11, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -1581,7 +1581,7 @@ insert into SCRAPS values (487, 481, 'SP-Explo_02_2024_08_15_01', 1, 2.33917, 0.
  insert into MAPITEMS values (516, 4, 501);
  insert into SURVEY values (518, 378, 'Explo_03_2024_08_16', 'Explo_03_2024_08_16.AN058-Trou_du_Chien.Synthese-PSM_LARRA', 'Explo 03 2024 08 16');
  insert into CENTRELINE values (519, 518, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (520, 518, 'Explo_03_2024_08_16', 'Explo_03_2024_08_16.Explo_03_2024_08_16.AN058-Trou_du_Chien.Synthese-PSM_LARRA', 'AN58-2024-02');
+ insert into SURVEY values (520, 518, 'Explo_03_2024_08_16', 'Explo_03_2024_08_16.Explo_03_2024_08_16.AN058-Trou_du_Chien.Synthese-PSM_LARRA', 'AN58');
  insert into CENTRELINE values (521, 520, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (522, 520, NULL, '2024-01-01', '2024-01-01', 162.07, 24.34, 0.00);
  insert into SHOT values (1266, 1317, 1318, 522, 3.250, 106.93, -36.00, 3.247, 107.05, -36.04, 0.007, 229.97, 2.44);
@@ -1643,7 +1643,7 @@ insert into SHOT values (1295, 1347, 1348, 596, 0.010, 356.49, 0.00, 0.010, 0.00
 insert into SHOT values (1296, 1349, 1350, 596, 4.860, 303.49, -79.00, 4.860, 303.18, -78.95, 0.007, 255.39, 5.89);
 insert into SURVEY values (599, 590, 'Explo_02_2002_09_23', 'Explo_02_2002_09_23.AN061-Confusion.Synthese-PSM_LARRA', 'Explo 02 2002 09 23');
  insert into CENTRELINE values (600, 599, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (601, 599, 'Explo_02_2002_09_23', 'Explo_02_2002_09_23.Explo_02_2002_09_23.AN061-Confusion.Synthese-PSM_LARRA', 'AN61 01 AN61 02');
+ insert into SURVEY values (601, 599, 'Explo_02_2002_09_23', 'Explo_02_2002_09_23.Explo_02_2002_09_23.AN061-Confusion.Synthese-PSM_LARRA', 'AN61 Sima de la confusion');
  insert into CENTRELINE values (602, 601, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (603, 601, NULL, '2002-01-01', '2002-01-01', 197.29, 2.78, 0.00);
  insert into SHOT values (1297, 1351, 1352, 603, 2.780, 238.49, -48.30, 2.786, 238.45, -48.29, 0.006, 223.08, -41.99);
@@ -1691,7 +1691,7 @@ insert into SURVEY values (607, 55, 'AN062', 'AN062.Synthese-PSM_LARRA', 'AN062'
  insert into CENTRELINE values (608, 607, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (609, 607, 'Explo_01_2002_08_14', 'Explo_01_2002_08_14.AN062.Synthese-PSM_LARRA', 'Explo 01 2002 08 14');
  insert into CENTRELINE values (610, 609, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (611, 609, 'Explo_01_2002_08_14', 'Explo_01_2002_08_14.Explo_01_2002_08_14.AN062.Synthese-PSM_LARRA', 'FI02 16');
+ insert into SURVEY values (611, 609, 'Explo_01_2002_08_14', 'Explo_01_2002_08_14.Explo_01_2002_08_14.AN062.Synthese-PSM_LARRA', 'AN62');
  insert into CENTRELINE values (612, 611, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (613, 611, NULL, '2002-01-01', '2002-01-01', 86.80, 0.00, 0.00);
  insert into SHOT values (1337, 1392, 1393, 613, 6.870, 83.49, -42.00, 6.870, 83.47, -42.03, 0.004, 299.49, -46.76);
@@ -1722,7 +1722,7 @@ insert into SURVEY values (627, 55, 'AN073', 'AN073.Synthese-PSM_LARRA', 'AN073'
  insert into CENTRELINE values (628, 627, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (629, 627, 'Explo_01_1986_08_27', 'Explo_01_1986_08_27.AN073.Synthese-PSM_LARRA', 'Explo 01 1986 08 27');
  insert into CENTRELINE values (630, 629, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (631, 629, 'Explo_01_1986_08_27', 'Explo_01_1986_08_27.Explo_01_1986_08_27.AN073.Synthese-PSM_LARRA', 'AN73-86-05');
+ insert into SURVEY values (631, 629, 'Explo_01_1986_08_27', 'Explo_01_1986_08_27.Explo_01_1986_08_27.AN073.Synthese-PSM_LARRA', 'AN73 Gouffre des Grands Frissons');
  insert into CENTRELINE values (632, 631, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (633, 631, NULL, '1986-01-01', '1986-01-01', 248.35, 38.50, 0.00);
  insert into SHOT values (1353, 1410, 1411, 633, 8.930, 45.75, 45.00, 8.934, 45.71, 45.02, 0.007, 321.23, 47.93);
@@ -1755,7 +1755,7 @@ insert into SURVEY values (637, 55, 'AN103', 'AN103.Synthese-PSM_LARRA', 'AN103'
  insert into CENTRELINE values (638, 637, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (639, 637, 'Explo_01_2005_08_03', 'Explo_01_2005_08_03.AN103.Synthese-PSM_LARRA', 'Explo 01 2005 08 03');
  insert into CENTRELINE values (640, 639, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (641, 639, 'Explo_01_2005_08_03', 'Explo_01_2005_08_03.Explo_01_2005_08_03.AN103.Synthese-PSM_LARRA', 'AN103 1');
+ insert into SURVEY values (641, 639, 'Explo_01_2005_08_03', 'Explo_01_2005_08_03.Explo_01_2005_08_03.AN103.Synthese-PSM_LARRA', 'AN103');
  insert into CENTRELINE values (642, 641, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (643, 641, NULL, '2005-01-01', '2005-01-01', 133.15, 42.98, 0.00);
  insert into SHOT values (1376, 1434, 1435, 643, 5.300, 356.87, -90.00, 5.300, 90.00, -90.00, 0.000, 356.87, -84.20);
@@ -1832,7 +1832,7 @@ insert into SURVEY values (661, 55, 'AN107', 'AN107.Synthese-PSM_LARRA', 'AN107'
  insert into CENTRELINE values (662, 661, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (663, 661, 'Explo_01_2003_08_07', 'Explo_01_2003_08_07.AN107.Synthese-PSM_LARRA', 'Explo 01 2003 08 07');
  insert into CENTRELINE values (664, 663, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (665, 663, 'Explo_01_2003_08_07', 'Explo_01_2003_08_07.Explo_01_2003_08_07.AN107.Synthese-PSM_LARRA', 'AN107-03 12');
+ insert into SURVEY values (665, 663, 'Explo_01_2003_08_07', 'Explo_01_2003_08_07.Explo_01_2003_08_07.AN107.Synthese-PSM_LARRA', 'AN107');
  insert into CENTRELINE values (666, 665, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (667, 665, NULL, '2003-01-01', '2003-01-01', 74.19, 0.00, 0.00);
  insert into SHOT values (1428, 1488, 1489, 667, 4.570, 340.62, 17.80, 4.574, 340.69, 17.82, 0.007, 37.04, 23.80);
@@ -1983,7 +1983,7 @@ insert into SURVEY values (702, 55, 'AN211', 'AN211.Synthese-PSM_LARRA', 'AN211'
  insert into CENTRELINE values (703, 702, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (704, 702, 'Explo_01_1993_09_01', 'Explo_01_1993_09_01.AN211.Synthese-PSM_LARRA', 'Explo 01 1993 09 01');
  insert into CENTRELINE values (705, 704, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (706, 704, 'Explo_01_1993_09_01', 'Explo_01_1993_09_01.Explo_01_1993_09_01.AN211.Synthese-PSM_LARRA', 'AN211-93 S1');
+ insert into SURVEY values (706, 704, 'Explo_01_1993_09_01', 'Explo_01_1993_09_01.Explo_01_1993_09_01.AN211.Synthese-PSM_LARRA', 'AN211');
  insert into CENTRELINE values (707, 706, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (708, 706, NULL, '1993-01-01', '1993-01-01', 82.80, 0.00, 0.00);
  insert into SHOT values (1549, 1613, 1614, 708, 3.000, 238.31, -52.00, 2.996, 238.29, -51.98, 0.004, 78.75, 68.30);
@@ -2072,7 +2072,7 @@ insert into SURVEY values (726, 55, 'AN324', 'AN324.Synthese-PSM_LARRA', 'AN324'
  insert into CENTRELINE values (727, 726, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (728, 726, 'Explo_01_2022_08_11', 'Explo_01_2022_08_11.AN324.Synthese-PSM_LARRA', 'Explo 01 2022 08 11');
  insert into CENTRELINE values (729, 728, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (730, 728, 'Explo_01_2022_08_11', 'Explo_01_2022_08_11.Explo_01_2022_08_11.AN324.Synthese-PSM_LARRA', 'AN324 SECTION001');
+ insert into SURVEY values (730, 728, 'Explo_01_2022_08_11', 'Explo_01_2022_08_11.Explo_01_2022_08_11.AN324.Synthese-PSM_LARRA', 'AN324');
  insert into CENTRELINE values (731, 730, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (732, 730, NULL, '2022-01-01', '2022-01-01', 20.47, 0.00, 0.00);
  insert into SHOT values (1621, 1688, 1689, 732, 0.000, 359.24, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -2087,7 +2087,7 @@ insert into SURVEY values (736, 55, 'AN325', 'AN325.Synthese-PSM_LARRA', 'AN325'
  insert into CENTRELINE values (737, 736, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (738, 736, 'Explo_01_2022_08_08', 'Explo_01_2022_08_08.AN325.Synthese-PSM_LARRA', 'Explo 01 2022 08 08');
  insert into CENTRELINE values (739, 738, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (740, 738, 'Explo_01_2022_08_08', 'Explo_01_2022_08_08.Explo_01_2022_08_08.AN325.Synthese-PSM_LARRA', 'AN325 SECTION001');
+ insert into SURVEY values (740, 738, 'Explo_01_2022_08_08', 'Explo_01_2022_08_08.Explo_01_2022_08_08.AN325.Synthese-PSM_LARRA', 'AN325');
  insert into CENTRELINE values (741, 740, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (742, 740, NULL, '2022-01-01', '2022-01-01', 17.74, 0.00, 0.00);
  insert into SHOT values (1629, 1697, 1698, 742, 0.000, 359.24, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -2428,7 +2428,7 @@ insert into SCRAPS values (1186, 1180, 'SP-Explo_13_2025_10_04_01', 1, 1.58608, 
  insert into CENTRELINE values (1207, 1206, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1208, 1206, 'Explo_01_2020_09_23', 'Explo_01_2020_09_23.AN453.Synthese-PSM_LARRA', 'Explo 01 2020 09 23');
  insert into CENTRELINE values (1209, 1208, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1210, 1208, 'Explo_01_2020_09_23', 'Explo_01_2020_09_23.Explo_01_2020_09_23.AN453.Synthese-PSM_LARRA', 'AN453-20-01');
+ insert into SURVEY values (1210, 1208, 'Explo_01_2020_09_23', 'Explo_01_2020_09_23.Explo_01_2020_09_23.AN453.Synthese-PSM_LARRA', 'AN453');
  insert into CENTRELINE values (1211, 1210, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1212, 1210, NULL, '2020-01-01', '2020-01-01', 37.96, 0.00, 0.00);
  insert into SHOT values (1776, 1859, 1860, 1212, 4.340, 259.45, -25.00, 4.341, 259.46, -24.93, 0.005, 272.27, 53.25);
@@ -2459,7 +2459,7 @@ insert into SURVEY values (1223, 55, 'AN455', 'AN455.Synthese-PSM_LARRA', 'AN455
  insert into CENTRELINE values (1224, 1223, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1225, 1223, 'Explo_01_2023_07_24', 'Explo_01_2023_07_24.AN455.Synthese-PSM_LARRA', 'Explo 01 2023 07 24');
  insert into CENTRELINE values (1226, 1225, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1227, 1225, 'Explo_01_2023_07_24', 'Explo_01_2023_07_24.Explo_01_2023_07_24.AN455.Synthese-PSM_LARRA', 'AN455-23-01');
+ insert into SURVEY values (1227, 1225, 'Explo_01_2023_07_24', 'Explo_01_2023_07_24.Explo_01_2023_07_24.AN455.Synthese-PSM_LARRA', 'AN455');
  insert into CENTRELINE values (1228, 1227, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1229, 1227, NULL, '2023-01-01', '2023-01-01', 59.25, 5.26, 0.00);
  insert into SHOT values (1795, 1880, 1881, 1229, 0.010, 359.38, 0.00, 0.010, 0.00, 0.00, 0.000, 89.69, 0.00);
@@ -2488,7 +2488,7 @@ insert into SURVEY values (1233, 55, 'AN456-Banco', 'AN456-Banco.Synthese-PSM_LA
  insert into CENTRELINE values (1234, 1233, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1235, 1233, 'Explo_01_2021_08_08', 'Explo_01_2021_08_08.AN456-Banco.Synthese-PSM_LARRA', 'Explo 01 2021 08 08');
  insert into CENTRELINE values (1236, 1235, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1237, 1235, 'Explo_01_2021_08_08', 'Explo_01_2021_08_08.Explo_01_2021_08_08.AN456-Banco.Synthese-PSM_LARRA', 'AN456-21-01');
+ insert into SURVEY values (1237, 1235, 'Explo_01_2021_08_08', 'Explo_01_2021_08_08.Explo_01_2021_08_08.AN456-Banco.Synthese-PSM_LARRA', 'AN456 Sima banco');
  insert into CENTRELINE values (1238, 1237, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1239, 1237, NULL, '2021-01-01', '2021-01-01', 75.77, 0.00, 0.00);
  insert into SHOT values (1816, 1902, 1903, 1239, 2.210, 171.39, -58.30, 2.210, 171.59, -58.27, 0.004, 244.67, 4.02);
@@ -2536,7 +2536,7 @@ insert into SURVEY values (1250, 55, 'AN465B', 'AN465B.Synthese-PSM_LARRA', 'AN4
  insert into CENTRELINE values (1251, 1250, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1252, 1250, 'Explo_01_2023_08_02', 'Explo_01_2023_08_02.AN465B.Synthese-PSM_LARRA', 'Explo 01 2023 08 02');
  insert into CENTRELINE values (1253, 1252, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1254, 1252, 'Explo_01_2023_08_02', 'Explo_01_2023_08_02.Explo_01_2023_08_02.AN465B.Synthese-PSM_LARRA', 'AN465-23-01');
+ insert into SURVEY values (1254, 1252, 'Explo_01_2023_08_02', 'Explo_01_2023_08_02.Explo_01_2023_08_02.AN465B.Synthese-PSM_LARRA', 'AN465');
  insert into CENTRELINE values (1255, 1254, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1256, 1254, NULL, '2023-01-01', '2023-01-01', 53.34, 39.73, 0.00);
  insert into SHOT values (1852, 1940, 1941, 1256, 0.010, 359.38, 0.00, 0.010, 0.00, 0.00, 0.000, 89.69, 0.00);
@@ -2574,7 +2574,7 @@ insert into SURVEY values (1260, 55, 'AN480', 'AN480.Synthese-PSM_LARRA', 'AN480
  insert into CENTRELINE values (1261, 1260, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1262, 1260, 'Explo_01_2021_08_10', 'Explo_01_2021_08_10.AN480.Synthese-PSM_LARRA', 'Explo 01 2021 08 10');
  insert into CENTRELINE values (1263, 1262, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1264, 1262, 'Explo_01_2021_08_10', 'Explo_01_2021_08_10.Explo_01_2021_08_10.AN480.Synthese-PSM_LARRA', 'AN480-21-01');
+ insert into SURVEY values (1264, 1262, 'Explo_01_2021_08_10', 'Explo_01_2021_08_10.Explo_01_2021_08_10.AN480.Synthese-PSM_LARRA', 'AN480');
  insert into CENTRELINE values (1265, 1264, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1266, 1264, NULL, '2021-01-01', '2021-01-01', 50.56, 0.00, 0.00);
  insert into SHOT values (1875, 1964, 1965, 1266, 2.850, 75.59, -73.10, 2.855, 75.47, -72.96, 0.009, 62.76, -19.95);
@@ -2590,7 +2590,7 @@ insert into SURVEY values (1270, 55, 'AN506-Ninos', 'AN506-Ninos.Synthese-PSM_LA
  insert into CENTRELINE values (1271, 1270, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1272, 1270, 'Explo_01_1998_08_07', 'Explo_01_1998_08_07.AN506-Ninos.Synthese-PSM_LARRA', 'Explo 01 1998 08 07');
  insert into CENTRELINE values (1273, 1272, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1274, 1272, 'Explo_01_1998_08_07', 'Explo_01_1998_08_07.Explo_01_1998_08_07.AN506-Ninos.Synthese-PSM_LARRA', 'AN506 MO AN506 PF');
+ insert into SURVEY values (1274, 1272, 'Explo_01_1998_08_07', 'Explo_01_1998_08_07.Explo_01_1998_08_07.AN506-Ninos.Synthese-PSM_LARRA', 'AN506 Sima de los niños');
  insert into CENTRELINE values (1275, 1274, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1276, 1274, NULL, '1998-01-01', '1998-01-01', 470.96, 0.00, 0.00);
  insert into SHOT values (1884, 1974, 1975, 1276, 19.500, 355.97, 90.00, 19.500, 90.00, 90.00, 0.000, 355.97, 0.00);
@@ -2709,7 +2709,7 @@ insert into SURVEY values (1315, 55, 'AN507-Plumas', 'AN507-Plumas.Synthese-PSM_
  insert into CENTRELINE values (1316, 1315, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1317, 1315, 'Explo_01_2015_09_25', 'Explo_01_2015_09_25.AN507-Plumas.Synthese-PSM_LARRA', 'Explo 01 2015 09 25');
  insert into CENTRELINE values (1318, 1317, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1319, 1317, 'Explo_01_2015_09_25', 'Explo_01_2015_09_25.Explo_01_2015_09_25.AN507-Plumas.Synthese-PSM_LARRA', 'AN507-15-1');
+ insert into SURVEY values (1319, 1317, 'Explo_01_2015_09_25', 'Explo_01_2015_09_25.Explo_01_2015_09_25.AN507-Plumas.Synthese-PSM_LARRA', 'AN507');
  insert into CENTRELINE values (1320, 1319, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1321, 1319, NULL, '2015-01-01', '2015-01-01', 44.75, 9.06, 0.00);
  insert into SHOT values (1971, 2067, 2068, 1321, 5.290, 202.18, -45.10, 5.294, 202.17, -45.11, 0.004, 182.51, -50.88);
@@ -2748,7 +2748,7 @@ insert into SURVEY values (1339, 55, 'AN514-Venus', 'AN514-Venus.Synthese-PSM_LA
  insert into CENTRELINE values (1340, 1339, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1341, 1339, 'Explo_01_2008_08_16', 'Explo_01_2008_08_16.AN514-Venus.Synthese-PSM_LARRA', 'Explo 01 2008 08 16');
  insert into CENTRELINE values (1342, 1341, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1343, 1341, 'Explo_01_2008_08_16', 'Explo_01_2008_08_16.Explo_01_2008_08_16.AN514-Venus.Synthese-PSM_LARRA', 'AN514-08 14');
+ insert into SURVEY values (1343, 1341, 'Explo_01_2008_08_16', 'Explo_01_2008_08_16.Explo_01_2008_08_16.AN514-Venus.Synthese-PSM_LARRA', 'AN514 Sima venus');
  insert into CENTRELINE values (1344, 1343, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1345, 1343, NULL, '2008-01-01', '2008-01-01', 32.08, 0.00, 0.00);
  insert into SHOT values (1991, 2090, 2091, 1345, 0.010, 357.24, 0.00, 0.010, 0.00, 0.00, 0.000, 88.62, 0.00);
@@ -2900,7 +2900,7 @@ insert into SCRAPS values (1505, 1499, 'SP-Explo_05_2025_08_05_01', 1, 3.67999, 
  insert into CENTRELINE values (1564, 1563, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1565, 1563, 'Explo_01_2000_08_21', 'Explo_01_2000_08_21.AN532-Marcel.Synthese-PSM_LARRA', 'Explo 01 2000 08 21');
  insert into CENTRELINE values (1566, 1565, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1567, 1565, 'Explo_01_2000_08_21', 'Explo_01_2000_08_21.Explo_01_2000_08_21.AN532-Marcel.Synthese-PSM_LARRA', 'AN532-FI00 22');
+ insert into SURVEY values (1567, 1565, 'Explo_01_2000_08_21', 'Explo_01_2000_08_21.Explo_01_2000_08_21.AN532-Marcel.Synthese-PSM_LARRA', 'AN532');
  insert into CENTRELINE values (1568, 1567, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1569, 1567, NULL, '2000-01-01', '2000-01-01', 31.50, 0.00, 0.00);
  insert into SHOT values (2073, 2178, 2179, 1569, 3.700, 28.24, -18.90, 3.691, 28.18, -18.81, 0.011, 239.93, 48.50);
@@ -2918,7 +2918,7 @@ insert into SURVEY values (1573, 55, 'AN534-Eclipse', 'AN534-Eclipse.Synthese-PS
  insert into CENTRELINE values (1574, 1573, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1575, 1573, 'Explo_01_2000_08_17', 'Explo_01_2000_08_17.AN534-Eclipse.Synthese-PSM_LARRA', 'Explo 01 2000 08 17');
  insert into CENTRELINE values (1576, 1575, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1577, 1575, 'Explo_01_2000_08_17', 'Explo_01_2000_08_17.Explo_01_2000_08_17.AN534-Eclipse.Synthese-PSM_LARRA', 'AN534-01 AN534-02');
+ insert into SURVEY values (1577, 1575, 'Explo_01_2000_08_17', 'Explo_01_2000_08_17.Explo_01_2000_08_17.AN534-Eclipse.Synthese-PSM_LARRA', 'AN534 Sima de l''eclipse');
  insert into CENTRELINE values (1578, 1577, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1579, 1577, NULL, '2000-01-01', '2000-01-01', 291.51, 178.10, 0.00);
  insert into SHOT values (2084, 2190, 2191, 1579, 2.940, 298.24, -47.50, 2.942, 298.24, -47.53, 0.002, 288.86, -84.13);
@@ -3007,7 +3007,7 @@ insert into SURVEY values (1583, 55, 'AN536-Arco', 'AN536-Arco.Synthese-PSM_LARR
  insert into CENTRELINE values (1584, 1583, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1585, 1583, 'Explo_01_2012_08_07', 'Explo_01_2012_08_07.AN536-Arco.Synthese-PSM_LARRA', 'Explo 01 2012 08 07');
  insert into CENTRELINE values (1586, 1585, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1587, 1585, 'Explo_01_2012_08_07', 'Explo_01_2012_08_07.Explo_01_2012_08_07.AN536-Arco.Synthese-PSM_LARRA', 'AN536-FI12-07');
+ insert into SURVEY values (1587, 1585, 'Explo_01_2012_08_07', 'Explo_01_2012_08_07.Explo_01_2012_08_07.AN536-Arco.Synthese-PSM_LARRA', 'AN536');
  insert into CENTRELINE values (1588, 1587, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1589, 1587, NULL, '2012-01-01', '2012-01-01', 54.27, 13.33, 0.00);
  insert into SHOT values (2148, 2253, 2254, 1589, 6.730, 114.66, 3.30, 6.732, 114.62, 3.32, 0.006, 47.73, 25.03);
@@ -3035,7 +3035,7 @@ insert into SURVEY values (1593, 55, 'AN542', 'AN542.Synthese-PSM_LARRA', 'AN542
  insert into CENTRELINE values (1594, 1593, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1595, 1593, 'Explo_01_2000_08_20', 'Explo_01_2000_08_20.AN542.Synthese-PSM_LARRA', 'Explo 01 2000 08 20');
  insert into CENTRELINE values (1596, 1595, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1597, 1595, 'Explo_01_2000_08_20', 'Explo_01_2000_08_20.Explo_01_2000_08_20.AN542.Synthese-PSM_LARRA', 'FI00 21 FI00 21b');
+ insert into SURVEY values (1597, 1595, 'Explo_01_2000_08_20', 'Explo_01_2000_08_20.Explo_01_2000_08_20.AN542.Synthese-PSM_LARRA', 'AN542');
  insert into CENTRELINE values (1598, 1597, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1599, 1597, NULL, '2000-01-01', '2000-01-01', 128.43, 0.00, 0.00);
  insert into SHOT values (2167, 2273, 2274, 1599, 13.500, 300.94, 62.30, 13.504, 300.90, 62.33, 0.010, 161.63, 45.38);
@@ -3062,7 +3062,7 @@ insert into SURVEY values (1603, 55, 'AN546-Georges', 'AN546-Georges.Synthese-PS
  insert into CENTRELINE values (1604, 1603, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1605, 1603, 'Explo_01_2000_08_22', 'Explo_01_2000_08_22.AN546-Georges.Synthese-PSM_LARRA', 'Explo 01 2000 08 22');
  insert into CENTRELINE values (1606, 1605, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1607, 1605, 'Explo_01_2000_08_22', 'Explo_01_2000_08_22.Explo_01_2000_08_22.AN546-Georges.Synthese-PSM_LARRA', 'AN546-FI00 18');
+ insert into SURVEY values (1607, 1605, 'Explo_01_2000_08_22', 'Explo_01_2000_08_22.Explo_01_2000_08_22.AN546-Georges.Synthese-PSM_LARRA', 'AN546 Pozo goerges');
  insert into CENTRELINE values (1608, 1607, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1609, 1607, NULL, '2000-01-01', '2000-01-01', 124.15, 0.00, 0.00);
  insert into SHOT values (2187, 2294, 2295, 1609, 8.450, 193.64, -54.30, 8.447, 193.61, -54.31, 0.004, 59.96, 30.53);
@@ -3089,7 +3089,7 @@ insert into SURVEY values (1613, 55, 'AN557-Avaloir', 'AN557-Avaloir.Synthese-PS
  insert into CENTRELINE values (1614, 1613, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1615, 1613, 'Explo_01_2017_09_18', 'Explo_01_2017_09_18.AN557-Avaloir.Synthese-PSM_LARRA', 'Explo 01 2017 09 18');
  insert into CENTRELINE values (1616, 1615, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1617, 1615, 'Explo_01_2017_09_18', 'Explo_01_2017_09_18.Explo_01_2017_09_18.AN557-Avaloir.Synthese-PSM_LARRA', 'AN5577-17-1');
+ insert into SURVEY values (1617, 1615, 'Explo_01_2017_09_18', 'Explo_01_2017_09_18.Explo_01_2017_09_18.AN557-Avaloir.Synthese-PSM_LARRA', 'AN5577 Le Grand Avaloir');
  insert into CENTRELINE values (1618, 1617, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1619, 1617, NULL, '2017-01-01', '2017-01-01', 57.83, 121.83, 0.00);
  insert into SHOT values (2207, 2315, 2316, 1619, 5.020, 228.29, 32.50, 5.024, 228.53, 32.37, 0.022, 289.61, -19.57);
@@ -3171,7 +3171,7 @@ insert into SURVEY values (1633, 55, 'AN567', 'AN567.Synthese-PSM_LARRA', 'AN567
  insert into CENTRELINE values (1634, 1633, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1635, 1633, 'Explo_01_2002_08_08', 'Explo_01_2002_08_08.AN567.Synthese-PSM_LARRA', 'Explo 01 2002 08 08');
  insert into CENTRELINE values (1636, 1635, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1637, 1635, 'Explo_01_2002_08_08', 'Explo_01_2002_08_08.Explo_01_2002_08_08.AN567.Synthese-PSM_LARRA', 'FI02 05');
+ insert into SURVEY values (1637, 1635, 'Explo_01_2002_08_08', 'Explo_01_2002_08_08.Explo_01_2002_08_08.AN567.Synthese-PSM_LARRA', 'AN567');
  insert into CENTRELINE values (1638, 1637, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1639, 1637, NULL, '2002-01-01', '2002-01-01', 112.67, 0.00, 0.00);
  insert into SHOT values (2254, 2363, 2364, 1639, 6.000, 39.49, 0.00, 5.996, 39.45, 0.00, 0.006, 267.85, 0.00);
@@ -3210,7 +3210,7 @@ insert into SURVEY values (1653, 55, 'AN588-Grieta', 'AN588-Grieta.Synthese-PSM_
  insert into CENTRELINE values (1654, 1653, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (1655, 1653, 'Explo_01_2010_08_20', 'Explo_01_2010_08_20.AN588-Grieta.Synthese-PSM_LARRA', 'Explo 01 2010 08 20');
  insert into CENTRELINE values (1656, 1655, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1657, 1655, 'Explo_01_2010_08_20', 'Explo_01_2010_08_20.Explo_01_2010_08_20.AN588-Grieta.Synthese-PSM_LARRA', 'AN588-FI10-12');
+ insert into SURVEY values (1657, 1655, 'Explo_01_2010_08_20', 'Explo_01_2010_08_20.Explo_01_2010_08_20.AN588-Grieta.Synthese-PSM_LARRA', 'AN588');
  insert into CENTRELINE values (1658, 1657, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1659, 1657, NULL, '2010-01-01', '2010-01-01', 258.30, 0.00, 0.00);
  insert into SHOT values (2279, 2390, 2391, 1659, 5.270, 31.79, -56.20, 5.276, 31.80, -56.12, 0.010, 34.72, -4.13);
@@ -3293,7 +3293,7 @@ insert into SHOT values (2343, 2456, 2457, 1676, 11.060, 109.83, 4.10, 11.061, 1
 insert into SHOT values (2344, 2457, 2458, 1676, 11.620, 334.03, 87.10, 11.625, 333.87, 87.09, 0.006, 300.45, 58.97);
 insert into SURVEY values (1679, 1670, 'Explo_02_2011_08_15', 'Explo_02_2011_08_15.AN591-Rapido.Synthese-PSM_LARRA', 'Explo 02 2011 08 15');
  insert into CENTRELINE values (1680, 1679, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (1681, 1679, 'Explo_02_2011_08_15', 'Explo_02_2011_08_15.Explo_02_2011_08_15.AN591-Rapido.Synthese-PSM_LARRA', 'AN591-FI11 20');
+ insert into SURVEY values (1681, 1679, 'Explo_02_2011_08_15', 'Explo_02_2011_08_15.Explo_02_2011_08_15.AN591-Rapido.Synthese-PSM_LARRA', 'AN591 Sima rapido');
  insert into CENTRELINE values (1682, 1681, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (1683, 1681, NULL, '2011-01-01', '2011-01-01', 194.04, 0.00, 0.00);
  insert into SHOT values (2345, 2459, 2460, 1683, 3.060, 174.43, -53.00, 3.061, 174.41, -52.85, 0.008, 170.88, 27.84);
@@ -3711,7 +3711,7 @@ insert into SCRAPS values (2181, 2175, 'SP-Explo_15_2024_08_16_01', 1, 0.88447, 
  insert into CENTRELINE values (2222, 2221, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2223, 2221, 'Explo_01_2010_09_20', 'Explo_01_2010_09_20.AN595-Polaire.Synthese-PSM_LARRA', 'Explo 01 2010 09 20');
  insert into CENTRELINE values (2224, 2223, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2225, 2223, 'Explo_01_2010_09_20', 'Explo_01_2010_09_20.Explo_01_2010_09_20.AN595-Polaire.Synthese-PSM_LARRA', 'AN595 Polaire');
+ insert into SURVEY values (2225, 2223, 'Explo_01_2010_09_20', 'Explo_01_2010_09_20.Explo_01_2010_09_20.AN595-Polaire.Synthese-PSM_LARRA', 'AN595 Sima Polaire');
  insert into CENTRELINE values (2226, 2225, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2227, 2225, NULL, '2010-01-01', '2010-01-01', 94.61, 0.00, 0.00);
  insert into SHOT values (2555, 2686, 2687, 2227, 7.930, 108.89, -1.90, 7.929, 108.85, -1.88, 0.007, 11.45, 26.16);
@@ -3838,7 +3838,7 @@ insert into SURVEY values (2266, 55, 'AN596-Antartica', 'AN596-Antartica.Synthes
  insert into CENTRELINE values (2267, 2266, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2268, 2266, 'Explo_01_2016_09_15', 'Explo_01_2016_09_15.AN596-Antartica.Synthese-PSM_LARRA', 'Explo 01 2016 09 15');
  insert into CENTRELINE values (2269, 2268, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2270, 2268, 'Explo_01_2016_09_15', 'Explo_01_2016_09_15.Explo_01_2016_09_15.AN596-Antartica.Synthese-PSM_LARRA', 'AN596-16-1');
+ insert into SURVEY values (2270, 2268, 'Explo_01_2016_09_15', 'Explo_01_2016_09_15.Explo_01_2016_09_15.AN596-Antartica.Synthese-PSM_LARRA', 'AN596 Sima Antartica');
  insert into CENTRELINE values (2271, 2270, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2272, 2270, NULL, '2016-01-01', '2016-01-01', 220.55, 21.77, 0.00);
  insert into SHOT values (2647, 2784, 2785, 2272, 2.070, 50.64, -20.40, 2.119, 52.33, -19.58, 0.081, 97.47, 8.15);
@@ -3894,7 +3894,7 @@ insert into SURVEY values (2283, 55, 'AN616-Daniela', 'AN616-Daniela.Synthese-PS
  insert into CENTRELINE values (2284, 2283, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2285, 2283, 'Explo_01_2015_08_16', 'Explo_01_2015_08_16.AN616-Daniela.Synthese-PSM_LARRA', 'Explo 01 2015 08 16');
  insert into CENTRELINE values (2286, 2285, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2287, 2285, 'Explo_01_2015_08_16', 'Explo_01_2015_08_16.Explo_01_2015_08_16.AN616-Daniela.Synthese-PSM_LARRA', 'AN616-15-1');
+ insert into SURVEY values (2287, 2285, 'Explo_01_2015_08_16', 'Explo_01_2015_08_16.Explo_01_2015_08_16.AN616-Daniela.Synthese-PSM_LARRA', 'AN616 Sima Daniela');
  insert into CENTRELINE values (2288, 2287, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2289, 2287, NULL, '2015-01-01', '2015-01-01', 69.84, 0.00, 0.00);
  insert into SHOT values (2689, 2828, 2829, 2289, 9.140, 143.78, -87.40, 9.139, 144.78, -87.39, 0.007, 222.16, 4.56);
@@ -3915,7 +3915,7 @@ insert into SURVEY values (2293, 55, 'AN619-Trou_Fion', 'AN619-Trou_Fion.Synthes
  insert into CENTRELINE values (2294, 2293, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2295, 2293, 'Explo_01_2013_09_27', 'Explo_01_2013_09_27.AN619-Trou_Fion.Synthese-PSM_LARRA', 'Explo 01 2013 09 27');
  insert into CENTRELINE values (2296, 2295, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2297, 2295, 'Explo_01_2013_09_27', 'Explo_01_2013_09_27.Explo_01_2013_09_27.AN619-Trou_Fion.Synthese-PSM_LARRA', 'AN619-13-16');
+ insert into SURVEY values (2297, 2295, 'Explo_01_2013_09_27', 'Explo_01_2013_09_27.Explo_01_2013_09_27.AN619-Trou_Fion.Synthese-PSM_LARRA', 'AN619 Trou fion');
  insert into CENTRELINE values (2298, 2297, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2299, 2297, NULL, '2013-01-01', '2013-01-01', 122.42, 0.00, 0.00);
  insert into SHOT values (2703, 2843, 2844, 2299, 1.030, 85.70, 14.70, 1.036, 85.43, 14.53, 0.009, 50.79, -9.26);
@@ -3941,7 +3941,7 @@ insert into SURVEY values (2303, 55, 'AN622-Basura', 'AN622-Basura.Synthese-PSM_
  insert into CENTRELINE values (2304, 2303, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2305, 2303, 'Explo_01_2014_08_12', 'Explo_01_2014_08_12.AN622-Basura.Synthese-PSM_LARRA', 'Explo 01 2014 08 12');
  insert into CENTRELINE values (2306, 2305, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2307, 2305, 'Explo_01_2014_08_12', 'Explo_01_2014_08_12.Explo_01_2014_08_12.AN622-Basura.Synthese-PSM_LARRA', 'AN622-14-05');
+ insert into SURVEY values (2307, 2305, 'Explo_01_2014_08_12', 'Explo_01_2014_08_12.Explo_01_2014_08_12.AN622-Basura.Synthese-PSM_LARRA', 'AN622 Sima basura');
  insert into CENTRELINE values (2308, 2307, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2309, 2307, NULL, '2014-01-01', '2014-01-01', 44.78, 19.82, 0.00);
  insert into SHOT values (2722, 2863, 2864, 2309, 6.260, 42.84, -62.10, 6.267, 43.06, -62.13, 0.014, 133.67, -33.50);
@@ -3967,7 +3967,7 @@ insert into SURVEY values (2313, 55, 'AN624-Pokemon', 'AN624-Pokemon.Synthese-PS
  insert into CENTRELINE values (2314, 2313, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2315, 2313, 'Explo_01_2016_08_04', 'Explo_01_2016_08_04.AN624-Pokemon.Synthese-PSM_LARRA', 'Explo 01 2016 08 04');
  insert into CENTRELINE values (2316, 2315, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2317, 2315, 'Explo_01_2016_08_04', 'Explo_01_2016_08_04.Explo_01_2016_08_04.AN624-Pokemon.Synthese-PSM_LARRA', 'AN624-16-1');
+ insert into SURVEY values (2317, 2315, 'Explo_01_2016_08_04', 'Explo_01_2016_08_04.Explo_01_2016_08_04.AN624-Pokemon.Synthese-PSM_LARRA', 'AN624 Sima Pokemon');
  insert into CENTRELINE values (2318, 2317, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2319, 2317, NULL, '2016-01-01', '2016-01-01', 45.12, 16.35, 0.00);
  insert into SHOT values (2738, 2880, 2881, 2319, 3.990, 52.34, -51.00, 3.989, 52.45, -51.00, 0.005, 152.21, 9.72);
@@ -4034,7 +4034,7 @@ insert into SURVEY values (2337, 55, 'AN627-Conchita', 'AN627-Conchita.Synthese-
  insert into CENTRELINE values (2338, 2337, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2339, 2337, 'Explo_01_2014_09_19', 'Explo_01_2014_09_19.AN627-Conchita.Synthese-PSM_LARRA', 'Explo 01 2014 09 19');
  insert into CENTRELINE values (2340, 2339, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2341, 2339, 'Explo_01_2014_09_19', 'Explo_01_2014_09_19.Explo_01_2014_09_19.AN627-Conchita.Synthese-PSM_LARRA', 'AN627-14-21');
+ insert into SURVEY values (2341, 2339, 'Explo_01_2014_09_19', 'Explo_01_2014_09_19.Explo_01_2014_09_19.AN627-Conchita.Synthese-PSM_LARRA', 'AN627 Sima Conchita');
  insert into CENTRELINE values (2342, 2341, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2343, 2341, NULL, '2014-01-01', '2014-01-01', 39.43, 11.22, 0.00);
  insert into SHOT values (2781, 2926, 2927, 2343, 8.050, 162.74, 1.90, 8.048, 162.71, 1.92, 0.005, 38.41, 37.41);
@@ -4110,7 +4110,7 @@ insert into SURVEY values (2374, 55, 'AN635', 'AN635.Synthese-PSM_LARRA', 'AN635
  insert into CENTRELINE values (2375, 2374, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2376, 2374, 'Explo_01_2004_08_20', 'Explo_01_2004_08_20.AN635.Synthese-PSM_LARRA', 'Explo 01 2004 08 20');
  insert into CENTRELINE values (2377, 2376, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2378, 2376, 'Explo_01_2004_08_20', 'Explo_01_2004_08_20.Explo_01_2004_08_20.AN635.Synthese-PSM_LARRA', 'AN635-04-00');
+ insert into SURVEY values (2378, 2376, 'Explo_01_2004_08_20', 'Explo_01_2004_08_20.Explo_01_2004_08_20.AN635.Synthese-PSM_LARRA', 'AN635');
  insert into CENTRELINE values (2379, 2378, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2380, 2378, NULL, '2004-01-01', '2004-01-01', 68.51, 0.00, 0.00);
  insert into SHOT values (2829, 2978, 2979, 2380, 4.000, 356.74, 90.00, 4.000, 90.00, 90.00, 0.000, 356.74, 0.00);
@@ -4126,7 +4126,7 @@ insert into SURVEY values (2384, 55, 'AN639', 'AN639.Synthese-PSM_LARRA', 'AN639
  insert into CENTRELINE values (2385, 2384, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2386, 2384, 'Explo_01_2015_08_15', 'Explo_01_2015_08_15.AN639.Synthese-PSM_LARRA', 'Explo 01 2015 08 15');
  insert into CENTRELINE values (2387, 2386, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2388, 2386, 'Explo_01_2015_08_15', 'Explo_01_2015_08_15.Explo_01_2015_08_15.AN639.Synthese-PSM_LARRA', 'AN639-15-01');
+ insert into SURVEY values (2388, 2386, 'Explo_01_2015_08_15', 'Explo_01_2015_08_15.Explo_01_2015_08_15.AN639.Synthese-PSM_LARRA', 'AN639');
  insert into CENTRELINE values (2389, 2388, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2390, 2388, NULL, '2015-01-01', '2015-01-01', 102.88, 0.00, 0.00);
  insert into SHOT values (2838, 2988, 2989, 2390, 1.590, 83.78, -1.10, 1.589, 83.86, -1.08, 0.002, 189.56, 13.59);
@@ -4151,7 +4151,7 @@ insert into SURVEY values (2394, 55, 'AN646', 'AN646.Synthese-PSM_LARRA', 'AN646
  insert into CENTRELINE values (2395, 2394, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2396, 2394, 'Explo_01_2008_08_10', 'Explo_01_2008_08_10.AN646.Synthese-PSM_LARRA', 'Explo 01 2008 08 10');
  insert into CENTRELINE values (2397, 2396, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2398, 2396, 'Explo_01_2008_08_10', 'Explo_01_2008_08_10.Explo_01_2008_08_10.AN646.Synthese-PSM_LARRA', 'FI08 15');
+ insert into SURVEY values (2398, 2396, 'Explo_01_2008_08_10', 'Explo_01_2008_08_10.Explo_01_2008_08_10.AN646.Synthese-PSM_LARRA', 'AN646');
  insert into CENTRELINE values (2399, 2398, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2400, 2398, NULL, '2008-01-01', '2008-01-01', 54.48, 0.00, 0.00);
  insert into SHOT values (2856, 3007, 3008, 2400, 11.850, 297.24, -57.00, 11.851, 297.20, -57.01, 0.004, 203.17, -23.56);
@@ -4417,7 +4417,7 @@ insert into SURVEY values (2512, 55, 'AN671-Verguenza', 'AN671-Verguenza.Synthes
  insert into CENTRELINE values (2513, 2512, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2514, 2512, 'Explo_01_2016_08_11', 'Explo_01_2016_08_11.AN671-Verguenza.Synthese-PSM_LARRA', 'Explo 01 2016 08 11');
  insert into CENTRELINE values (2515, 2514, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2516, 2514, 'Explo_01_2016_08_11', 'Explo_01_2016_08_11.Explo_01_2016_08_11.AN671-Verguenza.Synthese-PSM_LARRA', 'AN671-16-1');
+ insert into SURVEY values (2516, 2514, 'Explo_01_2016_08_11', 'Explo_01_2016_08_11.Explo_01_2016_08_11.AN671-Verguenza.Synthese-PSM_LARRA', 'AN671 Sima verguenza');
  insert into CENTRELINE values (2517, 2516, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2518, 2516, NULL, '2016-01-01', '2016-01-01', 96.98, 0.00, 0.00);
  insert into SHOT values (3034, 3201, 3202, 2518, 10.110, 254.14, 65.80, 10.106, 254.15, 65.83, 0.007, 67.63, -12.26);
@@ -4434,7 +4434,7 @@ insert into SURVEY values (2522, 55, 'AN672-Groselleros', 'AN672-Groselleros.Syn
  insert into CENTRELINE values (2523, 2522, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2524, 2522, 'Explo_01_2010_08_11', 'Explo_01_2010_08_11.AN672-Groselleros.Synthese-PSM_LARRA', 'Explo 01 2010 08 11');
  insert into CENTRELINE values (2525, 2524, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2526, 2524, 'Explo_01_2010_08_11', 'Explo_01_2010_08_11.Explo_01_2010_08_11.AN672-Groselleros.Synthese-PSM_LARRA', 'AN672-FI10-06');
+ insert into SURVEY values (2526, 2524, 'Explo_01_2010_08_11', 'Explo_01_2010_08_11.Explo_01_2010_08_11.AN672-Groselleros.Synthese-PSM_LARRA', 'AN672 Sima Groselleros');
  insert into CENTRELINE values (2527, 2526, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2528, 2526, NULL, '2010-01-01', '2010-01-01', 114.26, 0.00, 0.00);
  insert into SHOT values (3044, 3212, 3213, 2528, 3.760, 118.99, -11.50, 3.763, 118.86, -11.50, 0.009, 51.39, -2.37);
@@ -4463,7 +4463,7 @@ insert into SHOT values (3066, 3234, 3235, 2528, 2.590, 238.49, 69.90, 2.598, 23
 insert into SHOT values (3067, 3235, 3236, 2528, 3.710, 104.99, 24.30, 3.709, 104.90, 24.19, 0.009, 39.59, -48.84);
 insert into SHOT values (3068, 3236, 3237, 2528, 5.280, 213.99, 77.70, 5.283, 213.83, 77.63, 0.008, 189.21, 9.12);
 insert into SHOT values (3069, 3237, 3238, 2528, 2.510, 356.09, 44.80, 2.513, 356.14, 44.77, 0.004, 25.26, 21.60);
-insert into SURVEY values (2532, 55, 'AN676-Helado', 'AN676-Helado.Synthese-PSM_LARRA', 'AN676-Helado');
+insert into SURVEY values (2532, 55, 'AN676-Helado', 'AN676-Helado.Synthese-PSM_LARRA', 'AN676 Sima Helado');
  insert into CENTRELINE values (2533, 2532, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2534, 2532, 'Explo_01_2011_07_09', 'Explo_01_2011_07_09.AN676-Helado.Synthese-PSM_LARRA', 'Explo 01 2011 07 09');
  insert into CENTRELINE values (2535, 2534, NULL, NULL, NULL, 0.00, 0.00, 0.00);
@@ -4591,7 +4591,7 @@ insert into SHOT values (3179, 3349, 3350, 2545, 4.610, 25.43, -33.80, 4.702, 22
 insert into SHOT values (3180, 3350, 3351, 2545, 7.220, 59.33, -41.20, 7.143, 55.65, -41.90, 0.364, 309.00, -2.25);
 insert into SURVEY values (2548, 2532, 'Explo_03_2011_08_08', 'Explo_03_2011_08_08.AN676-Helado.Synthese-PSM_LARRA', 'Explo 03 2011 08 08');
  insert into CENTRELINE values (2549, 2548, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2550, 2548, 'Explo_03_2011_08_08', 'Explo_03_2011_08_08.Explo_03_2011_08_08.AN676-Helado.Synthese-PSM_LARRA', 'AN676-FI11-10');
+ insert into SURVEY values (2550, 2548, 'Explo_03_2011_08_08', 'Explo_03_2011_08_08.Explo_03_2011_08_08.AN676-Helado.Synthese-PSM_LARRA', 'AN676A');
  insert into CENTRELINE values (2551, 2550, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2552, 2550, NULL, '2011-01-01', '2011-01-01', 150.53, 5.00, 0.00);
  insert into SHOT values (3181, 3352, 3353, 2552, 2.300, 164.13, 1.90, 1.968, 166.18, 2.04, 0.340, 332.20, -1.05);
@@ -4633,7 +4633,7 @@ insert into SHOT values (3215, 3386, 3389, 2552, 8.280, 211.33, 33.50, 8.360, 20
 insert into SHOT values (3216, 3389, 3390, 2552, 8.180, 258.73, 37.60, 8.014, 255.27, 39.15, 0.472, 132.15, 8.41);
 insert into SURVEY values (2555, 2532, 'Explo_04_2011_08_14', 'Explo_04_2011_08_14.AN676-Helado.Synthese-PSM_LARRA', 'Explo 04 2011 08 14');
  insert into CENTRELINE values (2556, 2555, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2557, 2555, 'Explo_04_2011_08_14', 'Explo_04_2011_08_14.Explo_04_2011_08_14.AN676-Helado.Synthese-PSM_LARRA', 'AN52-Helado');
+ insert into SURVEY values (2557, 2555, 'Explo_04_2011_08_14', 'Explo_04_2011_08_14.Explo_04_2011_08_14.AN676-Helado.Synthese-PSM_LARRA', 'AN52 Sima Helado');
  insert into CENTRELINE values (2558, 2557, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2559, 2557, NULL, '2011-01-01', '2011-01-01', 93.39, 0.00, 0.00);
  insert into SHOT values (3217, 3391, 3392, 2559, 35.570, 35.23, -85.40, 35.597, 33.12, -82.85, 1.588, 29.31, 4.89);
@@ -4664,7 +4664,7 @@ insert into SURVEY values (2570, 55, 'AN683-Papanatas', 'AN683-Papanatas.Synthes
  insert into CENTRELINE values (2571, 2570, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2572, 2570, 'Explo_01_2012_09_25', 'Explo_01_2012_09_25.AN683-Papanatas.Synthese-PSM_LARRA', 'Explo 01 2012 09 25');
  insert into CENTRELINE values (2573, 2572, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2574, 2572, 'Explo_01_2012_09_25', 'Explo_01_2012_09_25.Explo_01_2012_09_25.AN683-Papanatas.Synthese-PSM_LARRA', 'AN683-FI12-31');
+ insert into SURVEY values (2574, 2572, 'Explo_01_2012_09_25', 'Explo_01_2012_09_25.Explo_01_2012_09_25.AN683-Papanatas.Synthese-PSM_LARRA', 'AN683 Sima papanatas');
  insert into CENTRELINE values (2575, 2574, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2576, 2574, NULL, '2012-01-01', '2012-01-01', 110.10, 0.00, 0.00);
  insert into SHOT values (3235, 3411, 3412, 2576, 6.720, 36.06, -86.10, 6.716, 36.12, -86.09, 0.005, 60.47, 76.42);
@@ -4685,7 +4685,7 @@ insert into SURVEY values (2580, 55, 'AN692-James_Bond', 'AN692-James_Bond.Synth
  insert into CENTRELINE values (2581, 2580, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2582, 2580, 'Explo_01_2015_09_22', 'Explo_01_2015_09_22.AN692-James_Bond.Synthese-PSM_LARRA', 'Explo 01 2015 09 22');
  insert into CENTRELINE values (2583, 2582, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2584, 2582, 'Explo_01_2015_09_22', 'Explo_01_2015_09_22.Explo_01_2015_09_22.AN692-James_Bond.Synthese-PSM_LARRA', 'AN692-15-1');
+ insert into SURVEY values (2584, 2582, 'Explo_01_2015_09_22', 'Explo_01_2015_09_22.Explo_01_2015_09_22.AN692-James_Bond.Synthese-PSM_LARRA', 'AN692 Sima James Bond');
  insert into CENTRELINE values (2585, 2584, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2586, 2584, NULL, '2015-01-01', '2015-01-01', 42.59, 2.33, 0.00);
  insert into SHOT values (3249, 3426, 3427, 2586, 1.060, 191.68, 7.80, 1.060, 191.52, 7.59, 0.005, 120.37, -51.23);
@@ -4718,7 +4718,7 @@ insert into SURVEY values (2597, 55, 'AN699', 'AN699.Synthese-PSM_LARRA', 'AN699
  insert into CENTRELINE values (2598, 2597, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2599, 2597, 'Explo_01_2019_09_13', 'Explo_01_2019_09_13.AN699.Synthese-PSM_LARRA', 'Explo 01 2019 09 13');
  insert into CENTRELINE values (2600, 2599, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2601, 2599, 'Explo_01_2019_09_13', 'Explo_01_2019_09_13.Explo_01_2019_09_13.AN699.Synthese-PSM_LARRA', 'AN699-19-01');
+ insert into SURVEY values (2601, 2599, 'Explo_01_2019_09_13', 'Explo_01_2019_09_13.Explo_01_2019_09_13.AN699.Synthese-PSM_LARRA', 'AN699');
  insert into CENTRELINE values (2602, 2601, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2603, 2601, NULL, '2019-01-01', '2019-01-01', 26.18, 11.26, 0.00);
  insert into SHOT values (3268, 3447, 3448, 2603, 11.260, 103.40, -5.00, 11.258, 103.40, -4.99, 0.002, 266.66, 39.03);
@@ -4733,7 +4733,7 @@ insert into SURVEY values (2607, 55, 'AN702-Burros', 'AN702-Burros.Synthese-PSM_
  insert into CENTRELINE values (2608, 2607, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2609, 2607, 'Explo_01_2019_09_15', 'Explo_01_2019_09_15.AN702-Burros.Synthese-PSM_LARRA', 'Explo 01 2019 09 15');
  insert into CENTRELINE values (2610, 2609, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2611, 2609, 'Explo_01_2019_09_15', 'Explo_01_2019_09_15.Explo_01_2019_09_15.AN702-Burros.Synthese-PSM_LARRA', 'AN702-19-01');
+ insert into SURVEY values (2611, 2609, 'Explo_01_2019_09_15', 'Explo_01_2019_09_15.Explo_01_2019_09_15.AN702-Burros.Synthese-PSM_LARRA', 'AN702 Sima de los burros');
  insert into CENTRELINE values (2612, 2611, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2613, 2611, NULL, '2019-01-01', '2019-01-01', 75.77, 0.00, 0.00);
  insert into SHOT values (3275, 3455, 3456, 2613, 11.250, 53.30, -36.70, 11.253, 53.33, -36.67, 0.008, 92.43, 22.73);
@@ -4824,7 +4824,7 @@ insert into SURVEY values (2645, 55, 'AN704', 'AN704.Synthese-PSM_LARRA', 'AN704
  insert into CENTRELINE values (2646, 2645, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2647, 2645, 'Explo_01_2019_09_19', 'Explo_01_2019_09_19.AN704.Synthese-PSM_LARRA', 'Explo 01 2019 09 19');
  insert into CENTRELINE values (2648, 2647, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2649, 2647, 'Explo_01_2019_09_19', 'Explo_01_2019_09_19.Explo_01_2019_09_19.AN704.Synthese-PSM_LARRA', 'AN704-19-01');
+ insert into SURVEY values (2649, 2647, 'Explo_01_2019_09_19', 'Explo_01_2019_09_19.Explo_01_2019_09_19.AN704.Synthese-PSM_LARRA', 'AN704');
  insert into CENTRELINE values (2650, 2649, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2651, 2649, NULL, '2019-01-01', '2019-01-01', 70.78, 0.00, 17.01);
  insert into SHOT values (3339, 3525, 3526, 2651, 2.590, 247.60, -47.70, 2.591, 247.71, -47.82, 0.006, 20.88, -44.14);
@@ -4849,7 +4849,7 @@ insert into SURVEY values (2655, 55, 'AN708-Marmota', 'AN708-Marmota.Synthese-PS
  insert into CENTRELINE values (2656, 2655, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2657, 2655, 'Explo_01_2019_09_16', 'Explo_01_2019_09_16.AN708-Marmota.Synthese-PSM_LARRA', 'Explo 01 2019 09 16');
  insert into CENTRELINE values (2658, 2657, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2659, 2657, 'Explo_01_2019_09_16', 'Explo_01_2019_09_16.Explo_01_2019_09_16.AN708-Marmota.Synthese-PSM_LARRA', 'AN708-19-1');
+ insert into SURVEY values (2659, 2657, 'Explo_01_2019_09_16', 'Explo_01_2019_09_16.Explo_01_2019_09_16.AN708-Marmota.Synthese-PSM_LARRA', 'AN708 Sima de la marmota');
  insert into CENTRELINE values (2660, 2659, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2661, 2659, NULL, '2019-01-01', '2019-01-01', 55.69, 0.00, 0.00);
  insert into SHOT values (3355, 3542, 3543, 2661, 1.220, 32.40, -4.90, 1.214, 32.51, -4.73, 0.008, 192.13, 33.17);
@@ -4885,7 +4885,7 @@ insert into SURVEY values (2672, 55, 'AN711-Oso', 'AN711-Oso.Synthese-PSM_LARRA'
  insert into CENTRELINE values (2673, 2672, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (2674, 2672, 'Explo_01_2021_09_15', 'Explo_01_2021_09_15.AN711-Oso.Synthese-PSM_LARRA', 'Explo 01 2021 09 15');
  insert into CENTRELINE values (2675, 2674, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2676, 2674, 'Explo_01_2021_09_15', 'Explo_01_2021_09_15.Explo_01_2021_09_15.AN711-Oso.Synthese-PSM_LARRA', 'AN711-21-01');
+ insert into SURVEY values (2676, 2674, 'Explo_01_2021_09_15', 'Explo_01_2021_09_15.Explo_01_2021_09_15.AN711-Oso.Synthese-PSM_LARRA', 'AN711 Cueva del Oso');
  insert into CENTRELINE values (2677, 2676, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2678, 2676, NULL, '2021-01-01', '2021-01-01', 31.00, 0.00, 0.00);
  insert into SHOT values (3378, 3567, 3568, 2678, 2.240, 77.49, -15.90, 2.235, 77.64, -15.84, 0.008, 206.24, 26.94);
@@ -6811,7 +6811,7 @@ insert into SCRAPS values (2917, 2911, 'BB009_plan_1', 1, 9.62707, 1.82017);
  insert into MAPITEMS values (2993, 4, 2936);
  insert into SURVEY values (2995, 55, 'BB26', 'BB26.Synthese-PSM_LARRA', 'Gouffre du BB26');
  insert into CENTRELINE values (2996, 2995, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (2997, 2995, 'BB26', 'BB26.BB26.Synthese-PSM_LARRA', 'BB26 zone d''entree');
+ insert into SURVEY values (2997, 2995, 'BB26', 'BB26.BB26.Synthese-PSM_LARRA', 'BB26');
  insert into CENTRELINE values (2998, 2997, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (2999, 2997, NULL, '2018-08-03', '2018-08-01', 34.40, 4.80, 20.80);
  insert into TOPO values (1, 2999);
@@ -7431,7 +7431,7 @@ insert into SURVEY values (3667, 55, 'BB50', 'BB50.Synthese-PSM_LARRA', 'BB50');
  insert into CENTRELINE values (3668, 3667, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (3669, 3667, 'Explo_01_2022_08_01', 'Explo_01_2022_08_01.BB50.Synthese-PSM_LARRA', 'Explo 01 2022 08 01');
  insert into CENTRELINE values (3670, 3669, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (3671, 3669, 'Explo_01_2022_08_01', 'Explo_01_2022_08_01.Explo_01_2022_08_01.BB50.Synthese-PSM_LARRA', 'BB50 SECTION001');
+ insert into SURVEY values (3671, 3669, 'Explo_01_2022_08_01', 'Explo_01_2022_08_01.Explo_01_2022_08_01.BB50.Synthese-PSM_LARRA', 'BB50');
  insert into CENTRELINE values (3672, 3671, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (3673, 3671, NULL, '2022-01-01', '2022-01-01', 25.00, 39.41, 0.00);
  insert into SHOT values (5349, 5566, 5567, 3673, 0.000, 359.24, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -9196,7 +9196,7 @@ insert into SURVEY values (3889, 55, 'C103', 'C103.Synthese-PSM_LARRA', 'C103');
  insert into CENTRELINE values (3890, 3889, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (3891, 3889, 'Explo_01_1999_01_01', 'Explo_01_1999_01_01.C103.Synthese-PSM_LARRA', 'Explo 01 1999 01 01');
  insert into CENTRELINE values (3892, 3891, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (3893, 3891, 'Explo_01_1999_01_01', 'Explo_01_1999_01_01.Explo_01_1999_01_01.C103.Synthese-PSM_LARRA', '1S1C1X1 2S2C1X1 3S3C1X1');
+ insert into SURVEY values (3893, 3891, 'Explo_01_1999_01_01', 'Explo_01_1999_01_01.Explo_01_1999_01_01.C103.Synthese-PSM_LARRA', 'C103');
  insert into CENTRELINE values (3894, 3893, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (3895, 3893, NULL, '1999-01-01', '1999-01-01', 105.60, 0.00, 0.00);
  insert into SHOT values (6935, 7183, 7184, 3895, 0.000, 356.11, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -9351,7 +9351,7 @@ insert into SCRAPS values (3997, 3991, 'SP-Explo_01_1999_01_01_01', 1, 0.27743, 
  insert into CENTRELINE values (4161, 4160, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (4162, 4160, 'Explo_01_2023_11_04', 'Explo_01_2023_11_04.C213.Synthese-PSM_LARRA', 'Explo 01 2023 11 04');
  insert into CENTRELINE values (4163, 4162, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (4164, 4162, 'Explo_01_2023_11_04', 'Explo_01_2023_11_04.Explo_01_2023_11_04.C213.Synthese-PSM_LARRA', 'C213 SECTION001');
+ insert into SURVEY values (4164, 4162, 'Explo_01_2023_11_04', 'Explo_01_2023_11_04.Explo_01_2023_11_04.C213.Synthese-PSM_LARRA', 'C213');
  insert into CENTRELINE values (4165, 4164, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (4166, 4164, NULL, '2023-01-01', '2023-01-01', 54.52, 0.00, 0.00);
  insert into SHOT values (7036, 7287, 7288, 4166, 0.000, 359.38, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -13251,7 +13251,7 @@ insert into SCRAPS values (8097, 8091, 'SP-Explo_55_2003_07_31_01', 1, 0.48551, 
  insert into MAPITEMS values (8144, 4, 8120);
  insert into SURVEY values (8146, 5608, 'Explo_56_2003_08_02', 'Explo_56_2003_08_02.Complexe_Anialarra.Synthese-PSM_LARRA', 'Explo 56 2003 08 02');
  insert into CENTRELINE values (8147, 8146, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (8148, 8146, 'Explo_56_2003_08_02', 'Explo_56_2003_08_02.Explo_56_2003_08_02.Complexe_Anialarra.Synthese-PSM_LARRA', 'AN548-FI03 04');
+ insert into SURVEY values (8148, 8146, 'Explo_56_2003_08_02', 'Explo_56_2003_08_02.Explo_56_2003_08_02.Complexe_Anialarra.Synthese-PSM_LARRA', 'AN548');
  insert into CENTRELINE values (8149, 8148, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (8150, 8148, NULL, '2003-01-01', '2003-01-01', 89.66, 0.00, 0.00);
  insert into SHOT values (9623, 9949, 9950, 8150, 9.010, 275.62, -49.10, 9.034, 276.03, -48.44, 0.115, 300.53, 25.90);
@@ -15201,7 +15201,7 @@ insert into SCRAPS values (10906, 10900, 'SP-Explo_109_2007_08_03_01', 1, 0.7768
  insert into MAPITEMS values (11016, 4, 10960);
  insert into SURVEY values (11018, 5608, 'Explo_110_2007_08_12', 'Explo_110_2007_08_12.Complexe_Anialarra.Synthese-PSM_LARRA', 'Explo 110 2007 08 12');
  insert into CENTRELINE values (11019, 11018, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (11020, 11018, 'Explo_110_2007_08_12', 'Explo_110_2007_08_12.Explo_110_2007_08_12.Complexe_Anialarra.Synthese-PSM_LARRA', 'AN57-FI07-03');
+ insert into SURVEY values (11020, 11018, 'Explo_110_2007_08_12', 'Explo_110_2007_08_12.Explo_110_2007_08_12.Complexe_Anialarra.Synthese-PSM_LARRA', 'AN57');
  insert into CENTRELINE values (11021, 11020, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (11022, 11020, NULL, '2007-01-01', '2007-01-01', 140.39, 0.00, 0.00);
  insert into SHOT values (10903, 11283, 11284, 11022, 1.500, 309.11, 0.00, 1.507, 309.08, 0.00, 0.007, 301.25, 0.00);
@@ -22372,7 +22372,7 @@ insert into SCRAPS values (22074, 22068, 'SP-Explo_330_2017_08_12_01', 1, 0.9396
  insert into MAPITEMS values (22125, 4, 22099);
  insert into SURVEY values (22127, 5608, 'Explo_331_2017_09_13', 'Explo_331_2017_09_13.Complexe_Anialarra.Synthese-PSM_LARRA', 'Explo 331 2017 09 13');
  insert into CENTRELINE values (22128, 22127, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (22129, 22127, 'Explo_331_2017_09_13', 'Explo_331_2017_09_13.Explo_331_2017_09_13.Complexe_Anialarra.Synthese-PSM_LARRA', 'AN564-17-1');
+ insert into SURVEY values (22129, 22127, 'Explo_331_2017_09_13', 'Explo_331_2017_09_13.Explo_331_2017_09_13.Complexe_Anialarra.Synthese-PSM_LARRA', 'AN564');
  insert into CENTRELINE values (22130, 22129, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (22131, 22129, NULL, '2017-01-01', '2017-01-01', 60.62, 0.00, 0.00);
  insert into SHOT values (15223, 15824, 15825, 22131, 16.400, 66.59, -37.60, 16.399, 66.59, -37.62, 0.006, 247.75, -38.00);
@@ -24515,7 +24515,7 @@ insert into SCRAPS values (25172, 25166, 'SP-Explo_400_2023_08_16_01', 1, 0.5537
  insert into MAPITEMS values (25345, 4, 25258);
  insert into SURVEY values (25347, 5608, 'Explo_401_2023_09_17', 'Explo_401_2023_09_17.Complexe_Anialarra.Synthese-PSM_LARRA', 'Explo 401 2023 09 17');
  insert into CENTRELINE values (25348, 25347, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (25349, 25347, 'Explo_401_2023_09_17', 'Explo_401_2023_09_17.Explo_401_2023_09_17.Complexe_Anialarra.Synthese-PSM_LARRA', 'AN3-2023-01 AN3-2023-02');
+ insert into SURVEY values (25349, 25347, 'Explo_401_2023_09_17', 'Explo_401_2023_09_17.Explo_401_2023_09_17.Complexe_Anialarra.Synthese-PSM_LARRA', 'AN3');
  insert into CENTRELINE values (25350, 25349, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (25351, 25349, NULL, '2023-01-01', '2023-01-01', 182.08, 16.80, 0.00);
  insert into SHOT values (16472, 17145, 17146, 25351, 1.530, 164.88, -7.20, 1.526, 164.68, -7.15, 0.007, 37.24, 14.55);
@@ -78231,7 +78231,7 @@ insert into SURVEY values (70516, 55, 'E003_TSR_3', 'E003_TSR_3.Synthese-PSM_LAR
  insert into CENTRELINE values (70517, 70516, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (70518, 70516, 'Explo_01_2010_08_14', 'Explo_01_2010_08_14.E003_TSR_3.Synthese-PSM_LARRA', 'Explo 01 2010 08 14');
  insert into CENTRELINE values (70519, 70518, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (70520, 70518, 'Explo_01_2010_08_14', 'Explo_01_2010_08_14.Explo_01_2010_08_14.E003_TSR_3.Synthese-PSM_LARRA', '1S1C1X1 - 9S5C1X1');
+ insert into SURVEY values (70520, 70518, 'Explo_01_2010_08_14', 'Explo_01_2010_08_14.Explo_01_2010_08_14.E003_TSR_3.Synthese-PSM_LARRA', 'E3 TSR3');
  insert into CENTRELINE values (70521, 70520, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (70522, 70520, NULL, '2010-01-01', '2010-01-01', 220.56, 0.00, 0.00);
  insert into SHOT values (50781, 52147, 52148, 70522, 0.000, 357.49, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -78662,7 +78662,7 @@ insert into SURVEY values (70602, 55, 'ERE80-Sima_de_Linza', 'ERE80-Sima_de_Linz
  insert into CENTRELINE values (70603, 70602, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (70604, 70602, 'Explo_01_2002_08_08', 'Explo_01_2002_08_08.ERE80-Sima_de_Linza.Synthese-PSM_LARRA', 'Explo 01 2002 08 08');
  insert into CENTRELINE values (70605, 70604, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (70606, 70604, 'Explo_01_2002_08_08', 'Explo_01_2002_08_08.Explo_01_2002_08_08.ERE80-Sima_de_Linza.Synthese-PSM_LARRA', '1S1C1X1 2S2C2X2 3S3C2X2');
+ insert into SURVEY values (70606, 70604, 'Explo_01_2002_08_08', 'Explo_01_2002_08_08.Explo_01_2002_08_08.ERE80-Sima_de_Linza.Synthese-PSM_LARRA', 'ERE80');
  insert into CENTRELINE values (70607, 70606, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (70608, 70606, NULL, '2002-01-01', '2002-01-01', 240.75, 0.00, 0.00);
  insert into SHOT values (51151, 52533, 52534, 70608, 0.000, 356.49, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -78749,7 +78749,7 @@ insert into SURVEY values (70622, 55, 'F404-Cuisse_de_Truffin', 'F404-Cuisse_de_
  insert into CENTRELINE values (70623, 70622, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (70624, 70622, 'Explo_01_1974_08_12', 'Explo_01_1974_08_12.F404-Cuisse_de_Truffin.Synthese-PSM_LARRA', 'Explo 01 1974 08 12');
  insert into CENTRELINE values (70625, 70624, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (70626, 70624, 'Explo_01_1974_08_12', 'Explo_01_1974_08_12.Explo_01_1974_08_12.F404-Cuisse_de_Truffin.Synthese-PSM_LARRA', '1S1C1X1 2S2C1X1 3S3C1X1');
+ insert into SURVEY values (70626, 70624, 'Explo_01_1974_08_12', 'Explo_01_1974_08_12.Explo_01_1974_08_12.F404-Cuisse_de_Truffin.Synthese-PSM_LARRA', 'F404 Cuisse de truffin');
  insert into CENTRELINE values (70627, 70626, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (70628, 70626, NULL, '1974-01-01', '1974-01-01', 110.42, 0.00, 0.00);
  insert into SHOT values (51224, 52608, 52609, 70628, 0.000, 352.74, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -84985,7 +84985,7 @@ insert into SCRAPS values (72300, 72294, 'SP-Explo_16_2025_08_15_01', 1, 26.8738
  insert into CENTRELINE values (72409, 72408, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (72410, 72408, 'Explo_01_2022_10_27', 'Explo_01_2022_10_27.LAK015-Perte_des_Feuilles.Synthese-PSM_LARRA', 'Explo 01 2022 10 27');
  insert into CENTRELINE values (72411, 72410, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (72412, 72410, 'Explo_01_2022_10_27', 'Explo_01_2022_10_27.Explo_01_2022_10_27.LAK015-Perte_des_Feuilles.Synthese-PSM_LARRA', 'LAK15 SECTION001');
+ insert into SURVEY values (72412, 72410, 'Explo_01_2022_10_27', 'Explo_01_2022_10_27.Explo_01_2022_10_27.LAK015-Perte_des_Feuilles.Synthese-PSM_LARRA', 'LAK15');
  insert into CENTRELINE values (72413, 72412, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (72414, 72412, NULL, '2022-01-01', '2022-01-01', 75.19, 2.99, 0.00);
  insert into SHOT values (54728, 56159, 56160, 72414, 0.000, 359.24, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -85824,7 +85824,7 @@ insert into SCRAPS values (72900, 72894, 'SP-Explo_04_1987_08_10_01', 1, 58.0659
  insert into MAPITEMS values (73006, 4, 73000);
  insert into SURVEY values (73008, 55, 'Oueils', 'Oueils.Synthese-PSM_LARRA', 'Résurgen des Oueils d''Issaux');
  insert into CENTRELINE values (73009, 73008, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (73010, 73008, 'oueils', 'oueils.Oueils.Synthese-PSM_LARRA', 'Oueils exondé étiage');
+ insert into SURVEY values (73010, 73008, 'oueils', 'oueils.Oueils.Synthese-PSM_LARRA', 'Résurgence des Oueils d''Issaux');
  insert into CENTRELINE values (73011, 73010, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (73012, 73010, NULL, '2024-08-01', NULL, 218.33, 0.00, 0.00);
  insert into PERSON values (185, 'S.', 'Cotte');
@@ -85854,7 +85854,7 @@ insert into SCRAPS values (73014, 73008, 'oueils_plan_1', 1, 0.39000, 0.06200);
  insert into MAPITEMS values (73042, 4, 73032);
  insert into SURVEY values (73044, 55, 'SC223', 'SC223.Synthese-PSM_LARRA', 'SC223');
  insert into CENTRELINE values (73045, 73044, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (73046, 73044, 'SC_223', 'SC_223.SC223.Synthese-PSM_LARRA', 'SC 223');
+ insert into SURVEY values (73046, 73044, 'SC_223', 'SC_223.SC223.Synthese-PSM_LARRA', 'SC223');
  insert into CENTRELINE values (73047, 73046, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (73048, 73046, NULL, '1979-01-01', NULL, 210.56, 0.00, 0.00);
  insert into PERSON values (186, 'Bernard', 'Vigneau');
@@ -86407,7 +86407,7 @@ insert into SURVEY values (73745, 55, 'Trou_du_Mouton', 'Trou_du_Mouton.Synthese
  insert into CENTRELINE values (73746, 73745, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (73747, 73745, 'Explo_01_1995_01_26', 'Explo_01_1995_01_26.Trou_du_Mouton.Synthese-PSM_LARRA', 'Explo 01 1995 01 26');
  insert into CENTRELINE values (73748, 73747, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (73749, 73747, 'Explo_01_1995_01_26', 'Explo_01_1995_01_26.Explo_01_1995_01_26.Trou_du_Mouton.Synthese-PSM_LARRA', '1S1C1X1 2S2C1X1 3S3C1X1');
+ insert into SURVEY values (73749, 73747, 'Explo_01_1995_01_26', 'Explo_01_1995_01_26.Explo_01_1995_01_26.Trou_du_Mouton.Synthese-PSM_LARRA', 'Trou du mouton');
  insert into CENTRELINE values (73750, 73749, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (73751, 73749, NULL, '1995-01-01', '1995-01-01', 128.55, 0.00, 0.00);
  insert into SHOT values (55815, 57269, 57270, 73751, 0.000, 355.55, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -101024,7 +101024,7 @@ insert into SCRAPS values (79324, 79318, 'SP-Tobozo_2131_01', 1, 39.97516, 0.178
  insert into CENTRELINE values (79391, 79390, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (79392, 79390, 'Explo_01_1989_08_16', 'Explo_01_1989_08_16.UKxxx-Marmitou.Synthese-PSM_LARRA', 'Explo 01 1989 08 16');
  insert into CENTRELINE values (79393, 79392, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (79394, 79392, 'Explo_01_1989_08_16', 'Explo_01_1989_08_16.Explo_01_1989_08_16.UKxxx-Marmitou.Synthese-PSM_LARRA', 'Grotte Marmitou 1S1C1X1 2S2C1X1 Boyau latéral');
+ insert into SURVEY values (79394, 79392, 'Explo_01_1989_08_16', 'Explo_01_1989_08_16.Explo_01_1989_08_16.UKxxx-Marmitou.Synthese-PSM_LARRA', 'Grotte marmitou');
  insert into CENTRELINE values (79395, 79394, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (79396, 79394, NULL, '1989-01-01', '1989-01-01', 76.12, 0.00, 0.00);
  insert into TOPO values (13, 79396);
@@ -101294,7 +101294,7 @@ insert into SCRAPS values (79529, 79523, 'SP-Explo_01_1990_07_22_01', 1, 1.63410
  insert into CENTRELINE values (79808, 79807, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (79809, 79807, 'Explo_01_2022_08_08', 'Explo_01_2022_08_08.Z100.Synthese-PSM_LARRA', 'Explo 01 2022 08 08');
  insert into CENTRELINE values (79810, 79809, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (79811, 79809, 'Explo_01_2022_08_08', 'Explo_01_2022_08_08.Explo_01_2022_08_08.Z100.Synthese-PSM_LARRA', 'Z100 SECTION001');
+ insert into SURVEY values (79811, 79809, 'Explo_01_2022_08_08', 'Explo_01_2022_08_08.Explo_01_2022_08_08.Z100.Synthese-PSM_LARRA', 'Z100');
  insert into CENTRELINE values (79812, 79811, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (79813, 79811, NULL, '2022-01-01', '2022-01-01', 43.32, 0.00, 0.00);
  insert into TOPO values (76, 79813);
@@ -101826,7 +101826,7 @@ insert into SCRAPS values (80056, 80050, 'SP-Explo_01_2021_08_05_01', 1, 1.72144
  insert into CENTRELINE values (80114, 80113, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (80115, 80113, 'Explo_01_2022_03_08', 'Explo_01_2022_03_08.Z108.Synthese-PSM_LARRA', 'Explo 01 2022 03 08');
  insert into CENTRELINE values (80116, 80115, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (80117, 80115, 'Explo_01_2022_03_08', 'Explo_01_2022_03_08.Explo_01_2022_03_08.Z108.Synthese-PSM_LARRA', 'Z108 SECTION001');
+ insert into SURVEY values (80117, 80115, 'Explo_01_2022_03_08', 'Explo_01_2022_03_08.Explo_01_2022_03_08.Z108.Synthese-PSM_LARRA', 'Z108 Grotte Françou');
  insert into CENTRELINE values (80118, 80117, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (80119, 80117, NULL, '2022-01-01', '2022-01-01', 49.64, 0.00, 0.00);
  insert into TOPO values (148, 80119);
@@ -102133,7 +102133,7 @@ insert into SCRAPS values (80254, 80248, 'SP-Explo_01_2018_05_28_01', 1, 3.05917
  insert into CENTRELINE values (80452, 80451, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (80453, 80451, 'Explo_01_2019_12_09', 'Explo_01_2019_12_09.Z123.Synthese-PSM_LARRA', 'Explo 01 2019 12 09');
  insert into CENTRELINE values (80454, 80453, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (80455, 80453, 'Explo_01_2019_12_09', 'Explo_01_2019_12_09.Explo_01_2019_12_09.Z123.Synthese-PSM_LARRA', 'Z123 SECTION001');
+ insert into SURVEY values (80455, 80453, 'Explo_01_2019_12_09', 'Explo_01_2019_12_09.Explo_01_2019_12_09.Z123.Synthese-PSM_LARRA', 'Z123');
  insert into CENTRELINE values (80456, 80455, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (80457, 80455, NULL, '2019-01-01', '2019-01-01', 102.29, 0.00, 0.00);
  insert into TOPO values (69, 80457);
@@ -102658,9 +102658,9 @@ insert into SCRAPS values (81213, 81207, 'SP-Explo_03_2021_07_17_01', 1, 36.4247
  insert into MAPITEMS values (81478, 4, 81473);
  insert into SURVEY values (81480, 55, 'Z143', 'Z143.Synthese-PSM_LARRA', 'Z143');
  insert into CENTRELINE values (81481, 81480, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (81482, 81480, 'Explo_01_2019_07_01', 'Explo_01_2019_07_01.Z143.Synthese-PSM_LARRA', 'Explo 01 2019 07 01');
+ insert into SURVEY values (81482, 81480, 'Explo_01_2019_07_01', 'Explo_01_2019_07_01.Z143.Synthese-PSM_LARRA', 'Z143 Touristen Leize Tipia 1');
  insert into CENTRELINE values (81483, 81482, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (81484, 81482, 'Explo_01_2019_07_01', 'Explo_01_2019_07_01.Explo_01_2019_07_01.Z143.Synthese-PSM_LARRA', 'Z143 SECTION001');
+ insert into SURVEY values (81484, 81482, 'Explo_01_2019_07_01', 'Explo_01_2019_07_01.Explo_01_2019_07_01.Z143.Synthese-PSM_LARRA', 'Z143 Touristen Leize Tipia');
  insert into CENTRELINE values (81485, 81484, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (81486, 81484, NULL, '2019-01-01', '2019-01-01', 187.50, 0.00, 0.00);
  insert into TOPO values (8, 81486);
@@ -102781,7 +102781,7 @@ insert into SCRAPS values (81564, 81558, 'SP-Explo_01_2007_08_01_01', 1, 10.0844
  insert into MAPITEMS values (81691, 4, 81603);
  insert into SURVEY values (81693, 81556, 'Explo_02_2007_08_08', 'Explo_02_2007_08_08.Z150-Gouffre_Patrick_GROSDEMANCHE.Synthese-PSM_LARRA', 'Explo 02 2007 08 08');
  insert into CENTRELINE values (81694, 81693, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (81695, 81693, 'Explo_02_2007_08_08', 'Explo_02_2007_08_08.Explo_02_2007_08_08.Z150-Gouffre_Patrick_GROSDEMANCHE.Synthese-PSM_LARRA', 'Z150 SECTION001');
+ insert into SURVEY values (81695, 81693, 'Explo_02_2007_08_08', 'Explo_02_2007_08_08.Explo_02_2007_08_08.Z150-Gouffre_Patrick_GROSDEMANCHE.Synthese-PSM_LARRA', 'Z150 Sima Patrick Grosdemanche');
  insert into CENTRELINE values (81696, 81695, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (81697, 81695, NULL, '2007-01-01', '2007-01-01', 0.00, 0.00, 0.00);
  insert into SHOT values (64984, 66508, 66509, 81697, 0.000, 357.11, 0.00, 0.000, 90.00, 0.00, 0.000, 90.00, 0.00);
@@ -102878,7 +102878,7 @@ insert into SCRAPS values (81722, 81700, 'SP-Explo_03_2019_08_01A_01', 1, 1.1922
  insert into CENTRELINE values (81798, 81797, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (81799, 81797, 'Explo_01_2019_08_01', 'Explo_01_2019_08_01.Z208.Synthese-PSM_LARRA', 'Explo 01 2019 08 01');
  insert into CENTRELINE values (81800, 81799, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (81801, 81799, 'Explo_01_2019_08_01', 'Explo_01_2019_08_01.Explo_01_2019_08_01.Z208.Synthese-PSM_LARRA', 'Z208 SECTION001 Z208 SECTION002');
+ insert into SURVEY values (81801, 81799, 'Explo_01_2019_08_01', 'Explo_01_2019_08_01.Explo_01_2019_08_01.Z208.Synthese-PSM_LARRA', 'Z208');
  insert into CENTRELINE values (81802, 81801, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (81803, 81801, NULL, '2019-01-01', '2020-01-01', 140.65, 0.00, 0.00);
  insert into TOPO values (207, 81803);
@@ -102923,7 +102923,7 @@ insert into SCRAPS values (81805, 81799, 'SP-Explo_01_2019_08_01_01', 1, 2.82537
  insert into CENTRELINE values (81880, 81879, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (81881, 81879, 'Explo_01_2022_08_03', 'Explo_01_2022_08_03.Z444.Synthese-PSM_LARRA', 'Explo 01 2022 08 03');
  insert into CENTRELINE values (81882, 81881, NULL, NULL, NULL, 0.00, 0.00, 0.00);
- insert into SURVEY values (81883, 81881, 'Explo_01_2022_08_03', 'Explo_01_2022_08_03.Explo_01_2022_08_03.Z444.Synthese-PSM_LARRA', 'Z444 SECTION001');
+ insert into SURVEY values (81883, 81881, 'Explo_01_2022_08_03', 'Explo_01_2022_08_03.Explo_01_2022_08_03.Z444.Synthese-PSM_LARRA', 'Z444');
  insert into CENTRELINE values (81884, 81883, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into CENTRELINE values (81885, 81883, NULL, '2022-01-01', '2022-01-01', 26.44, 0.00, 0.00);
  insert into TOPO values (148, 81885);
