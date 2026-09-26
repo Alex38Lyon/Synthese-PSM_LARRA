@@ -2578,48 +2578,54 @@ def sql_bilan_reseaux():
             ligne[6] = str("0.00")  
             ligne[7] = str("0")  
             
-            cursor.execute(f""" 
-                -- Requête pour rechercher le points bas d'un réseau / entrée
-                SELECT
-                    STATION.name,
-                    STATION.Z as Min
-                from STATION 
-                join (
-                    select Min(STATION.Z) as Val_Min
-                    from STATION
-                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                    WHERE _JONCTION.SERIE_ENT = -1 AND _JONCTION.STATION_TYPE = 'ent' 
-                ) min on STATION.Z = min.Val_Min
-                LIMIT 1
-            """)
-            altitude_min = cursor.fetchall()
+            # cursor.execute(f""" 
+            #     -- Requête pour rechercher le points bas d'un réseau / entrée
+            #     SELECT
+            #         STATION.name,
+            #         STATION.Z as Min
+            #     from STATION 
+            #     join (
+            #         select Min(STATION.Z) as Val_Min
+            #         from STATION
+            #         join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+            #         WHERE _JONCTION.SERIE_ENT = -1 AND _JONCTION.STATION_TYPE = 'ent' 
+            #     ) min on STATION.Z = min.Val_Min
+            #     LIMIT 1
+            # """)
+            # altitude_min = cursor.fetchall()
             
-            ligne[8] = str(altitude_min[0][0])
-            ligne[9] = str(altitude_min[0][1]) 
+            # ligne[8] = str(altitude_min[0][0])
+            # ligne[9] = str(altitude_min[0][1]) 
             
-            cursor.execute(f""" 
-                -- Requête pour rechercher le point haut d'un réseau / entrée
-                SELECT
-                    STATION.name,
-                    STATION.Z as Max
-                from STATION 
-                join (
-                    select Max(STATION.Z) as Val_Max
-                    from STATION
-                    join _JONCTION on STATION.ID = _JONCTION.STATION_ID
-                    WHERE _JONCTION.SERIE_ENT = -1 AND _JONCTION.STATION_TYPE = 'ent' 
-                ) max on STATION.Z = max.Val_Max
-                LIMIT 1
-            """)
-            altitude_max = cursor.fetchall()
+            # cursor.execute(f""" 
+            #     -- Requête pour rechercher le point haut d'un réseau / entrée
+            #     SELECT
+            #         STATION.name,
+            #         STATION.Z as Max
+            #     from STATION 
+            #     join (
+            #         select Max(STATION.Z) as Val_Max
+            #         from STATION
+            #         join _JONCTION on STATION.ID = _JONCTION.STATION_ID
+            #         WHERE _JONCTION.SERIE_ENT = -1 AND _JONCTION.STATION_TYPE = 'ent' 
+            #     ) max on STATION.Z = max.Val_Max
+            #     LIMIT 1
+            # """)
+            # altitude_max = cursor.fetchall()
             
-            ligne[10] = str(altitude_max[0][0])
-            ligne[11] = str("{:.2f}".format(altitude_max[0][1])) 
-            ligne[4] =  str("{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])) 
+            # ligne[10] = str(altitude_max[0][0])
+            # ligne[11] = str("{:.2f}".format(altitude_max[0][1])) 
+            # ligne[4] =  str("{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])) 
+
+            ligne[8] = str("0.00")
+            ligne[9] = str("0.00")
+            ligne[10] = str("0.00")
+            ligne[11] = str("0.00")
 
             for i in range(10): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
             retour.append(ligne)
         
+         
         
             
         ###############################################################################################################

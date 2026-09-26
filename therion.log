@@ -97,23 +97,23 @@ processing survey data ...
  1> Survex 1.4.17
  2> Copyright ¸ 1990-2025 Olly Betts
  3> 
- 4> Survey contains 67582 survey stations, joined by 67732 legs.
+ 4> Survey contains 67580 survey stations, joined by 67730 legs.
  5> There are 326 loops.
  6> Survey has 176 connected components.
- 7> Total length of survey legs = 340527.53m (340535.53m adjusted)
- 8> Total plan length of survey legs = 280775.89m
+ 7> Total length of survey legs = 340527.52m (340535.52m adjusted)
+ 8> Total plan length of survey legs = 280775.88m
  9> Total vertical length of survey legs = 119578.70m
-10> Vertical range = 2016.00m (from 2848 at 2334.00m to 56289 at 318.00m)
-11> North-South range = 11764.76m (from 56818 at 4763951.35m to 8234 at 4752186.58m)
-12> East-West range = 14034.11m (from 56825 at 688034.88m to 53214 at 674000.78m)
+10> Vertical range = 2016.00m (from 2847 at 2334.00m to 56287 at 318.00m)
+11> North-South range = 11764.76m (from 56816 at 4763951.35m to 8233 at 4752186.58m)
+12> East-West range = 14034.11m (from 56823 at 688034.88m to 53212 at 674000.78m)
 13> 
 ######################### transcription ########################
- 4> 67582 : 27@Z510_Fond.Z510_Fond.Z510.Synthese-PSM_LARRA
+ 4> 67580 : 27@Z510_Fond.Z510_Fond.Z510.Synthese-PSM_LARRA
  5> 326 : AN8_d_449@Explo_03_1992_08_01.Explo_03_1992_08_01.AN008.Synthese-PSM_LARRA
  6> 176 : MD10@Explo_01_2007_10_04.Explo_01_2007_10_04.AN001.Synthese-PSM_LARRA
-10> 2848 : AN634@Explo_01_2004_08_14.Explo_01_2004_08_14.AN634.Synthese-PSM_LARRA -- 56289 : ILLA13B@Explo_01_2009_08_01.Explo_01_2009_08_01.Laminako_Ziloa_Illamina.Synthese-PSM_LARRA
-11> 56818 : 11@oueils.Oueils.Synthese-PSM_LARRA -- 8234 : _d_PY_f_2@Explo_01_2015_08_01.Explo_01_2015_08_01.Cathedrale_de_Pyrene.Synthese-PSM_LARRA
-12> 56825 : c1@oueils.Oueils.Synthese-PSM_LARRA -- 53214 : LAC_d_MS21@Explo_17_2016_05_02.Explo_17_2016_05_02.Grotte_aux_lacs.Synthese-PSM_LARRA
+10> 2847 : AN634@Explo_01_2004_08_14.Explo_01_2004_08_14.AN634.Synthese-PSM_LARRA -- 56287 : ILLA13B@Explo_01_2009_08_01.Explo_01_2009_08_01.Laminako_Ziloa_Illamina.Synthese-PSM_LARRA
+11> 56816 : 11@oueils.Oueils.Synthese-PSM_LARRA -- 8233 : _d_PY_f_2@Explo_01_2015_08_01.Explo_01_2015_08_01.Cathedrale_de_Pyrene.Synthese-PSM_LARRA
+12> 56823 : c1@oueils.Oueils.Synthese-PSM_LARRA -- 53212 : LAC_d_MS21@Explo_17_2016_05_02.Explo_17_2016_05_02.Grotte_aux_lacs.Synthese-PSM_LARRA
 #################### end of cavern log file ####################
 done
 calculating basic statistics ... done
@@ -977,7 +977,7 @@ writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 generating TeX metrics ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  26 SEP 2026 20:19
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  26 SEP 2026 22:05
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1352,7 +1352,7 @@ converting scraps ... done
 making map ... done
 generating TeX metrics ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  26 SEP 2026 20:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  26 SEP 2026 22:07
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex (./thfonts.map{
@@ -1397,7 +1397,7 @@ processing projection elevation ... done
 average distortion: 0.45%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  26 SEP 2026 20:35
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  26 SEP 2026 22:22
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1410,7 +1410,7 @@ writing Outputs/SHP/ ... done
 writing Outputs/SHP/ ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.html ... done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
-compilation time: 1001 sec
+compilation time: 1043 sec
 
 
 ######################### loop errors ##########################
