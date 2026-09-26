@@ -36,6 +36,11 @@ jobs:
           echo "VÉRIFICATION DES MODIFICATIONS"
           echo "========================================"
       
+          # Date et heure du commit
+          COMMIT_DATE=$(date '+%Y-%m-%d %H:%M:%S')
+          echo "commit_date=$COMMIT_DATE" >> "$GITHUB_OUTPUT"
+      
+          echo "Date du commit : $COMMIT_DATE"
           # --------------------------------------------------------
           # Lancement manuel
           # --------------------------------------------------------
@@ -510,6 +515,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         env:
           COMMIT_DATE: ${{ steps.changed.outputs.commit_date }}
+        
         with:
           commit_message: "Auto-generate outputs from ScriptPython - ${{ env.COMMIT_DATE }}"
           commit_user_name: "github-actions[bot]"
