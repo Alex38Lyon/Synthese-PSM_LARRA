@@ -25,7 +25,6 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/AN103/AN103-tot.th
 	input Data/AN107/AN107-tot.th
 	input Data/AN109/AN109-tot.th
-	input Data/AN211/AN211-tot.th
 	input Data/AN324/AN324-tot.th
 	input Data/AN325/AN325-tot.th
 	input Data/AN326-Sima_del_Liron/AN326-Sima_del_Liron-tot.th
@@ -50,7 +49,6 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/AN591-Rapido/AN591-Rapido-tot.th
 	input Data/AN594-Verdad/AN594-Verdad-tot.th
 	input Data/AN595-Polaire/AN595-Polaire-tot.th
-	input Data/AN596-Antartica/AN596-Antartica-tot.th
 	input Data/AN616-Daniela/AN616-Daniela-tot.th
 	input Data/AN619-Trou_Fion/AN619-Trou_Fion-tot.th
 	input Data/AN622-Basura/AN622-Basura-tot.th
@@ -68,10 +66,10 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/AN683-Papanatas/AN683-Papanatas-tot.th
 	input Data/AN692-James_Bond/AN692-James_Bond-tot.th
 	input Data/AN699/AN699-tot.th
-	input Data/AN702-Burros/AN702-Burros-tot.th
-	input Data/AN704/AN704-tot.th
 	input Data/AN708-Marmota/AN708-Marmota-tot.th
 	input Data/AN711-Oso/AN711-Oso-tot.th
+	input Data/ANxxx-Antartica/ANxxx-Antartica-tot.th
+	input Data/ANxxx-Burros/ANxxx-Burros-tot.th
 	input Data/AP045/AP045-tot.th
 	input Data/AP333/AP333-tot.th
 	input Data/AP337/AP337-tot.th
@@ -156,10 +154,8 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/Z444/Z444-tot.th
 	input Data/Z510/Z510-tot.th
 
-
 	## Equates list:
-	equate GV8@Explo_03_2016_09_18.Explo_03_2016_09_18.AN211 GV8@Explo_01_2016_09_15.Explo_01_2016_09_15.AN596-Antartica
-
+	
 
 	## Maps list:
 	input Synthese-PSM_LARRA-maps.th
