@@ -2572,11 +2572,11 @@ def sql_bilan_reseaux():
             ligne[0] = str(" ")
             ligne[1] = str("Entrée(s) sans topographie".ljust(_largeurColTete))
             ligne[2] = str(_total_entrees_non_topo)    
-            ligne[3] = str("0.00")
-            ligne[4] = str("0.00")
-            ligne[5] = str("0.00") 
-            ligne[6] = str("0.00")  
-            ligne[7] = str("0")  
+            ligne[3] = str(" - ")
+            ligne[4] = str(" - ")
+            ligne[5] = str(" - ") 
+            ligne[6] = str(" - ")  
+            ligne[7] = str(" - ")  
             
             # cursor.execute(f""" 
             #     -- Requête pour rechercher le points bas d'un réseau / entrée
@@ -2617,10 +2617,10 @@ def sql_bilan_reseaux():
             # ligne[11] = str("{:.2f}".format(altitude_max[0][1])) 
             # ligne[4] =  str("{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])) 
 
-            ligne[8] = str("0.00")
-            ligne[9] = str("0.00")
-            ligne[10] = str("0.00")
-            ligne[11] = str("0.00")
+            ligne[8] = str(" - ")
+            ligne[9] = str(" - ")
+            ligne[10] = str(" - ")
+            ligne[11] = str(" - ")
 
             for i in range(10): ligne[i+1] = ligne[i+1].ljust(_largeurCol)  
             retour.append(ligne)
