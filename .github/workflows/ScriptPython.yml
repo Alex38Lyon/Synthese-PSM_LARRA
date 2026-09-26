@@ -508,8 +508,10 @@ jobs:
       - name: Commit generated files
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
         uses: stefanzweifel/git-auto-commit-action@v7
+        env:
+          COMMIT_DATE: ${{ steps.changed.outputs.commit_date }}
         with:
-          commit_message: "Auto-generate outputs from ScriptPython"
+          commit_message: "Auto-generate outputs from ScriptPython - ${{ env.COMMIT_DATE }}"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
