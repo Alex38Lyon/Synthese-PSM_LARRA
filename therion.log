@@ -96,7 +96,7 @@ processing survey data ...
 ####################### cavern log file ########################
  1> Survex 1.4.17
  2> Copyright ¸ 1990-2025 Olly Betts
- 3> C:\Users\alexa\AppData\Local\Temp\th15776\data.svx:54726: warning: Unused fixed point "49515"
+ 3> C:\Users\alexa\AppData\Local\Temp\th30524\data.svx:54726: warning: Unused fixed point "49515"
  4> 
  5> Survey contains 67580 survey stations, joined by 67728 legs.
  6> There are 326 loops.
@@ -111,7 +111,7 @@ processing survey data ...
 15> There were 1 warning(s).
 16> 
 ######################### transcription ########################
- 3> 15776 : AN43IB1@Explo_328_2017_08_09.Explo_328_2017_08_09.Complexe_Anialarra.Synthese-PSM_LARRA
+ 3> 30524 : -@Explo_86_2023_08_01.Explo_86_2023_08_01.Complexe_BU56_Ilamina.Synthese-PSM_LARRA
  3> input:54726 -- Data/Complexe_PSM_GdP/Data/C104/Data/Explo_01_2007_08_01/Data/Explo_01_2007_08_01.th [15]
  3> 49515 : C_104@Explo_01_2007_08_01A.Explo_01_2007_08_01.C104.Complexe_PSM_GdP.Synthese-PSM_LARRA
  5> 67580 : 27@Z510_Fond.Z510_Fond.Z510.Synthese-PSM_LARRA
@@ -984,7 +984,7 @@ writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 generating TeX metrics ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  26 SEP 2026 09:49
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  26 SEP 2026 10:32
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1359,7 +1359,7 @@ converting scraps ... done
 making map ... done
 generating TeX metrics ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  26 SEP 2026 09:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  26 SEP 2026 10:34
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex (./thfonts.map{
@@ -1404,7 +1404,7 @@ processing projection elevation ... done
 average distortion: 0.45%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  26 SEP 2026 10:06
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  26 SEP 2026 10:48
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1417,7 +1417,7 @@ writing Outputs/SHP/ ... done
 writing Outputs/SHP/ ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.html ... done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
-compilation time: 1036 sec
+compilation time: 1029 sec
 
 
 ######################### loop errors ##########################
