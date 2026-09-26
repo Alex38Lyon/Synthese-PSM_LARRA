@@ -1,4 +1,4 @@
-name: ScriptPython
+name: ScriptPythonOld
 on:
   push:
     branches:
@@ -12,7 +12,7 @@ concurrency:
   group: pyThtoQgis
   cancel-in-progress: false
 jobs:
-  ScriptPython:
+  ScriptPythonOld:
     runs-on: ubuntu-24.04
     steps:
       # ============================================================
