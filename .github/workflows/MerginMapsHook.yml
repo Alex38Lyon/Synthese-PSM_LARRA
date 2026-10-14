@@ -1,5 +1,5 @@
 # Wokflow pour envoyer un webhook pour déclencher la copie des fichiers vers MerginMaps
-name: Mergin Maps - Webhook de synchronisation
+name: MerginMapsHook
 on:
   push:
     branches:
