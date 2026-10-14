@@ -167,7 +167,7 @@ class FileFormatter(logging.Formatter):
 #################################################################################################
 # Fonction de configuration du logger
 #################################################################################################
-def setup_logger(logfile="app.log", debug_log=False):
+def setup_loggerOld(logfile="app.log", debug_log=False):
     logger = logging.getLogger("Logger")
     logger.setLevel(logging.DEBUG)
     logger.handlers.clear()
@@ -186,6 +186,36 @@ def setup_logger(logfile="app.log", debug_log=False):
     file_handler.setLevel(min_level)
     file_formatter = FileFormatter("%(asctime)s - %(levelname)s - %(message)s")
     file_handler.setFormatter(file_formatter)
+    logger.addHandler(file_handler)
+
+    return logger
+
+
+def setup_logger(logfile="app.log", debug_log=False):
+    logger = logging.getLogger("Logger")
+    logger.setLevel(logging.DEBUG)
+    logger.handlers.clear()
+    logger.propagate = False
+
+    min_level = logging.DEBUG if debug_log else logging.INFO
+
+    # Console stdout — DEBUG et INFO
+    stdout_handler = logging.StreamHandler(sys.stdout)
+    stdout_handler.setLevel(min_level)
+    stdout_handler.addFilter(lambda record: record.levelno < logging.WARNING)
+    stdout_handler.setFormatter(ConsoleFormatter("%(levelname)s: %(message)s"))
+    logger.addHandler(stdout_handler)
+
+    # Console stderr — WARNING et niveaux supérieurs
+    stderr_handler = logging.StreamHandler(sys.stderr)
+    stderr_handler.setLevel(logging.WARNING)
+    stderr_handler.setFormatter(ConsoleFormatter("%(levelname)s: %(message)s"))
+    logger.addHandler(stderr_handler)
+
+    # Fichier — tous les messages selon le niveau configuré
+    file_handler = logging.FileHandler(logfile, encoding="utf-8")
+    file_handler.setLevel(min_level)
+    file_handler.setFormatter(FileFormatter("%(asctime)s - %(levelname)s - %(message)s"))
     logger.addHandler(file_handler)
 
     return logger
