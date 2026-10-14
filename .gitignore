@@ -3,10 +3,16 @@
 **.backup
 .xtherion.dat
 
+
+
+# Secrets locaux
+.env
+.env.*
+!.env.example
+
 # Folders
 **/OLD/
 **/old/
 **/.venv.
 **/.vscode/
-
-
+**/Temp_mergin/
