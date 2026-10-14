@@ -101,20 +101,28 @@ def setup_logger(logfile="app.log", debug_log=False):
 
     min_level = logging.DEBUG if debug_log else logging.INFO
 
+    class MaxLevelFilter(logging.Filter):
+        def __init__(self, max_level):
+            super().__init__()
+            self.max_level = max_level
+
+        def filter(self, record):
+            return record.levelno < self.max_level
+
     # stdout : DEBUG, INFO et WARNING
-    stdout_handler = logging.StreamHandler(stream=sys.stdout)
+    stdout_handler = logging.StreamHandler(sys.stdout)
     stdout_handler.setLevel(min_level)
-    stdout_handler.addFilter(lambda record: record.levelno < logging.ERROR)
+    stdout_handler.addFilter(MaxLevelFilter(logging.ERROR))
     stdout_handler.setFormatter(ConsoleFormatter("%(levelname)s: %(message)s"))
     logger.addHandler(stdout_handler)
 
-    # stderr : ERROR et CRITICAL
-    stderr_handler = logging.StreamHandler(stream=sys.stderr)
+    # stderr : ERROR et CRITICAL uniquement
+    stderr_handler = logging.StreamHandler(sys.stderr)
     stderr_handler.setLevel(logging.ERROR)
     stderr_handler.setFormatter(ConsoleFormatter("%(levelname)s: %(message)s"))
     logger.addHandler(stderr_handler)
 
-    # Fichier : tous les messages autorisés
+    # Fichier de log
     file_handler = logging.FileHandler(logfile, encoding="utf-8")
     file_handler.setLevel(min_level)
     file_handler.setFormatter(FileFormatter("%(asctime)s - %(levelname)s - %(message)s"))
