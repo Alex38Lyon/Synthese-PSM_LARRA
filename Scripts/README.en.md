@@ -63,4 +63,14 @@ Usage:
     - Run python pyThtoBD.py, then select the Therion folder to export.
     - Results for Karsteau will be in the /Outputs/Export_bd/ directory.
     - Coming soon – Import the export results into Karsteau.
+	 
+[Details](./pyThtoBD/README.rst)	
+
+pyThtoDat (in process)
+--------
+
+Script to export files too a MerginMaps project 
+
+	
+
 	   

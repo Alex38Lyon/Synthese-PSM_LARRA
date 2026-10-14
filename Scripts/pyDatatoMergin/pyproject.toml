@@ -1,0 +1,6 @@
+
+[tool.ruff]
+line-length = 160
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true

@@ -72,3 +72,11 @@ Utilisation:
 	- A venir - Importer le résultat de l'importation dans Karsteau    
 
 [Détails](./pyThtoBD/README.rst)	
+	
+pyThtoDat (développement en cours)
+--------
+
+Script pour exporter des fichiers vers un projet MerginMaps 
+
+	
+
