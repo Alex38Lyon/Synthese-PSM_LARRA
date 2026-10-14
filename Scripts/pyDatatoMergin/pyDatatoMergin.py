@@ -474,6 +474,9 @@ if __name__ == "__main__":
     elif os.environ.get("TERM"):
         subprocess.run(["clear"], check=False)
 
+    INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"
+    print(f"stdout={sys.stdout.isatty()}, stderr={sys.stderr.isatty()}, TERM={os.environ.get('TERM')!r}, interactif={INTERACTIF}", file=sys.stderr)
+
     parser = argparse.ArgumentParser(description="Envoi de fichiers vers Mergin Maps")
     # parser.add_argument("--source", required=True, help="Dossier contenant les fichiers à envoyer")
     # parser.add_argument("--projet-local", required=True, help="Dossier local du projet Mergin Maps")

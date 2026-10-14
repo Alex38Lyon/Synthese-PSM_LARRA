@@ -98,10 +98,13 @@ INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TER
 #################################################################################################
 class ConsoleFormatter(logging.Formatter):
     def format(self, record):
-        color = COLOR_CODES.get(record.levelno, "")
         message = super().format(record)
 
-        return f"{color}{message}{RESET}" if INTERACTIF else strip_ansi_codes(message)
+        if INTERACTIF:
+            color = COLOR_CODES.get(record.levelno, "")
+            return f"{color}{message}{RESET}"
+
+        return strip_ansi_codes(message)
 
 
 #################################################################################################
