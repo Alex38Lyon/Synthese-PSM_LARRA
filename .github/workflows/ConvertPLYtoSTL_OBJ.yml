@@ -1,13 +1,10 @@
 name: Convert PLY to STL/OBJ
-
 on:
   push:
     paths:
       - '**/*.ply'
-
 permissions:
   contents: write
-
 jobs:
   convert:
     runs-on: ubuntu-latest
@@ -37,7 +34,6 @@ jobs:
               print(f'  -> {stl}')
               print(f'  -> {obj}')
           "
-
       - name: Commit converted files
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
