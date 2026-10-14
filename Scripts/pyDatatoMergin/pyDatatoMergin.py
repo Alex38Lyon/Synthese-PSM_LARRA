@@ -34,7 +34,8 @@ def suivre_transfert(job, verifier, titre: str) -> None:
         return
 
     precedent = 0
-    interactif = sys.stdout.isatty()
+    # interactif = sys.stdout.isatty()
+    interactif = sys.stdout.isatty() and sys.stderr.isatty() and bool(os.environ.get("TERM", "")) and os.environ.get("TERM") != "dumb"
 
     if interactif:
         with alive_bar(taille_totale, title=f"{Colors.YELLOW}{titre}{Colors.ENDC}", stats=True, dual_line=True, scale="SI", unit="o") as barre:
@@ -162,46 +163,6 @@ def lister_fichiers_github(session: requests.Session, depot: str, branche: str, 
 
 
 ############################################################################################################################################
-def telecharger_depuis_githubOld(depot: str, branche: str, chemin: str, dossier_cible: Path, token: str | None = None) -> Path:
-    """Télécharge uniquement un fichier ou un dossier d'un dépôt GitHub.
-
-    chemin : chemin dans le dépôt, ex. 'data/gpkg' ou 'data/couche.gpkg' ('' = tout le dépôt)
-    Retourne le fichier ou le dossier local téléchargé.
-    """
-
-    chemin = chemin.strip("/")
-
-    if dossier_cible.exists():
-        shutil.rmtree(dossier_cible)
-    dossier_cible.mkdir(parents=True)
-
-    with requests.Session() as session:
-        fichiers = lister_fichiers_github(session, depot, branche, chemin, token)
-        if not fichiers:
-            raise ValueError(f"Aucun fichier trouvé dans : {chemin or '/'}")
-
-        # Un seul fichier demandé : on le garde à plat ; sinon on conserve l'arborescence relative au dossier demandé.
-        est_fichier = len(fichiers) == 1 and fichiers[0]["path"] == chemin
-        base = chemin.rpartition("/")[0] if est_fichier else chemin
-        total = sum(f.get("size", 0) for f in fichiers) or None
-
-        with alive_bar(total, title=f"{Colors.YELLOW}Téléchargement GitHub{Colors.ENDC}", stats=True, scale="SI", unit="o") as barre:
-            for fichier in fichiers:
-                relatif = fichier["path"][len(base) :].lstrip("/") if base else fichier["path"]
-                local = dossier_cible / relatif
-                local.parent.mkdir(parents=True, exist_ok=True)
-
-                url = f"{GITHUB_API}/repos/{depot}/contents/{quote(fichier['path'])}"
-                with session.get(url, params={"ref": branche}, headers=_entetes_github(token, brut=True), stream=True, timeout=120) as r:
-                    r.raise_for_status()
-                    with open(local, "wb") as f:
-                        for morceau in r.iter_content(chunk_size=1024 * 256):
-                            f.write(morceau)
-                            barre(len(morceau))
-
-    return dossier_cible / Path(chemin).name if est_fichier else dossier_cible
-
-
 def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cible: Path, token: str | None = None) -> Path:
     """Télécharge uniquement un fichier ou un dossier d'un dépôt GitHub.
 
@@ -224,7 +185,8 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
         est_fichier = len(fichiers) == 1 and fichiers[0]["path"] == chemin
         base = chemin.rpartition("/")[0] if est_fichier else chemin
         total = sum(f.get("size", 0) for f in fichiers) or None
-        interactif = sys.stdout.isatty()
+        # interactif = sys.stdout.isatty()
+        interactif = sys.stdout.isatty() and sys.stderr.isatty() and bool(os.environ.get("TERM", "")) and os.environ.get("TERM") != "dumb"
         precedent = 0
 
         def telecharger_fichiers(barre=None) -> None:

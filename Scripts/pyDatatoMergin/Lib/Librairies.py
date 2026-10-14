@@ -4,7 +4,7 @@ Librairies générales pour pyDatatoMergin.py
 #############################################################################################
 """
 
-import logging, sys, re, hashlib  # noqa: I001
+import logging, sys, re, hashlib, os  # noqa: I001
 
 logger = logging.getLogger("Logger")
 
@@ -90,7 +90,8 @@ class Colors:
     UNDERLINE = "\033[4m"
 
 
-INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty()
+# INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty()
+INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"
 
 
 #################################################################################################
