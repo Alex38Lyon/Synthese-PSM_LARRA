@@ -90,6 +90,9 @@ class Colors:
     UNDERLINE = "\033[4m"
 
 
+INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty()
+
+
 #################################################################################################
 # Formatter pour la console avec couleurs
 #################################################################################################
@@ -97,11 +100,12 @@ class ConsoleFormatter(logging.Formatter):
     def format(self, record):
         color = COLOR_CODES.get(record.levelno, "")
         message = super().format(record)
-        return f"{color}{message}{RESET}"
+
+        return f"{color}{message}{RESET}" if INTERACTIF else strip_ansi_codes(message)
 
 
 #################################################################################################
-# Supprime les codes ANSI (pour l'écriture dans les fichiers)
+# Supprime les codes ANSI (pour l'écriture dans les fichiers ou en mode non interactif)
 #################################################################################################
 def strip_ansi_codes(text):
     ansi_escape = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
@@ -115,6 +119,7 @@ class FileFormatter(logging.Formatter):
     def format(self, record):
         clean_msg = strip_ansi_codes(record.getMessage())
         prefix = "!!! " if record.levelno >= logging.ERROR else ""
+
         record_copy = logging.LogRecord(
             name=record.name,
             level=record.levelno,
@@ -139,17 +144,17 @@ def setup_logger(logfile="app.log", debug_log=False):
 
     min_level = logging.DEBUG if debug_log else logging.INFO
 
-    # Console stderr handler — affichage à l'écran avec couleurs
+    # Console stderr handler — couleurs uniquement en mode interactif
     stderr_handler = logging.StreamHandler(sys.stderr)
     stderr_handler.setLevel(min_level)
-    stderr_formatter = ConsoleFormatter("%(levelname)s: %(message)s")  # <-- Ta classe personnalisée
+    stderr_formatter = ConsoleFormatter("%(levelname)s: %(message)s")
     stderr_handler.setFormatter(stderr_formatter)
     logger.addHandler(stderr_handler)
 
-    # File handler — fichier de log
+    # File handler — fichier de log sans codes ANSI
     file_handler = logging.FileHandler(logfile, encoding="utf-8")
     file_handler.setLevel(min_level)
-    file_formatter = FileFormatter("%(asctime)s - %(levelname)s - %(message)s")  # <-- Ta classe personnalisée
+    file_formatter = FileFormatter("%(asctime)s - %(levelname)s - %(message)s")
     file_handler.setFormatter(file_formatter)
     logger.addHandler(file_handler)
 

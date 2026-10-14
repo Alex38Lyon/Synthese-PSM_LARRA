@@ -30,27 +30,44 @@ def suivre_transfert(job, verifier, titre: str) -> None:
     if taille_totale <= 0:
         while verifier(job):
             time.sleep(0.2)
+        logger.info(f"{Colors.ENDC}{titre}{Colors.INFO} : transfert terminé.")
         return
 
     precedent = 0
+    interactif = sys.stdout.isatty()
 
-    with alive_bar(taille_totale, title=f"{Colors.YELLOW}{titre}{Colors.ENDC}", stats=True, dual_line=True, scale="SI", unit="o") as barre:
+    if interactif:
+        with alive_bar(taille_totale, title=f"{Colors.YELLOW}{titre}{Colors.ENDC}", stats=True, dual_line=True, scale="SI", unit="o") as barre:
+            while verifier(job):
+                actuel = job.transferred_size
+                delta = actuel - precedent
+
+                if delta > 0:
+                    barre(delta)
+                    precedent = actuel
+
+                time.sleep(0.2)
+
+            # Comptabilise les derniers octets transférés.
+            delta = job.transferred_size - precedent
+            if delta > 0:
+                barre(delta)
+    else:
+        logger.info(f"{Colors.ENDC}{titre}{Colors.INFO} : transfert démarré ({Colors.ENDC}{taille_totale}{Colors.INFO} octets).")
+
         while verifier(job):
             actuel = job.transferred_size
             delta = actuel - precedent
 
             if delta > 0:
-                barre(delta)
                 precedent = actuel
+                logger.debug(
+                    f"({Colors.ENDC}{titre}{Colors.DEBUG} : {Colors.ENDC}{actuel * 100 / taille_totale:.1f}{Colors.DEBUG} ({Colors.ENDC}{actuel}{Colors.DEBUG} / {Colors.ENDC}{taille_totale}{Colors.DEBUG} octets)"
+                )
 
             time.sleep(0.2)
 
-        # Comptabilise les derniers octets transférés.
-        actuel = job.transferred_size
-        delta = actuel - precedent
-
-        if delta > 0:
-            barre(delta)
+        logger.info(f"{Colors.ENDC}{titre}{Colors.INFO} : transfert terminé.")
 
 
 ############################################################################################################################################
@@ -145,7 +162,7 @@ def lister_fichiers_github(session: requests.Session, depot: str, branche: str, 
 
 
 ############################################################################################################################################
-def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cible: Path, token: str | None = None) -> Path:
+def telecharger_depuis_githubOld(depot: str, branche: str, chemin: str, dossier_cible: Path, token: str | None = None) -> Path:
     """Télécharge uniquement un fichier ou un dossier d'un dépôt GitHub.
 
     chemin : chemin dans le dépôt, ex. 'data/gpkg' ou 'data/couche.gpkg' ('' = tout le dépôt)
@@ -181,6 +198,73 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
                         for morceau in r.iter_content(chunk_size=1024 * 256):
                             f.write(morceau)
                             barre(len(morceau))
+
+    return dossier_cible / Path(chemin).name if est_fichier else dossier_cible
+
+
+def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cible: Path, token: str | None = None) -> Path:
+    """Télécharge uniquement un fichier ou un dossier d'un dépôt GitHub.
+
+    chemin : chemin dans le dépôt, ex. 'data/gpkg' ou 'data/couche.gpkg' ('' = tout le dépôt)
+    Retourne le fichier ou le dossier local téléchargé.
+    """
+
+    chemin = chemin.strip("/")
+
+    if dossier_cible.exists():
+        shutil.rmtree(dossier_cible)
+    dossier_cible.mkdir(parents=True)
+
+    with requests.Session() as session:
+        fichiers = lister_fichiers_github(session, depot, branche, chemin, token)
+        if not fichiers:
+            raise ValueError(f"Aucun fichier trouvé dans : {chemin or '/'}")
+
+        # Un fichier demandé : destination à plat ; sinon, conserver l'arborescence.
+        est_fichier = len(fichiers) == 1 and fichiers[0]["path"] == chemin
+        base = chemin.rpartition("/")[0] if est_fichier else chemin
+        total = sum(f.get("size", 0) for f in fichiers) or None
+        interactif = sys.stdout.isatty()
+        precedent = 0
+
+        def telecharger_fichiers(barre=None) -> None:
+            nonlocal precedent
+
+            for fichier in fichiers:
+                relatif = fichier["path"][len(base) :].lstrip("/") if base else fichier["path"]
+                local = dossier_cible / relatif
+                local.parent.mkdir(parents=True, exist_ok=True)
+
+                url = f"{GITHUB_API}/repos/{depot}/contents/{quote(fichier['path'])}"
+                with session.get(url, params={"ref": branche}, headers=_entetes_github(token, brut=True), stream=True, timeout=120) as reponse:
+                    reponse.raise_for_status()
+
+                    with open(local, "wb") as sortie:
+                        for morceau in reponse.iter_content(chunk_size=1024 * 256):
+                            if not morceau:
+                                continue
+
+                            sortie.write(morceau)
+                            precedent += len(morceau)
+
+                            if barre:
+                                barre(len(morceau))
+                            else:
+                                logger.debug(
+                                    "GitHub : %s — %.1f %% (%s / %s octets)", fichier["path"], precedent * 100 / total if total else 0, precedent, total or "?"
+                                )
+
+        logger.info(
+            f"Téléchargement GitHub : {Colors.ENDC}{depot}{Colors.INFO}/{Colors.ENDC}{branche}{Colors.INFO}, chemin {Colors.ENDC}{chemin or '/'}{Colors.INFO}"
+        )
+
+        if interactif and total:
+            with alive_bar(total, title=f"{Colors.YELLOW}Téléchargement GitHub{Colors.ENDC}", stats=True, scale="SI", unit="o") as barre:
+                telecharger_fichiers(barre)
+        else:
+            telecharger_fichiers()
+
+        logger.info(f"Téléchargement GitHub terminé : {Colors.ENDC}{len(fichiers)}{Colors.INFO} fichier(s), {Colors.ENDC}{precedent}{Colors.INFO} octets.")
 
     return dossier_cible / Path(chemin).name if est_fichier else dossier_cible
 
