@@ -424,10 +424,10 @@ def information_depot_mergin(projet, client):
 #                                                                                                                                          #
 ############################################################################################################################################
 if __name__ == "__main__":
-    if os.name == "nt":  # Windows
-        subprocess.run("cls", shell=True, check=True)
-    else:  # Linux / macOS
-        subprocess.run(["clear"], check=True)
+    if os.name == "nt":
+        subprocess.run("cls", shell=True, check=False)
+    elif os.environ.get("TERM"):
+        subprocess.run(["clear"], check=False)
 
     parser = argparse.ArgumentParser(description="Envoi de fichiers vers Mergin Maps")
     # parser.add_argument("--source", required=True, help="Dossier contenant les fichiers à envoyer")
