@@ -1,0 +1,52 @@
+# Wokflow pour envoyer un webhook pour déclencher la copie des fichiers vers MerginMaps
+name: Mergin Maps - Webhook de synchronisation
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Outputs/SHP/QGis_GPKG_Files/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  notify-mergin:
+    name: Notifier n8n
+    runs-on: ubuntu-latest
+    steps:
+      - name: Envoyer le webhook à n8n
+        env:
+          WEBHOOK_URL: https://flows.arsip.fr/webhook-test/mergin-sync-event
+          REPOSITORY: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          COMMIT: ${{ github.sha }}
+          ACTOR: ${{ github.actor }}
+          EVENT: ${{ github.event_name }}
+          PAYLOAD: ${{ toJson(github.event) }}
+        run: |
+          set -euo pipefail
+          jq -n \
+            --arg repository "$REPOSITORY" \
+            --arg branch "$BRANCH" \
+            --arg commit "$COMMIT" \
+            --arg actor "$ACTOR" \
+            --arg event "$EVENT" \
+            --argjson payload "$PAYLOAD" \
+            '{
+              repository: $repository,
+              branch: $branch,
+              commit: $commit,
+              actor: $actor,
+              event: $event,
+              payload: $payload
+            }' > payload.json
+          curl --fail-with-body --silent --show-error \
+            --retry 2 \
+            --retry-delay 2 \
+            --connect-timeout 10 \
+            --max-time 60 \
+            -X POST "$WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            --data-binary @payload.json
+          echo "Webhook envoyé à n8n"
