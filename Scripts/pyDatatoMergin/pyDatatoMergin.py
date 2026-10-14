@@ -15,10 +15,17 @@ from mergin import MerginClient
 from mergin.client_pull import download_project_async, download_project_is_running, download_project_finalize
 from mergin.client_push import push_project_async, push_project_is_running, push_project_finalize
 
-from Lib.Librairies import setup_logger, Colors
+from Lib.Librairies import setup_logger, Colors, AnsiStrippingStream
 from Lib import GlobalData
 
 GITHUB_API = "https://api.github.com"
+
+
+INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"
+
+if not INTERACTIF:
+    sys.stdout = AnsiStrippingStream(sys.stdout)
+    sys.stderr = AnsiStrippingStream(sys.stderr)
 
 
 ############################################################################################################################################
@@ -474,7 +481,6 @@ if __name__ == "__main__":
     elif os.environ.get("TERM"):
         subprocess.run(["clear"], check=False)
 
-    INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"
     print(f"stdout={sys.stdout.isatty()}, stderr={sys.stderr.isatty()}, TERM={os.environ.get('TERM')!r}, interactif={INTERACTIF}", file=sys.stderr)
 
     parser = argparse.ArgumentParser(description="Envoi de fichiers vers Mergin Maps")

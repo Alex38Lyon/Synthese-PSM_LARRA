@@ -90,7 +90,34 @@ class Colors:
     UNDERLINE = "\033[4m"
 
 
+#################################################################################################
+class AnsiStrippingStream:
+    """Supprime les codes ANSI des sorties en mode non interactif."""
+
+    def __init__(self, stream):
+        self.stream = stream
+
+    def write(self, text):
+        return self.stream.write(strip_ansi_codes(text))
+
+    def flush(self):
+        return self.stream.flush()
+
+    def isatty(self):
+        return self.stream.isatty()
+
+    def fileno(self):
+        return self.stream.fileno()
+
+    def __getattr__(self, name):
+        return getattr(self.stream, name)
+
+
 INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"
+
+if not INTERACTIF:
+    sys.stdout = AnsiStrippingStream(sys.stdout)
+    sys.stderr = AnsiStrippingStream(sys.stderr)
 
 
 #################################################################################################
