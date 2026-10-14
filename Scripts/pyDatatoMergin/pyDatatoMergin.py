@@ -41,9 +41,9 @@ def suivre_transfert(job, verifier, titre: str) -> None:
         return
 
     precedent = 0
-    # interactif = sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"
+    interactif = os.environ.get("TERM", "").lower() != "none"
 
-    if INTERACTIF:
+    if interactif:
         with alive_bar(taille_totale, title=f"{Colors.YELLOW}{titre}{Colors.ENDC}", stats=True, dual_line=True, scale="SI", unit="o") as barre:
             while verifier(job):
                 actuel = job.transferred_size
@@ -192,7 +192,7 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
         base = chemin.rpartition("/")[0] if est_fichier else chemin
         total = sum(f.get("size", 0) for f in fichiers) or None
 
-        # interactif = sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"
+        interactif = os.environ.get("TERM", "").lower() != "none"
         precedent = 0
 
         def telecharger_fichiers(barre=None) -> None:
@@ -226,9 +226,10 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
             f"Téléchargement GitHub : {Colors.ENDC}{depot}{Colors.INFO}/{Colors.ENDC}{branche}{Colors.INFO}, chemin {Colors.ENDC}{chemin or '/'}{Colors.INFO}"
         )
 
-        if INTERACTIF and total:
+        if interactif:
             with alive_bar(total, title=f"{Colors.YELLOW}Téléchargement GitHub{Colors.ENDC}", stats=True, scale="SI", unit="o") as barre:
                 telecharger_fichiers(barre)
+
         else:
             telecharger_fichiers()
 
