@@ -1,3 +1,6 @@
+# Workflow de conversion automatique
+# Convertit tous les fichiers PLY en STL et OBJ
+# Déclenché à chaque push contenant un fichier .ply
 name: Convert PLY to STL
 on:
   push:
