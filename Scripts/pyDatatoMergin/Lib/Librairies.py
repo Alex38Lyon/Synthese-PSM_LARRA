@@ -93,30 +93,6 @@ class Colors:
 #################################################################################################
 # Fonction de configuration du logger
 #################################################################################################
-def setup_loggerOld(logfile="app.log", debug_log=False):
-    logger = logging.getLogger("Logger")
-    logger.setLevel(logging.DEBUG)
-    logger.handlers.clear()
-
-    min_level = logging.DEBUG if debug_log else logging.INFO
-
-    # Console stderr handler — couleurs uniquement en mode interactif
-    stderr_handler = logging.StreamHandler(sys.stderr)
-    stderr_handler.setLevel(min_level)
-    stderr_formatter = ConsoleFormatter("%(levelname)s: %(message)s")
-    stderr_handler.setFormatter(stderr_formatter)
-    logger.addHandler(stderr_handler)
-
-    # File handler — fichier de log sans codes ANSI
-    file_handler = logging.FileHandler(logfile, encoding="utf-8")
-    file_handler.setLevel(min_level)
-    file_formatter = FileFormatter("%(asctime)s - %(levelname)s - %(message)s")
-    file_handler.setFormatter(file_formatter)
-    logger.addHandler(file_handler)
-
-    return logger
-
-
 def setup_logger(logfile="app.log", debug_log=False):
     logger = logging.getLogger("Logger")
     logger.setLevel(logging.DEBUG)
@@ -125,17 +101,16 @@ def setup_logger(logfile="app.log", debug_log=False):
 
     min_level = logging.DEBUG if debug_log else logging.INFO
 
-    # stdout : DEBUG et INFO
+    # stdout : DEBUG, INFO et WARNING
     stdout_handler = logging.StreamHandler(stream=sys.stdout)
     stdout_handler.setLevel(min_level)
-    stdout_handler.addFilter(lambda record: record.levelno < logging.WARNING)
+    stdout_handler.addFilter(lambda record: record.levelno < logging.ERROR)
     stdout_handler.setFormatter(ConsoleFormatter("%(levelname)s: %(message)s"))
     logger.addHandler(stdout_handler)
 
-    # stderr : WARNING, ERROR et CRITICAL
+    # stderr : ERROR et CRITICAL
     stderr_handler = logging.StreamHandler(stream=sys.stderr)
-    stderr_handler.setLevel(logging.WARNING)
-    stderr_handler.addFilter(lambda record: record.levelno >= logging.WARNING)
+    stderr_handler.setLevel(logging.ERROR)
     stderr_handler.setFormatter(ConsoleFormatter("%(levelname)s: %(message)s"))
     logger.addHandler(stderr_handler)
 
