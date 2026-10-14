@@ -90,7 +90,6 @@ class Colors:
     UNDERLINE = "\033[4m"
 
 
-# INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty()
 INTERACTIF = sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"
 
 
