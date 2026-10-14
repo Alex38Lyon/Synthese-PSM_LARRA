@@ -1,3 +1,4 @@
+# Workflow d'execution automatique des scripts python
 name: ScriptPython
 on:
   push:
