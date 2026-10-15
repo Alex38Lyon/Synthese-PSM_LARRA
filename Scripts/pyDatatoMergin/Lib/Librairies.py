@@ -4,7 +4,10 @@ Librairies générales pour pyDatatoMergin.py
 #############################################################################################
 """
 
-import logging, sys, re, hashlib, os  # noqa: I001
+import logging, sys, re, hashlib, os, configparser  # noqa: I001
+from pathlib import Path
+from parameter_expansion import expand # type: ignore
+from Lib import GlobalData
 
 logger = logging.getLogger("Logger")
 
@@ -231,3 +234,66 @@ def get_sha256(file_path):
             sha256.update(chunk)
 
     return sha256.hexdigest()
+
+#################################################################################################
+def load_config(configIni="config.ini", profile="Default"):
+    """
+    Charge un fichier de configuration .ini et initialise les variables globales.
+
+    Args:
+        configIni: Nom du fichier de configuration.
+        profile: Nom du profil Survey_Data à utiliser.
+                 Exemple : Survey_Data:PSM
+    """
+
+    try:   
+        # Chemin potentiel du fichier config
+        config_file = Path(__file__).resolve().parent / configIni
+        # config_file = os.path.join(os.path.dirname(__file__), configIni)
+        if not os.path.isfile(config_file):
+            config_file = configIni
+
+        config = configparser.ConfigParser()
+        config.read(config_file, encoding="utf-8")
+
+        # ----------------------------------------------------------
+        # Sélection du profil Depot_Data
+        # ----------------------------------------------------------
+        depot_section = f"Depot_Data:{profile}"
+
+        if depot_section in config:
+            depot_cfg = config[depot_section]
+
+        elif "Depot_Data" in config:
+            # Compatibilité ancienne configuration
+            depot_cfg = config["Depot_Data"]
+
+            if profile != "Default":
+                logger.warning(f"Profile '{Colors.ENDC}{profile}{Colors.WARNING}' not found. Using legacy default {Colors.ENDC}[Survey_Data]{Colors.WARNING} section.")
+                profile = "Default"
+        
+        else:
+            raise ValueError(f"Section [{depot_section}] not found and no legacy [Survey_Data] section available.")
+
+        # ----------------------------------------------------------
+        # Lecture Depot_Data
+        # ----------------------------------------------------------
+        depot_keys = {
+            'Dest_project': 'Dest_project',
+            'Github_repo': 'Github_repo',
+            'Github_path': 'Github_path',
+            'Github_branch': 'Github_branch',
+            'Dest_folder': 'Dest_folder'
+        }
+
+ 
+        for key, attr in depot_keys.items():
+            if key in depot_cfg:
+                value = expand(depot_cfg[key])
+                setattr(GlobalData, attr, value)
+
+        return config_file
+
+    except (OSError, configparser.Error, ValueError) as e:
+        logger.critical(f"Reading config file : {Colors.ENDC}{configIni}{Colors.ERROR} error : {Colors.ENDC}{e}"  )
+        sys.exit(0)
