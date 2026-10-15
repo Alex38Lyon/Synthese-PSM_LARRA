@@ -12,7 +12,7 @@ Temp_folder = "Temp_mergin"
 
 Inputs_folder = "D:/08_GitHub/Synthese-PSM_LARRA/Outputs/SHP/QGis_GPKG_Files"
 
-Debug_log = False
+Debug_log = True
 Dest_project = "mergin/ARR"  # mergin/Synthese_Folly-Puaire-Criou"  # "mergin/LAKORA"  # "mergin/ARR"
 
 

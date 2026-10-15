@@ -5,6 +5,27 @@
 		}
 	],
 	"settings": {
-		"python-envs.defaultEnvManager": "ms-python.python:system"
+		"python-envs.defaultEnvManager": "ms-python.python:system",
+		"cSpell.words": [
+			"ansi",
+			"Criou",
+			"Datato",
+			"dotenv",
+			"ENDC",
+			"entetes",
+			"github",
+			"Github",
+			"gpkg",
+			"LAKORA",
+			"LARRA",
+			"mergin",
+			"Mergin",
+			"Nbre",
+			"Puaire",
+			"reponse",
+			"sinfo",
+			"Synthese",
+			"telecharger"
+		]
 	}
 }

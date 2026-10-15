@@ -8,13 +8,13 @@ import argparse, shutil, os, sys, subprocess, time, logging, requests  # noqa: I
 from urllib.parse import quote
 from pathlib import Path
 from dotenv import load_dotenv
-from alive_progress import alive_bar # type: ignore
+from alive_progress import alive_bar  # type: ignore
 
-from mergin import MerginClient # type: ignore
-from mergin.client_pull import download_project_async, download_project_is_running, download_project_finalize # type: ignore
-from mergin.client_push import push_project_async, push_project_is_running, push_project_finalize # type: ignore
+from mergin import MerginClient  # type: ignore
+from mergin.client_pull import download_project_async, download_project_is_running, download_project_finalize  # type: ignore
+from mergin.client_push import push_project_async, push_project_is_running, push_project_finalize  # type: ignore
 
-from Lib.Librairies import setup_logger, Colors, AnsiStrippingStream, load_config, colored_help
+from Lib.Librairies import setup_logger, Colors, AnsiStrippingStream, load_config, colored_help, safe_relpath
 from Lib import GlobalData
 
 GITHUB_API = "https://api.github.com"
@@ -87,13 +87,18 @@ def telecharger_avec_progression(client: MerginClient, projet: str, dossier: Pat
 ############################################################################################################################################
 def envoyer_avec_progression(client: MerginClient, dossier: Path) -> None:
     """Envoie les modifications vers Mergin Maps avec suivi."""
+    if GlobalData.Debug_log == False:
+        job = push_project_async(client, str(dossier))
 
-    job = push_project_async(client, str(dossier))
-    if job is None:
-        logger.warning("Aucune modification à envoyer.")
-        return
-    suivre_transfert(job, push_project_is_running, "Envoi vers Mergin")
-    push_project_finalize(job)
+        if job is None:
+            logger.warning("Aucune modification à envoyer.")
+            return
+
+        suivre_transfert(job, push_project_is_running, "Envoi vers Mergin")
+        push_project_finalize(job)
+
+    else:
+        logger.debug("Mode debug, aucune modification envoyée sur le serveur Mergin Maps")
 
 
 ############################################################################################################################################
@@ -220,9 +225,9 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
                                     "GitHub : %s — %.1f %% (%s / %s octets)", fichier["path"], precedent * 100 / total if total else 0, precedent, total or "?"
                                 )
 
-        logger.info(
-            f"Téléchargement GitHub : {Colors.ENDC}{depot}{Colors.INFO}/{Colors.ENDC}{branche}{Colors.INFO}, chemin {Colors.ENDC}{chemin or '/'}{Colors.INFO}"
-        )
+        # logger.info(
+        #     f"Téléchargement GitHub : {Colors.ENDC}{depot}{Colors.INFO}/{Colors.ENDC}{branche}{Colors.INFO}, chemin {Colors.ENDC}{chemin or '/'}{Colors.INFO}"
+        # )
 
         if interactif:
             with alive_bar(total, title=f"{Colors.YELLOW}Téléchargement GitHub{Colors.ENDC}", stats=True, scale="SI", unit="o") as barre:
@@ -237,16 +242,7 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
 
 
 ############################################################################################################################################
-def envoyer_mergin(
-    projet: str,
-    client: MerginClient,
-    depot: str,
-    chemin: str,
-    branche: str = "main",
-    token: str | None = None,
-    destination: str = "",
-    dossier_temporaire: Path = Path(__file__).parent / GlobalData.Temp_folder,
-):
+def sync_mergin(projet: str, client: MerginClient, depot: str, chemin: str, branche: str = "main", dest: str = "", temp_folder: Path = ""):
     """#####################################################################################################################################
         Télécharge un fichier ou un dossier depuis GitHub puis l'envoie vers Mergin Maps.
 
@@ -254,17 +250,20 @@ def envoyer_mergin(
         La copie GitHub est supprimée après un succès complet.
     #####################################################################################################################################"""
 
+    if temp_folder == "":
+        temp_folder = Path(__file__).parent / GlobalData.Temp_folder
+
     logger.info("═" * 95)
-    logger.info(f"{Colors.YELLOW}Envoi des données GitHub vers Mergin Maps")
+    logger.info((f"{Colors.YELLOW}Envoi des données GitHub vers Mergin Maps").center(99))
     logger.info("═" * 95)
 
-    dossier_temporaire = Path(dossier_temporaire).resolve()
-    destination = Path(destination)
+    dossier_temporaire = Path(temp_folder).resolve()
+    dest = Path(dest)
 
-    if destination.is_absolute() or ".." in destination.parts:
+    if dest.is_absolute() or ".." in dest.parts:
         raise ValueError("La destination doit être un chemin relatif.")
 
-    if ".mergin" in destination.parts:
+    if ".mergin" in dest.parts:
         raise ValueError("Le dossier .mergin est réservé à Mergin Maps.")
 
     dossier_temporaire.mkdir(parents=True, exist_ok=True)
@@ -273,21 +272,22 @@ def envoyer_mergin(
 
     try:
         # 1. Téléchargement du fichier ou dossier nécessaire depuis GitHub.
-        logger.info(f"[1/5]{Colors.YELLOW} Téléchargement desfichiers depuis le GitHub : {Colors.ENDC}{depot}@{branche}:{chemin}")
-        source = telecharger_depuis_github(depot, branche, chemin, dossier_github, token)
+        logger.info(f"[1/5]{Colors.INFO} Téléchargement des fichiers source depuis le GitHub : {Colors.ENDC}{depot}@{branche}:{chemin}")
+        source = telecharger_depuis_github(depot, branche, chemin, dossier_github)
 
         # 2. Projet Mergin local.
         if not (dossier_projet / ".mergin").is_dir():
-            logger.info(f"[2/5]{Colors.YELLOW} Téléchargement initial du projet : {Colors.ENDC}{dossier_projet}")
+            logger.info(f"[2/5]{Colors.INFO} Téléchargement initial du projet Mergin Maps: {Colors.ENDC}{safe_relpath(dossier_projet)}")
             telecharger_avec_progression(client, projet, dossier_projet)
 
         else:
-            logger.info(f"[2/5] {Colors.YELLOW}Synchronisation du projet local existant : {Colors.ENDC}{dossier_projet}")
-            client.sync_project(str(dossier_projet))
+            logger.info(f"[2/5] {Colors.INFO}Synchronisation du projet Mergin Maps existant : {Colors.ENDC}{safe_relpath(dossier_projet)}")
+            if not GlobalData.Debug_log:
+                client.sync_project(str(dossier_projet))
 
         # 3. Copie des fichiers GitHub dans le projet Mergin.
-        logger.info(f"[3/5]{Colors.YELLOW} Copie des fichiers {Colors.ENDC}{source}")
-        cible = dossier_projet / destination
+        logger.info(f"[3/5]{Colors.INFO} Copie des fichiers à mettre à jour {Colors.ENDC}{safe_relpath(dossier_github)}")
+        cible = dossier_projet / dest
         cible.mkdir(parents=True, exist_ok=True)
 
         if source.is_file():
@@ -312,16 +312,16 @@ def envoyer_mergin(
             logger.info(f"  + {Colors.ENDC}{destination_fichier.relative_to(dossier_projet)}")
 
         # 4. Push vers le serveur.
-        logger.info(f"[4/5]{Colors.YELLOW} Push vers Mergin Maps...")
+        logger.info(f"[4/5]{Colors.INFO} Envoi vers Mergin Maps...")
         envoyer_avec_progression(client, dossier_projet)
 
         # 5. Nettoyage de la copie GitHub uniquement après succès.
-        logger.info(f"[5/5]{Colors.YELLOW} Push terminé. Nettoyage...")
-        if not (sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb") :
+        logger.info(f"[5/5]{Colors.INFO} Envoi terminé, nettoyage des dossiers temporaires...")
+        if not (sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"):
             shutil.rmtree(dossier_github, ignore_errors=True)
             shutil.rmtree(dossier_projet, ignore_errors=True)
 
-        logger.info("Envoi terminé avec succès.")
+        # logger.info("Envoi terminé avec succès.")
 
     except Exception:
         logger.error("ERREUR : le dossier temporaire est conservé pour diagnostic :")
@@ -330,7 +330,7 @@ def envoyer_mergin(
 
 
 ############################################################################################################################################
-def envoyer_dossier_old_fichierslocaux(
+def envoyer_dossier_old_fichiers_locaux(
     source: Path, projet: str, client: MerginClient, destination: str = "", dossier_temporaire: Path = Path(__file__).parent / GlobalData.Temp_folder
 ):
     """#####################################################################################################################################
@@ -418,7 +418,7 @@ def envoyer_dossier_old_fichierslocaux(
 
 
 ############################################################################################################################################
-def information_depot_mergin(projet, client):
+def information_depot_mergin(projet, client, detail=True):
     """#####################################################################################################################################
     #   Affiche les informations d'un projet Mergin Maps.
             projet : nom complet du projet, sous la forme 'espace/nom_projet',
@@ -428,7 +428,10 @@ def information_depot_mergin(projet, client):
     #####################################################################################################################################"""
 
     logger.info("═" * 95)
-    logger.info(f"{Colors.YELLOW}INFORMATIONS DU PROJET MERGIN MAPS")
+    if detail:
+        logger.info((f"{Colors.YELLOW}Détail des informations du projet Mergin Maps mis à jour").center(99))
+    else:
+        logger.info((f"{Colors.YELLOW}Synthèse initiale des informations du projet Mergin Maps").center(99))
     logger.info("═" * 95)
 
     # Récupération des informations distantes
@@ -444,7 +447,6 @@ def information_depot_mergin(projet, client):
     logger.info(f"Version          : {Colors.ENDC}{info.get('version', 'Non renseignée')}")
     logger.info(f"Créé le          : {Colors.ENDC}{info.get('created', 'Non renseigné')}")
     logger.info(f"Mis à jour       : {Colors.ENDC}{info.get('updated', 'Non renseigné')}")
-    logger.info(f"Taille totale    : {Colors.ENDC}{info.get('disk_usage', 'Non renseignée')}{Colors.INFO} Octets")
     logger.info(f"Public           : {Colors.ENDC}{info.get('public', 'Non renseigné')}")
 
     # Liste des fichiers distants
@@ -457,19 +459,23 @@ def information_depot_mergin(projet, client):
         for fichier in fichiers:
             taille = fichier.get("size", 0)
             tailleTotale += taille
-        logger.info(f"Taille totale    : {Colors.ENDC}{tailleTotale / (1024 * 1024):.2f}{Colors.INFO} Mo")
-        logger.info("━" * 95)
+        logger.info(
+            f"Taille totale    : {Colors.ENDC}{info.get('disk_usage', 'Non renseignée')}{Colors.INFO} Octets ({Colors.ENDC}{tailleTotale / (1024 * 1024):.2f}{Colors.INFO} Mo)"
+        )
 
-        for fichier in sorted(fichiers, key=lambda f: f.get("path", "")):
-            chemin = fichier.get("path", "?")
-            taille = fichier.get("size", 0)
-            taille_mo = taille / (1024 * 1024)
+        if detail:
+            logger.info("━" * 95)
 
-            logger.info(f"{Colors.ENDC}{chemin:<83} {Colors.CYAN}{taille_mo:>8.3f}{Colors.INFO} Mo")
+            for fichier in sorted(fichiers, key=lambda f: f.get("path", "")):
+                chemin = fichier.get("path", "?")
+                taille = fichier.get("size", 0)
+                taille_mo = taille / (1024 * 1024)
+
+                logger.info(f"{Colors.ENDC}{chemin:<83} {Colors.CYAN}{taille_mo:>8.3f}{Colors.INFO} Mo")
+
+            logger.info("━" * 95)
     else:
         logger.warning("Aucun fichier répertorié dans les informations reçues.")
-
-    logger.info("━" * 95)
 
 
 ############################################################################################################################################
@@ -477,48 +483,48 @@ def information_depot_mergin(projet, client):
 #                                                                                                                                          #
 ############################################################################################################################################
 if __name__ == "__main__":
-
     if os.name == "nt":
         subprocess.run("cls", shell=True, check=False)
-        
+
     elif os.environ.get("TERM"):
         subprocess.run(["clear"], check=False)
 
-    # print(f"stdout={sys.stdout.isatty()}, stderr={sys.stderr.isatty()}, TERM={os.environ.get('TERM')!r}, interactif={INTERACTIF}", file=sys.stderr)
-
-    parser = argparse.ArgumentParser(description=f"{Colors.BLUE}Envoi de fichiers vers Mergin Maps, version: {Colors.ENDC}{GlobalData.Version} ", formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(
+        description=f"{Colors.BLUE}Envoi de fichiers vers Mergin Maps, version: {Colors.ENDC}{GlobalData.Version} ",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
     parser.print_help = colored_help.__get__(parser)
     parser.add_argument("--projet", required=True, help=f"{Colors.GREEN}Projet MerginMaps pour envoyer mettre à jour les fichiers")
     parser.epilog = (
         f"{Colors.GREEN}Merci de compléter {Colors.BLUE}config.ini{Colors.GREEN} dans le dossier source pour définir la configuration{Colors.ENDC}\n\n"
         f"{Colors.GREEN}Examples:{Colors.ENDC}\n"
-        f"\t> python pyDatatoMergin.py --projet mergin/ARR\n"
-        f"\t> python pyDatatoMergin.py --projet mergin/LAKORA\n"
-        )
+        f"\t> python pyDatatoMergin.py --projet ARR\n"
+        f"\t> python pyDatatoMergin.py --projet LAKORA\n"
+    )
 
     args = parser.parse_args()
 
     logger = setup_logger(GlobalData.Output_log, GlobalData.Debug_log)
-    profile = args.projet
-    config_file = load_config(profile=profile)
+
+    config_file = load_config(profile=args.projet)
 
     fichier_env = Path(__file__).resolve().parent / ".env"
     load_dotenv(fichier_env)
 
-    url = os.getenv("MERGIN_URL")    
+    url = os.getenv("MERGIN_URL")
     login = os.getenv("MERGIN_USERNAME")
     password = os.getenv("MERGIN_PASSWORD")
 
     titre = [
         f"{Colors.TITRE}╔{'═' * 99}",
-        "║" + ("Synchronisation des fichiers gpkg vers Mergin Maps").center(99),
-        "║" + (f"Par : {Colors.TITRE_2}alexandre.pont@yahoo.fr{Colors.TITRE}").center(119),
+        "║" + ("Synchronisation des fichiers github vers Mergin Maps").center(99),
+        "║" + (f"Contact : {Colors.TITRE_2}alexandre.pont@yahoo.fr{Colors.TITRE}").center(119),
         "║" + (f"Version : {Colors.TITRE_2}{GlobalData.Version}{Colors.TITRE}").center(119),
-        "║" + (f"Serveur MerginMaps : {Colors.TITRE_2}{url}{Colors.TITRE}").center(119),
-        "║" + (f"Projet MerginMaps : {Colors.TITRE_2}{GlobalData.Dest_project}{Colors.TITRE}").center(119),
-        "║" + (f"Dossier source : {Colors.TITRE_2}{GlobalData.Inputs_folder}{Colors.TITRE}").center(119),
-        "║" + (f"Fichier log : {Colors.TITRE_2}{GlobalData.Output_log}{Colors.TITRE}").center(119),
-        "║                                      ",
+        "║" + (f"Serveur Mergin Maps : {Colors.TITRE_2}{url}{Colors.TITRE}").center(119),
+        "║" + (f"Projet Mergin Maps : {Colors.TITRE_2}{GlobalData.Dest_project}{Colors.TITRE}").center(119),
+        "║" + (f"Dépôt GitHub : {Colors.TITRE_2}{GlobalData.Github_repo}{Colors.TITRE}").center(119),
+        "║" + (f"fichier ou dossier gitHub : {Colors.TITRE_2}{GlobalData.Github_path}{Colors.TITRE}").center(119),
+        "║" + (f"Fichier log : {Colors.TITRE_2}{safe_relpath(GlobalData.Output_log)}{Colors.TITRE}").center(119),
         f"╚{'═' * 99}",
     ]
 
@@ -527,22 +533,20 @@ if __name__ == "__main__":
         print(f"{Colors.TITRE}" + titre[i].ljust(100) + f"{fin}{Colors.ENDC}")
 
     if not login or not password or not url:
-        sys.exit("Définir MERGIN_URL, MERGIN_USERNAME et MERGIN_PASSWORD dans fichier .env")
+        logger.error("Définir MERGIN_URL, MERGIN_USERNAME et MERGIN_PASSWORD dans fichier .env")
+        sys.exit("")
 
     client = MerginClient(url=url, login=login, password=password)
 
-    information_depot_mergin(GlobalData.Dest_project, client)
+    information_depot_mergin(GlobalData.Dest_project, client, False)
 
-    envoyer_mergin(
+    sync_mergin(
         GlobalData.Dest_project,
         client,
         depot=GlobalData.Github_repo,
-        chemin=GlobalData.Github_path,  # ex. "data/gpkg" ou "data/couche.gpkg"
+        chemin=GlobalData.Github_path,
         branche=GlobalData.Github_branch,
-        # token=os.environ.get("GITHUB_TOKEN"),
-        destination=GlobalData.Dest_folder,
+        dest=GlobalData.Dest_folder,
     )
-
-    # envoyer_dossier(GlobalData.Inputs_folder, GlobalData.Dest_project, client, destination=GlobalData.Dest_folder)
 
     information_depot_mergin(GlobalData.Dest_project, client)

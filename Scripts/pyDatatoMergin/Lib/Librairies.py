@@ -6,7 +6,7 @@ Librairies générales pour pyDatatoMergin.py
 
 import logging, sys, re, hashlib, os, configparser  # noqa: I001
 from pathlib import Path
-from parameter_expansion import expand # type: ignore
+from parameter_expansion import expand  # type: ignore
 from Lib import GlobalData
 
 logger = logging.getLogger("Logger")
@@ -44,10 +44,10 @@ def colored_help(parser):
     # Coloration des différentes parties
     colored_help_text = (
         help_text.replace("usage:", f"{Colors.ERROR}Usage:{Colors.ENDC}")
-        .replace("options:", f"{Colors.GREEN}options:{Colors.ENDC}")
+        .replace("options:", f"{Colors.GREEN}Options:{Colors.ENDC}")
         .replace(", --help", f"{Colors.BLUE}, --help:{Colors.ENDC}")
         .replace("elp:", f"{Colors.BLUE}elp{Colors.ENDC}")
-        .replace("show this help message and exit", f"Voir ce message et terminer")
+        .replace("show this help message and exit", "Voir ce message et terminer")
     )
 
     # Surligner les arguments
@@ -235,6 +235,7 @@ def get_sha256(file_path):
 
     return sha256.hexdigest()
 
+
 #################################################################################################
 def load_config(configIni="config.ini", profile="Default"):
     """
@@ -243,10 +244,10 @@ def load_config(configIni="config.ini", profile="Default"):
     Args:
         configIni: Nom du fichier de configuration.
         profile: Nom du profil Survey_Data à utiliser.
-                 Exemple : Survey_Data:PSM
+                 Exemple : Depot_Data:ARR
     """
 
-    try:   
+    try:
         # Chemin potentiel du fichier config
         config_file = Path(__file__).resolve().parent / configIni
         # config_file = os.path.join(os.path.dirname(__file__), configIni)
@@ -269,24 +270,26 @@ def load_config(configIni="config.ini", profile="Default"):
             depot_cfg = config["Depot_Data"]
 
             if profile != "Default":
-                logger.warning(f"Profile '{Colors.ENDC}{profile}{Colors.WARNING}' not found. Using legacy default {Colors.ENDC}[Survey_Data]{Colors.WARNING} section.")
+                logger.error(
+                    f"Projet '{Colors.ENDC}{profile}{Colors.ERROR}' inexistant, utilisation du profil par défaut {Colors.ENDC}[Depot_Data]{Colors.ERROR} section."
+                )
                 profile = "Default"
-        
+
         else:
-            raise ValueError(f"Section [{depot_section}] not found and no legacy [Survey_Data] section available.")
+            logger.error(f"Section {Colors.ENDC}[{depot_section}]{Colors.ERROR}, inexistant et aucun profil par défaut {Colors.ENDC}[Depot_Data]{Colors.ERROR}")
+            raise ValueError()
 
         # ----------------------------------------------------------
         # Lecture Depot_Data
         # ----------------------------------------------------------
         depot_keys = {
-            'Dest_project': 'Dest_project',
-            'Github_repo': 'Github_repo',
-            'Github_path': 'Github_path',
-            'Github_branch': 'Github_branch',
-            'Dest_folder': 'Dest_folder'
+            "Dest_project": "Dest_project",
+            "Github_repo": "Github_repo",
+            "Github_path": "Github_path",
+            "Github_branch": "Github_branch",
+            "Dest_folder": "Dest_folder",
         }
 
- 
         for key, attr in depot_keys.items():
             if key in depot_cfg:
                 value = expand(depot_cfg[key])
@@ -295,5 +298,70 @@ def load_config(configIni="config.ini", profile="Default"):
         return config_file
 
     except (OSError, configparser.Error, ValueError) as e:
-        logger.critical(f"Reading config file : {Colors.ENDC}{configIni}{Colors.ERROR} error : {Colors.ENDC}{e}"  )
+        logger.critical(f"Lecture du fichier: {Colors.ENDC}{configIni}{Colors.CRITICAL} impossible : {Colors.ENDC}{e}")
         sys.exit(0)
+
+
+#################################################################################################
+# fonction pour réduire l'affichage des chemins long                                            #
+#################################################################################################
+def safe_relpath(path, base_dir=Path(__file__).parent, max_depth=4, max_name_len=50, prefix="~"):
+    """
+    Retourne un chemin lisible et sûr pour affichage (logs / UI).
+
+    - Compatible Windows / Linux / macOS
+    - Tronque la profondeur du chemin
+    - Tronque le nom de fichier si trop long
+    - Ne lève jamais d'exception
+    """
+
+    # ── 1. Résolution du chemin ──────────────────────────────────────────────
+    try:
+        path = Path(path).expanduser().resolve()
+
+    except (OSError, configparser.Error, ValueError):
+        return str(path)
+
+    try:
+        base = Path(base_dir).expanduser().resolve() if base_dir else Path.cwd().resolve()
+
+    except (OSError, configparser.Error, ValueError):
+        base = None
+
+    # ── 2. Nom du fichier / dossier (tronqué) ─────────────────────────────────
+    name = path.name or str(path)
+
+    if len(name) > max_name_len:
+        stem = path.stem[: max(1, max_name_len - 6)]
+        name = f"{stem}...{path.suffix}"
+
+    # ── 3. Construction des parties ──────────────────────────────────────────
+    try:
+        if base:
+            rel = path.relative_to(base)
+            parts = list(rel.parts)
+        else:
+            raise ValueError
+
+    except (OSError, configparser.Error, ValueError):
+        parts = list(path.parts)
+
+    # ── 4. Cas path == base  → "." ────────────────────────────────────────────
+    if not parts:
+        parts = ["."]
+
+    # ── 5. Limitation de profondeur ──────────────────────────────────────────
+    if isinstance(max_depth, int) and max_depth > 0 and len(parts) > max_depth:
+        parts = parts[-max_depth:]
+        parts.insert(0, prefix)
+
+    # ── 6. Remplacement du nom final ──────────────────────────────────────────
+    if parts and parts[-1] not in (".", os.sep):
+        parts[-1] = name
+
+    # ── 7. Construction finale sûre ──────────────────────────────────────────
+    try:
+        return os.path.join(*parts)
+
+    except (OSError, configparser.Error, ValueError):
+        return name
