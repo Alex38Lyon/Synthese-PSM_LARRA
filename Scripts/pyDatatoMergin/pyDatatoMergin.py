@@ -142,8 +142,10 @@ def fermer_journaux_mergin() -> None:
 def _entetes_github(token: str | None, brut: bool = False) -> dict:
     accept = "application/vnd.github.raw+json" if brut else "application/vnd.github+json"
     entetes = {"Accept": accept, "X-GitHub-Api-Version": "2022-11-28"}
+
     if token:
         entetes["Authorization"] = f"Bearer {token}"
+
     return entetes
 
 
@@ -155,7 +157,15 @@ def lister_fichiers_github(session: requests.Session, depot: str, branche: str, 
     reponse = session.get(url, params={"ref": branche}, headers=_entetes_github(token), timeout=60)
 
     if reponse.status_code == 404:
-        raise FileNotFoundError(f"Chemin introuvable (ou jeton manquant) : {depot}@{branche}:{chemin}")
+        try:
+            detail = reponse.json().get("message", "Ressource introuvable")
+        except ValueError:
+            detail = reponse.text
+
+        raise FileNotFoundError(
+            f"GitHub : {detail}\nDépôt   : {depot}\nBranche : {branche}\nChemin  : {chemin}\nVérifie que le chemin existe dans cette branche."
+        )
+
     reponse.raise_for_status()
     contenu = reponse.json()
 
@@ -181,9 +191,11 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
 
     chemin = chemin.strip("/")
 
-    if dossier_cible.exists():
-        shutil.rmtree(dossier_cible)
-    dossier_cible.mkdir(parents=True)
+    # if dossier_cible.exists():
+    # shutil.rmtree(dossier_cible)
+
+    # dossier_cible.mkdir(parents=True)
+    dossier_cible.mkdir(parents=True, exist_ok=True)
 
     with requests.Session() as session:
         fichiers = lister_fichiers_github(session, depot, branche, chemin, token)
@@ -225,10 +237,6 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
                                     "GitHub : %s — %.1f %% (%s / %s octets)", fichier["path"], precedent * 100 / total if total else 0, precedent, total or "?"
                                 )
 
-        # logger.info(
-        #     f"Téléchargement GitHub : {Colors.ENDC}{depot}{Colors.INFO}/{Colors.ENDC}{branche}{Colors.INFO}, chemin {Colors.ENDC}{chemin or '/'}{Colors.INFO}"
-        # )
-
         if interactif:
             with alive_bar(total, title=f"{Colors.YELLOW}Téléchargement GitHub{Colors.ENDC}", stats=True, scale="SI", unit="o") as barre:
                 telecharger_fichiers(barre)
@@ -242,7 +250,9 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
 
 
 ############################################################################################################################################
-def sync_mergin(projet: str, client: MerginClient, depot: str, chemin: str, branche: str = "main", dest: str = "", temp_folder: Path = ""):
+def sync_mergin(
+    projet: str, client: MerginClient, depot: str, branche: str = "main", liste=GlobalData.Liste_copie, temp_folder: Path = "", token: str | None = None
+):
     """#####################################################################################################################################
         Télécharge un fichier ou un dossier depuis GitHub puis l'envoie vers Mergin Maps.
 
@@ -258,22 +268,27 @@ def sync_mergin(projet: str, client: MerginClient, depot: str, chemin: str, bran
     logger.info("═" * 95)
 
     dossier_temporaire = Path(temp_folder).resolve()
-    dest = Path(dest)
-
-    if dest.is_absolute() or ".." in dest.parts:
-        raise ValueError("La destination doit être un chemin relatif.")
-
-    if ".mergin" in dest.parts:
-        raise ValueError("Le dossier .mergin est réservé à Mergin Maps.")
-
     dossier_temporaire.mkdir(parents=True, exist_ok=True)
     dossier_github = dossier_temporaire / "AddedFiles"
     dossier_projet = dossier_temporaire / projet
+    sources = []
 
     try:
         # 1. Téléchargement du fichier ou dossier nécessaire depuis GitHub.
-        logger.info(f"[1/5]{Colors.INFO} Téléchargement des fichiers source depuis le GitHub : {Colors.ENDC}{depot}@{branche}:{chemin}")
-        source = telecharger_depuis_github(depot, branche, chemin, dossier_github)
+        logger.info(f"[1/5]{Colors.INFO} Téléchargement des fichiers source depuis le GitHub : {Colors.ENDC}{depot}@{branche}")
+
+        for chemin_GitHub, _Dest_GitHub in liste:
+            _Dest_GitHub = Path(_Dest_GitHub)
+
+            if _Dest_GitHub.is_absolute() or ".." in _Dest_GitHub.parts:
+                raise ValueError(f"La destination {Colors.ENDC}{_Dest_GitHub.parts}{Colors.ERROR} doit être un chemin relatif.")
+
+            if ".mergin" in _Dest_GitHub.parts:
+                raise ValueError(f"Le dossier {Colors.ENDC}.mergin{Colors.ERROR} est réservé à Mergin Maps.")
+
+            logger.info(f"Téléchargement de : {Colors.ENDC}{chemin_GitHub}{Colors.INFO} vers {Colors.ENDC}{_Dest_GitHub}")
+            source = telecharger_depuis_github(depot, branche, chemin_GitHub, dossier_github / _Dest_GitHub, token)
+            sources.append((source, _Dest_GitHub))
 
         # 2. Projet Mergin local.
         if not (dossier_projet / ".mergin").is_dir():
@@ -287,29 +302,31 @@ def sync_mergin(projet: str, client: MerginClient, depot: str, chemin: str, bran
 
         # 3. Copie des fichiers GitHub dans le projet Mergin.
         logger.info(f"[3/5]{Colors.INFO} Copie des fichiers à mettre à jour {Colors.ENDC}{safe_relpath(dossier_github)}")
-        cible = dossier_projet / dest
-        cible.mkdir(parents=True, exist_ok=True)
 
-        if source.is_file():
-            fichiers = [(source, cible / source.name)]
+        for source, destination in sources:
+            cible = dossier_projet / destination
+            cible.mkdir(parents=True, exist_ok=True)
 
-        elif source.is_dir():
-            fichiers = [
-                (f, cible / f.relative_to(source))
-                for f in source.rglob("*")
-                if f.is_file() and ".mergin" not in f.relative_to(source).parts and "__pycache__" not in f.relative_to(source).parts
-            ]
+            if source.is_file():
+                fichiers = [(source, cible / source.name)]
 
-        else:
-            raise ValueError(f"Source non prise en charge : {Colors.ENDC}{source}")
+            elif source.is_dir():
+                fichiers = [
+                    (f, cible / f.relative_to(source))
+                    for f in source.rglob("*")
+                    if f.is_file() and ".mergin" not in f.relative_to(source).parts and "__pycache__" not in f.relative_to(source).parts
+                ]
 
-        if not fichiers:
-            raise ValueError("Aucun fichier à envoyer.")
+            else:
+                raise ValueError(f"Source non prise en charge : {Colors.ENDC}{source}")
 
-        for origine, destination_fichier in fichiers:
-            destination_fichier.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(origine, destination_fichier)
-            logger.info(f"  + {Colors.ENDC}{destination_fichier.relative_to(dossier_projet)}")
+            if not fichiers:
+                raise ValueError("Aucun fichier à envoyer.")
+
+            for origine, destination_fichier in fichiers:
+                destination_fichier.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(origine, destination_fichier)
+                logger.info(f"  + {Colors.ENDC}{destination_fichier.relative_to(dossier_projet)}")
 
         # 4. Push vers le serveur.
         logger.info(f"[4/5]{Colors.INFO} Envoi vers Mergin Maps...")
@@ -324,7 +341,7 @@ def sync_mergin(projet: str, client: MerginClient, depot: str, chemin: str, bran
         # logger.info("Envoi terminé avec succès.")
 
     except Exception:
-        logger.error("ERREUR : le dossier temporaire est conservé pour diagnostic :")
+        logger.error("Le dossier temporaire est conservé pour diagnostic :")
         logger.error(f"{Colors.ENDC}{dossier_temporaire}")
         raise
 
@@ -514,6 +531,11 @@ if __name__ == "__main__":
     url = os.getenv("MERGIN_URL")
     login = os.getenv("MERGIN_USERNAME")
     password = os.getenv("MERGIN_PASSWORD")
+    githubToken = os.getenv("GITHUB_TOKEN")
+    githubDepot = os.getenv("GITHUB_DEPOT")
+
+    if githubDepot != GlobalData.Github_repo:
+        githubToken = None
 
     titre = [
         f"{Colors.TITRE}╔{'═' * 99}",
@@ -523,7 +545,7 @@ if __name__ == "__main__":
         "║" + (f"Serveur Mergin Maps : {Colors.TITRE_2}{url}{Colors.TITRE}").center(119),
         "║" + (f"Projet Mergin Maps : {Colors.TITRE_2}{GlobalData.Dest_project}{Colors.TITRE}").center(119),
         "║" + (f"Dépôt GitHub : {Colors.TITRE_2}{GlobalData.Github_repo}{Colors.TITRE}").center(119),
-        "║" + (f"fichier ou dossier gitHub : {Colors.TITRE_2}{GlobalData.Github_path}{Colors.TITRE}").center(119),
+        "║" + (f"Fichier ou dossier GitHub : {Colors.TITRE_2}{GlobalData.Github_path}{Colors.TITRE}").center(119),
         "║" + (f"Fichier log : {Colors.TITRE_2}{safe_relpath(GlobalData.Output_log)}{Colors.TITRE}").center(119),
         f"╚{'═' * 99}",
     ]
@@ -539,14 +561,5 @@ if __name__ == "__main__":
     client = MerginClient(url=url, login=login, password=password)
 
     information_depot_mergin(GlobalData.Dest_project, client, False)
-
-    sync_mergin(
-        GlobalData.Dest_project,
-        client,
-        depot=GlobalData.Github_repo,
-        chemin=GlobalData.Github_path,
-        branche=GlobalData.Github_branch,
-        dest=GlobalData.Dest_folder,
-    )
-
+    sync_mergin(GlobalData.Dest_project, client, depot=GlobalData.Github_repo, branche=GlobalData.Github_branch, liste=GlobalData.Liste_copie)
     information_depot_mergin(GlobalData.Dest_project, client)

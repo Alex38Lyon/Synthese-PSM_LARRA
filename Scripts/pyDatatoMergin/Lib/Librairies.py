@@ -237,7 +237,7 @@ def get_sha256(file_path):
 
 
 #################################################################################################
-def load_config(configIni="config.ini", profile="Default"):
+def load_config_old(configIni="config.ini", profile="Default"):
     """
     Charge un fichier de configuration .ini et initialise les variables globales.
 
@@ -300,6 +300,107 @@ def load_config(configIni="config.ini", profile="Default"):
     except (OSError, configparser.Error, ValueError) as e:
         logger.critical(f"Lecture du fichier: {Colors.ENDC}{configIni}{Colors.CRITICAL} impossible : {Colors.ENDC}{e}")
         sys.exit(0)
+
+
+def load_config(configIni="config.ini", profile="Default"):
+    """
+    Charge un fichier de configuration .ini et initialise les variables globales.
+
+    Args:
+        configIni: Nom ou chemin du fichier de configuration.
+        profile: Profil Depot_Data à utiliser.
+                 Exemple : "Default" ou "LAKORA".
+
+    Returns:
+        Chemin du fichier de configuration lu.
+    """
+
+    try:
+        # ----------------------------------------------------------
+        # Recherche du fichier config
+        # ----------------------------------------------------------
+        config_file = Path(__file__).resolve().parent / configIni
+
+        if not config_file.is_file():
+            config_file = Path(configIni)
+
+        if not config_file.is_file():
+            raise FileNotFoundError(f"Fichier introuvable : {config_file}")
+
+        config = configparser.ConfigParser()
+        config.read(config_file, encoding="utf-8")
+
+        # ----------------------------------------------------------
+        # Sélection du profil Depot_Data
+        # ----------------------------------------------------------
+        depot_section = "Depot_Data" if profile == "Default" else f"Depot_Data:{profile}"
+
+        if depot_section in config:
+            depot_cfg = config[depot_section]
+
+        elif "Depot_Data" in config:
+            depot_cfg = config["Depot_Data"]
+
+            if profile != "Default":
+                logger.error(
+                    f"Projet '{Colors.ENDC}{profile}{Colors.ERROR}' inexistant, utilisation du profil par défaut {Colors.ENDC}[Depot_Data]{Colors.ERROR}."
+                )
+                profile = "Default"
+
+        else:
+            raise ValueError(f"Section [{depot_section}] inexistante et aucun profil par défaut [Depot_Data].")
+
+        # ----------------------------------------------------------
+        # Lecture des paramètres classiques
+        # ----------------------------------------------------------
+        depot_keys = {"Dest_project": "Dest_project", "Github_repo": "Github_repo", "Github_branch": "Github_branch"}
+
+        for key, attr in depot_keys.items():
+            if key in depot_cfg:
+                value = expand(depot_cfg[key])
+                setattr(GlobalData, attr, value)
+
+        # ----------------------------------------------------------
+        # Lecture des paires source / destination
+        # ----------------------------------------------------------
+        Liste_copie = []
+
+        for key, value in depot_cfg.items():
+            if not key.startswith("liste_copie"):
+                continue
+
+            # Vérifier le nom Liste_copie suivi d'un numéro
+            suffix = key[11:]
+
+            if not suffix.isdigit():
+                continue
+
+            # Séparer la source et la destination
+            if "|" not in value:
+                raise ValueError(f"{key} invalide dans [{depot_section}] : séparateur '|' manquant.")
+
+            source, destination = (part.strip() for part in value.split("|", maxsplit=1))
+
+            if not source or not destination:
+                raise ValueError(f"{key} invalide dans [{depot_section}] : source ou destination vide.")
+
+            Liste_copie.append((int(suffix), expand(source), expand(destination)))
+
+        # Trier les paires par numéro
+        Liste_copie.sort(key=lambda Liste_copie: Liste_copie[0])
+
+        # Stocker uniquement les couples (source, destination)
+        GlobalData.Liste_copie = [(source, destination) for _, source, destination in Liste_copie]
+
+        logger.debug(
+            f"{Colors.ENDC}{len(GlobalData.Liste_copie)}{Colors.DEBUG} couple(s) source/destination chargé(s) pour le profil [{Colors.ENDC}{depot_section}{Colors.DEBUG}]."
+        )
+
+        return config_file
+
+    except (OSError, configparser.Error, ValueError) as e:
+        logger.critical(f"Lecture du fichier {Colors.ENDC}{configIni}{Colors.CRITICAL} impossible : {Colors.ENDC}{e}")
+        sys.exit(1)
 
 
 #################################################################################################
