@@ -232,10 +232,11 @@ def telecharger_depuis_github(depot: str, branche: str, chemin: str, dossier_cib
 
                             if barre:
                                 barre(len(morceau))
-                            else:
-                                logger.debug(
-                                    "GitHub : %s — %.1f %% (%s / %s octets)", fichier["path"], precedent * 100 / total if total else 0, precedent, total or "?"
-                                )
+
+                            # else:
+                            #     logger.debug(
+                            #         "GitHub : %s — %.1f %% (%s / %s octets)", fichier["path"], precedent * 100 / total if total else 0, precedent, total or "?"
+                            #     )
 
         if interactif:
             with alive_bar(total, title=f"{Colors.YELLOW}Téléchargement GitHub{Colors.ENDC}", stats=True, scale="SI", unit="o") as barre:
