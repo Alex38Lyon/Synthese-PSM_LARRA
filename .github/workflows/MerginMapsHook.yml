@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Envoyer le webhook à n8n
         env:
-          WEBHOOK_URL: https://flows.arsip.fr/webhook-test/mergin-sync-event
+          WEBHOOK_URL: https://flows.arsip.fr/webhook/mergin-sync-event
           REPOSITORY: ${{ github.repository }}
           BRANCH: ${{ github.ref_name }}
           COMMIT: ${{ github.sha }}
