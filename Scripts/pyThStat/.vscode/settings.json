@@ -13,6 +13,7 @@
 		"debutdetraitement",
 		"dupl",
 		"Dupl",
+		"DUPP",
 		"duree",
 		"ENDC",
 		"entetes",
@@ -21,6 +22,7 @@
 		"fillna",
 		"findetraitement",
 		"formatee",
+		"histo",
 		"inverseses",
 		"jonctionnées",
 		"lastrowid",
@@ -49,6 +51,7 @@
 		"sqlite",
 		"suprimmees",
 		"tempplot",
+		"Tete",
 		"thconfig",
 		"therion",
 		"topographié",
@@ -61,5 +64,12 @@
 		"yscale"
 	],
 	"python.analysis.autoImportCompletions": true,
-	"python.analysis.typeCheckingMode": "basic"
+	"python.analysis.typeCheckingMode": "basic",
+	"python-envs.pythonProjects": [
+		{
+			"path": ".",
+			"envManager": "ms-python.python:system",
+			"packageManager": "ms-python.python:pip"
+		}
+	]
 }

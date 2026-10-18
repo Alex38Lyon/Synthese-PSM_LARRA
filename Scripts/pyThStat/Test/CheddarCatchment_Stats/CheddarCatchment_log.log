@@ -1,0 +1,724 @@
+2026-10-18 15:23:50,338 - INFO - ***********************************************************************************************************************
+2026-10-18 15:23:50,339 - INFO - * Calcul des statistiques par entrées d'une BD Therion                                                                *
+2026-10-18 15:23:50,339 - INFO - *       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 *
+2026-10-18 15:23:50,339 - INFO - *       Version : 2026.09.25                                                                                          *
+2026-10-18 15:23:50,339 - INFO - *       Fichier source : Test\CheddarCatchment.sql                                                                    *
+2026-10-18 15:23:50,341 - INFO - *       Dossier destination : Test\CheddarCatchment_Stats                                                             *
+2026-10-18 15:23:50,341 - INFO - *       Date : 2026-10-18 15h23m50s                                                                                   *
+2026-10-18 15:23:50,341 - INFO - *       Mode : sync                                                                                                   *
+2026-10-18 15:23:50,342 - INFO - ***********************************************************************************************************************
+2026-10-18 15:23:50,343 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 15:23:51,086 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 15:23:51,167 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 15:23:54,371 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 15:23:54,865 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 15:23:54,927 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 15:23:54,985 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 15:23:55,046 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 15:23:55,421 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 15:23:55,503 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 15:23:55,552 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 15:24:02,940 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 15:24:02,944 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 15:24:02,979 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 15:24:03,540 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 15:24:19,647 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 15:24:20,418 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 15:24:26,679 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 15:24:27,900 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 15:24:32,999 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 15:24:44,448 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 15:25:03,812 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 15:26:25,069 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 15:26:37,913 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 15:26:38,116 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 15:26:43,358 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 15:26:43,406 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 15:26:44,518 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 15:26:44,789 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 15:26:47,685 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 15:26:47,833 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 15:26:48,037 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 15:26:49,773 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 15:26:49,839 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 15:26:49,888 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 15:26:49,917 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 15:26:49,952 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 15:26:50,004 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 15:26:50,073 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 15:26:50,113 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 15:26:50,778 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 15:26:50,779 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 15:26:51,361 - ERROR - !!! Erreur lors de l'exécution de calcul_stats: can only concatenate str (not "NoneType") to str
+2026-10-18 15:34:26,384 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗║
+2026-10-18 15:34:26,385 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                                ║
+2026-10-18 15:34:26,386 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 ║
+2026-10-18 15:34:26,386 - INFO - ║       Version : 2026.10.18                                                                                          ║
+2026-10-18 15:34:26,387 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                    ║
+2026-10-18 15:34:26,387 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                             ║
+2026-10-18 15:34:26,388 - INFO - ║       Date : 2026-10-18 15h34m26s                                                                                   ║
+2026-10-18 15:34:26,388 - INFO - ║       Mode : sync                                                                                                   ║
+2026-10-18 15:34:26,389 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝║
+2026-10-18 15:34:26,392 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 15:34:27,105 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 15:34:27,202 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 15:34:30,472 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 15:34:30,979 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 15:34:31,049 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 15:34:31,110 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 15:34:31,168 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 15:34:31,553 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 15:34:31,625 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 15:34:31,674 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 15:34:39,417 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 15:34:39,420 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 15:34:39,452 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 15:34:40,020 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 15:34:56,662 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 15:34:57,450 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 15:35:03,621 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 15:35:04,826 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 15:35:09,813 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 15:35:20,955 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 15:35:40,225 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 15:36:50,669 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 15:36:57,375 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 15:36:57,483 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 15:37:01,312 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 15:37:01,351 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 15:37:01,556 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 15:37:01,830 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 15:37:05,790 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 15:37:05,962 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 15:37:06,147 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 15:37:07,065 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 15:37:07,111 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 15:37:07,149 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 15:37:07,188 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 15:37:07,237 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 15:37:07,274 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 15:37:07,319 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 15:37:07,368 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 15:37:07,952 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 15:37:07,952 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 15:37:08,452 - ERROR - !!! Erreur lors de l'exécution de calcul_stats: can only concatenate str (not "NoneType") to str
+2026-10-18 15:37:08,462 - WARNING - Execution terminée avec 1 erreurs en 02(m)42(s), verifier le log
+2026-10-18 15:47:53,028 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                                ║
+2026-10-18 15:47:53,028 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 ║
+2026-10-18 15:47:53,029 - INFO - ║       Version : 2026.10.18                                                                                          ║
+2026-10-18 15:47:53,029 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                    ║
+2026-10-18 15:47:53,029 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                             ║
+2026-10-18 15:47:53,029 - INFO - ║       Date : 2026-10-18 15h47m52s                                                                                   ║
+2026-10-18 15:47:53,029 - INFO - ║       Mode : sync                                                                                                   ║
+2026-10-18 15:47:53,030 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 15:47:53,749 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 15:47:53,917 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 15:47:57,032 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 15:47:57,739 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 15:47:57,805 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 15:47:57,868 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 15:47:57,961 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 15:47:58,432 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 15:47:58,511 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 15:47:58,562 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 15:48:07,210 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 15:48:07,215 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 15:48:07,250 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 15:48:08,428 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 15:48:28,640 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 15:48:29,524 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 15:48:35,888 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 15:48:37,131 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 15:48:42,217 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 15:48:53,780 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 15:49:13,379 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 15:50:29,439 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 15:50:36,711 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 15:50:36,844 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 15:50:39,773 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 15:50:39,809 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 15:50:39,931 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 15:50:40,199 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 15:50:42,520 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 15:50:42,649 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 15:50:42,744 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 15:50:43,528 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 15:50:43,583 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 15:50:43,616 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 15:50:43,655 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 15:50:43,694 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 15:50:43,756 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 15:50:43,799 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 15:50:43,842 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 15:50:44,526 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 15:50:44,527 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 15:50:45,472 - ERROR - !!! Erreur lors de l'exécution de calcul_stats: can only concatenate str (not "NoneType") to str
+2026-10-18 15:50:45,482 - WARNING - Execution terminée avec 1 erreurs en 02(m)52(s), verifier le log
+2026-10-18 16:02:31,130 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:02:31,131 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                                ║
+2026-10-18 16:02:31,131 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 ║
+2026-10-18 16:02:31,131 - INFO - ║       Version : 2026.10.18                                                                                          ║
+2026-10-18 16:02:31,131 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                    ║
+2026-10-18 16:02:31,131 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                             ║
+2026-10-18 16:02:31,132 - INFO - ║       Date : 2026-10-18 16h02m31s                                                                                   ║
+2026-10-18 16:02:31,132 - INFO - ║       Mode : sync                                                                                                   ║
+2026-10-18 16:02:54,496 - INFO - ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:02:54,497 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                                ║
+2026-10-18 16:02:54,497 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                 ║
+2026-10-18 16:02:54,497 - INFO - ║       Version : 2026.10.18                                                                                          ║
+2026-10-18 16:02:54,497 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                    ║
+2026-10-18 16:02:54,498 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                             ║
+2026-10-18 16:02:54,498 - INFO - ║       Date : 2026-10-18 16h02m54s                                                                                   ║
+2026-10-18 16:02:54,498 - INFO - ║       Mode : sync                                                                                                   ║
+2026-10-18 16:02:54,498 - INFO - ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-18 16:02:54,499 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 16:02:55,247 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 16:02:55,339 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 16:02:58,449 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 16:02:58,954 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 16:02:59,018 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 16:02:59,081 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:02:59,142 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:02:59,526 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 16:02:59,607 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 16:02:59,656 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 16:03:07,377 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 16:03:07,381 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:03:07,413 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 16:03:07,961 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 16:03:24,568 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 16:03:25,394 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 16:03:31,696 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 16:03:32,968 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 16:03:38,179 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 16:03:49,296 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 16:04:08,208 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 16:05:20,423 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 16:05:34,898 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 16:05:35,141 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 16:05:39,924 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 16:05:39,981 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 16:05:40,114 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 16:05:40,476 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 16:05:43,985 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 16:05:44,178 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 16:05:44,285 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 16:05:45,282 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 16:05:45,334 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 16:05:45,368 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 16:05:45,407 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 16:05:45,518 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 16:05:45,576 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 16:05:45,630 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 16:05:45,667 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 16:05:46,233 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 16:05:46,234 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 16:05:46,786 - ERROR - !!! Erreur lors de l'exécution de calcul_stats:
+Traceback (most recent call last):
+  File "D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThStat\pyThStat.py", line 1443, in calcul_stats
+    results2 = sql_bilan_reseaux()
+  File "D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThStat\pyThStat.py", line 2097, in sql_bilan_reseaux
+    _liste_ent += ", " + liste_entree[index][2]
+                  ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can only concatenate str (not "NoneType") to str
+2026-10-18 16:05:46,797 - WARNING - Execution terminée avec 1 erreurs en 02(m)52(s), verifier le log
+2026-10-18 16:15:29,530 - INFO - ╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:15:29,530 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-18 16:15:29,530 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-18 16:15:29,530 - INFO - ║       Version : 2026.10.18                                                                                         ║
+2026-10-18 16:15:29,531 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                   ║
+2026-10-18 16:15:29,531 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                            ║
+2026-10-18 16:15:29,531 - INFO - ║       Date : 2026-10-18 16h15m29s                                                                                  ║
+2026-10-18 16:15:29,531 - INFO - ║       Mode : sync                                                                                                  ║
+2026-10-18 16:15:29,531 - INFO - ╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-18 16:15:29,532 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 16:15:30,271 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 16:15:30,373 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 16:15:33,340 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 16:15:34,074 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 16:15:34,141 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 16:15:34,209 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:15:34,277 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:15:34,756 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 16:15:34,887 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 16:15:34,936 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 16:15:43,675 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 16:15:43,681 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:15:43,722 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 16:15:44,572 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 16:16:03,653 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 16:16:04,446 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 16:16:11,044 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 16:16:12,248 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 16:16:17,319 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 16:16:28,563 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 16:16:48,349 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 16:18:01,453 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 16:18:08,388 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 16:18:08,511 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 16:18:11,567 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 16:18:11,602 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 16:18:11,742 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 16:18:12,018 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 16:18:14,357 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 16:18:14,472 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 16:18:14,565 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 16:18:15,274 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 16:18:15,322 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 16:18:15,351 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 16:18:15,381 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 16:18:15,413 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 16:18:15,452 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 16:18:15,496 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 16:18:15,530 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 16:18:16,063 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 16:18:16,064 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 16:18:16,613 - ERROR - !!! Erreur lors de l'exécution de calcul_stats:
+Traceback (most recent call last):
+  File "D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThStat\pyThStat.py", line 1443, in calcul_stats
+    results2 = sql_bilan_reseaux()
+  File "D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThStat\pyThStat.py", line 2097, in sql_bilan_reseaux
+    _liste_ent += ", " + liste_entree[index][2]
+                  ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can only concatenate str (not "NoneType") to str
+2026-10-18 16:18:16,623 - WARNING - Execution terminée avec 1 erreurs en 02(m)47(s), verifier le log
+2026-10-18 16:21:58,255 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:21:58,255 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                          ║
+2026-10-18 16:21:58,255 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                           ║
+2026-10-18 16:21:58,256 - INFO - ║       Version : 2026.10.18                                                                                    ║
+2026-10-18 16:21:58,256 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                              ║
+2026-10-18 16:21:58,256 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                       ║
+2026-10-18 16:21:58,256 - INFO - ║       Date : 2026-10-18 16h21m58s                                                                             ║
+2026-10-18 16:21:58,256 - INFO - ║       Mode : sync                                                                                             ║
+2026-10-18 16:21:58,256 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-18 16:21:58,258 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 16:21:58,962 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 16:21:59,046 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 16:22:02,091 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 16:22:02,595 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 16:22:02,657 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 16:22:02,711 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:22:02,774 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:22:03,160 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 16:22:03,236 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 16:22:03,283 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 16:22:11,018 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 16:22:11,023 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:22:11,056 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 16:22:11,607 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 16:22:28,007 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 16:22:28,807 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 16:22:35,365 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 16:22:36,669 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 16:22:41,734 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 16:22:53,684 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 16:23:12,813 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 16:24:23,875 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 16:24:30,801 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 16:24:31,238 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 16:24:37,023 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 16:24:37,076 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 16:24:37,211 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 16:24:37,632 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 16:24:40,809 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 16:24:40,957 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 16:24:41,062 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 16:24:42,056 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 16:24:42,106 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 16:24:42,160 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 16:24:42,202 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 16:24:42,312 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 16:24:42,385 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 16:24:42,441 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 16:24:42,484 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 16:24:43,030 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 16:24:43,031 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 16:24:43,543 - ERROR - !!! Erreur lors de l'exécution de calcul_stats:
+Traceback (most recent call last):
+  File "D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThStat\pyThStat.py", line 1443, in calcul_stats
+    results2 = sql_bilan_reseaux()
+  File "D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThStat\pyThStat.py", line 2098, in sql_bilan_reseaux
+    _liste_ent += ", " + liste_entree[index][2]
+                  ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can only concatenate str (not "NoneType") to str
+2026-10-18 16:24:43,551 - WARNING - Execution terminée avec 1 erreurs en 02(m)45(s), verifier le log
+2026-10-18 16:32:12,897 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:32:12,897 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                             ║
+2026-10-18 16:32:12,897 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                              ║
+2026-10-18 16:32:12,897 - INFO - ║       Version : 2026.10.18                                                                                       ║
+2026-10-18 16:32:12,897 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                 ║
+2026-10-18 16:32:12,897 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                          ║
+2026-10-18 16:32:12,898 - INFO - ║       Date : 2026-10-18 16h32m12s                                                                                ║
+2026-10-18 16:32:12,898 - INFO - ║       Mode : sync                                                                                                ║
+2026-10-18 16:32:12,898 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-18 16:32:12,899 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 16:32:13,587 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 16:32:13,681 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 16:32:16,899 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 16:32:17,419 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 16:32:17,477 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 16:32:17,533 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:32:17,593 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:32:17,993 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 16:32:18,089 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 16:32:18,140 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 16:32:26,921 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 16:32:26,926 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:32:26,961 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 16:32:27,502 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 16:32:44,401 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 16:32:45,224 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 16:32:51,743 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 16:32:52,982 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 16:32:58,233 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 16:33:09,994 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 16:33:29,591 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 16:34:41,073 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 16:34:48,927 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 16:34:49,088 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 16:34:54,721 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 16:34:54,762 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 16:34:54,895 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 16:34:55,242 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 16:34:59,034 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 16:34:59,192 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 16:34:59,311 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 16:35:00,278 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 16:35:00,325 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 16:35:00,403 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 16:35:00,455 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 16:35:00,511 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 16:35:00,545 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 16:35:00,657 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 16:35:00,709 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 16:35:01,297 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 16:35:01,298 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 16:35:02,962 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:35:04,707 - ERROR - !!! Erreur lors de l'exécution de calcul_stats:
+Traceback (most recent call last):
+  File "D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThStat\pyThStat.py", line 1443, in calcul_stats
+    results2 = sql_bilan_reseaux()
+  File "D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThStat\pyThStat.py", line 2606, in sql_bilan_reseaux
+    _corps_retour = sorted(retour, key=cle_tri, reverse=True)
+  File "D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThStat\pyThStat.py", line 2696, in cle_tri
+    return float(element[3])
+ValueError: could not convert string to float: ' -                  '
+2026-10-18 16:35:04,718 - WARNING - Execution terminée avec 1 erreurs en 02(m)51(s), verifier le log
+2026-10-18 16:37:27,688 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:37:27,689 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-18 16:37:27,689 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-18 16:37:27,690 - INFO - ║       Version : 2026.10.18                                                                                         ║
+2026-10-18 16:37:27,691 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                   ║
+2026-10-18 16:37:27,691 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                            ║
+2026-10-18 16:37:27,692 - INFO - ║       Date : 2026-10-18 16h37m27s                                                                                  ║
+2026-10-18 16:37:27,693 - INFO - ║       Mode : sync                                                                                                  ║
+2026-10-18 16:37:27,693 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-18 16:37:27,697 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 16:37:28,506 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 16:37:28,634 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 16:37:31,775 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 16:37:32,439 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 16:37:32,507 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 16:37:32,576 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:37:32,644 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:37:33,130 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 16:37:33,285 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 16:37:33,338 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 16:37:41,948 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 16:37:41,954 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:37:41,999 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 16:37:43,140 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 16:37:58,281 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 16:37:58,966 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 16:38:03,516 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 16:38:04,531 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 16:38:08,412 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 16:38:17,072 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 16:38:31,167 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 16:39:37,636 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 16:39:44,333 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 16:39:44,452 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 16:39:47,089 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 16:39:47,123 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 16:39:47,212 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 16:39:47,427 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 16:39:49,414 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 16:39:49,527 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 16:39:49,614 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 16:39:50,269 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 16:39:50,326 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 16:39:50,358 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 16:39:50,391 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 16:39:50,423 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 16:39:50,462 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 16:39:50,504 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 16:39:50,535 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 16:39:51,081 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 16:39:51,081 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 16:39:52,606 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:39:58,197 - INFO - Phase 5: Fin de traitement en 02 (m) 30 (s), résultats enregistrés dans ~\Test\CheddarCatchment_Stats\CheddarCatchment_stats
+2026-10-18 16:39:58,201 - INFO - Execution terminée sans erreur en 02(m)30(s)
+2026-10-18 16:44:37,464 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:44:37,465 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-18 16:44:37,465 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-18 16:44:37,465 - INFO - ║       Version : 2026.10.18                                                                                         ║
+2026-10-18 16:44:37,465 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                   ║
+2026-10-18 16:44:37,466 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                            ║
+2026-10-18 16:44:37,466 - INFO - ║       Date : 2026-10-18 16h44m37s                                                                                  ║
+2026-10-18 16:44:37,466 - INFO - ║       Mode : sync                                                                                                  ║
+2026-10-18 16:44:37,466 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-18 16:44:37,467 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 16:44:38,139 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 16:44:38,240 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 16:44:41,568 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 16:44:42,084 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 16:44:42,149 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 16:44:42,214 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:44:42,269 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:44:42,664 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 16:44:42,748 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 16:44:42,797 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 16:44:50,598 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 16:44:50,602 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:44:50,634 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 16:44:51,203 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 16:45:07,695 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 16:45:08,454 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 16:45:14,659 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 16:45:15,891 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 16:45:20,958 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 16:45:32,335 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 16:45:51,602 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 16:47:04,638 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 16:47:19,752 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 16:47:19,900 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 16:47:24,833 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 16:47:24,878 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 16:47:25,033 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 16:47:25,410 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 16:47:28,538 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 16:47:28,673 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 16:47:28,769 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 16:47:29,532 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 16:47:29,607 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 16:47:29,640 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 16:47:29,678 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 16:47:29,727 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 16:47:29,762 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 16:47:29,814 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 16:47:29,849 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 16:47:30,396 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 16:47:30,397 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 16:47:32,041 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:47:35,673 - INFO - Phase 5: Fin de traitement en 02 (m) 58 (s), résultats enregistrés dans ~\Test\CheddarCatchment_Stats\CheddarCatchment_stats
+2026-10-18 16:47:35,677 - INFO - Execution terminée sans erreur en 02(m)58(s)
+2026-10-18 16:50:06,386 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:50:06,387 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-18 16:50:06,387 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-18 16:50:06,387 - INFO - ║       Version : 2026.10.18                                                                                         ║
+2026-10-18 16:50:06,388 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                   ║
+2026-10-18 16:50:06,388 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                            ║
+2026-10-18 16:50:06,388 - INFO - ║       Date : 2026-10-18 16h50m06s                                                                                  ║
+2026-10-18 16:50:06,388 - INFO - ║       Mode : sync                                                                                                  ║
+2026-10-18 16:50:06,388 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-18 16:50:06,389 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 16:50:07,239 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 16:50:07,387 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 16:50:13,487 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 16:50:14,190 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 16:50:14,262 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 16:50:14,334 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:50:14,413 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:50:14,935 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 16:50:15,028 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 16:50:15,153 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 16:50:26,617 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 16:50:26,630 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:50:26,688 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 16:50:27,589 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 16:50:53,879 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 16:50:54,656 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 16:51:00,850 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 16:51:02,013 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 16:51:06,910 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 16:51:18,076 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 16:51:37,278 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 16:52:48,066 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 16:52:54,829 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 16:52:54,947 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 16:52:57,685 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 16:52:57,724 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 16:52:57,834 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 16:52:58,063 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 16:53:00,013 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 16:53:00,130 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 16:53:00,217 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 16:53:00,960 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 16:53:01,015 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 16:53:01,047 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 16:53:01,077 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 16:53:01,108 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 16:53:01,144 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 16:53:01,181 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 16:53:01,212 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 16:53:01,712 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 16:53:01,713 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 16:53:03,145 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:53:06,459 - INFO - Phase 5: Fin de traitement en 03 (m) 00 (s), résultats enregistrés dans ~\Test\CheddarCatchment_Stats\CheddarCatchment_stats
+2026-10-18 16:53:06,462 - INFO - Execution terminée sans erreur en 03(m)00(s)
+2026-10-18 16:55:09,039 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:55:09,039 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-18 16:55:09,040 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-18 16:55:09,040 - INFO - ║       Version : 2026.10.18                                                                                         ║
+2026-10-18 16:55:09,040 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                   ║
+2026-10-18 16:55:09,040 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                            ║
+2026-10-18 16:55:09,040 - INFO - ║       Date : 2026-10-18 16h55m09s                                                                                  ║
+2026-10-18 16:55:09,041 - INFO - ║       Mode : sync                                                                                                  ║
+2026-10-18 16:55:09,041 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-18 16:55:09,042 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 16:55:09,720 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 16:55:09,809 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 16:55:13,275 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 16:55:13,798 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 16:55:13,850 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 16:55:13,915 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:55:13,976 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:55:14,377 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 16:55:14,465 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 16:55:14,517 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 16:55:22,573 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 16:55:22,576 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:55:22,611 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 16:55:23,154 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 16:55:39,475 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 16:55:40,279 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 16:55:47,192 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 16:55:48,467 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 16:55:53,509 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 16:56:04,975 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 16:56:24,554 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 16:57:37,562 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 16:57:49,094 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 16:57:49,237 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 16:57:53,944 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 16:57:54,107 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 16:57:54,210 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 16:57:54,501 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 16:57:58,653 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 16:57:58,823 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 16:57:59,027 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 16:57:59,945 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 16:58:00,073 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 16:58:00,982 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 16:58:01,014 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 16:58:01,050 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 16:58:01,094 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 16:58:01,153 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 16:58:01,195 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 16:58:01,876 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 16:58:01,877 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 16:58:04,244 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:58:08,027 - INFO - Phase 5: Fin de traitement en 02 (m) 59 (s), résultats enregistrés dans ~\Test\CheddarCatchment_Stats\CheddarCatchment_stats
+2026-10-18 16:58:08,032 - INFO - Execution terminée sans erreur en 02(m)59(s)
+2026-10-18 16:58:39,932 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-18 16:58:39,932 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-18 16:58:39,932 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-18 16:58:39,932 - INFO - ║       Version : 2026.10.18                                                                                         ║
+2026-10-18 16:58:39,933 - INFO - ║       Fichier source : Test\CheddarCatchment.sql                                                                   ║
+2026-10-18 16:58:39,933 - INFO - ║       Dossier destination : Test\CheddarCatchment_Stats                                                            ║
+2026-10-18 16:58:39,933 - INFO - ║       Date : 2026-10-18 16h58m39s                                                                                  ║
+2026-10-18 16:58:39,933 - INFO - ║       Mode : sync                                                                                                  ║
+2026-10-18 16:58:39,933 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-18 16:58:39,935 - INFO - Phase 1: Importation de la base de données Therion ~\pyThStat\Test\CheddarCatchment.sql dans: Test\CheddarCatchment_Stats\CheddarCatchment_stats.db
+2026-10-18 16:58:40,672 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-10-18 16:58:40,781 - INFO - Jonction de SHOT equates, nbre: 275
+2026-10-18 16:58:44,858 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 21
+2026-10-18 16:58:45,500 - WARNING - Table des SHOT, visées en double à traiter à la source : [(4614, 'dpl', 8.79)], [(4615, 'dpl', 8.79)], station crée : 19241, long. en double : 8.79 m
+Full name : 1.26 1.27 @ HighTime.2010.Charterhouse.CheddarCatchment, and : 1.26 isu @ HighTime.2010.Charterhouse.CheddarCatchment
+2026-10-18 16:58:45,587 - WARNING - Table des SHOT, visées en double à traiter à la source : [(10979, None, 3.12)], [(10981, None, 12.3)], station crée : 19242, long. en double : 21.09 m
+Full name : 5 5C @ bishops_palace.sumps.Goughs.CheddarCatchment, and : 5 isu @ bishops_palace.sumps.Goughs.CheddarCatchment
+2026-10-18 16:58:45,668 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17796, 'dpl', 18.1)], [(17806, 'dpl', 18.1)], station crée : 19243, long. en double : 39.19 m
+Full name : 2a 56 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:58:45,736 - WARNING - Table des SHOT, visées en double à traiter à la source : [(17797, 'dpl', 16.5)], [(17807, 'dpl', 16.5)], station crée : 19244, long. en double : 55.69 m
+Full name : 2a 57 @ Leg2.MalcolmsWay.UpperFlood.CheddarCatchment, and : 2a isu @ TrenchPassage.UpperFlood.CheddarCatchment
+2026-10-18 16:58:46,319 - INFO - Table des SHOT, visées dupliquées traités, nbre: 49
+2026-10-18 16:58:46,475 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-10-18 16:58:46,533 - INFO - Marquage des visées et des stations d'habillage, nbre: 12616
+2026-10-18 16:58:56,187 - INFO - Phase 3: Remplissage des tables d'après les 18931 entrée(s)
+2026-10-18 16:58:56,192 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 16:58:56,235 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 661 entrée(s)
+on 31: 2026-10-18 16:58:57,054 - INFO - Jonction à la Station_ID: 7336 entre les entrées 7334 et 7336
+on 180: 2026-10-18 16:59:27,494 - INFO - Jonction à la Station_ID: 13967 entre les entrées 13884 et 13967
+on 214: 2026-10-18 16:59:28,657 - INFO - Jonction à la Station_ID: 12038 entre les entrées 9632 et 8389
+on 487: 2026-10-18 16:59:42,254 - INFO - Jonction à la Station_ID: 19121 entre les entrées 19216 et 19086
+on 570: 2026-10-18 16:59:44,431 - INFO - Jonction à la Station_ID: 18776 entre les entrées 18743 et 18745
+on 852: 2026-10-18 16:59:54,584 - INFO - Jonction à la Station_ID: 18774 entre les entrées 18749 et 18743
+on 1455: 2026-10-18 17:00:17,219 - INFO - Jonction à la Station_ID: 12191 entre les entrées 8389 et 9632
+on 2303: 2026-10-18 17:00:54,296 - INFO - Jonction à la Station_ID: 8378 entre les entrées 8389 et 9632
+2026-10-18 17:03:07,723 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 639
+2026-10-18 17:03:20,703 - INFO - Réseau: 1, entrées jonctionnées: 2, [19086, 19216]
+2026-10-18 17:03:20,871 - INFO - Réseau: 2, entrées jonctionnées: 8, [7677, 7676, 7675, 7674, 7673, 7672, 7670, 7671]
+2026-10-18 17:03:26,188 - INFO - Réseau: 3, entrées jonctionnées: 249, [7749, 7748, 7747, 7746, 7745, 7744, 7743, 7449, 7448, 7450, 7700, 7742, 7496, 7488, 7701, 7741, 7495, 7487, 7702, 7699, 7486, 7494, 7703, 7678, 7740, 7485, 7491, 7704, 7679, 7698, 7739, 7484, 7489, 7492, 7705, 7738, 7483, 7490, 7493, 7706, 7737, 7482, 7707, 7735, 7481, 7708, 7734, 7736, 7480, 7709, 7733, 7479, 7710, 7732, 7478, 7711, 7731, 7477, 7712, 7730, 7476, 7713, 7729, 7475, 7455, 7728, 7474, 7454, 7456, 7727, 7452, 7453, 7684, 7714, 7632, 7726, 7451, 7667, 7683, 7715, 7631, 7633, 7725, 7658, 7663, 7666, 7682, 7716, 7630, 7724, 7659, 7662, 7664, 7665, 7680, 7717, 7629, 7723, 7657, 7681, 7718, 7628, 7722, 7465, 7655, 7719, 7627, 7721, 7464, 7466, 7467, 7654, 7656, 7720, 7625, 7692, 7668, 7586, 7568, 7569, 7457, 7661, 7626, 7691, 7693, 7694, 7695, 7696, 7697, 7669, 7584, 7567, 7570, 7458, 7653, 7689, 7685, 7585, 7566, 7548, 7459, 7578, 7462, 7660, 7688, 7690, 7686, 7687, 7565, 7470, 7571, 7460, 7577, 7579, 7461, 7642, 7564, 7471, 7547, 7572, 7545, 7576, 7580, 7583, 7463, 7641, 7645, 7563, 7525, 7473, 7573, 7544, 7575, 7581, 7582, 7441, 7636, 7637, 7639, 7643, 7562, 7524, 7472, 7574, 7543, 7521, 7634, 7650, 7638, 7640, 7644, 7561, 7522, 7536, 7542, 7519, 7635, 7649, 7651, 7560, 7523, 7535, 7541, 7520, 7648, 7652, 7559, 7534, 7540, 7646, 7468, 7533, 7539, 7647, 7469, 7546, 7558, 7532, 7537, 7518, 7557, 7531, 7538, 7517, 7556, 7530, 7516, 7555, 7529, 7515, 7554, 7528, 7514, 7553, 7526, 7513, 7552, 7527, 7512, 7551, 7511, 7549, 7505, 7550, 7506, 7510, 7509, 7507, 7508]
+2026-10-18 17:03:26,234 - INFO - Réseau: 4, entrées jonctionnées: 2, [13967, 13884]
+2026-10-18 17:03:26,359 - INFO - Réseau: 5, entrées jonctionnées: 8, [7501, 7500, 7502, 7499, 7503, 7497, 7504, 7498]
+2026-10-18 17:03:26,776 - INFO - Réseau: 6, entrées jonctionnées: 22, [7604, 7603, 7605, 7606, 7608, 7607, 7622, 7623, 7621, 7624, 7620, 7611, 7609, 7614, 7619, 7610, 7612, 7618, 7613, 7617, 7615, 7616]
+2026-10-18 17:03:31,246 - INFO - Réseau: 7, entrées jonctionnées: 162, [13668, 13669, 13670, 13671, 13672, 13673, 13674, 13675, 13676, 13677, 13680, 13678, 13681, 13679, 13682, 13683, 13684, 13685, 13686, 13687, 13688, 13689, 13690, 13691, 13692, 13726, 13693, 13727, 13694, 13728, 13695, 13729, 13696, 13730, 13697, 13731, 13698, 13732, 13699, 13733, 13700, 13734, 13735, 13701, 13736, 13702, 13737, 13703, 13738, 13704, 13744, 13739, 13705, 13745, 13740, 13706, 13746, 13741, 13742, 13707, 13747, 13743, 13708, 13748, 13709, 13749, 13710, 13750, 13711, 13751, 13712, 13752, 13713, 13753, 13714, 13754, 13715, 13755, 13716, 13756, 13717, 13757, 13718, 13758, 13719, 13759, 13720, 13760, 13721, 13761, 13722, 13762, 13723, 13724, 13763, 13725, 13775, 13764, 13776, 13765, 13767, 13777, 13766, 13768, 13778, 13769, 13779, 13770, 13780, 13771, 13781, 13772, 13782, 13773, 13783, 13774, 13784, 13785, 13786, 13787, 13789, 13788, 13790, 13791, 13802, 13792, 13803, 13793, 13804, 13794, 13805, 13795, 13806, 13796, 13807, 13797, 13808, 13798, 13809, 13799, 13810, 13800, 13811, 13801, 13812, 13813, 13814, 13815, 13816, 13817, 13818, 13819, 13820, 13821, 13822, 13823, 13824, 13825, 13826, 13827, 13828, 13829]
+2026-10-18 17:03:31,454 - INFO - Réseau: 8, entrées jonctionnées: 9, [7587, 7588, 7595, 7594, 7593, 7592, 7591, 7589, 7590]
+2026-10-18 17:03:31,569 - INFO - Réseau: 9, entrées jonctionnées: 7, [7596, 7597, 7598, 7599, 7600, 7601, 7602]
+2026-10-18 17:03:32,553 - INFO - Réseau: 10, entrées jonctionnées: 57, [17133, 17132, 17134, 17131, 17135, 17130, 17136, 17129, 17137, 17128, 17138, 17127, 17139, 17126, 17140, 17125, 17141, 17142, 17124, 17143, 17123, 17144, 17175, 13525, 17145, 17176, 17146, 17177, 17147, 17178, 17148, 17149, 17150, 17151, 17152, 17153, 17154, 17155, 17157, 17156, 17158, 17159, 17160, 17161, 17162, 17163, 17164, 17165, 17166, 17167, 17168, 17169, 17170, 17171, 17172, 17173, 17174]
+2026-10-18 17:03:32,608 - INFO - Réseau: 11, entrées jonctionnées: 3, [18745, 18743, 18749]
+2026-10-18 17:03:32,648 - INFO - Réseau: 12, entrées jonctionnées: 2, [17188, 17189]
+2026-10-18 17:03:32,707 - INFO - Réseau: 13, entrées jonctionnées: 2, [18995, 19003]
+2026-10-18 17:03:32,739 - INFO - Réseau: 14, entrées jonctionnées: 2, [12483, 12923]
+2026-10-18 17:03:32,778 - INFO - Réseau: 15, entrées jonctionnées: 3, [12936, 12956, 13072]
+2026-10-18 17:03:32,843 - INFO - Réseau: 16, entrées jonctionnées: 2, [8389, 9632]
+2026-10-18 17:03:32,885 - INFO - Réseau: 17, entrées jonctionnées: 2, [7334, 7336]
+2026-10-18 17:03:33,627 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\pyThStat\Test\readme
+2026-10-18 17:03:33,628 - INFO - Table des CENTRELINE, longueur: [(24976.07, 3626.89, 1111.24)]
+2026-10-18 17:03:36,486 - INFO - Table des STATION entrée et fix, nbre: 661
+2026-10-18 17:03:41,661 - INFO - Phase 5: Fin de traitement en 05 (m) 01 (s), résultats enregistrés dans ~\Test\CheddarCatchment_Stats\CheddarCatchment_stats
+2026-10-18 17:03:41,667 - INFO - Execution terminée sans erreur en 05(m)01(s)

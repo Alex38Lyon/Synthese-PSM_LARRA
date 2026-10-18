@@ -1,5 +1,5 @@
 -------------
-# Statistiques de `Synthèse générale des réseaux de la Pierre Saint Martin-Larra`
+# Statistiques de `{base_name}`
 --------------
 
 ### Développement total
@@ -183,7 +183,7 @@ Toutes les stations sont comptabilisées et raccordées
 |  | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | AN456 | 1 962,00 | M_13_B | 2 002,00 |
 |  | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | SL_19_G | 1 747,00 | - | 1 787,00 |
 |  | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | CHI_d_38/1 | 1 275,00 | HUET_N | 1 315,00 |
-|  | Entrée(s) sans topographie | 3 | 0,00 | 0,00 | 0,00 | 0,00 | 0 | 0.00 | 0,00 | 0.00 | 0,00 |
+|  | Entrée(s) sans topographie | 3 | - | - | - | - | - | - | - | - | - |
 
 
 --------------
@@ -252,10 +252,10 @@ Toutes les stations sont comptabilisées et raccordées
 |                   |      |
 | :---------------- | :--- |
 |       Script pyThStat par | alexandre.pont@yahoo.fr |
-|       Version | 2026.09.25 |
-|       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
-|       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-09-26 20h28m10s |
-| Durée calcul |03 (m) 26 (s) sans erreur |
+|       Version | 2026.10.18 |
+|       Fichier source | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql |
+|       Dossier destination | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats |
+|       Date | 2026-10-18 17h05m05s |
+| Durée calcul |26 (m) 03 (s) sans erreur |
 
 --------------
