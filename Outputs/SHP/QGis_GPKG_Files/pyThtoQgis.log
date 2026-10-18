@@ -1071,3 +1071,100 @@ on 21583: 2026-10-18 16:52:42,955 - WARNING - Any intersection issue, attributes
 2026-10-18 16:52:51,799 - INFO - =========================================================================================================
 2026-10-18 16:52:51,799 - INFO - Execution completed without errors in 79.33 s
 2026-10-18 16:52:51,799 - INFO - =========================================================================================================
+2026-10-18 19:43:54,148 - INFO - *********************************************************************************************************
+2026-10-18 19:43:54,148 - INFO - Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible
+2026-10-18 19:43:54,148 - INFO -         original written by X. Robert, ISTerre : October 2022
+2026-10-18 19:43:54,148 - INFO -         updated by : alexandre.pont@yahoo.fr
+2026-10-18 19:43:54,148 - INFO -         version : 2026.08.31
+2026-10-18 19:43:54,148 - INFO -         commande line mode
+2026-10-18 19:43:54,149 - INFO -         input folder :  ~/Synthese-PSM_LARRA/Outputs/SHP
+2026-10-18 19:43:54,149 - INFO -         output folder : ~/Outputs/SHP/QGis_GPKG_Files
+2026-10-18 19:43:54,149 - INFO -         log file      : ~/SHP/QGis_GPKG_Files/pyThtoQgis.log
+2026-10-18 19:43:54,149 - INFO - *********************************************************************************************************
+2026-10-18 19:43:54,150 - INFO - Step 1: test files and convert to GPKG format in the folder: ~/Outputs/SHP/QGis_GPKG_Files
+2026-10-18 19:43:54,150 - INFO - Working with file (1/7): points2d.shp
+2026-10-18 19:43:54,150 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/points2d.shp ===================================
+2026-10-18 19:43:56,448 - INFO - Géométries invalides : 0 sur  16191
+2026-10-18 19:43:56,452 - INFO - =========================================================================================================
+2026-10-18 19:43:56,454 - INFO - SHP file conversion : points2d.shp with 16191 objets
+2026-10-18 19:43:59,051 - INFO - Conversion GPKG terminée fichier : points2d, 16191 objets convertis
+2026-10-18 19:43:59,051 - INFO - Working with file (2/7): lines2d.shp
+2026-10-18 19:43:59,052 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/lines2d.shp ===================================
+2026-10-18 19:44:01,749 - WARNING - Géométries invalides : 1004 sur  34608
+2026-10-18 19:44:01,749 - WARNING - 		Too few points : 1004
+2026-10-18 19:44:01,753 - INFO - =========================================================================================================
+2026-10-18 19:44:01,755 - INFO - SHP file conversion : lines2d.shp with 34608 objets
+2026-10-18 19:44:05,491 - INFO - Conversion GPKG terminée fichier : lines2d_fixed, 34608 objets convertis
+2026-10-18 19:44:05,491 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/lines2d_fixed.gpkg ===================================
+2026-10-18 19:44:05,493 - WARNING - Erreur lecture feature FID 0 : GetFeature() retourne None
+2026-10-18 19:44:08,793 - INFO - Géométries invalides : 0 sur  34607
+2026-10-18 19:44:08,797 - INFO - =========================================================================================================
+2026-10-18 19:44:08,799 - INFO - Working with file (3/7): outline2d.shp
+2026-10-18 19:44:08,799 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/outline2d.shp ===================================
+2026-10-18 19:44:08,917 - WARNING - Géométries invalides : 306 sur  467
+2026-10-18 19:44:08,917 - WARNING - 		Unknown (1) : 306
+2026-10-18 19:44:08,918 - INFO - =========================================================================================================
+2026-10-18 19:44:08,918 - INFO - SHP file conversion : outline2d.shp with 467 objets
+2026-10-18 19:44:09,081 - INFO - Conversion GPKG terminée fichier : outline2d, 467 objets convertis
+2026-10-18 19:44:09,082 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/outline2d.gpkg ===================================
+2026-10-18 19:44:09,084 - WARNING - Erreur lecture feature FID 0 : GetFeature() retourne None
+2026-10-18 19:44:09,174 - INFO - Géométries invalides : 0 sur  466
+2026-10-18 19:44:09,174 - INFO - =========================================================================================================
+2026-10-18 19:44:09,175 - INFO - Working with file (4/7): areas2d.shp
+2026-10-18 19:44:09,175 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/areas2d.shp ===================================
+2026-10-18 19:44:09,227 - INFO - Géométries invalides : 0 sur  494
+2026-10-18 19:44:09,227 - INFO - =========================================================================================================
+2026-10-18 19:44:09,228 - INFO - SHP file conversion : areas2d.shp with 494 objets
+2026-10-18 19:44:09,310 - INFO - Conversion GPKG terminée fichier : areas2d_fixed, 494 objets convertis
+2026-10-18 19:44:09,310 - INFO - Working with file (5/7): walls3d.shp
+2026-10-18 19:44:09,311 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/walls3d.shp ===================================
+2026-10-18 19:44:11,859 - WARNING - Géométries invalides : 474 sur  474
+2026-10-18 19:44:11,859 - WARNING - 		Not supported : 474
+2026-10-18 19:44:11,859 - INFO - =========================================================================================================
+2026-10-18 19:44:11,860 - INFO - SHP file conversion : walls3d.shp with 474 objets
+2026-10-18 19:44:18,563 - INFO - Conversion GPKG terminée fichier : walls3d, 474 objets convertis
+2026-10-18 19:44:18,564 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/walls3d.gpkg ===================================
+2026-10-18 19:44:18,565 - WARNING - Erreur lecture feature FID 0 : GetFeature() retourne None
+2026-10-18 19:44:18,829 - INFO - Géométries invalides : 0 sur  473
+2026-10-18 19:44:18,829 - INFO - =========================================================================================================
+2026-10-18 19:44:18,830 - INFO - Working with file (6/7): stations3d.shp
+2026-10-18 19:44:18,830 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/stations3d.shp ===================================
+2026-10-18 19:44:25,679 - INFO - Géométries invalides : 0 sur  67580
+2026-10-18 19:44:25,690 - INFO - =========================================================================================================
+2026-10-18 19:44:25,694 - INFO - SHP file conversion : stations3d.shp with 67580 objets
+2026-10-18 19:44:33,943 - INFO - Conversion GPKG terminée fichier : stations3d, 67580 objets convertis
+2026-10-18 19:44:33,944 - INFO - Working with file (7/7): shots3d.shp
+2026-10-18 19:44:33,944 - INFO - ==================== BILAN FILE: ~/Outputs/SHP/shots3d.shp ===================================
+2026-10-18 19:44:39,983 - WARNING - Géométries invalides : 4325 sur  66046
+2026-10-18 19:44:39,984 - WARNING - 		Too few points : 4325
+2026-10-18 19:44:39,991 - INFO - =========================================================================================================
+2026-10-18 19:44:39,994 - INFO - SHP file conversion : shots3d.shp with 66046 objets
+2026-10-18 19:44:48,099 - INFO - Conversion GPKG terminée fichier : shots3d, 66046 objets convertis
+2026-10-18 19:44:48,099 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/shots3d.gpkg ===================================
+2026-10-18 19:44:48,101 - WARNING - Erreur lecture feature FID 0 : GetFeature() retourne None
+2026-10-18 19:44:55,164 - INFO - Géométries invalides : 0 sur  66045
+2026-10-18 19:44:55,172 - INFO - =========================================================================================================
+2026-10-18 19:44:55,175 - INFO - Step 2: adapte drawing files (cut it) for QGis in the folder: ~/Outputs/SHP/QGis_GPKG_Files
+2026-10-18 19:44:55,175 - INFO - Clipping file : ~/SHP/QGis_GPKG_Files/lines2d_fixed.gpkg to file : ~/SHP/QGis_GPKG_Files/lines2dMasked.gpkg
+on 100: 2026-10-18 19:44:55,280 - WARNING - Any intersection issue, attributes: _SCRAP_ID=3069, _TYPE=rock-edge, _SCRAP=BB26_meandre_entree, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 4279: 2026-10-18 19:44:56,651 - WARNING - Any intersection issue, attributes: _SCRAP_ID=4291, _TYPE=fault, _SCRAP=SP-Explo_01_2013_10_09_02, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 4280: 2026-10-18 19:44:56,651 - WARNING - Any intersection issue, attributes: _SCRAP_ID=4291, _TYPE=fault, _SCRAP=SP-Explo_01_2013_10_09_02, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 8130: 2026-10-18 19:44:58,167 - WARNING - Any intersection issue, attributes: _SCRAP_ID=33264, _TYPE=rock-border, _SCRAP=SP-AP7_Aval_02, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 8544: 2026-10-18 19:44:58,352 - WARNING - Any intersection issue, attributes: _SCRAP_ID=33111, _TYPE=contour, _SCRAP=SP-AP7_Aval_01, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 10131: 2026-10-18 19:44:58,975 - WARNING - Any intersection issue, attributes: _SCRAP_ID=38947, _TYPE=pit, _SCRAP=SP-B3_Aval_02E, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 12709: 2026-10-18 19:44:59,909 - WARNING - Any intersection issue, attributes: _SCRAP_ID=41321, _TYPE=rock-border, _SCRAP=SP-GL102_Aval_01B, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+on 21621: 2026-10-18 19:45:03,244 - WARNING - Any intersection issue, attributes: _SCRAP_ID=58944, _TYPE=border, _SCRAP=SP-Explo_12_1982_08_05_01, _CLIP=on, _TAGS=6144, _SUBTYPE=invisible, _SCALE=4, _TEXT=None
+2026-10-18 19:45:08,129 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/lines2dMasked.gpkg ===================================
+2026-10-18 19:45:08,131 - WARNING - Erreur lecture feature FID 0 : GetFeature() retourne None
+2026-10-18 19:45:11,445 - INFO - Géométries invalides : 0 sur  34599
+2026-10-18 19:45:11,448 - INFO - =========================================================================================================
+2026-10-18 19:45:11,450 - WARNING - 9 deleted geometries need to be verified in lines2dMasked.gpkg file
+2026-10-18 19:45:11,456 - INFO - Clipping file : ~/SHP/QGis_GPKG_Files/areas2d_fixed.gpkg to file : ~/SHP/QGis_GPKG_Files/areas2dMasked.gpkg
+2026-10-18 19:45:11,942 - INFO - ==================== BILAN FILE: ~/SHP/QGis_GPKG_Files/areas2dMasked.gpkg ===================================
+2026-10-18 19:45:11,944 - WARNING - Erreur lecture feature FID 0 : GetFeature() retourne None
+2026-10-18 19:45:12,008 - INFO - Géométries invalides : 0 sur  493
+2026-10-18 19:45:12,008 - INFO - =========================================================================================================
+2026-10-18 19:45:12,008 - WARNING - 1 Deleted geometries need to be verified in areas2d_fixed.gpkg file
+2026-10-18 19:45:12,009 - INFO - =========================================================================================================
+2026-10-18 19:45:12,009 - INFO - Execution completed without errors in 77.87 s
+2026-10-18 19:45:12,010 - INFO - =========================================================================================================
