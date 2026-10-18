@@ -73,10 +73,10 @@ Utilisation:
 
 [Détails](./pyThtoBD/README.rst)	
 	
-pyThtoDat (développement en cours)
+pyThtoMergin (développement en cours)
 --------
 
-Script pour exporter des fichiers vers un projet MerginMaps 
+Script pour exporter automatiquement des fichiers vers un projet MerginMaps 
 
 	
 

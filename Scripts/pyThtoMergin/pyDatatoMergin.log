@@ -1,0 +1,312 @@
+2026-10-18 09:28:03,943 - DEBUG - 9 couple(s) source/destination chargé(s) pour le profil [Depot_Data:ARR].
+2026-10-18 09:28:05,249 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:28:05,249 - INFO -                    Synthèse initiale des informations du projet Mergin Maps                   
+2026-10-18 09:28:05,250 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:28:05,458 - INFO - Projet           : ARR
+2026-10-18 09:28:05,458 - INFO - Identifiant      : 1707d35a-d99f-47a9-a714-519d7d9c147e
+2026-10-18 09:28:05,459 - INFO - Version          : v17
+2026-10-18 09:28:05,459 - INFO - Créé le          : 2026-08-19T09:31:30Z
+2026-10-18 09:28:05,460 - INFO - Mis à jour       : 2026-10-14T08:39:10Z
+2026-10-18 09:28:05,461 - INFO - Public           : True
+2026-10-18 09:28:05,462 - INFO - Nbre de fichiers : 14
+2026-10-18 09:28:05,464 - INFO - Taille totale    : 128415971 Octets (122.47 Mo)
+2026-10-18 09:28:05,465 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:28:05,466 - INFO -                            Envoi des données GitHub vers Mergin Maps                          
+2026-10-18 09:28:05,468 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:28:05,470 - INFO - [1/5] Téléchargement des fichiers source depuis le GitHub : Alex38Lyon/Synthese-PSM_LARRA@main
+2026-10-18 09:28:05,470 - INFO - Téléchargement de : Outputs/SHP/QGis_GPKG_Files/ vers Tests2
+2026-10-18 09:28:23,286 - INFO - Téléchargement GitHub terminé : 8 fichier(s), 112390692 octets.
+2026-10-18 09:28:23,295 - INFO - Téléchargement de : Outputs/DB_Synthese-PSM_LARRA.sql vers Base_de_donnees1
+2026-10-18 09:28:26,252 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 16082638 octets.
+2026-10-18 09:28:26,258 - INFO - Téléchargement de : Outputs/DB_Synthese-PSM_LARRA_Dat vers Base_de_donnees2
+2026-10-18 09:28:33,264 - INFO - Téléchargement GitHub terminé : 4 fichier(s), 34460188 octets.
+2026-10-18 09:28:33,273 - INFO - Téléchargement de : Outputs/readme.md vers .
+2026-10-18 09:28:34,201 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 23690 octets.
+2026-10-18 09:28:34,211 - INFO - Téléchargement de : Outputs/SHP/QGis_GPKG_Files/points2d.gpkg vers 01 Dessins\01.00 Synthèse Therion
+2026-10-18 09:28:36,931 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 3989504 octets.
+2026-10-18 09:28:36,939 - INFO - Téléchargement de : Outputs/SHP/QGis_GPKG_Files/shots3d.gpkg vers 00 Polygonales
+2026-10-18 09:28:46,321 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 19320832 octets.
+2026-10-18 09:28:46,325 - INFO - Téléchargement de : Outputs/SHP/QGis_GPKG_Files/stations3d.gpkg vers 00 Polygonales
+2026-10-18 09:28:49,449 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 14516224 octets.
+2026-10-18 09:28:49,451 - INFO - Téléchargement de : Outputs/SHP/QGis_GPKG_Files/walls3d.gpkg vers 00 Polygonales
+2026-10-18 09:28:55,921 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 19693568 octets.
+2026-10-18 09:28:55,925 - INFO - Téléchargement de : Outputs/SHP/QGis_GPKG_Files/pyThtoQgis.log vers 00 Polygonales
+2026-10-18 09:28:56,650 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 98852 octets.
+2026-10-18 09:28:56,652 - INFO - [2/5] Synchronisation du projet Mergin Maps existant : ~\pyThtoMergin\Temp_mergin\mergin\ARR
+2026-10-18 09:28:56,654 - INFO - [3/5] Copie des fichiers à mettre à jour ~\Scripts\pyThtoMergin\Temp_mergin\AddedFiles
+2026-10-18 09:28:56,669 - INFO -   + Tests2\areas2dMasked.gpkg
+2026-10-18 09:28:56,696 - INFO -   + Tests2\lines2dMasked.gpkg
+2026-10-18 09:28:56,707 - INFO -   + Tests2\outline2d.gpkg
+2026-10-18 09:28:56,717 - INFO -   + Tests2\points2d.gpkg
+2026-10-18 09:28:56,722 - INFO -   + Tests2\pyThtoQgis.log
+2026-10-18 09:28:56,742 - INFO -   + Tests2\shots3d.gpkg
+2026-10-18 09:28:56,752 - INFO -   + Tests2\stations3d.gpkg
+2026-10-18 09:28:56,769 - INFO -   + Tests2\walls3d.gpkg
+2026-10-18 09:28:56,789 - INFO -   + Base_de_donnees1\DB_Synthese-PSM_LARRA.sql
+2026-10-18 09:28:56,800 - INFO -   + Base_de_donnees2\DB_Synthese-PSM_LARRA.dat
+2026-10-18 09:28:56,803 - INFO -   + Base_de_donnees2\DB_Synthese-PSM_LARRA.mak
+2026-10-18 09:28:56,812 - INFO -   + Base_de_donnees2\DB_Synthese-PSM_LARRA.plt
+2026-10-18 09:28:56,821 - INFO -   + Base_de_donnees2\DB_Synthese-PSM_LARRA_Dat.db
+2026-10-18 09:28:56,828 - INFO -   + readme.md
+2026-10-18 09:28:56,835 - INFO -   + 01 Dessins\01.00 Synthèse Therion\points2d.gpkg
+2026-10-18 09:28:56,854 - INFO -   + 00 Polygonales\shots3d.gpkg
+2026-10-18 09:28:56,864 - INFO -   + 00 Polygonales\stations3d.gpkg
+2026-10-18 09:28:56,877 - INFO -   + 00 Polygonales\walls3d.gpkg
+2026-10-18 09:28:56,880 - INFO -   + 00 Polygonales\pyThtoQgis.log
+2026-10-18 09:28:56,880 - INFO - [4/5] Envoi vers Mergin Maps...
+2026-10-18 09:28:56,880 - DEBUG - Mode debug, aucune modification envoyée sur le serveur Mergin Maps
+2026-10-18 09:28:56,881 - INFO - [5/5] Envoi terminé, nettoyage des dossiers temporaires...
+2026-10-18 09:28:56,881 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:28:56,881 - INFO -                    Détail des informations du projet Mergin Maps mis à jour                   
+2026-10-18 09:28:56,882 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:28:57,085 - INFO - Projet           : ARR
+2026-10-18 09:28:57,086 - INFO - Identifiant      : 1707d35a-d99f-47a9-a714-519d7d9c147e
+2026-10-18 09:28:57,086 - INFO - Version          : v17
+2026-10-18 09:28:57,087 - INFO - Créé le          : 2026-08-19T09:31:30Z
+2026-10-18 09:28:57,089 - INFO - Mis à jour       : 2026-10-14T08:39:10Z
+2026-10-18 09:28:57,090 - INFO - Public           : True
+2026-10-18 09:28:57,090 - INFO - Nbre de fichiers : 14
+2026-10-18 09:28:57,091 - INFO - Taille totale    : 128415971 Octets (122.47 Mo)
+2026-10-18 09:28:57,091 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-18 09:28:57,092 - INFO - 20260819_115533.jpeg                                                                   2.632 Mo
+2026-10-18 09:28:57,092 - INFO - ARR.gpkg                                                                              93.309 Mo
+2026-10-18 09:28:57,093 - INFO - ARR.qgs                                                                                0.713 Mo
+2026-10-18 09:28:57,093 - INFO - ARR_attachments.zip                                                                    0.002 Mo
+2026-10-18 09:28:57,094 - INFO - Inventaire Cavités.gpkg                                                                0.660 Mo
+2026-10-18 09:28:57,095 - INFO - JPEG_20260819_113638_3152669861975410066.jpg                                           3.024 Mo
+2026-10-18 09:28:57,095 - INFO - JPEG_20260819_113919_5886287470656202827.jpg                                           3.034 Mo
+2026-10-18 09:28:57,096 - INFO - JPEG_20260819_121951_8365685850227103103.jpg                                           2.974 Mo
+2026-10-18 09:28:57,096 - INFO - JPEG_20260819_122929_1446792337025110147.jpg                                           3.007 Mo
+2026-10-18 09:28:57,096 - INFO - JPEG_20260819_123117_33265926990508961.jpg                                             2.516 Mo
+2026-10-18 09:28:57,097 - INFO - JPEG_20260819_124915_3186813976814177670.jpg                                           2.899 Mo
+2026-10-18 09:28:57,097 - INFO - JPEG_20260819_125124_7007318829424129864.jpg                                           3.165 Mo
+2026-10-18 09:28:57,097 - INFO - Tests/areas2dMasked.gpkg                                                               4.531 Mo
+2026-10-18 09:28:57,098 - INFO - karstpro_etude.json                                                                    0.001 Mo
+2026-10-18 09:28:57,098 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-18 09:48:14,411 - DEBUG - 15 couple(s) source/destination chargé(s) pour le profil [Depot_Data:Synthese_Folly-Puaire-Criou].
+2026-10-18 09:48:15,202 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:48:15,203 - INFO -                    Synthèse initiale des informations du projet Mergin Maps                   
+2026-10-18 09:48:15,203 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:48:15,539 - INFO - Projet           : Synthese_Folly-Puaire-Criou
+2026-10-18 09:48:15,540 - INFO - Identifiant      : 61f9ebfe-317e-4cc6-906e-ec013208c256
+2026-10-18 09:48:15,541 - INFO - Version          : v94
+2026-10-18 09:48:15,541 - INFO - Créé le          : 2024-11-18T10:03:04Z
+2026-10-18 09:48:15,542 - INFO - Mis à jour       : 2026-10-07T17:23:27Z
+2026-10-18 09:48:15,542 - INFO - Public           : True
+2026-10-18 09:48:15,543 - INFO - Nbre de fichiers : 129
+2026-10-18 09:48:15,544 - INFO - Taille totale    : 756091063 Octets (721.06 Mo)
+2026-10-18 09:48:15,545 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:48:15,545 - INFO -                            Envoi des données GitHub vers Mergin Maps                          
+2026-10-18 09:48:15,546 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:48:15,549 - INFO - [1/5] Téléchargement des fichiers source depuis le GitHub : robertxa/Topographies-Samoens_Folly@master
+2026-10-18 09:48:15,550 - INFO - Téléchargement de : Outputs/SHP/GPKG/areas2dMasked.gpkg vers 00_Dessin
+2026-10-18 09:48:16,082 - ERROR - !!! Le dossier temporaire est conservé pour diagnostic :
+2026-10-18 09:48:16,082 - ERROR - !!! D:\08_GitHub\Synthese-PSM_LARRA\Scripts\pyThtoMergin\Temp_mergin
+2026-10-18 09:49:14,918 - DEBUG - 15 couple(s) source/destination chargé(s) pour le profil [Depot_Data:Synthese_Folly-Puaire-Criou].
+2026-10-18 09:49:15,684 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:49:15,685 - INFO -                    Synthèse initiale des informations du projet Mergin Maps                   
+2026-10-18 09:49:15,685 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:49:15,973 - INFO - Projet           : Synthese_Folly-Puaire-Criou
+2026-10-18 09:49:15,973 - INFO - Identifiant      : 61f9ebfe-317e-4cc6-906e-ec013208c256
+2026-10-18 09:49:15,973 - INFO - Version          : v94
+2026-10-18 09:49:15,973 - INFO - Créé le          : 2024-11-18T10:03:04Z
+2026-10-18 09:49:15,974 - INFO - Mis à jour       : 2026-10-07T17:23:27Z
+2026-10-18 09:49:15,974 - INFO - Public           : True
+2026-10-18 09:49:15,974 - INFO - Nbre de fichiers : 129
+2026-10-18 09:49:15,974 - INFO - Taille totale    : 756091063 Octets (721.06 Mo)
+2026-10-18 09:49:15,975 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:49:15,975 - INFO -                            Envoi des données GitHub vers Mergin Maps                          
+2026-10-18 09:49:15,975 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:49:15,976 - INFO - [1/5] Téléchargement des fichiers source depuis le GitHub : robertxa/Topographies-Samoens_Folly@master
+2026-10-18 09:49:15,976 - INFO - Téléchargement de : Outputs/SHP/GPKG/areas2dMasekd.gpkg vers 00_Dessin
+2026-10-18 09:49:17,096 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 1236992 octets.
+2026-10-18 09:49:17,098 - INFO - Téléchargement de : Outputs/SHP/GPKG/points2dAlt.gpkg vers 00_Dessin
+2026-10-18 09:49:18,192 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 4902912 octets.
+2026-10-18 09:49:18,193 - INFO - Téléchargement de : Outputs/SHP/GPKG/lines2dMasekd.gpkg vers 00_Dessin
+2026-10-18 09:49:23,843 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 28553216 octets.
+2026-10-18 09:49:23,845 - INFO - Téléchargement de : Outputs/SHP/GPKG/walls3d.gpkg vers 00_Dessin
+2026-10-18 09:49:27,053 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 25882624 octets.
+2026-10-18 09:49:27,055 - INFO - Téléchargement de : Outputs/SHP/GPKG/outline2d.gpkg vers 00_Dessin
+2026-10-18 09:49:29,415 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 15769600 octets.
+2026-10-18 09:49:29,420 - INFO - Téléchargement de : Outputs/SHP/GPKG/shots3d.gpkg vers 00_Dessin
+2026-10-18 09:49:30,975 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 6905856 octets.
+2026-10-18 09:49:30,979 - INFO - Téléchargement de : Outputs/SHP/GPKG/stations3dAlt.gpkg vers 02_Cavites
+2026-10-18 09:49:32,463 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 6860800 octets.
+2026-10-18 09:49:32,465 - INFO - Téléchargement de : Outputs/SHP/GPKG/SynclinalJB-Entrances.gpkg vers 02_Cavites
+2026-10-18 09:49:33,159 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 98304 octets.
+2026-10-18 09:49:33,163 - INFO - Téléchargement de : Outputs/SHP/GPKG/SystemeA21-Entrances.gpkg vers 02_Cavites
+2026-10-18 09:49:33,862 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 98304 octets.
+2026-10-18 09:49:33,864 - INFO - Téléchargement de : Outputs/SHP/GPKG/SystemeAV-Entrances.gpkg vers 02_Cavites
+2026-10-18 09:49:34,459 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 98304 octets.
+2026-10-18 09:49:34,460 - INFO - Téléchargement de : Outputs/SHP/GPKG/SystemeCP-Entrances.gpkg vers 02_Cavites
+2026-10-18 09:49:35,068 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 98304 octets.
+2026-10-18 09:49:35,070 - INFO - Téléchargement de : Outputs/SHP/GPKG/SystemMirolda-Entrances.gpkg vers 02_Cavites
+2026-10-18 09:49:35,650 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 98304 octets.
+2026-10-18 09:49:35,651 - INFO - Téléchargement de : Outputs/SHP/GPKG/SystemMirolda-Entrances.gpkg vers 02_Cavites
+2026-10-18 09:49:35,961 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 98304 octets.
+2026-10-18 09:49:35,962 - INFO - Téléchargement de : Outputs/SHP/GPKG/BigCaves-info.gpkg vers 03_Legende
+2026-10-18 09:49:37,062 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 98304 octets.
+2026-10-18 09:49:37,064 - INFO - Téléchargement de : Outputs/SHP/GPKG/Systems-info.gpkg vers 03_Legende
+2026-10-18 09:49:37,611 - INFO - Téléchargement GitHub terminé : 1 fichier(s), 98304 octets.
+2026-10-18 09:49:37,614 - INFO - [2/5] Synchronisation du projet Mergin Maps existant : ~\pyThtoMergin\Temp_mergin\mergin\Synthese_Folly-Puaire-Criou
+2026-10-18 09:49:37,615 - INFO - [3/5] Copie des fichiers à mettre à jour ~\Scripts\pyThtoMergin\Temp_mergin\AddedFiles
+2026-10-18 09:49:37,619 - INFO -   + 00_Dessin\areas2dMasekd.gpkg
+2026-10-18 09:49:37,627 - INFO -   + 00_Dessin\points2dAlt.gpkg
+2026-10-18 09:49:37,645 - INFO -   + 00_Dessin\lines2dMasekd.gpkg
+2026-10-18 09:49:37,671 - INFO -   + 00_Dessin\walls3d.gpkg
+2026-10-18 09:49:37,687 - INFO -   + 00_Dessin\outline2d.gpkg
+2026-10-18 09:49:37,700 - INFO -   + 00_Dessin\shots3d.gpkg
+2026-10-18 09:49:37,710 - INFO -   + 02_Cavites\stations3dAlt.gpkg
+2026-10-18 09:49:37,716 - INFO -   + 02_Cavites\SynclinalJB-Entrances.gpkg
+2026-10-18 09:49:37,719 - INFO -   + 02_Cavites\SystemeA21-Entrances.gpkg
+2026-10-18 09:49:37,724 - INFO -   + 02_Cavites\SystemeAV-Entrances.gpkg
+2026-10-18 09:49:37,730 - INFO -   + 02_Cavites\SystemeCP-Entrances.gpkg
+2026-10-18 09:49:37,733 - INFO -   + 02_Cavites\SystemMirolda-Entrances.gpkg
+2026-10-18 09:49:37,736 - INFO -   + 02_Cavites\SystemMirolda-Entrances.gpkg
+2026-10-18 09:49:37,738 - INFO -   + 03_Legende\BigCaves-info.gpkg
+2026-10-18 09:49:37,741 - INFO -   + 03_Legende\Systems-info.gpkg
+2026-10-18 09:49:37,741 - INFO - [4/5] Envoi vers Mergin Maps...
+2026-10-18 09:49:37,741 - DEBUG - Mode debug, aucune modification envoyée sur le serveur Mergin Maps
+2026-10-18 09:49:37,741 - INFO - [5/5] Envoi terminé, nettoyage des dossiers temporaires...
+2026-10-18 09:49:37,741 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:49:37,742 - INFO -                    Détail des informations du projet Mergin Maps mis à jour                   
+2026-10-18 09:49:37,742 - INFO - ═══════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-18 09:49:37,992 - INFO - Projet           : Synthese_Folly-Puaire-Criou
+2026-10-18 09:49:37,992 - INFO - Identifiant      : 61f9ebfe-317e-4cc6-906e-ec013208c256
+2026-10-18 09:49:37,993 - INFO - Version          : v94
+2026-10-18 09:49:37,993 - INFO - Créé le          : 2024-11-18T10:03:04Z
+2026-10-18 09:49:37,993 - INFO - Mis à jour       : 2026-10-07T17:23:27Z
+2026-10-18 09:49:37,994 - INFO - Public           : True
+2026-10-18 09:49:37,994 - INFO - Nbre de fichiers : 129
+2026-10-18 09:49:37,995 - INFO - Taille totale    : 756091063 Octets (721.06 Mo)
+2026-10-18 09:49:37,995 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-10-18 09:49:37,995 - INFO - 00_Dessin/areas2dMasekd.gpkg                                                           1.641 Mo
+2026-10-18 09:49:37,996 - INFO - 00_Dessin/lines2dMasekd.gpkg                                                          39.070 Mo
+2026-10-18 09:49:37,996 - INFO - 00_Dessin/points2dAlt.gpkg                                                             5.352 Mo
+2026-10-18 09:49:37,997 - INFO - 00_Dessin/walls3d.gpkg                                                                31.676 Mo
+2026-10-18 09:49:37,997 - INFO - 01_Polygonale/shots3d.gpkg                                                             8.422 Mo
+2026-10-18 09:49:37,998 - INFO - 02_Cavites/SynclinalJB-Entrances.gpkg                                                  0.094 Mo
+2026-10-18 09:49:37,998 - INFO - 02_Cavites/SystemMirolda-Entrances.gpkg                                                0.094 Mo
+2026-10-18 09:49:37,998 - INFO - 02_Cavites/SystemeA21-Entrances.gpkg                                                   0.094 Mo
+2026-10-18 09:49:37,999 - INFO - 02_Cavites/SystemeAV-Entrances.gpkg                                                    0.094 Mo
+2026-10-18 09:49:37,999 - INFO - 02_Cavites/SystemeCP-Entrances.gpkg                                                    0.094 Mo
+2026-10-18 09:49:38,000 - INFO - 02_Cavites/VieuxTrous-withAlt3.gpkg                                                    0.137 Mo
+2026-10-18 09:49:38,000 - INFO - 02_Cavites/stations3dAlt.gpkg                                                          8.277 Mo
+2026-10-18 09:49:38,001 - INFO - 03_Legende/BigCaves-info.gpkg                                                          0.094 Mo
+2026-10-18 09:49:38,002 - INFO - 03_Legende/Folly-Cartouche.jpg.aux.xml                                                 0.002 Mo
+2026-10-18 09:49:38,002 - INFO - 03_Legende/Folly-Cartouche.jpg.points                                                  0.002 Mo
+2026-10-18 09:49:38,002 - INFO - 03_Legende/Folly-Cartouche_modifié.tif                                                12.935 Mo
+2026-10-18 09:49:38,003 - INFO - 03_Legende/Folly-Cartouche_modifié.tif.aux.xml                                         0.001 Mo
+2026-10-18 09:49:38,003 - INFO - 03_Legende/Folly-Cartouche_modifié.tif.ovr                                            32.310 Mo
+2026-10-18 09:49:38,004 - INFO - 03_Legende/Systems-info.gpkg                                                           0.094 Mo
+2026-10-18 09:49:38,004 - INFO - 03_Legende/by-nc-nd.png                                                                0.020 Mo
+2026-10-18 09:49:38,005 - INFO - 04_Prospections/Photos_entrees/20260905_111532.jpg                                    10.849 Mo
+2026-10-18 09:49:38,005 - INFO - 04_Prospections/Photos_entrees/20260905_121742.jpg                                    10.994 Mo
+2026-10-18 09:49:38,005 - INFO - 04_Prospections/Photos_entrees/20260905_135341.jpg                                     6.886 Mo
+2026-10-18 09:49:38,006 - INFO - 04_Prospections/Photos_entrees/20260905_185402.jpg                                    10.433 Mo
+2026-10-18 09:49:38,006 - INFO - 04_Prospections/Photos_entrees/IMG-20260909-WA0044.jpg                                 1.107 Mo
+2026-10-18 09:49:38,006 - INFO - 04_Prospections/Photos_entrees/JPEG_20260905_090145_5053031136853358175.jpg            3.592 Mo
+2026-10-18 09:49:38,006 - INFO - 04_Prospections/Photos_entrees/JPEG_20260905_121544_4946827557172064904.jpg            4.890 Mo
+2026-10-18 09:49:38,007 - INFO - 04_Prospections/Photos_entrees/JPEG_20260905_124430_1955309953428376512.jpg            3.991 Mo
+2026-10-18 09:49:38,007 - INFO - 04_Prospections/Photos_entrees/JPEG_20260905_125114_3410204003189233662.jpg            4.391 Mo
+2026-10-18 09:49:38,007 - INFO - 04_Prospections/Photos_entrees/JPEG_20260905_131449_7465959482970259071.jpg            4.305 Mo
+2026-10-18 09:49:38,008 - INFO - 04_Prospections/Photos_entrees/JPEG_20260905_140153_2122409591475107505.jpg            3.456 Mo
+2026-10-18 09:49:38,008 - INFO - 04_Prospections/Photos_entrees/JPEG_20260905_153436_7773210411732533580.jpg            5.409 Mo
+2026-10-18 09:49:38,008 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_093050_4863670314965595474.jpg            4.027 Mo
+2026-10-18 09:49:38,009 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_093635_5479679904344645328.jpg            3.947 Mo
+2026-10-18 09:49:38,009 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_094030_7656678739334534769.jpg            3.900 Mo
+2026-10-18 09:49:38,009 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_095726_2639364801324209654.jpg            4.347 Mo
+2026-10-18 09:49:38,010 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_100157_8321289991535721081.jpg            5.367 Mo
+2026-10-18 09:49:38,010 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_100553_5348548942130856148.jpg            4.775 Mo
+2026-10-18 09:49:38,010 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_101356_4873638495705664525.jpg            5.008 Mo
+2026-10-18 09:49:38,011 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_101746_6557668662638516766.jpg            5.075 Mo
+2026-10-18 09:49:38,011 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_102303_5693900851867106548.jpg            3.564 Mo
+2026-10-18 09:49:38,011 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_110512_2210769318001691275.jpg            5.099 Mo
+2026-10-18 09:49:38,012 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_111554_6969877519448043897.jpg            4.046 Mo
+2026-10-18 09:49:38,012 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_112511_3310497289340038422.jpg            7.152 Mo
+2026-10-18 09:49:38,012 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_115431_5518321783481652673.jpg            3.888 Mo
+2026-10-18 09:49:38,013 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_121303_5473587878557326338.jpg            6.350 Mo
+2026-10-18 09:49:38,013 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_121739_528147722775535254.jpg             3.392 Mo
+2026-10-18 09:49:38,013 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_124554_4868079246617476940.jpg            4.070 Mo
+2026-10-18 09:49:38,013 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_131141_6427618171441780766.jpg            6.001 Mo
+2026-10-18 09:49:38,014 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_131315_5401134733595847354.jpg            5.358 Mo
+2026-10-18 09:49:38,014 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_141342_8190689509358581647.jpg            5.306 Mo
+2026-10-18 09:49:38,014 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_145244_3552918964593441589.jpg            4.905 Mo
+2026-10-18 09:49:38,015 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_145927_6844140333328882727.jpg            4.957 Mo
+2026-10-18 09:49:38,015 - INFO - 04_Prospections/Photos_entrees/JPEG_20260906_151624_8735738839076591704.jpg            5.596 Mo
+2026-10-18 09:49:38,015 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_144020_7030182998762926089.jpg            7.673 Mo
+2026-10-18 09:49:38,016 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_145013_9183354724471446816.jpg            3.878 Mo
+2026-10-18 09:49:38,016 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_150112_1045711275475893141.jpg            8.477 Mo
+2026-10-18 09:49:38,016 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_152410_7142908514868884811.jpg            5.111 Mo
+2026-10-18 09:49:38,017 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_152722_6436501499817532112.jpg            4.856 Mo
+2026-10-18 09:49:38,017 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_153041_7166507665625609442.jpg            4.228 Mo
+2026-10-18 09:49:38,017 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_154354_1665667581420092868.jpg            4.210 Mo
+2026-10-18 09:49:38,018 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_155040_1213919286731602620.jpg            4.178 Mo
+2026-10-18 09:49:38,018 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_155555_1620398383999262049.jpg            5.683 Mo
+2026-10-18 09:49:38,018 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_155847_1662834540454505364.jpg            4.734 Mo
+2026-10-18 09:49:38,019 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_160459_5854394878033691657.jpg            4.982 Mo
+2026-10-18 09:49:38,019 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_160852_2468322604635228352.jpg            0.000 Mo
+2026-10-18 09:49:38,019 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_161057_2303890591036112064.jpg            4.899 Mo
+2026-10-18 09:49:38,020 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_161542_4007283344007429412.jpg            5.280 Mo
+2026-10-18 09:49:38,020 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_162559_5781813717125952271.jpg            4.695 Mo
+2026-10-18 09:49:38,020 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_163316_4495407811095148578.jpg            4.028 Mo
+2026-10-18 09:49:38,021 - INFO - 04_Prospections/Photos_entrees/JPEG_20260909_164612_1160119729373932382.jpg            4.022 Mo
+2026-10-18 09:49:38,021 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_104853_801223106792575127.jpg             6.026 Mo
+2026-10-18 09:49:38,021 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_110113_572088524215767497.jpg             3.224 Mo
+2026-10-18 09:49:38,022 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_110548_6528916722039767177.jpg            2.359 Mo
+2026-10-18 09:49:38,022 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_110723_2415862424029981791.jpg            6.000 Mo
+2026-10-18 09:49:38,022 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_110856_541213821134432814.jpg             5.814 Mo
+2026-10-18 09:49:38,023 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_112148_2557300077262514896.jpg            5.926 Mo
+2026-10-18 09:49:38,023 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_112448_3040469123055458117.jpg            5.227 Mo
+2026-10-18 09:49:38,023 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_112748_6703047802447944653.jpg            3.528 Mo
+2026-10-18 09:49:38,024 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_113853_8857290264131311098.jpg            5.450 Mo
+2026-10-18 09:49:38,024 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_114338_2715666616005667626.jpg            4.621 Mo
+2026-10-18 09:49:38,024 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_121413_4222665988574656766.jpg            6.411 Mo
+2026-10-18 09:49:38,025 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_125134_4529828893370015844.jpg            5.435 Mo
+2026-10-18 09:49:38,025 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_125308_1499425568413585382.jpg            4.801 Mo
+2026-10-18 09:49:38,025 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_130227_3766093931755238780.jpg            4.759 Mo
+2026-10-18 09:49:38,026 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_131522_3777698422154287209.jpg            3.100 Mo
+2026-10-18 09:49:38,026 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_131801_482725351920497875.jpg             5.688 Mo
+2026-10-18 09:49:38,026 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_132955_32538423008202788.jpg              4.558 Mo
+2026-10-18 09:49:38,027 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_134415_2620277665037031494.jpg            6.318 Mo
+2026-10-18 09:49:38,029 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_140359_6499137072242062339.jpg            5.528 Mo
+2026-10-18 09:49:38,029 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_140445_6473652240857622263.jpg            4.893 Mo
+2026-10-18 09:49:38,030 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_141117_1265138821413478841.jpg            3.586 Mo
+2026-10-18 09:49:38,030 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_142030_4546971906788304357.jpg            5.099 Mo
+2026-10-18 09:49:38,030 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_143840_9189782455360025562.jpg            3.810 Mo
+2026-10-18 09:49:38,030 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_144443_3678357507747603572.jpg            6.023 Mo
+2026-10-18 09:49:38,031 - INFO - 04_Prospections/Photos_entrees/JPEG_20260911_144705_4748437264238054175.jpg            4.191 Mo
+2026-10-18 09:49:38,031 - INFO - 04_Prospections/Photos_entrees/JPEG_20260912_113322_907414819668612972.jpg             5.588 Mo
+2026-10-18 09:49:38,031 - INFO - 04_Prospections/Photos_entrees/desktop.ini                                             0.000 Mo
+2026-10-18 09:49:38,032 - INFO - 04_Prospections/Prospection-Bossetan-LIDAR.gpkg                                        0.188 Mo
+2026-10-18 09:49:38,032 - INFO - 04_Prospections/Prospection-CP-LIDAR.gpkg                                              0.141 Mo
+2026-10-18 09:49:38,032 - INFO - 04_Prospections/Prospection-Criou1.gpkg                                                0.133 Mo
+2026-10-18 09:49:38,033 - INFO - 04_Prospections/Prospection-Criou2.gpkg                                                0.250 Mo
+2026-10-18 09:49:38,033 - INFO - 04_Prospections/Prospection-DR-LIDAR.gpkg                                              0.117 Mo
+2026-10-18 09:49:38,033 - INFO - 04_Prospections/Prospection-Folly-LP-Lidar.gpkg                                        0.180 Mo
+2026-10-18 09:49:38,034 - INFO - 04_Prospections/Prospection-Folly-LS-Lidar.gpkg                                        0.242 Mo
+2026-10-18 09:49:38,034 - INFO - 04_Prospections/Prospection-Folly-Lidar.gpkg                                           0.160 Mo
+2026-10-18 09:49:38,034 - INFO - 04_Prospections/Prospection-JB-LIDAR.gpkg                                              0.102 Mo
+2026-10-18 09:49:38,035 - INFO - 04_Prospections/Prospection-SanBet-LIDAR.gpkg                                          0.133 Mo
+2026-10-18 09:49:38,035 - INFO - 04_Prospections/Prospection-Suets-LIDAR.gpkg                                           0.102 Mo
+2026-10-18 09:49:38,035 - INFO - 04_Prospections/Prospection-T-LIDAR.gpkg                                               0.176 Mo
+2026-10-18 09:49:38,036 - INFO - 04_Prospections/Prospection-Tuets-LIDAR.gpkg                                           0.102 Mo
+2026-10-18 09:49:38,036 - INFO - 06_Fonds_de_carte/IGN-Scan25-Samoens-UTM32-compr.tif                                  29.954 Mo
+2026-10-18 09:49:38,036 - INFO - 06_Fonds_de_carte/IGN-Scan25-Samoens-UTM32-compr.tif.aux.xml                           1.431 Mo
+2026-10-18 09:49:38,037 - INFO - 06_Fonds_de_carte/IGN-Scan25-Samoens-UTM32-compr.tif.ovr                              54.009 Mo
+2026-10-18 09:49:38,037 - INFO - 06_Fonds_de_carte/OSM_Courbes_de_niveau.gpkg                                           1.746 Mo
+2026-10-18 09:49:38,037 - INFO - 06_Fonds_de_carte/OSM_Ombrage.tif                                                     15.339 Mo
+2026-10-18 09:49:38,037 - INFO - 06_Fonds_de_carte/OSM_Ombrage.tif.aux.xml                                              0.001 Mo
+2026-10-18 09:49:38,038 - INFO - 06_Fonds_de_carte/OSM_Ombrage.tif.ovr                                                 84.157 Mo
+2026-10-18 09:49:38,038 - INFO - 06_Fonds_de_carte/OSM_buildings.gpkg                                                   2.273 Mo
+2026-10-18 09:49:38,038 - INFO - 06_Fonds_de_carte/OSM_landuse.gpkg                                                     0.352 Mo
+2026-10-18 09:49:38,039 - INFO - 06_Fonds_de_carte/OSM_natural.gpkg                                                     0.363 Mo
+2026-10-18 09:49:38,039 - INFO - 06_Fonds_de_carte/OSM_places.gpkg                                                      0.160 Mo
+2026-10-18 09:49:38,039 - INFO - 06_Fonds_de_carte/OSM_points.gpkg                                                      0.230 Mo
+2026-10-18 09:49:38,040 - INFO - 06_Fonds_de_carte/OSM_roads.gpkg                                                       1.609 Mo
+2026-10-18 09:49:38,040 - INFO - 06_Fonds_de_carte/OSM_waterways.gpkg                                                   0.738 Mo
+2026-10-18 09:49:38,040 - INFO - 06_Fonds_de_carte/Surfaces_Géologiques_Simplifées.gpkg                                 0.344 Mo
+2026-10-18 09:49:38,040 - INFO - Synthese-Folly-Puaire-Criou.qgz                                                        0.503 Mo
+2026-10-18 09:49:38,041 - INFO - mergin-config.json                                                                     0.000 Mo
+2026-10-18 09:49:38,041 - INFO - qgis_cfg.xml                                                                           0.001 Mo
+2026-10-18 09:49:38,041 - INFO - ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

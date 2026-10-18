@@ -17,3 +17,4 @@
 **/.vscode/
 **/Temp_mergin/
 **/__pycache__/
+**/.ruff_cache/

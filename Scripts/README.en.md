@@ -66,7 +66,7 @@ Usage:
 	 
 [Details](./pyThtoBD/README.rst)	
 
-pyThtoDat (in process)
+pyThtoMergin (in process)
 --------
 
 Script to export files too a MerginMaps project 
