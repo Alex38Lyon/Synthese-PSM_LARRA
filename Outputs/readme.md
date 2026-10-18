@@ -253,9 +253,9 @@ Toutes les stations sont comptabilisées et raccordées
 | :---------------- | :--- |
 |       Script pyThStat par | alexandre.pont@yahoo.fr |
 |       Version | 2026.10.18 |
-|       Fichier source | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql |
-|       Dossier destination | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-18 17h05m05s |
-| Durée calcul |26 (m) 03 (s) sans erreur |
+|       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
+|       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
+|       Date | 2026-10-18 16h52m53s |
+| Durée calcul |03 (m) 59 (s) sans erreur |
 
 --------------
