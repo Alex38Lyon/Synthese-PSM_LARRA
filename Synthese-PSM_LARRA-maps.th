@@ -49,8 +49,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-Complexe_Arrestelia-Plan-tot@Complexe_Arrestelia
 	# break
-	# MP-M108-Plan-tot@M108
-	# break
+	MP-M108-Plan-tot@M108
+	break
 	# MP-M400-Plan-tot@M400
 	# break
 	# MP-M405-Plan-tot@M405
