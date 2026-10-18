@@ -111,7 +111,7 @@ layout my_layout
 	# Titre
 	doc-title "Synthèse générale des réseaux"
 	doc-subject "Cave survey" 
-	doc-keywords "ARSIP, PSM-LARRA, Synthèse"
+	doc-keywords "ARSIP, PSM-LARRA, Synthèse, Therion"
 	
 	# Maintenant on spécifie la position de la manchette, dont l'intérieur est occupé par le titre, auteurs, etc.
 	# Nous pouvons indiquer les cordonnées du point de la topo ou l'on veut la manchette :
@@ -120,7 +120,7 @@ layout my_layout
 	# Il faut spécifier un de ces points comme ce que sera placé sur les cordonnées.
 	# Alors nous pouvons spécifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	# ou une autre combinaison...
-	map-header 2 98 nw
+	map-header 3 97 nw
 	
 	map-image 4 80 nw Logos/Logo-ARSIP-Synthese-Topographique_XL.png
 	

@@ -983,7 +983,7 @@ writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 generating TeX metrics ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  18 OCT 2026 20:10
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  18 OCT 2026 21:15
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1347,8 +1347,8 @@ Tobozo.Synthese-PSM_LARRA] [1615] [1616] [1617] [1618] [1619] [1620] [1621]
 [1714] [1715] [1716] [1717] [1718] [1719] [1720] [1721] [1722] [1723] [1724] )
  
 Here is how much of MetaPost's memory you used:
- 843737 strings using 20945186 characters
- 21925120 bytes of node memory
+ 843662 strings using 20944707 characters
+ 21929616 bytes of node memory
  1813 symbolic tokens
  11i,82n,17p,600b,5f stack positions out of 16i,98n,20p,608b,6f
 1741 output files written: data-patt.1 .. data.1724
@@ -1359,7 +1359,7 @@ converting scraps ... done
 making map ... done
 generating TeX metrics ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  18 OCT 2026 20:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdfetex 2023.12.2)  18 OCT 2026 21:17
 entering extended mode
 **data.tex
 (./data.tex (./th_enc.tex) (./th_texts.tex) (./th_resources.tex (./thfonts.map{
@@ -1375,13 +1375,13 @@ Normal \count register pool exhausted, switching to extended pool.)
 Here is how much of TeX's memory you used:
  4403 strings out of 95671
  55151 string characters out of 1192323
- 1345908 words of memory out of 2743951
+ 1346935 words of memory out of 2743978
  5791 multiletter control sequences out of 15000+50000
  16257 words of font info for 57 fonts, out of 1000000 for 2000
  844 hyphenation exceptions out of 5000
  13i,5n,9p,1688b,70s stack positions out of 5000i,500n,10000p,200000b,50000s
 {a_msx2gx.enc}<ARIALUNI.ttf><ARIALUNI.ttf>
-Output written on data.pdf (1 page, 97956035 bytes).
+Output written on data.pdf (1 page, 97955862 bytes).
 PDF statistics:
  9179 PDF objects out of 10688 (max. 8388607)
  4567 compressed objects within 46 object streams
@@ -1404,7 +1404,7 @@ processing projection elevation ... done
 average distortion: 0.45%
 done
 ####################### metapost log file ########################
-This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  18 OCT 2026 20:27
+This is MetaPost, version 2.01 (TeX Live 2021/W32TeX) (kpathsea version 6.3.3)  18 OCT 2026 21:33
 **data.mp
 (c:/Program Files/Therion/texmf/mpost/mpost.mp
 (c:/Program Files/Therion/texmf/mpost/plain.mp
@@ -1417,7 +1417,7 @@ writing Outputs/SHP/ ... done
 writing Outputs/SHP/ ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.html ... done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
-compilation time: 1033 sec
+compilation time: 1102 sec
 
 
 ######################### loop errors ##########################
