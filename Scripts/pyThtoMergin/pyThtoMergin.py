@@ -66,9 +66,9 @@ def suivre_transfert(job, verifier, titre: str) -> None:
 
             if delta > 0:
                 precedent = actuel
-                logger.debug(
-                    f"({Colors.ENDC}{titre}{Colors.DEBUG} : {Colors.ENDC}{actuel * 100 / taille_totale:.1f}{Colors.DEBUG} ({Colors.ENDC}{actuel}{Colors.DEBUG} / {Colors.ENDC}{taille_totale}{Colors.DEBUG} octets)"
-                )
+                # logger.debug(
+                #     f"({Colors.ENDC}{titre}{Colors.DEBUG} : {Colors.ENDC}{actuel * 100 / taille_totale:.1f}{Colors.DEBUG} ({Colors.ENDC}{actuel}{Colors.DEBUG} / {Colors.ENDC}{taille_totale}{Colors.DEBUG} octets)"
+                # )
 
             time.sleep(0.2)
 
