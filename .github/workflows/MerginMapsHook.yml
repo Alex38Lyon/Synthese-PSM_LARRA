@@ -6,10 +6,12 @@ on:
       - main
     paths:
       - 'Outputs/SHP/QGis_GPKG_Files/**'
+  repository_dispatch:
+    types:
+      - mergin-sync
   workflow_dispatch:
 permissions:
   contents: read
-
 jobs:
   notify-mergin:
     name: Notifier n8n

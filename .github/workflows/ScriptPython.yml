@@ -522,3 +522,15 @@ jobs:
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+
+      # ============================================================
+      # 17. MerginMaps Hook
+      # ============================================================
+      - name: Trigger MerginMapsHook
+        if: steps.changed.outputs.shp == 'true'  || steps.changed.outputs.manual == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh api "repos/${GH_REPO}/dispatches" \
+            -f event_type=mergin-sync
