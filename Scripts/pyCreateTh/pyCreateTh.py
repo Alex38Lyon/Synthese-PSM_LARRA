@@ -54,7 +54,7 @@ from pathlib import Path
 import numpy as np
 import networkx as nx
 import pandas as pd
-pd.set_option('future.no_silent_downcasting', True)
+# pd.set_option('future.no_silent_downcasting', True)
 from datetime import datetime
 from collections import defaultdict
 from copy import deepcopy

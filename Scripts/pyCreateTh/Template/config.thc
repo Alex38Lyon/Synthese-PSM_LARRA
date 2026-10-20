@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version France/Chine By Alex 2026 06 29
+# Version France/Chine By Alex 2026 10 20
 ######################################################################################################################################
 
 
@@ -92,6 +92,8 @@ encoding  utf-8
 #		- label
 #		- anchor artificial
 #		- anchor natural
+#		- pollution symbol (u:pollution)
+#		- trash bas symbol (u:trash)
 
 
 ############## Existing user lines:
@@ -128,8 +130,8 @@ encoding  utf-8
 #		- tronc/tree-trunk (u:tronc)
 #		- feuilles/tree-leaves (u:feuilles)
 #		- Tunnel initiation/Départ de galerie (u:galerie)
-#		- Sol sec/dry floor (u:dryfloor)   // China style
-#		- Sol humidesec/wet floor (u:wetfloor)   // China style
+#		- Sol sec/dry floor (u:dryfloor)                      // China style
+#		- Sol humidesec/wet floor (u:wetfloor)                // China style
 #  	- blocks
 #		- clay
 #     - mudcrack
@@ -138,7 +140,7 @@ encoding  utf-8
 #		- flowstone                
 #		- sump
 #		- water
-
+#		- snow
 
 
 ######################################################################################################################################
@@ -296,6 +298,14 @@ text es "line u:treetrunk" "árbol"
 text en "line u:bush" "bush"
 text fr "line u:bush" "buisson"
 text es "line u:bush" "arbusto"
+
+text en "point u:trash" "trash"
+text fr "point u:trash" "poubelle"
+text es "point u:trash" "basura"
+
+text en "point u:pollution" "pollution"
+text fr "point u:pollution" "pollution"
+text es "point u:pollution" "contaminación"
 
 
 ######################################################################################################################################
@@ -709,9 +719,10 @@ layout drawingconfig
 		
 	endcode
 
-	####### Metapost-changes ############
-	code metapost
-		
+	##############################################################################################
+	###################################### Metapost-changes ######################################
+	##############################################################################################
+	code metapost		
 		#<en> Modify length/depth statistics to print
 		#<fr> Modifier l'aspect et les données des statistiques de longueur affichées si besoin
 		#code tex-map
@@ -751,9 +762,6 @@ layout drawingconfig
 		  pickup PenA;
 		  thdraw P withcolor black;
 		enddef;
-
-
-
 
 		########################################################
 		#<en> Change the ligne wall:blocks (from l_wall_blocks_AUT)
@@ -859,7 +867,6 @@ layout drawingconfig
 
 		enddef;
 
-		
 		########################################################
 		#<en> Change the ligne wall:debris (from l_wall_debris_AUT)
 		#<fr> Changer le symbole ligne wall:debris (d'après l_wall_debris_AUT)
@@ -942,7 +949,6 @@ layout drawingconfig
 				draw last_block withpen PenC;
 			fi;
 		enddef;
-
 
 		########################################################
 		#<en> the tree/trunk and bush symbole from Tarquin 2019 
@@ -1148,8 +1154,7 @@ layout drawingconfig
 		########################################################
 		#<en> Change the dashed line for the line map_connection
 		#<fr> Changer la ligne pointillée du symbole map_connection
-		########################################################
-		
+		########################################################		
 		#def l_mapconnection (expr P) =
 			#T:=identity;
 			#pickup PenB;
@@ -1217,7 +1222,6 @@ layout drawingconfig
 		#<en> To change sand AUT aspects
 		#<fr> Pour modifier les aspects du sable AUT dans l'aire associée
 		########################################################
-		
 		# def a_sand_AUT (expr p) =
 			# T:=identity;
 			# pickup PenC;
@@ -1258,12 +1262,55 @@ layout drawingconfig
 			 thfill Path withpattern pattern_sand_AUT ;
 		enddef;
 		
+		########################################################
+		#<en> To change snow AUT aspects
+		#<fr> Pour modifier le aspect de la neige AUT dans l'aire associée
+		########################################################
+		def a_snow_AUT (expr P) =
+		  numeric k;
+		  k := 0.6; % Coefficient de réduction des motifs
+
+		  T:=identity;
+		  pickup PenC;
+		  path q; q = bbox P;
+		  picture tmp_pic, tmp_sn;
+		  pair z;
+
+		  tmp_sn := image(
+			 pickup PenC;
+			 p := origin--(0,.2u*k);
+			 draw p; draw p rotated (60); draw p rotated (120);
+			 draw p rotated (180); draw p rotated (240); draw p rotated (300);
+			 p := ((0,.3u*k)--(0,.2u*k)--(.1u*k,.2u*k))
+				rotatedaround ((0,.2u*k),45);
+			 draw p; draw p rotated (60); draw p rotated (120);
+			 draw p rotated (180); draw p rotated (240);
+			 draw p rotated (300);
+		  );
+	  
+		  tmp_pic := image(
+			 for i = (xpart llcorner q - k*u)
+				step k*u until (xpart urcorner q + k*u):
+				for j = (ypart llcorner q - k*u)
+				  step k*u until (ypart urcorner q + k*u):
+				  z := (i,j);
+				  draw tmp_sn shifted z;
+				endfor;
+			 endfor;
+		  );
+
+		  fill P withcolor (0.97, 0.98, 1.0) withalpha 0.5;
+
+		  clip tmp_pic to P;
+		  draw tmp_pic;
+		  thdraw P;
+		
+		enddef;
 		
 		########################################################
 		#<en> To change mudcrack SBE aspects
 		#<fr> Pour modifier les aspects de l' mudcrack SBE dans l'aire associée
 		########################################################
-		
 		def a_mudcrack_SBE (expr Path) =
 			 T:=identity;
 			 % Fond beige clair (20 % « sable »)
@@ -1271,12 +1318,10 @@ layout drawingconfig
 			 thfill Path withpattern pattern_mudcrack_SBE ;
 		enddef;
 		
-		
 		########################################################
 		#<en> To change clay AUT aspects
 		#<fr> Pour modifier les aspects de l' argile AUT dans l'aire associée
 		########################################################
-		
 		beginpattern(pattern_clay_AUT);
 			 pickup PenC;
 	
@@ -1298,7 +1343,6 @@ layout drawingconfig
 			 patternstep(my_step,my_step);
 		endpattern;
 
-		
 		def a_clay_AUT (expr Path) =
 			 T:=identity;
 			 % Fond beige clair (20 % « sable »)
@@ -1309,8 +1353,7 @@ layout drawingconfig
 		########################################################
 		#<en> To change pebbles AUT aspects
 		#<fr> Pour modifier l'aspects de l'aire pebbles (galets)
-		########################################################
-		
+		########################################################		
 		beginpattern(pattern_pebbles_PERSO);
 			 pickup PenC;
 			 path qq;
@@ -1327,13 +1370,11 @@ layout drawingconfig
 			 patternstep(5.1u,5.1u);
 		endpattern;
 		
-		
 		def a_pebbles_AUT (expr Path) =
 			 T:=identity;
 			 thfill Path withcolor (0.49, 0.20, 0.00) withalpha 0.2;
 			 thfill Path withpattern pattern_pebbles_PERSO;
 		enddef;
-		
 		
 		########################################################
 		#<en> To change slopes aspects
@@ -1529,7 +1570,6 @@ layout drawingconfig
 		#<en> Northarrow more funnier !
 		#<fr> Pour définir une nouvelle flèche du nord
 		########################################################
-		
 		# def s_northarrow (expr rot) =
 		# 	begingroup
 		# 		interim defaultscale:=0.7; % scale your north arrow here
@@ -1574,95 +1614,92 @@ layout drawingconfig
 			endgroup;
 		enddef;
 
-	########################################################
-	#		#<en> Change Scale bar type
-	#	 	#<fr> Pour modifier la barre d'échelle
-	########################################################
-	
-	#		def s_scalebar (expr l, units, txt) =
-	#			begingroup
-	#				interim warningcheck:=0;
-	#				tmpl:=l / Scale * cm * units / 2;
-	#				tmpx:=l / Scale * cm * units / 5;
-	#				tmph:=5bp; % bar height
-	#			endgroup;
-	#			pickup PenC;
-	#			draw (-tmpl,0)--(tmpl,0)--(tmpl,-tmph)--(-tmpl,-tmph)--cycle;
-	#			p:=(0,0)--(tmpx,0)--(tmpx,-tmph)--(0,-tmph)--cycle;
-	#			for i:=-2.5 step 2 until 2:
-	#				fill p shifted (i * tmpx,0);
-	#			endfor;
-	#			begingroup
-	#				interim labeloffset:=3.5bp;
-	#				for i:=0 step (l/5) until (l-1):
-	#					tmpx:=tmpl * (i * 2 / l - 1);
-	#					label.bot(thTEX(decimal (i)),(tmpx,-tmph));
-	#				endfor;
-	#				label.bot(thTEX(decimal (l) & "\thinspace" & txt),(tmpl,-tmph));
-	#				%<en> To write the scale "1:scale" uncomment it the next line:
-	#				%<fr> Pour écrire l'échelle "1:scale" au dessus de la barre décommenter la ligne suivante :
-	#				%label.top(thTEX("Echelle 1 : " & decimal (Scale*100)),(0,0));
-	#			endgroup;
-	#		enddef;
-	
-	########################################################
-	#		#<en> Write the point depth (not functionning...)
-	#		#<fr> Définir un point qui écrit la côte/profondeur (Ne fonctionne pas actuellement...)
-	########################################################
-	
-	#		def p_u_prof (expr pos) =
-	#			T:=identity shifted pos;
-	#			pickup PenD;
-	#			p:=(-.3u,0)--(.3u,0);
-	#			thdraw p; thdraw p rotated 90;
-	#			p:=fullcircle scaled .2u;
-	#			thclean p; thdraw p;
-	#		enddef;
-	#		vardef p_label@#(expr txt,pos,rot,mode) =
-	#			if mode=1:
-	#				thdrawoptions(withcolor .8red + .4blue);
-	#				p_u_prof(pos);
-	#				% append "m" to label
-	#				picture txtm;
-	#				% calcul profondeur
-	#				%numeric profondeur;
-	#				profondeur:=(\thaltitude-\cavemaxz);
-	#				picture txtprofondeur;
-	#				txtm:=image(
-	#					draw txt;
-	#					interim labeloffset:=0;
-	#					label.urt(btex \thaltitude m etex, lrcorner txt);
-	#					%label.urt(btex \thdepth m etex, lrcorner txt);
-	#				);
-	#				% give extra offset in case of l/r/t/b alignment
-	#				pair ctmp;
-	#				ctmp:=center thelabel@#("x", (0,0));
-	#				if (xpart ctmp * ypart ctmp)=0:
-	#					interim labeloffset:=(.4u);
-	#				else: % diagonal alignment
-	#					interim labeloffset:=(.2u);
-	#				fi;
-	#				% draw label
-	#				lab:=thelabel@#(txtm, pos);
-	#				draw lab _thop_; % use color
-	#				thdrawoptions();
-	#				bboxmargin:=0.8bp;
-	#				write_circ_bbox((bbox lab) smoothed 2);
-	#			else:
-	#				if mode=7: interim labeloffset:=(u/8) fi;
-	#				lab:=thelabel@#(txt, pos);
-	#				if mode>1: pickup PenD fi;
-	#				if mode=2: process_uplabel;
-	#				elseif mode=3: process_downlabel;
-	#				elseif mode=4: process_updownlabel;
-	#				elseif mode=5: process_circledlabel;
-	#				elseif mode=6: process_boxedlabel;
-	#				elseif mode=7: process_label(pos,rot);  % station name
-	#				elseif mode=8: process_filledlabel(pos, rot);
-	#				else: process_label(pos,rot); fi;
-	#    		fi;
-	#		enddef;
-	
+		########################################################
+		#		#<en> Change Scale bar type
+		#	 	#<fr> Pour modifier la barre d'échelle
+		########################################################
+		#		def s_scalebar (expr l, units, txt) =
+		#			begingroup
+		#				interim warningcheck:=0;
+		#				tmpl:=l / Scale * cm * units / 2;
+		#				tmpx:=l / Scale * cm * units / 5;
+		#				tmph:=5bp; % bar height
+		#			endgroup;
+		#			pickup PenC;
+		#			draw (-tmpl,0)--(tmpl,0)--(tmpl,-tmph)--(-tmpl,-tmph)--cycle;
+		#			p:=(0,0)--(tmpx,0)--(tmpx,-tmph)--(0,-tmph)--cycle;
+		#			for i:=-2.5 step 2 until 2:
+		#				fill p shifted (i * tmpx,0);
+		#			endfor;
+		#			begingroup
+		#				interim labeloffset:=3.5bp;
+		#				for i:=0 step (l/5) until (l-1):
+		#					tmpx:=tmpl * (i * 2 / l - 1);
+		#					label.bot(thTEX(decimal (i)),(tmpx,-tmph));
+		#				endfor;
+		#				label.bot(thTEX(decimal (l) & "\thinspace" & txt),(tmpl,-tmph));
+		#				%<en> To write the scale "1:scale" uncomment it the next line:
+		#				%<fr> Pour écrire l'échelle "1:scale" au dessus de la barre décommenter la ligne suivante :
+		#				%label.top(thTEX("Echelle 1 : " & decimal (Scale*100)),(0,0));
+		#			endgroup;
+		#		enddef;
+		
+		########################################################
+		#		#<en> Write the point depth (not functionning...)
+		#		#<fr> Définir un point qui écrit la côte/profondeur (Ne fonctionne pas actuellement...)
+		########################################################
+		#		def p_u_prof (expr pos) =
+		#			T:=identity shifted pos;
+		#			pickup PenD;
+		#			p:=(-.3u,0)--(.3u,0);
+		#			thdraw p; thdraw p rotated 90;
+		#			p:=fullcircle scaled .2u;
+		#			thclean p; thdraw p;
+		#		enddef;
+		#		vardef p_label@#(expr txt,pos,rot,mode) =
+		#			if mode=1:
+		#				thdrawoptions(withcolor .8red + .4blue);
+		#				p_u_prof(pos);
+		#				% append "m" to label
+		#				picture txtm;
+		#				% calcul profondeur
+		#				%numeric profondeur;
+		#				profondeur:=(\thaltitude-\cavemaxz);
+		#				picture txtprofondeur;
+		#				txtm:=image(
+		#					draw txt;
+		#					interim labeloffset:=0;
+		#					label.urt(btex \thaltitude m etex, lrcorner txt);
+		#					%label.urt(btex \thdepth m etex, lrcorner txt);
+		#				);
+		#				% give extra offset in case of l/r/t/b alignment
+		#				pair ctmp;
+		#				ctmp:=center thelabel@#("x", (0,0));
+		#				if (xpart ctmp * ypart ctmp)=0:
+		#					interim labeloffset:=(.4u);
+		#				else: % diagonal alignment
+		#					interim labeloffset:=(.2u);
+		#				fi;
+		#				% draw label
+		#				lab:=thelabel@#(txtm, pos);
+		#				draw lab _thop_; % use color
+		#				thdrawoptions();
+		#				bboxmargin:=0.8bp;
+		#				write_circ_bbox((bbox lab) smoothed 2);
+		#			else:
+		#				if mode=7: interim labeloffset:=(u/8) fi;
+		#				lab:=thelabel@#(txt, pos);
+		#				if mode>1: pickup PenD fi;
+		#				if mode=2: process_uplabel;
+		#				elseif mode=3: process_downlabel;
+		#				elseif mode=4: process_updownlabel;
+		#				elseif mode=5: process_circledlabel;
+		#				elseif mode=6: process_boxedlabel;
+		#				elseif mode=7: process_label(pos,rot);  % station name
+		#				elseif mode=8: process_filledlabel(pos, rot);
+		#				else: process_label(pos,rot); fi;
+		#    		fi;
+		#		enddef;
 	
 		########################################################
 		#<en> Change the altitude definition
@@ -1673,7 +1710,6 @@ layout drawingconfig
 		#      au point avec l'aide de l'option -align.
 		#ex: -align bottom-right/top-left/top-right/bottom-left/top/bottom/left/right...
 		########################################################
-		
 		def p_altitude (expr pos) =
 			T:=identity shifted pos;
 			pickup PenD;
@@ -1747,7 +1783,6 @@ layout drawingconfig
 		#	  ATTENTION ! Parfois, cette redéfinition génère des erreurs métapost.
 		#		Si c'est le cas, commenter toute la redéfinition du point p_wallaltitude.
 		########################################################
-		
 		# def p_wallaltitude (expr pprev,pos,pnext,txt) =
 			# rot:=angle(unitvector(pnext-pos)+unitvector(pos-pprev)) - 90;
 			# pickup PenD;
@@ -1791,11 +1826,9 @@ layout drawingconfig
 			# endgroup;
 		# enddef;
 		
-		
 		########################################################
 		#<en> Definition of new lines symbols
 		#<fr> Définition de nouveau symboles de lignes
-		
 		#<en> Line symbol for strata for cross sections (u:strata). It works exactly as line section
 		#     symbol but you should use -clip off option:
 		#<fr> Symbole de ligne pour dessiner des strates (u:strata).
@@ -1936,7 +1969,6 @@ layout drawingconfig
 		#	\cavelength{1330\thinspace{}m}
 		#	+ 150\thinspace{}m estimes}
 		#	\cavedepth{243\thinspace{}m}
-		
 		#<en> Defines the gradient as geologic dip
 		#<fr> Définit le gradient comme pendage géologique
 		########################################################
@@ -2227,6 +2259,7 @@ layout drawingconfig
 			T:=identity aligned al rotated theta scaled sc shifted pos;
 			thfill (-.2u,-.2u)--(0,.2u)--(.2u,-.2u)--cycle withcolor (0.58, 0.44, 0.25);
 		enddef;
+		
 		initsymbol ("p_u_anchor_natural");
 		
 		########################################################
@@ -2421,6 +2454,222 @@ layout drawingconfig
 				thdrawoptions();
 			fi;
 		enddef;
+				
+		########################################################
+		#<en> Trash bag
+		#<fr> Sac poubelle
+		########################################################
+		picture u_trash_bag_pic;
+
+		path trash_bag_main;
+		trash_bag_main :=
+		  (163.64,83.098)
+		  ..controls (122.146,74.213) and (63.330,187.298)..(79.930,216.048)
+		  ..controls (87.8425,229.753) and (220.670,224.247)..(230.610,213.0935)
+		  ..controls (240.5496,201.9395) and (205.137,91.9835)..(163.642,83.0935)
+		  -- cycle;
+
+		path trash_bag_knot;
+		trash_bag_knot :=
+		  (160.440,81.472)
+		  ..controls (158.318,76.2136) and (161.9809,72.7629)..(167.2296,69.808)
+		  ..controls (176.8567,64.3142) and (191.9706,57.032)..(199.6306,62.1623)
+		  ..controls (207.4228,67.381) and (194.6604,74.7423)..(198.2178,83.9093)
+		  ..controls (199.0097,92.7627) and (194.7459,99.9093)..(190.9059,96.6183)
+		  ..controls (190.9059,96.6183) and (180.2109,83.5723)..(172.6259,80.9503)
+		  ..controls (168.7832,79.6216) and (162.1229,85.6445)..(160.4399,81.4726)
+		  -- cycle;
+
+		path trash_bag_fold_left;
+		trash_bag_fold_left :=
+		  (105.84,126.18)
+		  ..controls (105.84,126.18) and (141.123,90.056)..(142.221,91.958)
+		  ..controls (144.433,95.7893) and (122.664,112.411)..(115.262,125.319)
+		  ..controls (111.711,131.5111) and (104.13,145.672)..(106.2755,146.246)
+		  ..controls (108.9592,146.9651) and (125.4915,115.482)..(124.0105,118.917)
+		  ..controls (124.0105,118.917) and (110.1845,143.912)..(112.9225,144.645)
+		  ..controls (116.2555,145.5381) and (148.6495,87.484)..(153.0535,84.94)
+		  ..controls (156.1487,83.153) and (145.6917,85.5036)..(142.5895,87.2789)
+		  ..controls (127.1935,96.0905) and (105.8395,126.1789)..(105.8395,126.1789)
+		  -- cycle;
+
+		path trash_bag_fold_center;
+		trash_bag_fold_center :=
+		  (156.99,83.96)
+		  ..controls (145.441,99.443) and (130.862,116.272)..(127.322,147.604)
+		  ..controls (127.2961,147.8331) and (127.4584,147.8943)..(127.4584,147.8943)
+		  ..controls (128.6863,147.5936) and (137.423,133.502)..(138.401,136.155)
+		  ..controls (139.2045,138.3344) and (136.811,145.808)..(140.2475,147.488)
+		  ..controls (141.6335,148.166) and (144.103,143.743)..(144.3104,145.272)
+		  ..controls (145.6776,155.352) and (141.5455,168.353)..(144.5565,167.546)
+		  ..controls (149.4991,166.2217) and (162.289,125.157)..(163.533,108.855)
+		  ..controls (163.7378,106.1708) and (157.79,116.389)..(157.132,113.779)
+		  ..controls (155.7462,108.281) and (168.368,88.808)..(166.587,87.817)
+		  ..controls (164.8064,86.8259) and (158.788,101.771)..(157.008,99.992)
+		  ..controls (155.7769,98.7609) and (164.475,79.927)..(161.932,83.336)
+		  -- cycle;
+
+		path trash_bag_fold_right;
+		trash_bag_fold_right :=
+		  (166.18,88.661)
+		  ..controls (165.0821,94.5546) and (173.3437,155.251)..(173.2452,161.637)
+		  ..controls (173.0658,173.277) and (172.3662,113.568)..(177.0614,126.922)
+		  ..controls (179.3728,133.495) and (178.9263,165.045)..(182.504,169.038)
+		  ..controls (185.0768,171.908) and (183.840,134.432)..(180.6302,117.566)
+		  ..controls (178.7432,107.647) and (174.6502,94.607)..(170.5362,89.023)
+		  ..controls (168.9297,86.8423) and (174.3405,97.598)..(171.7188,98.279)
+		  ..controls (168.1423,99.2078) and (166.856,85.028)..(166.18,88.661)
+		  -- cycle;
+
+		path trash_bag_fold_bottom;
+		trash_bag_fold_bottom :=
+		  (174.59,91.592)
+		  ..controls (176.1089,94.5949) and (194.274,135.609)..(196.748,137.755)
+		  ..controls (204.3045,144.3085) and (193.808,116.372)..(189.7312,108.58)
+		  ..controls (185.6544,100.788) and (171.167,84.823)..(174.59,91.592)
+		  -- cycle;
+
+		path trash_bag_knot_light;
+		trash_bag_knot_light :=
+		  (184.2,67.095)
+		  ..controls (185.1498,63.1375) and (194.108,67.4955)..(196.387,67.8336)
+		  ..controls (197.775,68.0397) and (196.5176,72.5556)..(195.2787,71.8952)
+		  ..controls (190.357,69.2719) and (183.261,71.0022)..(184.2,67.095)
+		  -- cycle;
+
+		path trash_bag_knot_middle;
+		trash_bag_knot_middle :=
+		  (172.13,70.419)
+		  ..controls (184.683,72.381) and (194.064,67.2309)..(194.165,80.882)
+		  ..controls (188.454,81.2083) and (163.62,69.088)..(172.13,70.419)
+		  -- cycle;
+
+		path trash_bag_knot_right;
+		trash_bag_knot_right :=
+		  (175.58,77.928)
+		  ..controls (172.9686,74.2365) and (193.655,84.1155)..(196.507,87.1607)
+		  ..controls (198.301,89.0767) and (191.069,92.4819)..(189.3671,90.483)
+		  ..controls (188.2609,89.1849) and (177.0351,81.398)..(175.58,77.928)
+		  -- cycle;
+
+		path trash_bag_knot_detail;
+		trash_bag_knot_detail :=
+		  (166.47,72.634)
+		  ..controls (164.4567,72.0743) and (162.2787,74.8846)..(161.9152,76.9426)
+		  ..controls (161.7556,77.8462) and (162.3383,78.9693)..(163.1462,79.4046)
+		  ..controls (164.6737,80.228) and (167.977,80.4913)..(168.3165,78.7891)
+		  ..controls (168.6113,77.3112) and (164.4181,78.0789)..(164.3772,76.5729)
+		  ..controls (164.3482,75.5039) and (166.7022,75.8492)..(167.0855,74.8495)
+		  ..controls (167.3603,74.1338) and (167.2161,72.8392)..(166.47,72.634)
+		  -- cycle;
+
+		u_trash_bag_pic := image (
+		  fill trash_bag_main withcolor (0,0,0);
+
+		  fill trash_bag_knot withcolor (0,0,0);
+
+		  fill trash_bag_fold_left   withcolor (0.349,0.341,0.345);
+		  fill trash_bag_fold_center withcolor (0.349,0.341,0.345);
+		  fill trash_bag_fold_right  withcolor (0.349,0.341,0.345);
+		  fill trash_bag_fold_bottom withcolor (0.349,0.341,0.345);
+
+		  fill trash_bag_knot_light  withcolor (0.349,0.341,0.345);
+		  fill trash_bag_knot_middle withcolor (0.349,0.341,0.345);
+		  fill trash_bag_knot_right  withcolor (0.349,0.341,0.345);
+		  fill trash_bag_knot_detail withcolor (0.349,0.341,0.345);
+		)
+		shifted (-150,-150)
+		rotated 180
+		scaled 20;
+
+		# %  Symbole Therion
+		def p_u_trash (expr P, R, S, A) =
+			 U := (60cm,80cm) scaled (0.01 / Scale);
+			 T := identity aligned A rotated R scaled S shifted P;
+			 thdraw u_trash_bag_pic scaled (0.01 / Scale) ;
+		enddef;
+
+		initsymbol ("p_u_trash");
+
+		########################################################
+		#<en> CLP/GHS09 - Hazardous to the environment
+		#<fr> CLP/GHS09 - Dangereux pour l'environnement
+		########################################################
+		path ghs_red;
+		path ghs_white;
+		path ghs_ground;
+		path ghs_tree;
+		path ghs_roots;
+		path ghs_fish;
+
+		ghs_red := (50.0000cm, 1.0340cm) -- (98.9796cm, 50.0136cm) -- (50.0000cm, 98.9932cm) -- (1.0204cm, 50.0136cm) -- cycle;
+		ghs_white := (50.0000cm, 8.8027cm) -- (8.8027cm, 50.0000cm) -- (50.0000cm, 91.1973cm) -- (91.1973cm, 50.0000cm) -- cycle;
+		ghs_ground := (30.4354cm, 50.0408cm) -- (68.6939cm, 50.0408cm); 
+		ghs_tree := (62.9524cm, 43.1293cm) -- (67.4395cm, 39.8925cm) -- (63.1728cm, 37.8381cm)
+			-- (68.9143cm, 37.3224cm) -- (67.3687cm, 35.2680cm) -- (70.5388cm, 35.2680cm)
+			-- (70.6122cm, 32.9878cm) -- (30.5850cm, 33.2061cm)
+			.. controls (30.5850cm, 33.2061cm) and (37.2789cm, 35.1898cm) .. (38.3810cm, 34.3810cm)
+			.. controls	(39.8531cm, 35.0435cm) and (50.5986cm, 39.6054cm) .. (50.5986cm, 39.3061cm)
+			-- (40.2966cm, 42.8408cm) -- (40.5170cm, 54.4599cm) -- (34.7048cm, 57.6163cm)
+			.. controls (34.7048cm, 57.6163cm) and (33.8218cm, 58.2054cm) .. (32.5714cm, 57.8367cm)
+			.. controls (32.1293cm, 57.6898cm) and (31.5415cm, 57.5429cm) .. (31.5415cm, 57.5429cm)
+			.. controls	(31.5415cm, 57.5429cm) and (34.7116cm, 60.1918cm) .. (35.2939cm, 59.9701cm)
+			.. controls (35.8830cm, 59.7497cm) and (40.0027cm, 57.7633cm) .. (40.0027cm, 57.7633cm)
+			.. controls (40.0027cm, 57.7633cm) and (39.5605cm, 60.8531cm) .. (38.4571cm, 61.7361cm)
+			.. controls (37.3537cm, 62.6190cm) and (33.0871cm, 66.0027cm) .. (33.0871cm, 66.0027cm)
+			-- (33.0871cm, 66.8122cm) -- (38.8993cm, 63.2803cm)
+			.. controls (38.8993cm, 63.2803cm) and (39.1197cm, 66.6639cm) .. (37.9469cm, 68.6503cm)
+			.. controls	(36.7701cm, 70.6367cm)and (35.8925cm, 72.4027cm) .. (35.8925cm, 72.4027cm)
+			-- (36.2599cm, 72.6966cm) -- (39.1306cm, 68.2830cm) -- (40.0830cm, 71.3034cm) -- (40.6721cm, 71.4503cm)
+			.. controls	(40.6721cm, 71.4503cm) and (39.9361cm, 67.1837cm) .. (40.4517cm, 65.8585cm)
+			.. controls (40.9673cm, 64.5347cm) and (42.8789cm, 57.3238cm) .. (42.8789cm, 57.3238cm) -- (45.7497cm, 61.4463cm) 
+			.. controls (45.7497cm, 61.4463cm) and (45.8231cm, 63.1388cm) .. (45.6762cm, 64.3170cm)
+			.. controls	(45.5293cm, 65.4939cm) and (45.3088cm, 70.9388cm) .. (45.3088cm, 70.9388cm)
+			-- (45.8245cm, 70.9388cm) -- (46.6340cm, 64.9796cm) -- (51.2735cm, 70.3497cm)	-- (51.2735cm, 69.7605cm)
+			.. controls (51.2735cm, 69.7605cm) and (46.7143cm, 64.0190cm) .. (46.9347cm, 62.7673cm)
+			.. controls (47.1551cm, 61.5170cm) and (47.3755cm, 60.7810cm) .. (46.5673cm, 59.0150cm)
+			.. controls (45.7592cm, 57.2490cm) and (45.2435cm, 55.9946cm) .. (45.2435cm, 55.9946cm)
+			.. controls	(45.2435cm, 55.9946cm) and (47.6707cm, 58.8653cm) .. (48.7755cm, 59.0844cm)
+			.. controls	(49.8789cm, 59.1578cm) and (51.3483cm, 59.0109cm) .. (52.3782cm, 59.8939cm)
+			.. controls (53.4082cm, 60.7769cm) and (55.9102cm, 63.5673cm) .. (55.9102cm, 63.5673cm)
+			-- (52.0109cm, 57.5401cm) 
+			.. controls (52.0109cm, 57.5401cm) and (50.1728cm, 57.4667cm) .. (49.4381cm, 56.6571cm)
+			.. controls (48.7020cm, 55.8476cm) and (45.6857cm, 52.3905cm) .. (45.6857cm, 52.3905cm)
+			-- (45.6857cm, 44.4449cm) -- (50.6871cm, 41.9442cm) -- (44.5823cm, 41.0612cm)
+			-- (43.1102cm, 38.9279cm) -- (41.1238cm, 40.6204cm) -- (35.5973cm, 40.1122cm) 
+			-- cycle;
+		ghs_fish := (48.3265cm, 39.4422cm)
+			.. controls (49.7265cm, 40.0259cm) and (52.0000cm, 40.9878cm) .. (53.3279cm, 42.9007cm)
+			.. controls (54.7020cm, 44.8789cm) and (59.5810cm, 53.2000cm) .. (66.2803cm, 52.5333cm)
+			.. controls (65.9129cm, 51.6503cm) and (64.7347cm, 49.7374cm) .. (64.7347cm, 49.7374cm)
+			-- (69.5102cm, 51.2095cm) 
+			.. controls (69.5102cm, 51.2095cm) and (69.5837cm, 44.8830cm) .. (60.5347cm, 40.8422cm)
+			.. controls	(56.3415cm, 39.3701cm) and (55.4599cm, 39.2966cm) .. (55.0925cm, 38.7878cm)
+			.. controls	(54.7252cm, 38.2721cm) and (53.0381cm, 35.6980cm) .. (53.0381cm, 35.6980cm)
+			-- (45.5361cm, 39.0041cm)
+			.. controls	(45.5361cm, 39.0041cm) and (47.4490cm, 39.0741cm) .. (48.3265cm, 39.4422cm)
+			-- cycle;
+
+		picture u_ghs_pic;
+
+		u_ghs_pic := image (
+			fill ghs_red	withcolor red;
+			fill ghs_white withcolor white;
+			draw ghs_ground withpen pencircle scaled 0.680cm withcolor black;
+			fill ghs_tree withcolor black;
+			draw ghs_tree withpen pencircle scaled 0.544cm withcolor black;
+			fill ghs_fish withcolor white;
+			draw ghs_fish withpen pencircle scaled 0.680cm withcolor black;
+			fill fullcircle xscaled 1.6190cm yscaled 1.3959cm shifted (65.8912cm, 47.5102cm) withcolor black;
+		) shifted (-50cm, -50cm);
+
+		def p_u_pollution (expr P, R, S, A) =
+			U := (50cm, 50cm) scaled (0.01 / Scale);
+			T := identity aligned A rotated R scaled S shifted P;
+			thdraw u_ghs_pic scaled (0.016 / Scale);
+		enddef;
+
+		initsymbol ("p_u_pollution");
 	
 	endcode
 
@@ -2434,8 +2683,6 @@ endlayout
 
 layout drawingconfig_China
 	copy drawingconfig
-
-
 	#<en> Set the symology you want to use: UIS, ASF (Australie) CCNP (Etats Units), SKB (tchecoslovakia)
 	#<fr> Définit la banque de symboles que nous voulons utiliser :
 	#         UIS, ASF (Australie) CCNP (Etats Units) ou SKB (tchecoslovakia)
@@ -2444,7 +2691,6 @@ layout drawingconfig_China
 	#<fr> Changer le type ou la couleur de symboles spécifiques:
 
 	symbol-assign point entrance UIS
-
 	# symbol-color area clay [52 33 6]								# Color to verify
 	# symbol-color area pebbles [52 33 6]	
 	# symbol-color area flowstone [59 100 53]
@@ -2540,12 +2786,8 @@ layout drawingconfig_China
 	symbol-color point water-flow:intermittent [0 0 0]
 	symbol-color point water-flow:paleo [0 0 0]
 	
-	
-	
-	
 	####### Metapost-changes for China styles ############
 	code metapost
-	
 		########################################################	
 		#<en> To change color of Mud area
 		#<fr> Pour modifier la couleur de l'aire Boue
@@ -2687,8 +2929,8 @@ layout drawingconfig_China
 		enddef;
 	
 	endcode
+	
 endlayout
-
 
 ######################################################################################################################################
 #<en> Layout to define a horizontal Scale bar
@@ -2887,7 +3129,6 @@ endlayout
 #     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables		
 ######################################################################################################################################
 layout header
-	
 	#<en> This one affects maps only
 	#<fr> Ceci ne touche que les maps (plans)
 	code tex-map
@@ -3041,8 +3282,6 @@ layout header
 				{\the\legendtextlicencesize\si\the\datetitle \ss\the\currentdate\par}
 			\fi
 		}
-		
-		
 	endcode
 	
 endlayout
@@ -3067,7 +3306,6 @@ endlayout
 #<fr> Layout pour modifier le cartouche (header) de la projection en plan
 #     Ce code de redéfinition est expérimental experimental et basé sur le travail de
 #     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
-
 # header without surveyors names		
 ######################################################################################################################################
 layout headerl_LT
@@ -3220,7 +3458,6 @@ layout header_coupe_vert-to-place
 		\color[0 0 0]
 		}
 	endcode
-
 endlayout
 
 
@@ -3239,9 +3476,7 @@ endlayout
 #     verticale et localisée à la droite du header.
 ######################################################################################################################################
 layout header_coupe_vert-auto
-
 	copy scalebar_vert
-	
 	#<en> This one affects maps only (extended view)
 	#<fr> Ceci ne touche que les maps (coupes développées)
 	code tex-map
@@ -3354,6 +3589,7 @@ layout header_coupe
 	#<fr> Layout pour modifier le cartouche (header) de la projection en coupe développée
 	#     Ce code de redéfinition est expérimental experimental et basé sur le travail de
 	#     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
+	
 	copy scalebar_horiz
 	copy header
 endlayout
@@ -3368,10 +3604,10 @@ endlayout
 #     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
 ######################################################################################################################################
 layout header-plan-schema
-	copy scalebar_horiz
-	
 	#<en> This one affects maps only
 	#<fr> Ceci ne touche que les maps (plans)
+	copy scalebar_horiz
+	
 	code tex-map
 		\legendcontent={%
 		\hsize=\legendwidth
@@ -3466,11 +3702,10 @@ endlayout
 #     Bruce Mutton           Therion 5.3.15 fait appel à de nouvelles variables
 ######################################################################################################################################
 layout header_coupe-schema
-
-	copy scalebar_horiz
-	
 	#<en> This one affects maps only (extended view)
 	#<fr> Ceci ne touche que les maps (coupes développées)
+	copy scalebar_horiz
+	
 	code tex-map
 		\legendcontent={%
 		\hsize=\legendwidth
@@ -3608,7 +3843,6 @@ endlayout
 #<en> Layout for the set of the Atlas
 #<fr> Layout pour définir le set up de l'Atlas
 ######################################################################################################################################
-
 layout Atlas
 	#<en> "page-setup".
 	#     We specify 1) the dimensions of the paper: 21 X 29.7 (A4)
@@ -3621,7 +3855,7 @@ layout Atlas
 	#     Alors, on peut indiquer une marge à gauche de 3 (21-17-1=3)
 	#     et une marge en haut de 1,5 (29,7-27,2-1=1,5)
 	#     en centimetres
-
+	
 	# page-setup 21 29.7 17 27.2 3 1.5 cm   # A4 Portrait
 	# page-setup 29.7 21 27.2 17 0.5 0.5 cm   # A4 Paysage
 	page-setup  42 29.7 40 27.2 1 1 cm   # A3 Paysage
@@ -3877,7 +4111,6 @@ layout headeratlas
 		\fi
 
 	endcode
-	
 endlayout
 
 ######################################################################################################################################
@@ -4076,7 +4309,6 @@ layout depth
 			p:=fullcircle scaled .2u;
 			thclean p; thdraw p;
 		enddef;
-
 	endcode	
 endlayout
 
@@ -4087,12 +4319,10 @@ endlayout
 #<fr> fonts pour dessin à 1/5000 
 ######################################################################################################################################
 layout fonts_5000
-
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
 		fonts_setup(3, 5, 7, 12, 24);
 	endcode	
-	
 endlayout
 
 ######################################################################################################################################
@@ -4102,13 +4332,11 @@ endlayout
 #<fr> fonts pour dessin à 1/2000 
 ######################################################################################################################################
 layout fonts_2000
-
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
 		# Old: (6, 8, 12, 16, 18)
 		fonts_setup(5, 8, 12, 20, 34);
 	endcode	
-	
 endlayout
 
 ######################################################################################################################################
@@ -4118,14 +4346,12 @@ endlayout
 #<fr> fonts pour dessin à 1/1000
 ######################################################################################################################################
 layout fonts_1000
-		
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
 		# Old: (10, 14, 20, 28, 32)
 		# Old: (8, 12, 20, 28, 34)
 		fonts_setup(8, 12, 20, 32, 52);
 	endcode
-	
 endlayout
 
 ######################################################################################################################################
@@ -4135,13 +4361,11 @@ endlayout
 #<fr> fonts pour dessin à 1/500 
 ######################################################################################################################################
 layout fonts_500
-
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
 		# Old: (6, 10, 12, 14, 18)
 		fonts_setup(12, 20, 32, 52, 84);
 	endcode
-	
 endlayout
 
 ######################################################################################################################################
@@ -4151,12 +4375,10 @@ endlayout
 #<fr> fonts pour dessin à 1/200 
 ######################################################################################################################################
 layout fonts_200
-
 	code metapost
 		#fonts_setup(<xs>,<s>,<m>,<l>,<xl>);
 		fonts_setup(20, 32, 52, 84, 110);
 	endcode
-	
 endlayout
 
 ######################################################################################################################################
@@ -4174,7 +4396,6 @@ layout Survey_No_Scrap
 	  enddef;
 	  initsymbol("l_survey_cave_MY");
 	endcode
-	
 	symbol-assign line survey:cave MY
 	
 endlayout

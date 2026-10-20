@@ -41,20 +41,20 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-M326-Embrochat-Plan-tot@M326-Embrochat
 	# break
-	# MP-F002-Cuisse_de_Jupiter-Plan-tot@F002-Cuisse_de_Jupiter
-	# break
-	# MP-F404-Cuisse_de_Truffin-Plan-tot@F404-Cuisse_de_Truffin
-	# break
+	MP-F002-Cuisse_de_Jupiter-Plan-tot@F002-Cuisse_de_Jupiter
+	break
+	MP-F404-Cuisse_de_Truffin-Plan-tot@F404-Cuisse_de_Truffin
+	break
 	MP-Gorria_Lezia-Plan-tot@Gorria_Lezia
 	break
 	# MP-Complexe_Arrestelia-Plan-tot@Complexe_Arrestelia
 	# break
 	MP-M108-Plan-tot@M108
 	break
-	# MP-M400-Plan-tot@M400
-	# break
-	# MP-M405-Plan-tot@M405
-	# break
+	MP-M400-Plan-tot@M400
+	break
+	MP-M405-Plan-tot@M405
+	break
 	MP-M414-Plan-tot@M414
 	break
 	plan_oueils@Oueils
@@ -65,8 +65,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-Grotte_des_Stalactites_deviees-Plan-tot@Grotte_des_Stalactites_deviees
 	# break
-	# MP-ERE80-Sima_de_Linza-Plan-tot@ERE80-Sima_de_Linza
-	# break
+	MP-ERE80-Sima_de_Linza-Plan-tot@ERE80-Sima_de_Linza
+	break
 	# MP-Trou_du_Mouton-Plan-tot@Trou_du_Mouton
 	# break
 	# MP-Trou_Martin-Plan-tot@Trou_Martin
@@ -297,6 +297,7 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	MP-Tobozo-Plan-tot@Tobozo
 	break
+	
 endmap
 
 
