@@ -45,8 +45,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-F404-Cuisse_de_Truffin-Plan-tot@F404-Cuisse_de_Truffin
 	# break
-	# MP-Gorria_Lezia-Plan-tot@Gorria_Lezia
-	# break
+	MP-Gorria_Lezia-Plan-tot@Gorria_Lezia
+	break
 	# MP-Complexe_Arrestelia-Plan-tot@Complexe_Arrestelia
 	# break
 	MP-M108-Plan-tot@M108
