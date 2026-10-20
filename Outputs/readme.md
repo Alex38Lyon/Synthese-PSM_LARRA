@@ -71,7 +71,7 @@ Toutes les stations sont comptabilisées et raccordées
 |  | Z106 | 1 | 503,29 | 241,69 | 0,00 | 0,00 | 86 | - | 1 383,31 | FL386.160 | 1 625,00 |
 |  | Laminako ziloa | 1 | 479,60 | 120,00 | 0,00 | 0,00 | 52 | ILLA13B | 318,00 | ILLAMI | 438,00 |
 |  | Grotte de la cascade | 1 | 474,60 | 23,51 | 0,00 | 0,00 | 63 | CAS_d_1/63 | 539,66 | LAC_d_RD | 563,17 |
-|  | F2 Cuisse de jupiter | 1 | 464,88 | 294,26 | 0,00 | 0,00 | 49 | GDP1050/9 | 1 687,74 | M_13 | 1 982,00 |
+|  | F2 Cuisse de Jupiter | 1 | 464,88 | 294,26 | 0,00 | 0,00 | 49 | GDP1050/9 | 1 687,74 | M_13 | 1 982,00 |
 |  | AN109 | 1 | 436,21 | 253,70 | 0,00 | 0,00 | 73 | QO2_13 | 1 860,30 | AN109 | 2 114,00 |
 | Sima de los Burros | AN702 Sima de los burros, AN704 | 2 | 426,96 | 216,55 | 17,01 | 0,00 | 80 | MHX33 | 1 766,73 | CX15 | 1 983,28 |
 |  | E22 | 1 | 410,70 | 312,59 | 0,00 | 0,00 | 43 | E22_d_38 | 1 948,41 | E22_00 | 2 261,00 |
@@ -90,7 +90,7 @@ Toutes les stations sont comptabilisées et raccordées
 |  | AN73 Gouffre des Grands Frissons | 1 | 248,35 | 210,40 | 0,00 | 38,50 | 23 | ESF1 | 1 861,60 | AN73 | 2 072,00 |
 |  | Arphidia | 1 | 243,24 | 68,25 | 0,00 | 0,00 | 33 | ARP100/33 | 985,75 | ROBINET | 1 054,00 |
 |  | AN107 | 1 | 242,97 | 161,77 | 0,00 | 14,50 | 48 | AH6X | 1 963,23 | AN107 | 2 125,00 |
-|  | ERE80 | 1 | 240,75 | 158,68 | 0,00 | 0,00 | 18 | LIN_d_1/10 | 1 697,32 | ERE_80 | 1 856,00 |
+|  | ERE80 Sima de Linza | 1 | 240,75 | 158,68 | 0,00 | 0,00 | 18 | LIN_d_1/10 | 1 697,32 | ERE_80 | 1 856,00 |
 |  | BB26 | 1 | 227,19 | 71,56 | 62,66 | 4,80 | 71 | 32d | 1 448,44 | LT345_79DD | 1 520,00 |
 |  | AN61 Sima de la confusion | 1 | 224,45 | 139,93 | 0,00 | 2,78 | 44 | XA40 | 2 076,57 | AN61 | 2 216,50 |
 |  | E3 TSR3 | 1 | 220,56 | 120,89 | 0,00 | 0,00 | 40 | F.44 | 1 809,11 | E3_TSR3 | 1 930,00 |
@@ -116,7 +116,7 @@ Toutes les stations sont comptabilisées et raccordées
 |  | AN619 Trou fion | 1 | 122,42 | 65,84 | 0,00 | 0,00 | 19 | QD11 | 1 967,42 | QD2 | 2 033,26 |
 |  | AN672 Sima Groselleros | 1 | 116,60 | 79,29 | 0,00 | 0,00 | 27 | RO4 | 1 883,71 | AN672 | 1 963,00 |
 |  | AN567 | 1 | 112,67 | 75,18 | 0,00 | 0,00 | 17 | FH1 | 2 069,82 | A_4 | 2 145,00 |
-|  | F404 Cuisse de truffin | 1 | 110,42 | 70,79 | 0,00 | 0,00 | 12 | F404_d_2/3 | 1 919,21 | LT346_80UH | 1 990,00 |
+|  | F404 Cuisse de Truffin | 1 | 110,42 | 70,79 | 0,00 | 0,00 | 12 | F404_d_2/3 | 1 919,21 | LT346_80UH | 1 990,00 |
 |  | AN683 Sima papanatas | 1 | 110,10 | 67,33 | 0,00 | 0,00 | 14 | CK12 | 2 082,67 | AN542 | 2 150,00 |
 |  | AN561 | 1 | 109,01 | 88,93 | 0,00 | 0,00 | 17 | AX18 | 2 137,07 | AN561 | 2 226,00 |
 |  | M108 | 1 | 106,39 | 80,56 | 0,00 | 0,00 | 17 | M108_d_1/15 | 1 949,44 | M_108 | 2 030,00 |
@@ -255,7 +255,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.18 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-20 09h00m11s |
-| Durée calcul |03 (m) 59 (s) sans erreur |
+|       Date | 2026-10-20 16h52m24s |
+| Durée calcul |03 (m) 40 (s) sans erreur |
 
 --------------
