@@ -28,8 +28,8 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          # token: ${{ secrets.SUBMODULES_TOKEN }} 
-          token: ${{ secrets.PUSH_TOKEN }} 
+          token: ${{ secrets.SUBMODULES_TOKEN }} 
+          # token: ${{ secrets.PUSH_TOKEN }} 
           persist-credentials: true
               
       # ============================================================
@@ -42,12 +42,12 @@ jobs:
           echo "========================================"
           echo "INSTALLATION THERION"
           echo "========================================"
+          set -euxo pipefail
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends therion survex
-          echo ""
-          echo "========================================"
-          echo "VERIFICATION THERION / SURVEX"
-          echo "========================================"
+          sudo apt-get install -y wget ca-certificates
+          wget -O /tmp/therion.deb https://archive.ubuntu.com/ubuntu/pool/universe/t/therion/therion_6.4.0-1build1_amd64.deb
+          sudo apt-get install -y /tmp/therion.deb
+          echo "=== Version installée ==="
           therion --version
           cavern --version
           echo "========================================"
@@ -518,7 +518,10 @@ jobs:
           # 4. Remplacer les identifiants Git persistés par checkout
           # par ceux de PUSH_TOKEN, sans afficher le jeton.
           AUTH_HEADER="$(printf 'x-access-token:%s' "${PUSH_TOKEN}" | base64 -w 0)"
-          git config --local --replace-all http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH_HEADER}"
+          # Supprimer l'en-tête d'authentification existant,
+          # puis configurer celui de PUSH_TOKEN.
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH_HEADER}"
           unset AUTH_HEADER
           echo "Authentification Git configurée pour PUSH_TOKEN."
 
