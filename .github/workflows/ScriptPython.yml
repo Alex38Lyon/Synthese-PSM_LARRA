@@ -18,12 +18,14 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       # ============================================================
-      # 1. Checkout
+      # 1. Checkout et sous-modules privés
       # ============================================================
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          submodules: recursive
+          token: ${{ secrets.SUBMODULES_TOKEN }}
           
       # ============================================================
       # 2. Installation et exécution de Therion
@@ -32,16 +34,21 @@ jobs:
         shell: bash
         run: |
           set -e
-
           echo "========================================"
           echo "INSTALLATION THERION"
           echo "========================================"
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends therion
+          sudo apt-get install -y --no-install-recommends therion survex
           echo ""
-          echo "Version Therion :"
+          echo "========================================"
+          echo "VERIFICATION THERION / SURVEX"
+          echo "========================================"
+          command -v therion 
           therion --version
-          echo ""
+          command -v cavern
+          cavern --version
+          echo "Vérification des fichiers du sous-module Data :"
+          test -f "Data/00-Ref_Square/00-Ref_Square-tot.th"  
           echo "========================================"
           echo "COMPILATION ATLAS"
           echo "========================================"
