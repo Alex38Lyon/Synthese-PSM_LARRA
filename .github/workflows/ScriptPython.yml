@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       # ============================================================
-      # 1. Checkout et sous-modules privés
+      # 1. Téléchargement dépôt et sous-modules privés
       # ============================================================
-      - name: Checkout repository
+      - name: 1. Téléchargement dépôt et sous-modules privés
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
@@ -30,7 +30,7 @@ jobs:
       # ============================================================
       # 2. Installation et exécution de Therion
       # ============================================================
-      - name: Run Therion 
+      - name: 2. Installation et exécution de Therion
         shell: bash
         run: |
           set -e
@@ -63,7 +63,7 @@ jobs:
       # ============================================================
       # 3. Vérification des fichiers SHP et SQL modifiés ou lancement manuel
       # ============================================================
-      - name: Check SHP and SQL changes
+      - name: 3. Vérification des fichiers SHP et SQL modifiés ou lancement manuel
         id: changed
         shell: bash
         run: |
@@ -135,7 +135,7 @@ jobs:
       # ============================================================
       # 4 Arrêt si aucun SHP/SQL et pas de lancement manuel
       # ============================================================
-      - name: Stop if no SHP or SQL changes
+      - name: 4 Arrêt si aucun SHP/SQL et pas de lancement manuel
         if: steps.changed.outputs.changed != 'true'
         shell: bash
         run: |
@@ -145,7 +145,7 @@ jobs:
       # ============================================================
       # 5 Vérification de la base SQL
       # ============================================================
-      - name: Check SQL database
+      - name: 5 Vérification de la base SQL
         if: steps.changed.outputs.changed == 'true'
         shell: bash -el {0}
         run: |
@@ -166,7 +166,7 @@ jobs:
       # 6. Micromamba
       # IMPORTANT :PAS de GDAL ici. GDAL sera fourni par notre package précompilé.
       # ============================================================
-      - name: Setup Micromamba
+      - name: 6. Micromamba
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
         uses: mamba-org/setup-micromamba@v3.2.1
         with:
@@ -191,7 +191,7 @@ jobs:
       # ============================================================
       # 7. Informations environnement
       # ============================================================
-      - name: Environment information
+      - name: 7. Informations environnement
         if: steps.changed.outputs.shp == 'true'  || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -206,7 +206,7 @@ jobs:
       # ============================================================
       # 8. Téléchargement package GDAL
       # ============================================================
-      - name: Download GDAL + SFCGAL package
+      - name: 8. Téléchargement package GDAL
         if: steps.changed.outputs.shp == 'true'  || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         env:
@@ -229,7 +229,7 @@ jobs:
       # ============================================================
       # 9. Installation package GDAL
       # ============================================================
-      - name: Installation GDAL package
+      - name: 9. Installation package GDAL
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -339,7 +339,7 @@ jobs:
       # ============================================================
       # 10. Vérification GDAL
       # ============================================================
-      - name: Check GDAL
+      - name: 10. Vérification GDAL
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -361,7 +361,7 @@ jobs:
       # ============================================================
       # 11. Vérification SFCGAL
       # ============================================================
-      - name: Check SFCGAL linkage
+      - name: 11. Vérification SFCGAL
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -369,13 +369,12 @@ jobs:
           echo "========================================"
           echo "GDAL / SFCGAL"
           echo "========================================"
-          ldd "$CONDA_PREFIX/lib/libgdal.so" \
-            | grep -Ei "sfcgal|geos"
+          ldd "$CONDA_PREFIX/lib/libgdal.so" | grep -Ei "sfcgal|geos"
 
       # ============================================================
       # 12. Test SFCGAL
       # ============================================================
-      - name: Test SFCGAL via OGR
+      - name: 2. Test SFCGAL
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -414,7 +413,7 @@ jobs:
       # ============================================================
       # 13. Dépendances Python
       # ============================================================
-      - name: Install Python dependencies
+      - name: 13. Dépendances Python
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -426,7 +425,7 @@ jobs:
       # ============================================================
       # 14. Affichage des SHP
       # ============================================================
-      - name: List SHP input files
+      - name: 14. Affichage des SHP
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -438,7 +437,7 @@ jobs:
       # ============================================================
       # 15. Exécution pyThtoQgis
       # ============================================================
-      - name: Run pyThtoQgis
+      - name: 15. Exécution pyThtoQgis
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -452,7 +451,7 @@ jobs:
       # ============================================================
       # 16. Exécution pyThStat
       # ============================================================           
-      - name: Run pyThStat
+      - name: 16. Exécution pyThStat
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -469,7 +468,7 @@ jobs:
       # ============================================================
       # 17. Fichiers produits
       # ============================================================
-      - name: Show generated files
+      - name: 7. Fichiers produits
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash
         run: |
@@ -483,7 +482,7 @@ jobs:
       # ============================================================
       # 18. Commit
       # ============================================================
-      - name: Commit generated files
+      - name: 18. Commit
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
         uses: stefanzweifel/git-auto-commit-action@v7
         env:
@@ -497,7 +496,7 @@ jobs:
       # ============================================================
       # 19. MerginMaps Hook
       # ============================================================
-      - name: Trigger MerginMapsHook
+      - name: 19. MerginMaps Hook
         if: steps.changed.outputs.shp == 'true'  || steps.changed.outputs.manual == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
