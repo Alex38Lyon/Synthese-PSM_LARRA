@@ -28,7 +28,8 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          token: ${{ secrets.SUBMODULES_TOKEN }}         
+          token: ${{ secrets.SUBMODULES_TOKEN }} 
+          persist-credentials: true
               
       # ============================================================
       # 2. Installation et exécution de Therion
