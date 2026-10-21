@@ -8,11 +8,14 @@ on:
       - 'Outputs/SHP/*.shp'
       - 'Outputs/DB_Synthese-PSM_LARRA.sql'
   workflow_dispatch:
+  
 permissions:
   contents: write
+  
 concurrency:
   group: pyThtoQgis
   cancel-in-progress: false
+  
 jobs:
   ScriptPython:
     runs-on: ubuntu-24.04
@@ -46,9 +49,9 @@ jobs:
           therion --version
           cavern --version
           echo "========================================"
-          echo "COMPILATION ATLAS"
+          echo "COMPILATION FULL"
           echo "========================================"
-          CONFIG="Synthese-PSM_LARRA-Atlas.thconfig"
+          CONFIG="Synthese-PSM_LARRA-Full.thconfig"
           if [ ! -f "$CONFIG" ]; then
             echo "ERREUR : configuration introuvable : $CONFIG"
             exit 1
@@ -133,9 +136,9 @@ jobs:
           echo "manual=false" >> "$GITHUB_OUTPUT"    
           
       # ============================================================
-      # 4 Arrêt si aucun SHP/SQL et pas de lancement manuel
+      # 4. Arrêt si aucun SHP/SQL et pas de lancement manuel
       # ============================================================
-      - name: 4 Arrêt si aucun SHP/SQL et pas de lancement manuel
+      - name: 4. Arrêt si aucun SHP/SQL et pas de lancement manuel
         if: steps.changed.outputs.changed != 'true'
         shell: bash
         run: |
@@ -143,9 +146,9 @@ jobs:
           echo "Arrêt du workflow."
           
       # ============================================================
-      # 5 Vérification de la base SQL
+      # 5. Vérification de la base SQL
       # ============================================================
-      - name: 5 Vérification de la base SQL
+      - name: 5. Vérification de la base SQL
         if: steps.changed.outputs.changed == 'true'
         shell: bash -el {0}
         run: |
@@ -374,7 +377,7 @@ jobs:
       # ============================================================
       # 12. Test SFCGAL
       # ============================================================
-      - name: 2. Test SFCGAL
+      - name: 12. Test SFCGAL
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash -el {0}
         run: |
@@ -468,7 +471,7 @@ jobs:
       # ============================================================
       # 17. Fichiers produits
       # ============================================================
-      - name: 7. Fichiers produits
+      - name: 17. Fichiers produits
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash
         run: |
