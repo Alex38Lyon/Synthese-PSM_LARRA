@@ -26,109 +26,7 @@ jobs:
           fetch-depth: 0
           submodules: recursive
           token: ${{ secrets.SUBMODULES_TOKEN }}         
-               
-      # ============================================================
-      # 2. Diagnostic du sous-module Data
-      # ============================================================
-      - name: Diagnose Data submodule
-        shell: bash
-        run: |
-          set -u
-          echo "========================================"
-          echo "DIAGNOSTIC SOUS-MODULE DATA"
-          echo "========================================"
-          
-          # --------------------------------------------------------
-          # 2.1. Informations générales
-          # --------------------------------------------------------
-          echo ""
-          echo "=== 2.1.1 Répertoire courant ==="
-          pwd
-          echo ""
-          echo "=== 2.1.2. Statut Git ==="
-          git status --short
-          git submodule status || true
-          echo ""
-          echo "=== 3. Configuration des sous-modules ==="
-          if [ -f .gitmodules ]; then
-            cat .gitmodules
-          else
-            echo "ERREUR : fichier .gitmodules absent"
-          fi
-          
-          # --------------------------------------------------------
-          # 2.2. Vérification du répertoire Data
-          # --------------------------------------------------------
-          echo ""
-          echo "=== 2.2. Répertoire Data ==="
-          if [ ! -e Data ]; then
-            echo "ERREUR : Data n'existe pas"
-          elif [ ! -d Data ]; then
-            echo "ERREUR : Data existe mais n'est pas un répertoire"
-            ls -ld Data
-          else
-            echo "Data existe"
-            ls -ld Data
-            echo "Contenu du premier niveau :"
-            ls -la Data | head -80
-          fi
-          
-          # --------------------------------------------------------
-          # 2.3. Vérification de l'initialisation Git
-          # --------------------------------------------------------
-          echo ""
-          echo "=== 2.3. État Git du sous-module ==="
-          if git -C Data rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-            echo "Data est un dépôt Git"
-            git -C Data rev-parse --show-toplevel
-            git -C Data rev-parse HEAD
-            git -C Data status --short
-            echo "Remote :"
-            git -C Data remote -v
-          else
-            echo "ERREUR : Data n'est pas un dépôt Git initialisé"
-          fi
-          
-          # --------------------------------------------------------
-          # 2.4. Recherche du fichier attendu
-          # --------------------------------------------------------
-          echo ""
-          echo "=== 2.4. Fichier attendu par Therion ==="
-          TARGET="Data/00-Ref_Square/00-Ref_Square-tot.th"
-          if [ -f "$TARGET" ]; then
-            echo "OK : fichier trouvé"
-            ls -lh "$TARGET"
-          else
-            echo "ERREUR : fichier absent : $TARGET"
-            echo ""
-            echo "Recherche du fichier dans Data :"
-            if [ -d Data ]; then
-              find Data -type f -name "00-Ref_Square-tot.th" -print 2>/dev/null | head -100
-              echo ""
-              echo "Répertoires contenant Square :"
-              find Data -type d -iname '*square*' -print 2>/dev/null | head -100
-            fi
-          fi
-          
-          # --------------------------------------------------------
-          # 2.5. Vérification des fichiers Therion
-          # --------------------------------------------------------
-          echo ""
-          echo "=== 2.5. Fichiers .th dans Data ==="
-          if [ -d Data ]; then
-            COUNT=$(find Data -type f -name '*.th' 2>/dev/null | wc -l)
-            echo "Nombre de fichiers .th : $COUNT"
-            find Data -type f -name '*.th' -print 2>/dev/null | head -100 || true
-          fi
-          
-          # --------------------------------------------------------
-          # 2.6. Conclusion
-          # --------------------------------------------------------
-          echo ""
-          echo "========================================"
-          echo "Diagnostic du sous-module Data"
-          echo "========================================"
-
+              
       # ============================================================
       # 2. Installation et exécution de Therion
       # ============================================================
@@ -145,9 +43,7 @@ jobs:
           echo "========================================"
           echo "VERIFICATION THERION / SURVEX"
           echo "========================================"
-          command -v therion 
           therion --version
-          command -v cavern
           cavern --version
           echo "========================================"
           echo "COMPILATION ATLAS"
