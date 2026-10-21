@@ -388,7 +388,7 @@ select MC-Synthese_PSM-Extended-tot@Synthese-PSM_LARRA
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
 export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
-export atlas -o Outputs/Synthese-PSM_LARRA-Atlas.pdf -layout my_layout_atlas
+# export atlas -fmt pdf -layout my_layout_atlas -o Outputs/Synthese-PSM_LARRA-Atlas.pdf 
 # export map -projection plan -fmt xhtml -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.xhtml
 # export map -projection plan -fmt svg -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.svg
 # export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Puits-Coupe.pdf

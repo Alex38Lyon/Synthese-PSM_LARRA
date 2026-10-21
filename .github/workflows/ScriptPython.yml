@@ -30,7 +30,7 @@ jobs:
           submodules: recursive
           token: ${{ secrets.SUBMODULES_TOKEN }} 
           # token: ${{ secrets.PUSH_TOKEN }} 
-          persist-credentials: true
+          persist-credentials: false
               
       # ============================================================
       # 2. Installation et exécution de Therion
@@ -484,6 +484,7 @@ jobs:
           echo ""
           git diff --stat
           
+
       # ============================================================
       # 17.9. Vérification et configuration de PUSH_TOKEN
       # ============================================================
@@ -495,32 +496,57 @@ jobs:
           GH_TOKEN: ${{ secrets.PUSH_TOKEN }}
         run: |
           set -euo pipefail
+          REPOSITORY="Alex38Lyon/Synthese-PSM_LARRA"
           echo "========================================"
           echo "VÉRIFICATION DE PUSH_TOKEN"
           echo "========================================"
-          # 1. Vérifier que le secret existe
+          # 1. Vérifier la présence du secret
           if [ -z "${PUSH_TOKEN}" ]; then
             echo "::error::Le secret PUSH_TOKEN est absent ou vide."
             exit 1
           fi
-          # 2. Vérifier que le jeton est valide
+          
+          # 2. Vérifier la validité du jeton
           echo "Vérification de l'identité GitHub..."
-          GH_USER="$(gh api user --jq '.login')"
+          if ! GH_USER="$(gh api user --jq '.login')"; then
+            echo "::error::PUSH_TOKEN est invalide ou ne permet pas d'interroger l'API GitHub."
+            exit 1
+          fi
           echo "Jeton reconnu pour le compte : ${GH_USER}"
+          
           # 3. Vérifier l'accès au dépôt et les droits du compte
           echo "Vérification des droits sur le dépôt..."
-          PUSH_PERMISSION="$(gh api repos/Alex38Lyon/Synthese-PSM_LARRA --jq '.permissions.push // false')"
+          if ! PUSH_PERMISSION="$(gh api "repos/${REPOSITORY}" --jq '.permissions.push // false')"; then
+            echo "::error::Impossible de vérifier les droits sur ${REPOSITORY}."
+            exit 1
+          fi
           if [ "${PUSH_PERMISSION}" != "true" ]; then
-            echo "::error::Le compte associé à PUSH_TOKEN ne dispose pas des droits push sur le dépôt."
+            echo "::error::Le compte ${GH_USER} ne dispose pas du droit push sur ${REPOSITORY}."
             exit 1
           fi
           echo "Le compte dispose des droits push sur le dépôt."
-          # 4. Remplacer les identifiants Git persistés par checkout
-          # par ceux de PUSH_TOKEN, sans afficher le jeton.
+          
+          # 4. Vérifier que le dépôt Git courant est bien le dépôt attendu
+          REMOTE_URL="$(git remote get-url origin)"
+          case "${REMOTE_URL}" in
+            "https://github.com/${REPOSITORY}"|"https://github.com/${REPOSITORY}.git"|"git@github.com:${REPOSITORY}.git")
+              echo "Dépôt Git vérifié : ${REPOSITORY}"
+              ;;
+            *)
+              echo "::error::Le dépôt distant configuré ne correspond pas à ${REPOSITORY}."
+              exit 1
+              ;;
+          esac
+          
+          # 5. Retirer les éventuels en-têtes Authorization configurés
+          # dans les niveaux local, global et système.
+          # Ne jamais afficher la valeur des en-têtes.
+          for SCOPE in local global system; do
+            git config "--${SCOPE}" --unset-all http.https://github.com/.extraheader 2>/dev/null || true
+          done
+          
+          # 6. Configurer un unique en-tête pour PUSH_TOKEN
           AUTH_HEADER="$(printf 'x-access-token:%s' "${PUSH_TOKEN}" | base64 -w 0)"
-          # Supprimer l'en-tête d'authentification existant,
-          # puis configurer celui de PUSH_TOKEN.
-          git config --local --unset-all http.https://github.com/.extraheader || true
           git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH_HEADER}"
           unset AUTH_HEADER
           echo "Authentification Git configurée pour PUSH_TOKEN."
