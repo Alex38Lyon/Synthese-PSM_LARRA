@@ -1085,7 +1085,7 @@ S  1478.06 SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA ()
 writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.02 (TeX Live 2023/Debian) (kpathsea version 6.3.5)  21 OCT 2026 14:52
+This is MetaPost, version 2.02 (TeX Live 2023/Debian) (kpathsea version 6.3.5)  21 OCT 2026 15:23
 **data.mp
 (/usr/share/texlive/texmf-dist/metapost/base/mpost.mp
 (/usr/share/texlive/texmf-dist/metapost/base/plain.mp
@@ -1410,7 +1410,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdftex 2026.10.21)  21 OCT 2026 14:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdftex 2026.10.21)  21 OCT 2026 15:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1426,7 +1426,7 @@ ese-PSM_LARRA/Logos/Logo-ARSIP-Synthese-Topographique_XL.png>) (./th_pages.tex)
 [1] ) 
 Here is how much of TeX's memory you used:
  4473 strings out of 497075
- 56061 string characters out of 6206397
+ 56061 string characters out of 6206352
  1999818 words of memory out of 5000000
  5712 multiletter control sequences out of 15000+600000
  16726 words of font info for 56 fonts, out of 8000000 for 9000
@@ -1458,7 +1458,7 @@ average distortion: 0.45%
 done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.txt ... done
-compilation time: 317 sec
+compilation time: 328 sec
 
 
 ######################### loop errors ##########################
