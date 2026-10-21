@@ -1085,7 +1085,7 @@ S  1478.06 SP-Tobozo_231_01@Tobozo_231.Tobozo.Synthese-PSM_LARRA ()
 writing Outputs/Synthese-PSM_LARRA-Plan.pdf ...
 processing projection none ... done
 ####################### metapost log file ########################
-This is MetaPost, version 2.02 (TeX Live 2023/Debian) (kpathsea version 6.3.5)  21 OCT 2026 14:26
+This is MetaPost, version 2.02 (TeX Live 2023/Debian) (kpathsea version 6.3.5)  21 OCT 2026 14:52
 **data.mp
 (/usr/share/texlive/texmf-dist/metapost/base/mpost.mp
 (/usr/share/texlive/texmf-dist/metapost/base/plain.mp
@@ -1410,7 +1410,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdftex 2026.10.21)  21 OCT 2026 14:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdftex 2026.10.21)  21 OCT 2026 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1445,6 +1445,7 @@ PDF statistics:
 ##################### end of pdftex log file #####################
 done
 writing Outputs/Synthese-PSM_LARRA.lox ............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................ done
+writing Outputs/Synthese-PSM_LARRA.kml ... done
 writing Outputs/DB_Synthese-PSM_LARRA.sql ... 
 processing projection extended ... done
 average distortion: 15.81%
@@ -1455,7 +1456,9 @@ average distortion: 0.26%
 processing projection elevation ... done
 average distortion: 0.45%
 done
-compilation time: 186 sec
+writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
+writing Outputs/Synthese-PSM_LARRA-Cave-list.txt ... done
+compilation time: 317 sec
 
 
 ######################### loop errors ##########################
@@ -1806,5 +1809,4 @@ REL-ERR ABS-ERR TOTAL-L STS X-ERROR Y-ERROR Z-ERROR STATIONS
   0.06%    0.1m  126.6m  21   -0.1m   -0.0m    0.0m [HU1@Explo_354_2018_09_10.Explo_354_2018_09_10.Complexe_Anialarra.Synthese-PSM_LARRA - JI1 - JI2 - JI3 - JI4 - JI5 - JI6 - JI10 - JI11 - JI12 - JI13 - JI14 = JI14@Explo_357_2018_09_15.Explo_357_2018_09_15.Complexe_Anialarra.Synthese-PSM_LARRA - SA2 - SA1 - HU19 = HU19@Explo_340_2018_08_03.Explo_340_2018_08_03.Complexe_Anialarra.Synthese-PSM_LARRA - HU20 - HU21 - HU22 - HU23 - HU24 - HU17 - HU1 = HU1@Explo_354_2018_09_10.Explo_354_2018_09_10.Complexe_Anialarra.Synthese-PSM_LARRA]
   0.05%    0.1m  188.4m  46    0.0m   -0.1m   -0.1m [A60_112B@Explo_88_2023_08_04.Explo_88_2023_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA - A60_112.1 - A60_112.2 - A60_112.3 - A60_112.4 - A60_112.5 - A60_112.6 - A60_112.7 - A60_112.8 - A60_112.9 - A60_112.10 - A60_112.11 - A60_112.12 - A60_112.13 - A60_112.14 - A60_112.15 = A60_112.15@Explo_95_2024_08_11.Explo_95_2024_08_11.Complexe_BU56_Ilamina.Synthese-PSM_LARRA - A60_112.16 - A60_112.17 - A60_112.18 - A60_112.19 - A60_112.20 - A60_112.21 - A60_112.22 - A60_119 = A60_119@Explo_67_2021_08_07.Explo_67_2021_08_07.Complexe_BU56_Ilamina.Synthese-PSM_LARRA - A60_120 - A60_121 - A60_122 - A60_123 - A60_124 - A60_125 - A60_126 - A60_127 = A60_127@Explo_74_2022_07_24.Explo_74_2022_07_24.Complexe_BU56_Ilamina.Synthese-PSM_LARRA - A60_126B - A60_125B - A60_124B - A60_123B - A60_122B - A60_121B - A60_120B - A60_119B - A60_118B - A60_117B - A60_116B - A60_115B - A60_114B - A60_113B - A60_112B = A60_112B@Explo_88_2023_08_04.Explo_88_2023_08_04.Complexe_BU56_Ilamina.Synthese-PSM_LARRA]
   0.04%    0.1m  252.1m  24   -0.1m    0.1m   -0.0m [M31_d_2/29@Explo_08_1981_08_02.Explo_08_1981_08_02.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA - M31_d_6/10 - M31_d_6/9 - M31_d_6/8 - M31_d_6/7 - M31_d_6/6 - M31_d_6/5 - M31_d_6/4 - M31_d_6/3 - M31_d_6/2 - M31_d_6/1 - M31_d_6/0 - M31_d_2/17 - M31_d_2/18 - M31_d_2/19 - M31_d_2/20 - M31_d_2/21 - M31_d_2/22 - M31_d_2/23 - M31_d_2/24 - M31_d_2/25 - M31_d_2/26 - M31_d_2/27 - M31_d_2/28 - M31_d_2/29]
-  0.01%    0.0m   65.2m   8   -0.0m   -0.0m   -0.0m [M31_d_73/8@Explo_05_1979_01_01.Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA - M31_d_81/4 - M31_d_81/3 - M31_d_81/2 - M31_d_81/1 - M31_d_81/0 - M31_d_73/6 - M31_d_73/7 - M31_d_73/8]
-  0.00%    0.0m    0.0m   2    0.0m    0.0m    0.0m [AAD0@Explo_29_2022_10_28.Explo
+  0.01%    0.0m   65.2m   8   -0.0m   -0.0m   -0.0m [M31_d_73/8@Explo_05_1979_01_01.Explo_05_1979_01_01.M31_Pourtet.Complexe_PSM_GdP.Synthese-PSM_LARRA - M31_d_81/4 - M31_d_81/3
