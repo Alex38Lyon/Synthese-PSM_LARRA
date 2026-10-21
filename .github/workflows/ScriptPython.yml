@@ -1,4 +1,4 @@
-# Workflow d'exécution automatique des scripts python et de compilation Therion
+# Workflow d'exécution automatique des scripts python et de compilation Therion (Full)
 name: ScriptPython
 on:
   push:
@@ -484,11 +484,10 @@ jobs:
           echo ""
           git diff --stat
           
-
       # ============================================================
-      # 17.9. Vérification et configuration de PUSH_TOKEN
+      # 18. Vérification et configuration de PUSH_TOKEN
       # ============================================================
-      - name: 17.9. Vérifier PUSH_TOKEN
+      - name: 18. Vérifier PUSH_TOKEN
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
         shell: bash
         env:
@@ -500,13 +499,13 @@ jobs:
           echo "========================================"
           echo "VÉRIFICATION DE PUSH_TOKEN"
           echo "========================================"
-          # 1. Vérifier la présence du secret
+          # 18.1 Vérifier la présence du secret
           if [ -z "${PUSH_TOKEN}" ]; then
             echo "::error::Le secret PUSH_TOKEN est absent ou vide."
             exit 1
           fi
           
-          # 2. Vérifier la validité du jeton
+          # 18.2. Vérifier la validité du jeton
           echo "Vérification de l'identité GitHub..."
           if ! GH_USER="$(gh api user --jq '.login')"; then
             echo "::error::PUSH_TOKEN est invalide ou ne permet pas d'interroger l'API GitHub."
@@ -514,7 +513,7 @@ jobs:
           fi
           echo "Jeton reconnu pour le compte : ${GH_USER}"
           
-          # 3. Vérifier l'accès au dépôt et les droits du compte
+          # 18.3. Vérifier l'accès au dépôt et les droits du compte
           echo "Vérification des droits sur le dépôt..."
           if ! PUSH_PERMISSION="$(gh api "repos/${REPOSITORY}" --jq '.permissions.push // false')"; then
             echo "::error::Impossible de vérifier les droits sur ${REPOSITORY}."
@@ -526,7 +525,7 @@ jobs:
           fi
           echo "Le compte dispose des droits push sur le dépôt."
           
-          # 4. Vérifier que le dépôt Git courant est bien le dépôt attendu
+          # 18.4. Vérifier que le dépôt Git courant est bien le dépôt attendu
           REMOTE_URL="$(git remote get-url origin)"
           case "${REMOTE_URL}" in
             "https://github.com/${REPOSITORY}"|"https://github.com/${REPOSITORY}.git"|"git@github.com:${REPOSITORY}.git")
@@ -538,8 +537,7 @@ jobs:
               ;;
           esac
           
-          # 5. Retirer les éventuels en-têtes Authorization configurés
-          # dans les niveaux local, global et système.
+          # 18.5. Retirer les éventuels en-têtes Authorization configurés dans les niveaux local, global et système.
           # Ne jamais afficher la valeur des en-têtes.
           for SCOPE in local global system; do
             git config "--${SCOPE}" --unset-all http.https://github.com/.extraheader 2>/dev/null || true
@@ -552,23 +550,23 @@ jobs:
           echo "Authentification Git configurée pour PUSH_TOKEN."
 
       # ============================================================
-      # 18. Commit
+      # 19. Commit
       # ============================================================
-      - name: 18. Commit
+      - name: 19. Commit
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
         uses: stefanzweifel/git-auto-commit-action@v7
         env:
           COMMIT_DATE: ${{ steps.changed.outputs.commit_date }}
         with:
-          commit_message: "Auto-generate outputs from ScriptPython - ${{ env.COMMIT_DATE }}"
+          commit_message: "Auto-generate par ScriptPython - ${{ env.COMMIT_DATE }}"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
 
       # ============================================================
-      # 19. MerginMaps Hook
+      # 20. MerginMaps Hook
       # ============================================================
-      - name: 19. MerginMaps Hook
+      - name: 20. MerginMaps Hook
         if: steps.changed.outputs.shp == 'true'  || steps.changed.outputs.manual == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

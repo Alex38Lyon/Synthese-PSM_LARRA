@@ -381,7 +381,6 @@ endlayout
 #export map -fmt xvi -layout xviexport -o Data/Complexe_Lonne_Peyret-Bourrugues-map.xvi
 #export map -proj extended -layout xviexport -fmt xvi -o Data/Complexe_Lonne_Peyret-Bourrugues-coupe.xvi
 
-
 select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
 select MC-Synthese_PSM-Extended-tot@Synthese-PSM_LARRA
 
@@ -397,7 +396,7 @@ export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_L
 # Export du fichier 3d pour Loch
 export model -enable all -o Outputs/Synthese-PSM_LARRA.lox
 # export model -enable all -o Outputs/Synthese-PSM_LARRA.dxf
-# export model -enable all -o Outputs/Synthese-PSM_LARRA.kml
+export model -enable all -o Outputs/Synthese-PSM_LARRA.kml
 # export model -enable all -o Outputs/Synthese-PSM_LARRA.3d
 # export model -enable all -o Outputs/Synthese-PSM_LARRA.plt
 
@@ -413,8 +412,8 @@ export database -fmt sql -o Outputs/DB_Synthese-PSM_LARRA.sql
 # export map -proj plan -fmt esri -o Outputs/SHP/therion -layout my_layout -enc ASCII
 
 # Export des fichiers kml
- # export map -proj plan -fmt kml -o Outputs/Synthese-PSM_LARRA.kml -layout layout-kml
- # export model -fmt kml -o Outputs/Synthese-PSM_LARRA-model.kml -enable all
- # export model -enable all -o Outputs/Synthese-PSM_LARRA-3D.kml
- # export survey-list -location on -o Outputs/Synthese-PSM_LARRA-Surveys.html
- # export cave-list -surveys off -location on -o Outputs/Synthese-PSM_LARRA-Cave-list.txt
+# export map -proj plan -fmt kml -o Outputs/Synthese-PSM_LARRA.kml -layout layout-kml
+# export model -fmt kml -o Outputs/Synthese-PSM_LARRA-model.kml -enable all
+# export model -enable all -o Outputs/Synthese-PSM_LARRA-3D.kml
+export survey-list -location on -o Outputs/Synthese-PSM_LARRA-Surveys.html
+export cave-list -surveys off -location on -o Outputs/Synthese-PSM_LARRA-Cave-list.txt
