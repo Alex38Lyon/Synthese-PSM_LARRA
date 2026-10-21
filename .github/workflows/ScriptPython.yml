@@ -26,6 +26,40 @@ jobs:
           fetch-depth: 0
           submodules: recursive
           token: ${{ secrets.SUBMODULES_TOKEN }}
+          
+      - name: Diagnose Therion Data
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "DIAGNOSTIC DU SOUS-MODULE DATA"
+          echo "========================================"
+
+          echo ""
+          echo "--- État du sous-module ---"
+          git submodule status
+          git -C Data rev-parse HEAD
+
+          echo ""
+          echo "--- Présence du fichier manquant ---"
+          FILE="Data/00-Ref_Square/00-Ref_Square-tot.th"
+
+          if [ -f "$FILE" ]; then
+            echo "OK : $FILE existe"
+          else
+            echo "ABSENT : $FILE"
+          fi
+
+          echo ""
+          echo "--- Recherche du fichier par son nom ---"
+          find Data -type f -name '00-Ref_Square-tot.th' -print || true
+
+          echo ""
+          echo "--- Contenu de Data/00-Ref_Square ---"
+          ls -la Data/00-Ref_Square/ 2>&1 || true
+
+          echo ""
+          echo "--- Configuration du sous-module ---"
+          cat .gitmodules
                
       # ============================================================
       # 2. Diagnostic du sous-module Data
@@ -37,14 +71,15 @@ jobs:
           echo "========================================"
           echo "DIAGNOSTIC SOUS-MODULE DATA"
           echo "========================================"
+          
           # --------------------------------------------------------
           # 2.1. Informations générales
           # --------------------------------------------------------
           echo ""
-          echo "=== 1. Répertoire courant ==="
+          echo "=== 2.1.1 Répertoire courant ==="
           pwd
           echo ""
-          echo "=== 2. Statut Git ==="
+          echo "=== 2.1.2. Statut Git ==="
           git status --short
           git submodule status || true
           echo ""
@@ -54,11 +89,12 @@ jobs:
           else
             echo "ERREUR : fichier .gitmodules absent"
           fi
+          
           # --------------------------------------------------------
           # 2.2. Vérification du répertoire Data
           # --------------------------------------------------------
           echo ""
-          echo "=== 4. Répertoire Data ==="
+          echo "=== 2.2. Répertoire Data ==="
           if [ ! -e Data ]; then
             echo "ERREUR : Data n'existe pas"
           elif [ ! -d Data ]; then
@@ -70,11 +106,12 @@ jobs:
             echo "Contenu du premier niveau :"
             ls -la Data | head -80
           fi
+          
           # --------------------------------------------------------
           # 2.3. Vérification de l'initialisation Git
           # --------------------------------------------------------
           echo ""
-          echo "=== 5. État Git du sous-module ==="
+          echo "=== 2.3. État Git du sous-module ==="
           if git -C Data rev-parse --is-inside-work-tree \
               >/dev/null 2>&1; then
             echo "Data est un dépôt Git"
@@ -86,11 +123,12 @@ jobs:
           else
             echo "ERREUR : Data n'est pas un dépôt Git initialisé"
           fi
+          
           # --------------------------------------------------------
           # 2.4. Recherche du fichier attendu
           # --------------------------------------------------------
           echo ""
-          echo "=== 6. Fichier attendu par Therion ==="
+          echo "=== 2.4. Fichier attendu par Therion ==="
           TARGET="Data/00-Ref_Square/00-Ref_Square-tot.th"
           if [ -f "$TARGET" ]; then
             echo "OK : fichier trouvé"
@@ -112,20 +150,18 @@ jobs:
                 -print 2>/dev/null | head -100
             fi
           fi
+          
           # --------------------------------------------------------
           # 2.5. Vérification des fichiers Therion
           # --------------------------------------------------------
           echo ""
           echo "=== 2.5. Fichiers .th dans Data ==="
-
           if [ -d Data ]; then
-            COUNT=$(find Data -type f -name '*.th' \
-              2>/dev/null | wc -l)
+            COUNT=$(find Data -type f -name '*.th' 2>/dev/null | wc -l)
             echo "Nombre de fichiers .th : $COUNT"
-
-            find Data -type f -name '*.th' \
-              -print 2>/dev/null | head -100
+            find Data -type f -name '*.th' -print 2>/dev/null | head -100
           fi
+          
           # --------------------------------------------------------
           # 2.6. Conclusion
           # --------------------------------------------------------
