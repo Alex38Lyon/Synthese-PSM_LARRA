@@ -42,31 +42,14 @@ jobs:
           echo "========================================"
           echo "INSTALLATION THERION"
           echo "========================================"
-          set -euxo pipefail
-          # Dépendances de compilation 
           sudo apt-get update
-          sudo apt-get install -y \
-          git cmake g++ pkg-config python3 \
-          libfmt-dev libproj-dev
-          # Télécharger la version stable officielle
-          git clone --depth 1 --branch v6.4.0 https://github.com/therion/therion.git /tmp/therion-src 
-          # Configurer : compiler uniquement Therion CLI
-          cmake -S /tmp/therion-src -B /tmp/therion-build \
-          -DCMAKE_BUILD_TYPE=Release \
-          -DCMAKE_INSTALL_PREFIX=/usr/local \
-          -DBUILD_THERION=ON \
-          -DBUILD_LOCH=OFF \
-          -DBUILD_XTHERION=OFF \
-          -DBUILD_THBOOK=OFF
-          # Compiler et installer
-          cmake --build /tmp/therion-build --parallel 2
-          sudo cmake --install /tmp/therion-build
-          # Vérifier la version réellement exécutée
-          hash -r
-          echo "=== Binaire utilisé ==="
-          command -v therion
-          echo "=== Version Therion ==="
+          sudo apt-get install -y --no-install-recommends therion survex
+          echo ""
+          echo "========================================"
+          echo "VERIFICATION THERION / SURVEX"
+          echo "========================================"
           therion --version
+          cavern --version
           echo "========================================"
           echo "COMPILATION FULL"
           echo "========================================"
