@@ -482,6 +482,44 @@ jobs:
           git status --short
           echo ""
           git diff --stat
+          
+      # ============================================================
+      # 17.9. Vérification et configuration de PUSH_TOKEN
+      # ============================================================
+      - name: 17.9. Vérifier PUSH_TOKEN
+        if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
+        shell: bash
+        env:
+          PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+          GH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "========================================"
+          echo "VÉRIFICATION DE PUSH_TOKEN"
+          echo "========================================"
+          # 1. Vérifier que le secret existe
+          if [ -z "${PUSH_TOKEN}" ]; then
+            echo "::error::Le secret PUSH_TOKEN est absent ou vide."
+            exit 1
+          fi
+          # 2. Vérifier que le jeton est valide
+          echo "Vérification de l'identité GitHub..."
+          GH_USER="$(gh api user --jq '.login')"
+          echo "Jeton reconnu pour le compte : ${GH_USER}"
+          # 3. Vérifier l'accès au dépôt et les droits du compte
+          echo "Vérification des droits sur le dépôt..."
+          PUSH_PERMISSION="$(gh api repos/Alex38Lyon/Synthese-PSM_LARRA --jq '.permissions.push // false')"
+          if [ "${PUSH_PERMISSION}" != "true" ]; then
+            echo "::error::Le compte associé à PUSH_TOKEN ne dispose pas des droits push sur le dépôt."
+            exit 1
+          fi
+          echo "Le compte dispose des droits push sur le dépôt."
+          # 4. Remplacer les identifiants Git persistés par checkout
+          # par ceux de PUSH_TOKEN, sans afficher le jeton.
+          AUTH_HEADER="$(printf 'x-access-token:%s' "${PUSH_TOKEN}" | base64 -w 0)"
+          git config --local --replace-all http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH_HEADER}"
+          unset AUTH_HEADER
+          echo "Authentification Git configurée pour PUSH_TOKEN."
 
       # ============================================================
       # 18. Commit

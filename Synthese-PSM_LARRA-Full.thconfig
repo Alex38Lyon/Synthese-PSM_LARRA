@@ -225,6 +225,7 @@ layout my_layout_atlas
 	copy drawingconfig
 	copy fonts_2000
 	copy Survey_No_Scrap
+	copy Atlas
 		
 	# Définition du système de projection du plan
 	cs UTM30
@@ -365,10 +366,7 @@ layout my_layout_atlas
 		\synth={Alexandre Pont pour l'ARSIP}
 		%\ECoordinates={\inputrel{Outputs/Synthese-PSM_LARRA-Cave-list.txt}}   
 		\ECoordinates={\catcode`\_=12\obeylines\inputrel{Outputs/Synthese-PSM_LARRA-Cave-list.txt}}
-		
 	endcode
-	
-	copy Atlas
 	
 	# map-image 4 72 nw ./Logos/Logo-ARSIP-Synthese-Topographique_XL.png
 
