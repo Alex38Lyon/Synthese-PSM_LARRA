@@ -25,41 +25,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          token: ${{ secrets.SUBMODULES_TOKEN }}
-          
-      - name: Diagnose Therion Data
-        shell: bash
-        run: |
-          echo "========================================"
-          echo "DIAGNOSTIC DU SOUS-MODULE DATA"
-          echo "========================================"
-
-          echo ""
-          echo "--- État du sous-module ---"
-          git submodule status
-          git -C Data rev-parse HEAD
-
-          echo ""
-          echo "--- Présence du fichier manquant ---"
-          FILE="Data/00-Ref_Square/00-Ref_Square-tot.th"
-
-          if [ -f "$FILE" ]; then
-            echo "OK : $FILE existe"
-          else
-            echo "ABSENT : $FILE"
-          fi
-
-          echo ""
-          echo "--- Recherche du fichier par son nom ---"
-          find Data -type f -name '00-Ref_Square-tot.th' -print || true
-
-          echo ""
-          echo "--- Contenu de Data/00-Ref_Square ---"
-          ls -la Data/00-Ref_Square/ 2>&1 || true
-
-          echo ""
-          echo "--- Configuration du sous-module ---"
-          cat .gitmodules
+          token: ${{ secrets.SUBMODULES_TOKEN }}         
                
       # ============================================================
       # 2. Diagnostic du sous-module Data
@@ -112,8 +78,7 @@ jobs:
           # --------------------------------------------------------
           echo ""
           echo "=== 2.3. État Git du sous-module ==="
-          if git -C Data rev-parse --is-inside-work-tree \
-              >/dev/null 2>&1; then
+          if git -C Data rev-parse --is-inside-work-tree >/dev/null 2>&1; then
             echo "Data est un dépôt Git"
             git -C Data rev-parse --show-toplevel
             git -C Data rev-parse HEAD
@@ -138,16 +103,10 @@ jobs:
             echo ""
             echo "Recherche du fichier dans Data :"
             if [ -d Data ]; then
-              find Data \
-                -type f \
-                -name "00-Ref_Square-tot.th" \
-                -print 2>/dev/null | head -100
+              find Data -type f -name "00-Ref_Square-tot.th" -print 2>/dev/null | head -100
               echo ""
               echo "Répertoires contenant Square :"
-              find Data \
-                -type d \
-                -iname '*square*' \
-                -print 2>/dev/null | head -100
+              find Data -type d -iname '*square*' -print 2>/dev/null | head -100
             fi
           fi
           
@@ -159,7 +118,7 @@ jobs:
           if [ -d Data ]; then
             COUNT=$(find Data -type f -name '*.th' 2>/dev/null | wc -l)
             echo "Nombre de fichiers .th : $COUNT"
-            find Data -type f -name '*.th' -print 2>/dev/null | head -100
+            find Data -type f -name '*.th' -print 2>/dev/null | head -100 || true
           fi
           
           # --------------------------------------------------------
