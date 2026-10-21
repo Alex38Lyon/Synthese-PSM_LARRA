@@ -26,8 +26,36 @@ jobs:
           fetch-depth: 0
           
       # ============================================================
-      # 2. Vérification des fichiers SHP et SQL modifiés
-      #    ou lancement manuel
+      # 2. Installation et exécution de Therion
+      # ============================================================
+      - name: Run Therion 
+        shell: bash
+        run: |
+          set -e
+
+          echo "========================================"
+          echo "INSTALLATION THERION"
+          echo "========================================"
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends therion
+          echo ""
+          echo "Version Therion :"
+          therion --version
+          echo ""
+          echo "========================================"
+          echo "COMPILATION ATLAS"
+          echo "========================================"
+          CONFIG="Synthese-PSM_LARRA-Atlas.thconfig"
+          if [ ! -f "$CONFIG" ]; then
+            echo "ERREUR : configuration introuvable : $CONFIG"
+            exit 1
+          fi
+          therion "$CONFIG"
+          echo ""
+          echo "Compilation Therion terminée."
+          
+      # ============================================================
+      # 3. Vérification des fichiers SHP et SQL modifiés ou lancement manuel
       # ============================================================
       - name: Check SHP and SQL changes
         id: changed
@@ -97,8 +125,9 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
           echo "manual=false" >> "$GITHUB_OUTPUT"    
+          
       # ============================================================
-      # 3.1 Arrêt si aucun SHP/SQL et pas de lancement manuel
+      # 4 Arrêt si aucun SHP/SQL et pas de lancement manuel
       # ============================================================
       - name: Stop if no SHP or SQL changes
         if: steps.changed.outputs.changed != 'true'
@@ -106,8 +135,9 @@ jobs:
         run: |
           echo "Aucun SHP ou SQL ajouté/modifié."
           echo "Arrêt du workflow."
+          
       # ============================================================
-      # 3.2 Vérification de la base SQL
+      # 5 Vérification de la base SQL
       # ============================================================
       - name: Check SQL database
         if: steps.changed.outputs.changed == 'true'
@@ -127,10 +157,8 @@ jobs:
           ls -lh "$SQL_FILE"
 
       # ============================================================
-      # 4. Micromamba
-      # IMPORTANT :
-      # PAS de GDAL ici.
-      # GDAL sera fourni par notre package précompilé.
+      # 6. Micromamba
+      # IMPORTANT :PAS de GDAL ici. GDAL sera fourni par notre package précompilé.
       # ============================================================
       - name: Setup Micromamba
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
@@ -155,7 +183,7 @@ jobs:
           cache-downloads: true
 
       # ============================================================
-      # 5. Informations environnement
+      # 7. Informations environnement
       # ============================================================
       - name: Environment information
         if: steps.changed.outputs.shp == 'true'  || steps.changed.outputs.manual == 'true'
@@ -170,7 +198,7 @@ jobs:
           conda list | grep -E "python|numpy|sfcgal|geos|proj|sqlite"
 
       # ============================================================
-      # 6. Téléchargement package GDAL
+      # 8. Téléchargement package GDAL
       # ============================================================
       - name: Download GDAL + SFCGAL package
         if: steps.changed.outputs.shp == 'true'  || steps.changed.outputs.manual == 'true'
@@ -193,7 +221,7 @@ jobs:
           ls -lh "$RUNNER_TEMP/${PACKAGE_NAME}.tar.gz"
 
       # ============================================================
-      # 7. Installation package GDAL
+      # 9. Installation package GDAL
       # ============================================================
       - name: Installation GDAL package
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
@@ -303,7 +331,7 @@ jobs:
           echo "========================================"
 
       # ============================================================
-      # 8. Vérification GDAL
+      # 10. Vérification GDAL
       # ============================================================
       - name: Check GDAL
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
@@ -325,7 +353,7 @@ jobs:
           PY
 
       # ============================================================
-      # 9. Vérification SFCGAL
+      # 11. Vérification SFCGAL
       # ============================================================
       - name: Check SFCGAL linkage
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
@@ -339,7 +367,7 @@ jobs:
             | grep -Ei "sfcgal|geos"
 
       # ============================================================
-      # 10. Test SFCGAL
+      # 12. Test SFCGAL
       # ============================================================
       - name: Test SFCGAL via OGR
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
@@ -378,7 +406,7 @@ jobs:
           PY
 
       # ============================================================
-      # 11. Dépendances Python
+      # 13. Dépendances Python
       # ============================================================
       - name: Install Python dependencies
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
@@ -390,7 +418,7 @@ jobs:
           pip install matplotlib
 
       # ============================================================
-      # 12. Affichage des SHP
+      # 14. Affichage des SHP
       # ============================================================
       - name: List SHP input files
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
@@ -402,7 +430,7 @@ jobs:
           find Outputs/SHP -maxdepth 1 -type f -name "*.shp" -print
 
       # ============================================================
-      # 13. Exécution pyThtoQgis
+      # 15. Exécution pyThtoQgis
       # ============================================================
       - name: Run pyThtoQgis
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
@@ -416,7 +444,7 @@ jobs:
           python pyThtoQgis.py --folder "../../Outputs/SHP/"
 
       # ============================================================
-      # 14. Exécution pyThStat
+      # 16. Exécution pyThStat
       # ============================================================           
       - name: Run pyThStat
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.manual == 'true'
@@ -433,7 +461,7 @@ jobs:
           python pythStat.py --file "../../Outputs/DB_Synthese-PSM_LARRA.sql"
 
       # ============================================================
-      # 15. Fichiers produits
+      # 17. Fichiers produits
       # ============================================================
       - name: Show generated files
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
@@ -447,7 +475,7 @@ jobs:
           git diff --stat
 
       # ============================================================
-      # 16. Commit
+      # 18. Commit
       # ============================================================
       - name: Commit generated files
         if: steps.changed.outputs.shp == 'true' || steps.changed.outputs.sql == 'true' || steps.changed.outputs.manual == 'true'
@@ -461,7 +489,7 @@ jobs:
           commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
 
       # ============================================================
-      # 17. MerginMaps Hook
+      # 19. MerginMaps Hook
       # ============================================================
       - name: Trigger MerginMapsHook
         if: steps.changed.outputs.shp == 'true'  || steps.changed.outputs.manual == 'true'
@@ -469,5 +497,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
         run: |
-          gh api "repos/${GH_REPO}/dispatches" \
-            -f event_type=mergin-sync
+          gh api "repos/${GH_REPO}/dispatches" -f event_type=mergin-sync
