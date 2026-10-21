@@ -123,7 +123,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/M400/M400-tot.th
 	input Data/M405/M405-tot.th
 	input Data/M414/M414-tot.th
-	input Data/Oueils/oueils-tot.th
+	input Data/Oueils/Oueils-tot.th
 	input Data/SC223/SC223-tot.th
 	input Data/SC60/SC60-tot.th
 	input Data/Trou_Martin/Trou_Martin-tot.th
