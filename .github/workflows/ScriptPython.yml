@@ -1,4 +1,4 @@
-# Workflow d'execution automatique des scripts python
+# Workflow d'exécution automatique des scripts python et de compilation Therion
 name: ScriptPython
 on:
   push:
@@ -35,12 +35,10 @@ jobs:
         run: |
           echo "========================================"
           echo "VÉRIFICATION DES MODIFICATIONS"
-          echo "========================================"
-      
+          echo "========================================"  
           # Date et heure du commit
           COMMIT_DATE=$(date '+%Y-%m-%d %H:%M:%S')
           echo "commit_date=$COMMIT_DATE" >> "$GITHUB_OUTPUT"
-      
           echo "Date du commit : $COMMIT_DATE"
           # --------------------------------------------------------
           # Lancement manuel
@@ -53,34 +51,18 @@ jobs:
             echo "sql=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-      
           echo "========================================"
           echo "Recherche des fichiers modifiés"
           echo "========================================"
-      
           # --------------------------------------------------------
           # SHP ajoutés ou modifiés
           # --------------------------------------------------------
-          SHP_FILES=$(git diff-tree \
-            --no-commit-id \
-            --name-only \
-            --diff-filter=AM \
-            -r \
-            "$GITHUB_SHA" \
-            -- 'Outputs/SHP/*.shp')
-      
+          SHP_FILES=$(git diff-tree --no-commit-id --name-only --diff-filter=AM -r "$GITHUB_SHA" -- 'Outputs/SHP/*.shp')
           # --------------------------------------------------------
           # SQL ajouté ou modifié
           # --------------------------------------------------------
           SQL_FILE="Outputs/DB_Synthese-PSM_LARRA.sql"    
-          SQL_CHANGED=$(git diff-tree \
-            --no-commit-id \
-            --name-only \
-            --diff-filter=AM \
-            -r \
-            "$GITHUB_SHA" \
-            -- "$SQL_FILE")
-      
+          SQL_CHANGED=$(git diff-tree --no-commit-id --name-only --diff-filter=AM -r "$GITHUB_SHA" -- "$SQL_FILE")
           # --------------------------------------------------------
           # Affichage
           # --------------------------------------------------------
@@ -93,7 +75,6 @@ jobs:
             echo "Aucun"
             echo "shp=false" >> "$GITHUB_OUTPUT"
           fi
-      
           echo ""
           echo "SQL ajouté/modifié :"
           if [ -n "$SQL_CHANGED" ]; then
@@ -103,7 +84,6 @@ jobs:
             echo "Aucun"
             echo "sql=false" >> "$GITHUB_OUTPUT"
           fi
-      
           # --------------------------------------------------------
           # Décision de poursuivre
           # --------------------------------------------------------
@@ -116,9 +96,7 @@ jobs:
             echo "Aucun SHP ni SQL ajouté/modifié."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
-      
           echo "manual=false" >> "$GITHUB_OUTPUT"    
-      
       # ============================================================
       # 3.1 Arrêt si aucun SHP/SQL et pas de lancement manuel
       # ============================================================
@@ -128,7 +106,6 @@ jobs:
         run: |
           echo "Aucun SHP ou SQL ajouté/modifié."
           echo "Arrêt du workflow."
-      
       # ============================================================
       # 3.2 Vérification de la base SQL
       # ============================================================
@@ -146,7 +123,6 @@ jobs:
             echo "$SQL_FILE"
             exit 1
           fi
-      
           echo "Base SQL trouvée :"
           ls -lh "$SQL_FILE"
 
@@ -191,8 +167,7 @@ jobs:
           echo "CONDA_PREFIX=$CONDA_PREFIX"
           python --version
           echo ""
-          conda list | grep -E \
-            "python|numpy|sfcgal|geos|proj|sqlite"
+          conda list | grep -E "python|numpy|sfcgal|geos|proj|sqlite"
 
       # ============================================================
       # 6. Téléchargement package GDAL
@@ -207,20 +182,15 @@ jobs:
           GDAL_VERSION=3.13.3
           PACKAGE_NAME="gdal-${GDAL_VERSION}-sfcgal-2.2-geos-3.14.1-ubuntu-24.04"
           TAG="gdal-sfcgal-${GDAL_VERSION}"
-
           echo "========================================"
           echo "GDAL PACKAGE"
           echo "========================================"
           echo "Release : $TAG"
           echo "Package : $PACKAGE_NAME"
-          gh release download "$TAG" \
-            --repo "$GITHUB_REPOSITORY" \
-            --pattern "${PACKAGE_NAME}.tar.gz" \
-            --dir "$RUNNER_TEMP"
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern "${PACKAGE_NAME}.tar.gz" --dir "$RUNNER_TEMP"
           echo ""
           echo "Package téléchargé :"
-          ls -lh \
-            "$RUNNER_TEMP/${PACKAGE_NAME}.tar.gz"
+          ls -lh "$RUNNER_TEMP/${PACKAGE_NAME}.tar.gz"
 
       # ============================================================
       # 7. Installation package GDAL
@@ -234,11 +204,9 @@ jobs:
           PACKAGE_NAME="gdal-${GDAL_VERSION}-sfcgal-2.2-geos-3.14.1-ubuntu-24.04"
           PACKAGE="$RUNNER_TEMP/${PACKAGE_NAME}.tar.gz"
           EXTRACT_DIR="$RUNNER_TEMP/gdal-extract"
-
           echo "========================================"
           echo "INSTALLATION GDAL"
           echo "========================================"
-
           # ========================================================
           # Vérification du package
           # ========================================================
@@ -247,17 +215,12 @@ jobs:
               echo "$PACKAGE"
               exit 1
           fi
-
           # ========================================================
           # Extraction
           # ========================================================
           rm -rf "$EXTRACT_DIR"
           mkdir -p "$EXTRACT_DIR"
-          tar \
-            -xzf \
-            "$PACKAGE" \
-            -C "$EXTRACT_DIR"
-
+          tar -xzf "$PACKAGE" -C "$EXTRACT_DIR"
           # ========================================================
           # Affichage STRUCTURE REELLE
           # ========================================================
@@ -265,11 +228,7 @@ jobs:
           echo "========================================"
           echo "STRUCTURE DU PACKAGE"
           echo "========================================"
-          find "$EXTRACT_DIR" \
-            -maxdepth 6 \
-            -print \
-            | sort
-
+          find "$EXTRACT_DIR" -maxdepth 6 -print | sort
           # ========================================================
           # Répertoire racine
           # ========================================================
@@ -284,7 +243,6 @@ jobs:
           echo ""
           echo "GDAL_DIR :"
           echo "$GDAL_DIR"
-
           # ========================================================
           # Vérification structure attendue
           # ========================================================
@@ -300,35 +258,26 @@ jobs:
               echo "ERREUR : lib/ absent"
               exit 1
           fi
-
           # ========================================================
           # Installation BIN
           # ========================================================
           echo ""
           echo "Installation bin/..."
-          cp -av \
-            "$GDAL_DIR/bin/." \
-            "$CONDA_PREFIX/bin/"
-
+          cp -av "$GDAL_DIR/bin/." "$CONDA_PREFIX/bin/"
           # ========================================================
           # Installation LIB
           # ========================================================
           echo ""
           echo "Installation lib/..."
-          cp -av \
-            "$GDAL_DIR/lib/." \
-            "$CONDA_PREFIX/lib/"
+          cp -av "$GDAL_DIR/lib/." "$CONDA_PREFIX/lib/"
           # ========================================================
           # Installation SHARE
           # ========================================================
           if [ -d "$GDAL_DIR/share" ]; then
               echo ""
               echo "Installation share/..."
-              cp -av \
-                "$GDAL_DIR/share/." \
-                "$CONDA_PREFIX/share/"
+              cp -av "$GDAL_DIR/share/." "$CONDA_PREFIX/share/"
           fi
-
           # ========================================================
           # Vérification GDAL
           # ========================================================
@@ -370,15 +319,10 @@ jobs:
           echo "Python GDAL :"
           python - <<'PY'
           from osgeo import gdal
-          print(
-              gdal.VersionInfo("--version")
-          )
+          print(gdal.VersionInfo("--version"))
           print()
-          print(
-              gdal.VersionInfo("--build-info")
-          )
+          print(gdal.VersionInfo("--build-info"))
           PY
-
 
       # ============================================================
       # 9. Vérification SFCGAL
@@ -404,11 +348,9 @@ jobs:
           python - <<'PY'
           from osgeo import ogr
           from osgeo import gdal
-
           print("========================================")
           print("TEST SFCGAL")
           print("========================================")
-
           print(gdal.VersionInfo("--version"))
           wkt = """
           POLYHEDRALSURFACE Z (
@@ -457,11 +399,7 @@ jobs:
           echo "========================================"
           echo "SHP INPUT"
           echo "========================================"
-          find Outputs/SHP \
-            -maxdepth 1 \
-            -type f \
-            -name "*.shp" \
-            -print
+          find Outputs/SHP -maxdepth 1 -type f -name "*.shp" -print
 
       # ============================================================
       # 13. Exécution pyThtoQgis
@@ -516,7 +454,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         env:
           COMMIT_DATE: ${{ steps.changed.outputs.commit_date }}
-        
         with:
           commit_message: "Auto-generate outputs from ScriptPython - ${{ env.COMMIT_DATE }}"
           commit_user_name: "github-actions[bot]"
