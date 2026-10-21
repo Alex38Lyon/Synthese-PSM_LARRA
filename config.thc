@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version France/Chine By Alex 2026 10 20
+# Version France/Chine By Alex 2026 10 21
 ######################################################################################################################################
 
 
@@ -713,9 +713,9 @@ layout drawingconfig
 		\newtoks\legendtextlicencesize \legendtextlicencesize={\the\legendtextsize} 
 		\newtoks\thversiontitleB \thversiontitleB={Therion }
 		
-		\def\testpath{./Logos/Logo-ARSIP-Synthese-Topo.jpg}         % Fichier par defaut (non affiché) si vide NOK
-		\def\atlasheaderlogo{./Logos/Logo-ARSIP-Synthese-Topo.jpg}  % Fichier par defaut (non affiché) si vide NOK
-		\def\atlaslogo{./Logos/Logo-ARSIP-Synthese-Topo.jpg}        % Fichier par defaut (non affiché) si vide NOK
+		\def\testpath{./Logos/Logo-ARSIP-Synthese-Topo.jpg}         % Fichier par défaut (non affiché) si vide NOK
+		\def\atlasheaderlogo{./Logos/Logo-ARSIP-Synthese-Topo.jpg}  % Fichier par défaut (non affiché) si vide NOK
+		\def\atlaslogo{./Logos/Logo-ARSIP-Synthese-Topo.jpg}        % Fichier par défaut (non affiché) si vide NOK
 		
 	endcode
 

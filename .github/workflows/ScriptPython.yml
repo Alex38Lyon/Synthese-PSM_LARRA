@@ -28,7 +28,8 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          token: ${{ secrets.SUBMODULES_TOKEN }} 
+          # token: ${{ secrets.SUBMODULES_TOKEN }} 
+          token: ${{ secrets.PUSH_TOKEN }} 
           persist-credentials: true
               
       # ============================================================

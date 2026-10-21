@@ -225,7 +225,7 @@ layout my_layout_atlas
 	copy drawingconfig
 	copy fonts_2000
 	copy Survey_No_Scrap
-	copy Atlas
+	
 		
 	# Définition du système de projection du plan
 	cs UTM30
@@ -368,6 +368,8 @@ layout my_layout_atlas
 		\ECoordinates={\catcode`\_=12\obeylines\inputrel{Outputs/Synthese-PSM_LARRA-Cave-list.txt}}
 	endcode
 	
+	copy Atlas
+	
 	# map-image 4 72 nw ./Logos/Logo-ARSIP-Synthese-Topographique_XL.png
 
 endlayout
@@ -387,7 +389,7 @@ select MC-Synthese_PSM-Extended-tot@Synthese-PSM_LARRA
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
 export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
 export cave-list -surveys off -location on -o Outputs/Synthese-PSM_LARRA-Cave-list.txt
-export atlas -o Outputs/Synthese-PSM_LARRA-Atlas.pdf -layout my_layout_atlas
+# export atlas -o Outputs/Synthese-PSM_LARRA-Atlas.pdf -layout my_layout_atlas
 # export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
 # export map -projection plan -fmt xhtml -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.xhtml
 # export map -projection plan -fmt svg -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.svg
