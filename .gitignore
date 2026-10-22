@@ -2,20 +2,24 @@
 # **.log
 **.backup
 .xtherion.dat
+.code-workspace
+.toml
 
-
+# Gros fichiers
+/Outputs/Synthese-PSM_LARRA-Plan.pdf
 
 # Secrets locaux
 .env
 .env.*
 !.env.example
 
-# Folders
+# Dossiers
 **/OLD/
 **/old/
 **/Old/
 **/.venv.
+**/.vscode.
 **/.vscode/
 **/Temp_mergin/
 **/__pycache__/
-**/.ruff_cache/
+**/__pycache__.**/.ruff_cache/

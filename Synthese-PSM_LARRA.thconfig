@@ -33,7 +33,7 @@ cs UTM30
 
 source Synthese-PSM_LARRA-tot.th
 
-# pour le MNT avec une résolution spaciale de 1" STRM10
+# pour le MNT avec une résolution spatiale de 1" STRM10
 source SIG/DEM_SRTM30_UTM30_PSM.th
 
 
@@ -44,30 +44,7 @@ input config.thc
 # Ici, on peut spécifier des choses comme les symboles à utiliser (UIS, etc)
 # ou imprimer des explications des symboles
 
-
-# Début de la définition du Layout "xviexport"
-layout xviexport
-	#cs UTM30
-	# échelle à laquelle on veut dessiner la topo
-	scale 1 100
-	#scale 1 1000
-	# taille de la grille
-	grid-size 2 2 2 m
-	# mettre la grille en arrière plan
-	grid bottom
-endlayout
-# fin de la définition du layout "xviexport"
-
-layout layout-kml
-	# Définition du système de projection du plan
-	cs EPSG:2154
-	# Couleur de la topographie
-	# Rouge-Orange = 255,69,0 -->
-	# Orange = 255,165,0 -->
-	# Orange Sombre = 255,140,0 -->
-	# Bleu --> 0, 0 255
-	color map-fg [0 0 100]
-endlayout
+input Layouts_ARSIP.thc
 
 # 3-EXPORT
 
@@ -80,7 +57,7 @@ select MP-Synthese-PSM_LARRA-Plan-tot@Synthese-PSM_LARRA
 
 # Export des fichiers pdf, plan et coupe.
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
-# export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
+export map -projection plan -fmt pdf -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.pdf
 # export map -projection plan -fmt xhtml -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.xhtml
 # export map -projection plan -fmt svg -layout my_layout -o Outputs/Synthese-PSM_LARRA-Plan.svg
 # export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/GL102_Puits-Coupe.pdf

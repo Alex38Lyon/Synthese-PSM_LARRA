@@ -3168,7 +3168,7 @@ if __name__ == "__main__":
     ligne = "═" * 116
     _titre = [
         f"{Colors.BOLD}╔{ligne}╗{Colors.BOLD2}",
-        f"{Colors.BOLD}║ Calcul des statistiques par entrées d'une BD Therion ",
+        f"{Colors.BOLD}║ Calcul des statistiques par entrées d'une BD {Colors.BOLD2}Therion ",
         f"{Colors.BOLD}║       Script pyThStat par : {Colors.BOLD2}alexandre.pont@yahoo.fr  ",
         f"{Colors.BOLD}║       Version : {Colors.BOLD2}{globalDat.Version}  ",
         f"{Colors.BOLD}║       Fichier source : {Colors.BOLD2}{safe_relpath(input_file_name)}  ",
