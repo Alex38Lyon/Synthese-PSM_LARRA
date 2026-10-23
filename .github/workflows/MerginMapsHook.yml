@@ -1,11 +1,6 @@
 # Wokflow pour envoyer un webhook pour déclencher la copie des fichiers vers MerginMaps
 name: MerginMapsHook
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'Outputs/SHP/QGis_GPKG_Files/**'
   repository_dispatch:
     types:
       - mergin-sync
