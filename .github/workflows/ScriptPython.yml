@@ -66,16 +66,18 @@ jobs:
           fi
           
       # ============================================================
-      # 3. Vérification des fichiers SHP et SQL modifiés ou lancement manuel
+      # 3. Vérification des fichiers SHP et SQL modifiés
       # ============================================================
-      - name: 3. Vérification des fichiers SHP et SQL modifiés ou lancement manuel
+      - name: 3. Vérification des fichiers SHP et SQL modifiés
         id: changed
         shell: bash
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
         run: |
+          set -euo pipefail
           echo "========================================"
           echo "VÉRIFICATION DES MODIFICATIONS"
-          echo "========================================"  
-          # Date et heure du commit
+          echo "========================================"
           COMMIT_DATE=$(date '+%Y-%m-%d %H:%M:%S')
           echo "commit_date=$COMMIT_DATE" >> "$GITHUB_OUTPUT"
           echo "Date du commit : $COMMIT_DATE"
@@ -90,34 +92,58 @@ jobs:
             echo "sql=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          echo "========================================"
-          echo "Recherche des fichiers modifiés"
-          echo "========================================"
+          echo "Commit précédent : ${BEFORE_SHA:-non disponible}"
+          echo "Commit courant   : $GITHUB_SHA"
           # --------------------------------------------------------
-          # SHP ajoutés ou modifiés
+          # Récupération des fichiers modifiés
           # --------------------------------------------------------
-          SHP_FILES=$(git diff-tree --no-commit-id --name-only --diff-filter=AM -r "$GITHUB_SHA" -- 'Outputs/SHP/*.shp')
+          if [ -n "${BEFORE_SHA:-}" ] &&
+             [[ "$BEFORE_SHA" =~ ^0+$ ]]; then
+            # Premier push : comparer avec l'arbre vide
+            CHANGED_FILES=$(git diff-tree --root --no-commit-id --name-only --diff-filter=AM -r "$GITHUB_SHA")
+          elif [ -n "${BEFORE_SHA:-}" ] &&
+               git cat-file -e "${BEFORE_SHA}^{commit}" 2>/dev/null; then
+            # Push normal : comparer les deux extrémités
+            CHANGED_FILES=$(git diff --no-ext-diff --name-only --diff-filter=AM "$BEFORE_SHA" "$GITHUB_SHA")
+          else
+            echo "::error::Commit précédent indisponible. Vérifier actions/checkout et l'événement GitHub."
+            exit 1
+          fi
+          echo ""
+          echo "Fichiers modifiés détectés par Git :"
+          if [ -n "$CHANGED_FILES" ]; then
+            printf '%s\n' "$CHANGED_FILES"
+          else
+            echo "Aucun"
+          fi
           # --------------------------------------------------------
-          # SQL ajouté ou modifié
+          # Détection des fichiers SHP, y compris sous-répertoires
           # --------------------------------------------------------
-          SQL_FILE="Outputs/DB_Synthese-PSM_LARRA.sql"    
-          SQL_CHANGED=$(git diff-tree --no-commit-id --name-only --diff-filter=AM -r "$GITHUB_SHA" -- "$SQL_FILE")
+          SHP_FILES=$(printf '%s\n' "$CHANGED_FILES" | grep -Ei '^Outputs/SHP/.*\.shp$' || true)
           # --------------------------------------------------------
-          # Affichage
+          # Détection du fichier SQL
+          # --------------------------------------------------------
+          SQL_FILE="Outputs/DB_Synthese-PSM_LARRA.sql"
+          SQL_CHANGED=$(printf '%s\n' "$CHANGED_FILES" | grep -Fx "$SQL_FILE" || true)
+          # --------------------------------------------------------
+          # Sorties SHP
           # --------------------------------------------------------
           echo ""
           echo "SHP ajoutés/modifiés :"
           if [ -n "$SHP_FILES" ]; then
-            echo "$SHP_FILES"
+            printf '%s\n' "$SHP_FILES"
             echo "shp=true" >> "$GITHUB_OUTPUT"
           else
             echo "Aucun"
             echo "shp=false" >> "$GITHUB_OUTPUT"
           fi
+          # --------------------------------------------------------
+          # Sorties SQL
+          # --------------------------------------------------------
           echo ""
           echo "SQL ajouté/modifié :"
           if [ -n "$SQL_CHANGED" ]; then
-            echo "$SQL_CHANGED"
+            printf '%s\n' "$SQL_CHANGED"
             echo "sql=true" >> "$GITHUB_OUTPUT"
           else
             echo "Aucun"
@@ -135,7 +161,7 @@ jobs:
             echo "Aucun SHP ni SQL ajouté/modifié."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
-          echo "manual=false" >> "$GITHUB_OUTPUT"    
+          echo "manual=false" >> "$GITHUB_OUTPUT"
           
       # ============================================================
       # 4. Arrêt si aucun SHP/SQL et pas de lancement manuel
