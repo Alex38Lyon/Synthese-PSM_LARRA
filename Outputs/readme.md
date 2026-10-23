@@ -255,7 +255,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.18 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-21 21h06m25s |
-| Durée calcul |04 (m) 23 (s) sans erreur |
+|       Date | 2026-10-22 10h55m45s |
+| Durée calcul |03 (m) 15 (s) sans erreur |
 
 --------------
