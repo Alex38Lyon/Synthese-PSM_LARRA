@@ -574,7 +574,8 @@ jobs:
           git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH_HEADER}"
           unset AUTH_HEADER
           echo "Authentification Git configurée pour PUSH_TOKEN."
-
+          
+          
       # ============================================================
       # 19. Commit
       # ============================================================
@@ -584,10 +585,11 @@ jobs:
         env:
           COMMIT_DATE: ${{ steps.changed.outputs.commit_date }}
         with:
-          commit_message: "Auto-generate par ScriptPython - ${{ env.COMMIT_DATE }}"
+          commit_message: "[skip ci] Auto-généré par ScriptPython - ${{ env.COMMIT_DATE }}"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+
 
       # ============================================================
       # 20. MerginMaps Hook
