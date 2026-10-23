@@ -18,6 +18,7 @@ concurrency:
   
 jobs:
   ScriptPython:
+    if: github.event_name == 'workflow_dispatch' || github.actor != 'github-actions[bot]'
     runs-on: ubuntu-24.04
     steps:
       # ============================================================
@@ -585,7 +586,7 @@ jobs:
         env:
           COMMIT_DATE: ${{ steps.changed.outputs.commit_date }}
         with:
-          commit_message: "[skip ci] Auto-généré par ScriptPython - ${{ env.COMMIT_DATE }}"
+          commit_message: "Auto-généré par ScriptPython - ${{ env.COMMIT_DATE }} GMT"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
