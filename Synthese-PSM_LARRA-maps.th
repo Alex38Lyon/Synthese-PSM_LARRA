@@ -6,300 +6,6 @@ encoding utf-8
 # <http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 
-map MP-Synthese-PSM_LARRA-Plan-Old -title "Synthèse générale des réseaux de la Pierre Saint-Martin - Larra"
-	MP-BB09-Plan-tot@BB09
-	break
-	MP-BB26-Plan-tot@BB26
-	break
-	MP-BB27-Plan-tot@BB27
-	break
-	# MP-Grotte_de_Alhais-Plan-tot@Grotte_de_Alhais
-	# break
-	# MP-Arphidia-Plan-tot@Arphidia
-	# break
-	MP-UK600-Sima_Beauf-Plan-tot@UK600-Sima_Beauf
-	break
-	# MP-BG063-Gouffre_de_la_comete-Plan-tot@BG063-Gouffre_de_la_comete
-	# break
-	# MP-BL118-Plan-tot@BL118
-	# break
-	MP-LAKxxx-Bouquetins-Plan-tot@LAKxxx-Bouquetins
-	break
-	# MP-BT006-Plan-tot@BT006
-	# break
-	MP-C103-Plan-tot@C103
-	break
-	MP-C108-Sima_H-Plan-tot@C108-Sima_H
-	break
-	MP-C110-Plan-tot@C110
-	break
-	MP-C299-Gouffre_belle_gueule-Plan-tot@C299-Gouffre_belle_gueule
-	break
-	# MP-Grotte_de_la_Cascade-Plan-tot@Grotte_de_la_Cascade
-	# break
-	# MP-Chipi_Josetteko_Leze-Plan-tot@Chipi_Josetteko_Leze
-	# break
-	# MP-M326-Embrochat-Plan-tot@M326-Embrochat
-	# break
-	MP-F002-Cuisse_de_Jupiter-Plan-tot@F002-Cuisse_de_Jupiter
-	break
-	MP-F404-Cuisse_de_Truffin-Plan-tot@F404-Cuisse_de_Truffin
-	break
-	MP-Gorria_Lezia-Plan-tot@Gorria_Lezia
-	break
-	# MP-Complexe_Arrestelia-Plan-tot@Complexe_Arrestelia
-	# break
-	MP-M108-Plan-tot@M108
-	break
-	MP-M400-Plan-tot@M400
-	break
-	MP-M405-Plan-tot@M405
-	break
-	MP-M414-Plan-tot@M414
-	break
-	MP-Oueils-Plan-tot@Oueils
-	break
-	MP-UKxxx-Marmitou-Plan-tot@UKxxx-Marmitou
-	break
-	# MP-Trou_du_Renard-Plan-tot@Trou_du_Renard
-	# break
-	# MP-Grotte_des_Stalactites_deviees-Plan-tot@Grotte_des_Stalactites_deviees
-	# break
-	MP-ERE80-Sima_de_Linza-Plan-tot@ERE80-Sima_de_Linza
-	break
-	# MP-Trou_du_Mouton-Plan-tot@Trou_du_Mouton
-	# break
-	# MP-Trou_Martin-Plan-tot@Trou_Martin
-	# break
-	MP-UK004-Plan-tot@UK004
-	break
-	MP-UK557-Ourtets-Plan-tot@UK557-Ourtets
-	break
-	MP-UK559-Plan-tot@UK559
-	break
-	MP-UKD6-Plan-tot@UKD6
-	break
-	# MP-UT140-Basa_Ordia_Lezia-Plan-tot@UT140-Basa_Ordia_Lezia
-	# break
-	MP-Z106-Plan-tot@Z106
-	break
-	MP-Z111-Plan-tot@Z111
-	break
-	MP-Z124-Plan-tot@Z124
-	break
-	MP-Z017-Plan-tot@Z017
-	break
-	# MP-Laminako_Ziloa_Illamina-Plan-tot@Laminako_Ziloa_Illamina
-	# break
-	# MP-AN008-Plan-tot@AN008
-	# break
-	# MP-AN026-Plan-tot@AN026
-	# break
-	# MP-AN037-Plan-tot@AN037
-	# break
-	# MP-AN045-Plan-tot@AN045
-	# break
-	# MP-E003_TSR_3-Plan-tot@E003_TSR_3
-	# break
-	# MP-A004-Plan-tot@A004
-	# break
-	# MP-AN001-Plan-tot@AN001
-	# break
-	# MP-AN103-Plan-tot@AN103
-	# break
-	# MP-AN107-Plan-tot@AN107
-	# break
-	# MP-AN109-Plan-tot@AN109
-	# break
-	# MP-AN506-Ninos-Plan-tot@AN506-Ninos
-	# break
-	# MP-AN676-Helado-Plan-tot@AN676-Helado
-	# break
-	# MP-AN532-Marcel-Plan-tot@AN532-Marcel
-	# break
-	# MP-AN534-Eclipse-Plan-tot@AN534-Eclipse
-	# break
-	# MP-AN542-Plan-tot@AN542
-	# break
-	# MP-AN546-Georges-Plan-tot@AN546-Georges
-	# break
-	# MP-AN561-Viento-Plan-tot@AN561-Viento
-	# break
-	# MP-AN567-Plan-tot@AN567
-	# break
-	# MP-AN061-Confusion-Plan-tot@AN061-Confusion
-	# break
-	# MP-AN062-Plan-tot@AN062
-	# break
-	# MP-AN631-Plan-tot@AN631
-	# break
-	# MP-AN634-Plan-tot@AN634
-	# break
-	# MP-AN646-Plan-tot@AN646
-	# break
-	# MP-AN073-Plan-tot@AN073
-	# break
-	# MP-AN588-Grieta-Plan-tot@AN588-Grieta
-	# break
-	# MP-AN672-Groselleros-Plan-tot@AN672-Groselleros
-	# break
-	# MP-AN595-Polaire-Plan-tot@AN595-Polaire
-	# break
-	# MP-AN591-Rapido-Plan-tot@AN591-Rapido
-	# break
-	# MP-AN683-Papanatas-Plan-tot@AN683-Papanatas
-	# break
-	# MP-AN536-Arco-Plan-tot@AN536-Arco
-	# break
-	# MP-AN619-Trou_Fion-Plan-tot@AN619-Trou_Fion
-	# break
-	# MP-AP333-Plan-tot@AP333
-	# break
-	# MP-AP337-Plan-tot@AP337
-	# break
-	# MP-E2000-Plan-tot@E2000
-	# break
-	# MP-IS009-Plan-tot@IS009
-	# break
-	# MP-E022-Gouffre_de_la_Glaciere-Plan-tot@E022-Gouffre_de_la_Glaciere
-	# break
-	MP-C214-Niebla-Plan-tot@C214-Niebla
-	break
-	MP-K007-Hourat_det_Soure-Plan-tot@K007-Hourat_det_Soure
-	break
-	MP-A110-Plan-tot@A110
-	break
-	# MP-AP045-Plan-tot@AP045
-	# break
-	# MP-CUCC4-Plan-tot@CUCC4
-	# break
-	# MP-CUCC5-Plan-tot@CUCC5
-	# break
-	# MP-IS006Bis-Plan-tot@IS006Bis
-	# break
-	# MP-Cathedrale_de_Pyrene-Plan-tot@Cathedrale_de_Pyrene
-	# break
-	# MP-AN507-Plumas-Plan-tot@AN507-Plumas
-	# break
-	# MP-AN616-Daniela-Plan-tot@AN616-Daniela
-	# break
-	# MP-AN622-Basura-Plan-tot@AN622-Basura
-	# break
-	# MP-AN627-Conchita-Plan-tot@AN627-Conchita
-	# break
-	# MP-AN635-Plan-tot@AN635
-	# break
-	# MP-AN639-Plan-tot@AN639
-	# break
-	MP-C243-Los_Cairns-Plan-tot@C243-Los_Cairns
-	break
-	# MP-AN624-Pokemon-Plan-tot@AN624-Pokemon
-	# break
-	# MP-AN669-Babosa-Plan-tot@AN669-Babosa
-	# break
-	# MP-AN671-Verguenza-Plan-tot@AN671-Verguenza
-	# break
-	# MP-AN692-James_Bond-Plan-tot@AN692-James_Bond
-	# break
-	# MP-AN596-Antartica-Plan-tot@AN596-Antartica
-	# break
-	# MP-AN211-Plan-tot@AN211
-	# break
-	# MP-AN557-Avaloir-Plan-tot@AN557-Avaloir
-	# break
-	# MP-DS049-Romy-Plan-tot@DS049-Romy
-	# break
-	# MP-Grotte_aux_lacs-Plan-tot@Grotte_aux_lacs
-	# break
-	# MP-AN576-Plan-tot@AN576
-	# break
-	MP-Z208-Plan-tot@Z208
-	break
-	MP-Z150-Gouffre_Patrick_GROSDEMANCHE-Plan-tot@Z150-Gouffre_Patrick_GROSDEMANCHE
-	break
-	MP-Z112-Plan-tot@Z112
-	break
-	MP-Z123-Plan-tot@Z123
-	break
-	# MP-A106-Plan-tot@A106
-	# break
-	# MP-AN066-Plan-tot@AN066
-	# break
-	# MP-AN708-Marmota-Plan-tot@AN708-Marmota
-	# break
-	# MP-AN699-Plan-tot@AN699
-	# break
-	# MP-AN704-Plan-tot@AN704
-	# break
-	MP-Z143-Plan-tot@Z143
-	break
-	# MP-AN453-Plan-tot@AN453
-	# break
-	MP-Sima_1748-Plan-tot@Sima_1748
-	break
-	MP-Z107-Plan-tot@Z107
-	break
-	MP-Z127-Plan-tot@Z127
-	break
-	# MP-AN456-Banco-Plan-tot@AN456-Banco
-	# break
-	# MP-AN480-Plan-tot@AN480
-	# break
-	# MP-AN709-Tormenta-Plan-tot@AN709-Tormenta
-	# break
-	# MP-AN711-Oso-Plan-tot@AN711-Oso
-	# break
-	MP-Z444-Plan-tot@Z444
-	break
-	MP-Z108-Plan-tot@Z108
-	break
-	MP-Z100-Plan-tot@Z100
-	break
-	# MP-BB50-Plan-tot@BB50
-	# break
-	# MP-AN324-Plan-tot@AN324
-	# break
-	# MP-AN325-Plan-tot@AN325
-	# break
-	# MP-LAK015-Perte_des_Feuilles-Plan-tot@LAK015-Perte_des_Feuilles
-	# break	
-	MP-L5-Plan-tot@L5  #[0 130 m] above  # above # below
-	break
-	MP-Complexe_Lonne_Peyret-Bourrugues-Plan-tot@Complexe_Lonne_Peyret-Bourrugues
-	break	
-	MP-Complexe_PSM_GdP-Plan-tot@Complexe_PSM_GdP
-	break	
-	# MP-AN455-Plan-tot@AN455
-	# break
-	# MP-AN465B-Plan-tot@AN465B
-	# break
-	# MP-AN702-Burros-Plan-tot@AN702-Burros
-	# break
-	# MP-Complexe_BU56_Ilamina-Plan-tot@Complexe_BU56_Ilamina
-	# break
-	# MP-Complexe_Ours-Veau-Plan-tot@Complexe_Ours-Veau
-	# break
-	# MP-AN326-Plan-tot@AN326
-	# break
-	# MP-C213-Plan-tot@C213
-	# break
-	MP-C230-Plan-tot@C230
-	break
-	# MP-AN058-Trou_du_Chien-Plan-tot@AN058-Trou_du_Chien
-	# break
-	# MP-AN514-Venus-Plan-tot@AN514-Venus
-	# break
-	# MP-AN594-Verdad-Plan-tot@AN594-Verdad
-	# break
-	# MP-Complexe_Anialarra-Plan-tot@Complexe_Anialarra
-	# break	
-	MP-Z510-plan-tot@Z510	
-	break
-	MP-Tobozo-Plan-tot@Tobozo
-	break
-	
-endmap
-
 map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de la Pierre Saint-Martin - Larra"
 	# MP-A004-Plan-tot@A004
 	# break
@@ -429,12 +135,12 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-AN711-Oso-Plan-tot@AN711-Oso
 	# break
-	# MP-AP045-Plan-tot@AP045
-	# break
-	# MP-AP333-Plan-tot@AP333
-	# break
-	# MP-AP337-Plan-tot@AP337
-	# break
+	MP-AP045-Plan-tot@AP045
+	break
+	MP-AP333-Plan-tot@AP333
+	break
+	MP-AP337-Plan-tot@AP337
+	break
 	# MP-Arphidia-Plan-tot@Arphidia
 	# break
 	MP-BB09-Plan-tot@BB09
@@ -483,10 +189,10 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	MP-Complexe_PSM_GdP-Plan-tot@Complexe_PSM_GdP
 	break
-	# MP-CUCC4-Plan-tot@CUCC4
-	# break
-	# MP-CUCC5-Plan-tot@CUCC5
-	# break
+	MP-CUCC4-Plan-tot@CUCC4
+	break
+	MP-CUCC5-Plan-tot@CUCC5
+	break
 	# MP-DS049-Romy-Plan-tot@DS049-Romy
 	# break
 	# MP-E003_TSR_3-Plan-tot@E003_TSR_3
@@ -511,8 +217,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-Grotte_des_Stalactites_deviees-Plan-tot@Grotte_des_Stalactites_deviees
 	# break
-	# MP-IS006Bis-Plan-tot@IS006Bis
-	# break
+	MP-IS006Bis-Plan-tot@IS006Bis
+	break
 	# MP-IS009-Plan-tot@IS009
 	# break
 	MP-K007-Hourat_det_Soure-Plan-tot@K007-Hourat_det_Soure
