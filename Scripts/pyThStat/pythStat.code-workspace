@@ -9,7 +9,8 @@
 			"ansi",
 			"debutdetraitement",
 			"ENDC",
-			"histo"
+			"histo",
+			"numerique"
 		]
 	}
 }

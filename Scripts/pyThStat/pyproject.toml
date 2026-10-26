@@ -3,4 +3,15 @@
 line-length = 160
 
 [tool.ruff.format]
+# Évite de forcer des retours à la ligne à cause des virgules finales
 skip-magic-trailing-comma = true
+
+# Utilise des guillemets doubles
+quote-style = "double"
+
+# Indentation classique avec 4 espaces
+indent-style = "space"
+
+# Conserve les fins de ligne du système
+line-ending = "auto"
+

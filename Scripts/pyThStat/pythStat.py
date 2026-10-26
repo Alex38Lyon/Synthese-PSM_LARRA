@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 !########################################################################################################################################
 !#                                                        	                                                                            #
@@ -14,20 +13,24 @@
 !########################################################################################################################################
 """
 
-import sqlite3, sys, os, re, argparse
-from pathlib import Path
-from os.path import isfile, join, abspath, splitext
-from turtle import color
+import argparse
+import os
+import re
+import sqlite3
+import sys
+import tkinter as tk
+from collections import defaultdict
+from datetime import datetime
+from tkinter import filedialog
+from turtle import color  # noqa: F401
+
+import matplotlib.pyplot as plt  # type: ignore
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import tkinter as tk
-from tkinter import filedialog
 from alive_progress import alive_bar  # https://github.com/rsalmei/alive-progress
-from datetime import datetime
 
 import Lib.global_data as globalDat
-from Lib.general_fonctions import setup_logger, Colors, safe_relpath, colored_help
+from Lib.general_fonctions import Colors, colored_help, safe_relpath, setup_logger
 
 
 #####################################################################################################################################
@@ -59,7 +62,7 @@ def importation_sql_data(fichier_sql):
         cursor = connection.cursor()
 
         # Lecture du fichier SQL et exécution des commandes
-        with open(fichier_sql, "r", encoding="utf-8") as sql_file:
+        with open(fichier_sql, encoding="utf-8") as sql_file:
             sql_script = sql_file.read()
 
         # Séparation du script en commandes individuelles
@@ -266,7 +269,6 @@ def construction_tables():
 
         results = sql_serie_vides()
         Count = 1
-        New_Serie_IDOld = 0
         New_Serie_ID = cursor.lastrowid
         Current_Station_ID_Old = 0
         Current_Station_ID = 0
@@ -280,6 +282,7 @@ def construction_tables():
             while len(results) > 0:  # type: ignore
                 # print(f"{Colors.GREEN}{Colors.BOLD}Phase 4.{Count}: Remplissage des tables _JONCTION et _SERIE itération: {Count}, séries créée(s): {New_Serie_ID} ajoutée(s): {New_Serie_ID-New_Serie_IDOld} à traiter: {len(results)}{Colors.ENDC}")            # type: ignore
                 bar.text(f"{Colors.YELLOW}itération(s): {Colors.ENDC}{Count}{Colors.YELLOW}, série(s) créée(s): {Colors.ENDC}{New_Serie_ID}{Colors.YELLOW}")  # type: ignore
+
                 cursor.execute("SELECT COUNT(*) AS nbre FROM _JONCTION WHERE STATION_TYPE IS NULL")
                 _compteur = cursor.fetchall()
                 compteur = int(_compteur[0][0])
@@ -795,7 +798,7 @@ def duplicate_SHOT():
                 log.warning(
                     f"Table des SHOT, visées en double à traiter à la source : {Colors.ENDC}{shot_flag}{Colors.WARNING}, {Colors.ENDC}{shot_flag2}"
                     + f"{Colors.WARNING}, station crée : {Colors.ENDC}{_Current_Station_ID}"
-                    + f"{Colors.WARNING}, long. en double : {Colors.ENDC}{'{:.2f}'.format(_total_length_err)}{Colors.WARNING} m"
+                    + f"{Colors.WARNING}, long. en double : {Colors.ENDC}{'{:.2f}'.format(_total_length_err)}{Colors.WARNING} m"  # noqa: UP032
                     + f"{Colors.WARNING}\nFull name : {Colors.ENDC}{sql_shot_full_name(shot_flag[0][0])}"
                     + f"{Colors.WARNING}, and : {Colors.ENDC}{sql_shot_full_name(shot_flag2[0][0])}"
                 )
@@ -1344,7 +1347,7 @@ def test_jonction(station, serie, entree):
                 # print (f"Jonction à proximité de la Station_ID: {row[0]}, retour: {str(val)}, serie {serie} - {_serie[0][0]},  entrée {entree} - {retour[0][0]}")
                 if (retour[0][0] != entree) and (retour[0][0] != None):
                     log.info(
-                        f"Jonction à la Station_ID: {Colors.ENDC}{row[0]}{Colors.INFO} entre les entrées {Colors.ENDC}{entree}{Colors.INFO} et {Colors.ENDC}{retour[0][0]}{Colors.YELLOW}"
+                        f"Jonction à la Station_ID: {Colors.ENDC}{row[0]:>6}{Colors.INFO} entre les entrées {Colors.ENDC}{entree:>6}{Colors.INFO} et {Colors.ENDC}{retour[0][0]:>6}{Colors.YELLOW}"
                     )
                     cursor.execute("INSERT INTO _RESEAU ( STATION_JONC, ENT_1, ENT_2) VALUES (?, ?, ?)", (row[0], entree, retour[0][0]))
                     conn.commit()
@@ -1367,11 +1370,12 @@ def test_jonction(station, serie, entree):
             # print (f"Jonction à proximité de la Station_ID: {row[0]}, retour: {str(val)}, serie {serie} - {_serie[0][0]},  entrée {entree} - {retour[0][0]}")
             if retour[0][0] != entree:
                 log.info(
-                    f"Jonction à la Station_ID: {Colors.ENDC}{station}{Colors.INFO} entre les entrées {Colors.ENDC}{entree}{Colors.INFO} et {Colors.ENDC}{retour[0][0]}{Colors.YELLOW}"
+                    f"Jonction à la Station_ID: {Colors.ENDC}{station:>6}{Colors.INFO} entre les entrées {Colors.ENDC}{entree:>6}{Colors.INFO} et {Colors.ENDC}{retour[0][0]:>6}{Colors.YELLOW}"
                 )
+
             if _serie[0][0] != serie:
                 log.info(
-                    f"Jonction à la Station_ID: {Colors.ENDC}{station}{Colors.INFO} entre les series {Colors.ENDC}{serie}{Colors.INFO} et {Colors.ENDC}{_serie[0][0]}{Colors.YELLOW}"
+                    f"Jonction à la Station_ID: {Colors.ENDC}{station:>6}{Colors.INFO} entre les séries {Colors.ENDC}{serie:>6}{Colors.INFO} et {Colors.ENDC}{_serie[0][0]:>6}{Colors.YELLOW}"
                 )
             return True
 
@@ -1402,7 +1406,7 @@ def format_french_number(value):
                 return value
 
         # Formatage du nombre
-        if isinstance(value, float) and (value != value or abs(value) == float("inf")):
+        if isinstance(value, float) and (value != value or abs(value) == float("inf")):  # noqa: PLR0124
             return value  # NaN ou infini
 
         sign = "-" if value < 0 else ""
@@ -1430,7 +1434,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
         # Enregistrement des résultats dans un fichier
         #####################################################################################################################################
         log.info(
-            f"{Colors.UNDERLINE}Phase 5:{Colors.ENDC}{Colors.INFO} Écriture des statistiques dans le fichier: {Colors.ENDC}{safe_relpath(output_file_md, 2)}"
+            f"{Colors.UNDERLINE}Phase 5:{Colors.ENDC}{Colors.INFO} Écriture des statistiques dans le fichier: {Colors.ENDC}{safe_relpath(output_file_md, 2)}.md"
         )
 
         ###############################################################################################################
@@ -1445,7 +1449,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
         Rose(output_file_name_rose)
         Shot_lengths_histogram(output_file_name_histo)
 
-        # base_name = sql_base_name()
+        base_name = sql_base_name()
 
         findetraitement = datetime.now()  # noqa: DTZ005
 
@@ -1467,7 +1471,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
         #  Fichiers type markdown
         ###############################################################################################################
 
-        output_file_ligne_md.append("# Statistiques de `{base_name}`\n")
+        output_file_ligne_md.append(f"# Statistiques de `{base_name}`\n")
         output_file_ligne_md.append("--------------\n\n")
         output_file_ligne_md.append(
             f"### Développement total\n\n"
@@ -1495,7 +1499,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
                 " Dev. (m) ",
                 " Prof. (m) ",
                 " Dupl. (m) ",
-                "Surf. (m)",
+                " Surf. (m)",
                 " Visées ",
                 " ID Stat. ",
                 " Alt. min (m) ",
@@ -1518,8 +1522,12 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
             output_file_ligne_md.append(f"| {first}" + (f" | {reste}" if reste else "") + " |\n")
 
             for row in results2[2:]:  # type: ignore
-                clean_row = (v.strip() for v in row)
-                _row = [format_french_number(v) if idx in (3, 4, 5, 6, 9, 11) else str(v) for idx, v in enumerate(clean_row)]
+                # clean_row = (v.strip() for v in row)
+                # _row = [format_french_number(v) if idx in (3, 4, 5, 6, 9, 11) else str(v) for idx, v in enumerate(clean_row)]
+
+                clean_row = (str(v).strip() if v is not None else "" for v in row)
+                _row = [format_french_number(v) if idx in (3, 4, 5, 6, 9, 11) else v for idx, v in enumerate(clean_row)]
+
                 formatted_row = [str(v) for v in _row]
                 output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
 
@@ -1541,7 +1549,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
 
         output_file_ligne_md.extend(
             [
-                "### Bilan final\n",
+                "### Mise à jour\n",
                 "|                   |      |\n",
                 "| :---------------- | :--- |\n",
                 f"| {titre[2].strip()[2:].replace(':', '|')} |\n",
@@ -1959,6 +1967,11 @@ def sql_bilan_serie():
 def sql_bilan_reseaux():
     global error_count
     global _largeurColTete
+    retour_totaux = []
+    retour_entrees = []
+    retour_reseaux = []
+    retour_visee = []
+    retour_sans = []
     retour = []
     liste_entree = []
 
@@ -2054,12 +2067,6 @@ def sql_bilan_reseaux():
                 """)
                 reseau = cursor.fetchall()
 
-                # if len(reseau):
-                #     _reseau = ", ".join(row[0] for row in reseau if row[0])
-
-                # else:
-                #     _reseau = reseau[0]
-
                 _reseau = ", ".join(str(item[0]).strip() for item in reseau if item[0] is not None and str(item[0]).strip())
 
                 if not _reseau:
@@ -2154,9 +2161,8 @@ def sql_bilan_reseaux():
 
                 for i in range(10):
                     ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
-                retour.append(ligne)
 
-                # print(f"Reseau num {row[0]}, {len(liste_entree)} entrée(s): {_liste_ent} ")
+                retour_reseaux.append(ligne)
 
         ###############################################################################################################
         #  Liste des visées non raccordées
@@ -2196,6 +2202,7 @@ def sql_bilan_reseaux():
 
         if result_dpl[0][0] is None:
             _result_dpl = 0.0
+
         else:
             _result_dpl = result_dpl[0][0]
 
@@ -2214,6 +2221,7 @@ def sql_bilan_reseaux():
         result_srf = cursor.fetchall()
         if result_srf[0][0] is None:
             _result_srf = 0.0
+
         else:
             _result_srf = result_srf[0][0]
 
@@ -2305,8 +2313,9 @@ def sql_bilan_reseaux():
 
         for i in range(10):
             ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
+
         if _result_long != 0 or _result_dpl != 0 or _result_srf != 0 or _result_count != 0:
-            retour.append(ligne)
+            retour_visee.append(ligne)
 
         ###############################################################################################################
         #  Totaux
@@ -2430,7 +2439,8 @@ def sql_bilan_reseaux():
 
             for i in range(10):
                 ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
-            retour.append(ligne)
+
+            retour_totaux.append(ligne)
 
         else:
             _total_entrees_non_topo = 0
@@ -2562,7 +2572,8 @@ def sql_bilan_reseaux():
 
                 for i in range(10):
                     ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
-                retour.append(ligne)
+
+                retour_entrees.append(ligne)
 
         ###############################################################################################################
         #  Entrées sans topo
@@ -2586,7 +2597,8 @@ def sql_bilan_reseaux():
 
             for i in range(10):
                 ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
-            retour.append(ligne)
+
+            retour_sans.append(ligne)
 
         ###############################################################################################################
         #  Tri et résultats
@@ -2598,9 +2610,113 @@ def sql_bilan_reseaux():
         for i in range(10):
             entetes[i + 1] = entetes[i + 1].ljust(_largeurCol)
 
-        _corps_retour = sorted(retour, key=cle_tri, reverse=True)
+        def valeur_numerique(valeur):
+            """Convertit une valeur en nombre, ou renvoie None si elle est invalide."""
+            if valeur is None:
+                return None
 
-        _retour = [entetes] + _corps_retour
+            valeur = str(valeur).strip().replace(" ", "").replace(",", ".")
+
+            if not valeur or valeur == "-":
+                return None
+
+            try:
+                return float(valeur)
+
+            except ValueError:
+                return None
+
+        _corps_retour = []
+
+        # Colonnes numériques à additionner dans les sous-totaux
+        COLONNES_TOTAL = (2, 3, 4, 5, 6, 7)
+
+        groupes = defaultdict(list)
+        lignes_isolees = []
+
+        for element in retour_reseaux:
+            reseau = element[0]
+
+            if reseau is not None and str(reseau).strip():
+                groupes[str(reseau).strip()].append(element)
+            else:
+                lignes_isolees.append(element)
+
+        # Construire les groupes avec leur sous-total
+
+        # Ajouter les lignes sans réseau à la fin, triées par développement
+        _corps_retour.extend(sorted(lignes_isolees, key=cle_tri, reverse=True))
+
+        if len(retour_entrees) > 0:
+            retour = retour_entrees
+
+        if len(retour_visee) > 0:
+            retour += retour_visee
+
+        if len(retour_sans) > 0:
+            retour += retour_sans
+
+        groupes_tries = []
+
+        for reseau, lignes in groupes.items():
+            lignes_triees = sorted(lignes, key=cle_tri, reverse=True)
+
+            # Une seule ligne : aucun sous-total à calculer
+            if len(lignes_triees) == 1:
+                valeur_tri = valeur_numerique(lignes_triees[0][3])
+
+                groupes_tries.append({"reseau": reseau, "total": None, "lignes": lignes_triees, "valeur_tri": valeur_tri})
+                continue
+
+            # Plusieurs lignes : calcul du sous-total
+            sous_total = list(lignes_triees[0])
+
+            for colonne in COLONNES_TOTAL:
+                total = sum(valeur_numerique(ligne[colonne]) or 0 for ligne in lignes_triees)
+                sous_total[colonne] = str(total)
+
+            sous_total[0] = "*" + str(sous_total[0]) + "*"
+            sous_total[1] = "*-*"
+            sous_total[2] = f"*{sous_total[2][:-2]}*"
+            # sous_total[3] = f"*{format_french_number(sous_total[3])}*"
+            sous_total[4] = f"*{format_french_number(sous_total[4])}*"
+            sous_total[5] = f"*{format_french_number(sous_total[5])}*"
+            sous_total[6] = f"*{format_french_number(sous_total[6])}*"
+            sous_total[7] = f"*{sous_total[7][:-2]}*"
+            sous_total[8] = " "
+            sous_total[9] = " "
+            sous_total[10] = " "
+            sous_total[11] = " "
+
+            valeur_tri = valeur_numerique(sous_total[3])
+
+            groupes_tries.append({"reseau": reseau, "total": sous_total, "lignes": lignes_triees, "valeur_tri": valeur_tri})
+
+        # Trier les groupes selon leur développement total décroissant
+        groupes_tries.sort(key=lambda groupe: groupe["valeur_tri"] if groupe["valeur_tri"] is not None else float("-inf"), reverse=True)
+
+        # Construire le résultat final : détails puis sous-total si nécessaire
+        _corps_retour = []
+
+        for groupe in groupes_tries:
+            _corps_retour.extend(groupe["lignes"])
+
+            if groupe["total"] is not None:
+                groupe["total"][3] = f"*{format_french_number(groupe['total'][3])}*"
+                _corps_retour.append(groupe["total"])
+
+        # Tri indépendant des lignes de retour
+        _corps_retour2 = sorted(retour, key=cle_tri, reverse=True)
+
+        # Résultat final
+        _retour = [entetes] + retour_totaux + _corps_retour + _corps_retour2
+        # _retour2 = [entetes] + _corps_retour2
+
+        # print("\nRetour")
+        # print("\n".join(f"[{i:03}] {str(ligne).replace(' ', '')}" for i, ligne in enumerate(_retour)))
+
+        # print("\nRetour 2")
+        # print("\n".join(f"[{i:03}] {str(ligne).replace(' ', '')}" for i, ligne in enumerate(_retour2)))
 
         return _retour  # type: ignore
 
@@ -2676,7 +2792,7 @@ def sql_optimisation():
 
         return
 
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         log.error(f"Erreur lors de l'exécution de la requête (sql_optimisation):{Colors.ENDC} {e}")
         error_count += 1
         return
@@ -2687,10 +2803,6 @@ def sql_optimisation():
 #####################################################################################################################################
 #              Clé de tri                                                                                                           #
 #####################################################################################################################################
-# def cle_tri(element):
-#     return float(element[3])
-
-
 def cle_tri(element):
     valeur = element[3]
 
@@ -2704,8 +2816,9 @@ def cle_tri(element):
 
     try:
         return float(valeur)
+
     except ValueError:
-        log.warning("Valeur non numérique pour le tri : %r (élément=%r)", valeur, element)
+        log.warning(f"Valeur non numérique pour le tri : {Colors.ENDC}{valeur}{Colors.WARNING} (élément={Colors.ENDC}{element}{Colors.WARNING})")
         return float("-inf")
 
 
@@ -2731,7 +2844,7 @@ def sql_base_name():
         error_count += 1
         return None
 
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         log.error(f"Exécution de sql_base_name:{Colors.ENDC} {e}")
         error_count += 1
 
@@ -2765,7 +2878,7 @@ def sql_bilan_annee():
         retour.append(entetes)
 
         #            topo sans année
-        cursor.execute(f"""
+        cursor.execute("""
             select 
                 COALESCE( sum(LENGTH), 0), 
                 COALESCE (sum(DUPLICATE_LENGTH), 0),
@@ -2782,12 +2895,12 @@ def sql_bilan_annee():
             cumul_dpl += bilan_annee[0][1]
             cumul_srf += bilan_annee[0][2]
             ligne[0] = "-"
-            ligne[1] = str("{:.2f}".format(bilan_annee[0][0]))
-            ligne[2] = str("{:.2f}".format(cumul))
-            ligne[3] = str("{:.2f}".format(bilan_annee[0][1]))
-            ligne[4] = str("{:.2f}".format(cumul_dpl))
-            ligne[5] = str("{:.2f}".format(bilan_annee[0][2]))
-            ligne[6] = str("{:.2f}".format(cumul_srf))
+            ligne[1] = str("{:.2f}".format(bilan_annee[0][0]))  # noqa: UP032
+            ligne[2] = str("{:.2f}".format(cumul))  # noqa: UP032
+            ligne[3] = str("{:.2f}".format(bilan_annee[0][1]))  # noqa: UP032
+            ligne[4] = str("{:.2f}".format(cumul_dpl))  # noqa: UP032
+            ligne[5] = str("{:.2f}".format(bilan_annee[0][2]))  # noqa: UP032
+            ligne[6] = str("{:.2f}".format(cumul_srf))  # noqa: UP032
 
             for i in range(6):
                 ligne[i] = ligne[i].ljust(_largeurCol)
@@ -2834,7 +2947,7 @@ def sql_bilan_annee():
         error_count += 1
         return None
 
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         log.error(f"Exécution de sql_bilan_annee:{Colors.ENDC} {e}")
         error_count += 1
 
@@ -3054,8 +3167,6 @@ def PlotExploYears(graph_name, rangeyear=[1959, datetime.now().year], systems=No
         # Save the cumulative histogram
         plt.savefig(graph_name + "Cum.pdf")
         plt.close(plt.figure(1))
-
-    return
 
 
 #####################################################################################################################################

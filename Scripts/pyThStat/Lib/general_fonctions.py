@@ -9,7 +9,11 @@ Alex 2026 01 09
 
 """
 
-import os, logging, sys, re, unicodedata
+import logging
+import os
+import re
+import sys
+import unicodedata
 from pathlib import Path
 
 log = logging.getLogger("Logger")
@@ -207,12 +211,12 @@ def safe_relpath(path, base_dir=None, max_depth=3, max_name_len=50, prefix="~"):
 
     try:
         path = Path(path).expanduser().resolve()
-    except Exception:
+    except Exception:  # noqa: BLE001
         return str(path)
 
     try:
         base = Path(base_dir).expanduser().resolve() if base_dir else Path.cwd().resolve()
-    except Exception:
+    except Exception:  # noqa: BLE001
         base = None
 
     name = path.name or str(path)
@@ -226,7 +230,7 @@ def safe_relpath(path, base_dir=None, max_depth=3, max_name_len=50, prefix="~"):
             parts = list(rel.parts)
         else:
             raise ValueError
-    except Exception:
+    except Exception:  # noqa: BLE001
         parts = list(path.parts)
 
     if not parts:
@@ -241,5 +245,5 @@ def safe_relpath(path, base_dir=None, max_depth=3, max_name_len=50, prefix="~"):
 
     try:
         return os.path.join(*parts)
-    except Exception:
+    except Exception:  # noqa: BLE001
         return name
