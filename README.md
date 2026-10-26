@@ -55,7 +55,7 @@ Alexandre Pont (alexandre dot pont at yahoo dot fr) pour le compte de l'ARSIP
 
 ## Accès Privé
 
-L'accès à l'ensemble des données (dossier Data) est réservé aux membres de l'ARSIP, contactez l'administrateur pour vous obtenir vos accès
+L'accès à l'ensemble des données (dossier Data) est réservé aux membres de l'ARSIP, contactez l'administrateur pour vous obtenir votre accès
 
 ## Contact
 
