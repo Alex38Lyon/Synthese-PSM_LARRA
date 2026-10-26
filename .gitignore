@@ -21,5 +21,6 @@
 **/.vscode.
 **/.vscode/
 **/Temp_mergin/
+**/Temp_qgis/
 **/__pycache__/
 **/__pycache__.**/.ruff_cache/
