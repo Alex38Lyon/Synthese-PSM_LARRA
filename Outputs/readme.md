@@ -15,7 +15,7 @@ Toutes les stations sont comptabilisées et raccordées
 ### Développement total par réseau
 |  Réseau  |  Entrée(s)  |  Nbre  |  Dev. (m)  |  Prof. (m)  |  Dupl. (m)  |  Surf. (m) |  Visées  |  ID Stat.  |  Alt. min (m)  |  ID Stat.  |  Alt. max (m)  |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|  | **Totaux** | **200** | **405 419,95** | **2 016,00** | **15 625,25** | **8 956,61** | **63832** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** |
+|  | **Totaux** | **200** | **340 527,50** | **2 016,00** | **15 625,25** | **8 956,61** | **45184** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** |
 | Complexe Arrestelia | Perte d'Eruso, Odita lezia | 2 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6344 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 |
 | Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6019 | - | 1 010,92 | AN532 | 2 124,00 |
 | Complexe PSM GdP | Tunnel de la Verna, Xendako ziloa | 2 | 8 676,45 | 548,79 | 1 618,14 | 0,00 | 1063 | - | 966,47 | _d_XEN_f_XX2 | 1 515,26 |
@@ -260,7 +260,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-27 08h53m14s |
-| Durée calcul |04 (m) 00 (s) sans erreur |
+|       Date | 2026-10-27 09h35m07s |
+| Durée calcul |02 (m) 45 (s) sans erreur |
 
 --------------
