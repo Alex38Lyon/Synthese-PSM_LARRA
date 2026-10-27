@@ -504,11 +504,11 @@
 <Point> <coordinates>-0.76943990812945,42.97679465281039,1620.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[OURS]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Grotte de l'Ours]]></name>
 <Point> <coordinates>-0.81096406218081,42.94672183383187,1500.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[LAK01 Grotte de l'Ours]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[LAK01 Pérdida del Becerro]]></name>
 <Point> <coordinates>-0.82477043375044,42.94763132172773,1489.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -788,7 +788,7 @@
 <Point> <coordinates>-0.78621884391159,42.95314313235680,1745.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z150-2 Gouffre Patrick Grodemanche]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Z150-2 Gouffre Patrick Grosdemanche]]></name>
 <Point> <coordinates>-0.78612053843071,42.95307450558057,1746.00999999999999</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -8039,7 +8039,7 @@
 </Folder>
 </Folder>
 <Folder>
-<name><![CDATA[BG063-Gouffre de la comete]]></name>
+<name><![CDATA[BG063 Gouffre de la comète]]></name>
 <Folder>
 <name><![CDATA[Explo 01 1996 01 21]]></name>
 <Folder>
@@ -10448,11 +10448,11 @@
 </Folder>
 </Folder>
 <Folder>
-<name><![CDATA[Cathedrale de Pyrene]]></name>
+<name><![CDATA[Cathédrale de Pyrène]]></name>
 <Folder>
 <name><![CDATA[Explo 01 2015 08 01]]></name>
 <Folder>
-<name><![CDATA[Cathedrale de Pyrène]]></name>
+<name><![CDATA[Cathédrale de Pyrène]]></name>
 <Placemark>
 <name>PYRENE</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -59133,7 +59133,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2009 08 01]]></name>
 <Folder>
-<name><![CDATA[Grotte de l'Ours - Perdida del Becerro Explo num 01]]></name>
+<name><![CDATA[Grotte de l'Ours]]></name>
 <Placemark>
 <name>OURS</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -60114,7 +60114,7 @@
 <Folder>
 <name><![CDATA[Explo 32 2023 08 03]]></name>
 <Folder>
-<name><![CDATA[LAK01 Grotte de l'Ours]]></name>
+<name><![CDATA[LAK01 Pérdida del Becerro]]></name>
 <Placemark>
 <name>LAK_1</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -66740,7 +66740,7 @@
 </Folder>
 </Folder>
 <Folder>
-<name><![CDATA[E022-Gouffre de la Glaciere]]></name>
+<name><![CDATA[E022 Gouffre de la Glacière]]></name>
 <Folder>
 <name><![CDATA[Explo 01 1993 08 23]]></name>
 <Folder>
@@ -67547,7 +67547,7 @@
 </Folder>
 </Folder>
 <Folder>
-<name><![CDATA[Grotte des Stalactites deviees]]></name>
+<name><![CDATA[Grotte des Stalactites déviées]]></name>
 <Folder>
 <name><![CDATA[Explo 01 1997 01 01]]></name>
 <Folder>
@@ -94782,7 +94782,7 @@
 </Placemark>
 </Folder>
 <Folder>
-<name><![CDATA[Z150-2 Gouffre Patrick Grodemanche]]></name>
+<name><![CDATA[Z150-2 Gouffre Patrick Grosdemanche]]></name>
 <Placemark>
 <name>Z150_d_2</name>
 <styleUrl>#ThSurveyLine</styleUrl>
