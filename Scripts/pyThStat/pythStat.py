@@ -1546,6 +1546,29 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
                     output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
 
         output_file_ligne_md.append("\n\n--------------\n")
+        output_file_ligne_md.append(
+            "### Graphiques\n\n"
+            f"![Répartition des directions]({output_file_name_rose}.png)\n\n"  # type: ignore
+            f"![Développement par années]({output_file_name_year}.png)\n\n"  # type: ignore
+            f"![Développement cumulé]({output_file_name_year}_Cum.png)\n\n"  # type: ignore
+            f"""
+<p align="center">
+<img src="{output_file_name_rose}.png" alt="Répartition des directions" width="100%">
+</p>
+            """
+            f"""
+<p align="center">
+<img src="{output_file_name_year}.png" alt="Développement par années" width="100%">
+</p>
+            """
+            f"""
+<p align="center">
+<img src="{output_file_name_year}_Cum.png" alt="Développement cumulé" width="100%">
+</p>
+            """
+        )
+
+        output_file_ligne_md.append("\n\n--------------\n")
 
         output_file_ligne_md.extend(
             [
@@ -2011,7 +2034,7 @@ def sql_bilan_reseaux():
     global error_count
     global _largeurColTete
     retour_totaux = []
-    retour_entrees = []
+    # retour_entrees = []
     retour_reseaux = []
     retour_visee = []
     retour_sans = []
@@ -2976,7 +2999,8 @@ def Rose(graph_name, bins=72):
     ax.bar(e[:-1], h, align="edge", width=e[1] - e[0])
 
     # Save the rose diagram
-    plt.savefig(graph_name)
+    plt.savefig(graph_name + ".pdf")
+    plt.savefig(graph_name + ".png")
     # Close the graph
     plt.close(plt.figure(1))
 
@@ -3009,7 +3033,8 @@ def Shot_lengths_histogram(graph_name, bins=72, log=None):
         plt.yscale("log")
 
     # save
-    plt.savefig(graph_name)
+    plt.savefig(graph_name + ".pdf")
+    plt.savefig(graph_name + ".png")
     plt.close(plt.figure(1))
 
 
@@ -3152,6 +3177,7 @@ def PlotExploYears(graph_name, rangeyear=[1959, datetime.now().year], systems=No
         plt.ylabel("Longueur topographiée (m)")
         # Save the histogram
         plt.savefig(graph_name + ".pdf")
+        plt.savefig(graph_name + ".png")
         plt.close(plt.figure(1))
 
         # plot the cumulative histogram since the first survey
@@ -3159,7 +3185,8 @@ def PlotExploYears(graph_name, rangeyear=[1959, datetime.now().year], systems=No
         plt.xlabel("Année")
         plt.ylabel("Longueur topographiée cumulée (km)")
         # Save the cumulative histogram
-        plt.savefig(graph_name + "Cum.pdf")
+        plt.savefig(graph_name + "_Cum.pdf")
+        plt.savefig(graph_name + "_Cum.png")
         plt.close(plt.figure(1))
 
 
@@ -3257,8 +3284,8 @@ if __name__ == "__main__":
 
     output_file_name_log = outputfolder + input_file[:-4] + "_log.log"
     output_file_name = outputfolder + input_file[:-4] + "_stats"
-    output_file_name_rose = outputfolder + input_file[:-4] + "_rose.pdf"
-    output_file_name_histo = outputfolder + input_file[:-4] + "_histo.pdf"
+    output_file_name_rose = outputfolder + input_file[:-4] + "_rose"
+    output_file_name_histo = outputfolder + input_file[:-4] + "_histo"
     output_file_name_year = outputfolder + input_file[:-4] + "_year"
     imported_database = outputfolder + input_file[:-4] + "_stats.db"
 

@@ -253,14 +253,37 @@ Toutes les stations sont comptabilisées et raccordées
 
 
 --------------
+### Graphiques
+
+![Répartition des directions](./DB_Synthese-PSM_LARRA_Stats/DB_Synthese-PSM_LARRA_rose.png)
+
+![Développement par années](./DB_Synthese-PSM_LARRA_Stats/DB_Synthese-PSM_LARRA_year.png)
+
+![Développement cumulé](./DB_Synthese-PSM_LARRA_Stats/DB_Synthese-PSM_LARRA_year_Cum.png)
+
+
+<p align="center">
+<img src="./DB_Synthese-PSM_LARRA_Stats/DB_Synthese-PSM_LARRA_rose.png" alt="Répartition des directions" width="100%">
+</p>
+
+<p align="center">
+<img src="./DB_Synthese-PSM_LARRA_Stats/DB_Synthese-PSM_LARRA_year.png" alt="Développement par années" width="100%">
+</p>
+
+<p align="center">
+<img src="./DB_Synthese-PSM_LARRA_Stats/DB_Synthese-PSM_LARRA_year_Cum.png" alt="Développement cumulé" width="100%">
+</p>
+            
+
+--------------
 ### Mise à jour
 |                   |      |
 | :---------------- | :--- |
 |       Script pyThStat par | alexandre.pont@yahoo.fr |
 |       Version | 2026.10.27 |
-|       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
-|       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-27 09h35m07s |
-| Durée calcul |02 (m) 45 (s) sans erreur |
+|       Fichier source | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql |
+|       Dossier destination | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats |
+|       Date | 2026-10-27 11h20m14s |
+| Durée calcul |02 (m) 09 (s) sans erreur |
 
 --------------
