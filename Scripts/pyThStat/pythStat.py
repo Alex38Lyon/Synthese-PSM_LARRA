@@ -1516,7 +1516,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
             def fmt(v, idx):
                 if v is None:
                     return ""
-                return format_french_number(v) if idx in (3, 4, 5, 6, 9, 11, 12) else str(v).replace(" ", "")
+                return format_french_number(v) if idx in (3, 4, 5, 6, 9, 11) else str(v).replace(" ", "")
 
             first = fmt(vals[0], 0) if vals[0] is not None else " "
             reste = " | ".join(f"**{fmt(v, i + 1)}**" for i, v in enumerate(vals[1:]))
@@ -2278,7 +2278,7 @@ def sql_bilan_reseaux():
                 ligne[10] = str(altitude_max[0][0])
                 ligne[11] = str(f"{altitude_max[0][1]:.2f}")
                 ligne[4] = str(f"{altitude_max[0][1] - altitude_min[0][1]:.2f}")
-                ligne[12] = f"{maps_length_pcent:.2f}%"
+                ligne[12] = f"{maps_length_pcent:.0f}%"
 
                 for i in range(11):
                     ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
