@@ -2374,7 +2374,7 @@ def sql_bilan_reseaux():
             JOIN SHOT ON SHOT.ID = _VISEE_FLAG.SHOT_ID
             JOIN STATION AS STATION_TO ON SHOT.TO_ID = STATION_TO.ID
             LEFT JOIN SHOT_FLAG ON SHOT.ID = SHOT_FLAG.SHOT_ID
-            WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG is 'apx' OR SHOT_FLAG.FLAG is NULL
+            WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG is not 'srf' AND SHOT_FLAG.FLAG is not 'dpl'
         """)
         _result_length = cursor.fetchall()  # Visées normales & Approximates (apx)
 
