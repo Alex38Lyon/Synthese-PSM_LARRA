@@ -1665,6 +1665,49 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
 
 
 #####################################################################################################################################
+#              Valeur numérique                                                                                                           #
+#####################################################################################################################################
+def valeur_numerique(valeur):
+    """Convertit une valeur en nombre, ou renvoie None si elle est invalide."""
+
+    if valeur is None:
+        return None
+
+    valeur = str(valeur).strip().replace(" ", "").replace(",", ".")
+
+    if not valeur or valeur == "-":
+        return None
+
+    try:
+        return float(valeur)
+
+    except ValueError:
+        return None
+
+
+#####################################################################################################################################
+#              Clé de tri                                                                                                           #
+#####################################################################################################################################
+def cle_tri(element):
+    valeur = element[3]
+
+    if valeur is None:
+        return float("-inf")
+
+    valeur = str(valeur).strip()
+
+    if not valeur or valeur == "-":
+        return float("-inf")
+
+    try:
+        return float(valeur)
+
+    except ValueError:
+        log.warning(f"Valeur non numérique pour le tri : {Colors.ENDC}{valeur}{Colors.WARNING} (élément={Colors.ENDC}{element}{Colors.WARNING})")
+        return float("-inf")
+
+
+#####################################################################################################################################
 #           Requête : parents d'une survey                                                                                          #
 #####################################################################################################################################
 def sql_Parents_Survey(ID):
@@ -1979,7 +2022,6 @@ def sql_bilan_reseaux():
         ###############################################################################################################
         #  Liste des réseaux
         ###############################################################################################################
-
         cursor.execute("""
             -- Bilan table série By Réseaux
             select 
@@ -2219,6 +2261,7 @@ def sql_bilan_reseaux():
             WHERE _VISEE_FLAG.SERIE_ID is NULL and SHOT_FLAG.FLAG ='srf' 
         """)
         result_srf = cursor.fetchall()
+
         if result_srf[0][0] is None:
             _result_srf = 0.0
 
@@ -2320,7 +2363,6 @@ def sql_bilan_reseaux():
         ###############################################################################################################
         #  Totaux
         ###############################################################################################################
-
         result_shot = 0
 
         cursor.execute("""
@@ -2463,13 +2505,24 @@ def sql_bilan_reseaux():
             WHERE RESEAU_ID ==0 or RESEAU_ID is null and SERIE_ID >0
             GROUP BY _VISEE_FLAG.ENTREE_ID
         """)
-
         result = cursor.fetchall()
 
         for row in result:
             ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
-
             result_shot = 0
+            survey = []
+
+            survey = sql_Parents_Survey(row[2])
+
+            if len(survey) == 0:  # type: ignore
+                _survey = " "
+
+            elif len(survey) >= 3:  # type: ignore
+                _survey = survey[len(survey) - 3][2]  # type: ignore
+
+            else:
+                print(survey)
+                _survey = survey[len(survey) - 1][2]  # type: ignore
 
             cursor.execute(f"""
                 select 
@@ -2523,7 +2576,7 @@ def sql_bilan_reseaux():
                 _total_entrees_non_topo += 1
 
             else:
-                ligne[0] = " "
+                ligne[0] = str(_survey)
                 ligne[1] = str(row[4]).ljust(_largeurColTete)
                 ligne[2] = "1"
                 ligne[3] = str(f"{result_length:.2f}")  # Dev.
@@ -2573,12 +2626,11 @@ def sql_bilan_reseaux():
                 for i in range(10):
                     ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
 
-                retour_entrees.append(ligne)
+                retour_reseaux.append(ligne)
 
         ###############################################################################################################
         #  Entrées sans topo
         ###############################################################################################################
-
         ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
 
         if _total_entrees_non_topo >= 1:
@@ -2603,60 +2655,28 @@ def sql_bilan_reseaux():
         ###############################################################################################################
         #  Tri et résultats
         ###############################################################################################################
-
+        _corps_retour = []
+        lignes_isolees = []
+        groupes_tries = []
+        COLONNES_TOTAL = (2, 3, 4, 5, 6, 7)  # Colonnes numériques à additionner dans les sous-totaux
+        groupes = defaultdict(list)
         entetes = ["Réseaux", "Entrée(s)", "Nbre", "Dev.(m)", "Prof.(m)", "Dupl.(m)", "Surf.(m)", "Visées", "ID Sta.", "Alt. min(m)", "ID Sta.", "Alt. max(m)"]
         entetes[0] = entetes[0].ljust(_largeurColTete)
 
         for i in range(10):
             entetes[i + 1] = entetes[i + 1].ljust(_largeurCol)
 
-        def valeur_numerique(valeur):
-            """Convertit une valeur en nombre, ou renvoie None si elle est invalide."""
-            if valeur is None:
-                return None
-
-            valeur = str(valeur).strip().replace(" ", "").replace(",", ".")
-
-            if not valeur or valeur == "-":
-                return None
-
-            try:
-                return float(valeur)
-
-            except ValueError:
-                return None
-
-        _corps_retour = []
-
-        # Colonnes numériques à additionner dans les sous-totaux
-        COLONNES_TOTAL = (2, 3, 4, 5, 6, 7)
-
-        groupes = defaultdict(list)
-        lignes_isolees = []
-
         for element in retour_reseaux:
             reseau = element[0]
 
             if reseau is not None and str(reseau).strip():
                 groupes[str(reseau).strip()].append(element)
+
             else:
                 lignes_isolees.append(element)
 
-        # Construire les groupes avec leur sous-total
-
         # Ajouter les lignes sans réseau à la fin, triées par développement
         _corps_retour.extend(sorted(lignes_isolees, key=cle_tri, reverse=True))
-
-        if len(retour_entrees) > 0:
-            retour = retour_entrees
-
-        if len(retour_visee) > 0:
-            retour += retour_visee
-
-        if len(retour_sans) > 0:
-            retour += retour_sans
-
-        groupes_tries = []
 
         for reseau, lignes in groupes.items():
             lignes_triees = sorted(lignes, key=cle_tri, reverse=True)
@@ -2678,7 +2698,6 @@ def sql_bilan_reseaux():
             sous_total[0] = "*" + str(sous_total[0]) + "*"
             sous_total[1] = "*-*"
             sous_total[2] = f"*{sous_total[2][:-2]}*"
-            # sous_total[3] = f"*{format_french_number(sous_total[3])}*"
             sous_total[4] = f"*{format_french_number(sous_total[4])}*"
             sous_total[5] = f"*{format_french_number(sous_total[5])}*"
             sous_total[6] = f"*{format_french_number(sous_total[6])}*"
@@ -2689,15 +2708,12 @@ def sql_bilan_reseaux():
             sous_total[11] = " "
 
             valeur_tri = valeur_numerique(sous_total[3])
-
             groupes_tries.append({"reseau": reseau, "total": sous_total, "lignes": lignes_triees, "valeur_tri": valeur_tri})
 
         # Trier les groupes selon leur développement total décroissant
         groupes_tries.sort(key=lambda groupe: groupe["valeur_tri"] if groupe["valeur_tri"] is not None else float("-inf"), reverse=True)
 
         # Construire le résultat final : détails puis sous-total si nécessaire
-        _corps_retour = []
-
         for groupe in groupes_tries:
             _corps_retour.extend(groupe["lignes"])
 
@@ -2705,18 +2721,20 @@ def sql_bilan_reseaux():
                 groupe["total"][3] = f"*{format_french_number(groupe['total'][3])}*"
                 _corps_retour.append(groupe["total"])
 
+        if len(retour_visee) > 0:
+            retour += retour_visee
+
+        if len(retour_sans) > 0:
+            retour += retour_sans
+
         # Tri indépendant des lignes de retour
         _corps_retour2 = sorted(retour, key=cle_tri, reverse=True)
 
         # Résultat final
         _retour = [entetes] + retour_totaux + _corps_retour + _corps_retour2
-        # _retour2 = [entetes] + _corps_retour2
 
         # print("\nRetour")
         # print("\n".join(f"[{i:03}] {str(ligne).replace(' ', '')}" for i, ligne in enumerate(_retour)))
-
-        # print("\nRetour 2")
-        # print("\n".join(f"[{i:03}] {str(ligne).replace(' ', '')}" for i, ligne in enumerate(_retour2)))
 
         return _retour  # type: ignore
 
@@ -2796,30 +2814,6 @@ def sql_optimisation():
         log.error(f"Erreur lors de l'exécution de la requête (sql_optimisation):{Colors.ENDC} {e}")
         error_count += 1
         return
-
-    return
-
-
-#####################################################################################################################################
-#              Clé de tri                                                                                                           #
-#####################################################################################################################################
-def cle_tri(element):
-    valeur = element[3]
-
-    if valeur is None:
-        return float("-inf")
-
-    valeur = str(valeur).strip()
-
-    if not valeur or valeur == "-":
-        return float("-inf")
-
-    try:
-        return float(valeur)
-
-    except ValueError:
-        log.warning(f"Valeur non numérique pour le tri : {Colors.ENDC}{valeur}{Colors.WARNING} (élément={Colors.ENDC}{element}{Colors.WARNING})")
-        return float("-inf")
 
 
 #####################################################################################################################################

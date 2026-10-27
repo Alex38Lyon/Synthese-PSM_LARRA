@@ -1,9 +1,9 @@
 # Ignore files:
 # **.log
 **.backup
-.xtherion.dat
-.code-workspace
-.toml
+**.xtherion.dat
+**.code-workspace
+**.toml
 
 # Gros fichiers
 /Outputs/Synthese-PSM_LARRA-Plan.pdf
