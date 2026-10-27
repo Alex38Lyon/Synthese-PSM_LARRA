@@ -6,7 +6,7 @@ encoding utf-8
 # <http://creativecommons.org/licenses/by-nc-nd/4.0/>
 
 
-survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre Saint Martin-Larra"
+survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre Saint-Martin Larra"
 	## Input list:
 	input Data/00-Ref_Square/00-Ref_Square-tot.th
 	input Data/A004/A004-tot.th

@@ -155,7 +155,8 @@ def construction_tables():
                 STATION_JONC INTEGER,
                 ENT_1 INTEGER,
                 ENT_2 INTEGER,
-                RESEAU_NAME)
+                RESEAU_NAME,
+                RESEAU_SURVEY_ID)
             """)
         conn.commit()
 
@@ -634,8 +635,8 @@ def name_RESEAU():
                 f"{Colors.BLUE}Réseau ID {Colors.ENDC}{row[0]}{Colors.BLUE}, ENT_1 full name : {Colors.ENDC}{row[7]}{Colors.BLUE}, Survey ID {Colors.ENDC}{row[8]}{Colors.BLUE}, ENT_2 full name : {Colors.ENDC}{row[11]}{Colors.BLUE}, Survey ID {Colors.ENDC}{row[12]}{Colors.BLUE}"
             )
 
-            parent_ent_01 = sql_Parents_Survey(row[8])
-            parent_ent_02 = sql_Parents_Survey(row[12])
+            parent_ent_01 = sql_parents_survey(row[8])
+            parent_ent_02 = sql_parents_survey(row[12])
 
             # IDs communs aux deux listes, en parcourant depuis la racine vers l'enfant
             ids_01 = [row[0] for row in parent_ent_01]  # type: ignore
@@ -649,7 +650,7 @@ def name_RESEAU():
             premier_commun = next(row for row in parent_ent_01 if row[0] in communs)  # type: ignore
             log.debug(f"{Colors.BLUE}Premier commun : {Colors.ENDC}{premier_commun}")
 
-            cursor.execute("UPDATE _RESEAU SET RESEAU_NAME = ? WHERE RESEAU_ID = ?", (premier_commun[2], row[1]))
+            cursor.execute("UPDATE _RESEAU SET RESEAU_SURVEY_ID = ?, RESEAU_NAME = ? WHERE RESEAU_ID = ?", (premier_commun[0], premier_commun[2], row[1]))
             conn.commit()
 
     except sqlite3.Error as e:
@@ -1440,7 +1441,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
         ###############################################################################################################
         #  Général
         ###############################################################################################################
-        results = sql_Centerline_length()
+        results = sql_centerline_length()
         cursor.execute("SELECT COUNT(*) AS nbre FROM _JONCTION WHERE STATION_TYPE IS NULL")
         _compteur = cursor.fetchall()
         compteur = int(_compteur[0][0])
@@ -1505,6 +1506,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
                 " Alt. min (m) ",
                 " ID Stat. ",
                 " Alt. max (m) ",
+                " Avt. dessin (%) ",
             ]
             output_file_ligne_md.append("| " + " | ".join(headers) + " |\n")
             output_file_ligne_md.append("|" + "|".join(["------------"] * len(headers)) + "|\n")
@@ -1514,7 +1516,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
             def fmt(v, idx):
                 if v is None:
                     return ""
-                return format_french_number(v) if idx in (3, 4, 5, 6, 9, 11) else str(v).replace(" ", "")
+                return format_french_number(v) if idx in (3, 4, 5, 6, 9, 11, 12) else str(v).replace(" ", "")
 
             first = fmt(vals[0], 0) if vals[0] is not None else " "
             reste = " | ".join(f"**{fmt(v, i + 1)}**" for i, v in enumerate(vals[1:]))
@@ -1526,7 +1528,7 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
                 # _row = [format_french_number(v) if idx in (3, 4, 5, 6, 9, 11) else str(v) for idx, v in enumerate(clean_row)]
 
                 clean_row = (str(v).strip() if v is not None else "" for v in row)
-                _row = [format_french_number(v) if idx in (3, 4, 5, 6, 9, 11) else v for idx, v in enumerate(clean_row)]
+                _row = [format_french_number(v) if idx in (3, 4, 5, 6, 9, 11, 12) else v for idx, v in enumerate(clean_row)]
 
                 formatted_row = [str(v) for v in _row]
                 output_file_ligne_md.append("| " + " | ".join(formatted_row) + " |\n")
@@ -1733,7 +1735,7 @@ def cle_tri(element):
 #####################################################################################################################################
 #           Requête : parents d'une survey                                                                                          #
 #####################################################################################################################################
-def sql_Parents_Survey(ID):
+def sql_parents_survey(ID):
     global error_count
 
     sql_query = f"""
@@ -1749,7 +1751,7 @@ def sql_Parents_Survey(ID):
             INNER JOIN PARENTS AS PARENTS ON SURVEY.ID = PARENTS.PARENT_ID
             WHERE PARENTS.PARENT_ID <> 0
         )
-        SELECT ID AS PARENT_ID, NAME, TITLE
+        SELECT ID AS SURVEY_ID, NAME, TITLE
         FROM PARENTS
         WHERE ID <> {ID}; 
         """
@@ -1760,12 +1762,57 @@ def sql_Parents_Survey(ID):
 
         if len(result_ent) == 0:
             error_count += 1
-            log.error(f"Attention aucun parents à l'ID {ID}")
+            log.error(f"Attention aucun parents à l'ID {Colors.ENDC}{ID}")
 
         return result_ent
 
     except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution de la requête (sql_Parents_Survey):{Colors.ENDC} {e}")
+        log.error(f"Lors de l'exécution de la requête (sql_parents_survey):{Colors.ENDC} {e}")
+        error_count += 1
+        return None
+
+
+#####################################################################################################################################
+#           Requête : Longueur totale des maps  {ID}                                                                             #
+#####################################################################################################################################
+def sql_maps_length(ID):
+    global error_count
+
+    sql_query = f"""
+                -- Requête pour obtenir les Longueurs de profondeurs par Maps
+                SELECT
+                    SURVEY.ID,
+                    -- SURVEY.PARENT_ID,
+                    -- SURVEY.NAME,
+                    -- SURVEY.FULL_NAME,
+                    SURVEY.TITLE as Survey_Title,
+                    MAPS.TITLE as Maps_Title,
+                    --- MAPS.PROJID,
+                    MAPS.length,
+                    MAPS.DEPTH
+                FROM SURVEY
+                LEFT JOIN MAPS
+                    ON MAPS.SURVEY_ID = SURVEY.ID
+                WHERE MAPS.PROJID == '1' and SURVEY_ID =='{ID}'
+                ORDER BY MAPS.LENGTH DESC; 
+                 """
+
+    try:
+        cursor.execute(sql_query)
+        result_ent = cursor.fetchall()
+
+        if len(result_ent) == 0:
+            # error_count += 1
+            log.debug(f"Attention aucune longueur dans la table des Maps pour SURVEY_ID {Colors.ENDC}{ID}")
+            return None
+
+        else:
+            log.debug(f"Table des Maps SURVEY_ID : {Colors.ENDC}{ID}{Colors.DEBUG}, longueur: {Colors.ENDC}{(result_ent)}")
+
+        return result_ent
+
+    except sqlite3.Error as e:
+        log.error(f"Lors de l'exécution de la requête (sql_maps_length):{Colors.ENDC} {e}")
         error_count += 1
         return None
 
@@ -1773,7 +1820,7 @@ def sql_Parents_Survey(ID):
 #####################################################################################################################################
 #           Requête : Longueur totale des centerlines                                                                               #
 #####################################################################################################################################
-def sql_Centerline_length():
+def sql_centerline_length():
     global error_count
 
     sql_query = """
@@ -1799,7 +1846,7 @@ def sql_Centerline_length():
         return result_ent
 
     except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution de la requête (sql_Centerline_length):{Colors.ENDC} {e}")
+        log.error(f"Lors de l'exécution de la requête (sql_centerline_length):{Colors.ENDC} {e}")
         error_count += 1
         return None
 
@@ -1841,7 +1888,7 @@ def sql_liste_entree():
         return result_ent
 
     except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution de la requête 4 (sql_liste_entree):{Colors.ENDC} {e}")
+        log.error(f"Lors de l'exécution de la requête 4 (sql_liste_entree):{Colors.ENDC} {e}")
         error_count += 1
         return None
     return
@@ -1865,7 +1912,7 @@ def sql_serie_vides():
         return retour
 
     except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution de la requête (sql_serie_vides): {Colors.ENDC}{e}")
+        log.error(f"Lors de l'exécution de la requête (sql_serie_vides): {Colors.ENDC}{e}")
         error_count += 1
         return None
 
@@ -1907,7 +1954,7 @@ def sql_shot_full_name(station):
         return f"{retour[0][1]} {retour[0][2]} @ {retour[0][3]}"
 
     except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution de la requête (sql_shot_full_name): {Colors.ENDC}{e}")
+        log.error(f"Lors de l'exécution de la requête (sql_shot_full_name): {Colors.ENDC}{e}")
         error_count += 1
         return ""
 
@@ -1948,7 +1995,7 @@ def sql_station_depart(station):
         return retour
 
     except sqlite3.Error as e:
-        log.error(f"Erreur lors de l'exécution de la requête 6 (sql_station_depart) code:{Colors.ENDC} {e}")
+        log.error(f"Lors de l'exécution de la requête (sql_station_depart), code:{Colors.ENDC} {e}")
         error_count += 1
         return None
 
@@ -2033,13 +2080,14 @@ def sql_bilan_serie():
 def sql_bilan_reseaux():
     global error_count
     global _largeurColTete
+
     retour_totaux = []
-    # retour_entrees = []
     retour_reseaux = []
     retour_visee = []
     retour_sans = []
     retour = []
     liste_entree = []
+    maps_length = []
 
     try:
         ###############################################################################################################
@@ -2057,7 +2105,8 @@ def sql_bilan_reseaux():
                 round(sum(_SERIE.SERIE_LENGHT) - sum(_SERIE.SERIE_LENGHT_SURFACE)- sum(_SERIE.SERIE_LENGHT_DUPLICATE), 2) as Long,
                 round(sum(_SERIE.SERIE_LENGHT_DUPLICATE),2) as Duplicate, 
                 round(sum(_SERIE.SERIE_LENGHT_SURFACE),2) as Surface, 
-                sum(_SERIE.SERIE_NBRE_SHOT) as Nbre_Shot
+                sum(_SERIE.SERIE_NBRE_SHOT) as Nbre_Shot,
+                SURVEY_JONCTION.ID
                 --COUNT(*) AS Nbre_serie
                 --round(max(STATION.Z),2) as Max_Z,
                 --round(min(STATION.Z),2) as Min_Z,
@@ -2074,7 +2123,7 @@ def sql_bilan_reseaux():
 
         if len(result) > 0:
             for row in result:
-                ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
+                ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
 
                 result_shot = 0
                 liste_entree = []
@@ -2126,11 +2175,18 @@ def sql_bilan_reseaux():
 
                 cursor.execute(f""" 
                     SELECT DISTINCT
-                        _RESEAU.RESEAU_NAME
+                        _RESEAU.RESEAU_NAME,
+                        _RESEAU.RESEAU_SURVEY_ID
                     FROM _RESEAU
                     WHERE _RESEAU.RESEAU_ID ={row[0]};
                 """)
                 reseau = cursor.fetchall()
+
+                maps_length = sql_maps_length(reseau[0][1])
+                if maps_length is not None:
+                    maps_length_pcent = maps_length[0][3] / result_length * 100
+                else:
+                    maps_length_pcent = 0.0
 
                 _reseau = ", ".join(str(item[0]).strip() for item in reseau if item[0] is not None and str(item[0]).strip())
 
@@ -2171,7 +2227,6 @@ def sql_bilan_reseaux():
                 """)
                 liste_entree = cursor.fetchall()
 
-                # _liste_ent = ", ".join(str(entree[2]).strip() for entree in liste_entree if entree[2] is not None and str(entree[2]).strip())
                 _liste_ent = ", ".join("" if entree[2] is None or str(entree[2]).strip() == "None" else str(entree[2]).strip() for entree in liste_entree)
 
                 if len(_liste_ent) > _largeurColTete:
@@ -2223,8 +2278,9 @@ def sql_bilan_reseaux():
                 ligne[10] = str(altitude_max[0][0])
                 ligne[11] = str(f"{altitude_max[0][1]:.2f}")
                 ligne[4] = str(f"{altitude_max[0][1] - altitude_min[0][1]:.2f}")
+                ligne[12] = f"{maps_length_pcent:.2f}%"
 
-                for i in range(10):
+                for i in range(11):
                     ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
 
                 retour_reseaux.append(ligne)
@@ -2311,7 +2367,7 @@ def sql_bilan_reseaux():
         else:
             _result_count = result_count[0][0]
 
-        ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
+        ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
         _liste_ent = "Visée(s) non raccordées"
         _liste_ent = _liste_ent.ljust(_largeurColTete)
         ligne[0] = " "
@@ -2376,8 +2432,9 @@ def sql_bilan_reseaux():
         ligne[8] = str(_altitude_max_name)
         ligne[9] = str(f"{_altitude_max:.2f}")
         ligne[4] = "-"  # "{:.2f}".format(altitude_max[0][1] - altitude_min[0][1])
+        ligne[12] = "-"
 
-        for i in range(10):
+        for i in range(11):
             ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
 
         if _result_long != 0 or _result_dpl != 0 or _result_srf != 0 or _result_count != 0:
@@ -2416,7 +2473,6 @@ def sql_bilan_reseaux():
             WHERE To_Name!='.' AND To_Name!='-' AND SHOT_FLAG.FLAG ='dpl' 
         """)
         _result_length_dpl = cursor.fetchall()
-
         result_length_dpl = float(_result_length_dpl[0][0])
         result_shot += int(_result_length_dpl[0][1])
 
@@ -2450,12 +2506,26 @@ def sql_bilan_reseaux():
         _result_entrees = cursor.fetchall()
 
         _total_entrees_topo = len(_result_entrees)
+        cursor.execute("""
+            SELECT
+                SURVEY.ID
+                -- SURVEY.PARENT_ID
+            FROM SURVEY
+            WHERE SURVEY.PARENT_ID =='1';
+        """)
+        ID = cursor.fetchall()
+        maps_length = sql_maps_length(ID[0][0])
+
+        if maps_length is not None:
+            maps_length_pcent = maps_length[0][3] / result_length * 100
+        else:
+            maps_length_pcent = 0.0
 
         result2 = sql_liste_entree()
         _total_entrees_non_topo = len(result2) - _total_entrees_topo  # type: ignore
 
         if _result_length[0][1] != None:
-            ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
+            ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
 
             ligne[0] = " "
             ligne[1] = str("Totaux".ljust(_largeurColTete))  # Liste Entrées
@@ -2501,8 +2571,9 @@ def sql_bilan_reseaux():
             ligne[10] = str(altitude_max[0][0])
             ligne[11] = str(f"{altitude_max[0][1]:.2f}")
             ligne[4] = str(f"{(altitude_max[0][1] - altitude_min[0][1]):.2f}")
+            ligne[12] = f"{maps_length_pcent:.0f}%"
 
-            for i in range(10):
+            for i in range(11):
                 ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
 
             retour_totaux.append(ligne)
@@ -2531,11 +2602,11 @@ def sql_bilan_reseaux():
         result = cursor.fetchall()
 
         for row in result:
-            ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
+            ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
             result_shot = 0
             survey = []
 
-            survey = sql_Parents_Survey(row[2])
+            survey = sql_parents_survey(row[2])
 
             if len(survey) == 0:  # type: ignore
                 _survey = " "
@@ -2595,6 +2666,12 @@ def sql_bilan_reseaux():
             result_length_srf = float(_result_length_srf[0][0])
             result_shot += int(_result_length_srf[0][1])
 
+            maps_length = sql_maps_length(row[0])
+            if maps_length is not None:
+                maps_length_pcent = maps_length[0][3] / result_length * 100
+            else:
+                maps_length_pcent = 0.0
+
             if result_length_srf == 0.0 and result_length == 0.0 and result_length_dpl == 0.0:
                 _total_entrees_non_topo += 1
 
@@ -2645,8 +2722,9 @@ def sql_bilan_reseaux():
                 ligne[10] = str(altitude_max[0][0])
                 ligne[11] = str(f"{altitude_max[0][1]:.2f}")
                 ligne[4] = str(f"{(altitude_max[0][1] - altitude_min[0][1]):.2f}")
+                ligne[12] = f"{maps_length_pcent:.0f}%"  # type: ignore
 
-                for i in range(10):
+                for i in range(11):
                     ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
 
                 retour_reseaux.append(ligne)
@@ -2654,7 +2732,7 @@ def sql_bilan_reseaux():
         ###############################################################################################################
         #  Entrées sans topo
         ###############################################################################################################
-        ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
+        ligne = [" - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - ", " - "]
 
         if _total_entrees_non_topo >= 1:
             ligne[0] = " "
@@ -2669,8 +2747,9 @@ def sql_bilan_reseaux():
             ligne[9] = " - "
             ligne[10] = " - "
             ligne[11] = " - "
+            ligne[12] = " - "
 
-            for i in range(10):
+            for i in range(11):
                 ligne[i + 1] = ligne[i + 1].ljust(_largeurCol)
 
             retour_sans.append(ligne)
@@ -2683,7 +2762,21 @@ def sql_bilan_reseaux():
         groupes_tries = []
         COLONNES_TOTAL = (2, 3, 4, 5, 6, 7)  # Colonnes numériques à additionner dans les sous-totaux
         groupes = defaultdict(list)
-        entetes = ["Réseaux", "Entrée(s)", "Nbre", "Dev.(m)", "Prof.(m)", "Dupl.(m)", "Surf.(m)", "Visées", "ID Sta.", "Alt. min(m)", "ID Sta.", "Alt. max(m)"]
+        entetes = [
+            "Réseaux",
+            "Entrée(s)",
+            "Nbre",
+            "Dev.(m)",
+            "Prof.(m)",
+            "Dupl.(m)",
+            "Surf.(m)",
+            "Visées",
+            "ID Sta.",
+            "Alt. min(m)",
+            "ID Sta.",
+            "Alt. max(m)",
+            "Avt. dessin (%)",
+        ]
         entetes[0] = entetes[0].ljust(_largeurColTete)
 
         for i in range(10):
@@ -2729,6 +2822,7 @@ def sql_bilan_reseaux():
             sous_total[9] = " "
             sous_total[10] = " "
             sous_total[11] = " "
+            sous_total[12] = " "
 
             valeur_tri = valeur_numerique(sous_total[3])
             groupes_tries.append({"reseau": reseau, "total": sous_total, "lignes": lignes_triees, "valeur_tri": valeur_tri})
