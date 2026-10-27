@@ -4404,3 +4404,17 @@ on 31932: 2026-10-27 16:48:09,271 - INFO - Jonction à la Station_ID:  25259 ent
 2026-10-27 20:45:12,415 - INFO - Table des STATION entrée et fix, nbre: 200
 2026-10-27 20:46:09,025 - INFO - Phase 5: Fin de traitement en 02 (m) 09 (s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
 2026-10-27 20:46:09,028 - INFO - Execution terminée sans erreur en 02(m)09(s)
+2026-10-27 21:07:30,125 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-27 21:07:30,125 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-27 21:07:30,125 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-27 21:07:30,126 - INFO - ║       Version : 2026.10.27                                                                                         ║
+2026-10-27 21:07:30,126 - INFO - ║       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                      ║
+2026-10-27 21:07:30,126 - INFO - ║       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                               ║
+2026-10-27 21:07:30,126 - INFO - ║       Date : 2026-10-27 21h07m30s                                                                                  ║
+2026-10-27 21:07:30,127 - INFO - ║       Mode : update                                                                                                ║
+2026-10-27 21:07:30,127 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-27 21:07:30,129 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\Synthese-PSM_LARRA\Outputs\readme.md
+2026-10-27 21:07:30,131 - INFO - Table des CENTRELINE, longueur: [(340527.49, 15625.25, 8956.61)]
+2026-10-27 21:08:40,117 - INFO - Table des STATION entrée et fix, nbre: 200
+2026-10-27 21:09:37,871 - INFO - Phase 5: Fin de traitement en 02 (m) 07 (s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
+2026-10-27 21:09:37,876 - INFO - Execution terminée sans erreur en 02(m)07(s)
