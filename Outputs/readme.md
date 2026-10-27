@@ -1,5 +1,5 @@
 -------------
-# Statistiques de `Synthèse générale des réseaux de la Pierre Saint Martin-Larra`
+# Statistiques de `Synthèse générale des réseaux de la Pierre Saint-Martin Larra`
 --------------
 
 ### Développement total
@@ -24,7 +24,7 @@ Toutes les stations sont comptabilisées et raccordées
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | UU37 | 1 747,00 | SL_19_H | 1 787,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | CHI_d_38/1 | 1 275,00 | HUET_N | 1 315,00 | 0% |
 | *Complexe PSM GdP* | *-* | *14* | *56 902,58* | *1 821,87* | *9 447,65* | *1,81* | *7106* |  |  |  |  |  |
-| Complexe Anialarra | AN454-21-01, AN509-1, AN51 01, AN519 A AN519 B, AN563-14-16, AN597-16-1, AN6-02-01, AN60-11-00, AN709-20-01, FR3-FI06 16 | 10 | 46 208,59 | 859,07 | 329,07 | 7 339,64 | 7484 | AN43GA2 | 1 319,13 | AN509 | 2 178,20 | 95% |
+| Complexe Anialarra | AN454-21-01, AN509-1, AN51 01, AN519 A AN519 B, AN563-14-16, AN597-16-1, AN6-02-01, AN60-11-00, AN709-20-01, FR3-FI06 16 | 10 | 46 208,59 | 859,07 | 329,07 | 7 339,64 | 7484 | AN43GA2 | 1 319,13 | AN509 | 2 178,20 | 0% |
 | Complexe Anialarra | AN43 | 1 | 1 540,03 | 376,73 | 0,00 | 0,00 | 248 | BG632-31 | 1 349,27 | AN43 | 1 726,00 | 0% |
 | Complexe Anialarra | AN3 | 1 | 310,92 | 205,15 | 0,00 | 44,73 | 53 | QE18 | 1 839,85 | AN3 | 2 045,00 | 0% |
 | Complexe Anialarra | AN548 | 1 | 153,85 | 50,43 | 5,62 | 10,18 | 30 | HH3 | 2 046,24 | BA11 | 2 096,67 | 0% |
@@ -106,7 +106,7 @@ Toutes les stations sont comptabilisées et raccordées
 | Gouffre du BB26 | BB26 | 1 | 227,19 | 71,56 | 62,66 | 4,80 | 71 | 32d | 1 448,44 | LT345_79DD | 1 520,00 | 0% |
 | AN061-Confusion | AN61 Sima de la confusion | 1 | 224,45 | 139,93 | 0,00 | 2,78 | 44 | XA40 | 2 076,57 | AN61 | 2 216,50 | 0% |
 | E003 TSR 3 | E3 TSR3 | 1 | 220,56 | 120,89 | 0,00 | 0,00 | 40 | F.44 | 1 809,11 | E3_TSR3 | 1 930,00 | 0% |
-| Résurgence des Oueils d'Issaux | Résurgence des Oueils d'Issaux | 1 | 218,33 | 72,59 | 0,00 | 0,00 | 18 | l1 | 617,41 | oueils | 690,00 | 0% |
+| Résurgence des Oueils d'Issaux | Résurgence des Oueils d'Issaux | 1 | 218,33 | 72,59 | 0,00 | 0,00 | 18 | l1 | 617,41 | oueils | 690,00 | 8537% |
 | UT140-Basa Ordia Lezia | UT140 | 1 | 209,48 | 187,18 | 0,00 | 0,00 | 19 | LAR_d_470/3 | 940,82 | UT_140 | 1 128,00 | 0% |
 | AP337 | AP337 | 1 | 208,06 | 118,44 | 0,00 | 0,00 | 25 | AP_d_7A19 | 1 631,56 | AP_333 | 1 750,00 | 0% |
 | UK559 | UK559 | 1 | 206,95 | 70,13 | 0,00 | 0,00 | 53 | UK559_d_1/22 | 1 967,87 | UK_559 | 2 038,00 | 0% |
@@ -133,7 +133,7 @@ Toutes les stations sont comptabilisées et raccordées
 | C103 | C103 | 1 | 105,60 | 58,28 | 0,00 | 0,00 | 9 | C103_d_1/5 | 1 796,91 | C103_d_1/1 | 1 855,19 | 0% |
 | Z107 | Z107 | 1 | 103,65 | 49,77 | 0,00 | 0,00 | 23 | _d_Z107_f_C2 | 1 610,23 | Z_107 | 1 660,00 | 0% |
 | AN639 | AN639 | 1 | 102,88 | 39,06 | 0,00 | 0,00 | 18 | HF7 | 2 223,94 | AN639 | 2 263,00 | 0% |
-| Z123 | Z123 | 1 | 102,29 | 45,64 | 0,00 | 0,00 | 21 | PE33 | 1 652,61 | Z123_d_1.2 | 1 698,25 | 455% |
+| Z123 | Z123 | 1 | 102,29 | 45,64 | 0,00 | 0,00 | 21 | PE33 | 1 652,61 | Z123_d_1.2 | 1 698,25 | 0% |
 | A004 | A4 | 1 | 99,18 | 51,51 | 0,00 | 31,01 | 27 | SW11 | 2 093,49 | A_4 | 2 145,00 | 0% |
 | AN671-Verguenza | AN671 Sima verguenza | 1 | 96,98 | 89,95 | 0,00 | 0,00 | 10 | FM1 | 1 868,05 | AN671 | 1 958,00 | 0% |
 | M400 | M400 | 1 | 94,53 | 88,87 | 0,00 | 0,00 | 9 | PO07 | 2 114,13 | M_400 | 2 203,00 | 0% |
@@ -278,9 +278,9 @@ Toutes les stations sont comptabilisées et raccordées
 | :---------------- | :--- |
 |       Script pyThStat par | alexandre.pont@yahoo.fr |
 |       Version | 2026.10.27 |
-|       Fichier source | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql |
-|       Dossier destination | ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-27 21h07m30s |
-| Durée calcul |02 (m) 07 (s) sans erreur |
+|       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
+|       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
+|       Date | 2026-10-27 20h18m22s |
+| Durée calcul |02 (m) 45 (s) sans erreur |
 
 --------------
