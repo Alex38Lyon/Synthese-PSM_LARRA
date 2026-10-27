@@ -1548,24 +1548,24 @@ def calcul_stats(output_file_csv, output_file_md, filename="None"):
         output_file_ligne_md.append("\n\n--------------\n")
         output_file_ligne_md.append(
             "### Graphiques\n\n"
-            f"![Répartition des directions]({output_file_name_rose}.png)\n\n"  # type: ignore
-            f"![Développement par années]({output_file_name_year}.png)\n\n"  # type: ignore
-            f"![Développement cumulé]({output_file_name_year}_Cum.png)\n\n"  # type: ignore
             f"""
+<h2 align="center">Diagramme des directions</h2>
 <p align="center">
-<img src="{output_file_name_rose}.png" alt="Répartition des directions" width="100%">
+<img src="./{input_file[:-4]}_Stats/{input_file[:-4]}_rose.png" alt="Répartition des directions" width="100%">
 </p>
-            """
+"""
             f"""
+<h2 align="center">Développement par années</h2>
 <p align="center">
-<img src="{output_file_name_year}.png" alt="Développement par années" width="100%">
+<img src="./{input_file[:-4]}_Stats/{input_file[:-4]}_year.png" alt="Développement par années" width="100%">
 </p>
-            """
+"""
             f"""
+<h2 align="center">Développement cumulé</h2>
 <p align="center">
-<img src="{output_file_name_year}_Cum.png" alt="Développement cumulé" width="100%">
+<img src="./{input_file[:-4]}_Stats/{input_file[:-4]}_year_Cum.png" alt="Développement cumulé" width="100%">
 </p>
-            """
+"""
         )
 
         output_file_ligne_md.append("\n\n--------------\n")

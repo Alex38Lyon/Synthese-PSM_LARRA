@@ -3999,3 +3999,45 @@ on 31932: 2026-10-27 09:36:43,814 - INFO - Jonction à la Station_ID:  25259 ent
 2026-10-27 11:21:21,103 - INFO - Table des STATION entrée et fix, nbre: 200
 2026-10-27 11:22:23,216 - INFO - Phase 5: Fin de traitement en 02 (m) 09 (s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
 2026-10-27 11:22:23,218 - INFO - Execution terminée sans erreur en 02(m)09(s)
+2026-10-27 11:34:31,395 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-27 11:34:31,397 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-27 11:34:31,397 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-27 11:34:31,397 - INFO - ║       Version : 2026.10.27                                                                                         ║
+2026-10-27 11:34:31,398 - INFO - ║       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                      ║
+2026-10-27 11:34:31,399 - INFO - ║       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                               ║
+2026-10-27 11:34:31,399 - INFO - ║       Date : 2026-10-27 11h34m31s                                                                                  ║
+2026-10-27 11:34:31,399 - INFO - ║       Mode : update                                                                                                ║
+2026-10-27 11:34:31,400 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-27 11:34:31,406 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\Synthese-PSM_LARRA\Outputs\readme.md
+2026-10-27 11:34:31,413 - INFO - Table des CENTRELINE, longueur: [(340527.49, 15625.25, 8956.61)]
+2026-10-27 11:35:43,183 - INFO - Table des STATION entrée et fix, nbre: 200
+2026-10-27 11:36:43,381 - INFO - Phase 5: Fin de traitement en 02 (m) 12 (s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
+2026-10-27 11:36:43,383 - INFO - Execution terminée sans erreur en 02(m)12(s)
+2026-10-27 11:41:26,234 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-27 11:41:26,234 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-27 11:41:26,234 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-27 11:41:26,234 - INFO - ║       Version : 2026.10.27                                                                                         ║
+2026-10-27 11:41:26,234 - INFO - ║       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                      ║
+2026-10-27 11:41:26,235 - INFO - ║       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                               ║
+2026-10-27 11:41:26,235 - INFO - ║       Date : 2026-10-27 11h41m26s                                                                                  ║
+2026-10-27 11:41:26,235 - INFO - ║       Mode : update                                                                                                ║
+2026-10-27 11:41:26,235 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-27 11:41:26,236 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\Synthese-PSM_LARRA\Outputs\readme.md
+2026-10-27 11:41:26,238 - INFO - Table des CENTRELINE, longueur: [(340527.49, 15625.25, 8956.61)]
+2026-10-27 11:42:35,629 - INFO - Table des STATION entrée et fix, nbre: 200
+2026-10-27 11:43:51,898 - INFO - Phase 5: Fin de traitement en 02 (m) 25 (s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
+2026-10-27 11:43:51,900 - INFO - Execution terminée sans erreur en 02(m)25(s)
+2026-10-27 11:44:04,497 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-27 11:44:04,498 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-10-27 11:44:04,498 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-10-27 11:44:04,499 - INFO - ║       Version : 2026.10.27                                                                                         ║
+2026-10-27 11:44:04,499 - INFO - ║       Fichier source : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA.sql                                      ║
+2026-10-27 11:44:04,499 - INFO - ║       Dossier destination : ~\Synthese-PSM_LARRA\Outputs\DB_Synthese-PSM_LARRA_Stats                               ║
+2026-10-27 11:44:04,500 - INFO - ║       Date : 2026-10-27 11h44m04s                                                                                  ║
+2026-10-27 11:44:04,500 - INFO - ║       Mode : update                                                                                                ║
+2026-10-27 11:44:04,500 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-27 11:44:04,502 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~\Synthese-PSM_LARRA\Outputs\readme.md
+2026-10-27 11:44:04,504 - INFO - Table des CENTRELINE, longueur: [(340527.49, 15625.25, 8956.61)]
+2026-10-27 11:45:32,990 - INFO - Table des STATION entrée et fix, nbre: 200
+2026-10-27 11:47:01,027 - INFO - Phase 5: Fin de traitement en 02 (m) 56 (s), résultats enregistrés dans ~\Outputs\DB_Synthese-PSM_LARRA_Stats\DB_Synthese-PSM_LARRA_stats
+2026-10-27 11:47:01,030 - INFO - Execution terminée sans erreur en 02(m)56(s)
