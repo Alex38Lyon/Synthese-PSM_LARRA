@@ -81,8 +81,8 @@ export model -enable all -o Outputs/Synthese-PSM_LARRA.kml
 export database -fmt sql -o Outputs/DB_Synthese-PSM_LARRA.sql -enc UTF-8
 
 # Export des fichiers ESRI
-export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
-export model -fmt esri -o Outputs/SHP/ -enc UTF-8
+# export map -proj plan -fmt esri -o Outputs/SHP/ -enc UTF-8
+# export model -fmt esri -o Outputs/SHP/ -enc UTF-8
 # export map -proj plan -fmt esri -o Outputs/SHP/therion -layout my_layout -enc ASCII
 
 # Export des fichiers kml
