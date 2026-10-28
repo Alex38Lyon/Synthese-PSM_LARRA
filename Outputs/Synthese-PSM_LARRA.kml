@@ -5,7 +5,7 @@
 <Style id="ThSurveyLineSurf"> <LineStyle> <color>ffcccccc</color> <width>1</width> </LineStyle> </Style>
 <Style id="ThEntranceIcon"> <IconStyle> <Icon> <href>https://therion.speleo.sk/downloads/KmlIconEntrance.png</href> </Icon> <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction" /> </IconStyle> </Style>
 <Icon> <href>https://therion.speleo.sk/downloads/KmlIconModel.png</href> </Icon>
-<name><![CDATA[Synthèse générale des réseaux de la Pierre Saint Martin-Larra]]></name>
+<name><![CDATA[Synthèse générale des réseaux de la Pierre Saint-Martin Larra]]></name>
 <description><![CDATA[Length 340528 m<br>Depth 2016 m]]></description>
 <Placemark>
 <styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[A4]]></name>
