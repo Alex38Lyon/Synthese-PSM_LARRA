@@ -64,7 +64,7 @@ Toutes les stations sont comptabilisées et raccordées
 | Sima Antartica | AN211, AN596 Sima Antartica, AN596 | 3 | 882,32 | 344,27 | 0,00 | 21,77 | 114 | QR2_35 | 1 715,79 | HB20 | 2 060,06 | 0% |
 | Trou Martin | Trou Martin | 1 | 874,76 | 244,16 | 0,00 | 0,00 | 98 | MAR_d_10/4 | 575,84 | MARTIN | 820,00 | 0% |
 | Z510 | Gouffre Z510 | 1 | 852,63 | 237,20 | 180,35 | 0,00 | 187 | M31_d_98/3 | 1 406,80 | - | 1 644,00 | 0% |
-| C230 | C230 Sima ricky et ses ours | 1 | 836,03 | 268,62 | 0,00 | 0,00 | 135 | _d_C230_f_164 | 1 616,38 | C_230 | 1 885,00 | 5% |
+| C230 | C230 Sima ricky et ses ours | 1 | 836,03 | 268,62 | 0,00 | 0,00 | 135 | _d_C230_f_164 | 1 616,38 | C_230 | 1 885,00 | 0% |
 | AN506-Ninos | AN506 Sima de los niños | 1 | 817,47 | 409,24 | 0,00 | 0,00 | 87 | PF10 | 1 754,06 | AN506 | 2 163,30 | 0% |
 | M414 | M414 | 1 | 807,45 | 351,32 | 40,10 | 0,00 | 119 | M414_d_1/52 | 1 762,68 | AN109 | 2 114,00 | 0% |
 | BL118 | BL118 | 1 | 794,25 | 296,93 | 0,00 | 0,00 | 114 | BL118_d_2/89 | 726,07 | BL_118 | 1 023,00 | 0% |
@@ -106,7 +106,7 @@ Toutes les stations sont comptabilisées et raccordées
 | Gouffre du BB26 | BB26 | 1 | 227,19 | 71,56 | 62,66 | 4,80 | 71 | 32d | 1 448,44 | LT345_79DD | 1 520,00 | 0% |
 | AN061-Confusion | AN61 Sima de la confusion | 1 | 224,45 | 139,93 | 0,00 | 2,78 | 44 | XA40 | 2 076,57 | AN61 | 2 216,50 | 0% |
 | E003 TSR 3 | E3 TSR3 | 1 | 220,56 | 120,89 | 0,00 | 0,00 | 40 | F.44 | 1 809,11 | E3_TSR3 | 1 930,00 | 0% |
-| Résurgence des Oueils d'Issaux | Résurgence des Oueils d'Issaux | 1 | 218,33 | 72,59 | 0,00 | 0,00 | 18 | l1 | 617,41 | oueils | 690,00 | 8537% |
+| Résurgence des Oueils d'Issaux | Résurgence des Oueils d'Issaux | 1 | 218,33 | 72,59 | 0,00 | 0,00 | 18 | l1 | 617,41 | oueils | 690,00 | 206% |
 | UT140-Basa Ordia Lezia | UT140 | 1 | 209,48 | 187,18 | 0,00 | 0,00 | 19 | LAR_d_470/3 | 940,82 | UT_140 | 1 128,00 | 0% |
 | AP337 | AP337 | 1 | 208,06 | 118,44 | 0,00 | 0,00 | 25 | AP_d_7A19 | 1 631,56 | AP_333 | 1 750,00 | 0% |
 | UK559 | UK559 | 1 | 206,95 | 70,13 | 0,00 | 0,00 | 53 | UK559_d_1/22 | 1 967,87 | UK_559 | 2 038,00 | 0% |
@@ -139,7 +139,7 @@ Toutes les stations sont comptabilisées et raccordées
 | M400 | M400 | 1 | 94,53 | 88,87 | 0,00 | 0,00 | 9 | PO07 | 2 114,13 | M_400 | 2 203,00 | 0% |
 | AN453 | AN453 | 1 | 91,25 | 66,69 | 0,00 | 0,00 | 19 | MFX11 | 1 905,31 | AN453 | 1 972,00 | 0% |
 | CUCC5 | CUCC5 | 1 | 89,00 | 42,88 | 0,00 | 0,00 | 14 | CUCC5_d_9 | 1 668,12 | CUCC_5 | 1 711,00 | 0% |
-| AN507-Plumas | AN507 | 1 | 88,22 | 56,14 | 0,00 | 9,06 | 20 | HL5 | 2 089,46 | AN507 | 2 145,60 | 0% |
+| AN507-Plumas | AN507 | 1 | 88,22 | 56,14 | 0,00 | 9,06 | 20 | HL5 | 2 089,46 | AN507 | 2 145,60 | 26% |
 | AN062 | AN62 | 1 | 86,80 | 64,76 | 0,00 | 0,00 | 10 | LJ2 | 2 127,24 | AN62 | 2 192,00 | 0% |
 | CUCC4 | CUCC4 | 1 | 86,60 | 56,50 | 0,00 | 0,00 | 11 | CUCC4_d_8 | 1 671,50 | CUCC_4 | 1 728,00 | 0% |
 | AN708-Marmota | AN708 Sima de la marmota | 1 | 79,05 | 31,86 | 0,00 | 2,19 | 23 | JU2 | 2 102,14 | AN708 | 2 134,00 | 0% |
@@ -280,7 +280,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-27 20h18m22s |
-| Durée calcul |02 (m) 45 (s) sans erreur |
+|       Date | 2026-10-28 12h37m42s |
+| Durée calcul |03 (m) 59 (s) sans erreur |
 
 --------------
