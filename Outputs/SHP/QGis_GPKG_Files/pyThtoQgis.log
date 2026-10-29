@@ -532,3 +532,181 @@ on 3629: 2026-10-29 11:12:38,798 - WARNING - Any intersection issue
 2026-10-29 11:12:54,315 - WARNING -  Any intersection issue
 Attributes: _SCRAP_ID=33454, _TYPE=contour, _SCRAP=SP-AP7_Aval_01, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
 2026-10-29 11:12:54,315 - WARNING - ══════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:52:29,765 - INFO - ╔═══════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-10-29 14:52:29,765 - INFO - ║ Script to generate QGis (.gpkg) files from Therion (.shp) files with auto-correction if possible  ║
+2026-10-29 14:52:29,766 - INFO - ║        original written by X. Robert, ISTerre : October 2022                                      ║
+2026-10-29 14:52:29,766 - INFO - ║        updated by : alexandre.pont@yahoo.fr                                                       ║
+2026-10-29 14:52:29,766 - INFO - ║        version : 2026.10.26                                                                       ║
+2026-10-29 14:52:29,766 - INFO - ║        mode : commande line mode                                                                  ║
+2026-10-29 14:52:29,766 - INFO - ║        input folder :  ~/Synthese-PSM_LARRA/Outputs/SHP                                           ║
+2026-10-29 14:52:29,766 - INFO - ║        output folder : ~/Outputs/SHP/QGis_GPKG_Files                                              ║
+2026-10-29 14:52:29,766 - INFO - ║        log file      : ~/SHP/QGis_GPKG_Files/pyThtoQgis.log                                       ║
+2026-10-29 14:52:29,766 - INFO - ╚═══════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-10-29 14:52:29,766 - INFO - Step 1 : test files and convert to GPKG format in the folder: ~/Outputs/SHP/QGis_GPKG_Files          
+2026-10-29 14:52:29,766 - INFO - ═════════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:52:29,766 - INFO - Process with file (1/7): points2d.shp
+2026-10-29 14:52:29,766 - INFO - Bilan file : ~/Outputs/SHP/points2d.shp 
+2026-10-29 14:52:31,116 - INFO - All geometry are valid, nbr : 17039
+2026-10-29 14:52:31,116 - INFO - Geometric types :
+2026-10-29 14:52:31,116 - INFO - 	POINT : 17039
+2026-10-29 14:52:31,116 - INFO - Bounding box :
+2026-10-29 14:52:31,116 - INFO - 	xmin = 678699.008	xmax = 688038.566
+2026-10-29 14:52:31,116 - INFO - 	ymin = 4752180.977	ymax = 4763951.350
+2026-10-29 14:52:31,116 - INFO - Dimensions, Z present : True	M present : True
+2026-10-29 14:52:31,119 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:31,121 - INFO - SHP file conversion : points2d.shp with 17039 objets
+2026-10-29 14:52:32,545 - INFO - GPKG conversion completed file : points2d, 17039 converted objects
+2026-10-29 14:52:32,545 - INFO - Bilan file : ~/SHP/QGis_GPKG_Files/points2d.gpkg 
+2026-10-29 14:52:33,859 - INFO - All geometry are valid, nbr : 17039
+2026-10-29 14:52:33,863 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:33,864 - INFO - Conversion of 17039 features in file ~/Outputs/SHP/QGis_GPKG_Filespoints2d.gpkg without issue  
+2026-10-29 14:52:33,865 - INFO - ═════════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:52:33,865 - INFO - Process with file (2/7): lines2d.shp
+2026-10-29 14:52:33,865 - INFO - Bilan file : ~/Outputs/SHP/lines2d.shp 
+2026-10-29 14:52:35,614 - INFO - All geometry are valid, nbr : 36438
+2026-10-29 14:52:35,614 - WARNING - Warning geometries : 1117
+2026-10-29 14:52:35,614 - WARNING - 		Too few points : 1117
+2026-10-29 14:52:35,614 - INFO - Geometric types :
+2026-10-29 14:52:35,614 - INFO - 	LINESTRING : 36438
+2026-10-29 14:52:35,614 - INFO - Bounding box :
+2026-10-29 14:52:35,614 - INFO - 	xmin = 678697.424	xmax = 688036.426
+2026-10-29 14:52:35,614 - INFO - 	ymin = 4752172.720	ymax = 4763957.369
+2026-10-29 14:52:35,614 - INFO - Dimensions, Z present : True	M present : True
+2026-10-29 14:52:35,616 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:35,618 - INFO - SHP file conversion : lines2d.shp with 36438 objets
+2026-10-29 14:52:37,833 - INFO - GPKG conversion completed file : lines2d_fixed, 36438 converted objects
+2026-10-29 14:52:37,834 - INFO - Bilan file : ~/SHP/QGis_GPKG_Files/lines2d_fixed.gpkg 
+2026-10-29 14:52:39,460 - INFO - All geometry are valid, nbr : 36438
+2026-10-29 14:52:39,462 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:39,463 - INFO - Conversion of 36438 features in file ~/Outputs/SHP/QGis_GPKG_Fileslines2d_fixed.gpkg without issue  
+2026-10-29 14:52:39,464 - INFO - ═════════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:52:39,464 - INFO - Process with file (3/7): outline2d.shp
+2026-10-29 14:52:39,464 - INFO - Bilan file : ~/Outputs/SHP/outline2d.shp 
+2026-10-29 14:52:39,542 - INFO - All geometry are valid, nbr : 503
+2026-10-29 14:52:39,542 - WARNING - Warning geometries : 325
+2026-10-29 14:52:39,542 - WARNING - 		Unknown error (1) : 325
+2026-10-29 14:52:39,542 - INFO - Geometric types :
+2026-10-29 14:52:39,542 - INFO - 	POLYGON : 503
+2026-10-29 14:52:39,542 - INFO - Bounding box :
+2026-10-29 14:52:39,542 - INFO - 	xmin = 678698.790	xmax = 688036.426
+2026-10-29 14:52:39,542 - INFO - 	ymin = 4752178.645	ymax = 4763953.204
+2026-10-29 14:52:39,542 - INFO - Dimensions, Z present : True	M present : True
+2026-10-29 14:52:39,542 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:39,543 - INFO - SHP file conversion : outline2d.shp with 503 objets
+2026-10-29 14:52:39,646 - INFO - GPKG conversion completed file : outline2d, 503 converted objects
+2026-10-29 14:52:39,646 - INFO - Bilan file : ~/SHP/QGis_GPKG_Files/outline2d.gpkg 
+2026-10-29 14:52:39,699 - INFO - All geometry are valid, nbr : 503
+2026-10-29 14:52:39,699 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:39,699 - INFO - Conversion of 503 features in file ~/Outputs/SHP/QGis_GPKG_Filesoutline2d.gpkg without issue  
+2026-10-29 14:52:39,700 - INFO - ═════════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:52:39,700 - INFO - Process with file (4/7): areas2d.shp
+2026-10-29 14:52:39,700 - INFO - Bilan file : ~/Outputs/SHP/areas2d.shp 
+2026-10-29 14:52:39,728 - INFO - All geometry are valid, nbr : 501
+2026-10-29 14:52:39,728 - INFO - Geometric types :
+2026-10-29 14:52:39,728 - INFO - 	POLYGON : 501
+2026-10-29 14:52:39,728 - INFO - Bounding box :
+2026-10-29 14:52:39,728 - INFO - 	xmin = 678697.424	xmax = 688025.040
+2026-10-29 14:52:39,728 - INFO - 	ymin = 4752619.338	ymax = 4763957.369
+2026-10-29 14:52:39,728 - INFO - Dimensions, Z present : True	M present : True
+2026-10-29 14:52:39,729 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:39,729 - INFO - SHP file conversion : areas2d.shp with 501 objets
+2026-10-29 14:52:39,770 - INFO - GPKG conversion completed file : areas2d_fixed, 501 converted objects
+2026-10-29 14:52:39,771 - INFO - Bilan file : ~/SHP/QGis_GPKG_Files/areas2d_fixed.gpkg 
+2026-10-29 14:52:39,801 - INFO - All geometry are valid, nbr : 501
+2026-10-29 14:52:39,801 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:39,802 - INFO - Conversion of 501 features in file ~/Outputs/SHP/QGis_GPKG_Filesareas2d_fixed.gpkg without issue  
+2026-10-29 14:52:39,802 - INFO - ═════════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:52:39,802 - INFO - Process with file (5/7): walls3d.shp
+2026-10-29 14:52:39,802 - INFO - Bilan file : ~/Outputs/SHP/walls3d.shp 
+2026-10-29 14:52:41,518 - INFO - All geometry are valid, nbr : 510
+2026-10-29 14:52:41,518 - WARNING - Warning geometries : 510
+2026-10-29 14:52:41,518 - WARNING - 		Not supported : 510
+2026-10-29 14:52:41,518 - INFO - Geometric types :
+2026-10-29 14:52:41,518 - INFO - 	GEOMETRYCOLLECTION : 510
+2026-10-29 14:52:41,518 - INFO - Bounding box :
+2026-10-29 14:52:41,518 - INFO - 	xmin = 678698.810	xmax = 688036.426
+2026-10-29 14:52:41,518 - INFO - 	ymin = 4752178.645	ymax = 4763953.204
+2026-10-29 14:52:41,518 - INFO - Dimensions, Z present : True	M present : False
+2026-10-29 14:52:41,519 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:41,519 - INFO - SHP file conversion : walls3d.shp with 510 objets
+2026-10-29 14:52:46,204 - INFO - GPKG conversion completed file : walls3d, 510 converted objects
+2026-10-29 14:52:46,204 - INFO - Bilan file : ~/SHP/QGis_GPKG_Files/walls3d.gpkg 
+2026-10-29 14:52:46,376 - INFO - All geometry are valid, nbr : 510
+2026-10-29 14:52:46,376 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:46,377 - INFO - Conversion of 510 features in file ~/Outputs/SHP/QGis_GPKG_Fileswalls3d.gpkg without issue  
+2026-10-29 14:52:46,377 - INFO - ═════════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:52:46,377 - INFO - Process with file (6/7): stations3d.shp
+2026-10-29 14:52:46,377 - INFO - Bilan file : ~/Outputs/SHP/stations3d.shp 
+2026-10-29 14:52:50,331 - INFO - All geometry are valid, nbr : 67580
+2026-10-29 14:52:50,331 - INFO - Geometric types :
+2026-10-29 14:52:50,331 - INFO - 	POINT : 67580
+2026-10-29 14:52:50,331 - INFO - Bounding box :
+2026-10-29 14:52:50,331 - INFO - 	xmin = 674000.780	xmax = 688034.880
+2026-10-29 14:52:50,331 - INFO - 	ymin = 4752186.580	ymax = 4763951.350
+2026-10-29 14:52:50,331 - INFO - Dimensions, Z present : True	M present : True
+2026-10-29 14:52:50,340 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:50,343 - INFO - SHP file conversion : stations3d.shp with 67580 objets
+2026-10-29 14:52:54,439 - INFO - GPKG conversion completed file : stations3d, 67580 converted objects
+2026-10-29 14:52:54,439 - INFO - Bilan file : ~/SHP/QGis_GPKG_Files/stations3d.gpkg 
+2026-10-29 14:52:58,231 - INFO - All geometry are valid, nbr : 67580
+2026-10-29 14:52:58,239 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:52:58,243 - INFO - Conversion of 67580 features in file ~/Outputs/SHP/QGis_GPKG_Filesstations3d.gpkg without issue  
+2026-10-29 14:52:58,243 - INFO - ═════════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:52:58,243 - INFO - Process with file (7/7): shots3d.shp
+2026-10-29 14:52:58,243 - INFO - Bilan file : ~/Outputs/SHP/shots3d.shp 
+2026-10-29 14:53:01,448 - INFO - All geometry are valid, nbr : 66046
+2026-10-29 14:53:01,448 - WARNING - Warning geometries : 4325
+2026-10-29 14:53:01,448 - WARNING - 		Too few points : 4325
+2026-10-29 14:53:01,448 - INFO - Geometric types :
+2026-10-29 14:53:01,448 - INFO - 	LINESTRING : 66046
+2026-10-29 14:53:01,448 - INFO - Bounding box :
+2026-10-29 14:53:01,448 - INFO - 	xmin = 674000.780	xmax = 688034.880
+2026-10-29 14:53:01,448 - INFO - 	ymin = 4752186.580	ymax = 4763951.350
+2026-10-29 14:53:01,448 - INFO - Dimensions, Z present : True	M present : True
+2026-10-29 14:53:01,454 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:53:01,457 - INFO - SHP file conversion : shots3d.shp with 66046 objets
+2026-10-29 14:53:05,507 - INFO - GPKG conversion completed file : shots3d, 66046 converted objects
+2026-10-29 14:53:05,508 - INFO - Bilan file : ~/SHP/QGis_GPKG_Files/shots3d.gpkg 
+2026-10-29 14:53:08,749 - INFO - All geometry are valid, nbr : 66046
+2026-10-29 14:53:08,755 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:53:08,757 - INFO - Conversion of 66046 features in file ~/Outputs/SHP/QGis_GPKG_Filesshots3d.gpkg without issue  
+2026-10-29 14:53:08,757 - INFO - Step 2 : adapte drawing files (cut it) for QGis in the folder: ~/Outputs/SHP/QGis_GPKG_Files         
+2026-10-29 14:53:08,758 - INFO - Clipping file : ~/SHP/QGis_GPKG_Files/lines2d_fixed.gpkg to file : ~/SHP/QGis_GPKG_Files/lines2dMasked.gpkg
+on 3860: 2026-10-29 14:53:09,474 - WARNING - Any intersection issue
+         Attributes: _SCRAP_ID=33620, _TYPE=contour, _SCRAP=SP-AP7_Aval_01, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+2026-10-29 14:53:14,715 - INFO - Bilan file : ~/SHP/QGis_GPKG_Files/lines2dMasked.gpkg 
+2026-10-29 14:53:16,290 - INFO - All geometry are valid, nbr : 36437
+2026-10-29 14:53:16,290 - INFO - Geometric types :
+2026-10-29 14:53:16,290 - INFO - 	LINESTRING : 34918
+2026-10-29 14:53:16,290 - INFO - 	POINT : 1117
+2026-10-29 14:53:16,290 - INFO - 	GEOMETRYCOLLECTION : 9
+2026-10-29 14:53:16,290 - INFO - 	MULTILINESTRING : 390
+2026-10-29 14:53:16,290 - INFO - 	MULTIPOINT : 3
+2026-10-29 14:53:16,290 - INFO - Bounding box :
+2026-10-29 14:53:16,290 - INFO - 	xmin = 678698.790	xmax = 688036.426
+2026-10-29 14:53:16,290 - INFO - 	ymin = 4752172.720	ymax = 4763953.204
+2026-10-29 14:53:16,290 - INFO - Dimensions, Z present : True	M present : True
+2026-10-29 14:53:16,292 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:53:16,294 - WARNING - 1 deleted geometries need to be verified in lines2dMasked.gpkg file
+2026-10-29 14:53:16,298 - INFO - Clipping file : ~/SHP/QGis_GPKG_Files/areas2d_fixed.gpkg to file : ~/SHP/QGis_GPKG_Files/areas2dMasked.gpkg
+2026-10-29 14:53:16,644 - INFO - Bilan file : ~/SHP/QGis_GPKG_Files/areas2dMasked.gpkg 
+2026-10-29 14:53:16,680 - INFO - All geometry are valid, nbr : 501
+2026-10-29 14:53:16,680 - INFO - Geometric types :
+2026-10-29 14:53:16,680 - INFO - 	POLYGON : 474
+2026-10-29 14:53:16,680 - INFO - 	MULTIPOLYGON : 27
+2026-10-29 14:53:16,680 - INFO - Bounding box :
+2026-10-29 14:53:16,680 - INFO - 	xmin = 678698.790	xmax = 688024.210
+2026-10-29 14:53:16,680 - INFO - 	ymin = 4752619.338	ymax = 4763953.204
+2026-10-29 14:53:16,680 - INFO - Dimensions, Z present : True	M present : True
+2026-10-29 14:53:16,680 - INFO - ─────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-29 14:53:16,681 - INFO - 501 clipped geometries in areas2d_fixed.gpkg file
+2026-10-29 14:53:16,682 - INFO - Step 3 : final summary                                                                               
+2026-10-29 14:53:16,682 - INFO - Execution completed in 46.92 s
+2026-10-29 14:53:16,682 - INFO - ═════════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:53:16,682 - INFO - Execution completed without errors
+2026-10-29 14:53:16,682 - INFO - ═════════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:53:16,682 - WARNING - ══════════════════════════════════════════════════════════════════════════════════════════════════
+2026-10-29 14:53:16,682 - WARNING - Execution completed with 1 warning
+2026-10-29 14:53:16,682 - WARNING -  Any intersection issue
+Attributes: _SCRAP_ID=33620, _TYPE=contour, _SCRAP=SP-AP7_Aval_01, _CLIP=on, _TAGS=6144, _SUBTYPE=None, _SCALE=4, _TEXT=None
+2026-10-29 14:53:16,682 - WARNING - ══════════════════════════════════════════════════════════════════════════════════════════════════

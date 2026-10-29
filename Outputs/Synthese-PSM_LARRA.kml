@@ -12,7 +12,7 @@
 <Point> <coordinates>-0.73561055504798,42.94524578465213,2145.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[A106]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[A106 Sima Bergasol]]></name>
 <Point> <coordinates>-0.79246416083055,42.94613209362595,1648.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -368,7 +368,7 @@
 <Point> <coordinates>-0.72669048065861,42.97754348921944,1711.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Cathedrale de Pyrène]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Cathédrale de Pyrène]]></name>
 <Point> <coordinates>-0.73001941085054,42.89980196094652,2300.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -458,6 +458,10 @@
 <Placemark>
 <styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN3]]></name>
 <Point> <coordinates>-0.75071897580297,42.94638132505177,2045.00000000000000</coordinates> </Point>
+</Placemark>
+<Placemark>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Arresteliako ziloa]]></name>
+<Point> <coordinates>-0.84476441699796,42.98322753996541,859.46000000000004</coordinates> </Point>
 </Placemark>
 <Placemark>
 <styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[Perte d'Eruso]]></name>
@@ -1803,7 +1807,7 @@
 <Folder>
 <name><![CDATA[Explo 01 2015 10 29]]></name>
 <Folder>
-<name><![CDATA[A106]]></name>
+<name><![CDATA[A106 Sima Bergasol]]></name>
 <Placemark>
 <name>A_106</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -19206,7 +19210,7 @@
 <Folder>
 <name><![CDATA[Explo 06 1992 05 30]]></name>
 <Folder>
-<name><![CDATA[1S1C2X1]]></name>
+<name><![CDATA[Arresteliako ziloa]]></name>
 <Placemark>
 <name>ARESTELIA</name>
 <styleUrl>#ThSurveyLine</styleUrl>
