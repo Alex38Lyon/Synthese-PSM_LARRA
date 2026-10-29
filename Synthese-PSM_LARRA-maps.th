@@ -9,8 +9,8 @@ encoding utf-8
 map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de la Pierre Saint-Martin Larra"
 	# MP-A004-Plan-tot@A004
 	# break
-	# MP-A106-Plan-tot@A106
-	# break
+	MP-A106-Plan-tot@A106
+	break
 	MP-A110-Plan-tot@A110
 	break
 	# MP-AN001-Plan-tot@AN001
@@ -173,8 +173,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	MP-C299-Gouffre_belle_gueule-Plan-tot@C299-Gouffre_belle_gueule
 	break
-	# MP-Cathedrale_de_Pyrene-Plan-tot@Cathedrale_de_Pyrene
-	# break
+	MP-Cathedrale_de_Pyrene-Plan-tot@Cathedrale_de_Pyrene
+	break
 	# MP-Chipi_Josetteko_Leze-Plan-tot@Chipi_Josetteko_Leze
 	# break
 	# MP-Complexe_Anialarra-Plan-tot@Complexe_Anialarra
