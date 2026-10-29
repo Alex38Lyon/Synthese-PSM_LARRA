@@ -15,7 +15,7 @@ Toutes les stations sont comptabilisées et raccordées
 ### Développement total par réseau
 |  Réseau  |  Entrée(s)  |  Nbre  |  Dev. (m)  |  Prof. (m)  |  Dupl. (m)  |  Surf. (m) |  Visées  |  ID Stat.  |  Alt. min (m)  |  ID Stat.  |  Alt. max (m)  |  Avt. dessin (%)  |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|  | **Totaux** | **200** | **340 527,50** | **2 016,00** | **15 625,25** | **8 956,61** | **45184** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **31%** |
+|  | **Totaux** | **200** | **340 527,50** | **2 016,00** | **15 625,25** | **8 956,61** | **45184** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **32%** |
 | Complexe Arrestelia | Perte d'Eruso, Odita lezia | 2 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6344 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 | 0% |
 | Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6019 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
 | Complexe PSM GdP | Tunnel de la Verna, Xendako ziloa | 2 | 8 676,45 | 548,79 | 1 618,14 | 0,00 | 1063 | - | 966,47 | _d_XEN_f_XX2 | 1 515,26 | 647% |
@@ -54,7 +54,7 @@ Toutes les stations sont comptabilisées et raccordées
 | E2000 | E2000 | 1 | 2 383,58 | 535,79 | 0,00 | 0,00 | 279 | H20 | 1 727,21 | AN639 | 2 263,00 | 0% |
 | Grotte de Alhais | Grotte d'Alhais | 1 | 1 892,89 | 136,24 | 0,00 | 0,00 | 253 | ALA_d_6/11 | 795,76 | LAR_d_466/1 | 932,00 | 0% |
 | SC60 | SC60 | 1 | 1 795,14 | 323,45 | 64,40 | 0,00 | 269 | 232 | 1 838,77 | 2.4 | 2 162,22 | 0% |
-| M326-Embrochat | M326 Embrochat | 1 | 1 667,15 | 384,30 | 0,00 | 0,00 | 289 | M3263/199 | 1 725,70 | M_326 | 2 110,00 | 0% |
+| M326 Embrochat | M326 Embrochat | 1 | 1 667,15 | 384,30 | 0,00 | 0,00 | 289 | M3263/199 | 1 725,70 | M_326 | 2 110,00 | 0% |
 | L5 | L5 | 1 | 1 645,48 | 371,69 | 66,04 | 0,00 | 292 | 0 | 1 651,31 | L_5 | 2 023,00 | 0% |
 | Z124 | Z124, Z124, Z124 | 3 | 1 412,20 | 379,71 | 0,00 | 0,00 | 117 | 39V | 1 349,71 | A60_111 | 1 729,42 | 100% |
 | Z127 | Z127 Sima Miguel Garibal | 1 | 1 400,82 | 529,78 | 0,00 | 0,00 | 262 | _d_Z127_f_264 | 1 128,22 | HP10 | 1 658,00 | 0% |
@@ -280,7 +280,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-28 12h37m42s |
-| Durée calcul |03 (m) 59 (s) sans erreur |
+|       Date | 2026-10-29 11h12m55s |
+| Durée calcul |03 (m) 57 (s) sans erreur |
 
 --------------
