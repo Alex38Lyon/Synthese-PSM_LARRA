@@ -233,8 +233,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	MP-M108-Plan-tot@M108
 	break
-	# MP-M326-Embrochat-Plan-tot@M326-Embrochat
-	# break
+	MP-M326-Embrochat-Plan-tot@M326-Embrochat
+	break
 	MP-M400-Plan-tot@M400
 	break
 	MP-M405-Plan-tot@M405
