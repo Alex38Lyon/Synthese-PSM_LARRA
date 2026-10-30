@@ -79,8 +79,6 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/BB27/BB27-tot.th
 	input Data/BB50/BB50-tot.th
 	input Data/BG063-Gouffre_de_la_comete/BG063-Gouffre_de_la_comete-tot.th
-	input Data/BL118/BL118-tot.th
-	input Data/BT006/BT006-tot.th
 	input Data/C103/C103-tot.th
 	input Data/C108-Sima_H/C108-Sima_H-tot.th
 	input Data/C110/C110-tot.th
@@ -98,6 +96,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/Complexe_BU56_Ilamina/Complexe_BU56_Ilamina-tot.th
 	input Data/Complexe_Lonne_Peyret-Bourrugues/Complexe_Lonne_Peyret-Bourrugues-tot.th
 	input Data/Complexe_Ours-Veau/Complexe_Ours-Veau-tot.th
+	input Data/Complexe_Soudet/Complexe_Soudet-tot.th
 	input Data/Complexe_PSM_GdP/Complexe_PSM_GdP-tot.th
 	input Data/DS049-Romy/DS049-Romy-tot.th
 	input Data/E003_TSR_3/E003_TSR_3-tot.th

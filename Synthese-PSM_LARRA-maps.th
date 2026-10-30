@@ -153,10 +153,6 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	# MP-BG063-Gouffre_de_la_comete-Plan-tot@BG063-Gouffre_de_la_comete
 	# break
-	# MP-BL118-Plan-tot@BL118
-	# break
-	# MP-BT006-Plan-tot@BT006
-	# break
 	MP-C103-Plan-tot@C103
 	break
 	MP-C108-Sima_H-Plan-tot@C108-Sima_H
@@ -187,6 +183,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	# MP-Complexe_Ours-Veau-Plan-tot@Complexe_Ours-Veau
 	# break
+	# MP-Complexe_Soudet-Plan-tot@Complexe_Soudet
+	# break	
 	MP-M326-Embrochat-Plan-tot@M326-Embrochat
 	break
 	MP-Complexe_PSM_GdP-Plan-tot@Complexe_PSM_GdP
