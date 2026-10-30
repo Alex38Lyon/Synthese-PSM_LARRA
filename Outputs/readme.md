@@ -4,10 +4,10 @@
 
 ### Développement total
 
-Développement topographié:           	`340 527,49 (m)`
+Développement topographié:           	`340 527,50 (m)`
 Développement topographie dupliqués: 	`15 625,25 (m)`
 Développement topographie de surface:	`8 956,61 (m)`
-Soit un grand total de :             	`365 109,35 (m)`
+Soit un grand total de :             	`365 109,36 (m)`
 Toutes les stations sont comptabilisées et raccordées
 
 
@@ -15,15 +15,15 @@ Toutes les stations sont comptabilisées et raccordées
 ### Développement total par réseau
 |  Réseau  |  Entrée(s)  |  Nbre  |  Dev. (m)  |  Prof. (m)  |  Dupl. (m)  |  Surf. (m) |  Visées  |  ID Stat.  |  Alt. min (m)  |  ID Stat.  |  Alt. max (m)  |  Avt. dessin (%)  |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|  | **Totaux** | **201** | **340 527,50** | **2 016,00** | **15 625,25** | **8 956,61** | **45184** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **32%** |
+|  | **Totaux** | **202** | **340 527,51** | **2 016,00** | **15 625,25** | **8 956,61** | **45187** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **32%** |
 | Complexe Arrestelia | Arresteliako ziloa, Perte d'Eruso, Odita lezia | 3 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6344 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 | 0% |
-| Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6019 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
+| Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6022 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
 | Complexe PSM GdP | Tunnel de la Verna, Xendako ziloa | 2 | 8 676,45 | 548,79 | 1 618,14 | 0,00 | 1063 | - | 966,47 | _d_XEN_f_XX2 | 1 515,26 | 647% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | SC_3_4 | 2 017,00 | AN596 | 2 057,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | AN456 | 1 962,00 | M_13_B | 2 002,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | UU37 | 1 747,00 | SL_19_H | 1 787,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | CHI_d_38/1 | 1 275,00 | HUET_N | 1 315,00 | 0% |
-| *Complexe PSM GdP* | *-* | *14* | *56 902,58* | *1 821,87* | *9 447,65* | *1,81* | *7106* |  |  |  |  |  |
+| *Complexe PSM GdP* | *-* | *14* | *56 902,58* | *1 821,87* | *9 447,65* | *1,81* | *7109* |  |  |  |  |  |
 | Complexe Anialarra | AN454-21-01, AN509-1, AN51 01, AN519 A AN519 B, AN563-14-16, AN597-16-1, AN6-02-01, AN60-11-00, AN709-20-01, FR3-FI06 16 | 10 | 46 208,59 | 859,07 | 329,07 | 7 339,64 | 7484 | AN43GA2 | 1 319,13 | AN509 | 2 178,20 | 0% |
 | Complexe Anialarra | AN43 | 1 | 1 540,03 | 376,73 | 0,00 | 0,00 | 248 | BG632-31 | 1 349,27 | AN43 | 1 726,00 | 0% |
 | Complexe Anialarra | AN3 | 1 | 310,92 | 205,15 | 0,00 | 44,73 | 53 | QE18 | 1 839,85 | AN3 | 2 045,00 | 0% |
@@ -43,12 +43,15 @@ Toutes les stations sont comptabilisées et raccordées
 | Complexe Ours-Veau | LAK01 Pérdida del Becerro | 1 | 10 493,84 | 667,68 | 1 481,76 | 0,00 | 1457 | LAR_d_145/85 | 856,53 | . | 1 524,21 | 0% |
 | AN8 | AN8, AN9 | 2 | 8 226,55 | 805,22 | 0,00 | 0,00 | 898 | AN8_d_1701 | 1 007,78 | AN9 | 1 813,00 | 0% |
 | UK22 Sima del Tobozo | UKK22 Sima del Tobozo | 1 | 7 228,71 | 514,65 | 0,00 | 0,00 | 700 | 34 | 1 460,35 | 0 | 1 975,00 | 0% |
+| Réseau de Soudet | BT6 | 1 | 5 212,26 | 670,59 | 0,00 | 0,00 | 744 | LAR_d_150/12 | 947,41 | BT_6 | 1 618,00 | 0% |
+| Réseau de Soudet | BL118 | 1 | 794,25 | 296,93 | 0,00 | 0,00 | 114 | BL118_d_2/89 | 726,07 | BL_118 | 1 023,00 | 0% |
+| Réseau de Soudet | BT5 | 1 | 0,01 | 0,00 | 0,00 | 0,00 | 1 | B_3 | 1 620,00 | B_3 | 1 620,00 | 0% |
+| *Réseau de Soudet* | *-* | *3* | *6 006,52* | *967,52* | *0,00* | *0,00* | *859* |  |  |  |  |  |
 | DS049-Romy | DS49 | 1 | 5 435,99 | 696,11 | 0,00 | 0,00 | 680 | DS495/172 | 853,89 | DS_49 | 1 550,00 | 0% |
-| BT006 | BT6 | 1 | 5 212,26 | 670,59 | 0,00 | 0,00 | 744 | BT6_d_2/641 | 947,41 | BT_6 | 1 618,00 | 0% |
 | UK4 Sima de Ukerdi Abajo | UK4 | 1 | 4 164,03 | 715,19 | 0,00 | 0,00 | 581 | UK4_d_25/16 | 1 083,81 | VB11 | 1 799,00 | 0% |
 | Grotte aux lacs | Grotte aux lacs | 1 | 4 054,16 | 108,40 | 0,00 | 15,50 | 435 | LAC_d_SORT27 | 529,73 | LAC_d_MS7 | 638,13 | 0% |
-| Chipi Josetteko Leze | Chipi josetteko leze | 1 | 3 512,87 | 553,48 | 0,00 | 0,00 | 572 | CHI_d_46/6 | 941,52 | CHIPI | 1 495,00 | 0% |
-| Trou du Renard | Trou du renard | 1 | 3 338,53 | 208,44 | 0,00 | 0,00 | 396 | REN_d_1/34 | 396,01 | REN_d_2/15 | 604,45 | 0% |
+| Chipi Josetteko Leze | Chipi josetteko leze | 1 | 3 512,87 | 553,48 | 0,00 | 0,00 | 572 | CHI_d_46/6 | 941,52 | CHIPI | 1 495,00 | 5% |
+| Trou du Renard | Trou du renard | 1 | 3 338,53 | 208,44 | 0,00 | 0,00 | 395 | REN_d_1/34 | 396,01 | REN_d_2/15 | 604,45 | 0% |
 | BG063 Gouffre de la comète | BG63 | 1 | 3 278,77 | 356,85 | 0,00 | 0,00 | 675 | BG6322-31 | 1 029,15 | BG_63 | 1 386,00 | 0% |
 | UK557-Ourtets | UK557 Gouffre des Ourtets | 1 | 2 564,77 | 316,87 | 0,00 | 0,00 | 327 | UK557_d_5/56 | 1 828,13 | A_4 | 2 145,00 | 0% |
 | E2000 | E2000 | 1 | 2 383,58 | 535,79 | 0,00 | 0,00 | 279 | H20 | 1 727,21 | AN639 | 2 263,00 | 0% |
@@ -67,7 +70,6 @@ Toutes les stations sont comptabilisées et raccordées
 | C230 | C230 Sima ricky et ses ours | 1 | 836,03 | 268,62 | 0,00 | 0,00 | 135 | _d_C230_f_164 | 1 616,38 | C_230 | 1 885,00 | 0% |
 | AN506-Ninos | AN506 Sima de los niños | 1 | 817,47 | 409,24 | 0,00 | 0,00 | 87 | PF10 | 1 754,06 | AN506 | 2 163,30 | 0% |
 | M414 | M414 | 1 | 807,45 | 351,32 | 40,10 | 0,00 | 119 | M414_d_1/52 | 1 762,68 | AN109 | 2 114,00 | 0% |
-| BL118 | BL118 | 1 | 794,25 | 296,93 | 0,00 | 0,00 | 114 | BL118_d_2/89 | 726,07 | BL_118 | 1 023,00 | 0% |
 | Z112 | Z112 Sima Christophe Audezzano | 1 | 767,20 | 261,03 | 0,00 | 0,00 | 90 | Z112_d_81 | 1 377,97 | LB7 | 1 639,00 | 0% |
 | Gorria Lezia | Gorria lezia | 1 | 750,26 | 431,36 | 0,00 | 0,00 | 137 | GOR_d_6/32 | 1 172,64 | GORRIA | 1 604,00 | 0% |
 | C110 | C110 | 1 | 735,00 | 303,54 | 0,00 | 0,00 | 52 | . | 1 479,46 | C_110 | 1 783,00 | 0% |
@@ -85,7 +87,7 @@ Toutes les stations sont comptabilisées et raccordées
 | Z106 | Z106 | 1 | 503,29 | 241,69 | 0,00 | 0,00 | 86 | Z106_d_1/40 | 1 383,31 | Z_106 | 1 625,00 | 0% |
 | Laminako Ziloa Illamina | Laminako ziloa | 1 | 479,60 | 120,00 | 0,00 | 0,00 | 52 | ILLA13B | 318,00 | ILLAMI | 438,00 | 0% |
 | Grotte de la Cascade | Grotte de la cascade | 1 | 474,60 | 23,51 | 0,00 | 0,00 | 63 | CAS_d_1/63 | 539,66 | LAC_d_RD | 563,17 | 0% |
-| F002-Cuisse de Jupiter | F2 Cuisse de Jupiter | 1 | 464,88 | 294,26 | 0,00 | 0,00 | 49 | GDP1050/9 | 1 687,74 | M_13 | 1 982,00 | 0% |
+| F002-Cuisse de Jupiter | F2 Cuisse de Jupiter | 1 | 464,88 | 294,26 | 0,00 | 0,00 | 49 | GDP1050/9 | 1 687,74 | M_13 | 1 982,00 | 10% |
 | AN109 | AN109 | 1 | 436,21 | 253,70 | 0,00 | 0,00 | 73 | QO2_13 | 1 860,30 | AN109 | 2 114,00 | 0% |
 | Sima de los Burros | AN702 Sima de los burros, AN704 | 2 | 426,96 | 216,55 | 17,01 | 0,00 | 80 | MHX33 | 1 766,73 | CX15 | 1 983,28 | 0% |
 | E022 Gouffre de la Glacière | E22 | 1 | 410,70 | 312,59 | 0,00 | 0,00 | 43 | E22_d_38 | 1 948,41 | E22_00 | 2 261,00 | 0% |
@@ -156,7 +158,7 @@ Toutes les stations sont comptabilisées et raccordées
 | AN455 | AN455 | 1 | 59,25 | 38,27 | 0,00 | 5,26 | 21 | OZ0 | 1 929,73 | AN_455 | 1 968,00 | 0% |
 | AN692-James Bond | AN692 Sima James Bond | 1 | 58,83 | 45,51 | 0,00 | 6,95 | 20 | GF1 | 1 917,63 | CY13 | 1 963,14 | 0% |
 | AN557-Avaloir | AN557 Le grand avaloir | 1 | 57,83 | 36,74 | 0,00 | 121,83 | 30 | FS22 | 2 080,11 | FS6 | 2 116,85 | 152% |
-| Gouffre BB27 | BB27 | 1 | 57,60 | 26,51 | 17,50 | 0,00 | 22 | 15 | 1 474,74 | 0 | 1 501,25 | 279% |
+| Gouffre BB27 | BB27 | 1 | 57,60 | 26,51 | 17,50 | 0,00 | 22 | 15 | 1 474,74 | 0 | 1 501,25 | 0% |
 | AN646 | AN646 | 1 | 54,48 | 47,28 | 0,00 | 0,00 | 10 | QC11 | 2 114,72 | AN646 | 2 162,00 | 0% |
 | AN536-Arco | AN536 | 1 | 54,27 | 10,39 | 0,00 | 13,33 | 19 | BGG11 | 2 099,25 | BGG3 | 2 109,64 | 0% |
 | AN465B | AN465 | 1 | 53,34 | 18,72 | 0,00 | 39,73 | 23 | PX11 | 2 106,35 | PX14 | 2 125,07 | 0% |
@@ -247,9 +249,9 @@ Toutes les stations sont comptabilisées et raccordées
 | 2021                 | 7 945,58 | 313 649,00 | 529,80 | 11 949,99 | 315,77 | 8 539,26 |
 | 2022                 | 6 913,36 | 320 562,36 | 1 794,04 | 13 744,03 | 42,40 | 8 581,66 |
 | 2023                 | 6 343,27 | 326 905,63 | 1 180,34 | 14 924,37 | 79,70 | 8 661,36 |
-| 2024                 | 7 668,89 | 334 574,52 | 597,99 | 15 522,36 | 144,72 | 8 806,08 |
-| 2025                 | 5 695,94 | 340 270,46 | 102,89 | 15 625,25 | 150,53 | 8 956,61 |
-| 2026                 | 257,03 | 340 527,49 | 0,00 | 15 625,25 | 0,00 | 8 956,61 |
+| 2024                 | 7 668,90 | 334 574,53 | 597,99 | 15 522,36 | 144,72 | 8 806,08 |
+| 2025                 | 5 695,94 | 340 270,47 | 102,89 | 15 625,25 | 150,53 | 8 956,61 |
+| 2026                 | 257,03 | 340 527,50 | 0,00 | 15 625,25 | 0,00 | 8 956,61 |
 
 
 --------------
@@ -280,7 +282,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-29 14h53m17s |
-| Durée calcul |03 (m) 03 (s) sans erreur |
+|       Date | 2026-10-30 17h29m58s |
+| Durée calcul |04 (m) 10 (s) sans erreur |
 
 --------------
