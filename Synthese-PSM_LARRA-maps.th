@@ -183,8 +183,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	# MP-Complexe_Ours-Veau-Plan-tot@Complexe_Ours-Veau
 	# break
-	# MP-Complexe_Soudet-Plan-tot@Complexe_Soudet
-	# break	
+	MP-Complexe_Soudet-Plan-tot@Complexe_Soudet
+	break	
 	MP-M326-Embrochat-Plan-tot@M326-Embrochat
 	break
 	MP-Complexe_PSM_GdP-Plan-tot@Complexe_PSM_GdP
