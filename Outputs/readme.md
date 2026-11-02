@@ -15,7 +15,7 @@ Toutes les stations sont comptabilisées et raccordées
 ### Développement total par réseau
 |  Réseau  |  Entrée(s)  |  Nbre  |  Dev. (m)  |  Prof. (m)  |  Dupl. (m)  |  Surf. (m) |  Visées  |  ID Stat.  |  Alt. min (m)  |  ID Stat.  |  Alt. max (m)  |  Avt. dessin (%)  |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|  | **Totaux** | **202** | **340 527,51** | **2 016,00** | **15 625,25** | **8 956,61** | **45187** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **32%** |
+|  | **Totaux** | **202** | **340 527,51** | **2 016,00** | **15 625,25** | **8 956,61** | **45187** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **33%** |
 | Complexe Arrestelia | Arresteliako ziloa, Perte d'Eruso, Odita lezia | 3 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6344 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 | 0% |
 | Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6022 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
 | Complexe PSM GdP | Tunnel de la Verna, Xendako ziloa | 2 | 8 676,45 | 548,79 | 1 618,14 | 0,00 | 1063 | - | 966,47 | _d_XEN_f_XX2 | 1 515,26 | 647% |
@@ -50,7 +50,7 @@ Toutes les stations sont comptabilisées et raccordées
 | DS049-Romy | DS49 | 1 | 5 435,99 | 696,11 | 0,00 | 0,00 | 680 | DS495/172 | 853,89 | DS_49 | 1 550,00 | 0% |
 | UK4 Sima de Ukerdi Abajo | UK4 | 1 | 4 164,03 | 715,19 | 0,00 | 0,00 | 581 | UK4_d_25/16 | 1 083,81 | VB11 | 1 799,00 | 0% |
 | Grotte aux lacs | Grotte aux lacs | 1 | 4 054,16 | 108,40 | 0,00 | 15,50 | 435 | LAC_d_SORT27 | 529,73 | LAC_d_MS7 | 638,13 | 0% |
-| Chipi Josetteko Leze | Chipi josetteko leze | 1 | 3 512,87 | 553,48 | 0,00 | 0,00 | 572 | CHI_d_46/6 | 941,52 | CHIPI | 1 495,00 | 5% |
+| Chipi Josetteko Leze | Chipi josetteko leze | 1 | 3 512,87 | 553,48 | 0,00 | 0,00 | 572 | CHI_d_46/6 | 941,52 | CHIPI | 1 495,00 | 0% |
 | Trou du Renard | Trou du renard | 1 | 3 338,53 | 208,44 | 0,00 | 0,00 | 395 | REN_d_1/34 | 396,01 | REN_d_2/15 | 604,45 | 0% |
 | BG063 Gouffre de la comète | BG63 | 1 | 3 278,77 | 356,85 | 0,00 | 0,00 | 675 | BG6322-31 | 1 029,15 | BG_63 | 1 386,00 | 0% |
 | UK557-Ourtets | UK557 Gouffre des Ourtets | 1 | 2 564,77 | 316,87 | 0,00 | 0,00 | 327 | UK557_d_5/56 | 1 828,13 | A_4 | 2 145,00 | 0% |
@@ -80,14 +80,14 @@ Toutes les stations sont comptabilisées et raccordées
 | AN676 Sima Helado | AN52 Sima Helado, AN676A | 2 | 616,56 | 100,93 | 0,00 | 51,08 | 165 | BFF47 | 2 069,07 | AN52 | 2 170,00 | 0% |
 | AN326-Sima del Liron | AN326 Sima del Liron | 1 | 598,25 | 271,81 | 0,00 | 119,58 | 129 | AN326CF11 | 1 350,19 | AN_324 | 1 622,00 | 0% |
 | AN595-Polaire | AN595 Sima Polaire | 1 | 570,06 | 291,30 | 0,00 | 92,15 | 92 | FZ28 | 1 957,20 | AN595 | 2 248,50 | 0% |
-| Grotte des Stalactites déviées | Grotte des stalactites déviées | 1 | 537,38 | 164,47 | 0,00 | 0,00 | 49 | STALAC | 530,00 | STA_d_2/2 | 694,47 | 0% |
+| Grotte des Stalactites déviées | Grotte des stalactites déviées | 1 | 537,38 | 164,47 | 0,00 | 0,00 | 49 | STALAC | 530,00 | STA_d_2/2 | 694,47 | 97% |
 | UK600-Sima Beauf | UK600 Sima Beauf | 1 | 530,65 | 281,98 | 0,00 | 0,00 | 67 | BEAU2/10 | 1 458,02 | E20_d_226 | 1 740,00 | 0% |
 | Sima 1748 | Sima 1748 | 1 | 515,00 | 263,50 | 0,00 | 0,00 | 17 | _d_1748_f_5.7 | 1 484,50 | Sima_1748 | 1 748,00 | 0% |
 | C108-Sima H | C108 Sima H | 1 | 509,80 | 194,09 | 0,00 | 0,00 | 26 | C1085_1 | 1 702,91 | C_108 | 1 897,00 | 0% |
 | Z106 | Z106 | 1 | 503,29 | 241,69 | 0,00 | 0,00 | 86 | Z106_d_1/40 | 1 383,31 | Z_106 | 1 625,00 | 0% |
 | Laminako Ziloa Illamina | Laminako ziloa | 1 | 479,60 | 120,00 | 0,00 | 0,00 | 52 | ILLA13B | 318,00 | ILLAMI | 438,00 | 0% |
 | Grotte de la Cascade | Grotte de la cascade | 1 | 474,60 | 23,51 | 0,00 | 0,00 | 63 | CAS_d_1/63 | 539,66 | LAC_d_RD | 563,17 | 0% |
-| F002-Cuisse de Jupiter | F2 Cuisse de Jupiter | 1 | 464,88 | 294,26 | 0,00 | 0,00 | 49 | GDP1050/9 | 1 687,74 | M_13 | 1 982,00 | 10% |
+| F002-Cuisse de Jupiter | F2 Cuisse de Jupiter | 1 | 464,88 | 294,26 | 0,00 | 0,00 | 49 | GDP1050/9 | 1 687,74 | M_13 | 1 982,00 | 0% |
 | AN109 | AN109 | 1 | 436,21 | 253,70 | 0,00 | 0,00 | 73 | QO2_13 | 1 860,30 | AN109 | 2 114,00 | 0% |
 | Sima de los Burros | AN702 Sima de los burros, AN704 | 2 | 426,96 | 216,55 | 17,01 | 0,00 | 80 | MHX33 | 1 766,73 | CX15 | 1 983,28 | 0% |
 | E022 Gouffre de la Glacière | E22 | 1 | 410,70 | 312,59 | 0,00 | 0,00 | 43 | E22_d_38 | 1 948,41 | E22_00 | 2 261,00 | 0% |
@@ -157,7 +157,7 @@ Toutes les stations sont comptabilisées et raccordées
 | AN634 | AN634 | 1 | 63,56 | 50,07 | 0,00 | 0,00 | 10 | NA11 | 2 283,93 | AN634 | 2 334,00 | 0% |
 | AN455 | AN455 | 1 | 59,25 | 38,27 | 0,00 | 5,26 | 21 | OZ0 | 1 929,73 | AN_455 | 1 968,00 | 0% |
 | AN692-James Bond | AN692 Sima James Bond | 1 | 58,83 | 45,51 | 0,00 | 6,95 | 20 | GF1 | 1 917,63 | CY13 | 1 963,14 | 0% |
-| AN557-Avaloir | AN557 Le grand avaloir | 1 | 57,83 | 36,74 | 0,00 | 121,83 | 30 | FS22 | 2 080,11 | FS6 | 2 116,85 | 152% |
+| AN557-Avaloir | AN557 Le grand avaloir | 1 | 57,83 | 36,74 | 0,00 | 121,83 | 30 | FS22 | 2 080,11 | FS6 | 2 116,85 | 0% |
 | Gouffre BB27 | BB27 | 1 | 57,60 | 26,51 | 17,50 | 0,00 | 22 | 15 | 1 474,74 | 0 | 1 501,25 | 0% |
 | AN646 | AN646 | 1 | 54,48 | 47,28 | 0,00 | 0,00 | 10 | QC11 | 2 114,72 | AN646 | 2 162,00 | 0% |
 | AN536-Arco | AN536 | 1 | 54,27 | 10,39 | 0,00 | 13,33 | 19 | BGG11 | 2 099,25 | BGG3 | 2 109,64 | 0% |
@@ -282,7 +282,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-30 17h29m58s |
-| Durée calcul |04 (m) 10 (s) sans erreur |
+|       Date | 2026-10-30 22h24m15s |
+| Durée calcul |03 (m) 13 (s) sans erreur |
 
 --------------
