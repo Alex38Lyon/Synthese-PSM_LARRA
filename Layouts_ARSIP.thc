@@ -88,8 +88,8 @@ layout my_layout
 	# Il faut spécifier un de ces points comme ce que sera placé sur les cordonnées.
 	# Alors nous pouvons spécifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	# ou une autre combinaison...
-	map-header 3 98 nw
-	map-image 8 83 nw Logos/Logo-ARSIP-Synthese-Topographique_XL.png
+	map-header 80 20 nw
+	map-image 85 3 nw Logos/Logo-ARSIP-Synthese-Topographique_XL.png
 	
 	# arrière plan de la manchette
 	map-header-bg on

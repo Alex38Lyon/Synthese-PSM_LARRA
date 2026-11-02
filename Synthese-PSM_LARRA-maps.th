@@ -174,7 +174,7 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# MP-Chipi_Josetteko_Leze-Plan-tot@Chipi_Josetteko_Leze
 	# break
 	# MP-Complexe_Anialarra-Plan-tot@Complexe_Anialarra
-	# break
+	# break	
 	# MP-Complexe_Arrestelia-Plan-tot@Complexe_Arrestelia
 	# break
 	# MP-Complexe_BU56_Ilamina-Plan-tot@Complexe_BU56_Ilamina
@@ -229,8 +229,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	# break
 	MP-LAKxxx-Bouquetins-Plan-tot@LAKxxx-Bouquetins
 	break
-	# MP-Laminako_Ziloa_Illamina-Plan-tot@Laminako_Ziloa_Illamina
-	# break
+	MP-Laminako_Ziloa_Illamina-Plan-tot@Laminako_Ziloa_Illamina
+	break
 	MP-M108-Plan-tot@M108
 	break
 	MP-M400-Plan-tot@M400
