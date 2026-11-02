@@ -15,15 +15,15 @@ Toutes les stations sont comptabilisées et raccordées
 ### Développement total par réseau
 |  Réseau  |  Entrée(s)  |  Nbre  |  Dev. (m)  |  Prof. (m)  |  Dupl. (m)  |  Surf. (m) |  Visées  |  ID Stat.  |  Alt. min (m)  |  ID Stat.  |  Alt. max (m)  |  Avt. dessin (%)  |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|  | **Totaux** | **202** | **340 527,51** | **2 016,00** | **15 625,25** | **8 956,61** | **45187** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **33%** |
+|  | **Totaux** | **202** | **340 527,51** | **2 016,00** | **15 625,25** | **8 956,61** | **45184** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **34%** |
 | Complexe Arrestelia | Arresteliako ziloa, Perte d'Eruso, Odita lezia | 3 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6344 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 | 0% |
-| Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6022 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
+| Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6019 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
 | Complexe PSM GdP | Tunnel de la Verna, Xendako ziloa | 2 | 8 676,45 | 548,79 | 1 618,14 | 0,00 | 1063 | - | 966,47 | _d_XEN_f_XX2 | 1 515,26 | 647% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | SC_3_4 | 2 017,00 | AN596 | 2 057,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | AN456 | 1 962,00 | M_13_B | 2 002,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | UU37 | 1 747,00 | SL_19_H | 1 787,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | CHI_d_38/1 | 1 275,00 | HUET_N | 1 315,00 | 0% |
-| *Complexe PSM GdP* | *-* | *14* | *56 902,58* | *1 821,87* | *9 447,65* | *1,81* | *7109* |  |  |  |  |  |
+| *Complexe PSM GdP* | *-* | *14* | *56 902,58* | *1 821,87* | *9 447,65* | *1,81* | *7106* |  |  |  |  |  |
 | Complexe Anialarra | AN454-21-01, AN509-1, AN51 01, AN519 A AN519 B, AN563-14-16, AN597-16-1, AN6-02-01, AN60-11-00, AN709-20-01, FR3-FI06 16 | 10 | 46 208,59 | 859,07 | 329,07 | 7 339,64 | 7484 | AN43GA2 | 1 319,13 | AN509 | 2 178,20 | 0% |
 | Complexe Anialarra | AN43 | 1 | 1 540,03 | 376,73 | 0,00 | 0,00 | 248 | BG632-31 | 1 349,27 | AN43 | 1 726,00 | 0% |
 | Complexe Anialarra | AN3 | 1 | 310,92 | 205,15 | 0,00 | 44,73 | 53 | QE18 | 1 839,85 | AN3 | 2 045,00 | 0% |
@@ -37,9 +37,9 @@ Toutes les stations sont comptabilisées et raccordées
 | Complexe Lonné Peyret-Bourrugues | GL102 Gouffre du Lonné Peyret, GL4 Gouffre du Cam de Caque | 2 | 3 251,11 | 475,71 | 143,81 | 0,00 | 353 | 25 | 1 160,29 | GL_4 | 1 636,00 | 526% |
 | Complexe Lonné Peyret-Bourrugues | AP260 | 1 | 0,01 | 0,00 | 0,00 | 0,00 | 1 | AP_260 | 1 720,00 | AP_260 | 1 720,00 | 0% |
 | *Complexe Lonné Peyret-Bourrugues* | *-* | *5* | *17 099,91* | *1 520,90* | *260,24* | *0,00* | *2305* |  |  |  |  |  |
-| Arphidia | Trou du robinet | 1 | 12 791,76 | 491,99 | 0,00 | 0,00 | 1479 | ARP419/50 | 588,45 | ARP338/21 | 1 080,44 | 0% |
+| Arphidia | Trou du robinet | 1 | 12 791,76 | 491,99 | 0,00 | 0,00 | 1478 | ARP419/50 | 588,45 | ARP338/21 | 1 080,44 | 0% |
 | Arphidia | Arphidia | 1 | 243,24 | 68,25 | 0,00 | 0,00 | 33 | ARP100/33 | 985,75 | ROBINET | 1 054,00 | 0% |
-| *Arphidia* | *-* | *2* | *13 035,00* | *560,24* | *0,00* | *0,00* | *1512* |  |  |  |  |  |
+| *Arphidia* | *-* | *2* | *13 035,00* | *560,24* | *0,00* | *0,00* | *1511* |  |  |  |  |  |
 | Complexe Ours-Veau | LAK01 Pérdida del Becerro | 1 | 10 493,84 | 667,68 | 1 481,76 | 0,00 | 1457 | LAR_d_145/85 | 856,53 | . | 1 524,21 | 0% |
 | AN8 | AN8, AN9 | 2 | 8 226,55 | 805,22 | 0,00 | 0,00 | 898 | AN8_d_1701 | 1 007,78 | AN9 | 1 813,00 | 0% |
 | UK22 Sima del Tobozo | UKK22 Sima del Tobozo | 1 | 7 228,71 | 514,65 | 0,00 | 0,00 | 700 | 34 | 1 460,35 | 0 | 1 975,00 | 0% |
@@ -51,7 +51,7 @@ Toutes les stations sont comptabilisées et raccordées
 | UK4 Sima de Ukerdi Abajo | UK4 | 1 | 4 164,03 | 715,19 | 0,00 | 0,00 | 581 | UK4_d_25/16 | 1 083,81 | VB11 | 1 799,00 | 0% |
 | Grotte aux lacs | Grotte aux lacs | 1 | 4 054,16 | 108,40 | 0,00 | 15,50 | 435 | LAC_d_SORT27 | 529,73 | LAC_d_MS7 | 638,13 | 0% |
 | Chipi Josetteko Leze | Chipi josetteko leze | 1 | 3 512,87 | 553,48 | 0,00 | 0,00 | 572 | CHI_d_46/6 | 941,52 | CHIPI | 1 495,00 | 0% |
-| Trou du Renard | Trou du renard | 1 | 3 338,53 | 208,44 | 0,00 | 0,00 | 395 | REN_d_1/34 | 396,01 | REN_d_2/15 | 604,45 | 0% |
+| Trou du Renard | Trou du renard | 1 | 3 338,53 | 208,44 | 0,00 | 0,00 | 396 | REN_d_1/34 | 396,01 | REN_d_2/15 | 604,45 | 0% |
 | BG063 Gouffre de la comète | BG63 | 1 | 3 278,77 | 356,85 | 0,00 | 0,00 | 675 | BG6322-31 | 1 029,15 | BG_63 | 1 386,00 | 0% |
 | UK557-Ourtets | UK557 Gouffre des Ourtets | 1 | 2 564,77 | 316,87 | 0,00 | 0,00 | 327 | UK557_d_5/56 | 1 828,13 | A_4 | 2 145,00 | 0% |
 | E2000 | E2000 | 1 | 2 383,58 | 535,79 | 0,00 | 0,00 | 279 | H20 | 1 727,21 | AN639 | 2 263,00 | 0% |
@@ -80,8 +80,8 @@ Toutes les stations sont comptabilisées et raccordées
 | AN676 Sima Helado | AN52 Sima Helado, AN676A | 2 | 616,56 | 100,93 | 0,00 | 51,08 | 165 | BFF47 | 2 069,07 | AN52 | 2 170,00 | 0% |
 | AN326-Sima del Liron | AN326 Sima del Liron | 1 | 598,25 | 271,81 | 0,00 | 119,58 | 129 | AN326CF11 | 1 350,19 | AN_324 | 1 622,00 | 0% |
 | AN595-Polaire | AN595 Sima Polaire | 1 | 570,06 | 291,30 | 0,00 | 92,15 | 92 | FZ28 | 1 957,20 | AN595 | 2 248,50 | 0% |
-| Grotte des Stalactites déviées | Grotte des stalactites déviées | 1 | 537,38 | 164,47 | 0,00 | 0,00 | 49 | STALAC | 530,00 | STA_d_2/2 | 694,47 | 97% |
-| UK600-Sima Beauf | UK600 Sima Beauf | 1 | 530,65 | 281,98 | 0,00 | 0,00 | 67 | BEAU2/10 | 1 458,02 | E20_d_226 | 1 740,00 | 0% |
+| Grotte des Stalactites déviées | Grotte des stalactites déviées | 1 | 537,38 | 164,47 | 0,00 | 0,00 | 49 | STALAC | 530,00 | STA_d_2/2 | 694,47 | 0% |
+| UK600-Sima Beauf | UK600 Sima Beauf | 1 | 530,65 | 281,98 | 0,00 | 0,00 | 67 | BEAU2/10 | 1 458,02 | E20_d_226 | 1 740,00 | 3513% |
 | Sima 1748 | Sima 1748 | 1 | 515,00 | 263,50 | 0,00 | 0,00 | 17 | _d_1748_f_5.7 | 1 484,50 | Sima_1748 | 1 748,00 | 0% |
 | C108-Sima H | C108 Sima H | 1 | 509,80 | 194,09 | 0,00 | 0,00 | 26 | C1085_1 | 1 702,91 | C_108 | 1 897,00 | 0% |
 | Z106 | Z106 | 1 | 503,29 | 241,69 | 0,00 | 0,00 | 86 | Z106_d_1/40 | 1 383,31 | Z_106 | 1 625,00 | 0% |
@@ -282,7 +282,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-10-30 22h24m15s |
-| Durée calcul |03 (m) 13 (s) sans erreur |
+|       Date | 2026-11-02 17h47m34s |
+| Durée calcul |04 (m) 07 (s) sans erreur |
 
 --------------
