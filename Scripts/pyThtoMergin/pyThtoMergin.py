@@ -334,10 +334,10 @@ def sync_mergin(
         envoyer_avec_progression(client, dossier_projet)
 
         # 5. Nettoyage de la copie GitHub uniquement après succès.
-        logger.info(f"[5/5]{Colors.INFO} Envoi terminé, nettoyage des dossiers temporaires...")
+        logger.info(f"[5/5]{Colors.INFO} Envoi terminé, nettoyage des dossiers temporaires si nécessaire...")
         if not (sys.stdout.isatty() and sys.stderr.isatty() and os.environ.get("TERM", "").lower() != "dumb"):
             shutil.rmtree(dossier_github, ignore_errors=True)
-            shutil.rmtree(dossier_projet, ignore_errors=True)
+            # shutil.rmtree(dossier_projet, ignore_errors=True)  # Nettoyage réalisé manuellement par l'opérateur
 
         # logger.info("Envoi terminé avec succès.")
 
