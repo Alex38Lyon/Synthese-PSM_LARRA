@@ -53953,7 +53953,7 @@ insert into SCRAPS values (44734, 44728, 'SP-Explo_49_2025_08_08_01', 1, 0.33137
  insert into MAPITEMS values (44772, 4, 44611);
  insert into MAPITEMS values (44772, 4, 44710);
  insert into MAPITEMS values (44772, 4, 44769);
- insert into SURVEY values (44774, 59, 'Complexe_Soudet', 'Complexe_Soudet.Synthese-PSM_LARRA', 'Réseau de Soudet');
+ insert into SURVEY values (44774, 59, 'Complexe_Soudet', 'Complexe_Soudet.Synthese-PSM_LARRA', 'Réseau du Soudet');
  insert into CENTRELINE values (44775, 44774, NULL, NULL, NULL, 0.00, 0.00, 0.00);
  insert into SURVEY values (44776, 44774, 'BL118', 'BL118.Complexe_Soudet.Synthese-PSM_LARRA', 'BL118');
  insert into CENTRELINE values (44777, 44776, NULL, NULL, NULL, 0.00, 0.00, 0.00);

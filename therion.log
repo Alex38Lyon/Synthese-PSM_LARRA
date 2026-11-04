@@ -1142,7 +1142,7 @@ S  1489.05 SP-Z510_Fond_01@Z510_Fond.Z510.Synthese-PSM_LARRA ()
 ########## end of export maps & scraps selection ###############
 writing Outputs/Synthese-PSM_LARRA-Plan_LT.pdf ...
 ####################### metapost log file ########################
-This is MetaPost, version 2.02 (TeX Live 2023/Debian) (kpathsea version 6.3.5)  2 NOV 2026 19:54
+This is MetaPost, version 2.02 (TeX Live 2023/Debian) (kpathsea version 6.3.5)  4 NOV 2026 16:42
 **data.mp
 (/usr/share/texlive/texmf-dist/metapost/base/mpost.mp
 (/usr/share/texlive/texmf-dist/metapost/base/plain.mp
@@ -1370,7 +1370,7 @@ Here is how much of MetaPost's memory you used:
 converting scraps ... done
 making map ... done
 ######################## pdftex log file #########################
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdftex 2026.11.2)  2 NOV 2026 19:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdftex 2026.11.4)  4 NOV 2026 16:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1418,7 +1418,7 @@ average distortion: 0.54%
 done
 writing Outputs/Synthese-PSM_LARRA-Surveys.html ... done
 writing Outputs/Synthese-PSM_LARRA-Cave-list.txt ... done
-compilation time: 270 sec
+compilation time: 151 sec
 
 
 ######################### loop errors ##########################
