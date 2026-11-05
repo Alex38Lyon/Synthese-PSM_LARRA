@@ -141,7 +141,7 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	MP-AP337-Plan-tot@AP337
 	break
-	# MP-Arphidia-Plan-tot@Arphidia
+	# MP-Arphidia-Plan-tot@Arphidia     																		# Voir AI 2020 spécial Arphidia
 	# break
 	MP-BB09-Plan-tot@BB09
 	break
@@ -151,16 +151,16 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	# MP-BB50-Plan-tot@BB50
 	# break
-	# MP-BG063-Gouffre_de_la_comete-Plan-tot@BG063-Gouffre_de_la_comete
+	# MP-BG063-Gouffre_de_la_comete-Plan-tot@BG063-Gouffre_de_la_comete      						# A dessiner
 	# break
-	MP-C103-Plan-tot@C103
+	MP-C103-Plan-tot@C103                  																	
 	break
 	MP-C108-Sima_H-Plan-tot@C108-Sima_H
 	break
 	MP-C110-Plan-tot@C110
 	break
-	# MP-C213-Plan-tot@C213
-	# break
+	MP-C213-Plan-tot@C213                        														 
+	break
 	MP-C214-Niebla-Plan-tot@C214-Niebla
 	break
 	MP-C230-Plan-tot@C230
@@ -171,29 +171,29 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	MP-Cathedrale_de_Pyrene-Plan-tot@Cathedrale_de_Pyrene
 	break
-	# MP-Chipi_Josetteko_Leze-Plan-tot@Chipi_Josetteko_Leze
+	# MP-Chipi_Josetteko_Leze-Plan-tot@Chipi_Josetteko_Leze             								# Recherche belle topo
 	# break
-	# MP-Complexe_Anialarra-Plan-tot@Complexe_Anialarra
+	# MP-Complexe_Anialarra-Plan-tot@Complexe_Anialarra                 								# A dessiner, du travail !
 	# break	
-	# MP-Complexe_Arrestelia-Plan-tot@Complexe_Arrestelia
+	# MP-Complexe_Arrestelia-Plan-tot@Complexe_Arrestelia               								# Recherche belle topo 
 	# break
-	# MP-Complexe_BU56_Ilamina-Plan-tot@Complexe_BU56_Ilamina
+	# MP-Complexe_BU56_Ilamina-Plan-tot@Complexe_BU56_Ilamina           								# Recherche belle topo 
 	# break
-	MP-Complexe_Lonne_Peyret-Bourrugues-Plan-tot@Complexe_Lonne_Peyret-Bourrugues
+	MP-Complexe_Lonne_Peyret-Bourrugues-Plan-tot@Complexe_Lonne_Peyret-Bourrugues             # Recherche belle topo des manques
 	break
-	# MP-Complexe_Ours-Veau-Plan-tot@Complexe_Ours-Veau
+	# MP-Complexe_Ours-Veau-Plan-tot@Complexe_Ours-Veau                 								# A dessiner  
 	# break
-	MP-Complexe_Soudet-Plan-tot@Complexe_Soudet
+	MP-Complexe_Soudet-Plan-tot@Complexe_Soudet                         								# Recherche belle topo
 	break	
 	MP-M326-Embrochat-Plan-tot@M326-Embrochat
 	break
-	MP-Complexe_PSM_GdP-Plan-tot@Complexe_PSM_GdP
+	MP-Complexe_PSM_GdP-Plan-tot@Complexe_PSM_GdP                       								# A gros manques, à compléter
 	break
 	MP-CUCC4-Plan-tot@CUCC4
 	break
 	MP-CUCC5-Plan-tot@CUCC5
 	break
-	# MP-DS049-Romy-Plan-tot@DS049-Romy
+	# MP-DS049-Romy-Plan-tot@DS049-Romy                                								# Recherche belle topo, attention pas de pentes (topo  reconstruite)
 	# break
 	# MP-E003_TSR_3-Plan-tot@E003_TSR_3
 	# break
@@ -263,7 +263,7 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	MP-UKxxx-Marmitou-Plan-tot@UKxxx-Marmitou
 	break
-	# MP-UT140-Basa_Ordia_Lezia-Plan-tot@UT140-Basa_Ordia_Lezia
+	# MP-UT140-Basa_Ordia_Lezia-Plan-tot@UT140-Basa_Ordia_Lezia                                  # Dessin à rechercher
 	# break
 	MP-Z017-Plan-tot@Z017
 	break
