@@ -43,10 +43,10 @@ Toutes les stations sont comptabilisées et raccordées
 | Complexe Ours-Veau | LAK01 Pérdida del Becerro | 1 | 10 493,84 | 667,68 | 1 481,76 | 0,00 | 1457 | LAR_d_145/85 | 856,53 | . | 1 524,21 | 0% |
 | AN8 | AN8, AN9 | 2 | 8 226,55 | 805,22 | 0,00 | 0,00 | 898 | AN8_d_1701 | 1 007,78 | AN9 | 1 813,00 | 0% |
 | UK22 Sima del Tobozo | UKK22 Sima del Tobozo | 1 | 7 228,71 | 514,65 | 0,00 | 0,00 | 700 | 34 | 1 460,35 | 0 | 1 975,00 | 0% |
-| Réseau de Soudet | BT6 | 1 | 5 212,26 | 670,59 | 0,00 | 0,00 | 744 | LAR_d_150/12 | 947,41 | BT_6 | 1 618,00 | 0% |
-| Réseau de Soudet | BL118 | 1 | 794,25 | 296,93 | 0,00 | 0,00 | 114 | BL118_d_2/89 | 726,07 | BL_118 | 1 023,00 | 0% |
-| Réseau de Soudet | BT5 | 1 | 0,01 | 0,00 | 0,00 | 0,00 | 1 | B_3 | 1 620,00 | B_3 | 1 620,00 | 0% |
-| *Réseau de Soudet* | *-* | *3* | *6 006,52* | *967,52* | *0,00* | *0,00* | *859* |  |  |  |  |  |
+| Réseau du Soudet | BT6 | 1 | 5 212,26 | 670,59 | 0,00 | 0,00 | 744 | LAR_d_150/12 | 947,41 | BT_6 | 1 618,00 | 0% |
+| Réseau du Soudet | BL118 | 1 | 794,25 | 296,93 | 0,00 | 0,00 | 114 | BL118_d_2/89 | 726,07 | BL_118 | 1 023,00 | 0% |
+| Réseau du Soudet | BT5 | 1 | 0,01 | 0,00 | 0,00 | 0,00 | 1 | B_3 | 1 620,00 | B_3 | 1 620,00 | 0% |
+| *Réseau du Soudet* | *-* | *3* | *6 006,52* | *967,52* | *0,00* | *0,00* | *859* |  |  |  |  |  |
 | DS049-Romy | DS49 | 1 | 5 435,99 | 696,11 | 0,00 | 0,00 | 680 | DS495/172 | 853,89 | DS_49 | 1 550,00 | 0% |
 | UK4 Sima de Ukerdi Abajo | UK4 | 1 | 4 164,03 | 715,19 | 0,00 | 0,00 | 581 | UK4_d_25/16 | 1 083,81 | VB11 | 1 799,00 | 0% |
 | Grotte aux lacs | Grotte aux lacs | 1 | 4 054,16 | 108,40 | 0,00 | 15,50 | 435 | LAC_d_SORT27 | 529,73 | LAC_d_MS7 | 638,13 | 0% |
@@ -282,7 +282,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-11-02 20h00m51s |
-| Durée calcul |04 (m) 02 (s) sans erreur |
+|       Date | 2026-11-04 16h46m51s |
+| Durée calcul |02 (m) 43 (s) sans erreur |
 
 --------------
