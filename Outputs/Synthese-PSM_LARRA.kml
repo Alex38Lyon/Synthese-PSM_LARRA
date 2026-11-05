@@ -316,7 +316,7 @@
 <Point> <coordinates>-0.72716669907802,42.98348302795968,1537.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BG63]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BG63 Gouffre de la comète]]></name>
 <Point> <coordinates>-0.74662676567609,42.98963111484379,1386.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -508,11 +508,11 @@
 <Point> <coordinates>-0.82477043375044,42.94763132172773,1489.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BL118]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BL118 Gouffre du Kongélateur]]></name>
 <Point> <coordinates>-0.78971435183160,42.98868003645933,1023.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BT6]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[BT6 Gouffre du Bracas de Thurugne]]></name>
 <Point> <coordinates>-0.75683632315851,42.98041301513661,1618.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -8051,7 +8051,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1996 01 21]]></name>
 <Folder>
-<name><![CDATA[BG63]]></name>
+<name><![CDATA[BG63 Gouffre de la comète]]></name>
 <Placemark>
 <name>BG_63</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -61990,7 +61990,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1992 10 26]]></name>
 <Folder>
-<name><![CDATA[BL118]]></name>
+<name><![CDATA[BL118 Gouffre du Kongélateur]]></name>
 <Placemark>
 <name>BL_118</name>
 <styleUrl>#ThSurveyLine</styleUrl>
@@ -62059,7 +62059,7 @@
 <Folder>
 <name><![CDATA[Explo 01 1985 08 01]]></name>
 <Folder>
-<name><![CDATA[BT6]]></name>
+<name><![CDATA[BT6 Gouffre du Bracas de Thurugne]]></name>
 <Placemark>
 <name>BT_6</name>
 <styleUrl>#ThSurveyLine</styleUrl>

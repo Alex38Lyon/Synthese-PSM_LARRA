@@ -27,7 +27,7 @@ Toutes les stations sont comptabilisées et raccordées
 | Complexe Anialarra | AN454-21-01, AN509-1, AN51 01, AN519 A AN519 B, AN563-14-16, AN597-16-1, AN6-02-01, AN60-11-00, AN709-20-01, FR3-FI06 16 | 10 | 46 208,59 | 859,07 | 329,07 | 7 339,64 | 7484 | AN43GA2 | 1 319,13 | AN509 | 2 178,20 | 0% |
 | Complexe Anialarra | AN43 | 1 | 1 540,03 | 376,73 | 0,00 | 0,00 | 248 | BG632-31 | 1 349,27 | AN43 | 1 726,00 | 0% |
 | Complexe Anialarra | AN3 | 1 | 310,92 | 205,15 | 0,00 | 44,73 | 53 | QE18 | 1 839,85 | AN3 | 2 045,00 | 0% |
-| Complexe Anialarra | AN548 | 1 | 153,85 | 50,43 | 5,62 | 10,18 | 30 | HH3 | 2 046,24 | BA11 | 2 096,67 | 0% |
+| Complexe Anialarra | AN548 | 1 | 153,85 | 50,43 | 5,62 | 10,18 | 30 | HH3 | 2 046,24 | BA11 | 2 096,67 | 105% |
 | Complexe Anialarra | AN57 | 1 | 140,39 | 77,17 | 95,38 | 0,00 | 50 | LK1 | 1 995,23 | BFF25 | 2 072,40 | 0% |
 | Complexe Anialarra | AN564 | 1 | 60,62 | 30,84 | 0,00 | 0,00 | 10 | FQ9 | 2 124,16 | AN564 | 2 155,00 | 0% |
 | *Complexe Anialarra* | *-* | *15* | *48 414,40* | *1 599,39* | *430,07* | *7 394,55* | *7875* |  |  |  |  |  |
@@ -43,8 +43,8 @@ Toutes les stations sont comptabilisées et raccordées
 | Complexe Ours-Veau | LAK01 Pérdida del Becerro | 1 | 10 493,84 | 667,68 | 1 481,76 | 0,00 | 1457 | LAR_d_145/85 | 856,53 | . | 1 524,21 | 0% |
 | AN8 | AN8, AN9 | 2 | 8 226,55 | 805,22 | 0,00 | 0,00 | 898 | AN8_d_1701 | 1 007,78 | AN9 | 1 813,00 | 0% |
 | UK22 Sima del Tobozo | UKK22 Sima del Tobozo | 1 | 7 228,71 | 514,65 | 0,00 | 0,00 | 700 | 34 | 1 460,35 | 0 | 1 975,00 | 0% |
-| Réseau du Soudet | BT6 | 1 | 5 212,26 | 670,59 | 0,00 | 0,00 | 744 | LAR_d_150/12 | 947,41 | BT_6 | 1 618,00 | 0% |
-| Réseau du Soudet | BL118 | 1 | 794,25 | 296,93 | 0,00 | 0,00 | 114 | BL118_d_2/89 | 726,07 | BL_118 | 1 023,00 | 0% |
+| Réseau du Soudet | BT6 Gouffre du Bracas de Thurugne | 1 | 5 212,26 | 670,59 | 0,00 | 0,00 | 744 | LAR_d_150/12 | 947,41 | BT_6 | 1 618,00 | 0% |
+| Réseau du Soudet | BL118 Gouffre du Kongélateur | 1 | 794,25 | 296,93 | 0,00 | 0,00 | 114 | BL118_d_2/89 | 726,07 | BL_118 | 1 023,00 | 0% |
 | Réseau du Soudet | BT5 | 1 | 0,01 | 0,00 | 0,00 | 0,00 | 1 | B_3 | 1 620,00 | B_3 | 1 620,00 | 0% |
 | *Réseau du Soudet* | *-* | *3* | *6 006,52* | *967,52* | *0,00* | *0,00* | *859* |  |  |  |  |  |
 | DS049-Romy | DS49 | 1 | 5 435,99 | 696,11 | 0,00 | 0,00 | 680 | DS495/172 | 853,89 | DS_49 | 1 550,00 | 0% |
@@ -52,7 +52,7 @@ Toutes les stations sont comptabilisées et raccordées
 | Grotte aux lacs | Grotte aux lacs | 1 | 4 054,16 | 108,40 | 0,00 | 15,50 | 435 | LAC_d_SORT27 | 529,73 | LAC_d_MS7 | 638,13 | 0% |
 | Chipi Josetteko Leze | Chipi josetteko leze | 1 | 3 512,87 | 553,48 | 0,00 | 0,00 | 572 | CHI_d_46/6 | 941,52 | CHIPI | 1 495,00 | 0% |
 | Trou du Renard | Trou du renard | 1 | 3 338,53 | 208,44 | 0,00 | 0,00 | 396 | REN_d_1/34 | 396,01 | REN_d_2/15 | 604,45 | 0% |
-| BG063 Gouffre de la comète | BG63 | 1 | 3 278,77 | 356,85 | 0,00 | 0,00 | 675 | BG6322-31 | 1 029,15 | BG_63 | 1 386,00 | 0% |
+| BG063 Gouffre de la comète | BG63 Gouffre de la comète | 1 | 3 278,77 | 356,85 | 0,00 | 0,00 | 675 | BG6322-31 | 1 029,15 | BG_63 | 1 386,00 | 0% |
 | UK557-Ourtets | UK557 Gouffre des Ourtets | 1 | 2 564,77 | 316,87 | 0,00 | 0,00 | 327 | UK557_d_5/56 | 1 828,13 | A_4 | 2 145,00 | 0% |
 | E2000 | E2000 | 1 | 2 383,58 | 535,79 | 0,00 | 0,00 | 279 | H20 | 1 727,21 | AN639 | 2 263,00 | 0% |
 | Grotte de Alhais | Grotte d'Alhais | 1 | 1 892,89 | 136,24 | 0,00 | 0,00 | 253 | ALA_d_6/11 | 795,76 | LAR_d_466/1 | 932,00 | 0% |
@@ -81,7 +81,7 @@ Toutes les stations sont comptabilisées et raccordées
 | AN326-Sima del Liron | AN326 Sima del Liron | 1 | 598,25 | 271,81 | 0,00 | 119,58 | 129 | AN326CF11 | 1 350,19 | AN_324 | 1 622,00 | 0% |
 | AN595-Polaire | AN595 Sima Polaire | 1 | 570,06 | 291,30 | 0,00 | 92,15 | 92 | FZ28 | 1 957,20 | AN595 | 2 248,50 | 0% |
 | Grotte des Stalactites déviées | Grotte des stalactites déviées | 1 | 537,38 | 164,47 | 0,00 | 0,00 | 49 | STALAC | 530,00 | STA_d_2/2 | 694,47 | 0% |
-| UK600-Sima Beauf | UK600 Sima Beauf | 1 | 530,65 | 281,98 | 0,00 | 0,00 | 67 | BEAU2/10 | 1 458,02 | E20_d_226 | 1 740,00 | 3513% |
+| UK600-Sima Beauf | UK600 Sima Beauf | 1 | 530,65 | 281,98 | 0,00 | 0,00 | 67 | BEAU2/10 | 1 458,02 | E20_d_226 | 1 740,00 | 0% |
 | Sima 1748 | Sima 1748 | 1 | 515,00 | 263,50 | 0,00 | 0,00 | 17 | _d_1748_f_5.7 | 1 484,50 | Sima_1748 | 1 748,00 | 0% |
 | C108-Sima H | C108 Sima H | 1 | 509,80 | 194,09 | 0,00 | 0,00 | 26 | C1085_1 | 1 702,91 | C_108 | 1 897,00 | 0% |
 | Z106 | Z106 | 1 | 503,29 | 241,69 | 0,00 | 0,00 | 86 | Z106_d_1/40 | 1 383,31 | Z_106 | 1 625,00 | 0% |
@@ -143,7 +143,7 @@ Toutes les stations sont comptabilisées et raccordées
 | CUCC5 | CUCC5 | 1 | 89,00 | 42,88 | 0,00 | 0,00 | 14 | CUCC5_d_9 | 1 668,12 | CUCC_5 | 1 711,00 | 0% |
 | AN507-Plumas | AN507 | 1 | 88,22 | 56,14 | 0,00 | 9,06 | 20 | HL5 | 2 089,46 | AN507 | 2 145,60 | 0% |
 | AN062 | AN62 | 1 | 86,80 | 64,76 | 0,00 | 0,00 | 10 | LJ2 | 2 127,24 | AN62 | 2 192,00 | 0% |
-| CUCC4 | CUCC4 | 1 | 86,60 | 56,50 | 0,00 | 0,00 | 11 | CUCC4_d_8 | 1 671,50 | CUCC_4 | 1 728,00 | 0% |
+| CUCC4 | CUCC4 | 1 | 86,60 | 56,50 | 0,00 | 0,00 | 11 | CUCC4_d_8 | 1 671,50 | CUCC_4 | 1 728,00 | 142% |
 | AN708-Marmota | AN708 Sima de la marmota | 1 | 79,05 | 31,86 | 0,00 | 2,19 | 23 | JU2 | 2 102,14 | AN708 | 2 134,00 | 0% |
 | AN631 | AN631 | 1 | 78,00 | 69,33 | 0,00 | 7,26 | 14 | XB1 | 2 175,67 | AN631 | 2 245,00 | 0% |
 | UKxxx-Marmitou | Grotte marmitou | 1 | 76,12 | 23,64 | 0,00 | 0,00 | 14 | MARMI | 2 005,00 | MARM1/12 | 2 028,64 | 0% |
@@ -282,7 +282,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-11-04 16h46m51s |
-| Durée calcul |02 (m) 43 (s) sans erreur |
+|       Date | 2026-11-05 10h22m16s |
+| Durée calcul |04 (m) 01 (s) sans erreur |
 
 --------------
