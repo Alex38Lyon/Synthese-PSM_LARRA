@@ -141,8 +141,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	MP-AP337-Plan-tot@AP337
 	break
-	# MP-Arphidia-Plan-tot@Arphidia     																		# Voir AI 2020 spécial Arphidia
-	# break
+	MP-Arphidia-Plan-tot@Arphidia     																			# Très partiel, voir AI 2020 spécial Arphidia
+	break
 	MP-BB09-Plan-tot@BB09
 	break
 	MP-BB26-Plan-tot@BB26
@@ -247,8 +247,8 @@ map MP-Synthese-PSM_LARRA-Plan-tot -title "Synthèse générale des réseaux de 
 	break
 	# MP-Trou_du_Mouton-Plan-tot@Trou_du_Mouton
 	# break
-	# MP-Trou_du_Renard-Plan-tot@Trou_du_Renard
-	# break
+	MP-Trou_du_Renard-Plan-tot@Trou_du_Renard                     											# Très partiel, topo à trouver
+	break
 	# MP-Trou_Martin-Plan-tot@Trou_Martin
 	# break
 	MP-UK004-Plan-tot@UK004
