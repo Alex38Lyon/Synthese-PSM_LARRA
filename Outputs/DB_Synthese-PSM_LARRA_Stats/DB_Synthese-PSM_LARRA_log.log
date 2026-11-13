@@ -5561,3 +5561,83 @@ on 32226: 2026-11-13 11:11:00,286 - INFO - Jonction à la Station_ID:  24886 ent
 2026-11-13 11:11:41,515 - INFO - Table des STATION entrée et fix, nbre: 202
 2026-11-13 11:12:05,435 - INFO - Phase 5: Fin de traitement en 02 (m) 14 (s), résultats enregistrés dans ~/Outputs/DB_Synthese-PSM_LARRA_Stats/DB_Synthese-PSM_LARRA_stats
 2026-11-13 11:12:05,435 - INFO - Execution terminée sans erreur en 02(m)14(s)
+2026-11-13 13:13:20,755 - INFO - ╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+2026-11-13 13:13:20,755 - INFO - ║ Calcul des statistiques par entrées d'une BD Therion                                                               ║
+2026-11-13 13:13:20,755 - INFO - ║       Script pyThStat par : alexandre.pont@yahoo.fr                                                                ║
+2026-11-13 13:13:20,755 - INFO - ║       Version : 2026.10.27                                                                                         ║
+2026-11-13 13:13:20,755 - INFO - ║       Fichier source : ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql                                      ║
+2026-11-13 13:13:20,755 - INFO - ║       Dossier destination : ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats                               ║
+2026-11-13 13:13:20,755 - INFO - ║       Date : 2026-11-13 13h13m20s                                                                                  ║
+2026-11-13 13:13:20,755 - INFO - ║       Mode : sync                                                                                                  ║
+2026-11-13 13:13:20,755 - INFO - ╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+2026-11-13 13:13:20,756 - INFO - Phase 1: Importation de la base de données Therion ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql dans: ~/Outputs/DB_Synthese-PSM_LARRA_Stats/DB_Synthese-PSM_LARRA_stats.db
+2026-11-13 13:13:21,857 - INFO - Phase 2: Création des nouvelles tables, indexation
+2026-11-13 13:13:21,975 - INFO - Jonction de SHOT equates, nbre: 2588
+2026-11-13 13:14:05,290 - WARNING - Table des SHOT, visée(s) bloquante(s), même départ et arrivée, longueur nulle supprimée(s), nbre: 1686
+2026-11-13 13:14:05,578 - INFO - Table des SHOT, visées dupliquées traités, nbre: 19
+2026-11-13 13:14:05,668 - INFO - Création de l'index des tables principales et optimisation de la mémoire
+2026-11-13 13:14:05,714 - INFO - Marquage des visées et des stations d'habillage, nbre: 19582
+2026-11-13 13:14:41,143 - INFO - Phase 3: Remplissage des tables d'après les 64857 entrée(s)
+2026-11-13 13:14:41,146 - INFO - Table des STATION entrée et fix, nbre: 202
+2026-11-13 13:14:41,154 - INFO - Phase 4: Remplissage des tables d'après les séries vides jonctionnées aux 202 entrée(s)
+on 1467: 2026-11-13 13:14:43,767 - INFO - Jonction à la Station_ID:  50021 entre les entrées  50227 et  50013
+on 2360: 2026-11-13 13:14:45,115 - INFO - Jonction à la Station_ID:  59348 entre les entrées  59368 et  59348
+on 2415: 2026-11-13 13:14:45,267 - INFO - Jonction à la Station_ID:  66539 entre les entrées  66647 et  66539
+on 2439: 2026-11-13 13:14:45,282 - INFO - Jonction à la Station_ID:  66544 entre les entrées  66559 et  66647
+on 2445: 2026-11-13 13:14:45,292 - INFO - Jonction à la Station_ID:  67006 entre les entrées  67016 et  67006
+on 2539: 2026-11-13 13:14:45,532 - INFO - Jonction à la Station_ID:  66929 entre les entrées  66948 et  66924
+on 3417: 2026-11-13 13:14:47,101 - INFO - Jonction à la Station_ID:    229 entre les entrées    218 et    834
+on 3456: 2026-11-13 13:14:47,204 - INFO - Jonction à la Station_ID:   3560 entre les entrées   3490 et   3560
+on 5317: 2026-11-13 13:14:50,055 - INFO - Jonction à la Station_ID:   3455 entre les entrées   3489 et   3446
+on 6578: 2026-11-13 13:14:51,687 - INFO - Jonction à la Station_ID:   3424 entre les entrées   3371 et   3446
+on 9480: 2026-11-13 13:14:56,258 - INFO - Jonction à la Station_ID:   3228 entre les entrées   3238 et   3277
+on 9978: 2026-11-13 13:14:57,292 - INFO - Jonction à la Station_ID:  48779 entre les entrées  49869 et  48790
+on 10006: 2026-11-13 13:14:57,484 - INFO - Jonction à la Station_ID:  50527 entre les entrées  49869 et  50492
+on 10661: 2026-11-13 13:14:58,349 - INFO - Jonction à la Station_ID:  39771 entre les entrées  37953 et  39292
+on 12449: 2026-11-13 13:15:00,880 - INFO - Jonction à la Station_ID:  18258 entre les entrées  17112 et  19163
+on 13079: 2026-11-13 13:15:02,025 - INFO - Jonction à la Station_ID:  48082 entre les entrées  48790 et  48046
+on 13553: 2026-11-13 13:15:02,659 - INFO - Jonction à la Station_ID:   8666 entre les entrées  10527 et   8530
+on 16074: 2026-11-13 13:15:06,561 - INFO - Jonction à la Station_ID:  11684 entre les entrées  10527 et  12612
+on 17241: 2026-11-13 13:15:08,132 - INFO - Jonction à la Station_ID:   8962 entre les entrées  14477 et  10527
+on 17241: 2026-11-13 13:15:08,133 - INFO - Jonction à la Station_ID:   8962 entre les entrées  14477 et  10527
+on 17295: 2026-11-13 13:15:08,297 - INFO - Jonction à la Station_ID:   9172 entre les entrées   9509 et   8991
+on 18369: 2026-11-13 13:15:10,254 - INFO - Jonction à la Station_ID:  12402 entre les entrées  10527 et  14477
+on 18370: 2026-11-13 13:15:10,261 - INFO - Jonction à la Station_ID:   8963 entre les entrées  10527 et  14477
+on 18370: 2026-11-13 13:15:10,266 - INFO - Jonction à la Station_ID:  12402 entre les entrées  10527 et  14477
+on 19462: 2026-11-13 13:15:11,702 - INFO - Jonction à la Station_ID:  12396 entre les entrées  14477 et   8991
+on 19536: 2026-11-13 13:15:11,875 - INFO - Jonction à la Station_ID:  16847 entre les entrées  16399 et  10527
+on 21537: 2026-11-13 13:15:14,843 - INFO - Jonction à la Station_ID:  15195 entre les entrées   8530 et   8991
+on 22065: 2026-11-13 13:15:15,788 - INFO - Jonction à la Station_ID:  47763 entre les entrées  49869 et  49775
+on 23418: 2026-11-13 13:15:17,710 - INFO - Jonction à la Station_ID:  15236 entre les entrées   8991 et   8530
+on 23499: 2026-11-13 13:15:17,870 - INFO - Jonction à la Station_ID:  15182 entre les entrées   8530 et   8991
+on 23504: 2026-11-13 13:15:17,878 - INFO - Jonction à la Station_ID:   9102 entre les entrées   8530 et  14477
+on 23506: 2026-11-13 13:15:17,898 - INFO - Jonction à la Station_ID:   9459 entre les entrées  14477 et  10963
+on 25348: 2026-11-13 13:15:20,847 - INFO - Jonction à la Station_ID:  15867 entre les entrées  15290 et  14477
+on 26117: 2026-11-13 13:15:22,271 - INFO - Jonction à la Station_ID:  15884 entre les entrées  10527 et  14477
+on 26376: 2026-11-13 13:15:22,838 - INFO - Jonction à la Station_ID:  50952 entre les entrées  51598 et  50819
+on 27803: 2026-11-13 13:15:24,867 - INFO - Jonction à la Station_ID:  17166 entre les entrées  17292 et  17112
+on 28732: 2026-11-13 13:15:26,099 - INFO - Jonction à la Station_ID:   9147 entre les entrées  16414 et   8991
+on 28971: 2026-11-13 13:15:26,613 - INFO - Jonction à la Station_ID:  45348 entre les entrées  50227 et  44314
+on 30368: 2026-11-13 13:15:28,739 - INFO - Jonction à la Station_ID:  45500 entre les entrées  48790 et  50227
+on 31352: 2026-11-13 13:15:30,175 - INFO - Jonction à la Station_ID:  16108 entre les entrées  15290 et  10527
+on 32227: 2026-11-13 13:15:31,544 - INFO - Jonction à la Station_ID:  24886 entre les entrées  27079 et  24354
+2026-11-13 13:15:52,065 - INFO - Intégrations des visées orphelines (entre 2 stations existantes), nbre: 348
+2026-11-13 13:15:52,493 - INFO - Réseau: 1, entrées jonctionnées: 10, [10963, 14477, 8530, 8991, 10527, 15290, 9509, 16414, 12612, 16399]
+2026-11-13 13:15:52,520 - INFO - Réseau: 2, entrées jonctionnées: 2, [3277, 3238]
+2026-11-13 13:15:52,623 - INFO - Réseau: 3, entrées jonctionnées: 8, [44314, 50227, 48790, 50013, 48046, 49869, 49775, 50492]
+2026-11-13 13:15:52,661 - INFO - Réseau: 4, entrées jonctionnées: 3, [3371, 3446, 3489]
+2026-11-13 13:15:52,687 - INFO - Réseau: 5, entrées jonctionnées: 2, [59368, 59348]
+2026-11-13 13:15:52,712 - INFO - Réseau: 6, entrées jonctionnées: 2, [3490, 3560]
+2026-11-13 13:15:52,745 - INFO - Réseau: 7, entrées jonctionnées: 2, [24354, 27079]
+2026-11-13 13:15:52,772 - INFO - Réseau: 8, entrées jonctionnées: 2, [834, 218]
+2026-11-13 13:15:52,797 - INFO - Réseau: 9, entrées jonctionnées: 2, [67016, 67006]
+2026-11-13 13:15:52,833 - INFO - Réseau: 10, entrées jonctionnées: 3, [66647, 66539, 66559]
+2026-11-13 13:15:52,859 - INFO - Réseau: 11, entrées jonctionnées: 2, [66924, 66948]
+2026-11-13 13:15:52,885 - INFO - Réseau: 12, entrées jonctionnées: 2, [37953, 39292]
+2026-11-13 13:15:52,912 - INFO - Réseau: 13, entrées jonctionnées: 2, [50819, 51598]
+2026-11-13 13:15:52,958 - INFO - Réseau: 14, entrées jonctionnées: 3, [17292, 17112, 19163]
+2026-11-13 13:15:53,185 - INFO - Phase 5: Écriture des statistiques dans le fichier: ~/Synthese-PSM_LARRA/Outputs/readme.md
+2026-11-13 13:15:53,185 - INFO - Table des CENTRELINE, longueur: [(341015.87, 15625.25, 8956.62)]
+2026-11-13 13:16:44,842 - INFO - Table des STATION entrée et fix, nbre: 202
+2026-11-13 13:17:24,136 - INFO - Phase 5: Fin de traitement en 04 (m) 03 (s), résultats enregistrés dans ~/Outputs/DB_Synthese-PSM_LARRA_Stats/DB_Synthese-PSM_LARRA_stats
+2026-11-13 13:17:24,137 - INFO - Execution terminée sans erreur en 04(m)03(s)

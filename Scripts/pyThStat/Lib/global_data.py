@@ -6,7 +6,7 @@
 !#############################################################################################!
 """
 
-Version = "2026.10.27"
+Version = "2026.11.13"
 # error_count = 0                # Compteur d'erreurs
 debug_log = False
 outputFilename = "readme"
