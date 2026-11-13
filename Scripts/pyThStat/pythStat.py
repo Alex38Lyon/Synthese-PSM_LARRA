@@ -2667,8 +2667,9 @@ def sql_bilan_reseaux():
             result_shot += int(_result_length_srf[0][1])
 
             maps_length = sql_maps_length(row[0])
-            if maps_length is not None:
+            if maps_length is not None and result_length != 0.0:
                 maps_length_pcent = maps_length[0][3] / result_length * 100
+
             else:
                 maps_length_pcent = 0.0
 
