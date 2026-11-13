@@ -154,7 +154,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/Z510/Z510-tot.th
 
 	## Equates list:
-	equate ARPHIDIA@Explo_27_2001_01_01.Explo_27_2001_01_01.Arphidia _d_VER_f_1004@Explo_14_2015_03_30.Explo_14_2015_03_30.Aranzadi.Complexe_PSM_GdP
+	# equate ARPHIDIA@Explo_27_2001_01_01.Explo_27_2001_01_01.Arphidia _d_VER_f_1004@Explo_14_2015_03_30.Explo_14_2015_03_30.Aranzadi.Complexe_PSM_GdP    # Pas de jonction car pas naturel !
 	
 	## join list:
 	join SP-arphidia_amont_01@Explo_29_2016_02_27.Arphidia SP-Explo_14_2015_03_30_01@Explo_14_2015_03_30.Aranzadi.Complexe_PSM_GdP
