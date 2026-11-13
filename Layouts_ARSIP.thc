@@ -375,10 +375,10 @@ layout my_layout_cartouche
 	#copy Coords_Header_CDa
 	# Call the config settings (Layout config inside the config.thc file)
 	# copy Survey_No_Scrap
-	copy fonts_1000
-	copy drawingconfig
+	# copy fonts_1000
+	# copy drawingconfig
 	# copy headerl
-	copy headerl_LT
+	# copy headerl_LT
 	copy langue-fr
 	
 	# Définition du système de projection du plan
@@ -390,14 +390,14 @@ layout my_layout_cartouche
 	# après avoir dessiné la topo sur un cheminement exporté avec le layout "xviexport".
 	# Jouer avec le ration base-scale/scale permet de jouer globalement sur les tailles
 	# des caractères et des traits.
-	base-scale 1 30000
+	base-scale 1 25000
 	
 	# Maintenant on va mettre une ligne "scale" pour spécifier l'échelle pour imprimer la topo.
 	# La combinaison entre scale et base-scale contrôle l'épaisseur des lignes, rotation, etc, convenable
 	# pour faire l'ampliation-réduction entre dessin et le résultat de l'imprimante
 	# C'est très important s'assurer que la configuration de l'imprimante ne spécifie pas l'option "Fit in page"
 	# ou similaire, sinon, l'échelle sera changée pendant l'impression!
-	scale 1 30000
+	scale 1 25000
 	
 	# Échelle graphique 100 m ampleur (Généralement, le choix scale/10 est plutôt pas mal)
 	# scale-bar 2000 m
@@ -443,8 +443,8 @@ layout my_layout_cartouche
 	# Il faut spécifier un de ces points comme ce que sera placé sur les cordonnées.
 	# Alors nous pouvons spécifier que le sud-ouest de la manchette soit placé en bas, a gauche,
 	# ou une autre combinaison...
-	map-header 3 98 nw
-	map-image 8 30 nw Logos/Logo-ARSIP-Synthese-Topographique_XL.png
+	map-header 1 99 nw
+	map-image 30 -20 nw Logos/Logo-ARSIP-Synthese-Topographique_XL.png
 	
 	# arrière plan de la manchette
 	map-header-bg on
@@ -544,7 +544,7 @@ layout my_layout_cartouche
 		\newtoks\datat \datat={https://github.com/Alex38Lyon/Synthese-PSM\_LARRA}
 		\newtoks\database \database={https://karsteau.org/}
 		\newtoks\synth \synth={Alexandre Pont pour l'ARSIP}
-		\framethickness=0.5mm
+		%\framethickness=0.5mm
 	endcode
 	
 endlayout
