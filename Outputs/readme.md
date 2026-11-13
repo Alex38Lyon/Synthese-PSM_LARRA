@@ -17,6 +17,13 @@ Toutes les stations sont comptabilisées et raccordées
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
 |  | **Totaux** | **202** | **341 015,88** | **2 016,00** | **15 625,25** | **8 956,62** | **45275** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **34%** |
 | Complexe Arrestelia | Arresteliako ziloa, Perte d'Eruso, Odita lezia | 3 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6344 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 | 0% |
+| Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6019 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
+| Complexe PSM GdP | Tunnel de la Verna, Xendako ziloa | 2 | 8 676,45 | 548,79 | 1 618,14 | 0,00 | 1063 | - | 966,47 | _d_XEN_f_XX2 | 1 515,26 | 647% |
+| Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | SC_3_4 | 2 017,00 | AN596 | 2 057,00 | 0% |
+| Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | AN456 | 1 962,00 | M_13_B | 2 002,00 | 0% |
+| Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | UU37 | 1 747,00 | SL_19_H | 1 787,00 | 0% |
+| Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | CHI_d_38/1 | 1 275,00 | HUET_N | 1 315,00 | 0% |
+| *Complexe PSM GdP* | *-* | *14* | *56 902,58* | *1 821,87* | *9 447,65* | *1,81* | *7106* |  |  |  |  |  |
 | Complexe Anialarra | AN454-21-01, AN509-1, AN51 01, AN519 A AN519 B, AN563-14-16, AN597-16-1, AN6-02-01, AN60-11-00, AN709-20-01, FR3-FI06 16 | 10 | 46 208,59 | 859,07 | 329,07 | 7 339,64 | 7484 | AN43GA2 | 1 319,13 | AN509 | 2 178,20 | 0% |
 | Complexe Anialarra | AN43 | 1 | 1 540,03 | 376,73 | 0,00 | 0,00 | 248 | BG632-31 | 1 349,27 | AN43 | 1 726,00 | 0% |
 | Complexe Anialarra | AN3 | 1 | 310,92 | 205,15 | 0,00 | 44,73 | 53 | QE18 | 1 839,85 | AN3 | 2 045,00 | 0% |
@@ -24,12 +31,6 @@ Toutes les stations sont comptabilisées et raccordées
 | Complexe Anialarra | AN57 | 1 | 140,39 | 77,17 | 95,38 | 0,00 | 50 | LK1 | 1 995,23 | BFF25 | 2 072,40 | 0% |
 | Complexe Anialarra | AN564 | 1 | 60,62 | 30,84 | 0,00 | 0,00 | 10 | FQ9 | 2 124,16 | AN564 | 2 155,00 | 0% |
 | *Complexe Anialarra* | *-* | *15* | *48 414,40* | *1 599,39* | *430,07* | *7 394,55* | *7875* |  |  |  |  |  |
-| Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6019 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
-| Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | SC_3_4 | 2 017,00 | AN596 | 2 057,00 | 0% |
-| Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | AN456 | 1 962,00 | M_13_B | 2 002,00 | 0% |
-| Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | UU37 | 1 747,00 | SL_19_H | 1 787,00 | 0% |
-| Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | CHI_d_38/1 | 1 275,00 | HUET_N | 1 315,00 | 0% |
-| *Complexe PSM GdP* | *-* | *12* | *48 226,13* | *1 273,08* | *7 829,51* | *1,81* | *6043* |  |  |  |  |  |
 | Complexe BU56 Ilamina | BU56 Ilamina, A60 | 2 | 41 760,25 | 1 204,66 | 3 557,47 | 0,00 | 5595 | LAR_d_128/18 | 773,76 | IX19 | 1 978,42 | 36% |
 | Complexe Lonné Peyret-Bourrugues | AP7 Gouffre des arres planères | 1 | 7 233,06 | 377,95 | 116,43 | 0,00 | 1211 | A | 1 327,05 | AP_7 | 1 705,00 | 0% |
 | Complexe Lonné Peyret-Bourrugues | B3 Gouffre des Bourrugues | 1 | 6 615,73 | 667,24 | 0,00 | 0,00 | 740 | N-00 | 952,76 | B_3 | 1 620,00 | 0% |
@@ -37,8 +38,9 @@ Toutes les stations sont comptabilisées et raccordées
 | Complexe Lonné Peyret-Bourrugues | AP260 | 1 | 0,01 | 0,00 | 0,00 | 0,00 | 1 | AP_260 | 1 720,00 | AP_260 | 1 720,00 | 0% |
 | *Complexe Lonné Peyret-Bourrugues* | *-* | *5* | *17 099,91* | *1 520,90* | *260,24* | *0,00* | *2305* |  |  |  |  |  |
 | Arphidia | Trou du robinet | 1 | 12 791,76 | 491,99 | 0,00 | 0,00 | 1478 | ARP419/50 | 588,45 | ARP338/21 | 1 080,44 | 0% |
+| Arphidia | Arphidia | 1 | 731,61 | 112,96 | 0,00 | 0,01 | 124 | ARP100/33 | 985,75 | A1.227 | 1 098,71 | 0% |
+| *Arphidia* | *-* | *2* | *13 523,37* | *604,95* | *0,00* | *0,01* | *1602* |  |  |  |  |  |
 | Complexe Ours-Veau | LAK01 Pérdida del Becerro | 1 | 10 493,84 | 667,68 | 1 481,76 | 0,00 | 1457 | LAR_d_145/85 | 856,53 | . | 1 524,21 | 0% |
-| Synthèse générale des réseaux de la Pierre Saint-Martin Larra | Arphidia, Tunnel de la Verna, Xendako ziloa | 3 | 9 408,06 | 548,08 | 1 618,14 | 0,01 | 1187 | _d_VER_f_VE.49C | 967,18 | _d_XEN_f_XX2 | 1 515,26 | 1235% |
 | AN8 | AN8, AN9 | 2 | 8 226,55 | 805,22 | 0,00 | 0,00 | 898 | AN8_d_1701 | 1 007,78 | AN9 | 1 813,00 | 0% |
 | UK22 Sima del Tobozo | UKK22 Sima del Tobozo | 1 | 7 228,71 | 514,65 | 0,00 | 0,00 | 700 | 34 | 1 460,35 | 0 | 1 975,00 | 0% |
 | Réseau du Soudet | BT6 Gouffre du Bracas de Thurugne | 1 | 5 212,26 | 670,59 | 0,00 | 0,00 | 744 | LAR_d_150/12 | 947,41 | BT_6 | 1 618,00 | 0% |
@@ -280,7 +282,7 @@ Toutes les stations sont comptabilisées et raccordées
 |       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-11-13 11h09m50s |
-| Durée calcul |02 (m) 14 (s) sans erreur |
+|       Date | 2026-11-13 13h13m20s |
+| Durée calcul |04 (m) 03 (s) sans erreur |
 
 --------------
