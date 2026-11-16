@@ -15,7 +15,7 @@ Toutes les stations sont comptabilisées et raccordées
 ### Développement total par réseau
 |  Réseau  |  Entrée(s)  |  Nbre  |  Dev. (m)  |  Prof. (m)  |  Dupl. (m)  |  Surf. (m) |  Visées  |  ID Stat.  |  Alt. min (m)  |  ID Stat.  |  Alt. max (m)  |  Avt. dessin (%)  |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|  | **Totaux** | **202** | **341 015,88** | **2 016,00** | **15 625,25** | **8 956,62** | **45275** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **34%** |
+|  | **Totaux** | **202** | **341 015,88** | **2 016,00** | **15 625,25** | **8 956,62** | **45275** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **35%** |
 | Complexe Arrestelia | Arresteliako ziloa, Perte d'Eruso, Odita lezia | 3 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6344 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 | 0% |
 | Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6019 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
 | Complexe PSM GdP | Tunnel de la Verna, Xendako ziloa | 2 | 8 676,45 | 548,79 | 1 618,14 | 0,00 | 1063 | - | 966,47 | _d_XEN_f_XX2 | 1 515,26 | 647% |
@@ -152,7 +152,7 @@ Toutes les stations sont comptabilisées et raccordées
 | IS006Bis | IS6B | 1 | 74,90 | 61,87 | 0,00 | 0,00 | 10 | IS6B_d_10 | 1 667,13 | FN26 | 1 729,00 | 0% |
 | AN616-Daniela | AN616 Sima Daniela | 1 | 69,84 | 53,77 | 0,00 | 0,00 | 14 | UD2 | 1 890,23 | AN616 | 1 944,00 | 0% |
 | AN635 | AN635 | 1 | 68,51 | 46,38 | 0,00 | 0,00 | 9 | TD1 | 2 268,62 | AN635 | 2 315,00 | 0% |
-| AN627-Conchita | AN627 Sima Conchita | 1 | 67,93 | 15,78 | 0,00 | 11,22 | 25 | FG6 | 2 128,22 | AN627 | 2 144,00 | 0% |
+| AN627-Conchita | AN627 Sima Conchita | 1 | 67,93 | 15,78 | 0,00 | 11,22 | 25 | FG6 | 2 128,22 | AN627 | 2 144,00 | 55% |
 | Gouffre BB09 | BB09 | 1 | 66,89 | 58,51 | 0,00 | 0,00 | 12 | suite | 1 442,49 | BB09 | 1 501,00 | 0% |
 | AN634 | AN634 | 1 | 63,56 | 50,07 | 0,00 | 0,00 | 10 | NA11 | 2 283,93 | AN634 | 2 334,00 | 0% |
 | AN455 | AN455 | 1 | 59,25 | 38,27 | 0,00 | 5,26 | 21 | OZ0 | 1 929,73 | AN_455 | 1 968,00 | 0% |
@@ -278,11 +278,9 @@ Toutes les stations sont comptabilisées et raccordées
 ### Mise à jour
 |                   |      |
 | :---------------- | :--- |
-|       Script pyThStat par | alexandre.pont@yahoo.fr |
-|       Version | 2026.10.27 |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-11-13 13h13m20s |
-| Durée calcul |04 (m) 03 (s) sans erreur |
+|       Date | 2026-11-16 13h04m53s |
+| Durée calcul |04 (m) 01 (s) sans erreur |
 
 --------------
