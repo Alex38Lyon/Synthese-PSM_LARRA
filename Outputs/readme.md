@@ -15,7 +15,7 @@ Toutes les stations sont comptabilisées et raccordées
 ### Développement total par réseau
 |  Réseau  |  Entrée(s)  |  Nbre  |  Dev. (m)  |  Prof. (m)  |  Dupl. (m)  |  Surf. (m) |  Visées  |  ID Stat.  |  Alt. min (m)  |  ID Stat.  |  Alt. max (m)  |  Avt. dessin (%)  |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|  | **Totaux** | **202** | **341 015,88** | **2 016,00** | **15 625,25** | **8 956,62** | **45275** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **35%** |
+|  | **Totaux** | **202** | **341 015,88** | **2 016,00** | **15 625,25** | **8 956,62** | **45275** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **36%** |
 | Complexe Arrestelia | Arresteliako ziloa, Perte d'Eruso, Odita lezia | 3 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6344 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 | 0% |
 | Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6019 | - | 1 010,92 | AN532 | 2 124,00 | 116% |
 | Complexe PSM GdP | Tunnel de la Verna, Xendako ziloa | 2 | 8 676,45 | 548,79 | 1 618,14 | 0,00 | 1063 | - | 966,47 | _d_XEN_f_XX2 | 1 515,26 | 647% |
@@ -66,7 +66,7 @@ Toutes les stations sont comptabilisées et raccordées
 | AN669-Babosa | AN669 | 1 | 1 002,32 | 352,95 | 0,00 | 23,59 | 168 | FL15 | 1 870,75 | AN669 | 2 223,70 | 0% |
 | Sima Antartica | AN211, AN596 Sima Antartica, AN596 | 3 | 882,32 | 344,27 | 0,00 | 21,77 | 114 | QR2_35 | 1 715,79 | HB20 | 2 060,06 | 0% |
 | Trou Martin | Trou Martin | 1 | 874,76 | 244,16 | 0,00 | 0,00 | 98 | MAR_d_10/4 | 575,84 | MARTIN | 820,00 | 0% |
-| Z510 | Gouffre Z510 | 1 | 852,63 | 237,20 | 180,35 | 0,00 | 187 | M31_d_98/3 | 1 406,80 | - | 1 644,00 | 0% |
+| Z510 | Gouffre Z510 | 1 | 852,63 | 237,20 | 180,35 | 0,00 | 187 | M31_d_98/3 | 1 406,80 | - | 1 644,00 | 66% |
 | C230 | C230 Sima ricky et ses ours | 1 | 836,03 | 268,62 | 0,00 | 0,00 | 135 | _d_C230_f_164 | 1 616,38 | C_230 | 1 885,00 | 0% |
 | AN506-Ninos | AN506 Sima de los niños | 1 | 817,47 | 409,24 | 0,00 | 0,00 | 87 | PF10 | 1 754,06 | AN506 | 2 163,30 | 0% |
 | M414 | M414 | 1 | 807,45 | 351,32 | 40,10 | 0,00 | 119 | M414_d_1/52 | 1 762,68 | AN109 | 2 114,00 | 0% |
@@ -86,7 +86,7 @@ Toutes les stations sont comptabilisées et raccordées
 | C108-Sima H | C108 Sima H | 1 | 509,80 | 194,09 | 0,00 | 0,00 | 26 | C1085_1 | 1 702,91 | C_108 | 1 897,00 | 0% |
 | Z106 | Z106 | 1 | 503,29 | 241,69 | 0,00 | 0,00 | 86 | Z106_d_1/40 | 1 383,31 | Z_106 | 1 625,00 | 0% |
 | Laminako Ziloa Illamina | Laminako ziloa | 1 | 479,60 | 120,00 | 0,00 | 0,00 | 52 | ILLA13B | 318,00 | ILLAMI | 438,00 | 0% |
-| Grotte de la Cascade | Grotte de la cascade | 1 | 474,60 | 23,51 | 0,00 | 0,00 | 63 | CAS_d_1/63 | 539,66 | LAC_d_RD | 563,17 | 0% |
+| Grotte de la Cascade | Grotte de la cascade | 1 | 474,60 | 23,51 | 0,00 | 0,00 | 63 | CAS_d_1/63 | 539,66 | LAC_d_RD | 563,17 | 46% |
 | F002-Cuisse de Jupiter | F2 Cuisse de Jupiter | 1 | 464,88 | 294,26 | 0,00 | 0,00 | 49 | GDP1050/9 | 1 687,74 | M_13 | 1 982,00 | 0% |
 | AN109 | AN109 | 1 | 436,21 | 253,70 | 0,00 | 0,00 | 73 | QO2_13 | 1 860,30 | AN109 | 2 114,00 | 0% |
 | Sima de los Burros | AN702 Sima de los burros, AN704 | 2 | 426,96 | 216,55 | 17,01 | 0,00 | 80 | MHX33 | 1 766,73 | CX15 | 1 983,28 | 0% |
@@ -280,7 +280,7 @@ Toutes les stations sont comptabilisées et raccordées
 | :---------------- | :--- |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-11-16 13h04m53s |
-| Durée calcul |04 (m) 01 (s) sans erreur |
+|       Date | 2026-11-16 21h32m07s |
+| Durée calcul |02 (m) 30 (s) sans erreur |
 
 --------------
