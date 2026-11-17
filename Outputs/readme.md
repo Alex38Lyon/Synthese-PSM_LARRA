@@ -66,7 +66,7 @@ Toutes les stations sont comptabilisées et raccordées
 | AN669-Babosa | AN669 | 1 | 1 002,32 | 352,95 | 0,00 | 23,59 | 168 | FL15 | 1 870,75 | AN669 | 2 223,70 | 0% |
 | Sima Antartica | AN211, AN596 Sima Antartica, AN596 | 3 | 882,32 | 344,27 | 0,00 | 21,77 | 114 | QR2_35 | 1 715,79 | HB20 | 2 060,06 | 0% |
 | Trou Martin | Trou Martin | 1 | 874,76 | 244,16 | 0,00 | 0,00 | 98 | MAR_d_10/4 | 575,84 | MARTIN | 820,00 | 0% |
-| Z510 | Gouffre Z510 | 1 | 852,63 | 237,20 | 180,35 | 0,00 | 187 | M31_d_98/3 | 1 406,80 | - | 1 644,00 | 66% |
+| Z510 | Gouffre Z510 | 1 | 852,63 | 237,20 | 180,35 | 0,00 | 187 | M31_d_98/3 | 1 406,80 | - | 1 644,00 | 0% |
 | C230 | C230 Sima ricky et ses ours | 1 | 836,03 | 268,62 | 0,00 | 0,00 | 135 | _d_C230_f_164 | 1 616,38 | C_230 | 1 885,00 | 0% |
 | AN506-Ninos | AN506 Sima de los niños | 1 | 817,47 | 409,24 | 0,00 | 0,00 | 87 | PF10 | 1 754,06 | AN506 | 2 163,30 | 0% |
 | M414 | M414 | 1 | 807,45 | 351,32 | 40,10 | 0,00 | 119 | M414_d_1/52 | 1 762,68 | AN109 | 2 114,00 | 0% |
@@ -86,7 +86,7 @@ Toutes les stations sont comptabilisées et raccordées
 | C108-Sima H | C108 Sima H | 1 | 509,80 | 194,09 | 0,00 | 0,00 | 26 | C1085_1 | 1 702,91 | C_108 | 1 897,00 | 0% |
 | Z106 | Z106 | 1 | 503,29 | 241,69 | 0,00 | 0,00 | 86 | Z106_d_1/40 | 1 383,31 | Z_106 | 1 625,00 | 0% |
 | Laminako Ziloa Illamina | Laminako ziloa | 1 | 479,60 | 120,00 | 0,00 | 0,00 | 52 | ILLA13B | 318,00 | ILLAMI | 438,00 | 0% |
-| Grotte de la Cascade | Grotte de la cascade | 1 | 474,60 | 23,51 | 0,00 | 0,00 | 63 | CAS_d_1/63 | 539,66 | LAC_d_RD | 563,17 | 46% |
+| Grotte de la Cascade | Grotte de la cascade | 1 | 474,60 | 23,51 | 0,00 | 0,00 | 63 | CAS_d_1/63 | 539,66 | LAC_d_RD | 563,17 | 0% |
 | F002-Cuisse de Jupiter | F2 Cuisse de Jupiter | 1 | 464,88 | 294,26 | 0,00 | 0,00 | 49 | GDP1050/9 | 1 687,74 | M_13 | 1 982,00 | 0% |
 | AN109 | AN109 | 1 | 436,21 | 253,70 | 0,00 | 0,00 | 73 | QO2_13 | 1 860,30 | AN109 | 2 114,00 | 0% |
 | Sima de los Burros | AN702 Sima de los burros, AN704 | 2 | 426,96 | 216,55 | 17,01 | 0,00 | 80 | MHX33 | 1 766,73 | CX15 | 1 983,28 | 0% |
@@ -280,7 +280,7 @@ Toutes les stations sont comptabilisées et raccordées
 | :---------------- | :--- |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-11-16 21h32m07s |
-| Durée calcul |02 (m) 30 (s) sans erreur |
+|       Date | 2026-11-17 14h16m39s |
+| Durée calcul |02 (m) 34 (s) sans erreur |
 
 --------------
