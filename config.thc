@@ -1,6 +1,6 @@
 encoding  utf-8
 ######################################################################################################################################
-# Version France/Chine By Alex 2026 10 22
+# Version France/Chine By Alex 2026 11 18
 ######################################################################################################################################
 
 
@@ -38,109 +38,110 @@ encoding  utf-8
 #
 #
 ############## layout definition:
-#	- layout langue-fr
-#	- layout langue-es
-#	- layout langue-en
-#  - layout langue-zh
-# 	- layout drawingconfig
-# 	- layout drawingconfig_China
-#	- layout scalebar_horiz
-#	- layout scalebar_vert-Halama
-#	- layout scalebar_vert
+#	- layout AtlasSetUp
+#	- layout LayoutAtlasNorthArrow2
+#	- layout Survey_No_Scrap
+#	- layout depth
+#	- layout fonts_1000
+#	- layout fonts_200
+#	- layout fonts_2000
+#	- layout fonts_500
+#	- layout fonts_5000
+#	- layout header-plan-schema
+#	- layout header_coupe
+#	- layout header_coupe-schema
+#	- layout header_coupe_vert-auto
+#	- layout header_coupe_vert-to-place
+#	- layout headeratlas
 #	- layout headerl
 #	- layout headerl_LT
-#  - layout headerl_XXLT  # <en> Layout to change the header (plan projection with minimum info)
-#	- layout header_coupe_vert-to-place
-#	- layout header_coupe_vert-auto
-#	- layout header_coupe
-#	- layout header-plan-schema
-#	- layout header_coupe-schema
-#	- layout headeratlas
-#	- layout layoutmapborder
-#	- layout LayoutAtlasNorthArrow2
-# 	- layout LayoutAtlasNorthArrow
-#	- layout AtlasSetUp
+#	- layout langue-en
+#	- layout langue-es
+#	- layout langue-fr
 #	- layout layoutcontinuation
+#	- layout layoutmapborder
 #	- layout northarrowMG
+#	- layout scalebar_horiz
+#	- layout scalebar_vert
+#	- layout scalebar_vert-Halama
 #	- layout test
-#	- layout depth
-#	- layout fonts_5000
-#	- layout fonts_2000
-#	- layout fonts_1000
-#	- layout fonts_500
-#	- layout fonts_200
-#	- layout Survey_No_Scrap
+# 	- layout LayoutAtlasNorthArrow
+# 	- layout drawingconfig
+# 	- layout drawingconfig_China
+#  - layout headerl_XXLT  # <en> Layout to change the header (plan projection with minimum info)
+#  - layout langue-zh
 
 ############## Point, line and area in layout drawingconfig
 
 ############## Existing user points / nouvelles définitions de points :
-#		- nid/nest (u:nest)
-#		- gradient -->	geologic dip
-#		- danger (u:danger)
-#		- chauves-souris/bats (u:bats)
-#		- stalactite boss (u:boss)
-#		- shell/coquille fossile (u:shell)
-#		- walking Caver/Spéléo qui marche (u:man_w)
-# 		- climbing caver/Spéléo qui grimpe (u:man_c)
-#		- plan view symbol/symbole de vue en plan (u:symbol_plan)
-#		- extended view symbol/symbole de vue en coupe développée (u:symbol_extend)
-#  	- entrance 
-#		- blocks 
-#     - pebbles
-#		- block user (u:block)
 #		- altitude
-#		- label
 #		- anchor artificial
 #		- anchor natural
+#		- block user (u:block)
+#		- blocks 
+#		- chauves-souris/bats (u:bats)
+#		- danger (u:danger)
+#		- extended view symbol/symbole de vue en coupe développée (u:symbol_extend)
+#		- gradient -->	geologic dip
+#		- label
+#		- nid/nest (u:nest)
+#		- plan view symbol/symbole de vue en plan (u:symbol_plan)
 #		- pollution symbol (u:pollution)
+#		- shell/coquille fossile (u:shell)
+#		- stalactite boss (u:boss)
 #		- trash bas symbol (u:trash)
+#		- walking Caver/Spéléo qui marche (u:man_w)
+# 		- climbing caver/Spéléo qui grimpe (u:man_c)
+#  	- entrance 
+#     - pebbles
 
 
 ############## Existing user lines:
-#		- strate/strata (u:strata; option -clip off)
-#		- coupole (u:coupole; option -clip off)
-#		- faille/fault (u:fault; option -clip off)
-#		- doline (u:doline; option -clip off)
 #		- chauves-souris/bats (u:bats)
-#		- rail (u:rail)
-#		- plan walk/ (u:planwalk)
-#		- surface (u:surf  -clip off)
-#		- dive line/fil d'Ariane (u:ariane)
-#		- deviation (u:deviation)
-#		- rock border 
-#		- shot_Survey line (u:Shot_Survey)
-#  	- treetrunk line (u:treetrunk  -clip off)
-#  	- bush line (u:bush -attr bulgesize 1 -attr bulges 20 -clip off)
 #		- chimeney
-#		- slope
+#		- coupole (u:coupole; option -clip off)
+#		- deviation (u:deviation)
+#		- dive line/fil d'Ariane (u:ariane)
+#		- doline (u:doline; option -clip off)
+#		- faille/fault (u:fault; option -clip off)
 #		- flowstone
-#		- wall unsurveyed
-#		- wall debris (u:wall_debris)
-#		- wall presumed
-#		- wall flowstone
-#     - wall blocks 	
-#		- survey cave
+#		- frame (u:frame -clip off)
 #		- overhang 
 #		- pit   
+#		- plan walk/ (u:planwalk)
+#		- rail (u:rail)
+#		- rock border 
+#		- shot_Survey line (u:Shot_Survey)
+#		- slope
+#		- strate/strata (u:strata; option -clip off)
+#		- surface (u:surf  -clip off)
+#		- survey cave
+#		- wall debris (u:wall_debris)
+#		- wall flowstone
+#		- wall presumed
+#		- wall unsurveyed
+#  	- bush line (u:bush -attr bulgesize 1 -attr bulges 20 -clip off)
+#  	- treetrunk line (u:treetrunk  -clip off)
+#     - wall blocks 	
 
 ############## Existing user areas:
-# 		- boue/mud (u:boue)
-#		- guano (u:guano)
-#		- chauves-souris/bats (u:bats)
-#		- tronc/tree-trunk (u:tronc)
-#		- feuilles/tree-leaves (u:feuilles)
-#		- Tunnel initiation/Départ de galerie (u:galerie)
-#		- Sol sec/dry floor (u:dryfloor)                      // China style
 #		- Sol humidesec/wet floor (u:wetfloor)                // China style
-#  	- blocks
+#		- Sol sec/dry floor (u:dryfloor)                      // China style
+#		- Tunnel initiation/Départ de galerie (u:galerie)
+#		- chauves-souris/bats (u:bats)
 #		- clay
+#		- feuilles/tree-leaves (u:feuilles)
+#		- flowstone                
+#		- guano (u:guano)
+#		- pebbles
+#		- snow
+#		- sump
+#		- tronc/tree-trunk (u:tronc)
+#		- water
+# 		- boue/mud (u:boue)
+#  	- blocks
 #     - mudcrack
 #     - sand
-#		- pebbles
-#		- flowstone                
-#		- sump
-#		- water
-#		- snow
 
 
 ######################################################################################################################################
@@ -2670,7 +2671,22 @@ layout drawingconfig
 		enddef;
 
 		initsymbol ("p_u_pollution");
-	
+		
+		########################################################
+		#<en> Line symbol for the u:frame.
+		#     It works exactly as line section symbol but you should use -clip off option:
+		#<fr> Symbole de ligne pour les cadres (u:frame).
+		#     Cela fonctionne exactement comme les autres sections de ligne
+		#     mais vous devrez rajouter l'option -clip off:
+		########################################################
+		def l_u_frame (expr P) =
+			 T := identity;
+			 path Q;
+			 Q = punked P;
+			 pickup PenC;
+			 draw Q withcolor (0, 0, 0);
+		enddef;
+		
 	endcode
 
 endlayout
