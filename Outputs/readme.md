@@ -116,7 +116,7 @@ Toutes les stations sont comptabilisées et raccordées
 | UKD6 | UK D6, UK D6 | 2 | 191,26 | 61,02 | 0,00 | 0,00 | 47 | UKD6_d_1/11 | 1 963,32 | UKD6_d_2/7 | 2 024,34 | 100% |
 | Z143 Touristen leize tipia | Z143 Touristen Leize Tipia, Z143 Touristen Leize Tipia | 2 | 187,50 | 113,00 | 0,00 | 0,00 | 22 | _d_Z143_f_14 | 1 561,00 | Z_143 | 1 674,00 | 100% |
 | AN456-Banco | AN456 Sima banco | 1 | 156,68 | 107,52 | 0,00 | 0,00 | 35 | UV7 | 1 854,48 | AN456 | 1 962,00 | 0% |
-| Cathédrale de Pyrène | Cathédrale de Pyrène | 1 | 154,46 | 35,34 | 0,00 | 0,00 | 58 | _d_PY_f_57 | 2 274,76 | _d_PY_f_3 | 2 310,10 | 0% |
+| Cathédrale de Pyrène | Cathédrale de Pyrène | 1 | 154,46 | 35,34 | 0,00 | 0,00 | 58 | _d_PY_f_57 | 2 274,76 | _d_PY_f_3 | 2 310,10 | 58% |
 | A110 | A110 | 1 | 148,40 | 126,43 | 0,00 | 0,00 | 13 | A110_d_1/13 | 1 693,57 | A_110 | 1 820,00 | 0% |
 | AN001 | AN1 | 1 | 143,33 | 111,32 | 0,00 | 0,00 | 28 | MD27 | 2 057,68 | AN1 | 2 169,00 | 0% |
 | Z208 | Z208 | 1 | 140,65 | 47,61 | 0,00 | 0,00 | 21 | Z208_d_4 | 1 450,04 | GDP1064/26 | 1 497,65 | 0% |
@@ -152,7 +152,7 @@ Toutes les stations sont comptabilisées et raccordées
 | IS006Bis | IS6B | 1 | 74,90 | 61,87 | 0,00 | 0,00 | 10 | IS6B_d_10 | 1 667,13 | FN26 | 1 729,00 | 0% |
 | AN616-Daniela | AN616 Sima Daniela | 1 | 69,84 | 53,77 | 0,00 | 0,00 | 14 | UD2 | 1 890,23 | AN616 | 1 944,00 | 0% |
 | AN635 | AN635 | 1 | 68,51 | 46,38 | 0,00 | 0,00 | 9 | TD1 | 2 268,62 | AN635 | 2 315,00 | 0% |
-| AN627-Conchita | AN627 Sima Conchita | 1 | 67,93 | 15,78 | 0,00 | 11,22 | 25 | FG6 | 2 128,22 | AN627 | 2 144,00 | 55% |
+| AN627-Conchita | AN627 Sima Conchita | 1 | 67,93 | 15,78 | 0,00 | 11,22 | 25 | FG6 | 2 128,22 | AN627 | 2 144,00 | 0% |
 | Gouffre BB09 | BB09 | 1 | 66,89 | 58,51 | 0,00 | 0,00 | 12 | suite | 1 442,49 | BB09 | 1 501,00 | 0% |
 | AN634 | AN634 | 1 | 63,56 | 50,07 | 0,00 | 0,00 | 10 | NA11 | 2 283,93 | AN634 | 2 334,00 | 0% |
 | AN455 | AN455 | 1 | 59,25 | 38,27 | 0,00 | 5,26 | 21 | OZ0 | 1 929,73 | AN_455 | 1 968,00 | 0% |
@@ -280,7 +280,7 @@ Toutes les stations sont comptabilisées et raccordées
 | :---------------- | :--- |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-11-17 14h16m39s |
-| Durée calcul |02 (m) 34 (s) sans erreur |
+|       Date | 2026-11-18 09h04m42s |
+| Durée calcul |02 (m) 15 (s) sans erreur |
 
 --------------
