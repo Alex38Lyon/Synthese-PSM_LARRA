@@ -2449,9 +2449,9 @@ if __name__ == "__main__":
     #################################################################################################
     elif args.file[-4:].lower() == "trox":
         log.warning(f"trox file {Colors.ENDC}{safe_relpath(args.file)}{Colors.ERROR} not yet supported, use tro file")
-        SrcFile = abspath(args.file)
-        analyse_xml_balises(SrcFile)
-        fileTitle = sanitize_filename(os.path.basename(SrcFile)[:-4])
+        analyse_xml_balises(abspath(args.file))
+        fileTitle = sanitize_filename(os.path.basename(abspath(args.file))[:-4]) + "log"
+        print(fileTitle)
 
     #################################################################################################
     # Autres types                                                                                  #

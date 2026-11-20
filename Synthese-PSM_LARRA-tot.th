@@ -114,6 +114,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/IS009/IS009-tot.th
 	input Data/K007-Hourat_det_Soure/K007-Hourat_det_Soure-tot.th
 	input Data/L5/L5-tot.th
+	input Data/LAK4-Eskilzarra/LAK4-Eskilzarra-tot.th
 	input Data/LAK015-Perte_des_Feuilles/LAK015-Perte_des_Feuilles-tot.th
 	input Data/LAKxxx-Bouquetins/LAKxxx-Bouquetins-tot.th
 	input Data/Laminako_Ziloa_Illamina/Laminako_Ziloa_Illamina-tot.th
