@@ -44,7 +44,7 @@
 <Point> <coordinates>-0.79404092732450,42.94831462456599,1656.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN53]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN53 Sima de los Abuelos]]></name>
 <Point> <coordinates>-0.73865294716642,42.94450454184324,2153.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -268,7 +268,7 @@
 <Point> <coordinates>-0.74186264437248,42.94622488355414,2112.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
-<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN720]]></name>
+<styleUrl>#ThEntranceIcon</styleUrl><name><![CDATA[AN720 Sima negra]]></name>
 <Point> <coordinates>-0.73451757162243,42.94163128692669,2234.00000000000000</coordinates> </Point>
 </Placemark>
 <Placemark>
@@ -2694,9 +2694,7 @@
 </Folder>
 </Folder>
 <Folder>
-<name><![CDATA[AN053-Sima de los Abuelos]]></name>
-<Folder>
-<name><![CDATA[AN053-Sima de los Abuelos]]></name>
+<name><![CDATA[AN053 Sima de los Abuelos]]></name>
 <Folder>
 <name><![CDATA[Explo 01 2026 08 10]]></name>
 <Folder>
@@ -2779,7 +2777,6 @@
 </coordinates></LineString>
 </MultiGeometry>
 </Placemark>
-</Folder>
 </Folder>
 </Folder>
 </Folder>
@@ -3893,8 +3890,6 @@
 <Folder>
 <name><![CDATA[AN514-Venus]]></name>
 <Folder>
-<name><![CDATA[AN514-Venus]]></name>
-<Folder>
 <name><![CDATA[Explo 01 2008 08 16]]></name>
 <Folder>
 <name><![CDATA[AN514-08 14]]></name>
@@ -4078,7 +4073,6 @@
 </coordinates></LineString>
 </MultiGeometry>
 </Placemark>
-</Folder>
 </Folder>
 </Folder>
 </Folder>
@@ -4388,8 +4382,6 @@
 </Folder>
 </Folder>
 </Folder>
-<Folder>
-<name><![CDATA[AN594-Sima de la Verdad]]></name>
 <Folder>
 <name><![CDATA[AN594-Sima de la Verdad]]></name>
 <Folder>
@@ -4714,7 +4706,6 @@
 </coordinates></LineString>
 </MultiGeometry>
 </Placemark>
-</Folder>
 </Folder>
 </Folder>
 </Folder>
@@ -5804,8 +5795,6 @@
 <Folder>
 <name><![CDATA[AN720-Sima Negra]]></name>
 <Folder>
-<name><![CDATA[AN720-Sima Negra]]></name>
-<Folder>
 <name><![CDATA[Explo 01 2026 08 10]]></name>
 <Folder>
 <name><![CDATA[AN720-26-01]]></name>
@@ -5833,7 +5822,6 @@
 </coordinates></LineString>
 </MultiGeometry>
 </Placemark>
-</Folder>
 </Folder>
 </Folder>
 </Folder>
@@ -11443,8 +11431,6 @@
 </Folder>
 <Folder>
 <name><![CDATA[Complexe Anialarra]]></name>
-<Folder>
-<name><![CDATA[Anialarra 2026 01]]></name>
 <Folder>
 <name><![CDATA[Explo 01 1999 07 25]]></name>
 <Folder>
@@ -20491,7 +20477,6 @@
 </coordinates></LineString>
 </MultiGeometry>
 </Placemark>
-</Folder>
 </Folder>
 </Folder>
 </Folder>
