@@ -4,10 +4,10 @@
 
 ### Développement total
 
-Développement topographié:           	`344 201,61 (m)`
-Développement topographie dupliqués: 	`15 733,90 (m)`
-Développement topographie de surface:	`8 956,62 (m)`
-Soit un grand total de :             	`368 892,13 (m)`
+Développement topographié:           	`344 740,36 (m)`
+Développement topographie dupliqués: 	`15 919,51 (m)`
+Développement topographie de surface:	`8 837,04 (m)`
+Soit un grand total de :             	`369 496,91 (m)`
 Toutes les stations sont comptabilisées et raccordées
 
 
@@ -15,15 +15,15 @@ Toutes les stations sont comptabilisées et raccordées
 ### Développement total par réseau
 |  Réseau  |  Entrée(s)  |  Nbre  |  Dev. (m)  |  Prof. (m)  |  Dupl. (m)  |  Surf. (m) |  Visées  |  ID Stat.  |  Alt. min (m)  |  ID Stat.  |  Alt. max (m)  |  Avt. dessin (%)  |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|  | **Totaux** | **203** | **344 201,62** | **2 016,00** | **15 733,90** | **8 956,62** | **45856** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **35%** |
-| Complexe Arrestelia | Arresteliako ziloa, Perte d'Eruso, Odita lezia | 3 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6344 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 | 0% |
-| Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6019 | GDP1333/16 | 1 010,92 | AN532 | 2 124,00 | 116% |
+|  | **Totaux** | **204** | **344 740,37** | **2 016,00** | **15 919,51** | **8 837,04** | **45993** | **ILLA13B** | **318,00** | **AN634** | **2 334,00** | **35%** |
+| Complexe Arrestelia | Arresteliako ziloa, Perte d'Eruso, Odita lezia | 3 | 61 230,74 | 866,87 | 0,00 | 0,00 | 6341 | LAR_d_15/16 | 568,13 | ERUSO | 1 435,00 | 0% |
+| Complexe PSM GdP | C104 Gouffre des quinquas, C2 Gouffre des quinquas, C226 Sima grande, C50 Gouffre des Pré-Hus, D9 Gouffre de la tête sauvage, Puits Lépineux, M31 Gouffre du Pourtet, M413 Gouffre des partages | 8 | 48 226,13 | 1 113,08 | 7 349,51 | 1,81 | 6018 | GDP1333/16 | 1 010,92 | AN532 | 2 124,00 | 116% |
 | Complexe PSM GdP | Tunnel de la Verna, Xendako ziloa | 2 | 8 676,45 | 548,79 | 1 618,14 | 0,00 | 1063 | _d_VER_f_VE.49C | 966,47 | _d_XEN_f_XX2 | 1 515,26 | 647% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | SC_3_4 | 2 017,00 | AN596 | 2 057,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | AN456 | 1 962,00 | M_13_B | 2 002,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | UU37 | 1 747,00 | F60.49.9 | 1 787,00 | 0% |
 | Complexe PSM GdP | Entrées sans topo | 1 | 0,00 | 40,00 | 120,00 | 0,00 | 6 | CHI_d_38/1 | 1 275,00 | HUET_N | 1 315,00 | 0% |
-| *Complexe PSM GdP* | *-* | *14* | *56 902,58* | *1 821,87* | *9 447,65* | *1,81* | *7106* |  |  |  |  |  |
+| *Complexe PSM GdP* | *-* | *14* | *56 902,58* | *1 821,87* | *9 447,65* | *1,81* | *7105* |  |  |  |  |  |
 | Complexe Anialarra | AN454-21-01, AN509-1, AN51 01, AN519 A AN519 B, AN563-14-16, AN597-16-1, AN6-02-01, AN60-11-00, AN709-20-01, FR3-FI06 16 | 10 | 46 208,59 | 859,07 | 329,07 | 7 339,64 | 7484 | AN43GA2 | 1 319,13 | AN509 | 2 178,20 | 0% |
 | Complexe Anialarra | AN43 | 1 | 1 540,03 | 376,73 | 0,00 | 0,00 | 248 | BG632-31 | 1 349,27 | AN43 | 1 726,00 | 0% |
 | Complexe Anialarra | AN3 | 1 | 310,92 | 205,15 | 0,00 | 44,73 | 53 | QE18 | 1 839,85 | AN3 | 2 045,00 | 0% |
@@ -40,7 +40,7 @@ Toutes les stations sont comptabilisées et raccordées
 | Arphidia | Trou du robinet | 1 | 12 791,76 | 491,99 | 0,00 | 0,00 | 1478 | ARP419/50 | 588,45 | ARP338/21 | 1 080,44 | 0% |
 | Arphidia | Arphidia | 1 | 731,61 | 112,96 | 0,00 | 0,01 | 124 | ARP100/33 | 985,75 | A1.227 | 1 098,71 | 0% |
 | *Arphidia* | *-* | *2* | *13 523,37* | *604,95* | *0,00* | *0,01* | *1602* |  |  |  |  |  |
-| Complexe Ours-Veau | LAK01 Pérdida del Becerro | 1 | 10 493,84 | 667,68 | 1 481,76 | 0,00 | 1457 | LAR_d_145/85 | 856,53 | . | 1 524,21 | 0% |
+| Complexe Ours-Veau | Grotte de l'Ours - Perdida del Becerro Explo 001, Grotte de l'Ours - Perdida del Becerro Explo 032 | 2 | 10 841,04 | 667,68 | 1 481,76 | 0,00 | 1537 | LAR_d_145/85 | 856,53 | . | 1 524,21 | 43% |
 | AN8 | AN8, AN9 | 2 | 8 226,55 | 805,22 | 0,00 | 0,00 | 898 | AN8_d_1701 | 1 007,78 | AN9 | 1 813,00 | 0% |
 | UK22 Sima del Tobozo | UKK22 Sima del Tobozo | 1 | 7 228,71 | 514,65 | 0,00 | 0,00 | 700 | 34 | 1 460,35 | 0 | 1 975,00 | 0% |
 | Réseau du Soudet | BT6 Gouffre du Bracas de Thurugne | 1 | 5 212,26 | 670,59 | 0,00 | 0,00 | 744 | LAR_d_150/12 | 947,41 | BT_6 | 1 618,00 | 0% |
@@ -63,7 +63,7 @@ Toutes les stations sont comptabilisées et raccordées
 | Z127 | Z127 Sima Miguel Garibal | 1 | 1 400,82 | 529,78 | 0,00 | 0,00 | 262 | _d_Z127_f_264 | 1 128,22 | HP10 | 1 658,00 | 0% |
 | C214-Niebla | C214 Sima de la niebla | 1 | 1 064,44 | 420,12 | 0,00 | 0,00 | 157 | C214_d_130 | 1 513,88 | C_214 | 1 934,00 | 0% |
 | Z017 | Z17 L'agace cul de la Teirola | 1 | 1 011,10 | 404,84 | 0,00 | 0,00 | 115 | Z17_d_11/5 | 1 348,16 | EG6 | 1 753,00 | 0% |
-| AN669-Babosa | AN669 | 1 | 1 002,32 | 352,95 | 0,00 | 23,59 | 168 | FL15 | 1 870,75 | AN669 | 2 223,70 | 0% |
+| AN669-Babosa | AN669 | 1 | 1 002,32 | 352,95 | 0,00 | 28,21 | 169 | FL15 | 1 870,75 | AN669 | 2 223,70 | 0% |
 | Sima Antartica | AN211, AN596 Sima Antartica, AN596 | 3 | 882,32 | 344,27 | 0,00 | 21,77 | 114 | QR2_35 | 1 715,79 | HB20 | 2 060,06 | 0% |
 | Trou Martin | Trou Martin | 1 | 874,76 | 244,16 | 0,00 | 0,00 | 98 | MAR_d_10/4 | 575,84 | MARTIN | 820,00 | 0% |
 | Z510 | Gouffre Z510 | 1 | 852,63 | 237,20 | 180,35 | 0,00 | 187 | M31_d_98/3 | 1 406,80 | - | 1 644,00 | 0% |
@@ -74,11 +74,11 @@ Toutes les stations sont comptabilisées et raccordées
 | Gorria Lezia | Gorria lezia | 1 | 750,26 | 431,36 | 0,00 | 0,00 | 137 | GOR_d_6/32 | 1 172,64 | KR2 | 1 604,00 | 0% |
 | C110 | C110 | 1 | 735,00 | 303,54 | 0,00 | 0,00 | 52 | . | 1 479,46 | C_110 | 1 783,00 | 0% |
 | Z150 Gouffre Patrick Grosdemanche | Z150-2 Gouffre Patrick Grosdemanche, Z150 Sima Patrick Grosdemanche | 2 | 727,78 | 376,43 | 0,00 | 0,00 | 83 | Z15 | 1 369,58 | M31_d_31/7 | 1 746,01 | 100% |
+| AN326-Sima del Liron | AN326 Explo 001 | 1 | 705,23 | 301,56 | 143,41 | 0,00 | 170 | DC10 | 1 320,44 | AN_324 | 1 622,00 | 0% |
 | C243-Los Cairns | C243 Sima de los cairns | 1 | 673,74 | 186,53 | 0,00 | 0,00 | 84 | C243_d_84 | 1 752,47 | UD13 | 1 939,00 | 0% |
 | AN026 | AN26 | 1 | 658,53 | 256,95 | 0,00 | 0,00 | 107 | AN26DA7 | 1 462,05 | AN26 | 1 719,00 | 0% |
 | AN594-Verdad | AN594 | 1 | 639,69 | 185,76 | 0,00 | 83,78 | 165 | VB17 | 1 770,24 | AN_594 | 1 956,00 | 0% |
 | AN676 Sima Helado | AN52 Sima Helado, AN676A | 2 | 616,56 | 100,93 | 0,00 | 51,08 | 165 | BFF47 | 2 069,07 | AN52 | 2 170,00 | 0% |
-| AN326-Sima del Liron | AN326 Sima del Liron | 1 | 598,25 | 271,81 | 0,00 | 119,58 | 129 | AN326CF11 | 1 350,19 | AN_324 | 1 622,00 | 0% |
 | AN595-Polaire | AN595 Sima Polaire | 1 | 570,06 | 291,30 | 0,00 | 92,15 | 92 | FZ28 | 1 957,20 | AN595 | 2 248,50 | 0% |
 | Grotte des Stalactites déviées | Grotte des stalactites déviées | 1 | 537,38 | 164,47 | 0,00 | 0,00 | 49 | STALAC | 530,00 | STA_d_2/2 | 694,47 | 0% |
 | UK600-Sima Beauf | UK600 Sima Beauf | 1 | 530,65 | 281,98 | 0,00 | 0,00 | 67 | BEAU2/10 | 1 458,02 | E20_d_226 | 1 740,00 | 0% |
@@ -116,7 +116,7 @@ Toutes les stations sont comptabilisées et raccordées
 | UKD6 | UK D6, UK D6 | 2 | 191,26 | 61,02 | 0,00 | 0,00 | 47 | UKD6_d_1/11 | 1 963,32 | UKD6_d_2/7 | 2 024,34 | 100% |
 | Z143 Touristen leize tipia | Z143 Touristen Leize Tipia, Z143 Touristen Leize Tipia | 2 | 187,50 | 113,00 | 0,00 | 0,00 | 22 | _d_Z143_f_14 | 1 561,00 | Z_143 | 1 674,00 | 100% |
 | AN456-Banco | AN456 Sima banco | 1 | 156,68 | 107,52 | 0,00 | 0,00 | 35 | UV7 | 1 854,48 | AN456 | 1 962,00 | 0% |
-| Cathédrale de Pyrène | Cathédrale de Pyrène | 1 | 154,46 | 35,34 | 0,00 | 0,00 | 58 | _d_PY_f_57 | 2 274,76 | _d_PY_f_3 | 2 310,10 | 58% |
+| Cathédrale de Pyrène | Cathédrale de Pyrène | 1 | 154,46 | 35,34 | 0,00 | 0,00 | 58 | _d_PY_f_57 | 2 274,76 | _d_PY_f_3 | 2 310,10 | 0% |
 | A110 | A110 | 1 | 148,40 | 126,43 | 0,00 | 0,00 | 13 | A110_d_1/13 | 1 693,57 | A_110 | 1 820,00 | 0% |
 | AN001 | AN1 | 1 | 143,33 | 111,32 | 0,00 | 0,00 | 28 | MD27 | 2 057,68 | AN1 | 2 169,00 | 0% |
 | Z208 | Z208 | 1 | 140,65 | 47,61 | 0,00 | 0,00 | 21 | Z208_d_4 | 1 450,04 | GDP1064/26 | 1 497,65 | 0% |
@@ -125,25 +125,26 @@ Toutes les stations sont comptabilisées et raccordées
 | C299 Gouffre belle gueule | C299 Gouffre belle gueule | 1 | 128,51 | 46,27 | 0,00 | 0,00 | 53 | 50 | 1 966,53 | 2 | 2 012,80 | 0% |
 | AN542 | AN542 | 1 | 128,43 | 76,76 | 0,00 | 0,00 | 20 | PO01 | 2 073,24 | AN542 | 2 150,00 | 0% |
 | AN546-Georges | AN546 Pozo goerges | 1 | 124,15 | 84,79 | 0,00 | 0,00 | 20 | VX14 | 2 182,21 | AN546 | 2 267,00 | 0% |
-| AN619-Trou Fion | AN619 Trou fion | 1 | 122,42 | 65,84 | 0,00 | 0,00 | 19 | QD11 | 1 967,42 | QD2 | 2 033,26 | 0% |
+| AN619-Trou Fion | AN619 Trou fion | 1 | 122,42 | 65,84 | 0,00 | 7,26 | 20 | QD11 | 1 967,42 | QD2 | 2 033,26 | 0% |
 | AN672-Groselleros | AN672 Sima Groselleros | 1 | 114,26 | 79,29 | 0,00 | 0,00 | 26 | RO4 | 1 883,71 | AN672 | 1 963,00 | 0% |
 | AN567 | AN567 | 1 | 112,67 | 75,18 | 0,00 | 0,00 | 17 | FH1 | 2 069,82 | A_4 | 2 145,00 | 0% |
 | F404-Cuisse de Truffin | F404 Cuisse de Truffin | 1 | 110,42 | 70,79 | 0,00 | 0,00 | 12 | F404_d_2/3 | 1 919,21 | LT346_80UH | 1 990,00 | 0% |
-| AN683-Papanatas | AN683 Sima papanatas | 1 | 110,10 | 67,33 | 0,00 | 4,62 | 15 | CK12 | 2 082,67 | AN542 | 2 150,00 | 0% |
+| AN683-Papanatas | AN683 Sima papanatas | 1 | 110,10 | 67,33 | 0,00 | 0,00 | 14 | CK12 | 2 082,67 | AN542 | 2 150,00 | 0% |
 | AN561-Viento | AN561 | 1 | 109,01 | 88,93 | 0,00 | 0,00 | 17 | AX18 | 2 137,07 | AN561 | 2 226,00 | 0% |
 | M108 | M108 | 1 | 106,39 | 80,56 | 0,00 | 0,00 | 17 | M108_d_1/15 | 1 949,44 | M_108 | 2 030,00 | 0% |
 | C103 | C103 | 1 | 105,60 | 58,28 | 0,00 | 0,00 | 9 | C103_d_1/5 | 1 796,91 | C103_d_1/1 | 1 855,19 | 0% |
+| AN639 | AN639 | 1 | 105,22 | 39,06 | 0,00 | 0,00 | 19 | HF7 | 2 223,94 | AN639 | 2 263,00 | 0% |
 | Z107 | Z107 | 1 | 103,65 | 49,77 | 0,00 | 0,00 | 23 | _d_Z107_f_C2 | 1 610,23 | Z_107 | 1 660,00 | 0% |
-| AN639 | AN639 | 1 | 102,88 | 39,06 | 0,00 | 0,00 | 18 | HF7 | 2 223,94 | AN639 | 2 263,00 | 0% |
 | Z123 | Z123 | 1 | 102,29 | 45,64 | 0,00 | 0,00 | 21 | PE33 | 1 652,61 | Z123_d_1.2 | 1 698,25 | 0% |
-| AN671-Verguenza | AN671 Sima verguenza | 1 | 99,32 | 89,95 | 0,00 | 0,00 | 11 | FM1 | 1 868,05 | AN671 | 1 958,00 | 0% |
 | A004 | A4 | 1 | 99,18 | 51,51 | 0,00 | 31,01 | 27 | SW11 | 2 093,49 | A_4 | 2 145,00 | 0% |
+| AN671-Verguenza | AN671 Sima verguenza | 1 | 96,98 | 89,95 | 0,00 | 0,00 | 10 | FM1 | 1 868,05 | AN671 | 1 958,00 | 0% |
 | M400 | M400 | 1 | 94,53 | 88,87 | 0,00 | 0,00 | 9 | PO07 | 2 114,13 | M_400 | 2 203,00 | 0% |
 | AN453 | AN453 | 1 | 91,25 | 66,69 | 0,00 | 0,00 | 19 | MFX11 | 1 905,31 | AN453 | 1 972,00 | 0% |
 | CUCC5 | CUCC5 | 1 | 89,00 | 42,88 | 0,00 | 0,00 | 14 | CUCC5_d_9 | 1 668,12 | CUCC_5 | 1 711,00 | 0% |
 | AN507-Plumas | AN507 | 1 | 88,22 | 56,14 | 0,00 | 9,06 | 20 | HL5 | 2 089,46 | AN507 | 2 145,60 | 0% |
 | AN062 | AN62 | 1 | 86,80 | 64,76 | 0,00 | 0,00 | 10 | LJ2 | 2 127,24 | AN62 | 2 192,00 | 0% |
 | CUCC4 | CUCC4 | 1 | 86,60 | 56,50 | 0,00 | 0,00 | 11 | CUCC4_d_8 | 1 671,50 | CUCC_4 | 1 728,00 | 0% |
+| LAK4-Eskilzarra | Sima Eskilzarra LAK 4 Explo 001 | 1 | 84,57 | 45,01 | 42,20 | 0,00 | 20 | _d_XEN_f_X26 | 1 324,99 | AA20 | 1 370,00 | 0% |
 | AN708-Marmota | AN708 Sima de la marmota | 1 | 79,05 | 31,86 | 0,00 | 2,19 | 23 | JU2 | 2 102,14 | AN708 | 2 134,00 | 0% |
 | AN631 | AN631 | 1 | 78,00 | 69,33 | 0,00 | 0,00 | 13 | XB1 | 2 175,67 | AN631 | 2 245,00 | 0% |
 | UKxxx-Marmitou | Grotte marmitou | 1 | 76,12 | 23,64 | 0,00 | 0,00 | 14 | MARMI | 2 005,00 | MARM1/12 | 2 028,64 | 0% |
@@ -152,7 +153,7 @@ Toutes les stations sont comptabilisées et raccordées
 | IS006Bis | IS6B | 1 | 74,90 | 61,87 | 0,00 | 0,00 | 10 | IS6B_d_10 | 1 667,13 | FN26 | 1 729,00 | 0% |
 | AN616-Daniela | AN616 Sima Daniela | 1 | 69,84 | 53,77 | 0,00 | 0,00 | 14 | UD2 | 1 890,23 | AN616 | 1 944,00 | 0% |
 | AN635 | AN635 | 1 | 68,51 | 46,38 | 0,00 | 0,00 | 9 | TD1 | 2 268,62 | AN635 | 2 315,00 | 0% |
-| AN627-Conchita | AN627 Sima Conchita | 1 | 67,93 | 15,78 | 0,00 | 18,48 | 26 | FG6 | 2 128,22 | AN627 | 2 144,00 | 0% |
+| AN627-Conchita | AN627 Sima Conchita | 1 | 67,93 | 15,78 | 0,00 | 11,22 | 25 | FG6 | 2 128,22 | AN627 | 2 144,00 | 0% |
 | Gouffre BB09 | BB09 | 1 | 66,89 | 58,51 | 0,00 | 0,00 | 12 | suite | 1 442,49 | BB09 | 1 501,00 | 0% |
 | AN634 | AN634 | 1 | 63,56 | 50,07 | 0,00 | 0,00 | 10 | NA11 | 2 283,93 | AN634 | 2 334,00 | 0% |
 | AN455 | AN455 | 1 | 59,25 | 38,27 | 0,00 | 5,26 | 21 | OZ0 | 1 929,73 | AN_455 | 1 968,00 | 0% |
@@ -190,7 +191,7 @@ Toutes les stations sont comptabilisées et raccordées
 | 00-Ref Square | UTM Square | 1 | 0,00 | 0,00 | 0,00 | 20,00 | 2 | LT346_80 | 2 000,00 | LT346_80 | 2 000,00 | 0% |
 | 00-Ref Square | UTM Square | 1 | 0,00 | 0,00 | 0,00 | 20,00 | 2 | LT346_80 | 2 000,00 | LT346_80 | 2 000,00 | 0% |
 | *00-Ref Square* | *-* | *9* | *0,00* | *120,00* | *0,00* | *440,00* | *38* |  |  |  |  |  |
-|  | Entrée(s) sans topographie | 4 | - | - | - | - | - | - | - | - | - | - |
+|  | Entrée(s) sans topographie | 3 | - | - | - | - | - | - | - | - | - | - |
 
 
 --------------
@@ -249,9 +250,9 @@ Toutes les stations sont comptabilisées et raccordées
 | 2021                 | 7 948,33 | 314 058,97 | 527,05 | 11 947,24 | 315,77 | 8 539,27 |
 | 2022                 | 6 913,36 | 320 972,33 | 1 794,04 | 13 741,28 | 42,40 | 8 581,67 |
 | 2023                 | 6 343,27 | 327 315,60 | 1 180,34 | 14 921,62 | 79,70 | 8 661,37 |
-| 2024                 | 7 668,90 | 334 984,50 | 597,99 | 15 519,61 | 144,72 | 8 806,09 |
-| 2025                 | 5 693,82 | 340 678,32 | 105,01 | 15 624,62 | 150,53 | 8 956,62 |
-| 2026                 | 3 523,29 | 344 201,61 | 109,28 | 15 733,90 | 0,00 | 8 956,62 |
+| 2024                 | 7 671,67 | 334 987,27 | 597,99 | 15 519,61 | 144,72 | 8 806,09 |
+| 2025                 | 5 693,82 | 340 681,09 | 224,59 | 15 744,20 | 30,95 | 8 837,04 |
+| 2026                 | 4 059,27 | 344 740,36 | 175,31 | 15 919,51 | 0,00 | 8 837,04 |
 
 
 --------------
@@ -280,7 +281,7 @@ Toutes les stations sont comptabilisées et raccordées
 | :---------------- | :--- |
 |       Fichier source | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA.sql |
 |       Dossier destination | ~/Synthese-PSM_LARRA/Outputs/DB_Synthese-PSM_LARRA_Stats |
-|       Date | 2026-11-20 06h46m09s |
-| Durée calcul |03 (m) 08 (s) sans erreur |
+|       Date | 2026-11-20 10h51m28s |
+| Durée calcul |02 (m) 26 (s) sans erreur |
 
 --------------
