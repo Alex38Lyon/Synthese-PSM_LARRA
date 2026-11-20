@@ -17,6 +17,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/AN026/AN026-tot.th
 	input Data/AN037/AN037-tot.th
 	input Data/AN045/AN045-tot.th
+	input Data/AN053-Sima_de_los_Abuelos/AN053-Sima_de_los_Abuelos-tot.th
 	input Data/AN058-Trou_du_Chien/AN058-Trou_du_Chien-tot.th
 	input Data/AN061-Confusion/AN061-Confusion-tot.th
 	input Data/AN062/AN062-tot.th
@@ -47,7 +48,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/AN576/AN576-tot.th
 	input Data/AN588-Grieta/AN588-Grieta-tot.th
 	input Data/AN591-Rapido/AN591-Rapido-tot.th
-	input Data/AN594-Verdad/AN594-Verdad-tot.th
+	input Data/AN594-Sima_de_la_Verdad/AN594-Sima_de_la_Verdad-tot.th
 	input Data/AN595-Polaire/AN595-Polaire-tot.th
 	input Data/AN616-Daniela/AN616-Daniela-tot.th
 	input Data/AN619-Trou_Fion/AN619-Trou_Fion-tot.th
@@ -68,6 +69,7 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/AN699/AN699-tot.th
 	input Data/AN708-Marmota/AN708-Marmota-tot.th
 	input Data/AN711-Oso/AN711-Oso-tot.th
+	input Data/AN720-Sima_Negra/AN720-Sima_Negra-tot.th
 	input Data/ANxxx-Antartica/ANxxx-Antartica-tot.th
 	input Data/ANxxx-Burros/ANxxx-Burros-tot.th
 	input Data/AP045/AP045-tot.th
@@ -96,8 +98,8 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/Complexe_BU56_Ilamina/Complexe_BU56_Ilamina-tot.th
 	input Data/Complexe_Lonne_Peyret-Bourrugues/Complexe_Lonne_Peyret-Bourrugues-tot.th
 	input Data/Complexe_Ours-Veau/Complexe_Ours-Veau-tot.th
-	input Data/Complexe_Soudet/Complexe_Soudet-tot.th
 	input Data/Complexe_PSM_GdP/Complexe_PSM_GdP-tot.th
+	input Data/Complexe_Soudet/Complexe_Soudet-tot.th
 	input Data/DS049-Romy/DS049-Romy-tot.th
 	input Data/E003_TSR_3/E003_TSR_3-tot.th
 	input Data/E022-Gouffre_de_la_Glaciere/E022-Gouffre_de_la_Glaciere-tot.th
@@ -114,8 +116,8 @@ survey Synthese-PSM_LARRA -title "Synthèse générale des réseaux de la Pierre
 	input Data/IS009/IS009-tot.th
 	input Data/K007-Hourat_det_Soure/K007-Hourat_det_Soure-tot.th
 	input Data/L5/L5-tot.th
-	input Data/LAK4-Eskilzarra/LAK4-Eskilzarra-tot.th
 	input Data/LAK015-Perte_des_Feuilles/LAK015-Perte_des_Feuilles-tot.th
+	input Data/LAK4-Eskilzarra/LAK4-Eskilzarra-tot.th
 	input Data/LAKxxx-Bouquetins/LAKxxx-Bouquetins-tot.th
 	input Data/Laminako_Ziloa_Illamina/Laminako_Ziloa_Illamina-tot.th
 	input Data/M108/M108-tot.th

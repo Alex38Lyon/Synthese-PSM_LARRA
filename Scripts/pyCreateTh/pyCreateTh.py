@@ -498,10 +498,7 @@ def mak_to_th_file(ENTRY_FILE):
 
         logfile = (DEST_PATH + "/therion.log").replace("\\", "/")
 
-        with open(logfile, "r") as f:
-            content = f.read()
-            # print(content)
-
+        content = read_text_file(logfile)
         stat = get_stats_from_log(content)
 
         if stat["length"] != 0.0 and stat["depth"] != 0.0:
@@ -1559,7 +1556,6 @@ def tro_to_th_files(ENTRY_FILE, centerlines=[], entrance="", fileTitle="", coord
         logfile = (DEST_PATH + "/therion.log").replace("\\", "/")
 
         content = read_text_file(logfile)
-
         stat = get_stats_from_log(content)
 
         if stat["length"] != 0.0 and stat["depth"] != 0.0:
@@ -2093,10 +2089,7 @@ def dat_to_th_files(ENTRY_FILE, fixPoints=[], crs_wkt="", CONFIG_PATH="", totRea
 
         logfile = (DEST_PATH + "/therion.log").replace("\\", "/")
 
-        with open(logfile, "r") as f:
-            content = f.read()
-            # print(content)
-
+        content = read_text_file(logfile)
         stat = get_stats_from_log(content)
 
         if stat["length"] != 0.0 and stat["depth"] != 0.0:
